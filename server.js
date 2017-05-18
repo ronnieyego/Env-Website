@@ -6,9 +6,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');
 const path = require("path");
-// const {ObjectID} = require('mongodb');
-// const { mongoose } = require('./db/mongoose');
-// const { Zips } = require('./models/zips');
+/*
+Turned off for now.  All set up to turn back on when needed.
+const {ObjectID} = require('mongodb');
+const { mongoose } = require('./db/mongoose');
+const { Zips } = require('./db/models/zips');
+*/
 
 var app = express();
 
@@ -48,27 +51,6 @@ app.get('/solar', (req, res) => {
 app.get('/test', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/index.html'));
 });
-
-/*
-app.get('/solar_installation/:zip', (req,res) => {
-    var zip = req.params.zip;
-    Zips.find({ zip: zip}).then((hoursOfSunPerDay) => {
-    if(!hoursOfSunPerDay) {
-        return res.status(404).send('');
-    } else {
-        console.log(hoursOfSunPerDay);
-        let hoursOfSun = hoursOfSunPerDay[0].hoursOfSunPerDay;
-        console.log(hoursOfSun);
-        res.render('solar_installation.hbs', {
-            pageTitle: 'About Page',
-            welcomeMessage: 'Welcome to the about page!',
-            hoursOfSunPerDay: hoursOfSun
-        });
-        //return res.status(200).send({zip});
-    }
-    }).catch((e) => res.status(404).send());
-});
-*/
 
 
 
