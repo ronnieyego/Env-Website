@@ -1,0 +1,12 @@
+#widget {
+    width: 350px;
+    border-style: ridge;
+    background-color: #D3D3D3;
+    text-align: center;
+    line-height: 130%;
+}
+
+#widget-title {
+    font-weight: bold;
+    font-size: 18;
+}
