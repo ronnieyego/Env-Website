@@ -27,29 +27,29 @@ export default class SolarWidget extends React.Component {
 	    // this.calculateElectricitySavings = this.calculateElectricitySavings.bind(this);
 	  }
 
-	  componentDidMount = () => {
+	  componentDidMount(){
 	    //document.getElementById('roof-size-input').addEventListener('keydown', this.validateRoofSizeInput);
 	    //document.getElementById('sun-hours-input').addEventListener('keydown', this.validateSunHoursInput);
 	    //document.getElementById('kwh-input').addEventListener('keydown', this.validateKwhInput);
 	  };
 
 
-	  validateRoofSizeInput = e => {
+	  validateRoofSizeInput(e) {
 	  	let newVal = this.changeIntInput(this.state.roofSize, e);
 	  	this.setState({roofSize : newVal});
 	  }
 
-	  validateSunHoursInput = e =>  {
+	  validateSunHoursInput(e) {
 	  	let newVal = this.changeIntInput(this.state.sunHours, e);
 	  	this.setState({sunHours : newVal});
 	  }
 
-	  validateKwhInput = e =>  {
+	  validateKwhInput(e) {
 	  	let newVal = this.changeIntInput(this.state.kwhPrice.toString(), e);
 	  	this.setState({kwhPrice : newVal});
 	  }
 
-	  changeIntInput = (currentVal, e) => {
+	  changeIntInput(currentVal, e)  {
 	  	let result = currentVal;
 	  	if(e.keyCode === 8) { // Check for backspace
 	  		let index = result.length - 1;
@@ -61,7 +61,7 @@ export default class SolarWidget extends React.Component {
 	  	return result;
 	  }
 
-	  calculateElectricitySavings = () => {
+	  calculateElectricitySavings() {
 		let roofSize = this.state.roofSize;
 	    let kwhPrice = this.state.kwhPrice;
 	    let sunHours = this.state.sunHours;
@@ -94,7 +94,7 @@ export default class SolarWidget extends React.Component {
 	    this.props.showResults();
 	}
 
-	materialRadioButtonClicked = changeEvent => {
+	materialRadioButtonClicked(changeEvent) {
 	  this.setState({ selectedMaterial: changeEvent.target.id });
 	}
 
@@ -148,7 +148,7 @@ export default class SolarWidget extends React.Component {
 	            </div>
 
 	            <button type="button" class="btn" onClick={this.calculateElectricitySavings}>Calculate Electricity Savings</button>
-            		
+
             		{ this.props.showResults ? <p>{this.state.resultsMessageLine1}</p> : null}
 					{ this.props.showResults ? <p>{this.state.resultsMessageLine2}</p> : null}
             </div>
