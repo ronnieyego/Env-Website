@@ -5,7 +5,7 @@ const webpack = require('webpack');
 module.exports = {
   context: __dirname + "/src",
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/homepage-entry.js", // ./js/client.js for widget
+  entry: "./js/client.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage
   module: {
     loaders: [
       {
@@ -21,7 +21,7 @@ module.exports = {
   },
   output: {
     path: __dirname + "/public/",
-    filename: "homepage.min.js"  //scripts.min.js for widget
+    filename: "scripts.min.js"  //scripts.min.js for widget // homepage.min.js
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),

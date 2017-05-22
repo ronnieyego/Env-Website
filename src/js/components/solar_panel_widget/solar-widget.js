@@ -1,10 +1,11 @@
 import React from "react";
 
-import Results from './results'
 import costCalc from '../../utils/cost-calc.js';
 
+import widgetStore from '../../../../public/stores/widget-store.js';
+
 export default class SolarWidget extends React.Component {
-	constructor() {
+	constructor(props) {
 	    super();
 	    this.state = {
 	      title: "Welcome",
@@ -28,6 +29,7 @@ export default class SolarWidget extends React.Component {
 	  }
 
 	  componentDidMount(){
+	  	console.log(this);
 	    //document.getElementById('roof-size-input').addEventListener('keydown', this.validateRoofSizeInput);
 	    //document.getElementById('sun-hours-input').addEventListener('keydown', this.validateSunHoursInput);
 	    //document.getElementById('kwh-input').addEventListener('keydown', this.validateKwhInput);
@@ -62,6 +64,7 @@ export default class SolarWidget extends React.Component {
 	  }
 
 	  calculateElectricitySavings() {
+	  	console.log(this.state);
 		let roofSize = this.state.roofSize;
 	    let kwhPrice = this.state.kwhPrice;
 	    let sunHours = this.state.sunHours;
@@ -112,21 +115,21 @@ export default class SolarWidget extends React.Component {
             	<div class="inline-radio-buttons">
 	                <div>
 	                    <label class="radio-inline">
-	                    <input type="radio" name="survey" id="radio-not-sure" value="Yes" checked={this.state.selectedMaterial === 'radio-not-sure'} onChange={this.materialRadioButtonClicked}></input>
+	                    <input type="radio" name="survey" id="radio-not-sure" value="Yes" checked={this.state.selectedMaterial === 'radio-not-sure'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Not Sure
 	                  </label>
 	                    <label class="radio-inline">
-	                    <input type="radio" name="survey" id="radio-mono" value="No" checked={this.state.selectedMaterial === 'radio-mono'} onChange={this.materialRadioButtonClicked}></input>
+	                    <input type="radio" name="survey" id="radio-mono" value="No" checked={this.state.selectedMaterial === 'radio-mono'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Monocrystalline
 	                  </label>
 	                </div>
 	                <div>
 	                  <label class="radio-inline">
-	                    <input type="radio" name="survey" id="radio-poly" value="No" checked={this.state.selectedMaterial === 'radio-poly'} onChange={this.materialRadioButtonClicked}></input>
+	                    <input type="radio" name="survey" id="radio-poly" value="No" checked={this.state.selectedMaterial === 'radio-poly'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Polycrystalline
 	                  </label>
 	                  <label class="radio-inline">
-	                    <input type="radio" name="survey" id="radio-thin-film" value="No" checked={this.state.selectedMaterial === 'radio-thin-film'} onChange={this.materialRadioButtonClicked}></input>
+	                    <input type="radio" name="survey" id="radio-thin-film" value="No" checked={this.state.selectedMaterial === 'radio-thin-film'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Thin Film
 	                  </label>
 	                </div>
@@ -135,19 +138,19 @@ export default class SolarWidget extends React.Component {
 				<div>
 	                <div class="form-group">
 	                  <label for="roof-size">Square footage of solar panels</label>
-	                  <input type="text" class="form-control" id="roof-size-input" value={this.state.roofSize + ' sqft'} onChange={() => {}} onKeyDown={this.validateRoofSizeInput}/>
+	                  <input type="text" class="form-control" id="roof-size-input" value={this.state.roofSize + ' sqft'} onChange={() => {}} onKeyDown={this.validateRoofSizeInput.bind(this)}/>
 	                </div>
 	                <div class="form-group">
 	                  <label for="sun-hours">Hours of Sun/day</label>
-	                  <input type="text" class="form-control" id="sun-hours-input" value={this.state.sunHours + ' hours'} onChange={() => {}} onKeyDown={this.validateSunHoursInput}/>
+	                  <input type="text" class="form-control" id="sun-hours-input" value={this.state.sunHours + ' hours'} onChange={() => {}} onKeyDown={this.validateSunHoursInput.bind(this)}/>
 	                </div>
 	                <div class="form-group">
 	                  <label for="kwh">Cost/kwH:</label>
-	                  <input type="text" class="form-control" id="kwh-input" value={'$' + this.state.kwhPrice} onChange={() => {}} onKeyDown={this.validateKwhInput}/>
+	                  <input type="text" class="form-control" id="kwh-input" value={'$' + this.state.kwhPrice} onChange={() => {}} onKeyDown={this.validateKwhInput.bind(this)}/>
 	                </div>
 	            </div>
 
-	            <button type="button" class="btn" onClick={this.calculateElectricitySavings}>Calculate Electricity Savings</button>
+	            <button type="button" class="btn" onClick={this.calculateElectricitySavings.bind(this)}>Calculate Electricity Savings</button>
 
             		{ this.props.showResults ? <p>{this.state.resultsMessageLine1}</p> : null}
 					{ this.props.showResults ? <p>{this.state.resultsMessageLine2}</p> : null}
@@ -155,5 +158,4 @@ export default class SolarWidget extends React.Component {
 		);
 	}
 
-	// { this.props.showResults ? <Results resultsMessageLine1={this.state.resultsMessageLine1} resultsMessageLine2={this.state.resultsMessageLine2}/> : null }
 }
