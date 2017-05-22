@@ -5,18 +5,24 @@ import costCalc from '../../utils/cost-calc.js';
 import widgetStore from '../../../../public/stores/widget-store.js';
 
 export default class SolarWidget extends React.Component {
+
 	constructor(props) {
 	    super();
 	    this.state = {
 	      title: "Welcome",
 	      selectedMaterial: 'radio-not-sure',
 	      roofSize: 15,
-	      sunHours: 6,
+	      sunHours: props.sunHours || 6,
 	      kwhPrice: 0.75,
 	      showResults: false,
 	      resultsMessageLine1: '',
 	      resultsMessageLine2: '',
 	    };
+
+	  	if(typeof window !== 'undefined') {
+	  		console.log('window state', window.__STATE__);
+	  		this.state.sunHours = window.__STATE__.sunHours;
+	  	}
 
 	    //Binding my functions
 	    // this.materialRadioButtonClicked = this.materialRadioButtonClicked.bind(this);
@@ -26,10 +32,9 @@ export default class SolarWidget extends React.Component {
 	    // this.validateSunHoursInput = this.validateSunHoursInput.bind(this);
 	    // this.validateKwhInput = this.validateKwhInput.bind(this);
 	    // this.calculateElectricitySavings = this.calculateElectricitySavings.bind(this);
-	  }
 
-	  componentDidMount(){
-	  	console.log(this);
+
+
 	    //document.getElementById('roof-size-input').addEventListener('keydown', this.validateRoofSizeInput);
 	    //document.getElementById('sun-hours-input').addEventListener('keydown', this.validateSunHoursInput);
 	    //document.getElementById('kwh-input').addEventListener('keydown', this.validateKwhInput);

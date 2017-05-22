@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/server";
 
 import Layout from './src/js/components/Layout';
 
-const renderFullPage = (markup) => {
+const renderFullPage = (markup, defaultState) => {
     return `
     <!DOCTYPE html>
         <html>
@@ -16,8 +16,10 @@ const renderFullPage = (markup) => {
 
             <body>
                 <div id="app">${markup}</div>
+                <script type="text/javascript">
+                window.__STATE__ = ${JSON.stringify(defaultState)}
+                </script>
                 <script src="scripts.min.js"></script>
-
 
             </body>
         </html>
@@ -26,13 +28,13 @@ const renderFullPage = (markup) => {
 
 export default  function(req, res) {
 
-    const state = req.params.state;
-    const preloadedState = {
-        stateInfo : null
+    const defaultState = {
+        sunHours: 1000
     };
-    const appMarkup = ReactDOM.renderToString(<Layout />);
 
-    res.send(renderFullPage(appMarkup));
+    const appMarkup = ReactDOM.renderToString(<Layout {...defaultState}/>);
+
+    res.send(renderFullPage(appMarkup, defaultState));
 
     //res.sendFile(path.join(__dirname+'/public/index.html'));
 }
