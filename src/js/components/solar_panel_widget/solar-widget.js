@@ -2,8 +2,6 @@ import React from "react";
 
 import costCalc from '../../utils/cost-calc.js';
 
-import widgetStore from '../../../../public/stores/widget-store.js';
-
 export default class SolarWidget extends React.Component {
 
 	constructor(props) {
