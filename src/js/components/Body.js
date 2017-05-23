@@ -9,12 +9,12 @@ export default class Body extends React.Component {
 
   render() {
     return (
-      <div class="container-fluid text-center">    
+      <div class="container-fluid text-center">
         <div class="row content">
-          
+
         <SideNav />
 
-          <div class="col-sm-8 text-left"> 
+          <div class="col-sm-8 text-left">
             <h1>Solar Panel Installation</h1>
             <p>There are 4 main types of solar panels, each comes with their own unique benfits and costs.
             </p>
@@ -55,10 +55,10 @@ export default class Body extends React.Component {
           </tbody>
         </table>
 
-        <WidgetContainer />
+        <WidgetContainer sunHours={this.props.sunHours} />
 
 
-            
+
           </div>
           <div class="col-sm-2 sidenav">
             <div class="well">
@@ -70,7 +70,7 @@ export default class Body extends React.Component {
           </div>
         </div>
       </div>
-      
+
     );
   }
 }

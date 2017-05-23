@@ -10,7 +10,7 @@ export default class Layout extends React.Component {
 		return (
 			<div>
 				<Header />
-				<Body />
+				<Body sunHours={this.props.sunHours} />
 				<Footer />
 			</div>
 		);
