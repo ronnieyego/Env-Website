@@ -8,6 +8,7 @@ import fs  from 'fs';
 import path  from "path";
 
 import ssrMiddleware  from './ssr-middleware';
+
 /*
 Turned off for now.  All set up to turn back on when needed.
 const {ObjectID} = require('mongodb');
@@ -40,12 +41,20 @@ app.use((req, res, next) => {
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/homepage.html'));
 });
+app.get('/home/:test', (req, res) => {
+    res.sendFile(path.join(__dirname+'/public/homepage.html'));
+});
+
+// TODO.  THis is broken.  Passing through params is weird.
+app.get('/solar/:state', ssrMiddleware);
 
 app.get('/solar', ssrMiddleware);
+
+
+
 app.get('/test', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/index.html'));
 });
-
 
 
 app.listen(port, () => {

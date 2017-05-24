@@ -14,50 +14,11 @@ export default class Body extends React.Component {
 
         <SideNav />
 
-          <div class="col-sm-8 text-left">
-            <h1>Solar Panel Installation</h1>
-            <p>There are 4 main types of solar panels, each comes with their own unique benfits and costs.
-            </p>
-            <table class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Relative Cost</th>
-              <th>Advantages</th>
-              <th>Disadvantages</th>
-            </tr>
-          </thead>
-          <tbody>
-          <tr>
-              <td>Monocrystalline Silicon</td>
-              <td>Most Expensive</td>
-              <td>Highest effiency rating<br />Longest lifespan</td>
-              <td>Suspectable to dirt and debris<br />Creates silicon waste</td>
-            </tr>
-            <tr>
-              <td>Polycrystalline Silicon</td>
-              <td>Moderate</td>
-              <td>Longest on the market.<br />Cheapest option</td>
-              <td>Low effiency</td>
-            </tr>
-            <tr>
-              <td>String Ribbon</td>
-              <td>Cheap</td>
-              <td>Low cost due to only using about 50% as much silicon as other panels</td>
-              <td>Low efficiency</td>
-            </tr>
-             <tr>
-              <td>Thin Film</td>
-              <td>Cheapest</td>
-              <td>Easily mass produced</td>
-              <td>Lowest efficiency.  Generally not recommended for residential use</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <WidgetContainer sunHours={this.props.sunHours} />
-
-
+          <div class="col-sm-8 text-left" display="inline-block">
+            <h1>Solar Panels</h1>
+            <p>Solar panels are a great way to generate energy!  They can usually supply excess power for a household and actually become a revenue source.  You can use the tool below to see how much CO<sub>2</sub> a solar panel set up can prevent as well as cost savings.</p>
+            <WidgetContainer sunHours={this.props.sunHours} />
+            <p>this is a test to see where this text goes</p>
 
           </div>
           <div class="col-sm-2 sidenav">
