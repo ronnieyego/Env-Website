@@ -1,6 +1,7 @@
 import React from "react";
 
 import costCalc from '../../utils/cost-calc.js';
+import getCo2PerKwh from '../../utils/get-co2-emissions-by-kwh.js';
 
 export default class SolarWidget extends React.Component {
 
@@ -16,6 +17,7 @@ export default class SolarWidget extends React.Component {
 	      showResults: false,
 	      resultsMessageLine1: '',
 	      resultsMessageLine2: '',
+	      resultsMessageLine3: ''
 	    };
 
 	  	if(typeof window !== 'undefined') {
@@ -54,6 +56,15 @@ export default class SolarWidget extends React.Component {
 
 	  calculateElectricitySavings() {
 	  	console.log(this.state);
+	  	let supplyData = {
+	  		totalEnergyConsumption: "1,724.90",
+	  		naturalGas: 651.5,
+		    petroleum: 497.4,
+		    coal: 575.9
+	  	};
+
+
+
 		let roofSize = this.state.roofSize;
 	    let kwhPrice = this.state.kwhPrice;
 	    let sunHours = this.state.sunHours;
@@ -77,11 +88,18 @@ export default class SolarWidget extends React.Component {
 	    }
 	    // Run calculation
 	    // Should break out message function from calc cost function
-	    const { resultsMessageLine1, resultsMessageLine2 } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
+	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
+	    const co2PerKwh = getCo2PerKwh(supplyData);
+	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
+
+	    let line1 = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.`;
+	    let line2 = `This will save you $${savings.toLocaleString()} per year.`;
+	    let line3 = `This will also reduce ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
 	    this.setState({
 	    	showResults: true,
-	    	resultsMessageLine1: resultsMessageLine1,
-	    	resultsMessageLine2: resultsMessageLine2
+	    	resultsMessageLine1: line1,
+	    	resultsMessageLine2: line2,
+	    	resultsMessageLine3: line3
 	    });
 	    this.props.showResults();
 	}
@@ -143,6 +161,7 @@ export default class SolarWidget extends React.Component {
 
             		{ this.props.showResults ? <p>{this.state.resultsMessageLine1}</p> : null}
 					{ this.props.showResults ? <p>{this.state.resultsMessageLine2}</p> : null}
+					{ this.props.showResults ? <p>{this.state.resultsMessageLine3}</p> : null}
             </div>
 		);
 	}
