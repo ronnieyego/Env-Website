@@ -4,28 +4,6 @@ import costCalc from '../../utils/cost-calc.js';
 
 export default class SolarWidget extends React.Component {
 
-	{
-    "stateId": "WA",
-    "stateFullName": "Washington",
-    "centsPerKwh": 9.27,
-    "percentSun": 47,
-    "totalSunHours": 2170,
-    "clearDays": 58,
-    "totalEnergyConsumption": "2,011.90",
-    "fossilFuelTotal": "1,092.30",
-    "naturalGas": 319.8,
-    "petroleum": 696,
-    "coal": 76.5,
-    "nuclear": 99.3,
-    "renewableTotal": 947.9,
-    "renewablePercent": 0.47,
-    "hydroElectric": 755.7,
-    "solar": 0.9,
-    "biofuels": 121.1,
-    "geothermal": 1.1,
-    "wind": 69.1
-  }
-
 	constructor(props) {
 	    super();
 	    this.state = {
@@ -43,7 +21,7 @@ export default class SolarWidget extends React.Component {
 	  	if(typeof window !== 'undefined') {
 	  		console.log('window state', window.__STATE__);
 	  		this.state.sunHours = window.__STATE__.sunHours;
-	  	}  
+	  	}
 	  };
 
 
