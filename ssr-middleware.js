@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from "react-dom/server";
 
 import Layout from './src/js/components/Layout';
-import { mongoose } from './db/mongoose';
-import { Zips } from './db/models/zips';
+//import { mongoose } from './db/mongoose';
+//import { Zips } from './db/models/zips';
+
+'../'
 
 const renderFullPage = (markup, defaultState) => {
     return `
@@ -13,7 +15,7 @@ const renderFullPage = (markup, defaultState) => {
                 <meta charset='utf-8'>
                 <title>React Tutorial</title>
                  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-                 <link type="text/css" href="widget.css" rel="stylesheet"/>
+                 <link type="text/css" href="/public/widget.css" rel="stylesheet"/>
             </head>
 
             <body>
@@ -21,7 +23,7 @@ const renderFullPage = (markup, defaultState) => {
                 <script type="text/javascript">
                 window.__STATE__ = ${JSON.stringify(defaultState)}
                 </script>
-                <script type="text/javascript" src="scripts.min.js"></script>
+                <script type="text/javascript" src="/public/scripts.min.js"></script>
 
             </body>
         </html>
