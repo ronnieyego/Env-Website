@@ -43,7 +43,7 @@ export default class SolarWidget extends React.Component {
 	  }
 
 	  changeIntInput(currentVal, e)  {
-	  	let result = currentVal;
+	  	let result = currentVal.toString();  // Need to ensure its not an Int.
 	  	if(e.keyCode === 8) { // Check for backspace
 	  		let index = result.length - 1;
 	  		result = result.substring(0, index);
