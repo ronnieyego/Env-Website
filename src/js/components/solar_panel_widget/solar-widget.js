@@ -11,7 +11,7 @@ export default class SolarWidget extends React.Component {
 	      title: "Welcome",
 	      selectedMaterial: 'radio-not-sure',
 	      roofSize: 15,
-	      sunHours: props.sunHours || 6,
+	      sunHours: props.sunHours || 2,
 	      kwhPrice: props.kwhPrice || 0.927,
 	      averageCO2PerKwh: props.averageCO2PerKwh || 6,
 	      showResults: false,
