@@ -1,7 +1,8 @@
+"use strict";
 const emissionData = require('../../../db/db-scripts/data/co2-by-energy-source');
 
 //TODO:  Add a unit test!
-export default (data) => {
+module.exports = function(data) {
     // These represent pounds of CO2 for every MILLION btus generated
     // I should get this from the DB instead of hardcoding it.
         // Will this impact perf?

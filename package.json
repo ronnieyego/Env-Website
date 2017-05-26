@@ -5,7 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha tests/*.test.js",
     "webstart": "webpack && node index.js",
     "start": "node index.js"
   },
@@ -31,5 +31,11 @@
     "react-dom": "^15.5.4",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.1"
+  },
+  "devDependencies": {
+    "expect": "^1.20.2",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "supertest": "^2.0.0"
   }
 }
