@@ -13,10 +13,9 @@ const {ObjectID} = require('mongodb');
 const { mongoose } = require('./db/mongoose');
 const { Zips } = require('./db/models/zips');
 
+const port = process.env.PORT || 3000;
 
 var app = express();
-
-const port = 3000;
 
 app.use(bodyParser.json());
 app.use('/public', express.static(__dirname + '/public'));
