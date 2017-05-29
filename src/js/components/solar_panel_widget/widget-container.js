@@ -4,7 +4,6 @@ import Widget from './solar-widget.js';
 export default class WidgetContainer extends React.Component {
 	constructor(props) {
 	    super();
-	    console.log('container : ', props);
 	    this.state = {
 	      showResults: false
 	    };
@@ -15,9 +14,7 @@ export default class WidgetContainer extends React.Component {
 		this.setState({showResults: true})
 	}
 
-	render() {
-		console.log('container this: ', this.props);
-		
+	render() {		
 		let widgetHeight = this.state.showResults ? {height: 500} : {height: 450};
 
 		return (

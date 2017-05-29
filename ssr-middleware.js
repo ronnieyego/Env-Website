@@ -13,7 +13,7 @@ const renderFullPage = (markup, defaultState) => {
         <html>
             <head>
                 <meta charset='utf-8'>
-                <title>React Tutorial</title>
+                <title>Footprint Finder</title>
                  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
                  <link type="text/css" href="/public/widget.css" rel="stylesheet"/>
             </head>
@@ -35,7 +35,6 @@ export default (req, res) => {
     let state = req.params.state;
     if(validStateId(state)) {
         let myPromise = new Promise((resolve, reject) => {
-            console.log('started promise');
             States.find({ stateId: state}).then((stateInfo) => {
                 if(!stateInfo) {
                     reject('Couldn\'t find state data');

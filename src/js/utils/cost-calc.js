@@ -5,7 +5,6 @@ module.exports = function calculateElectricitySavings(roofSize, kwhPrice, sunHou
 	    if(parseInt(roofSize) >= 0 && parseInt(kwhPrice) >= 0 && parseInt(sunHours) >= 0) {
 	    	dataValid = true;
 	    }
-	    console.log(dataValid);
 	    if(dataValid) {
 	    	let electrictyGenerated = Math.round(roofSize * wattsPerHour * sunHours * 365/1000);
 	        let savings = Math.round(electrictyGenerated * kwhPrice);

@@ -19,7 +19,7 @@ export default class SolarWidget extends React.Component {
 	    this.state = {
 	      title: "Welcome",
 	      selectedMaterial: 'radio-not-sure',
-	      roofSize: 15,
+	      roofSize: 400,
 	      sunHours,
 	      kwhPrice,
 	      averageCO2PerKwh,
@@ -66,14 +66,11 @@ export default class SolarWidget extends React.Component {
 	  }
 
 	  calculateElectricitySavings() {
-	  	console.log(this.state);
-
 	  	let co2PerKwh = this.state.averageCO2PerKwh;
 		let roofSize = this.state.roofSize;
-	    let kwhPrice = this.state.kwhPrice;
+	    let kwhPrice = this.state.kwhPrice * 0.01; //Convert it to cents
 	    let sunHours = this.state.sunHours;
 	    let wattsPerHour;
-	    console.log('material: ', this.state.selectedMaterial);
 	    switch(this.state.selectedMaterial){
 	    	case 'radio-not-sure':
 	    		wattsPerHour = 15;
@@ -94,12 +91,10 @@ export default class SolarWidget extends React.Component {
 	    // Should break out message function from calc cost function
 	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
 	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
-	    console.log('co2PerKwh',  co2PerKwh);
-	    console.log('total energy saved: ', totalCo2Saved);
 
 	    let line1 = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.`;
 	    let line2 = `This will save you $${savings.toLocaleString()} per year.`;
-	    let line3 = `This will also reduce ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
+	    let line3 = `This will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
 	    this.setState({
 	    	showResults: true,
 	    	resultsMessageLine1: line1,
@@ -158,7 +153,7 @@ export default class SolarWidget extends React.Component {
 	                </div>
 	                <div class="form-group">
 	                  <label for="kwh">Cost/kwH:</label>
-	                  <input type="text" class="form-control" id="kwh-input" value={'$' + this.state.kwhPrice} onChange={() => {}} onKeyDown={this.validateKwhInput.bind(this)}/>
+	                  <input type="text" class="form-control" id="kwh-input" value={'¢' + this.state.kwhPrice} onChange={() => {}} onKeyDown={this.validateKwhInput.bind(this)}/>
 	                </div>
 	            </div>
 
