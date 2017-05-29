@@ -5,6 +5,7 @@ import Layout from './src/js/components/Layout';
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
 import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
+import validStateId from './src/js/utils/check-if-valid-state-id';
 
 const renderFullPage = (markup, defaultState) => {
     return `
@@ -32,9 +33,7 @@ const renderFullPage = (markup, defaultState) => {
 export default (req, res) => {
     console.log('params are',req.params);
     let state = req.params.state;
-    
-
-    if(States) {
+    if(validStateId(state)) {
         let myPromise = new Promise((resolve, reject) => {
             console.log('started promise');
             States.find({ stateId: state}).then((stateInfo) => {
@@ -57,6 +56,7 @@ export default (req, res) => {
         });
     } else {
         console.log('inproper query param');
+        res.send("inproper query param");
     }
 };
    

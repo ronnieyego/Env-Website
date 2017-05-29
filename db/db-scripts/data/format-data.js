@@ -7,9 +7,10 @@ const rawStateMiscData = require('./raw/state-misc-data');
 const formattedStateEnergyProductionData = require('./formatted/state-energy-production-data');
 const formattedStateEnergyConsumptionData = require('./formatted/state-energy-consumption-data');
 const formattedStateMiscData = require('./formatted/state-misc-data');
+const formattedSolarInstallCost = require('./formatted/solar-install-cost');
 
 
-const aggregateFormattedData = (misc, production, consumption) => {
+const aggregateFormattedData = (misc, production, consumption, solarInstallation) => {
     const results = misc;
     for (let i = 1; i < production.length; i++) {
         let stateKey = production[i].stateId;
@@ -25,6 +26,16 @@ const aggregateFormattedData = (misc, production, consumption) => {
         for (let k = 1; k < results.length; k++) {
             if (results[k].stateId === stateKey) {
                 results[k]['energyConsumption'] = consumption[i].energyConsumption;
+            }
+        }
+    }
+
+    for (let i = 1; i < solarInstallation.length; i++) {
+        let stateKey = solarInstallation[i].stateId;
+        for (let k = 1; k < results.length; k++) {
+            if (results[k].stateId === stateKey) {
+                results[k]['misc']['installPrice6kw'] = solarInstallation[i].installPrice6kw;
+                results[k]['misc']['installPrice10kw'] = solarInstallation[i].installPrice10kw;
             }
         }
     }
@@ -98,5 +109,5 @@ const stateEnergyconsumption = data => {
 // let data = stateEnergyconsumption(rawStateEnergyConsumptionData);
 // let data  = stateMisc(rawStateMiscData);
 
-let data = aggregateFormattedData(formattedStateMiscData, formattedStateEnergyProductionData, formattedStateEnergyConsumptionData);
+let data = aggregateFormattedData(formattedStateMiscData, formattedStateEnergyProductionData, formattedStateEnergyConsumptionData, formattedSolarInstallCost);
 console.log(data);
