@@ -17,7 +17,7 @@ export default class Body extends React.Component {
           <div class="col-sm-8 text-left" display="inline-block">
             <h1>Solar Panels</h1>
             <p>Solar panels are a great way to generate energy!  They can usually supply excess power for a household and actually become a revenue source.  You can use the tool below to see how much CO<sub>2</sub> a solar panel set up can prevent as well as cost savings.</p>
-            <WidgetContainer sunHours={this.props.sunHours} />
+            <WidgetContainer {...this.props} />
             <p>this is a test to see where this text goes</p>
 
           </div>

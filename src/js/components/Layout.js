@@ -7,10 +7,11 @@ import Body from './Body.js';
 export default class Layout extends React.Component {
 
 	render() {
+		console.log('layout : ', this.props);
 		return (
 			<div>
 				<Header />
-				<Body sunHours={this.props.sunHours} />
+				<Body {...this.props} />
 			</div>
 		);
 	}

@@ -9,12 +9,10 @@ import path  from "path";
 
 import ssrMiddleware  from './ssr-middleware';
 
-/*
-Turned off for now.  All set up to turn back on when needed.
 const {ObjectID} = require('mongodb');
 const { mongoose } = require('./db/mongoose');
 const { Zips } = require('./db/models/zips');
-*/
+
 
 var app = express();
 

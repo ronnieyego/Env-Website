@@ -1,5 +1,5 @@
 const {MongoClient, ObjectId} = require('mongodb');
-const stateData = require('./data/state-data.js');
+const stateData = require('./data/formatted/all-states-all-data.js');
 
 const env = 'mongodb://localhost:27017/EnvWebsite';
 

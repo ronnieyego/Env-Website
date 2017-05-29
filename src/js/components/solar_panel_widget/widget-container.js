@@ -2,8 +2,9 @@ import React from "react";
 import Widget from './solar-widget.js';
 
 export default class WidgetContainer extends React.Component {
-	constructor() {
+	constructor(props) {
 	    super();
+	    console.log('container : ', props);
 	    this.state = {
 	      showResults: false
 	    };
@@ -15,10 +16,12 @@ export default class WidgetContainer extends React.Component {
 	}
 
 	render() {
+		console.log('container this: ', this.props);
+		
 		let widgetHeight = this.state.showResults ? {height: 500} : {height: 450};
 
 		return (
-			<Widget sunHours={this.props.sunHours} showResults={this.showResults} widgetHeight={widgetHeight} />
+			<Widget {...this.props} showResults={this.showResults} widgetHeight={widgetHeight} />
 		);
 	}
 }

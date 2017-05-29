@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/server";
 import Layout from './src/js/components/Layout';
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
+import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
 
 const renderFullPage = (markup, defaultState) => {
     return `
@@ -33,8 +34,6 @@ export default (req, res) => {
     let state = req.params.state;
     
 
-    // I need to make this a promise case im jsut skipping it
-
     if(States) {
         let myPromise = new Promise((resolve, reject) => {
             console.log('started promise');
@@ -43,18 +42,15 @@ export default (req, res) => {
                     reject('Couldn\'t find state data');
                 } else {
                     let res = JSON.parse(JSON.stringify(stateInfo[0]));
-                    res.sunHours = 12;//Math.round(res.totalSunHours/365);
-                    console.log('promised about to resolve!');
+                    let production = res.energyProduction;
+                    let averageCO2PerKwh = getCo2EmissionsByKwh(production.total, production.naturalGas, production.coal, production.petroleum);
+                    res.energyProduction.averageCO2PerKwh = averageCO2PerKwh;
                     resolve(res);
-                    
                 }
                             
             });
         })
         myPromise.then((stateData) => {
-            console.log('promised resolved yay!');
-            console.log(stateData);
-
             const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
             res.send(renderFullPage(appMarkup, stateData));
 

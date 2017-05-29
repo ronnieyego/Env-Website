@@ -7,13 +7,22 @@ export default class SolarWidget extends React.Component {
 
 	constructor(props) {
 	    super();
+	    let sunHours = 2;
+	    let kwhPrice = 0.927;
+	    let averageCO2PerKwh = 6;
+	    if( props.misc ) {
+	    	sunHours = props.misc.dailySunHours;
+	    	kwhPrice = props.misc.centsPerKwh;
+	    	//averageCO2PerKwh = props.energyPoduction.averageCO2PerKwh;
+	    }
+	    
 	    this.state = {
 	      title: "Welcome",
 	      selectedMaterial: 'radio-not-sure',
 	      roofSize: 15,
-	      sunHours: props.sunHours || 2,
-	      kwhPrice: props.kwhPrice || 0.927,
-	      averageCO2PerKwh: props.averageCO2PerKwh || 6,
+	      sunHours,
+	      kwhPrice,
+	      averageCO2PerKwh,
 	      showResults: false,
 	      resultsMessageLine1: '',
 	      resultsMessageLine2: '',
@@ -22,7 +31,9 @@ export default class SolarWidget extends React.Component {
 
 	  	if(typeof window !== 'undefined') {
 	  		console.log('window state', window.__STATE__);
-	  		this.state.sunHours = window.__STATE__.sunHours;
+	  		this.state.sunHours = window.__STATE__.misc.dailySunHours;
+	  		this.state.kwhPrice = window.__STATE__.misc.centsPerKwh;
+	  		this.state.averageCO2PerKwh = window.__STATE__.energyProduction.averageCO2PerKwh;
 	  	}
 	  };
 
@@ -56,15 +67,8 @@ export default class SolarWidget extends React.Component {
 
 	  calculateElectricitySavings() {
 	  	console.log(this.state);
-	  	let supplyData = {
-	  		totalEnergyConsumption: "1,724.90",
-	  		naturalGas: 651.5,
-		    petroleum: 497.4,
-		    coal: 575.9
-	  	};
 
-
-
+	  	let co2PerKwh = this.state.averageCO2PerKwh;
 		let roofSize = this.state.roofSize;
 	    let kwhPrice = this.state.kwhPrice;
 	    let sunHours = this.state.sunHours;
@@ -89,8 +93,9 @@ export default class SolarWidget extends React.Component {
 	    // Run calculation
 	    // Should break out message function from calc cost function
 	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
-	    const co2PerKwh = getCo2PerKwh(supplyData);
 	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
+	    console.log('co2PerKwh',  co2PerKwh);
+	    console.log('total energy saved: ', totalCo2Saved);
 
 	    let line1 = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.`;
 	    let line2 = `This will save you $${savings.toLocaleString()} per year.`;
