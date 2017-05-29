@@ -49,7 +49,7 @@ app.get('/solar', ssrMiddleware);
 
 
 app.get('/test', (req, res) => {
-    res.sendFile(path.join(__dirname+'/public/index.html'));
+    res.send('Reach the test page');
 });
 
 
