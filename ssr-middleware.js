@@ -32,7 +32,7 @@ const renderFullPage = (markup, defaultState) => {
 
 export default (req, res) => {
     console.log('params are',req.params);
-    let state = req.params.state;
+    let state = (req.params.state).toUpperCase();
     if(validStateId(state)) {
         let myPromise = new Promise((resolve, reject) => {
             States.find({ stateId: state}).then((stateInfo) => {
