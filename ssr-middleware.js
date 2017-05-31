@@ -30,10 +30,33 @@ const renderFullPage = (markup, defaultState) => {
     `
 };
 
+const getUSAverages = (stateData) => {
+    let uSAverages = new Promise((resolve, reject) => {
+        if(true) {
+            States.find({ stateId: 'US'})
+            .then((stateInfo) => {
+                if(!stateInfo) {
+                    reject('Couldn\'t find state data');
+                } else {
+                    let res = JSON.parse(JSON.stringify(stateInfo[0]));
+                    console.log(stateData);
+                    stateData['US'] = res;
+                    resolve(stateData);
+                }
+            });
+        } else {
+            console.log('already have state data');
+            resolve(stateData);
+        }
+    });
+
+};
+
 export default (req, res) => {
     console.log('params are',req.params);
     let state = (req.params.state).toUpperCase();
     if(validStateId(state)) {
+// Getting state data        
         let myPromise = new Promise((resolve, reject) => {
             States.find({ stateId: state}).then((stateInfo) => {
                 if(!stateInfo) {
@@ -49,13 +72,38 @@ export default (req, res) => {
             });
         })
         myPromise.then((stateData) => {
-            const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
-            res.send(renderFullPage(appMarkup, stateData));
+// Check to see if I have install price data for states.  If not, add it!
+// TODO: I'm nesting a promise chain here.  I can probably do better
+            let uSAverages = new Promise((resolve, reject) => {
+                if(!stateData.misc.installPrice6kw || !stateData.misc.installPrice10kw) { 
+                        States.find({ stateId: 'US'})
+                        .then((stateInfo) => {
+                            if(!stateInfo) {
+                                reject('Couldn\'t find state data');
+                            } else {
+                                let res = JSON.parse(JSON.stringify(stateInfo[0]));
+                                let averages = {
+                                    'installPrice6kw': res.misc.installPrice6kw,
+                                    'installPrice10kw': res.misc.installPrice10kw
+                                }
+                                stateData['usAverages'] = averages;
+                                resolve(stateData);
+                            }
 
+                    }) 
+                }else {
+// State already has install price                    
+                    resolve(stateData);
+                }
+            })
+            uSAverages.then(stateData => {
+                const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
+                res.status(200).send(renderFullPage(appMarkup, stateData));
+            });
         });
     } else {
         console.log('inproper query param');
-        res.send("inproper query param");
+        res.status(400).send("inproper query param");
     }
 };
-   
+
