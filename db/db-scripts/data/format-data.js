@@ -43,7 +43,7 @@ const aggregateFormattedData = (misc, production, consumption, solarInstallation
 
 };
 
-// This script formats misc data 
+// This script formats misc data
 const stateMisc = data => {
     const results = [];
     for (let i = 0; i < data.length; i++) {
@@ -61,7 +61,7 @@ const stateMisc = data => {
     return results;
 }
 
-// This script formats state energy production data 
+// This script formats state energy production data
 const stateEnergyProduction = data => {
     const results = [];
     for (let i = 0; i < data.length; i++) {
@@ -93,7 +93,7 @@ const stateEnergyconsumption = data => {
             }
             let val = data[i][key];
             if (typeof val === 'string') {
-                val = parseInt(val.replace(/\,/g,""));    
+                val = parseInt(val.replace(/\,/g,""));
             }
             data[i][key] = Math.round(data[i][key] * 100.293071); //Trillion BTU to MGW
         }

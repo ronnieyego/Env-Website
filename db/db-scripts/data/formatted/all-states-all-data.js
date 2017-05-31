@@ -1,22 +1,22 @@
 // This is the final formatted version of all state data.
 
 module.exports = [ { stateId: 'AL',
-    misc: 
+    misc:
      { stateFullName: 'Alabama',
        centsPerKwh: 12.97,
-       percentSun: 58,
-       totalSunHours: 2641,
        clearDays: 99,
-       dailySunHours: 7.2 } },
+       dailySunHours: 4.2,
+       summerSunHours: 4.7,
+       winterSunHours: 3.4 } },
   { stateId: 'AK',
-    misc: 
+    misc:
      { stateFullName: 'Alaska',
        centsPerKwh: 20.61,
-       percentSun: 41,
-       totalSunHours: 2061,
        clearDays: 61,
-       dailySunHours: 5.6 },
-    energyConsumption: 
+       dailySunHours: 3.8,
+       summerSunHours: 5.8,
+       winterSunHours: 2.1 },
+    energyConsumption:
      { totalEnergyConsumption: 60487,
        fossilFuelTotal: 58310,
        naturalGas: 33057,
@@ -31,14 +31,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 20,
        wind: 140 } },
   { stateId: 'AZ',
-    misc: 
+    misc:
      { stateFullName: 'Arizona',
        centsPerKwh: 11.66,
-       percentSun: 85,
-       totalSunHours: 3806,
        clearDays: 193,
-       dailySunHours: 10.4 },
-    energyProduction: 
+       dailySunHours: 6.5,
+       summerSunHours: 7.3,
+       winterSunHours: 5.8 },
+    energyProduction:
      { coal: 36167169,
        geothermal: 0,
        hydroelectric: 6535722,
@@ -66,7 +66,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0.01,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 142677,
        fossilFuelTotal: 126028,
        naturalGas: 31632,
@@ -81,14 +81,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 30,
        wind: 451 } },
   { stateId: 'AR',
-    misc: 
+    misc:
      { stateFullName: 'Arkansas',
        centsPerKwh: 9.84,
-       percentSun: 61,
-       totalSunHours: 2771,
        clearDays: 123,
-       dailySunHours: 7.6 },
-    energyProduction: 
+       dailySunHours: 4.7,
+       summerSunHours: 5.3,
+       winterSunHours: 3.9 },
+    energyProduction:
      { coal: 17633772,
        geothermal: 0,
        hydroelectric: 3520639,
@@ -116,7 +116,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 111767,
        fossilFuelTotal: 94255,
        naturalGas: 27561,
@@ -131,16 +131,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 80,
        wind: 0 } },
   { stateId: 'CA',
-    misc: 
+    misc:
      { stateFullName: 'California',
        centsPerKwh: 18.68,
-       percentSun: 68,
-       totalSunHours: 3055,
        clearDays: 146,
-       dailySunHours: 8.4,
+       dailySunHours: 5.7,
+       summerSunHours: 6.5,
+       winterSunHours: 4.8,
        installPrice6kw: 15600,
        installPrice10kw: 26000 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 827197,
        hydroelectric: 13244988,
@@ -168,7 +168,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0.01,
        pWind: 0.01,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 764243,
        fossilFuelTotal: 571911,
        naturalGas: 242458,
@@ -183,16 +183,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 11754,
        wind: 12396 } },
   { stateId: 'CO',
-    misc: 
+    misc:
      { stateFullName: 'Colorado',
        centsPerKwh: 11.88,
-       percentSun: 71,
-       totalSunHours: 3204,
        clearDays: 136,
-       dailySunHours: 8.8,
+       dailySunHours: 5.4,
+       summerSunHours: 6.3,
+       winterSunHours: 4.6,
        installPrice6kw: 14650,
        installPrice10kw: 24450 },
-    energyProduction: 
+    energyProduction:
      { coal: 31470826,
        geothermal: 0,
        hydroelectric: 1429546,
@@ -220,7 +220,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 148153,
        fossilFuelTotal: 131765,
        naturalGas: 49685,
@@ -235,16 +235,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 80,
        wind: 7031 } },
   { stateId: 'CT',
-    misc: 
+    misc:
      { stateFullName: 'Connecticut',
        centsPerKwh: 19.91,
-       percentSun: 56,
-       totalSunHours: 2585,
        clearDays: 82,
-       dailySunHours: 7.1,
+       dailySunHours: 4.4,
+       summerSunHours: 0,
+       winterSunHours: 0,
        installPrice6kw: 16250,
        installPrice10kw: 27100 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 24053,
@@ -272,7 +272,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 75220,
        fossilFuelTotal: 56134,
        naturalGas: 24131,
@@ -287,14 +287,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 0,
        wind: 0 } },
   { stateId: 'DE',
-    misc: 
+    misc:
      { stateFullName: 'Delaware',
        centsPerKwh: 13.37,
-       percentSun: 56,
-       totalSunHours: 2542,
        clearDays: 97,
-       dailySunHours: 7 },
-    energyProduction: 
+       dailySunHours: 4.5,
+       summerSunHours: 0,
+       winterSunHours: 0 },
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 0,
@@ -322,7 +322,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0.13,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 27480,
        fossilFuelTotal: 21433,
        naturalGas: 10711,
@@ -337,16 +337,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 40,
        wind: 0 } },
   { stateId: 'FL',
-    misc: 
+    misc:
      { stateFullName: 'Florida',
        centsPerKwh: 11.95,
-       percentSun: 66,
-       totalSunHours: 2927,
        clearDays: 101,
-       dailySunHours: 8,
+       dailySunHours: 5.4,
+       summerSunHours: 5.9,
+       winterSunHours: 4.9,
        installPrice6kw: 13000,
        installPrice10kw: 21700 },
-    energyProduction: 
+    energyProduction:
      { coal: 41588475,
        geothermal: 0,
        hydroelectric: 244294,
@@ -374,7 +374,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 413378,
        fossilFuelTotal: 336012,
        naturalGas: 125035,
@@ -389,14 +389,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 1013,
        wind: 0 } },
   { stateId: 'GA',
-    misc: 
+    misc:
      { stateFullName: 'Georgia',
        centsPerKwh: 11.62,
-       percentSun: 66,
-       totalSunHours: 2986,
        clearDays: 112,
-       dailySunHours: 8.2 },
-    energyProduction: 
+       dailySunHours: 4.9,
+       summerSunHours: 5.3,
+       winterSunHours: 4.2 },
+    energyProduction:
      { coal: 36914687,
        geothermal: 0,
        hydroelectric: 2952389,
@@ -424,7 +424,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 285936,
        fossilFuelTotal: 199092,
        naturalGas: 66805,
@@ -439,14 +439,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 30,
        wind: 0 } },
   { stateId: 'HI',
-    misc: 
+    misc:
      { stateFullName: 'Hawaii',
        centsPerKwh: 29.39,
-       percentSun: 71,
-       totalSunHours: 3124,
        clearDays: 90,
-       dailySunHours: 8.6 },
-    energyProduction: 
+       dailySunHours: 6,
+       summerSunHours: 6.7,
+       winterSunHours: 5.6 },
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 21736,
@@ -474,7 +474,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 28202,
        fossilFuelTotal: 25154,
        naturalGas: 20,
@@ -489,14 +489,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 241,
        wind: 552 } },
   { stateId: 'ID',
-    misc: 
+    misc:
      { stateFullName: 'Idaho',
        centsPerKwh: 9.66,
-       percentSun: 64,
-       totalSunHours: 2993,
        clearDays: 120,
-       dailySunHours: 8.2 },
-    energyProduction: 
+       dailySunHours: 4.8,
+       summerSunHours: 5.6,
+       winterSunHours: 3.4 },
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 8024850,
@@ -524,7 +524,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 52142,
        fossilFuelTotal: 26146,
        naturalGas: 9458,
@@ -539,16 +539,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 231,
        wind: 2678 } },
   { stateId: 'IL',
-    misc: 
+    misc:
      { stateFullName: 'Illinois',
        centsPerKwh: 12.21,
-       percentSun: 56,
-       totalSunHours: 2567,
        clearDays: 95,
-       dailySunHours: 7,
+       dailySunHours: 3.1,
+       summerSunHours: 4.1,
+       winterSunHours: 1.5,
        installPrice6kw: 15200,
        installPrice10kw: 25300 },
-    energyProduction: 
+    energyProduction:
      { coal: 3714939,
        geothermal: 0,
        hydroelectric: 42350,
@@ -576,7 +576,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 405415,
        fossilFuelTotal: 331388,
        naturalGas: 110874,
@@ -591,14 +591,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 201,
        wind: 9618 } },
   { stateId: 'IN',
-    misc: 
+    misc:
      { stateFullName: 'Indiana',
        centsPerKwh: 11.78,
-       percentSun: 55,
-       totalSunHours: 2440,
        clearDays: 88,
-       dailySunHours: 6.7 },
-    energyProduction: 
+       dailySunHours: 4.2,
+       summerSunHours: 5,
+       winterSunHours: 2.6 },
+    energyProduction:
      { coal: 72719698,
        geothermal: 0,
        hydroelectric: 381236,
@@ -626,7 +626,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 294019,
        fossilFuelTotal: 271774,
        naturalGas: 72682,
@@ -641,14 +641,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 461,
        wind: 3330 } },
   { stateId: 'IA',
-    misc: 
+    misc:
      { stateFullName: 'Iowa',
        centsPerKwh: 11.16,
-       percentSun: 59,
-       totalSunHours: 2691,
        clearDays: 105,
-       dailySunHours: 7.4 },
-    energyProduction: 
+       dailySunHours: 4.4,
+       summerSunHours: 4.8,
+       winterSunHours: 3.7 },
+    energyProduction:
      { coal: 27879776,
        geothermal: 0,
        hydroelectric: 953755,
@@ -676,7 +676,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.26,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 154642,
        fossilFuelTotal: 114123,
        naturalGas: 31221,
@@ -691,14 +691,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 130,
        wind: 15555 } },
   { stateId: 'KS',
-    misc: 
+    misc:
      { stateFullName: 'Kansas',
        centsPerKwh: 12.99,
-       percentSun: 65,
-       totalSunHours: 2922,
        clearDays: 128,
-       dailySunHours: 8 },
-    energyProduction: 
+       dailySunHours: 5.2,
+       summerSunHours: 4.6,
+       winterSunHours: 4.5 },
+    energyProduction:
      { coal: 24593334,
        geothermal: 0,
        hydroelectric: 0,
@@ -726,7 +726,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.03,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 113572,
        fossilFuelTotal: 96793,
        naturalGas: 29055,
@@ -741,14 +741,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 100,
        wind: 10340 } },
   { stateId: 'KY',
-    misc: 
+    misc:
      { stateFullName: 'Kentucky',
        centsPerKwh: 10.59,
-       percentSun: 56,
-       totalSunHours: 2514,
        clearDays: 93,
-       dailySunHours: 6.9 },
-    energyProduction: 
+       dailySunHours: 4.9,
+       summerSunHours: 6,
+       winterSunHours: 3.6 },
+    energyProduction:
      { coal: 72620429,
        geothermal: 0,
        hydroelectric: 3394946,
@@ -776,7 +776,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 177589,
        fossilFuelTotal: 175924,
        naturalGas: 26197,
@@ -791,14 +791,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 271,
        wind: 0 } },
   { stateId: 'LA',
-    misc: 
+    misc:
      { stateFullName: 'Louisiana',
        centsPerKwh: 9.57,
-       percentSun: 57,
-       totalSunHours: 2649,
        clearDays: 101,
-       dailySunHours: 7.3 },
-    energyProduction: 
+       dailySunHours: 4.8,
+       summerSunHours: 5.5,
+       winterSunHours: 3.9 },
+    energyProduction:
      { coal: 9124782,
        geothermal: 0,
        hydroelectric: 0,
@@ -826,7 +826,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 429194,
        fossilFuelTotal: 382157,
        naturalGas: 156788,
@@ -841,14 +841,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 181,
        wind: 0 } },
   { stateId: 'ME',
-    misc: 
+    misc:
      { stateFullName: 'Maine',
        centsPerKwh: 16.02,
-       percentSun: 57,
-       totalSunHours: 2513,
        clearDays: 101,
-       dailySunHours: 6.9 },
-    energyProduction: 
+       dailySunHours: 4.4,
+       summerSunHours: 5.4,
+       winterSunHours: 3.1 },
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 0,
@@ -876,7 +876,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 41170,
        fossilFuelTotal: 25354,
        naturalGas: 6258,
@@ -891,16 +891,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 10,
        wind: 1043 } },
   { stateId: 'MD',
-    misc: 
+    misc:
      { stateFullName: 'Maryland',
        centsPerKwh: 14.36,
-       percentSun: 57,
-       totalSunHours: 2582,
        clearDays: 105,
-       dailySunHours: 7.1,
+       dailySunHours: 4.5,
+       summerSunHours: 4.7,
+       winterSunHours: 3.8,
        installPrice6kw: 14050,
        installPrice10kw: 23400 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 0,
@@ -928,7 +928,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0.44,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 140470,
        fossilFuelTotal: 88158,
        naturalGas: 21723,
@@ -943,16 +943,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 60,
        wind: 311 } },
   { stateId: 'MA',
-    misc: 
+    misc:
      { stateFullName: 'Massachusetts',
        centsPerKwh: 19.86,
-       percentSun: 58,
-       totalSunHours: 2634,
        clearDays: 98,
-       dailySunHours: 7.2,
+       dailySunHours: 4,
+       summerSunHours: 4.5,
+       winterSunHours: 3,
        installPrice6kw: 16550,
        installPrice10kw: 27600 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 201051,
@@ -980,7 +980,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0.02,
        pWind: 0.09,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 144181,
        fossilFuelTotal: 101396,
        naturalGas: 43447,
@@ -995,14 +995,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 90,
        wind: 211 } },
   { stateId: 'MI',
-    misc: 
+    misc:
      { stateFullName: 'Michigan',
        centsPerKwh: 15.41,
-       percentSun: 51,
-       totalSunHours: 2392,
        clearDays: 71,
-       dailySunHours: 6.6 },
-    energyProduction: 
+       dailySunHours: 4.1,
+       summerSunHours: 4.8,
+       winterSunHours: 2.5 },
+    energyProduction:
      { coal: 52296558,
        geothermal: 0,
        hydroelectric: 1386571,
@@ -1030,7 +1030,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.02,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 288994,
        fossilFuelTotal: 233623,
        naturalGas: 88128,
@@ -1045,14 +1045,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 522,
        wind: 3691 } },
   { stateId: 'MN',
-    misc: 
+    misc:
      { stateFullName: 'Minnesota',
        centsPerKwh: 12.83,
-       percentSun: 58,
-       totalSunHours: 2711,
        clearDays: 95,
-       dailySunHours: 7.4 },
-    energyProduction: 
+       dailySunHours: 4.5,
+       summerSunHours: 5.4,
+       winterSunHours: 3.5 },
+    energyProduction:
      { coal: 24110571,
        geothermal: 0,
        hydroelectric: 550546,
@@ -1080,7 +1080,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.05,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 191770,
        fossilFuelTotal: 138926,
        naturalGas: 49124,
@@ -1095,14 +1095,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 110,
        wind: 9247 } },
   { stateId: 'MS',
-    misc: 
+    misc:
      { stateFullName: 'Mississippi',
        centsPerKwh: 11.27,
-       percentSun: 61,
-       totalSunHours: 2720,
        clearDays: 111,
-       dailySunHours: 7.5 },
-    energyProduction: 
+       dailySunHours: 4.4,
+       summerSunHours: 4.9,
+       winterSunHours: 3.6 },
+    energyProduction:
      { coal: 3370576,
        geothermal: 0,
        hydroelectric: 0,
@@ -1130,7 +1130,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 115889,
        fossilFuelTotal: 98508,
        naturalGas: 44129,
@@ -1145,14 +1145,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 100,
        wind: 0 } },
   { stateId: 'MO',
-    misc: 
+    misc:
      { stateFullName: 'Missouri',
        centsPerKwh: 9.96,
-       percentSun: 60,
-       totalSunHours: 2690,
        clearDays: 115,
-       dailySunHours: 7.4 },
-    energyProduction: 
+       dailySunHours: 4.3,
+       summerSunHours: 5.2,
+       winterSunHours: 3.6 },
+    energyProduction:
      { coal: 65221210,
        geothermal: 0,
        hydroelectric: 1595020,
@@ -1180,7 +1180,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 190938,
        fossilFuelTotal: 169906,
        naturalGas: 30208,
@@ -1195,14 +1195,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 40,
        wind: 1083 } },
   { stateId: 'MT',
-    misc: 
+    misc:
      { stateFullName: 'Montana',
        centsPerKwh: 10.61,
-       percentSun: 59,
-       totalSunHours: 2698,
        clearDays: 82,
-       dailySunHours: 7.4 },
-    energyProduction: 
+       dailySunHours: 4.7,
+       summerSunHours: 5.6,
+       winterSunHours: 3.4 },
+    energyProduction:
      { coal: 221173,
        geothermal: 0,
        hydroelectric: 9744636,
@@ -1230,7 +1230,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.02,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 40458,
        fossilFuelTotal: 42514,
        naturalGas: 7953,
@@ -1245,14 +1245,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 30,
        wind: 1886 } },
   { stateId: 'NE',
-    misc: 
+    misc:
      { stateFullName: 'Nebraska',
        centsPerKwh: 9.96,
-       percentSun: 61,
-       totalSunHours: 2762,
        clearDays: 117,
-       dailySunHours: 7.6 },
-    energyProduction: 
+       dailySunHours: 4.8,
+       summerSunHours: 5.3,
+       winterSunHours: 4.3 },
+    energyProduction:
      { coal: 23804467,
        geothermal: 0,
        hydroelectric: 1684980,
@@ -1280,7 +1280,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.01,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 86683,
        fossilFuelTotal: 69403,
        naturalGas: 17973,
@@ -1295,14 +1295,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 120,
        wind: 2608 } },
   { stateId: 'NV',
-    misc: 
+    misc:
      { stateFullName: 'Nevada',
        centsPerKwh: 11.91,
-       percentSun: 79,
-       totalSunHours: 3646,
        clearDays: 158,
-       dailySunHours: 10 },
-    energyProduction: 
+       dailySunHours: 6.2,
+       summerSunHours: 6.8,
+       winterSunHours: 5.7 },
+    energyProduction:
      { coal: 1803983,
        geothermal: 0,
        hydroelectric: 2248649,
@@ -1330,7 +1330,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 66224,
        fossilFuelTotal: 56987,
        naturalGas: 26016,
@@ -1345,16 +1345,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 2758,
        wind: 291 } },
   { stateId: 'NH',
-    misc: 
+    misc:
      { stateFullName: 'New Hampshire',
        centsPerKwh: 18.91,
-       percentSun: 54,
-       totalSunHours: 2519,
        clearDays: 90,
-       dailySunHours: 6.9,
+       dailySunHours: 4.6,
+       summerSunHours: 0,
+       winterSunHours: 0,
        installPrice6kw: 16000,
        installPrice10kw: 26700 },
-    energyProduction: 
+    energyProduction:
      { coal: 936662,
        geothermal: 0,
        hydroelectric: 308688,
@@ -1382,7 +1382,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0.19 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 31101,
        fossilFuelTotal: 22616,
        naturalGas: 5897,
@@ -1397,16 +1397,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 0,
        wind: 391 } },
   { stateId: 'NJ',
-    misc: 
+    misc:
      { stateFullName: 'New Jersey',
        centsPerKwh: 15.69,
-       percentSun: 56,
-       totalSunHours: 2499,
        clearDays: 94,
-       dailySunHours: 6.8,
+       dailySunHours: 4.2,
+       summerSunHours: 4.8,
+       winterSunHours: 3.2,
        installPrice6kw: 13050,
        installPrice10kw: 24250 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 0,
@@ -1434,7 +1434,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: -2.61,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 234706,
        fossilFuelTotal: 180447,
        naturalGas: 80034,
@@ -1449,14 +1449,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 50,
        wind: 20 } },
   { stateId: 'NM',
-    misc: 
+    misc:
      { stateFullName: 'New Mexico',
        centsPerKwh: 12.84,
-       percentSun: 76,
-       totalSunHours: 3415,
        clearDays: 167,
-       dailySunHours: 9.4 },
-    energyProduction: 
+       dailySunHours: 6.8,
+       summerSunHours: 7.2,
+       winterSunHours: 6.2 },
+    energyProduction:
      { coal: 20439532,
        geothermal: 0,
        hydroelectric: 99473,
@@ -1484,7 +1484,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0.01,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 68109,
        fossilFuelTotal: 71338,
        naturalGas: 25685,
@@ -1499,16 +1499,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 50,
        wind: 2166 } },
   { stateId: 'NY',
-    misc: 
+    misc:
      { stateFullName: 'New York',
        centsPerKwh: 17.48,
-       percentSun: 46,
-       totalSunHours: 2120,
        clearDays: 63,
-       dailySunHours: 5.8,
+       dailySunHours: 3.6,
+       summerSunHours: 4.3,
+       winterSunHours: 2.2,
        installPrice6kw: 16350,
        installPrice10kw: 27200 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 22225456,
@@ -1536,7 +1536,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 375387,
        fossilFuelTotal: 275565,
        naturalGas: 139066,
@@ -1551,16 +1551,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 120,
        wind: 3781 } },
   { stateId: 'NC',
-    misc: 
+    misc:
      { stateFullName: 'North Carolina',
        centsPerKwh: 11.19,
-       percentSun: 60,
-       totalSunHours: 2651,
        clearDays: 109,
-       dailySunHours: 7.3,
+       dailySunHours: 5,
+       summerSunHours: 5.4,
+       winterSunHours: 4.3,
        installPrice6kw: 14600,
        installPrice10kw: 24250 },
-    energyProduction: 
+    energyProduction:
      { coal: 39348755,
        geothermal: 0,
        hydroelectric: 4687506,
@@ -1588,7 +1588,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 256229,
        fossilFuelTotal: 176646,
        naturalGas: 46225,
@@ -1603,14 +1603,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 100,
        wind: 0 } },
   { stateId: 'ND',
-    misc: 
+    misc:
      { stateFullName: 'North Dakota',
        centsPerKwh: 9.46,
-       percentSun: 59,
-       totalSunHours: 2738,
        clearDays: 93,
-       dailySunHours: 7.5 },
-    energyProduction: 
+       dailySunHours: 5,
+       summerSunHours: 5.5,
+       winterSunHours: 4 },
+    energyProduction:
      { coal: 27631806,
        geothermal: 0,
        hydroelectric: 2094168,
@@ -1638,7 +1638,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.08,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 64198,
        fossilFuelTotal: 72522,
        naturalGas: 8575,
@@ -1653,16 +1653,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 100,
        wind: 5917 } },
   { stateId: 'OH',
-    misc: 
+    misc:
      { stateFullName: 'Ohio',
        centsPerKwh: 12.15,
-       percentSun: 50,
-       totalSunHours: 2183,
        clearDays: 72,
-       dailySunHours: 6,
+       dailySunHours: 4,
+       summerSunHours: 5,
+       winterSunHours: 2.7,
        installPrice6kw: 13950,
        installPrice10kw: 23250 },
-    energyProduction: 
+    energyProduction:
      { coal: 17179701,
        geothermal: 0,
        hydroelectric: 244856,
@@ -1690,7 +1690,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 382076,
        fossilFuelTotal: 321740,
        naturalGas: 104736,
@@ -1705,14 +1705,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 341,
        wind: 1103 } },
   { stateId: 'OK',
-    misc: 
+    misc:
      { stateFullName: 'Oklahoma',
        centsPerKwh: 11.07,
-       percentSun: 68,
-       totalSunHours: 3089,
        clearDays: 139,
-       dailySunHours: 8.5 },
-    energyProduction: 
+       dailySunHours: 5.3,
+       summerSunHours: 5.9,
+       winterSunHours: 4.6 },
+    energyProduction:
      { coal: 22663064,
        geothermal: 0,
        hydroelectric: 2663901,
@@ -1740,7 +1740,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.03,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 168482,
        fossilFuelTotal: 154842,
        naturalGas: 66775,
@@ -1755,16 +1755,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 0,
        wind: 11383 } },
   { stateId: 'OR',
-    misc: 
+    misc:
      { stateFullName: 'Oregon',
        centsPerKwh: 10.53,
-       percentSun: 48,
-       totalSunHours: 2341,
        clearDays: 68,
-       dailySunHours: 6.4,
+       dailySunHours: 4.1,
+       summerSunHours: 5.4,
+       winterSunHours: 2,
        installPrice6kw: 15100,
        installPrice10kw: 25150 },
-    energyProduction: 
+    energyProduction:
      { coal: 2377359,
        geothermal: 1710,
        hydroelectric: 31016019,
@@ -1792,7 +1792,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.03,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 98999,
        fossilFuelTotal: 59012,
        naturalGas: 22626,
@@ -1807,16 +1807,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 301,
        wind: 7211 } },
   { stateId: 'PA',
-    misc: 
+    misc:
      { stateFullName: 'Pennsylvania',
        centsPerKwh: 14.29,
-       percentSun: 58,
-       totalSunHours: 2614,
        clearDays: 87,
-       dailySunHours: 7.2,
+       dailySunHours: 3.6,
+       summerSunHours: 4.3,
+       winterSunHours: 2.1,
        installPrice6kw: 14500,
        installPrice10kw: 24150 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 62823,
@@ -1844,7 +1844,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 391384,
        fossilFuelTotal: 349692,
        naturalGas: 126078,
@@ -1859,16 +1859,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 221,
        wind: 3400 } },
   { stateId: 'RI',
-    misc: 
+    misc:
      { stateFullName: 'Rhode Island',
        centsPerKwh: 19.83,
-       percentSun: 58,
-       totalSunHours: 2606,
        clearDays: 98,
-       dailySunHours: 7.1,
+       dailySunHours: 4.2,
+       summerSunHours: 4.7,
+       winterSunHours: 3.6,
        installPrice6kw: 16300,
        installPrice10kw: 27200 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 0,
@@ -1896,7 +1896,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 20510,
        fossilFuelTotal: 17932,
        naturalGas: 9157,
@@ -1911,16 +1911,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 10,
        wind: 10 } },
   { stateId: 'SC',
-    misc: 
+    misc:
      { stateFullName: 'South Carolina',
        centsPerKwh: 12.93,
-       percentSun: 64,
-       totalSunHours: 2826,
        clearDays: 115,
-       dailySunHours: 7.7,
+       dailySunHours: 5.1,
+       summerSunHours: 5.7,
+       winterSunHours: 4.2,
        installPrice6kw: 14750,
        installPrice10kw: 24550 },
-    energyProduction: 
+    energyProduction:
      { coal: 22487784,
        geothermal: 0,
        hydroelectric: 2496713,
@@ -1948,7 +1948,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 163688,
        fossilFuelTotal: 102469,
        naturalGas: 23659,
@@ -1963,14 +1963,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 60,
        wind: 0 } },
   { stateId: 'SD',
-    misc: 
+    misc:
      { stateFullName: 'South Dakota',
        centsPerKwh: 10.68,
-       percentSun: 63,
-       totalSunHours: 2947,
        clearDays: 104,
-       dailySunHours: 8.1 },
-    energyProduction: 
+       dailySunHours: 5.2,
+       summerSunHours: 5.9,
+       winterSunHours: 4.6 },
+    energyProduction:
      { coal: 1495079,
        geothermal: 0,
        hydroelectric: 4850485,
@@ -1998,7 +1998,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.1,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 39305,
        fossilFuelTotal: 23118,
        naturalGas: 8374,
@@ -2013,14 +2013,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 191,
        wind: 2227 } },
   { stateId: 'TN',
-    misc: 
+    misc:
      { stateFullName: 'Tennessee',
        centsPerKwh: 10.52,
-       percentSun: 56,
-       totalSunHours: 2510,
        clearDays: 102,
-       dailySunHours: 6.9 },
-    energyProduction: 
+       dailySunHours: 4.4,
+       summerSunHours: 5.1,
+       winterSunHours: 3.2 },
+    energyProduction:
      { coal: 29584364,
        geothermal: 0,
        hydroelectric: 9581240,
@@ -2048,7 +2048,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 220093,
        fossilFuelTotal: 141584,
        naturalGas: 31291,
@@ -2063,16 +2063,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 20,
        wind: 50 } },
   { stateId: 'TX',
-    misc: 
+    misc:
      { stateFullName: 'Texas',
        centsPerKwh: 11.41,
-       percentSun: 61,
-       totalSunHours: 2850,
        clearDays: 135,
-       dailySunHours: 7.8,
+       dailySunHours: 5.7,
+       summerSunHours: 6.2,
+       winterSunHours: 5,
        installPrice6kw: 13550,
        installPrice10kw: 22650 },
-    energyProduction: 
+    energyProduction:
      { coal: 45728700,
        geothermal: 0,
        hydroelectric: 918289,
@@ -2100,7 +2100,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 1293730,
        fossilFuelTotal: 1178714,
        naturalGas: 423146,
@@ -2115,14 +2115,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 251,
        wind: 38151 } },
   { stateId: 'UT',
-    misc: 
+    misc:
      { stateFullName: 'Utah',
        centsPerKwh: 10.7,
-       percentSun: 66,
-       totalSunHours: 3029,
        clearDays: 125,
-       dailySunHours: 8.3 },
-    energyProduction: 
+       dailySunHours: 5.5,
+       summerSunHours: 6.4,
+       winterSunHours: 4.6 },
+    energyProduction:
      { coal: 30815170,
        geothermal: 259703,
        hydroelectric: 759967,
@@ -2150,7 +2150,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 80034,
        fossilFuelTotal: 87797,
        naturalGas: 25344,
@@ -2165,14 +2165,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 582,
        wind: 632 } },
   { stateId: 'VT',
-    misc: 
+    misc:
      { stateFullName: 'Vermont',
        centsPerKwh: 17.51,
-       percentSun: 49,
-       totalSunHours: 2295,
        clearDays: 58,
-       dailySunHours: 6.3 },
-    energyProduction: 
+       dailySunHours: 4.3,
+       summerSunHours: 0,
+       winterSunHours: 0 },
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 400686,
@@ -2200,7 +2200,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.23,
        pWoodBurning: 0.32 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 14031,
        fossilFuelTotal: 9066,
        naturalGas: 1083,
@@ -2215,16 +2215,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 0,
        wind: 301 } },
   { stateId: 'VA',
-    misc: 
+    misc:
      { stateFullName: 'Virginia',
        centsPerKwh: 11.09,
-       percentSun: 63,
-       totalSunHours: 2829,
        clearDays: 100,
-       dailySunHours: 7.8,
+       dailySunHours: 4.1,
+       summerSunHours: 4.5,
+       winterSunHours: 3.4,
        installPrice6kw: 15250,
        installPrice10kw: 25450 },
-    energyProduction: 
+    energyProduction:
      { coal: 16023099,
        geothermal: 0,
        hydroelectric: 1071704,
@@ -2252,7 +2252,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0,
        pWoodBurning: 0.02 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 243732,
        fossilFuelTotal: 150470,
        naturalGas: 43828,
@@ -2267,16 +2267,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 170,
        wind: 0 } },
   { stateId: 'WA',
-    misc: 
+    misc:
      { stateFullName: 'Washington',
        centsPerKwh: 9.27,
-       percentSun: 47,
-       totalSunHours: 2170,
        clearDays: 58,
-       dailySunHours: 5.9,
+       dailySunHours: 4.4,
+       summerSunHours: 5.8,
+       winterSunHours: 2.1,
        installPrice6kw: 17400,
        installPrice10kw: 28950 },
-    energyProduction: 
+    energyProduction:
      { coal: 0,
        geothermal: 0,
        hydroelectric: 73125160,
@@ -2304,7 +2304,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.04,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 201780,
        fossilFuelTotal: 109550,
        naturalGas: 32074,
@@ -2319,14 +2319,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 110,
        wind: 6930 } },
   { stateId: 'WV',
-    misc: 
+    misc:
      { stateFullName: 'West Virginia',
        centsPerKwh: 11.58,
-       percentSun: 50,
-       totalSunHours: 2332,
        clearDays: 60,
-       dailySunHours: 6.4 },
-    energyProduction: 
+       dailySunHours: 3.7,
+       summerSunHours: 4.1,
+       winterSunHours: 2.5 },
+    energyProduction:
      { coal: 56309986,
        geothermal: 0,
        hydroelectric: 487375,
@@ -2354,7 +2354,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 1,
        pWoodBurning: 0 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 75511,
        fossilFuelTotal: 116671,
        naturalGas: 16217,
@@ -2369,14 +2369,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 0,
        wind: 1384 } },
   { stateId: 'WI',
-    misc: 
+    misc:
      { stateFullName: 'Wisconsin',
        centsPerKwh: 14.34,
-       percentSun: 54,
-       totalSunHours: 2428,
        clearDays: 89,
-       dailySunHours: 6.7 },
-    energyProduction: 
+       dailySunHours: 4.3,
+       summerSunHours: 4.9,
+       winterSunHours: 3.3 },
+    energyProduction:
      { coal: 36498780,
        geothermal: 0,
        hydroelectric: 2074368,
@@ -2404,7 +2404,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 0.02,
        pWoodBurning: 0.01 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 187438,
        fossilFuelTotal: 144191,
        naturalGas: 47930,
@@ -2419,14 +2419,14 @@ module.exports = [ { stateId: 'AL',
        geothermal: 60,
        wind: 1545 } },
   { stateId: 'WY',
-    misc: 
+    misc:
      { stateFullName: 'Wyoming',
        centsPerKwh: 10.77,
-       percentSun: 68,
-       totalSunHours: 3073,
        clearDays: 114,
-       dailySunHours: 8.4 },
-    energyProduction: 
+       dailySunHours: 6.1,
+       summerSunHours: 6.8,
+       winterSunHours: 5.5 },
+    energyProduction:
      { coal: 41937449,
        geothermal: 0,
        hydroelectric: 858353,
@@ -2454,7 +2454,7 @@ module.exports = [ { stateId: 'AL',
        pSolar: 0,
        pWind: 1,
        pWoodBurning: 0.04 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 53717,
        fossilFuelTotal: 80636,
        naturalGas: 14222,
@@ -2469,16 +2469,16 @@ module.exports = [ { stateId: 'AL',
        geothermal: 70,
        wind: 4202 } },
   { stateId: 'US',
-    misc: 
+    misc:
      { stateFullName: 'United States',
        centsPerKwh: 12,
-       percentSun: 59.72,
-       totalSunHours: 2717.8,
        clearDays: 103.26,
-       dailySunHours: 7.4,
+       dailySunHours: 4.7,
+       summerSunHours: 5.4,
+       winterSunHours: 3.7,
        installPrice6kw: 15000,
        installPrice10kw: 25000 },
-    energyConsumption: 
+    energyConsumption:
      { totalEnergyConsumption: 9867354,
        fossilFuelTotal: 8066150,
        naturalGas: 2753215,
