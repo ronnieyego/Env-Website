@@ -7,6 +7,11 @@
   // Source http://www.solardirect.com/pv/systems/gts/gts-sizing-sun-hours.html
   // Data collected by averaging different cities within the state
 
+//For Monthly household info
+  // THis gets average energy use by kwh/state per month for household
+  // SOurce https://www.eia.gov/tools/faqs/faq.php?id=97&t=3
+  // Last updated on October 2016
+
 module.exports = [
   {
     "stateId": "AL",
@@ -15,7 +20,9 @@ module.exports = [
     "clearDays": 99,
     "dailySunHours": 4.2,
     "summerSunHours": 4.7,
-    "winterSunHours": 3.4
+    "winterSunHours": 3.4,
+    "avgKwhPerHouseholdConsumed": 1218,
+    "avgMonthHouseUtilCost": 142
   },
   {
     "stateId": "AK",
@@ -24,7 +31,9 @@ module.exports = [
     "clearDays": 61,
     "dailySunHours": 3.8,
     "summerSunHours": 5.8,
-    "winterSunHours": 2.1
+    "winterSunHours": 2.1,
+    "avgKwhPerHouseholdConsumed": 603,
+    "avgMonthHouseUtilCost": 120
   },
   {
     "stateId": "AZ",
@@ -33,7 +42,9 @@ module.exports = [
     "clearDays": 193,
     "dailySunHours": 6.5,
     "summerSunHours": 7.3,
-    "winterSunHours": 5.8
+    "winterSunHours": 5.8,
+    "avgKwhPerHouseholdConsumed": 1028,
+    "avgMonthHouseUtilCost": 125
   },
   {
     "stateId": "AR",
@@ -42,7 +53,9 @@ module.exports = [
     "clearDays": 123,
     "dailySunHours": 4.7,
     "summerSunHours": 5.3,
-    "winterSunHours": 3.9
+    "winterSunHours": 3.9,
+    "avgKwhPerHouseholdConsumed": 1122,
+    "avgMonthHouseUtilCost": 110
   },
   {
     "stateId": "CA",
@@ -51,7 +64,9 @@ module.exports = [
     "clearDays": 146,
     "dailySunHours": 5.7,
     "summerSunHours": 6.5,
-    "winterSunHours": 4.8
+    "winterSunHours": 4.8,
+    "avgKwhPerHouseholdConsumed": 557,
+    "avgMonthHouseUtilCost": 95
   },
   {
     "stateId": "CO",
@@ -60,7 +75,9 @@ module.exports = [
     "clearDays": 136,
     "dailySunHours": 5.4,
     "summerSunHours": 6.3,
-    "winterSunHours": 4.6
+    "winterSunHours": 4.6,
+    "avgKwhPerHouseholdConsumed": 688,
+    "avgMonthHouseUtilCost": 83
   },
   {
     "stateId": "CT",
@@ -69,7 +86,9 @@ module.exports = [
     "clearDays": 82,
     "dailySunHours": 4.4,
     "summerSunHours": "",
-    "winterSunHours": ""
+    "winterSunHours": "",
+    "avgKwhPerHouseholdConsumed": 731,
+    "avgMonthHouseUtilCost": 153
   },
   {
     "stateId": "DE",
@@ -78,7 +97,9 @@ module.exports = [
     "clearDays": 97,
     "dailySunHours": 4.5,
     "summerSunHours": "",
-    "winterSunHours": ""
+    "winterSunHours": "",
+    "avgKwhPerHouseholdConsumed": 977,
+    "avgMonthHouseUtilCost": 131
   },
   {
     "stateId": "FL",
@@ -87,7 +108,9 @@ module.exports = [
     "clearDays": 101,
     "dailySunHours": 5.4,
     "summerSunHours": 5.9,
-    "winterSunHours": 4.9
+    "winterSunHours": 4.9,
+    "avgKwhPerHouseholdConsumed": 1141,
+    "avgMonthHouseUtilCost": 132
   },
   {
     "stateId": "GA",
@@ -96,7 +119,9 @@ module.exports = [
     "clearDays": 112,
     "dailySunHours": 4.9,
     "summerSunHours": 5.3,
-    "winterSunHours": 4.2
+    "winterSunHours": 4.2,
+    "avgKwhPerHouseholdConsumed": 1122,
+    "avgMonthHouseUtilCost": 129
   },
   {
     "stateId": "HI",
@@ -105,7 +130,9 @@ module.exports = [
     "clearDays": 90,
     "dailySunHours": 6,
     "summerSunHours": 6.7,
-    "winterSunHours": 5.6
+    "winterSunHours": 5.6,
+    "avgKwhPerHouseholdConsumed": 514,
+    "avgMonthHouseUtilCost": 152
   },
   {
     "stateId": "ID",
@@ -114,7 +141,9 @@ module.exports = [
     "clearDays": 120,
     "dailySunHours": 4.8,
     "summerSunHours": 5.6,
-    "winterSunHours": 3.4
+    "winterSunHours": 3.4,
+    "avgKwhPerHouseholdConsumed": 957,
+    "avgMonthHouseUtilCost": 95
   },
   {
     "stateId": "IL",
@@ -123,7 +152,9 @@ module.exports = [
     "clearDays": 95,
     "dailySunHours": 3.1,
     "summerSunHours": 4.1,
-    "winterSunHours": 1.5
+    "winterSunHours": 1.5,
+    "avgKwhPerHouseholdConsumed": 719,
+    "avgMonthHouseUtilCost": 90
   },
   {
     "stateId": "IN",
@@ -132,7 +163,9 @@ module.exports = [
     "clearDays": 88,
     "dailySunHours": 4.2,
     "summerSunHours": 5,
-    "winterSunHours": 2.6
+    "winterSunHours": 2.6,
+    "avgKwhPerHouseholdConsumed": 964,
+    "avgMonthHouseUtilCost": 112
   },
   {
     "stateId": "IA",
@@ -141,7 +174,9 @@ module.exports = [
     "clearDays": 105,
     "dailySunHours": 4.4,
     "summerSunHours": 4.8,
-    "winterSunHours": 3.7
+    "winterSunHours": 3.7,
+    "avgKwhPerHouseholdConsumed": 847,
+    "avgMonthHouseUtilCost": 99
   },
   {
     "stateId": "KS",
@@ -150,7 +185,9 @@ module.exports = [
     "clearDays": 128,
     "dailySunHours": 5.2,
     "summerSunHours": 4.6,
-    "winterSunHours": 4.5
+    "winterSunHours": 4.5,
+    "avgKwhPerHouseholdConsumed": 896,
+    "avgMonthHouseUtilCost": 111
   },
   {
     "stateId": "KY",
@@ -159,7 +196,9 @@ module.exports = [
     "clearDays": 93,
     "dailySunHours": 4.9,
     "summerSunHours": 6,
-    "winterSunHours": 3.6
+    "winterSunHours": 3.6,
+    "avgKwhPerHouseholdConsumed": 1120,
+    "avgMonthHouseUtilCost": 115
   },
   {
     "stateId": "LA",
@@ -168,7 +207,9 @@ module.exports = [
     "clearDays": 101,
     "dailySunHours": 4.8,
     "summerSunHours": 5.5,
-    "winterSunHours": 3.9
+    "winterSunHours": 3.9,
+    "avgKwhPerHouseholdConsumed": 1286,
+    "avgMonthHouseUtilCost": 120
   },
   {
     "stateId": "ME",
@@ -177,7 +218,9 @@ module.exports = [
     "clearDays": 101,
     "dailySunHours": 4.4,
     "summerSunHours": 5.4,
-    "winterSunHours": 3.1
+    "winterSunHours": 3.1,
+    "avgKwhPerHouseholdConsumed": 556,
+    "avgMonthHouseUtilCost": 87
   },
   {
     "stateId": "MD",
@@ -186,7 +229,9 @@ module.exports = [
     "clearDays": 105,
     "dailySunHours": 4.5,
     "summerSunHours": 4.7,
-    "winterSunHours": 3.8
+    "winterSunHours": 3.8,
+    "avgKwhPerHouseholdConsumed": 1012,
+    "avgMonthHouseUtilCost": 140
   },
   {
     "stateId": "MA",
@@ -195,7 +240,9 @@ module.exports = [
     "clearDays": 98,
     "dailySunHours": 4,
     "summerSunHours": 4.5,
-    "winterSunHours": 3
+    "winterSunHours": 3,
+    "avgKwhPerHouseholdConsumed": 602,
+    "avgMonthHouseUtilCost": 119
   },
   {
     "stateId": "MI",
@@ -204,7 +251,9 @@ module.exports = [
     "clearDays": 71,
     "dailySunHours": 4.1,
     "summerSunHours": 4.8,
-    "winterSunHours": 2.5
+    "winterSunHours": 2.5,
+    "avgKwhPerHouseholdConsumed": 649,
+    "avgMonthHouseUtilCost": 94
   },
   {
     "stateId": "MN",
@@ -213,7 +262,9 @@ module.exports = [
     "clearDays": 95,
     "dailySunHours": 4.5,
     "summerSunHours": 5.4,
-    "winterSunHours": 3.5
+    "winterSunHours": 3.5,
+    "avgKwhPerHouseholdConsumed": 762,
+    "avgMonthHouseUtilCost": 92
   },
   {
     "stateId": "MS",
@@ -222,7 +273,9 @@ module.exports = [
     "clearDays": 111,
     "dailySunHours": 4.4,
     "summerSunHours": 4.9,
-    "winterSunHours": 3.6
+    "winterSunHours": 3.6,
+    "avgKwhPerHouseholdConsumed": 1218,
+    "avgMonthHouseUtilCost": 137
   },
   {
     "stateId": "MO",
@@ -231,7 +284,9 @@ module.exports = [
     "clearDays": 115,
     "dailySunHours": 4.3,
     "summerSunHours": 5.2,
-    "winterSunHours": 3.6
+    "winterSunHours": 3.6,
+    "avgKwhPerHouseholdConsumed": 1033,
+    "avgMonthHouseUtilCost": 116
   },
   {
     "stateId": "MT",
@@ -240,7 +295,9 @@ module.exports = [
     "clearDays": 82,
     "dailySunHours": 4.7,
     "summerSunHours": 5.6,
-    "winterSunHours": 3.4
+    "winterSunHours": 3.4,
+    "avgKwhPerHouseholdConsumed": 818,
+    "avgMonthHouseUtilCost": 89
   },
   {
     "stateId": "NE",
@@ -249,7 +306,9 @@ module.exports = [
     "clearDays": 117,
     "dailySunHours": 4.8,
     "summerSunHours": 5.3,
-    "winterSunHours": 4.3
+    "winterSunHours": 4.3,
+    "avgKwhPerHouseholdConsumed": 962,
+    "avgMonthHouseUtilCost": 102
   },
   {
     "stateId": "NV",
@@ -258,7 +317,9 @@ module.exports = [
     "clearDays": 158,
     "dailySunHours": 6.2,
     "summerSunHours": 6.8,
-    "winterSunHours": 5.7
+    "winterSunHours": 5.7,
+    "avgKwhPerHouseholdConsumed": 913,
+    "avgMonthHouseUtilCost": 116
   },
   {
     "stateId": "NH",
@@ -267,7 +328,9 @@ module.exports = [
     "clearDays": 90,
     "dailySunHours": 4.6,
     "summerSunHours": "",
-    "winterSunHours": ""
+    "winterSunHours": "",
+    "avgKwhPerHouseholdConsumed": 621,
+    "avgMonthHouseUtilCost": 115
   },
   {
     "stateId": "NJ",
@@ -276,7 +339,9 @@ module.exports = [
     "clearDays": 94,
     "dailySunHours": 4.2,
     "summerSunHours": 4.8,
-    "winterSunHours": 3.2
+    "winterSunHours": 3.2,
+    "avgKwhPerHouseholdConsumed": 696,
+    "avgMonthHouseUtilCost": 110
   },
   {
     "stateId": "NM",
@@ -285,7 +350,9 @@ module.exports = [
     "clearDays": 167,
     "dailySunHours": 6.8,
     "summerSunHours": 7.2,
-    "winterSunHours": 6.2
+    "winterSunHours": 6.2,
+    "avgKwhPerHouseholdConsumed": 635,
+    "avgMonthHouseUtilCost": 79
   },
   {
     "stateId": "NY",
@@ -294,7 +361,9 @@ module.exports = [
     "clearDays": 63,
     "dailySunHours": 3.6,
     "summerSunHours": 4.3,
-    "winterSunHours": 2.2
+    "winterSunHours": 2.2,
+    "avgKwhPerHouseholdConsumed": 601,
+    "avgMonthHouseUtilCost": 111
   },
   {
     "stateId": "NC",
@@ -303,7 +372,9 @@ module.exports = [
     "clearDays": 109,
     "dailySunHours": 5,
     "summerSunHours": 5.4,
-    "winterSunHours": 4.3
+    "winterSunHours": 4.3,
+    "avgKwhPerHouseholdConsumed": 1113,
+    "avgMonthHouseUtilCost": 126
   },
   {
     "stateId": "ND",
@@ -312,7 +383,9 @@ module.exports = [
     "clearDays": 93,
     "dailySunHours": 5,
     "summerSunHours": 5.5,
-    "winterSunHours": 4
+    "winterSunHours": 4,
+    "avgKwhPerHouseholdConsumed": 1091,
+    "avgMonthHouseUtilCost": 105
   },
   {
     "stateId": "OH",
@@ -321,7 +394,9 @@ module.exports = [
     "clearDays": 72,
     "dailySunHours": 4,
     "summerSunHours": 5,
-    "winterSunHours": 2.7
+    "winterSunHours": 2.7,
+    "avgKwhPerHouseholdConsumed": 877,
+    "avgMonthHouseUtilCost": 112
   },
   {
     "stateId": "OK",
@@ -330,7 +405,9 @@ module.exports = [
     "clearDays": 139,
     "dailySunHours": 5.3,
     "summerSunHours": 5.9,
-    "winterSunHours": 4.6
+    "winterSunHours": 4.6,
+    "avgKwhPerHouseholdConsumed": 1093,
+    "avgMonthHouseUtilCost": 111
   },
   {
     "stateId": "OR",
@@ -339,7 +416,9 @@ module.exports = [
     "clearDays": 68,
     "dailySunHours": 4.1,
     "summerSunHours": 5.4,
-    "winterSunHours": 2
+    "winterSunHours": 2,
+    "avgKwhPerHouseholdConsumed": 902,
+    "avgMonthHouseUtilCost": 96
   },
   {
     "stateId": "PA",
@@ -348,7 +427,9 @@ module.exports = [
     "clearDays": 87,
     "dailySunHours": 3.6,
     "summerSunHours": 4.3,
-    "winterSunHours": 2.1
+    "winterSunHours": 2.1,
+    "avgKwhPerHouseholdConsumed": 855,
+    "avgMonthHouseUtilCost": 117
   },
   {
     "stateId": "RI",
@@ -357,7 +438,9 @@ module.exports = [
     "clearDays": 98,
     "dailySunHours": 4.2,
     "summerSunHours": 4.7,
-    "winterSunHours": 3.6
+    "winterSunHours": 3.6,
+    "avgKwhPerHouseholdConsumed": 594,
+    "avgMonthHouseUtilCost": 115
   },
   {
     "stateId": "SC",
@@ -366,7 +449,9 @@ module.exports = [
     "clearDays": 115,
     "dailySunHours": 5.1,
     "summerSunHours": 5.7,
-    "winterSunHours": 4.2
+    "winterSunHours": 4.2,
+    "avgKwhPerHouseholdConsumed": 1146,
+    "avgMonthHouseUtilCost": 144
   },
   {
     "stateId": "SD",
@@ -375,7 +460,9 @@ module.exports = [
     "clearDays": 104,
     "dailySunHours": 5.2,
     "summerSunHours": 5.9,
-    "winterSunHours": 4.6
+    "winterSunHours": 4.6,
+    "avgKwhPerHouseholdConsumed": 981,
+    "avgMonthHouseUtilCost": 109
   },
   {
     "stateId": "TN",
@@ -384,7 +471,9 @@ module.exports = [
     "clearDays": 102,
     "dailySunHours": 4.4,
     "summerSunHours": 5.1,
-    "winterSunHours": 3.2
+    "winterSunHours": 3.2,
+    "avgKwhPerHouseholdConsumed": 1248,
+    "avgMonthHouseUtilCost": 129
   },
   {
     "stateId": "TX",
@@ -393,7 +482,9 @@ module.exports = [
     "clearDays": 135,
     "dailySunHours": 5.7,
     "summerSunHours": 6.2,
-    "winterSunHours": 5
+    "winterSunHours": 5,
+    "avgKwhPerHouseholdConsumed": 1176,
+    "avgMonthHouseUtilCost": 136
   },
   {
     "stateId": "UT",
@@ -402,7 +493,9 @@ module.exports = [
     "clearDays": 125,
     "dailySunHours": 5.5,
     "summerSunHours": 6.4,
-    "winterSunHours": 4.6
+    "winterSunHours": 4.6,
+    "avgKwhPerHouseholdConsumed": 744,
+    "avgMonthHouseUtilCost": 81
   },
   {
     "stateId": "VT",
@@ -411,7 +504,9 @@ module.exports = [
     "clearDays": 58,
     "dailySunHours": 4.3,
     "summerSunHours": "",
-    "winterSunHours": ""
+    "winterSunHours": "",
+    "avgKwhPerHouseholdConsumed": 558,
+    "avgMonthHouseUtilCost": 95
   },
   {
     "stateId": "VA",
@@ -420,7 +515,9 @@ module.exports = [
     "clearDays": 100,
     "dailySunHours": 4.1,
     "summerSunHours": 4.5,
-    "winterSunHours": 3.4
+    "winterSunHours": 3.4,
+    "avgKwhPerHouseholdConsumed": 1149,
+    "avgMonthHouseUtilCost": 131
   },
   {
     "stateId": "WA",
@@ -429,7 +526,9 @@ module.exports = [
     "clearDays": 58,
     "dailySunHours": 4.4,
     "summerSunHours": 5.8,
-    "winterSunHours": 2.1
+    "winterSunHours": 2.1,
+    "avgKwhPerHouseholdConsumed": 964,
+    "avgMonthHouseUtilCost": 88
   },
   {
     "stateId": "WV",
@@ -438,7 +537,9 @@ module.exports = [
     "clearDays": 60,
     "dailySunHours": 3.7,
     "summerSunHours": 4.1,
-    "winterSunHours": 2.5
+    "winterSunHours": 2.5,
+    "avgKwhPerHouseholdConsumed": 1107,
+    "avgMonthHouseUtilCost": 112
   },
   {
     "stateId": "WI",
@@ -447,7 +548,9 @@ module.exports = [
     "clearDays": 89,
     "dailySunHours": 4.3,
     "summerSunHours": 4.9,
-    "winterSunHours": 3.3
+    "winterSunHours": 3.3,
+    "avgKwhPerHouseholdConsumed": 668,
+    "avgMonthHouseUtilCost": 94
   },
   {
     "stateId": "WY",
@@ -456,7 +559,9 @@ module.exports = [
     "clearDays": 114,
     "dailySunHours": 6.1,
     "summerSunHours": 6.8,
-    "winterSunHours": 5.5
+    "winterSunHours": 5.5,
+    "avgKwhPerHouseholdConsumed": 832,
+    "avgMonthHouseUtilCost": 91
   },
   {
     "stateId": "US",
@@ -465,6 +570,8 @@ module.exports = [
     "clearDays": 103.26,
     "dailySunHours": 4.7,
     "summerSunHours": 5.4,
-    "winterSunHours": 3.7
+    "winterSunHours": 3.7,
+    "avgKwhPerHouseholdConsumed": 901,
+    "avgMonthHouseUtilCost": 114
   }
 ];
