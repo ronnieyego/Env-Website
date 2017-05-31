@@ -53,7 +53,6 @@ const getUSAverages = (stateData) => {
 };
 
 export default (req, res) => {
-    console.log('params are',req.params);
     let state = (req.params.state).toUpperCase();
     if(validStateId(state)) {
 // Getting state data        
