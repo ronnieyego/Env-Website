@@ -10,10 +10,21 @@ export default class SolarWidget extends React.Component {
 	    let sunHours = 2;
 	    let kwhPrice = 0.927;
 	    let averageCO2PerKwh = 6;
+	    let installPrice6kw = 15000;
+	    let installPrice10kw = 25000;
 	    if( props.misc ) {
 	    	sunHours = props.misc.dailySunHours;
 	    	kwhPrice = props.misc.centsPerKwh;
-	    	//averageCO2PerKwh = props.energyPoduction.averageCO2PerKwh;
+
+	    	// Have to check to see if I have this data.  Otherwise I'll default to US averages
+	    	if(props.misc.installPrice6kw && props.misc.installPrice10kw) {
+	    		installPrice6kw = props.misc.installPrice6kw;
+	    		installPrice10kw = props.misc.installPrice10kw;
+	    	} else if (props.usAverages.installPrice6kw && props.usAverages.installPrice10kw) {
+	    		installPrice6kw = props.usAverages.installPrice6kw;
+	    		installPrice10kw = props.usAverages.installPrice10kw;
+	    	}
+	    	//averageCO2PerKwh = props.energyPoduction.averageCO2PerKwh;  Calculating each time.  Should probably pass in from server
 	    }
 	    
 	    this.state = {
@@ -24,6 +35,8 @@ export default class SolarWidget extends React.Component {
 	      kwhPrice,
 	      averageCO2PerKwh,
 	      showResults: false,
+	      installPrice6kw,
+	      installPrice10kw,
 	      resultsMessageLine1: '',
 	      resultsMessageLine2: '',
 	      resultsMessageLine3: ''
@@ -34,6 +47,15 @@ export default class SolarWidget extends React.Component {
 	  		this.state.sunHours = window.__STATE__.misc.dailySunHours;
 	  		this.state.kwhPrice = window.__STATE__.misc.centsPerKwh;
 	  		this.state.averageCO2PerKwh = window.__STATE__.energyProduction.averageCO2PerKwh;
+
+	  		// Have to check to see if I have this data.  Otherwise I'll default to US averages
+	    	if(window.__STATE__.misc.installPrice6kw && window.__STATE__.misc.installPrice10kw) {
+	    		this.state.installPrice6kw = window.__STATE__.misc.installPrice6kw;
+	    		this.state.installPrice10kw = window.__STATE__.misc.installPrice10kw;
+	    	} else if (window.__STATE__.usAverages.installPrice6kw && window.__STATE__.usAverages.installPrice10kw) {
+	    		this.state.installPrice6kw = window.__STATE__.usAverages.installPrice6kw;
+	    		this.state.installPrice10kw = window.__STATE__.usAverages.installPrice10kw;
+	    	}
 	  	}
 	  };
 
