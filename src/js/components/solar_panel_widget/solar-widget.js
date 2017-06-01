@@ -1,4 +1,5 @@
 import React from "react";
+import ResultsModal from './results-modal.js';
 
 import costCalc from '../../utils/cost-calc.js';
 import getCo2PerKwh from '../../utils/get-co2-emissions-by-kwh.js';
@@ -26,7 +27,7 @@ export default class SolarWidget extends React.Component {
 	    	}
 	    	//averageCO2PerKwh = props.energyPoduction.averageCO2PerKwh;  Calculating each time.  Should probably pass in from server
 	    }
-	    
+
 	    this.state = {
 	      title: "Welcome",
 	      selectedMaterial: 'radio-not-sure',
@@ -37,6 +38,7 @@ export default class SolarWidget extends React.Component {
 	      showResults: false,
 	      installPrice6kw,
 	      installPrice10kw,
+				resultsMessage: '',
 	      resultsMessageLine1: '',
 	      resultsMessageLine2: '',
 	      resultsMessageLine3: ''
@@ -57,6 +59,9 @@ export default class SolarWidget extends React.Component {
 	    		this.state.installPrice10kw = window.__STATE__.usAverages.installPrice10kw;
 	    	}
 	  	}
+
+			this.closeResultsModal = this.closeResultsModal.bind(this);
+
 	  };
 
 
@@ -114,14 +119,10 @@ export default class SolarWidget extends React.Component {
 	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
 	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
 
-	    let line1 = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.`;
-	    let line2 = `This will save you $${savings.toLocaleString()} per year.`;
-	    let line3 = `This will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
+	    let resultsMessage = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.  This will save you $${savings.toLocaleString()} per year and will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
 	    this.setState({
 	    	showResults: true,
-	    	resultsMessageLine1: line1,
-	    	resultsMessageLine2: line2,
-	    	resultsMessageLine3: line3
+	    	resultsMessage
 	    });
 	    this.props.showResults();
 	}
@@ -130,34 +131,36 @@ export default class SolarWidget extends React.Component {
 	  this.setState({ selectedMaterial: changeEvent.target.id });
 	}
 
-
+	closeResultsModal() {
+		this.setState({ showResults: false });
+	}
 
 	render() {
 		return (
-			<div id="widget" styles={this.props.widgetHeight}>
+			<div id="widget" style={this.props.widgetHeight}>
 				<span id="widget-title">Payback Period for Solar Panels</span>
 	            <br></br>
 	            <br></br>
 	            <span>Type of solar panel</span>
             <br></br>
-            <label class="radio-inline"></label>
-            	<div class="inline-radio-buttons">
+            <label className="radio-inline"></label>
+            	<div className="inline-radio-buttons">
 	                <div>
-	                    <label class="radio-inline">
+	                    <label className="radio-inline">
 	                    <input type="radio" name="survey" id="radio-not-sure" value="Yes" checked={this.state.selectedMaterial === 'radio-not-sure'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Not Sure
 	                  </label>
-	                    <label class="radio-inline">
+	                    <label className="radio-inline">
 	                    <input type="radio" name="survey" id="radio-mono" value="No" checked={this.state.selectedMaterial === 'radio-mono'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Monocrystalline
 	                  </label>
 	                </div>
 	                <div>
-	                  <label class="radio-inline">
+	                  <label className="radio-inline">
 	                    <input type="radio" name="survey" id="radio-poly" value="No" checked={this.state.selectedMaterial === 'radio-poly'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Polycrystalline
 	                  </label>
-	                  <label class="radio-inline">
+	                  <label className="radio-inline">
 	                    <input type="radio" name="survey" id="radio-thin-film" value="No" checked={this.state.selectedMaterial === 'radio-thin-film'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
 	                    Thin Film
 	                  </label>
@@ -165,25 +168,25 @@ export default class SolarWidget extends React.Component {
 	            </div>
 
 				<div>
-	                <div class="form-group">
-	                  <label for="roof-size">Square footage of solar panels</label>
-	                  <input type="text" class="form-control" id="roof-size-input" value={this.state.roofSize + ' sqft'} onChange={() => {}} onKeyDown={this.validateRoofSizeInput.bind(this)}/>
+	                <div className="form-group">
+	                  <label htmlFor="roof-size">Square footage of solar panels</label>
+	                  <input type="text" className="form-control" id="roof-size-input" value={this.state.roofSize + ' sqft'} onChange={() => {}} onKeyDown={this.validateRoofSizeInput.bind(this)}/>
 	                </div>
-	                <div class="form-group">
-	                  <label for="sun-hours">Hours of Sun/day</label>
-	                  <input type="text" class="form-control" id="sun-hours-input" value={this.state.sunHours + ' hours'} onChange={() => {}} onKeyDown={this.validateSunHoursInput.bind(this)}/>
+	                <div className="form-group">
+	                  <label htmlFor="sun-hours">Hours of Sun/day</label>
+	                  <input type="text" className="form-control" id="sun-hours-input" value={this.state.sunHours + ' hours'} onChange={() => {}} onKeyDown={this.validateSunHoursInput.bind(this)}/>
 	                </div>
-	                <div class="form-group">
-	                  <label for="kwh">Cost/kwH:</label>
-	                  <input type="text" class="form-control" id="kwh-input" value={'¢' + this.state.kwhPrice} onChange={() => {}} onKeyDown={this.validateKwhInput.bind(this)}/>
+	                <div className="form-group">
+	                  <label htmlFor="kwh">Cost/kwH:</label>
+	                  <input type="text" className="form-control" id="kwh-input" value={'¢' + this.state.kwhPrice} onChange={() => {}} onKeyDown={this.validateKwhInput.bind(this)}/>
 	                </div>
 	            </div>
 
-	            <button type="button" class="btn" onClick={this.calculateElectricitySavings.bind(this)}>Calculate Electricity Savings</button>
+	            <button type="button" className="btn" onClick={this.calculateElectricitySavings.bind(this)}>Calculate Electricity Savings</button>
 
-            		{ this.props.showResults ? <p>{this.state.resultsMessageLine1}</p> : null}
-					{ this.props.showResults ? <p>{this.state.resultsMessageLine2}</p> : null}
-					{ this.props.showResults ? <p>{this.state.resultsMessageLine3}</p> : null}
+            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} message={this.state.resultsMessage}/>
+					<p>{this.state.resultsMessageLine2}</p>
+					<p>{this.state.resultsMessageLine3}</p>
             </div>
 		);
 	}

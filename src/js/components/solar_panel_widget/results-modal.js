@@ -1,31 +1,71 @@
 import React from "react";
+import Modal from 'react-modal';
 //https://www.w3schools.com/bootstrap/bootstrap_modal.asp
 
-export default class Results extends React.Component {
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+};
 
-	render() {
-		return (
-			<div id="solar-results" class="modal fade" role="dialog">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">X</button>
-                    <h4 class="modal-title">Solar Panel Information</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>You will generate 10,512kwHs of electricity per year.</p>
-                    <p>This will save you $1,006 per year and prevent 326.92 pounds of CO2 from being produced each year.</p>
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  </div>
-                </div>
 
-              </div>
-            </div>
-		);
-	}
+  //let line1 = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.`;
+    //    let line2 = `This will save you $${savings.toLocaleString()} per year.`;
+      //  let line3 = `This will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
+
+
+export default class ResultsModal extends React.Component {
+
+	constructor(props) {
+        super();
+
+
+        this.state = {
+          topMessage: 'The message works!',
+          howWeGotThisData: ''
+        };
+
+        this.afterOpenModal = this.afterOpenModal.bind(this);
+        this.closeModal = this.closeModal.bind(this);
+    }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.subtitle.style.color = '#f00';
+  }
+
+  closeModal() {
+    this.props.onRequestClose && this.props.onRequestClose();
+  }
+
+  render() {
+    return (
+      <div>
+        <Modal
+          isOpen={this.props.modalOpen}
+          onAfterOpen={this.afterOpenModal}
+          onRequestClose={this.closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+
+          <h2 ref={subtitle => this.subtitle = subtitle}>Results</h2>
+          <button onClick={this.closeModal}>close</button>
+          <div>{this.props.message}</div>
+          <form>
+            <input />
+            <button>tab navigation</button>
+            <button>stays</button>
+            <button>inside</button>
+            <button>the modal</button>
+          </form>
+        </Modal>
+      </div>
+    );
+  }
 }
-
-
-// npm create-react-app

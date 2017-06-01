@@ -14,7 +14,7 @@ export default class WidgetContainer extends React.Component {
 		this.setState({showResults: true})
 	}
 
-	render() {		
+	render() {
 		let widgetHeight = this.state.showResults ? {height: 500} : {height: 450};
 
 		return (

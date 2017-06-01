@@ -5,25 +5,25 @@ export default class Header extends React.Component {
 
 	render() {
 		return (
-			<nav class="navbar navbar-inverse">
-			  <div class="container-fluid">
-			    <div class="navbar-header">
-			      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>
-			        <span class="icon-bar"></span>                        
+			<nav className="navbar navbar-inverse">
+			  <div className="container-fluid">
+			    <div className="navbar-header">
+			      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+			        <span className="icon-bar"></span>
+			        <span className="icon-bar"></span>
+			        <span className="icon-bar"></span>
 			      </button>
-			      <a class="navbar-brand" href="#">Logo</a>
+			      <a className="navbar-brand" href="#">Logo</a>
 			    </div>
-			    <div class="collapse navbar-collapse" id="myNavbar">
-			      <ul class="nav navbar-nav">
-			        <li class="active"><a href="/">Home</a></li>
+			    <div className="collapse navbar-collapse" id="myNavbar">
+			      <ul className="nav navbar-nav">
+			        <li className="active"><a href="/">Home</a></li>
 			        <li><a href="#">About</a></li>
 			        <li><a href="#">Projects</a></li>
 			        <li><a href="#">Contact</a></li>
 			      </ul>
-			      <ul class="nav navbar-nav navbar-right">
-			        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			      <ul className="nav navbar-nav navbar-right">
+			        <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
 			      </ul>
 			    </div>
 			  </div>
