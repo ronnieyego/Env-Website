@@ -34,6 +34,7 @@ export default class SolarWidget extends React.Component {
 	      roofSize: 400,
 	      sunHours,
 	      kwhPrice,
+				stateFullName: '',
 	      averageCO2PerKwh,
 	      showResults: false,
 	      installPrice6kw,
@@ -49,6 +50,7 @@ export default class SolarWidget extends React.Component {
 	  		this.state.sunHours = window.__STATE__.misc.dailySunHours;
 	  		this.state.kwhPrice = window.__STATE__.misc.centsPerKwh;
 	  		this.state.averageCO2PerKwh = window.__STATE__.energyProduction.averageCO2PerKwh;
+				this.state.stateFullName = window.__STATE__.misc.stateFullName;
 
 	  		// Have to check to see if I have this data.  Otherwise I'll default to US averages
 	    	if(window.__STATE__.misc.installPrice6kw && window.__STATE__.misc.installPrice10kw) {
@@ -184,7 +186,7 @@ export default class SolarWidget extends React.Component {
 
 	            <button type="button" className="btn" onClick={this.calculateElectricitySavings.bind(this)}>Calculate Electricity Savings</button>
 
-            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} message={this.state.resultsMessage}/>
+            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} message={this.state.resultsMessage} stateName={this.state.stateFullName}/>
 					<p>{this.state.resultsMessageLine2}</p>
 					<p>{this.state.resultsMessageLine3}</p>
             </div>
