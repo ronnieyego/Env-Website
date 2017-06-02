@@ -4,27 +4,27 @@ import Modal from 'react-modal';
 
 const customStyles = {
   content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
+    backgroundColor: '#F8F8F8',
+    border: '0',
+    borderRadius: '4px',
+    bottom: 'auto',
+    minHeight: '10rem',
+    left: '50%',
+    padding: '2rem',
+    position: 'fixed',
+    right: 'auto',
+    top: '50%',
+    transform: 'translate(-50%,-50%)',
+    minWidth: '20rem',
+    width: '80%',
+    maxWidth: '60rem'
   }
 };
-
-
-  //let line1 = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.`;
-    //    let line2 = `This will save you $${savings.toLocaleString()} per year.`;
-      //  let line3 = `This will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
-
 
 export default class ResultsModal extends React.Component {
 
 	constructor(props) {
         super();
-
-
         this.state = {
           topMessage: 'The message works!',
           howWeGotThisData: ''
@@ -36,7 +36,7 @@ export default class ResultsModal extends React.Component {
 
   afterOpenModal() {
     // references are now sync'd and can be accessed.
-    this.subtitle.style.color = '#f00';
+    this.subtitle.style.color = 'blue';
   }
 
   closeModal() {
@@ -44,6 +44,10 @@ export default class ResultsModal extends React.Component {
   }
 
   render() {
+    const h2Style = {
+      textColor: 'blue',
+      textAlign: 'center'
+    };
     return (
       <div>
         <Modal
@@ -53,17 +57,10 @@ export default class ResultsModal extends React.Component {
           style={customStyles}
           contentLabel="Example Modal"
         >
-
-          <h2 ref={subtitle => this.subtitle = subtitle}>Results</h2>
-          <button onClick={this.closeModal}>close</button>
+          <button type="button" className="close" style={{color: 'red'}} onClick={this.closeModal}>X</button>
+          <h2 ref={subtitle => this.subtitle = subtitle} style={h2Style}>Results</h2>
           <div>{this.props.message}</div>
-          <form>
-            <input />
-            <button>tab navigation</button>
-            <button>stays</button>
-            <button>inside</button>
-            <button>the modal</button>
-          </form>
+          <button onClick={this.closeModal} style={{left: '10%'}}>close</button>
         </Modal>
       </div>
     );
