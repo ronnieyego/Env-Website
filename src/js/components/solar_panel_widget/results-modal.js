@@ -53,7 +53,8 @@ export default class ResultsModal extends React.Component {
           <button type="button" className="close" style={{color: 'red'}} onClick={this.closeModal}>X</button>
           <h2 ref={subtitle => this.subtitle = subtitle}>Results</h2>
           <div>
-            <h3>Savings</h3>  
+            <h3>Savings</h3> 
+            <p>There is a {this.props.paybackPeriod} year payback period.</p> 
             <p>{this.props.message}</p>
           </div>
           <div>

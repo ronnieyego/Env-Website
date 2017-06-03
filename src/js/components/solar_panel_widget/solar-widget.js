@@ -29,20 +29,17 @@ export default class SolarWidget extends React.Component {
 	    }
 
 	    this.state = {
-	      title: "Welcome",
+	      stateFullName: '',
 	      selectedMaterial: 'radio-not-sure',
 	      roofSize: 400,
 	      sunHours,
 	      kwhPrice,
-				stateFullName: '',
 	      averageCO2PerKwh,
 	      showResults: false,
 	      installPrice6kw,
 	      installPrice10kw,
-				resultsMessage: '',
-	      resultsMessageLine1: '',
-	      resultsMessageLine2: '',
-	      resultsMessageLine3: ''
+				paybackPeriod: 0,
+				resultsMessage: ''
 	    };
 
 	  	if(typeof window !== 'undefined') {
@@ -120,11 +117,13 @@ export default class SolarWidget extends React.Component {
 	    // Should break out message function from calc cost function
 	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
 	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
+			const paybackPeriod = (this.state.installPrice6kw/savings).toFixed(1);
 
 	    let resultsMessage = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.  This will save you $${savings.toLocaleString()} per year and will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
 	    this.setState({
 	    	showResults: true,
-	    	resultsMessage
+	    	resultsMessage,
+				paybackPeriod
 	    });
 	    this.props.showResults();
 	}
@@ -186,9 +185,7 @@ export default class SolarWidget extends React.Component {
 
 	            <button type="button" className="btn" onClick={this.calculateElectricitySavings.bind(this)}>Calculate Electricity Savings</button>
 
-            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} message={this.state.resultsMessage} stateName={this.state.stateFullName}/>
-					<p>{this.state.resultsMessageLine2}</p>
-					<p>{this.state.resultsMessageLine3}</p>
+            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} message={this.state.resultsMessage} stateName={this.state.stateFullName} paybackPeriod={this.state.paybackPeriod}/>
             </div>
 		);
 	}
