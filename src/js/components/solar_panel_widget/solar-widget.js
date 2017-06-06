@@ -13,6 +13,7 @@ export default class SolarWidget extends React.Component {
 	    let averageCO2PerKwh = 6;
 	    let installPrice6kw = 15000;
 	    let installPrice10kw = 25000;
+			let installPricePerWatt = 3;
 	    if( props.misc ) {
 	    	sunHours = props.misc.dailySunHours;
 	    	kwhPrice = props.misc.centsPerKwh;
@@ -25,6 +26,7 @@ export default class SolarWidget extends React.Component {
 	    		installPrice6kw = props.usAverages.installPrice6kw;
 	    		installPrice10kw = props.usAverages.installPrice10kw;
 	    	}
+				installPricePerWatt = (((installPrice6kw/6000) + (installPrice10kw/10000))/2).toFixed(1);
 	    	//averageCO2PerKwh = props.energyPoduction.averageCO2PerKwh;  Calculating each time.  Should probably pass in from server
 	    }
 
@@ -38,6 +40,7 @@ export default class SolarWidget extends React.Component {
 	      showResults: false,
 	      installPrice6kw,
 	      installPrice10kw,
+				installPricePerWatt,
 				paybackPeriod: 0,
 				resultsMessage: ''
 	    };
@@ -63,6 +66,13 @@ export default class SolarWidget extends React.Component {
 
 	  };
 
+		updateRoofSize(e) {
+			let id = e.target.id;
+
+			let roofSize = document.getElementById(id).value;
+			this.setState({roofSize})
+
+		}
 
 	  validateRoofSizeInput(e) {
 	  	let newVal = this.changeIntInput(this.state.roofSize, e);
@@ -142,36 +152,27 @@ export default class SolarWidget extends React.Component {
 				<span id="widget-title">Payback Period for Solar Panels</span>
 	            <br></br>
 	            <br></br>
-	            <span>Type of solar panel</span>
-            <br></br>
-            <label className="radio-inline"></label>
-            	<div className="inline-radio-buttons">
-	                <div>
-	                    <label className="radio-inline">
-	                    <input type="radio" name="survey" id="radio-not-sure" value="Yes" checked={this.state.selectedMaterial === 'radio-not-sure'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
-	                    Not Sure
-	                  </label>
-	                    <label className="radio-inline">
-	                    <input type="radio" name="survey" id="radio-mono" value="No" checked={this.state.selectedMaterial === 'radio-mono'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
-	                    Monocrystalline
-	                  </label>
-	                </div>
-	                <div>
-	                  <label className="radio-inline">
-	                    <input type="radio" name="survey" id="radio-poly" value="No" checked={this.state.selectedMaterial === 'radio-poly'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
-	                    Polycrystalline
-	                  </label>
-	                  <label className="radio-inline">
-	                    <input type="radio" name="survey" id="radio-thin-film" value="No" checked={this.state.selectedMaterial === 'radio-thin-film'} onChange={this.materialRadioButtonClicked.bind(this)}></input>
-	                    Thin Film
-	                  </label>
-	                </div>
-	            </div>
+							<div>
+	            	<span>Install Price</span>
+								<input type='text' value={this.state.roofSize * this.state.installPricePerWatt * 10} />
+							</div>
+							<div>
+	            	<span>KWHs</span>
+								<input type='text' value={this.state.roofSize * 10} />
+							</div>
 
 				<div>
+
 	                <div className="form-group">
-	                  <label htmlFor="roof-size">Square footage of solar panels</label>
-	                  <input type="text" className="form-control" id="roof-size-input" value={this.state.roofSize + ' sqft'} onChange={() => {}} onKeyDown={this.validateRoofSizeInput.bind(this)}/>
+										<div>
+	                  	<label htmlFor="roof-size">Square footage of solar panels</label>
+	                  </div>
+										<div>
+											<span>
+												<input type='text' className="form-control" style={{width:'25%', display: 'inline-block'}} value={this.state.roofSize + ' sqft'} onKeyDown={this.validateRoofSizeInput.bind(this)} /> 
+												<input type="range" id="roof-size-slider" min="100" max="990" step="10" style={{width:'75%', display: 'inline-block'}} onChange={this.updateRoofSize.bind(this)}/>
+										</span>
+										</div>
 	                </div>
 	                <div className="form-group">
 	                  <label htmlFor="sun-hours">Hours of Sun/day</label>
