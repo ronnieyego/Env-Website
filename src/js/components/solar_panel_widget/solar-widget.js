@@ -13,7 +13,7 @@ export default class SolarWidget extends React.Component {
 	    let averageCO2PerKwh = 6;
 	    let installPrice6kw = 15000;
 	    let installPrice10kw = 25000;
-			let installPricePerWatt = 3;
+		let installPricePerWatt = 3;
 	    if( props.misc ) {
 	    	sunHours = props.misc.dailySunHours;
 	    	kwhPrice = props.misc.centsPerKwh;
@@ -106,28 +106,28 @@ export default class SolarWidget extends React.Component {
 		let roofSize = this.state.roofSize;
 	    let kwhPrice = this.state.kwhPrice * 0.01; //Convert it to cents
 	    let sunHours = this.state.sunHours;
-	    let wattsPerHour;
+	    let panelEfficiency; // In watts.  This is watts generated when theres peak sun
 	    switch(this.state.selectedMaterial){
 	    	case 'radio-not-sure':
-	    		wattsPerHour = 15;
+	    		panelEfficiency = 15;
 	    		break;
 	    	case 'radio-mono':
-	    		wattsPerHour = 14;
+	    		panelEfficiency = 14;
 	    		break;
 	    	case 'radio-poly':
-	    		wattsPerHour = 12.6;
+	    		panelEfficiency = 12.6;
 	    		break;
 	    	case 'radio-thin-film':
-	    		wattsPerHour = 6.5;
+	    		panelEfficiency = 6.5;
 	    		break;
 	    	default:
-	    		wattsPerHour = 15;
+	    		panelEfficiency = 15;
 	    }
 	    // Run calculation
 	    // Should break out message function from calc cost function
-	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, wattsPerHour);
+	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, panelEfficiency);
 	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
-			const paybackPeriod = (this.state.installPrice6kw/savings).toFixed(1);
+		const paybackPeriod = (this.state.installPrice6kw/savings).toFixed(1);
 
 	    let resultsMessage = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.  This will save you $${savings.toLocaleString()} per year and will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
 	    this.setState({
@@ -147,32 +147,40 @@ export default class SolarWidget extends React.Component {
 	}
 
 	render() {
+		const kWhPerSqft = this.state.sunHours * 15/1000;
+		const kWhPerMonth = Math.round(this.state.roofSize * kWhPerSqft * 365/12 ) // sqft * hours Sun/day * watts/sqft Sun * days/month * watts/kiloWatt
+		const installPrice = Math.round(this.state.roofSize * 15 * this.state.installPricePerWatt);
+		const systemOutput = Math.round(this.state.roofSize * 15);
 		return (
 			<div id="widget" style={this.props.widgetHeight}>
 				<span id="widget-title">Payback Period for Solar Panels</span>
 	            <br></br>
 	            <br></br>
-							<div>
-	            	<span>Install Price</span>
-								<input type='text' value={this.state.roofSize * this.state.installPricePerWatt * 10} />
-							</div>
-							<div>
-	            	<span>KWHs</span>
-								<input type='text' value={this.state.roofSize * 10} />
-							</div>
+				<div>
+				  <span>Install Price</span>
+					<input type='text' value={systemOutput * this.state.installPricePerWatt} />
+				</div>
+				<div>
+				  <span>Peak System Output</span>
+					<input type='text' value={systemOutput + ' watts'} />
+				</div>
+				<div>
+				  <span>kWh per month</span>
+					<input type='text' value={kWhPerMonth} />
+				</div>
 
 				<div>
 
 	                <div className="form-group">
-										<div>
+					  <div>
 	                  	<label htmlFor="roof-size">Square footage of solar panels</label>
 	                  </div>
-										<div>
-											<span>
-												<input type='text' className="form-control" style={{width:'25%', display: 'inline-block'}} value={this.state.roofSize + ' sqft'} onKeyDown={this.validateRoofSizeInput.bind(this)} /> 
-												<input type="range" id="roof-size-slider" min="100" max="990" step="10" style={{width:'75%', display: 'inline-block'}} onChange={this.updateRoofSize.bind(this)}/>
-										</span>
-										</div>
+					<div>
+					  <span>
+						<input type='text' className="form-control" style={{width:'25%', display: 'inline-block'}} value={this.state.roofSize + ' sqft'} onKeyDown={this.validateRoofSizeInput.bind(this)} /> 
+						<input type="range" id="roof-size-slider" value={this.state.roofSize} min="100" max="990" step="10" style={{width:'75%', display: 'inline-block'}} onChange={this.updateRoofSize.bind(this)}/>
+					</span>
+					</div>
 	                </div>
 	                <div className="form-group">
 	                  <label htmlFor="sun-hours">Hours of Sun/day</label>
