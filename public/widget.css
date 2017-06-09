@@ -1,12 +1,17 @@
 #widget {
-    width: 350px;
-    border-style: ridge;
-    background-color: #D3D3D3;
-    text-align: center;
-    line-height: 130%;
+
 }
 
 #widget-title {
     font-weight: bold;
     font-size: 18;
+}
+
+.solar-widget-top-div {
+}
+
+.solar-widget-top-input {
+    left: 200px;
+    position: absolute;
+    width: 100px;
 }

@@ -4,6 +4,16 @@ import ResultsModal from './results-modal.js';
 import costCalc from '../../utils/cost-calc.js';
 import getCo2PerKwh from '../../utils/get-co2-emissions-by-kwh.js';
 
+
+const widgetStyles = {
+			backgroundColor: '#dcfeff',
+			height: '425px',
+			width: '350px',
+			borderStyle: 'ridge',
+			textAlign: 'center',
+			lineHeight: '130%'
+		};
+
 export default class SolarWidget extends React.Component {
 
 	constructor(props) {
@@ -37,20 +47,27 @@ export default class SolarWidget extends React.Component {
 	      sunHours,
 	      kwhPrice,
 	      averageCO2PerKwh,
+		  averagekWhConsumedByAverageResidentPerMonth: 0,
+		  percentElectrictyGenerated: 0,
 	      showResults: false,
 	      installPrice6kw,
 	      installPrice10kw,
-				installPricePerWatt,
-				paybackPeriod: 0,
-				resultsMessage: ''
+		  installPricePerWatt,
+		  paybackPeriod: 0,
+		  kwhGeneratedPeryear: 0,
+		  yearlySavings: 0,
+		  co2Saved: 0,
+		  resultsMessage: ''
 	    };
+
 
 	  	if(typeof window !== 'undefined') {
 	  		console.log('window state', window.__STATE__);
 	  		this.state.sunHours = window.__STATE__.misc.dailySunHours;
 	  		this.state.kwhPrice = window.__STATE__.misc.centsPerKwh;
 	  		this.state.averageCO2PerKwh = window.__STATE__.energyProduction.averageCO2PerKwh;
-				this.state.stateFullName = window.__STATE__.misc.stateFullName;
+			this.state.stateFullName = window.__STATE__.misc.stateFullName;
+			this.state.averagekWhConsumedByAverageResidentPerMonth = window.__STATE__.misc.avgKwhPerHouseholdConsumed;
 
 	  		// Have to check to see if I have this data.  Otherwise I'll default to US averages
 	    	if(window.__STATE__.misc.installPrice6kw && window.__STATE__.misc.installPrice10kw) {
@@ -124,16 +141,19 @@ export default class SolarWidget extends React.Component {
 	    		panelEfficiency = 15;
 	    }
 	    // Run calculation
-	    // Should break out message function from calc cost function
 	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, panelEfficiency);
-	    const totalCo2Saved = co2PerKwh * electrictyGenerated;
+	    const co2Saved = co2PerKwh * electrictyGenerated;
 		const paybackPeriod = (this.state.installPrice6kw/savings).toFixed(1);
+		const percentElectrictyGenerated = (electrictyGenerated / this.state.averagekWhConsumedByAverageResidentPerMonth * 12).toFixed(2);
 
-	    let resultsMessage = `You will generate ${electrictyGenerated.toLocaleString()}kwHs of electricity per year.  This will save you $${savings.toLocaleString()} per year and will also prevent ${totalCo2Saved.toFixed(2).toLocaleString()} pounds of CO2 from being produced each year.`;
 	    this.setState({
 	    	showResults: true,
-	    	resultsMessage,
-				paybackPeriod
+			kwhGeneratedPeryear: electrictyGenerated,
+			yearlySavings: savings,
+			co2Saved,
+			paybackPeriod,
+			percentElectrictyGenerated
+
 	    });
 	    this.props.showResults();
 	}
@@ -148,27 +168,44 @@ export default class SolarWidget extends React.Component {
 
 	render() {
 		const kWhPerSqft = this.state.sunHours * 15/1000;
+		
+		// These should be set to a state so I can pass them in
+		// TODO:  The payback period is not based on this install price but rather the installPrice6kw
 		const kWhPerMonth = Math.round(this.state.roofSize * kWhPerSqft * 365/12 ) // sqft * hours Sun/day * watts/sqft Sun * days/month * watts/kiloWatt
 		const installPrice = Math.round(this.state.roofSize * 15 * this.state.installPricePerWatt);
 		const systemOutput = Math.round(this.state.roofSize * 15);
+		const inputStypes = {textAlign: 'left', marginLeft: '25px'};
+		
+		// Pass this as props to results modal
+		const resultProps = {  
+			paybackPeriod: this.state.paybackPeriod,
+			stateName: this.state.stateFullName,
+			kwhGeneratedPeryear: this.state.kwhGeneratedPeryear,
+			yearlySavings: this.state.yearlySavings,
+			percentElectrictyGenerated: this.state.percentElectrictyGenerated,
+			co2Saved: this.state.co2Saved
+		};
+
 		return (
-			<div id="widget" style={this.props.widgetHeight}>
+			<div id="widget" style={widgetStyles}>
 				<span id="widget-title">Payback Period for Solar Panels</span>
 	            <br></br>
 	            <br></br>
-				<div>
-				  <span>Install Price</span>
-					<input type='text' value={systemOutput * this.state.installPricePerWatt} />
+				<div style={inputStypes}>				
+					<div className='solar-widget-top-div'>
+						Install Price
+						<input className='solar-widget-top-input' type='text' value={'$' + (systemOutput * this.state.installPricePerWatt).toLocaleString()} />
+					</div>
+					<div className='solar-widget-top-div'>
+						Peak System Output
+						<input className='solar-widget-top-input' type='text' value={systemOutput.toLocaleString() + ' watts'} />
+					</div>
+					<div className='solar-widget-top-div'>
+						Energy per month
+						<input className='solar-widget-top-input' type='text' value={kWhPerMonth.toLocaleString() + ' kWhs'} />
+					</div>
 				</div>
-				<div>
-				  <span>Peak System Output</span>
-					<input type='text' value={systemOutput + ' watts'} />
-				</div>
-				<div>
-				  <span>kWh per month</span>
-					<input type='text' value={kWhPerMonth} />
-				</div>
-
+				<br />
 				<div>
 
 	                <div className="form-group">
@@ -194,7 +231,7 @@ export default class SolarWidget extends React.Component {
 
 	            <button type="button" className="btn" onClick={this.calculateElectricitySavings.bind(this)}>Calculate Electricity Savings</button>
 
-            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} message={this.state.resultsMessage} stateName={this.state.stateFullName} paybackPeriod={this.state.paybackPeriod}/>
+            		<ResultsModal modalOpen={this.state.showResults} onRequestClose={this.closeResultsModal} {...resultProps}/>
             </div>
 		);
 	}
