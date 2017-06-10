@@ -142,7 +142,7 @@ export default class SolarWidget extends React.Component {
 	    }
 	    // Run calculation
 	    const { electrictyGenerated, savings } = costCalc(roofSize, kwhPrice, sunHours, panelEfficiency);
-	    const co2Saved = co2PerKwh * electrictyGenerated;
+	    const co2Saved = Math.round(co2PerKwh * electrictyGenerated);
 		const paybackPeriod = (this.state.installPrice6kw/savings).toFixed(1);
 		const percentElectrictyGenerated = (electrictyGenerated / this.state.averagekWhConsumedByAverageResidentPerMonth * 12).toFixed(2);
 

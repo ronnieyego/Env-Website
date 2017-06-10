@@ -60,7 +60,7 @@ export default class ResultsModal extends React.Component {
               <li>You will generate {this.props.kwhGeneratedPeryear.toLocaleString()} kWhs per year{energyGeneratedText}</li>
               <li>This will result in ${(this.props.yearlySavings).toLocaleString()} a year in savings</li>
             </ul> 
-            <p>Your solar panels will prevent {Math.round(this.props.co2Saved.toLocaleString())} pounds of CO2 in energy generation every year</p>
+            <p>Your solar panels will prevent {this.props.co2Saved.toLocaleString()} pounds of CO2 in energy generation every year</p>
             <p>{this.props.message}</p>
           </div>
           <div>
