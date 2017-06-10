@@ -7,7 +7,7 @@ import bodyParser  from 'body-parser';
 import fs  from 'fs';
 import path  from "path";
 
-import ssrMiddleware  from './ssr-middleware';
+import {solarMiddleware}  from './ssr-middleware';
 
 const {ObjectID} = require('mongodb');
 const { mongoose } = require('./db/mongoose');
@@ -41,10 +41,10 @@ app.get('/home/:test', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/homepage.html'));
 });
 
-// TODO.  THis is broken.  Passing through params is weird.
-app.get('/solar/:state', ssrMiddleware);
+//  app.get('/solar', solarMiddleware);  Broken since there's no state param
+app.get('/solar/:state', solarMiddleware);
 
-app.get('/solar', ssrMiddleware);
+app.get('/energy/:state', solarMiddleware);
 
 
 

@@ -1,13 +1,25 @@
 import React from 'react';
 import ReactDOM from "react-dom/server";
 
+//Pages
 import Layout from './src/js/components/Layout';
+import StateEnergyProfile from './src/js/pages/state-energy-profile';
+
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
 import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 
-const renderFullPage = (markup, defaultState) => {
+const renderFullPage = (markup, data, page) => {
+    let jsLocation;
+    switch (jsLocation) {
+        case 'solar-wdiget':
+            jsLocation = '/public/scripts.min.js';
+        case 'energy-profile':
+            jsLocation = '/public/energy.min.js';
+        default:
+            jsLocation = '/public/scripts.min.js';
+    };
     return `
     <!DOCTYPE html>
         <html>
@@ -21,9 +33,9 @@ const renderFullPage = (markup, defaultState) => {
             <body>
                 <div id="app">${markup}</div>
                 <script type="text/javascript">
-                window.__STATE__ = ${JSON.stringify(defaultState)}
+                window.__STATE__ = ${JSON.stringify(data)}
                 </script>
-                <script type="text/javascript" src="/public/scripts.min.js"></script>
+                <script type="text/javascript" src=${jsLocation}></script>
 
             </body>
         </html>
@@ -52,7 +64,7 @@ const getUSAverages = (stateData) => {
 
 };
 
-export default (req, res) => {
+const solarMiddleware =  (req, res) => {
     let state = (req.params.state).toUpperCase();
     if(validStateId(state)) {
 // Getting state data        
@@ -106,3 +118,38 @@ export default (req, res) => {
     }
 };
 
+
+
+const stateEnergyMiddleware =  (req, res) => {
+    let state = (req.params.state).toUpperCase();
+    if(validStateId(state)) {
+// Getting state data        
+        let myPromise = new Promise((resolve, reject) => {
+            States.find({ stateId: state}).then((stateInfo) => {
+                if(!stateInfo) {
+                    reject('Couldn\'t find state data');
+                } else {
+                    let res = JSON.parse(JSON.stringify(stateInfo[0]));
+                    let production = res.energyProduction;
+                    let averageCO2PerKwh = getCo2EmissionsByKwh(production.total, production.naturalGas, production.coal, production.petroleum);
+                    res.energyProduction.averageCO2PerKwh = averageCO2PerKwh;
+                    resolve(res);
+                }
+                            
+            });
+        })
+        myPromise.then((stateData) => {
+            const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...stateData}/>);
+            res.status(200).send(renderFullPage(appMarkup, stateData));
+        });
+    } else {
+        console.log('inproper query param');
+        res.status(400).send("inproper query param");
+    }
+};
+
+
+module.exports = {
+    solarMiddleware,
+    stateEnergyMiddleware
+}
