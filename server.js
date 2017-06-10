@@ -7,7 +7,7 @@ import bodyParser  from 'body-parser';
 import fs  from 'fs';
 import path  from "path";
 
-import {solarMiddleware}  from './ssr-middleware';
+import { solarMiddleware, stateEnergyMiddleware }  from './ssr-middleware';
 
 const {ObjectID} = require('mongodb');
 const { mongoose } = require('./db/mongoose');
@@ -44,7 +44,7 @@ app.get('/home/:test', (req, res) => {
 //  app.get('/solar', solarMiddleware);  Broken since there's no state param
 app.get('/solar/:state', solarMiddleware);
 
-app.get('/energy/:state', solarMiddleware);
+app.get('/energy/:state', stateEnergyMiddleware);
 
 
 

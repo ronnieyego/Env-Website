@@ -12,14 +12,17 @@ import validStateId from './src/js/utils/check-if-valid-state-id';
 
 const renderFullPage = (markup, data, page) => {
     let jsLocation;
-    switch (jsLocation) {
-        case 'solar-wdiget':
+    switch (page) {
+        case 'solar-widget':
             jsLocation = '/public/scripts.min.js';
+            break;
         case 'energy-profile':
             jsLocation = '/public/energy.min.js';
+            break;
         default:
             jsLocation = '/public/scripts.min.js';
     };
+
     return `
     <!DOCTYPE html>
         <html>
@@ -109,7 +112,7 @@ const solarMiddleware =  (req, res) => {
             })
             uSAverages.then(stateData => {
                 const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
-                res.status(200).send(renderFullPage(appMarkup, stateData));
+                res.status(200).send(renderFullPage(appMarkup, stateData, 'solar-widget'));
             });
         });
     } else {
@@ -140,7 +143,7 @@ const stateEnergyMiddleware =  (req, res) => {
         })
         myPromise.then((stateData) => {
             const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...stateData}/>);
-            res.status(200).send(renderFullPage(appMarkup, stateData));
+            res.status(200).send(renderFullPage(appMarkup, stateData, 'energy-profile'));
         });
     } else {
         console.log('inproper query param');

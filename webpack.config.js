@@ -2,10 +2,30 @@
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
 
+let entry;
+let filename;
+switch(process.env.page) {
+  case 'solar':
+    entry = './js/client.js';
+    filename = 'scripts.min.js';
+    break;
+  case 'home':
+    entry = './js/homepage-entry.js';
+    filename = 'homepage.min.js';
+    break;
+  case 'energy':
+    entry = './js/state-energy-profile.js';
+    filename = 'energy.min.js';
+    break;
+  default: //defaults to solar
+    entry = './js/client.js';
+    filename = 'scripts.min.js';
+}
+
 module.exports = {
   context: __dirname + "/src",
   devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/client.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage
+  entry: entry, //"./js/state-energy-profile.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage  // ./js/state-energy-profile.js for state energy profile
   module: {
     loaders: [
       {
@@ -21,7 +41,7 @@ module.exports = {
   },
   output: {
     path: __dirname + "/public/",
-    filename: "scripts.min.js"  //scripts.min.js for widget // homepage.min.js
+    filename: filename //"energy.min.js"  //scripts.min.js for widget // homepage.min.js // energy.min.js
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
