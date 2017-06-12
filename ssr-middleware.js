@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/server";
 
 //Pages
 import Layout from './src/js/components/Layout';
-import StateEnergyProfile from './src/js/pages/state-energy-profile';
+import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';

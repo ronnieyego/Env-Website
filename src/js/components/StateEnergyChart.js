@@ -6,10 +6,14 @@ export default class StateEnergyChart extends React.Component {
 
     constructor(props) {
 	    super();
-
+        let stateName;
+        if(props.misc) {
+            stateName = props.misc.stateFullName || 'error';
+        }
+        
         this.state = {
             //totalEnergyConsumption: 0,
-            pcoal: 0,
+            coal: 0,
             geothermal: 0,
             hydroElectric: 0,
             naturalGas: 0,
@@ -21,13 +25,15 @@ export default class StateEnergyChart extends React.Component {
             pNaturalGal: 0,
             pRenewables: 0,
             pNuclear: 0,
+            stateName: stateName,
             graphData: {}
         }
 
         if(typeof window !== 'undefined') {
-	  		console.log('window state', window.__STATE__);
               //this.state.totalEnergyConsumption = window.__STATE__.energyProduction.totalEnergyConsumption;
               
+              this.state.stateName = window.__STATE__.misc.stateFullName;
+
               //Absolute Numbers
               this.state.coal = window.__STATE__.energyProduction.coal;
               this.state.geothermal = window.__STATE__.energyProduction.geothermal;
@@ -54,13 +60,15 @@ export default class StateEnergyChart extends React.Component {
     }
 
 	render() {
+        const legendText = [{value: `Energy production breakdown for ${this.state.stateName}`, type: 'line', id: 'ID01' }];
 		return (
             <div>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={600} height={500} data={this.state.graphData}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={440} data={this.state.graphData}>
                     <Radar name="Mike" dataKey="amount" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6}/>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="source" />
                     <PolarRadiusAxis/>
+                    <Legend align='center' verticalAlign='top' payload={legendText}/>
                 </RadarChart>
                 <p>Data for this chart from the EIA 2014</p>
             </div>
