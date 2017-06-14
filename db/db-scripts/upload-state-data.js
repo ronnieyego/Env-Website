@@ -1,10 +1,9 @@
 const {MongoClient, ObjectId} = require('mongodb');
 const stateData = require('./data/formatted/all-states-all-data.js');
 
-// Heroku : 'mongodb://heroku_0fqtdb7x:sgvsobiubth5nmf1oujn6lr5jg@ds157571.mlab.com:57571/heroku_0fqtdb7x
-// Local : 'mongodb://localhost:27017/EnvWebsite'
-const env = 'mongodb://heroku_0fqtdb7x:sgvsobiubth5nmf1oujn6lr5jg@ds157571.mlab.com:57571/heroku_0fqtdb7x';
-
+const heroku = 'mongodb://heroku_0fqtdb7x:sgvsobiubth5nmf1oujn6lr5jg@ds157571.mlab.com:57571/heroku_0fqtdb7x';
+const local = 'mongodb://localhost:27017/EnvWebsite'
+const env = local;
 
 MongoClient.connect(env, (err, db) => {
     if (err) {

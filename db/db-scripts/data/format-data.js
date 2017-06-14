@@ -9,10 +9,11 @@ const formattedStateEnergyProductionData = require('./formatted/state-energy-pro
 const formattedStateEnergyConsumptionData = require('./formatted/state-energy-consumption-data');
 const formattedStateMiscData = require('./formatted/state-misc-data');
 const formattedSolarInstallCost = require('./formatted/solar-install-cost');
+const formattedStateComparisonData = require('./formatted/state-comparison-data.js');
 
-const states =  ['AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
+const states =  ['US','AL','AK','AZ','AR','CA','CO','CT','DE','FL','GA','HI','ID','IL','IN','IA','KS','KY','LA','ME','MD','MA','MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND','OH','OK','OR','PA','RI','SC','SD','TN','TX','UT','VT','VA','WA','WV','WI','WY'];
 
-const aggregateFormattedData = (misc, production, consumption, solarInstallation) => {
+const aggregateFormattedData = (misc, production, consumption, solarInstallation, comparison) => {
     //const results = misc;
     let results = [];
     states.forEach(id => results.push({stateId: id}) );
@@ -53,6 +54,16 @@ const aggregateFormattedData = (misc, production, consumption, solarInstallation
             }
         }
     }
+
+    // Adds US comparison data to the US record.  
+    // See rank-states.js for file
+    results.forEach(state => {
+        if (state.stateId === 'US') {
+            state['stateComparisons'] = comparison;
+        }
+        
+    });
+
     let written = 'module.exports =' + JSON.stringify(results);
     fs.writeFile(__dirname + "/formatted/all-states-all-data.js", written, function(err) {
         if(err) {
@@ -131,5 +142,5 @@ const stateEnergyconsumption = data => {
 // let data = stateEnergyconsumption(rawStateEnergyConsumptionData);
 // let data  = stateMisc(rawStateMiscData);
 
-let data = aggregateFormattedData(formattedStateMiscData, formattedStateEnergyProductionData, formattedStateEnergyConsumptionData, formattedSolarInstallCost);
-console.log(data);
+let data = aggregateFormattedData(formattedStateMiscData, formattedStateEnergyProductionData, formattedStateEnergyConsumptionData, formattedSolarInstallCost, formattedStateComparisonData);
+//console.log(data);
