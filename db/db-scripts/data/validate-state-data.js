@@ -123,7 +123,7 @@ const getStateData = id => {
             }
         })
     }).then(res => {
-        console.log('id : ', id);
+        console.log('Getting data for: ', id);
         completedStates.push(id);
         let stateobject = JSON.parse(JSON.stringify(res[0]));
         validateState(stateobject, id);
@@ -137,7 +137,7 @@ const getStateData = id => {
 
 Promise.all(states.map(getStateData))
 .then(() => {
-    console.log('done');
+    console.log('Got all data');
     
     console.log('');
     console.log('');
@@ -145,11 +145,10 @@ Promise.all(states.map(getStateData))
     console.log('');
     console.log(results);
     console.log('process completed');
-   // mongoose.disconnect();
 
 })
 .catch(() => {
-    console.log('Something went wront!');
+    console.log('Something went wrong!');
     console.log('problem states', problemStates);
 });
 
