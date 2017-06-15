@@ -29,6 +29,7 @@ const renderFullPage = (markup, data, page) => {
             <head>
                 <meta charset='utf-8'>
                 <title>Footprint Finder</title>
+                 <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
                  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
                  <link type="text/css" href="/public/widget.css" rel="stylesheet"/>
             </head>
@@ -45,24 +46,19 @@ const renderFullPage = (markup, data, page) => {
     `
 };
 
-const getUSAverages = (stateData) => {
-    let uSAverages = new Promise((resolve, reject) => {
-        if(true) {
-            States.find({ stateId: 'US'})
-            .then((stateInfo) => {
-                if(!stateInfo) {
-                    reject('Couldn\'t find state data');
-                } else {
-                    let res = JSON.parse(JSON.stringify(stateInfo[0]));
-                    console.log(stateData);
-                    stateData['US'] = res;
-                    resolve(stateData);
-                }
-            });
-        } else {
-            console.log('already have state data');
-            resolve(stateData);
-        }
+const appendUSAverages = data => {
+    return new Promise((resolve, reject) => {
+        States.find({ stateId: 'US'})
+        .then( usData => {
+            if(!usData) {
+                reject('Couldn\'t find state data');
+            } else {
+                let res = JSON.parse(JSON.stringify(usData[0]));
+                data['US'] = res;
+                console.log('added US data');
+                resolve(data);
+            }
+        });
     });
 
 };
@@ -88,6 +84,7 @@ const solarMiddleware =  (req, res) => {
         myPromise.then((stateData) => {
 // Check to see if I have install price data for states.  If not, add it!
 // TODO: I'm nesting a promise chain here.  I can probably do better
+    // Note:  I created a function that appends all US data.  I could use it here as a short cleanup
             let uSAverages = new Promise((resolve, reject) => {
                 if(!stateData.misc.installPrice6kw || !stateData.misc.installPrice10kw) { 
                         States.find({ stateId: 'US'})
@@ -142,8 +139,18 @@ const stateEnergyMiddleware =  (req, res) => {
             });
         })
         myPromise.then((stateData) => {
-            const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...stateData}/>);
-            res.status(200).send(renderFullPage(appMarkup, stateData, 'energy-profile'));
+            appendUSAverages(stateData)
+            .then(allData => {
+                let comparisons = allData.US.stateComparisons;
+                delete allData.US;
+                allData['stateComparisons'] = comparisons;
+                const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...allData}/>);
+                res.status(200).send(renderFullPage(appMarkup, allData, 'energy-profile'));
+            })
+            .catch(e => {
+                console.log('Error appending US data');
+                res.status(500).send("There was a problem appending US data");
+            });
         });
     } else {
         console.log('inproper query param');

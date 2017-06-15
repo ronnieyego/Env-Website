@@ -70,7 +70,7 @@ export default class StateEnergyChart extends React.Component {
                     <PolarRadiusAxis/>
                     <Legend align='center' verticalAlign='top' payload={legendText}/>
                 </RadarChart>
-                <p>Data for this chart from the EIA 2014</p>
+                <p>Data for this chart from the EIA 2015</p>
             </div>
 		);
 	}
