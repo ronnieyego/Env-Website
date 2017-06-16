@@ -117,31 +117,32 @@ export default class StateEnergyProfile extends React.Component {
 	render() {
 
 		return (
+			<div className="container-fluid text-center" >
+				<div className="transparent-image">
+				  <img src='../public/background.jpg' />
+				  <div className="row content">
+				  <SideNav />
 
-			<div className="container-fluid text-center">
-				<div className="row content">
+					<div className="col-sm-8 text-left" display="inline-block">
+						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>State Energy Profile</h1>
+						<p>States generate their electricity in different ways depending on different economic and social factors.  Generally states in the northwest primarily use hydroelectric and natural gas while appalachian states tend to use more coal.</p>
+						<p>On average, {this.state.stateName} produces {(this.state.averageCO2PerKwh * 1000).toFixed(1)} pounds of CO2 per every MWh of energy.  {this.state.stateName} ranks number {50 - this.state.stateRankCo2} in CO2 per MWH.</p>
+						<p>In 2015, {this.state.stateName} produced {this.state.totalEnergyProduced.toLocaleString()} MWhs of energy and released {Math.round((this.state.averageCO2PerKwh * 1000 * this.state.totalEnergyProduced)).toLocaleString()} pounds on CO2.  {this.state.stateName} ranks number {this.state.stateRankEnergyProduced} in total energy production</p>
+						<StateEnergyChart {...this.props} />
+						<p>This is a breakdown of state produced energy</p>
+						<ul>{this.state.sortedEnergy}</ul>
+						<TestPie />
 
-				<SideNav />
-
-				<div className="col-sm-8 text-left" display="inline-block">
-					<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>State Energy Profile</h1>
-					<p>States generate their electricity in different ways depending on different economic and social factors.  Generally states in the northwest primarily use hydroelectric and natural gas while appalachian states tend to use more coal.</p>
-					<p>On average, {this.state.stateName} produces {(this.state.averageCO2PerKwh * 1000).toFixed(1)} pounds of CO2 per every MWh of energy.  {this.state.stateName} ranks number {50 - this.state.stateRankCo2} in CO2 per MWH.</p>
-					<p>In 2015, {this.state.stateName} produced {this.state.totalEnergyProduced.toLocaleString()} MWhs of energy and released {Math.round((this.state.averageCO2PerKwh * 1000 * this.state.totalEnergyProduced)).toLocaleString()} pounds on CO2.  {this.state.stateName} ranks number {this.state.stateRankEnergyProduced} in total energy production</p>
-					<StateEnergyChart {...this.props} />
-					<p>This is a breakdown of state produced energy</p>
-					<ul>{this.state.sortedEnergy}</ul>
-					<TestPie />
-
-				</div>
-				<div className="col-sm-2 sidenav">
-					<div className="well">
-					<p>ADS</p>
 					</div>
-					<div className="well">
-					<p>ADS</p>
+					<div className="col-sm-2 sidenav">
+						<div className="well">
+						<p>ADS</p>
+						</div>
+						<div className="well">
+						<p>ADS</p>
+						</div>
 					</div>
-				</div>
+				  </div>
 				</div>
 			</div>
 		);

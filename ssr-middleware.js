@@ -29,7 +29,7 @@ const renderFullPage = (markup, data, page) => {
             <head>
                 <meta charset='utf-8'>
                 <title>Footprint Finder</title>
-                 <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+                 <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
                  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
                  <link type="text/css" href="/public/widget.css" rel="stylesheet"/>
             </head>
