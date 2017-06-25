@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/server";
 //Pages
 import Layout from './src/js/components/Layout';
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
+import Coal from './src/js/pages/Coal';
 
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
@@ -15,6 +16,9 @@ const renderFullPage = (markup, data, page) => {
     switch (page) {
         case 'solar-widget':
             jsLocation = '/public/scripts.min.js';
+            break;
+        case 'coal':
+            jsLocation = '/public/coal.min.js';
             break;
         case 'energy-profile':
             jsLocation = '/public/energy.min.js';
@@ -158,8 +162,14 @@ const stateEnergyMiddleware =  (req, res) => {
     }
 };
 
+const coalMiddleware = (req, res) => {
+    const appMarkup = ReactDOM.renderToString(<Coal />);
+    res.status(200).send(renderFullPage(appMarkup, {}, 'coal'));
+}
+
 
 module.exports = {
     solarMiddleware,
-    stateEnergyMiddleware
+    stateEnergyMiddleware,
+    coalMiddleware
 }

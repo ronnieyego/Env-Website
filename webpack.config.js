@@ -13,6 +13,10 @@ switch(process.env.page) {
     entry = './js/homepage-entry.js';
     filename = 'homepage.min.js';
     break;
+  case 'coal':
+    entry = './js/coal-entry.js';
+    filename = 'coal.min.js';
+    break;
   case 'energy':
     entry = './js/state-energy-profile.js';
     filename = 'energy.min.js';
@@ -27,6 +31,12 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: entry, //"./js/state-energy-profile.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage  // ./js/state-energy-profile.js for state energy profile
   module: {
+    rules: [
+      {
+        test: /\.json$/,
+        use: 'json-loader'
+      }
+    ],
     loaders: [
       {
         test: /\.js?$/,

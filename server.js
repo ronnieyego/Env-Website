@@ -7,7 +7,7 @@ import bodyParser  from 'body-parser';
 import fs  from 'fs';
 import path  from "path";
 
-import { solarMiddleware, stateEnergyMiddleware }  from './ssr-middleware';
+import { coalMiddleware, solarMiddleware, stateEnergyMiddleware }  from './ssr-middleware';
 
 const {ObjectID} = require('mongodb');
 const { mongoose } = require('./db/mongoose');
@@ -46,7 +46,7 @@ app.get('/solar/:state', solarMiddleware);
 
 app.get('/energy/:state', stateEnergyMiddleware);
 
-
+app.get('/coal', coalMiddleware);
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');

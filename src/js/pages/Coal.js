@@ -2,6 +2,7 @@ import React from "react";
 
 import Header from '../components/Header.js';
 import SideNav from '../components/SideNav.js';
+import EnergySourceMap from '../components/energy-source-map/EnergySourceMap.js';
 
 export default class StateEnergyProfile extends React.Component {
 	
@@ -30,6 +31,7 @@ export default class StateEnergyProfile extends React.Component {
 						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>Coal</h1>
 						<p>This is a page about coal yo.</p>
 					</div>
+					<EnergySourceMap />
 					<div className="col-sm-2 sidenav">
 						<div className="well">
 						<p>ADS</p>
