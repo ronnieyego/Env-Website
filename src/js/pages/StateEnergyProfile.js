@@ -121,7 +121,7 @@ export default class StateEnergyProfile extends React.Component {
 				<div className="transparent-image">
 				  <img src='../public/background.jpg' />
 				  <div className="row content">
-				  <SideNav />
+				  <SideNav open={true}/>
 
 					<div className="col-sm-8 text-left" display="inline-block">
 						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>State Energy Profile</h1>
