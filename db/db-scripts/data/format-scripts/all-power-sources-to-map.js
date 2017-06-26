@@ -72,6 +72,7 @@ let geos = us.objects.counties.geometries;
 
 for(let i = 0; i< plants.length; i++) {
     if (!plants[i].county) {
+        console.log('county ot found', plants[i]);
         noCounty++;
     } else {
         let state = plants[i].state;
@@ -82,10 +83,24 @@ for(let i = 0; i< plants.length; i++) {
             let name = el.properties.name;
             if(key === name) {
                 found = true;
+                // Note this wont work as intended because I havent deduped plants by county
+                el.properties["entityName"] = plants[i].entityName;
+                el.properties["entityCapactity"] = plants[i].entityCapactity;
+                el.properties["states"] = plants[i].states;
+                el.properties["numberOfPlants"] = plants[i].numberOfPlants;
+                el.properties["hydroelectric"] = plants[i].hydroelectric;
+                el.properties["wind"] = plants[i].wind;
+                el.properties["coal"] = plants[i].coal;
+                el.properties["naturalGas"] = plants[i].naturalGas;
+                el.properties["petroleum"] = plants[i].petroleum;
+                el.properties["geothermal"] = plants[i].geothermal;
+                el.properties["solar"] = plants[i].solar;
+                el.properties["nuclear"] = plants[i].nuclear;
+                el.properties["sector"] = plants[i].sector;
             } 
         })
         if(found) {
-            console.log('MATCH FOUND!! -- ', key);
+            //console.log('MATCH FOUND!! -- ', key);
             found1++;
         } else {
             console.log('Not found -- ', key);
@@ -94,6 +109,17 @@ for(let i = 0; i< plants.length; i++) {
     }
 }
 
+
+let entities = 'module.exports =' + JSON.stringify(us, null, 2);
+    fs.writeFile(__dirname + "/../formatted/energy/us.js", entities, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        
+        console.log("US geo map data written");
+    }); 
+
+console.log('count of plants', plants.length);
 console.log('noCounty', noCounty);
 console.log('not Found', notFound);
 console.log('found', found1);

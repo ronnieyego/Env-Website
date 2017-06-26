@@ -12,27 +12,36 @@ data.forEach(el => {
     let plantId = row.plantId;
     if (completedPlants.indexOf(plantId) === -1) {
         completedPlants.push(plantId);
+        if(!row.county) {
+            console.log(row);
+        }
         uniquePlants.push(row);
     }
 });
 
 uniquePlants.forEach( el => {
-    let row = el;
-    let entityId = row.entityId
+    let row = {};
+    let oldRow = el;
+    let entityId = el.entityId
 
     // New entity.  Just add it
     if (knownEntities.indexOf(entityId) === -1) {
         knownEntities.push(entityId);
-        row['entityCapactity'] = row.plantCapacity;
-        row['states'] = [row.state];
+        row['entityId'] = el.entityId;
+        row['entityName'] = el.entityName;        
+        row['entityCapactity'] = el.plantCapacity;
+        row['states'] = [el.state];
         row['numberOfPlants'] = 1;
-        delete row.plantId;
-        delete row.plantName;
-        delete row.county;
-        delete row.lat;
-        delete row.long;
-        delete row.plantCapacity;
-        delete row.nameplateCapacity;
+        row["hydroelectric"] = el.hydroelectric;
+        row["wind"] = el.wind;
+        row["coal"] = el.coal;
+        row["naturalGas"] = el.naturalGas;
+        row["nuclear"] = el.solar;
+        row["petroleum"] = el.petroleum;
+        row["geothermal"] = el.geothermal;
+        row["solar"] = el.solar;
+        row["sector"] = el.sector;
+        row["solar"] = el.solar;
 
         uniqueEntities.push(row);
     //Entity exists.  Append plant data
@@ -41,17 +50,17 @@ uniquePlants.forEach( el => {
             let entity = uniqueEntities[i];
             if (entityId === entity['entityId']) {
                 entity.numberOfPlants++;
-                entity.entityCapactity += row.plantCapacity;
-                entity.hydroelectric += row.hydroelectric;
-                entity.wind += row.wind;
-                entity.coal += row.coal;
-                entity.solar += row.solar;
-                entity.nuclear += row.nuclear;
-                entity.petroleum += row.petroleum;
-                entity.naturalGas += row.naturalGas;
-                entity.geothermal += row.geothermal;
-                if(entity.states.indexOf(row.state) === -1 ) {
-                    entity.states.push(row.state);
+                entity.entityCapactity += el.plantCapacity;
+                entity.hydroelectric += el.hydroelectric;
+                entity.wind += el.wind;
+                entity.coal += el.coal;
+                entity.solar += el.solar;
+                entity.nuclear += el.nuclear;
+                entity.petroleum += el.petroleum;
+                entity.naturalGas += el.naturalGas;
+                entity.geothermal += el.geothermal;
+                if(entity.states.indexOf(el.state) === -1 ) {
+                    entity.states.push(el.state);
                 }
             }
         }
@@ -60,7 +69,7 @@ uniquePlants.forEach( el => {
 });
 
 
-let plants = 'module.exports =' + JSON.stringify(uniquePlants);
+let plants = 'module.exports =' + JSON.stringify(uniquePlants, null, 2);
     fs.writeFile(__dirname + "/../formatted/energy/all-power-plants.js", plants, function(err) {
         if(err) {
             return console.log(err);
@@ -68,7 +77,7 @@ let plants = 'module.exports =' + JSON.stringify(uniquePlants);
 
         console.log("All power plants saved");
     }); 
-let entities = 'module.exports =' + JSON.stringify(uniqueEntities);
+let entities = 'module.exports =' + JSON.stringify(uniqueEntities, null, 2);
     fs.writeFile(__dirname + "/../formatted/energy/all-power-entities.js", entities, function(err) {
         if(err) {
             return console.log(err);

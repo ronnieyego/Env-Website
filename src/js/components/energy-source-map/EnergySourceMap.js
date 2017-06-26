@@ -8,7 +8,8 @@ var MapBubble = require('react-d3-map-bubble').MapBubble;
 var width = 960;
 var height = 700;
 
-var us = require('./data/us.js');
+var us = require('./data/us2.js');
+
 
 // data should be a MultiLineString
 var dataStates = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
@@ -27,8 +28,8 @@ var domain = {
 };
 
 var circles = topojson.feature(us, us.objects.counties).features
-    .sort(function(a, b) { return b.properties.population - a.properties.population; })
-var circleValue = function(d) { return +d.properties.population; };
+    .sort(function(a, b) { return b.properties.coal - a.properties.coal; })
+var circleValue = function(d) { return +d.properties.coal; };
 var projection = 'null';
 
 var tooltipContent = function(d) {return d.properties;}
