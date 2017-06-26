@@ -1,4 +1,4 @@
-
+const path = require('path');
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
 
@@ -29,6 +29,12 @@ switch(process.env.page) {
 module.exports = {
   context: __dirname + "/src",
   devtool: debug ? "inline-sourcemap" : null,
+  resolve: {
+    alias: {
+      'react': path.join(__dirname, 'node_modules', 'react')
+    },
+    extensions: ['', '.js']
+  },
   entry: entry, //"./js/state-energy-profile.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage  // ./js/state-energy-profile.js for state energy profile
   module: {
     rules: [
