@@ -86,7 +86,7 @@ for(let i = 0; i< plants.length; i++) {
                 // Note this wont work as intended because I havent deduped plants by county
                 el.properties["entityName"] = plants[i].entityName;
                 el.properties["entityCapactity"] = plants[i].entityCapactity;
-                el.properties["states"] = plants[i].states;
+                el.properties["state"] = plants[i].state;
                 el.properties["numberOfPlants"] = plants[i].numberOfPlants;
                 el.properties["hydroelectric"] = plants[i].hydroelectric;
                 el.properties["wind"] = plants[i].wind;
@@ -109,6 +109,11 @@ for(let i = 0; i< plants.length; i++) {
     }
 }
 
+geos.forEach( el => {
+    if(el.properties["coal"] > 1) {
+        console.log('coal is in this state', el.properties["state"], ' -- ', el.properties["coal"]);
+    }
+});
 
 let entities = 'module.exports =' + JSON.stringify(us, null, 2);
     fs.writeFile(__dirname + "/../formatted/energy/us.js", entities, function(err) {
