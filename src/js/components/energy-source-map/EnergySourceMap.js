@@ -45,7 +45,7 @@ export default class EnergySourceMap extends React.Component {
 		super();
 	}
     buttonClick(e) {
-        console.log(changeEvent.target.value);
+        console.log(e.target.value);
     }
 
   render() {
@@ -68,7 +68,7 @@ export default class EnergySourceMap extends React.Component {
                 showTooltip= {true}
                 showLegend= {true}
             />  
-            <form className="us-map-form" style={buttonStyles} action="">
+            <form style={buttonStyles}>
                 <label>
                     Coal 
                     <input type="radio" id="coal" name="hello" value="coal" onChange={this.buttonClick.bind(this)} />
@@ -82,7 +82,6 @@ export default class EnergySourceMap extends React.Component {
                     <input type="radio" id="wind" name="hello" value="wind" onChange={this.buttonClick.bind(this)}/>
                 </label>
                 <label>
-                    Wind 
                     <input type="submit" name="lol" onClick={this.buttonClick.bind(this)}/>
                 </label>
             </form>

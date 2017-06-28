@@ -4,7 +4,7 @@ import Header from '../components/Header.js';
 import SideNav from '../components/SideNav.js';
 import EnergySourceMap from '../components/energy-source-map/EnergySourceMap.js';
 
-export default class StateEnergyProfile extends React.Component {
+export default class Coal extends React.Component {
 	
 	constructor(props) {
 		super();
@@ -22,8 +22,6 @@ export default class StateEnergyProfile extends React.Component {
 
 		return (
 			<div className="container-fluid text-center" >
-				<div className="transparent-image">
-				  <img src='../public/background.jpg' />
 				  <div className="row content">
 				  <SideNav />
 
@@ -41,7 +39,6 @@ export default class StateEnergyProfile extends React.Component {
 						</div>
 					</div>
 				  </div>
-				</div>
 			</div>
 		);
 	}

@@ -110,13 +110,13 @@ for(let i = 0; i< plants.length; i++) {
 }
 
 geos.forEach( el => {
-    if(el.properties["coal"] > 1) {
-        console.log('coal is in this state', el.properties["state"], ' -- ', el.properties["coal"]);
+    if(!el.properties["coal"]) {
+        el.properties["coal"] = 0;
     }
 });
 
 let entities = 'module.exports =' + JSON.stringify(us, null, 2);
-    fs.writeFile(__dirname + "/../formatted/energy/us.js", entities, function(err) {
+    fs.writeFile(__dirname + "/../formatted/energy/us2.js", entities, function(err) {
         if(err) {
             return console.log(err);
         }
