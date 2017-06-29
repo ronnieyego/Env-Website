@@ -110,9 +110,12 @@ for(let i = 0; i< plants.length; i++) {
 }
 
 geos.forEach( el => {
-    if(!el.properties["coal"]) {
-        el.properties["coal"] = 0;
-    }
+    let powerSource = ['coal', 'hydroelectric', 'wind', 'naturalGas', 'petroleum', 'solar', 'nuclear'];
+    powerSource.forEach( power => {
+        if(!el.properties[power]){
+            el.properties[power] = 0;
+        }
+    })
 });
 
 let entities = 'module.exports =' + JSON.stringify(us, null, 2);

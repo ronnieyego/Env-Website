@@ -1,37 +1,8 @@
 
-var React = require('react');
-var topojson = require('topojson');
-var MapBubble = require('react-d3-map-bubble').MapBubble;
-
-
-var width = 960;
-var height = 700;
-
-var us = require('./data/us2.js');
-
-
-// data should be a MultiLineString
-var dataStates = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
-/// data should be polygon
-var dataCounties = topojson.feature(us, us.objects.nation);
-
-// class
-var meshClass = 'border';
-var polygonClass = 'land';
-
-// domain
-var domain = {
-    scale: 'sqrt',
-    domain: [0, 2000],
-    range: [0, 15]
-};
-
-var circles = topojson.feature(us, us.objects.counties).features
-    .sort(function(a, b) { return b.properties.coal - a.properties.coal; })
-var circleValue = function(d) { return +d.properties.coal; };
-var projection = 'null';
-
-var tooltipContent = function(d) {return d.properties;}
+const React = require('react');
+const topojson = require('topojson');
+const MapBubble = require('react-d3-map-bubble').MapBubble;
+const us = require('./data/us2.js');
 
 const buttonStyles = {
     margin: 'auto',
@@ -43,27 +14,73 @@ const buttonStyles = {
 export default class EnergySourceMap extends React.Component {
 	constructor() {
 		super();
+        
+        // data should be a MultiLineString
+        let dataStates = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+        /// data should be polygon
+        let dataCounties = topojson.feature(us, us.objects.nation);
+
+        // domain
+        let domain = {
+            scale: 'sqrt',
+            domain: [0, 2000],
+            range: [0, 15]
+        };
+
+        let circles = topojson.feature(us, us.objects.counties).features
+            .sort(function(a, b) { return b.properties.coal - a.properties.coal; })
+        let circleValue = function(d) { return +d.properties.coal; };
+
+        let tooltipContent = function(d) {return d.properties;}
+
+
+        this.state = {
+            width: 960,
+            height: 700,
+            dataStates,
+            dataCounties,
+            domain,
+            circles,
+            circleValue,
+            projection: 'null',
+            tooltipContent,
+            polygonClass: 'land',
+            meshClass: 'border',
+            circleClass: 'bubble'
+        };
+
 	}
     buttonClick(e) {
         console.log(e.target.value);
+    }
+
+    changeDataSource(e) {
+        let source = e.target.value
+        let circles = topojson.feature(us, us.objects.counties).features
+            .sort(function(a, b) { return b.properties[source] - a.properties[source]; })
+        let circleValue = function(d) { return +d.properties[source]; };
+        this.setState({ 
+            circles,
+            circleValue
+        });
     }
 
   render() {
       return (
         <div>
             <MapBubble
-                width= {width}
-                height= {height}
-                dataPolygon= {dataCounties}
-                polygonClass= {polygonClass}
-                dataMesh= {dataStates}
-                meshClass = {meshClass}
-                domain= {domain}
-                dataCircle= {circles}
-                circleValue= {circleValue}
-                circleClass= {'bubble'}
-                projection= {projection}
-                tooltipContent= {tooltipContent}
+                width= {this.state.width}
+                height= {this.state.height}
+                dataPolygon= {this.state.dataCounties}
+                polygonClass= {this.state.polygonClass}
+                dataMesh= {this.state.dataStates}
+                meshClass = {this.state.meshClass}
+                domain= {this.state.domain}
+                dataCircle= {this.state.circles}
+                circleValue= {this.state.circleValue}
+                circleClass= {this.state.circleClass}
+                projection= {this.state.projection}
+                tooltipContent= {this.state.tooltipContent}
                 showGraticule= {false}
                 showTooltip= {true}
                 showLegend= {true}
@@ -71,19 +88,39 @@ export default class EnergySourceMap extends React.Component {
             <form style={buttonStyles}>
                 <label>
                     Coal 
-                    <input type="radio" id="coal" name="hello" value="coal" onChange={this.buttonClick.bind(this)} />
+                    <input type="radio" id="coal" name="source" value="coal" onClick={this.changeDataSource.bind(this)} />
                 </label>
                 <label>
                     Solar 
-                    <input type="radio" id="solar" name="hello" value="solar" onClick={this.buttonClick.bind(this)} />  
+                    <input type="radio" id="solar" name="source" value="solar" onClick={this.changeDataSource.bind(this)} />  
                 </label>
                 <label>
                     Wind 
-                    <input type="radio" id="wind" name="hello" value="wind" onChange={this.buttonClick.bind(this)}/>
+                    <input type="radio" id="wind" name="source" value="wind" onClick={this.changeDataSource.bind(this)}/>
+                </label>
+                <br />
+                <label>
+                    Natural Gas 
+                    <input type="radio" id="naturalGas" name="source" value="naturalGas" onClick={this.changeDataSource.bind(this)} />
                 </label>
                 <label>
-                    <input type="submit" name="lol" onClick={this.buttonClick.bind(this)}/>
+                    Geothermal 
+                    <input type="radio" id="geothermal" name="source" value="geothermal" onClick={this.changeDataSource.bind(this)} />  
                 </label>
+                <label>
+                    Nuclear 
+                    <input type="radio" id="nuclear" name="source" value="nuclear" onClick={this.changeDataSource.bind(this)}/>
+                </label>
+                <br />
+                <label>
+                    Hydroelectric 
+                    <input type="radio" id="hydroelectric" name="source" value="hydroelectric" onClick={this.changeDataSource.bind(this)} />  
+                </label>
+                <label>
+                    Oil 
+                    <input type="radio" id="petroleum" name="source" value="petroleum" onClick={this.changeDataSource.bind(this)}/>
+                </label>
+
             </form>
         </div>
 

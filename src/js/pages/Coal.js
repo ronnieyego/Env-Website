@@ -23,9 +23,8 @@ export default class Coal extends React.Component {
 		return (
 			<div className="container-fluid text-center" >
 				  <div className="row content">
-				  <SideNav />
 
-					<div className="col-sm-8 text-left">
+					<div className="col-sm-8 text-center">
 						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>Coal</h1>
 						<p>This is a page about coal yo.</p>
 					</div>

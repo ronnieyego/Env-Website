@@ -38,7 +38,13 @@ module.exports ={
           "properties": {
             "name": "Blount County, Alabama",
             "population": 57466,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -316,7 +322,13 @@ module.exports ={
           "properties": {
             "name": "Pickens County, Alabama",
             "population": 19646,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -365,7 +377,13 @@ module.exports ={
           "properties": {
             "name": "Bethel Census Area, Alaska",
             "population": 17184,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -397,7 +415,13 @@ module.exports ={
           "properties": {
             "name": "Hoonah-Angoon Census Area, Alaska",
             "population": 2153,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -436,7 +460,13 @@ module.exports ={
           "properties": {
             "name": "Kenai Peninsula Borough, Alaska",
             "population": 55474,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -463,7 +493,13 @@ module.exports ={
           "properties": {
             "name": "Kodiak Island Borough, Alaska",
             "population": 13710,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -501,7 +537,13 @@ module.exports ={
           "properties": {
             "name": "Lake and Peninsula Borough, Alaska",
             "population": 1551,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -525,7 +567,13 @@ module.exports ={
           "properties": {
             "name": "Nome Census Area, Alaska",
             "population": 9580,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -554,7 +602,13 @@ module.exports ={
           "properties": {
             "name": "Northwest Arctic Borough, Alaska",
             "population": 7601,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -571,7 +625,13 @@ module.exports ={
           "properties": {
             "name": "Prince of Wales-Hyder Census Area, Alaska",
             "population": 5603,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -603,7 +663,13 @@ module.exports ={
           "properties": {
             "name": "Van Buren County, Arkansas",
             "population": 17223,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -622,7 +688,13 @@ module.exports ={
           "properties": {
             "name": "White County, Arkansas",
             "population": 77007,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -926,7 +998,13 @@ module.exports ={
           "properties": {
             "name": "Broomfield County, Colorado",
             "population": 55913,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -945,7 +1023,13 @@ module.exports ={
           "properties": {
             "name": "Crowley County, Colorado",
             "population": 5747,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1019,7 +1103,13 @@ module.exports ={
           "properties": {
             "name": "Gilpin County, Colorado",
             "population": 5358,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1141,7 +1231,13 @@ module.exports ={
           "properties": {
             "name": "St. Lucie County, Florida",
             "population": 278246,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1158,7 +1254,13 @@ module.exports ={
           "properties": {
             "name": "Sumter County, Florida",
             "population": 94240,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1177,7 +1279,13 @@ module.exports ={
           "properties": {
             "name": "Union County, Florida",
             "population": 15400,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1223,7 +1331,13 @@ module.exports ={
           "properties": {
             "name": "Barrow County, Georgia",
             "population": 69136,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1240,7 +1354,13 @@ module.exports ={
           "properties": {
             "name": "Bryan County, Georgia",
             "population": 30616,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1286,7 +1406,13 @@ module.exports ={
           "properties": {
             "name": "Chattooga County, Georgia",
             "population": 25905,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1330,7 +1456,13 @@ module.exports ={
           "properties": {
             "name": "Colquitt County, Georgia",
             "population": 45531,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1349,7 +1481,13 @@ module.exports ={
           "properties": {
             "name": "Crawford County, Georgia",
             "population": 12701,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1368,7 +1506,13 @@ module.exports ={
           "properties": {
             "name": "Dodge County, Georgia",
             "population": 21509,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1387,7 +1531,13 @@ module.exports ={
           "properties": {
             "name": "Emanuel County, Georgia",
             "population": 22600,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1408,7 +1558,13 @@ module.exports ={
           "properties": {
             "name": "Fayette County, Georgia",
             "population": 106525,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1425,7 +1581,13 @@ module.exports ={
           "properties": {
             "name": "Gilmer County, Georgia",
             "population": 28232,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1443,7 +1605,13 @@ module.exports ={
           "properties": {
             "name": "Hinsdale County, Colorado",
             "population": 790,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1463,7 +1631,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Colorado",
             "population": 1397,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1579,7 +1753,13 @@ module.exports ={
           "properties": {
             "name": "Phillips County, Colorado",
             "population": 4380,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1597,7 +1777,13 @@ module.exports ={
           "properties": {
             "name": "Rio Grande County, Colorado",
             "population": 11925,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1615,7 +1801,13 @@ module.exports ={
           "properties": {
             "name": "San Juan County, Colorado",
             "population": 747,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1724,7 +1916,13 @@ module.exports ={
           "properties": {
             "name": "Calhoun County, Florida",
             "population": 14639,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1741,7 +1939,13 @@ module.exports ={
           "properties": {
             "name": "Columbia County, Florida",
             "population": 67546,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1819,7 +2023,13 @@ module.exports ={
           "properties": {
             "name": "Holmes County, Florida",
             "population": 19971,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1865,7 +2075,13 @@ module.exports ={
           "properties": {
             "name": "Valdez-Cordova Census Area, Alaska",
             "population": 9614,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -1897,7 +2113,13 @@ module.exports ={
           "properties": {
             "name": "Wade Hampton Census Area, Alaska",
             "population": 7556,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2002,7 +2224,13 @@ module.exports ={
           "properties": {
             "name": "Boone County, Arkansas",
             "population": 37032,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2077,7 +2305,13 @@ module.exports ={
           "properties": {
             "name": "Drew County, Arkansas",
             "population": 18615,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2124,7 +2358,13 @@ module.exports ={
           "properties": {
             "name": "Howard County, Arkansas",
             "population": 13790,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2142,7 +2382,13 @@ module.exports ={
           "properties": {
             "name": "Johnson County, Arkansas",
             "population": 25554,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2160,7 +2406,13 @@ module.exports ={
           "properties": {
             "name": "Lonoke County, Arkansas",
             "population": 68274,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2179,7 +2431,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, Arkansas",
             "population": 9453,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2199,7 +2457,13 @@ module.exports ={
           "properties": {
             "name": "Newton County, Arkansas",
             "population": 8286,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2218,7 +2482,13 @@ module.exports ={
           "properties": {
             "name": "Poinsett County, Arkansas",
             "population": 24506,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2236,7 +2506,13 @@ module.exports ={
           "properties": {
             "name": "St. Francis County, Arkansas",
             "population": 28089,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2254,7 +2530,13 @@ module.exports ={
           "properties": {
             "name": "Searcy County, Arkansas",
             "population": 8146,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2274,7 +2556,13 @@ module.exports ={
           "properties": {
             "name": "Wheeler County, Georgia",
             "population": 7572,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2293,7 +2581,13 @@ module.exports ={
           "properties": {
             "name": "Whitfield County, Georgia",
             "population": 102152,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2312,7 +2606,13 @@ module.exports ={
           "properties": {
             "name": "Wilkinson County, Georgia",
             "population": 9577,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2487,7 +2787,13 @@ module.exports ={
           "properties": {
             "name": "Latah County, Idaho",
             "population": 37365,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2559,7 +2865,13 @@ module.exports ={
           "properties": {
             "name": "Bond County, Illinois",
             "population": 17762,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2632,7 +2944,13 @@ module.exports ={
           "properties": {
             "name": "Coles County, Illinois",
             "population": 53683,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2651,7 +2969,13 @@ module.exports ={
           "properties": {
             "name": "Cumberland County, Illinois",
             "population": 11044,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2697,7 +3021,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Illinois",
             "population": 39518,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2775,7 +3105,13 @@ module.exports ={
           "properties": {
             "name": "Hancock County, Indiana",
             "population": 69778,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2794,7 +3130,13 @@ module.exports ={
           "properties": {
             "name": "Huntington County, Indiana",
             "population": 37144,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2812,7 +3154,13 @@ module.exports ={
           "properties": {
             "name": "Jennings County, Indiana",
             "population": 28373,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2831,7 +3179,13 @@ module.exports ={
           "properties": {
             "name": "Kosciusko County, Indiana",
             "population": 77328,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2908,7 +3262,13 @@ module.exports ={
           "properties": {
             "name": "Ohio County, Indiana",
             "population": 6093,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2953,7 +3313,13 @@ module.exports ={
           "properties": {
             "name": "Pulaski County, Indiana",
             "population": 13395,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -2971,7 +3337,13 @@ module.exports ={
           "properties": {
             "name": "Rush County, Indiana",
             "population": 17349,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3216,7 +3588,13 @@ module.exports ={
           "properties": {
             "name": "Clarke County, Iowa",
             "population": 9286,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3377,7 +3755,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, Illinois",
             "population": 30278,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3426,7 +3810,13 @@ module.exports ={
           "properties": {
             "name": "Menard County, Illinois",
             "population": 12728,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3525,7 +3915,13 @@ module.exports ={
           "properties": {
             "name": "Schuyler County, Illinois",
             "population": 7499,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3602,7 +3998,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Illinois",
             "population": 14692,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3650,7 +4052,13 @@ module.exports ={
           "properties": {
             "name": "Blackford County, Indiana",
             "population": 12742,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3667,7 +4075,13 @@ module.exports ={
           "properties": {
             "name": "Boone County, Indiana",
             "population": 56823,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3769,7 +4183,13 @@ module.exports ={
           "properties": {
             "name": "Gordon County, Georgia",
             "population": 55192,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3789,7 +4209,13 @@ module.exports ={
           "properties": {
             "name": "Grady County, Georgia",
             "population": 25068,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3807,7 +4233,13 @@ module.exports ={
           "properties": {
             "name": "Hall County, Georgia",
             "population": 180831,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3856,7 +4288,13 @@ module.exports ={
           "properties": {
             "name": "Jones County, Georgia",
             "population": 28638,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3905,7 +4343,13 @@ module.exports ={
           "properties": {
             "name": "Lumpkin County, Georgia",
             "population": 30040,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3923,7 +4367,13 @@ module.exports ={
           "properties": {
             "name": "Marion County, Georgia",
             "population": 8615,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3943,7 +4393,13 @@ module.exports ={
           "properties": {
             "name": "Miller County, Georgia",
             "population": 6094,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3960,7 +4416,13 @@ module.exports ={
           "properties": {
             "name": "Newton County, Georgia",
             "population": 100047,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -3979,7 +4441,13 @@ module.exports ={
           "properties": {
             "name": "Peach County, Georgia",
             "population": 27531,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4025,7 +4493,13 @@ module.exports ={
           "properties": {
             "name": "Randolph County, Georgia",
             "population": 7596,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4073,7 +4547,13 @@ module.exports ={
           "properties": {
             "name": "Taliaferro County, Georgia",
             "population": 1674,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4091,7 +4571,13 @@ module.exports ={
           "properties": {
             "name": "Tift County, Georgia",
             "population": 40430,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4343,7 +4829,13 @@ module.exports ={
           "properties": {
             "name": "Hamilton County, Kansas",
             "population": 2656,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4448,7 +4940,13 @@ module.exports ={
           "properties": {
             "name": "Marion County, Kansas",
             "population": 12565,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4467,7 +4965,13 @@ module.exports ={
           "properties": {
             "name": "Morris County, Kansas",
             "population": 5917,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4662,7 +5166,13 @@ module.exports ={
           "properties": {
             "name": "Trego County, Kansas",
             "population": 2977,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4709,7 +5219,13 @@ module.exports ={
           "properties": {
             "name": "Wilson County, Kansas",
             "population": 9368,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4757,7 +5273,13 @@ module.exports ={
           "properties": {
             "name": "Owen County, Kentucky",
             "population": 10870,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4776,7 +5298,13 @@ module.exports ={
           "properties": {
             "name": "Owsley County, Kentucky",
             "population": 4764,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4854,7 +5382,13 @@ module.exports ={
           "properties": {
             "name": "Todd County, Kentucky",
             "population": 12472,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4872,7 +5406,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Kentucky",
             "population": 11701,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4890,7 +5430,13 @@ module.exports ={
           "properties": {
             "name": "Acadia Parish, Louisiana",
             "population": 61611,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4908,7 +5454,13 @@ module.exports ={
           "properties": {
             "name": "Bienville Parish, Louisiana",
             "population": 14312,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4929,7 +5481,13 @@ module.exports ={
           "properties": {
             "name": "East Baton Rouge Parish, Louisiana",
             "population": 439662,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4948,7 +5506,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson Davis Parish, Louisiana",
             "population": 31529,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4968,7 +5532,13 @@ module.exports ={
           "properties": {
             "name": "Ouachita Parish, Louisiana",
             "population": 153752,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -4987,7 +5557,13 @@ module.exports ={
           "properties": {
             "name": "Pointe Coupee Parish, Louisiana",
             "population": 22821,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5007,7 +5583,13 @@ module.exports ={
           "properties": {
             "name": "St. Charles Parish, Louisiana",
             "population": 52663,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5023,7 +5605,13 @@ module.exports ={
           "properties": {
             "name": "Tangipahoa Parish, Louisiana",
             "population": 121209,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5044,7 +5632,13 @@ module.exports ={
           "properties": {
             "name": "Vernon Parish, Louisiana",
             "population": 51542,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5063,7 +5657,13 @@ module.exports ={
           "properties": {
             "name": "Allen County, Kentucky",
             "population": 20007,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5140,7 +5740,13 @@ module.exports ={
           "properties": {
             "name": "Breathitt County, Kentucky",
             "population": 13922,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5159,7 +5765,13 @@ module.exports ={
           "properties": {
             "name": "Butler County, Kentucky",
             "population": 12748,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5178,7 +5790,13 @@ module.exports ={
           "properties": {
             "name": "Carter County, Kentucky",
             "population": 27594,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5197,7 +5815,13 @@ module.exports ={
           "properties": {
             "name": "Clinton County, Kentucky",
             "population": 10244,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5215,7 +5839,13 @@ module.exports ={
           "properties": {
             "name": "Elliott County, Kentucky",
             "population": 7774,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5232,7 +5862,13 @@ module.exports ={
           "properties": {
             "name": "Gallatin County, Kentucky",
             "population": 8513,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5250,7 +5886,13 @@ module.exports ={
           "properties": {
             "name": "Green County, Kentucky",
             "population": 11309,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5268,7 +5910,13 @@ module.exports ={
           "properties": {
             "name": "Hart County, Kentucky",
             "population": 18278,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5288,7 +5936,13 @@ module.exports ={
           "properties": {
             "name": "Henry County, Kentucky",
             "population": 15428,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5307,7 +5961,13 @@ module.exports ={
           "properties": {
             "name": "Johnson County, Kentucky",
             "population": 23339,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5325,7 +5985,13 @@ module.exports ={
           "properties": {
             "name": "Knox County, Kentucky",
             "population": 31874,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5342,7 +6008,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Kentucky",
             "population": 24671,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5388,7 +6060,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Kentucky",
             "population": 83174,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5437,7 +6115,13 @@ module.exports ={
           "properties": {
             "name": "Metcalfe County, Kentucky",
             "population": 10074,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5456,7 +6140,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, Kentucky",
             "population": 13898,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5703,7 +6393,13 @@ module.exports ={
           "properties": {
             "name": "Jones County, Iowa",
             "population": 20686,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -5891,7 +6587,13 @@ module.exports ={
           "properties": {
             "name": "Sac County, Iowa",
             "population": 10307,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6022,7 +6724,13 @@ module.exports ={
           "properties": {
             "name": "Atchison County, Kansas",
             "population": 16854,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6072,7 +6780,13 @@ module.exports ={
           "properties": {
             "name": "Lac qui Parle County, Minnesota",
             "population": 7240,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6175,7 +6889,13 @@ module.exports ={
           "properties": {
             "name": "Nicollet County, Minnesota",
             "population": 32689,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6222,7 +6942,13 @@ module.exports ={
           "properties": {
             "name": "Pope County, Minnesota",
             "population": 10978,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6297,7 +7023,13 @@ module.exports ={
           "properties": {
             "name": "Todd County, Minnesota",
             "population": 24783,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6345,7 +7077,13 @@ module.exports ={
           "properties": {
             "name": "Alcorn County, Mississippi",
             "population": 37027,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6364,7 +7102,13 @@ module.exports ={
           "properties": {
             "name": "Calhoun County, Mississippi",
             "population": 14903,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6412,7 +7156,13 @@ module.exports ={
           "properties": {
             "name": "Copiah County, Mississippi",
             "population": 29324,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6431,7 +7181,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Mississippi",
             "population": 8055,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6562,7 +7318,13 @@ module.exports ={
           "properties": {
             "name": "West Baton Rouge Parish, Louisiana",
             "population": 23748,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6580,7 +7342,13 @@ module.exports ={
           "properties": {
             "name": "Winn Parish, Louisiana",
             "population": 15233,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6847,7 +7615,13 @@ module.exports ={
           "properties": {
             "name": "Queen Anne's County, Maryland",
             "population": 47894,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6865,7 +7639,13 @@ module.exports ={
           "properties": {
             "name": "St. Mary's County, Maryland",
             "population": 105528,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6978,7 +7758,13 @@ module.exports ={
           "properties": {
             "name": "Antrim County, Michigan",
             "population": 23634,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -6996,7 +7782,13 @@ module.exports ={
           "properties": {
             "name": "Barry County, Michigan",
             "population": 59249,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7242,7 +8034,13 @@ module.exports ={
           "properties": {
             "name": "Keweenaw County, Michigan",
             "population": 2168,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7264,7 +8062,13 @@ module.exports ={
           "properties": {
             "name": "Lake County, Michigan",
             "population": 11543,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7311,7 +8115,13 @@ module.exports ={
           "properties": {
             "name": "Mackinac County, Michigan",
             "population": 11144,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7506,7 +8316,13 @@ module.exports ={
           "properties": {
             "name": "Roscommon County, Michigan",
             "population": 24447,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7665,7 +8481,13 @@ module.exports ={
           "properties": {
             "name": "Clearwater County, Minnesota",
             "population": 8672,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7740,7 +8562,13 @@ module.exports ={
           "properties": {
             "name": "Hubbard County, Minnesota",
             "population": 20372,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7816,7 +8644,13 @@ module.exports ={
           "properties": {
             "name": "Knox County, Missouri",
             "population": 4111,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7835,7 +8669,13 @@ module.exports ={
           "properties": {
             "name": "Lawrence County, Missouri",
             "population": 38559,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -7943,7 +8783,13 @@ module.exports ={
           "properties": {
             "name": "Osage County, Missouri",
             "population": 13857,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8106,7 +8952,13 @@ module.exports ={
           "properties": {
             "name": "Sullivan County, Missouri",
             "population": 6667,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8124,7 +8976,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Missouri",
             "population": 25120,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8197,7 +9055,13 @@ module.exports ={
           "properties": {
             "name": "Golden Valley County, Montana",
             "population": 769,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8216,7 +9080,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Montana",
             "population": 11360,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8236,7 +9106,13 @@ module.exports ={
           "properties": {
             "name": "Merrick County, Nebraska",
             "population": 7779,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8255,7 +9131,13 @@ module.exports ={
           "properties": {
             "name": "Nance County, Nebraska",
             "population": 3730,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8273,7 +9155,13 @@ module.exports ={
           "properties": {
             "name": "Perkins County, Nebraska",
             "population": 2947,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8293,7 +9181,13 @@ module.exports ={
           "properties": {
             "name": "Phelps County, Nebraska",
             "population": 9184,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8341,7 +9235,13 @@ module.exports ={
           "properties": {
             "name": "Seward County, Nebraska",
             "population": 16729,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8358,7 +9258,13 @@ module.exports ={
           "properties": {
             "name": "Sherman County, Nebraska",
             "population": 3133,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8376,7 +9282,13 @@ module.exports ={
           "properties": {
             "name": "Thomas County, Nebraska",
             "population": 831,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8394,7 +9306,13 @@ module.exports ={
           "properties": {
             "name": "Wheeler County, Nebraska",
             "population": 725,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8413,7 +9331,13 @@ module.exports ={
           "properties": {
             "name": "Esmeralda County, Nevada",
             "population": 916,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8691,7 +9615,13 @@ module.exports ={
           "properties": {
             "name": "Petroleum County, Montana",
             "population": 566,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8821,7 +9751,13 @@ module.exports ={
           "properties": {
             "name": "Blaine County, Nebraska",
             "population": 584,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8870,7 +9806,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, Nebraska",
             "population": 6497,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8889,7 +9831,13 @@ module.exports ={
           "properties": {
             "name": "Colfax County, Nebraska",
             "population": 10453,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -8907,7 +9855,13 @@ module.exports ={
           "properties": {
             "name": "Dawson County, Nebraska",
             "population": 24267,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9013,7 +9967,13 @@ module.exports ={
           "properties": {
             "name": "Hayes County, Nebraska",
             "population": 1037,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9032,7 +9992,13 @@ module.exports ={
           "properties": {
             "name": "Howard County, Nebraska",
             "population": 6294,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9078,7 +10044,13 @@ module.exports ={
           "properties": {
             "name": "McPherson County, Nebraska",
             "population": 348,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9097,7 +10069,13 @@ module.exports ={
           "properties": {
             "name": "Leake County, Mississippi",
             "population": 23563,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9144,7 +10122,13 @@ module.exports ={
           "properties": {
             "name": "Monroe County, Mississippi",
             "population": 36912,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9164,7 +10148,13 @@ module.exports ={
           "properties": {
             "name": "Neshoba County, Mississippi",
             "population": 29682,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9181,7 +10171,13 @@ module.exports ={
           "properties": {
             "name": "Noxubee County, Mississippi",
             "population": 11511,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9200,7 +10196,13 @@ module.exports ={
           "properties": {
             "name": "Pontotoc County, Mississippi",
             "population": 29962,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9218,7 +10220,13 @@ module.exports ={
           "properties": {
             "name": "Prentiss County, Mississippi",
             "population": 25384,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9237,7 +10245,13 @@ module.exports ={
           "properties": {
             "name": "Simpson County, Mississippi",
             "population": 27476,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9256,7 +10270,13 @@ module.exports ={
           "properties": {
             "name": "Tippah County, Mississippi",
             "population": 22095,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9333,7 +10353,13 @@ module.exports ={
           "properties": {
             "name": "Barry County, Missouri",
             "population": 35680,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9410,7 +10436,13 @@ module.exports ={
           "properties": {
             "name": "Christian County, Missouri",
             "population": 77474,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9429,7 +10461,13 @@ module.exports ={
           "properties": {
             "name": "Cooper County, Missouri",
             "population": 17542,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9448,7 +10486,13 @@ module.exports ={
           "properties": {
             "name": "Dent County, Missouri",
             "population": 15595,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9496,7 +10540,13 @@ module.exports ={
           "properties": {
             "name": "Hickory County, Missouri",
             "population": 9554,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -9543,7 +10593,13 @@ module.exports ={
           "properties": {
             "name": "Alleghany County, North Carolina",
             "population": 11069,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10004,7 +11060,13 @@ module.exports ={
           "properties": {
             "name": "Geauga County, Ohio",
             "population": 93485,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10081,7 +11143,13 @@ module.exports ={
           "properties": {
             "name": "Holmes County, Ohio",
             "population": 42501,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10100,7 +11168,13 @@ module.exports ={
           "properties": {
             "name": "Licking County, Ohio",
             "population": 166135,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10120,7 +11194,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Ohio",
             "population": 43213,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10168,7 +11248,13 @@ module.exports ={
           "properties": {
             "name": "Noble County, Ohio",
             "population": 14643,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10187,7 +11273,13 @@ module.exports ={
           "properties": {
             "name": "Pike County, Ohio",
             "population": 28652,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10233,7 +11325,13 @@ module.exports ={
           "properties": {
             "name": "Seneca County, Ohio",
             "population": 56630,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10252,7 +11350,13 @@ module.exports ={
           "properties": {
             "name": "Union County, Ohio",
             "population": 52153,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10329,7 +11433,13 @@ module.exports ={
           "properties": {
             "name": "Beckham County, Oklahoma",
             "population": 22519,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10350,7 +11460,13 @@ module.exports ={
           "properties": {
             "name": "Carter County, Oklahoma",
             "population": 47603,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10540,7 +11656,13 @@ module.exports ={
           "properties": {
             "name": "Billings County, North Dakota",
             "population": 838,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10586,7 +11708,13 @@ module.exports ={
           "properties": {
             "name": "Foster County, North Dakota",
             "population": 3368,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10603,7 +11731,13 @@ module.exports ={
           "properties": {
             "name": "Grand Forks County, North Dakota",
             "population": 66890,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10651,7 +11785,13 @@ module.exports ={
           "properties": {
             "name": "Mountrail County, North Dakota",
             "population": 7830,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10755,7 +11895,13 @@ module.exports ={
           "properties": {
             "name": "Wells County, North Dakota",
             "population": 4228,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10803,7 +11949,13 @@ module.exports ={
           "properties": {
             "name": "Brown County, Ohio",
             "population": 44666,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10880,7 +12032,13 @@ module.exports ={
           "properties": {
             "name": "Fayette County, Ohio",
             "population": 28931,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -10928,7 +12086,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, New Mexico",
             "population": 20440,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11004,7 +12168,13 @@ module.exports ={
           "properties": {
             "name": "Socorro County, New Mexico",
             "population": 17843,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11139,7 +12309,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, New York",
             "population": 50025,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11529,7 +12705,13 @@ module.exports ={
           "properties": {
             "name": "Mifflin County, Pennsylvania",
             "population": 46694,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11573,7 +12755,13 @@ module.exports ={
           "properties": {
             "name": "Potter County, Pennsylvania",
             "population": 17466,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11593,7 +12781,13 @@ module.exports ={
           "properties": {
             "name": "Sullivan County, Pennsylvania",
             "population": 6453,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11670,7 +12864,13 @@ module.exports ={
           "properties": {
             "name": "Bamberg County, South Carolina",
             "population": 15941,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11687,7 +12887,13 @@ module.exports ={
           "properties": {
             "name": "Clarendon County, South Carolina",
             "population": 34746,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11765,7 +12971,13 @@ module.exports ={
           "properties": {
             "name": "Bledsoe County, Tennessee",
             "population": 12898,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11783,7 +12995,13 @@ module.exports ={
           "properties": {
             "name": "Campbell County, Tennessee",
             "population": 40629,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11832,7 +13050,13 @@ module.exports ={
           "properties": {
             "name": "Coffee County, Tennessee",
             "population": 52853,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11852,7 +13076,13 @@ module.exports ={
           "properties": {
             "name": "Dyer County, Tennessee",
             "population": 38234,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11872,7 +13102,13 @@ module.exports ={
           "properties": {
             "name": "Grainger County, Tennessee",
             "population": 22613,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11892,7 +13128,13 @@ module.exports ={
           "properties": {
             "name": "Hardeman County, Tennessee",
             "population": 27193,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11913,7 +13155,13 @@ module.exports ={
           "properties": {
             "name": "Hickman County, Tennessee",
             "population": 24481,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -11991,7 +13239,13 @@ module.exports ={
           "properties": {
             "name": "Marshall County, Tennessee",
             "population": 30585,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12010,7 +13264,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, Tennessee",
             "population": 21882,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12057,7 +13317,13 @@ module.exports ={
           "properties": {
             "name": "Scott County, Tennessee",
             "population": 22196,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12077,7 +13343,13 @@ module.exports ={
           "properties": {
             "name": "Union County, Tennessee",
             "population": 19179,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12123,7 +13395,13 @@ module.exports ={
           "properties": {
             "name": "Hampton County, South Carolina",
             "population": 20987,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12230,7 +13508,13 @@ module.exports ={
           "properties": {
             "name": "Aurora County, South Dakota",
             "population": 2726,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12249,7 +13533,13 @@ module.exports ={
           "properties": {
             "name": "Bennett County, South Dakota",
             "population": 3432,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12322,7 +13612,13 @@ module.exports ={
           "properties": {
             "name": "Davison County, South Dakota",
             "population": 19513,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12340,7 +13636,13 @@ module.exports ={
           "properties": {
             "name": "Douglas County, South Dakota",
             "population": 2992,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12357,7 +13659,13 @@ module.exports ={
           "properties": {
             "name": "Haakon County, South Dakota",
             "population": 1852,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12376,7 +13684,13 @@ module.exports ={
           "properties": {
             "name": "Hanson County, South Dakota",
             "population": 3366,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12394,7 +13708,13 @@ module.exports ={
           "properties": {
             "name": "McCook County, South Dakota",
             "population": 5592,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12413,7 +13733,13 @@ module.exports ={
           "properties": {
             "name": "Mellette County, South Dakota",
             "population": 2057,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12461,7 +13787,13 @@ module.exports ={
           "properties": {
             "name": "Sanborn County, South Dakota",
             "population": 2357,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12481,7 +13813,13 @@ module.exports ={
           "properties": {
             "name": "Turner County, South Dakota",
             "population": 8344,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12500,7 +13838,13 @@ module.exports ={
           "properties": {
             "name": "Ziebach County, South Dakota",
             "population": 2796,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12547,7 +13891,13 @@ module.exports ={
           "properties": {
             "name": "Hughes County, Oklahoma",
             "population": 13762,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12594,7 +13944,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Oklahoma",
             "population": 34106,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12698,7 +14054,13 @@ module.exports ={
           "properties": {
             "name": "Pontotoc County, Oklahoma",
             "population": 37438,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12719,7 +14081,13 @@ module.exports ={
           "properties": {
             "name": "Pushmataha County, Oklahoma",
             "population": 11449,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12738,7 +14106,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Oklahoma",
             "population": 51112,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -12901,7 +14275,13 @@ module.exports ={
           "properties": {
             "name": "Wheeler County, Oregon",
             "population": 1287,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13034,7 +14414,13 @@ module.exports ={
           "properties": {
             "name": "Rains County, Texas",
             "population": 10976,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13051,7 +14437,13 @@ module.exports ={
           "properties": {
             "name": "Randall County, Texas",
             "population": 121090,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13099,7 +14491,13 @@ module.exports ={
           "properties": {
             "name": "Rockwall County, Texas",
             "population": 78749,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13116,7 +14514,13 @@ module.exports ={
           "properties": {
             "name": "San Saba County, Texas",
             "population": 6037,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13163,7 +14567,13 @@ module.exports ={
           "properties": {
             "name": "Stephens County, Texas",
             "population": 9561,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13181,7 +14591,13 @@ module.exports ={
           "properties": {
             "name": "Stonewall County, Texas",
             "population": 1447,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13199,7 +14615,13 @@ module.exports ={
           "properties": {
             "name": "Terry County, Texas",
             "population": 12561,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13244,7 +14666,13 @@ module.exports ={
           "properties": {
             "name": "Upshur County, Texas",
             "population": 39386,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13380,7 +14808,13 @@ module.exports ={
           "properties": {
             "name": "Zavala County, Texas",
             "population": 11753,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13424,7 +14858,13 @@ module.exports ={
           "properties": {
             "name": "White County, Tennessee",
             "population": 25863,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13442,7 +14882,13 @@ module.exports ={
           "properties": {
             "name": "Wilson County, Tennessee",
             "population": 114618,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13490,7 +14936,13 @@ module.exports ={
           "properties": {
             "name": "Armstrong County, Texas",
             "population": 1820,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13536,7 +14988,13 @@ module.exports ={
           "properties": {
             "name": "Blanco County, Texas",
             "population": 10425,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13556,7 +15014,13 @@ module.exports ={
           "properties": {
             "name": "Brooks County, Texas",
             "population": 7236,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13606,7 +15070,13 @@ module.exports ={
           "properties": {
             "name": "Camp County, Texas",
             "population": 12389,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13653,7 +15123,13 @@ module.exports ={
           "properties": {
             "name": "Cochran County, Texas",
             "population": 3087,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13671,7 +15147,13 @@ module.exports ={
           "properties": {
             "name": "Concho County, Texas",
             "population": 4073,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13689,7 +15171,13 @@ module.exports ={
           "properties": {
             "name": "Coryell County, Texas",
             "population": 75728,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13707,7 +15195,13 @@ module.exports ={
           "properties": {
             "name": "Crane County, Texas",
             "population": 4359,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13753,7 +15247,13 @@ module.exports ={
           "properties": {
             "name": "DeWitt County, Texas",
             "population": 20156,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13771,7 +15271,13 @@ module.exports ={
           "properties": {
             "name": "Dimmit County, Texas",
             "population": 10054,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13789,7 +15295,13 @@ module.exports ={
           "properties": {
             "name": "Edwards County, Texas",
             "population": 2023,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13840,7 +15352,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Texas",
             "population": 10593,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13859,7 +15377,13 @@ module.exports ={
           "properties": {
             "name": "Garza County, Texas",
             "population": 6295,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13907,7 +15431,13 @@ module.exports ={
           "properties": {
             "name": "Gray County, Texas",
             "population": 22731,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -13953,7 +15483,13 @@ module.exports ={
           "properties": {
             "name": "Hall County, Texas",
             "population": 3337,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14000,7 +15536,13 @@ module.exports ={
           "properties": {
             "name": "Hill County, Texas",
             "population": 35079,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14160,7 +15702,13 @@ module.exports ={
           "properties": {
             "name": "Kerr County, Texas",
             "population": 49469,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14206,7 +15754,13 @@ module.exports ={
           "properties": {
             "name": "La Salle County, Texas",
             "population": 6850,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14224,7 +15778,13 @@ module.exports ={
           "properties": {
             "name": "Live Oak County, Texas",
             "population": 11526,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14300,7 +15860,13 @@ module.exports ={
           "properties": {
             "name": "Mason County, Texas",
             "population": 3978,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14319,7 +15885,13 @@ module.exports ={
           "properties": {
             "name": "Midland County, Texas",
             "population": 138472,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14366,7 +15938,13 @@ module.exports ={
           "properties": {
             "name": "Navarro County, Texas",
             "population": 47739,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14442,7 +16020,13 @@ module.exports ={
           "properties": {
             "name": "Nelson County, Virginia",
             "population": 15000,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14548,7 +16132,13 @@ module.exports ={
           "properties": {
             "name": "Rappahannock County, Virginia",
             "population": 7440,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14566,7 +16156,13 @@ module.exports ={
           "properties": {
             "name": "Smyth County, Virginia",
             "population": 32103,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14614,7 +16210,13 @@ module.exports ={
           "properties": {
             "name": "Wythe County, Virginia",
             "population": 29203,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14632,7 +16234,13 @@ module.exports ={
           "properties": {
             "name": "Alexandria city, Virginia",
             "population": 140337,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14649,7 +16257,13 @@ module.exports ={
           "properties": {
             "name": "Buena Vista city, Virginia",
             "population": 6679,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14663,7 +16277,13 @@ module.exports ={
           "properties": {
             "name": "Charlottesville city, Virginia",
             "population": 43223,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14677,7 +16297,13 @@ module.exports ={
           "properties": {
             "name": "Emporia city, Virginia",
             "population": 5825,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14691,7 +16317,13 @@ module.exports ={
           "properties": {
             "name": "Harrisonburg city, Virginia",
             "population": 49043,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14705,7 +16337,13 @@ module.exports ={
           "properties": {
             "name": "Hopewell city, Virginia",
             "population": 22501,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14720,7 +16358,13 @@ module.exports ={
           "properties": {
             "name": "Richmond city, Virginia",
             "population": 205348,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14735,7 +16379,13 @@ module.exports ={
           "properties": {
             "name": "Salem city, Virginia",
             "population": 24792,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14750,7 +16400,13 @@ module.exports ={
           "properties": {
             "name": "Waynesboro city, Virginia",
             "population": 21030,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14883,7 +16539,13 @@ module.exports ={
           "properties": {
             "name": "Fond du Lac County, Wisconsin",
             "population": 101577,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -14902,7 +16564,13 @@ module.exports ={
           "properties": {
             "name": "Green County, Wisconsin",
             "population": 36800,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15091,7 +16759,13 @@ module.exports ={
           "properties": {
             "name": "Shawano County, Wisconsin",
             "population": 41820,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15251,7 +16925,13 @@ module.exports ={
           "properties": {
             "name": "Weston County, Wyoming",
             "population": 7152,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15387,7 +17067,13 @@ module.exports ={
           "properties": {
             "name": "Braxton County, West Virginia",
             "population": 14531,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15406,7 +17092,13 @@ module.exports ={
           "properties": {
             "name": "Calhoun County, West Virginia",
             "population": 7613,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15425,7 +17117,13 @@ module.exports ={
           "properties": {
             "name": "Gilmer County, West Virginia",
             "population": 8623,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15559,7 +17257,13 @@ module.exports ={
           "properties": {
             "name": "Summers County, West Virginia",
             "population": 13813,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15578,7 +17282,13 @@ module.exports ={
           "properties": {
             "name": "Webster County, West Virginia",
             "population": 9158,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15672,7 +17382,13 @@ module.exports ={
           "properties": {
             "name": "Bayfield County, Wisconsin",
             "population": 15078,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15776,7 +17492,13 @@ module.exports ={
           "properties": {
             "name": "Piute County, Utah",
             "population": 1699,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -15993,7 +17715,13 @@ module.exports ={
           "properties": {
             "name": "Clarke County, Virginia",
             "population": 14143,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16040,7 +17768,13 @@ module.exports ={
           "properties": {
             "name": "Floyd County, Virginia",
             "population": 15268,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16115,7 +17849,13 @@ module.exports ={
           "properties": {
             "name": "Lunenburg County, Virginia",
             "population": 12838,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16133,7 +17873,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Virginia",
             "population": 13270,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16210,7 +17956,13 @@ module.exports ={
           "properties": {
             "name": "Cleburne County, Alabama",
             "population": 14905,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16231,7 +17983,13 @@ module.exports ={
           "properties": {
             "name": "Coffee County, Alabama",
             "population": 49966,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16336,7 +18094,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Alabama",
             "population": 31664,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16355,7 +18119,13 @@ module.exports ={
           "properties": {
             "name": "Geneva County, Alabama",
             "population": 26769,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16375,7 +18145,13 @@ module.exports ={
           "properties": {
             "name": "Henry County, Alabama",
             "population": 17275,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16480,7 +18256,13 @@ module.exports ={
           "properties": {
             "name": "Macon County, Alabama",
             "population": 21214,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16499,7 +18281,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Alabama",
             "population": 334661,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16518,7 +18306,13 @@ module.exports ={
           "properties": {
             "name": "Dillingham Census Area, Alaska",
             "population": 4887,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16534,7 +18328,13 @@ module.exports ={
           "properties": {
             "name": "Juneau City and Borough, Alaska",
             "population": 31636,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16560,7 +18360,13 @@ module.exports ={
           "properties": {
             "name": "Ketchikan Gateway Borough, Alaska",
             "population": 13525,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16584,7 +18390,13 @@ module.exports ={
           "properties": {
             "name": "North Slope Borough, Alaska",
             "population": 9317,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16600,7 +18412,13 @@ module.exports ={
           "properties": {
             "name": "Petersburg Census Area, Alaska",
             "population": 3822,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16629,7 +18447,13 @@ module.exports ={
           "properties": {
             "name": "Sitka City and Borough, Alaska",
             "population": 8909,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16656,7 +18480,13 @@ module.exports ={
           "properties": {
             "name": "Skagway Municipality, Alaska",
             "population": 1050,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16727,7 +18557,13 @@ module.exports ={
           "properties": {
             "name": "Alpine County, California",
             "population": 1197,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16775,7 +18611,13 @@ module.exports ={
           "properties": {
             "name": "Marion County, Alabama",
             "population": 30641,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16856,7 +18698,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, Alabama",
             "population": 229376,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16905,7 +18753,13 @@ module.exports ={
           "properties": {
             "name": "Sumter County, Alabama",
             "population": 13669,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -16984,7 +18838,13 @@ module.exports ={
           "properties": {
             "name": "Anchorage Municipality, Alaska",
             "population": 291470,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17001,7 +18861,13 @@ module.exports ={
           "properties": {
             "name": "Denali Borough, Alaska",
             "population": 1917,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17018,7 +18884,13 @@ module.exports ={
           "properties": {
             "name": "Bibb County, Alabama",
             "population": 22769,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17037,7 +18909,13 @@ module.exports ={
           "properties": {
             "name": "Bullock County, Alabama",
             "population": 10779,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17113,7 +18991,13 @@ module.exports ={
           "properties": {
             "name": "Modoc County, California",
             "population": 9545,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17388,7 +19272,13 @@ module.exports ={
           "properties": {
             "name": "Archuleta County, Colorado",
             "population": 12109,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17467,7 +19357,13 @@ module.exports ={
           "properties": {
             "name": "Cheyenne County, Colorado",
             "population": 2095,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17485,7 +19381,13 @@ module.exports ={
           "properties": {
             "name": "Conejos County, Colorado",
             "population": 8241,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17504,7 +19406,13 @@ module.exports ={
           "properties": {
             "name": "Costilla County, Colorado",
             "population": 3556,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17523,7 +19431,13 @@ module.exports ={
           "properties": {
             "name": "Delta County, Colorado",
             "population": 30710,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17568,7 +19482,13 @@ module.exports ={
           "properties": {
             "name": "Fremont County, Colorado",
             "population": 47006,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17861,7 +19781,13 @@ module.exports ={
           "properties": {
             "name": "Del Norte County, California",
             "population": 28496,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -17879,7 +19805,13 @@ module.exports ={
           "properties": {
             "name": "Aleutians East Borough, Alaska",
             "population": 3114,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18114,7 +20046,13 @@ module.exports ={
           "properties": {
             "name": "Coffee County, Georgia",
             "population": 42566,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18193,7 +20131,13 @@ module.exports ={
           "properties": {
             "name": "Crisp County, Georgia",
             "population": 23460,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18241,7 +20185,13 @@ module.exports ={
           "properties": {
             "name": "Dooly County, Georgia",
             "population": 14528,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18289,7 +20239,13 @@ module.exports ={
           "properties": {
             "name": "Echols County, Georgia",
             "population": 4024,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18336,7 +20292,13 @@ module.exports ={
           "properties": {
             "name": "Evans County, Georgia",
             "population": 10935,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18383,7 +20345,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Georgia",
             "population": 22070,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18401,7 +20369,13 @@ module.exports ={
           "properties": {
             "name": "Kiowa County, Colorado",
             "population": 1393,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18508,7 +20482,13 @@ module.exports ={
           "properties": {
             "name": "Okaloosa County, Florida",
             "population": 183400,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18640,7 +20620,13 @@ module.exports ={
           "properties": {
             "name": "St. Johns County, Florida",
             "population": 191495,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18768,7 +20754,13 @@ module.exports ={
           "properties": {
             "name": "Walton County, Florida",
             "population": 55349,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18788,7 +20780,13 @@ module.exports ={
           "properties": {
             "name": "Atkinson County, Georgia",
             "population": 8355,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18806,7 +20804,13 @@ module.exports ={
           "properties": {
             "name": "Bacon County, Georgia",
             "population": 11124,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18881,7 +20885,13 @@ module.exports ={
           "properties": {
             "name": "Bleckley County, Georgia",
             "population": 13009,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18899,7 +20909,13 @@ module.exports ={
           "properties": {
             "name": "Brantley County, Georgia",
             "population": 18279,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18918,7 +20934,13 @@ module.exports ={
           "properties": {
             "name": "Bulloch County, Georgia",
             "population": 70360,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18938,7 +20960,13 @@ module.exports ={
           "properties": {
             "name": "Calhoun County, Georgia",
             "population": 6581,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -18957,7 +20985,13 @@ module.exports ={
           "properties": {
             "name": "Charlton County, Georgia",
             "population": 12954,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19003,7 +21037,13 @@ module.exports ={
           "properties": {
             "name": "Cherokee County, Georgia",
             "population": 215014,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19022,7 +21062,13 @@ module.exports ={
           "properties": {
             "name": "Clayton County, Georgia",
             "population": 262066,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19097,7 +21143,13 @@ module.exports ={
           "properties": {
             "name": "District of Columbia, District of Columbia",
             "population": 605759,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19115,7 +21167,13 @@ module.exports ={
           "properties": {
             "name": "Baker County, Florida",
             "population": 27010,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19256,7 +21314,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Florida",
             "population": 19187,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19304,7 +21368,13 @@ module.exports ={
           "properties": {
             "name": "Wrangell City and Borough, Alaska",
             "population": 2368,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19385,7 +21455,13 @@ module.exports ={
           "properties": {
             "name": "Dixie County, Florida",
             "population": 16301,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19431,7 +21507,13 @@ module.exports ={
           "properties": {
             "name": "Gilchrist County, Florida",
             "population": 16880,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19450,7 +21532,13 @@ module.exports ={
           "properties": {
             "name": "Glades County, Florida",
             "population": 12952,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19467,7 +21555,13 @@ module.exports ={
           "properties": {
             "name": "Gulf County, Florida",
             "population": 15796,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19567,7 +21661,13 @@ module.exports ={
           "properties": {
             "name": "Indian River County, Florida",
             "population": 138203,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19789,7 +21889,13 @@ module.exports ={
           "properties": {
             "name": "Pitkin County, Colorado",
             "population": 17000,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19867,7 +21973,13 @@ module.exports ={
           "properties": {
             "name": "Teller County, Colorado",
             "population": 23163,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19885,7 +21997,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Colorado",
             "population": 4796,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -19905,7 +22023,13 @@ module.exports ={
           "properties": {
             "name": "Yuma County, Colorado",
             "population": 10032,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20011,7 +22135,13 @@ module.exports ={
           "properties": {
             "name": "Chicot County, Arkansas",
             "population": 11759,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20033,7 +22163,13 @@ module.exports ={
           "properties": {
             "name": "Cleveland County, Arkansas",
             "population": 8685,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20053,7 +22189,13 @@ module.exports ={
           "properties": {
             "name": "Columbia County, Arkansas",
             "population": 24644,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20101,7 +22243,13 @@ module.exports ={
           "properties": {
             "name": "Faulkner County, Arkansas",
             "population": 113730,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20149,7 +22297,13 @@ module.exports ={
           "properties": {
             "name": "Grant County, Arkansas",
             "population": 17852,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20197,7 +22351,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Arkansas",
             "population": 17885,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20217,7 +22377,13 @@ module.exports ={
           "properties": {
             "name": "Lafayette County, Arkansas",
             "population": 7618,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20265,7 +22431,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, Arkansas",
             "population": 22352,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20284,7 +22456,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Arkansas",
             "population": 15674,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20532,7 +22710,13 @@ module.exports ={
           "properties": {
             "name": "Miller County, Arkansas",
             "population": 43449,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20585,7 +22769,13 @@ module.exports ={
           "properties": {
             "name": "Nevada County, Arkansas",
             "population": 9003,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20633,7 +22823,13 @@ module.exports ={
           "properties": {
             "name": "Polk County, Arkansas",
             "population": 20535,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20682,7 +22878,13 @@ module.exports ={
           "properties": {
             "name": "Randolph County, Arkansas",
             "population": 17992,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20701,7 +22903,13 @@ module.exports ={
           "properties": {
             "name": "Sevier County, Arkansas",
             "population": 16978,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20747,7 +22955,13 @@ module.exports ={
           "properties": {
             "name": "Wilkes County, Georgia",
             "population": 10398,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20825,7 +23039,13 @@ module.exports ={
           "properties": {
             "name": "Graham County, Arizona",
             "population": 37115,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -20845,7 +23065,13 @@ module.exports ={
           "properties": {
             "name": "Greenlee County, Arizona",
             "population": 8592,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21059,7 +23285,13 @@ module.exports ={
           "properties": {
             "name": "Oneida County, Idaho",
             "population": 4236,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21106,7 +23338,13 @@ module.exports ={
           "properties": {
             "name": "Shoshone County, Idaho",
             "population": 12797,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21155,7 +23393,13 @@ module.exports ={
           "properties": {
             "name": "Alexander County, Illinois",
             "population": 8147,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21174,7 +23418,13 @@ module.exports ={
           "properties": {
             "name": "Boone County, Illinois",
             "population": 54141,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21222,7 +23472,13 @@ module.exports ={
           "properties": {
             "name": "Carroll County, Illinois",
             "population": 15338,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21271,7 +23527,13 @@ module.exports ={
           "properties": {
             "name": "Crawford County, Illinois",
             "population": 19777,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21375,7 +23637,13 @@ module.exports ={
           "properties": {
             "name": "Orange County, Indiana",
             "population": 19828,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21393,7 +23661,13 @@ module.exports ={
           "properties": {
             "name": "Parke County, Indiana",
             "population": 17251,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21467,7 +23741,13 @@ module.exports ={
           "properties": {
             "name": "Ripley County, Indiana",
             "population": 28702,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21487,7 +23767,13 @@ module.exports ={
           "properties": {
             "name": "St. Joseph County, Indiana",
             "population": 266785,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21506,7 +23792,13 @@ module.exports ={
           "properties": {
             "name": "Starke County, Indiana",
             "population": 23310,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21524,7 +23816,13 @@ module.exports ={
           "properties": {
             "name": "Steuben County, Indiana",
             "population": 34116,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21570,7 +23868,13 @@ module.exports ={
           "properties": {
             "name": "Union County, Indiana",
             "population": 7449,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21646,7 +23950,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Indiana",
             "population": 28162,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21724,7 +24034,13 @@ module.exports ={
           "properties": {
             "name": "Edwards County, Illinois",
             "population": 6691,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -21977,7 +24293,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Indiana",
             "population": 42414,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22027,7 +24349,13 @@ module.exports ={
           "properties": {
             "name": "LaGrange County, Indiana",
             "population": 37284,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22159,7 +24487,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, Indiana",
             "population": 69033,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22208,7 +24542,13 @@ module.exports ={
           "properties": {
             "name": "Camas County, Idaho",
             "population": 1276,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22424,7 +24764,13 @@ module.exports ={
           "properties": {
             "name": "Lewis County, Idaho",
             "population": 3818,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22527,7 +24873,13 @@ module.exports ={
           "properties": {
             "name": "Brown County, Indiana",
             "population": 15181,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22603,7 +24955,13 @@ module.exports ={
           "properties": {
             "name": "Crawford County, Indiana",
             "population": 10702,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22622,7 +24980,13 @@ module.exports ={
           "properties": {
             "name": "Decatur County, Indiana",
             "population": 25772,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22641,7 +25005,13 @@ module.exports ={
           "properties": {
             "name": "Delaware County, Indiana",
             "population": 117459,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22660,7 +25030,13 @@ module.exports ={
           "properties": {
             "name": "Fountain County, Indiana",
             "population": 17212,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22766,7 +25142,13 @@ module.exports ={
           "properties": {
             "name": "Irwin County, Georgia",
             "population": 9646,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22954,7 +25336,13 @@ module.exports ={
           "properties": {
             "name": "Labette County, Kansas",
             "population": 21574,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22973,7 +25361,13 @@ module.exports ={
           "properties": {
             "name": "Leavenworth County, Kansas",
             "population": 76286,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -22992,7 +25386,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, Kansas",
             "population": 2766,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23272,7 +25672,13 @@ module.exports ={
           "properties": {
             "name": "Scott County, Kansas",
             "population": 4872,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23320,7 +25726,13 @@ module.exports ={
           "properties": {
             "name": "Lafourche Parish, Louisiana",
             "population": 96453,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23340,7 +25752,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln Parish, Louisiana",
             "population": 46543,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23358,7 +25776,13 @@ module.exports ={
           "properties": {
             "name": "Livingston Parish, Louisiana",
             "population": 128192,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23376,7 +25800,13 @@ module.exports ={
           "properties": {
             "name": "Natchitoches Parish, Louisiana",
             "population": 39434,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23397,7 +25827,13 @@ module.exports ={
           "properties": {
             "name": "Plaquemines Parish, Louisiana",
             "population": 23220,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23414,7 +25850,13 @@ module.exports ={
           "properties": {
             "name": "Rapides Parish, Louisiana",
             "population": 131655,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23434,7 +25876,13 @@ module.exports ={
           "properties": {
             "name": "Red River Parish, Louisiana",
             "population": 9068,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23452,7 +25900,13 @@ module.exports ={
           "properties": {
             "name": "Sabine Parish, Louisiana",
             "population": 24265,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23502,7 +25956,13 @@ module.exports ={
           "properties": {
             "name": "Jessamine County, Kentucky",
             "population": 48591,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23520,7 +25980,13 @@ module.exports ={
           "properties": {
             "name": "Larue County, Kentucky",
             "population": 14175,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23539,7 +26005,13 @@ module.exports ={
           "properties": {
             "name": "Lee County, Kentucky",
             "population": 7831,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23558,7 +26030,13 @@ module.exports ={
           "properties": {
             "name": "Lewis County, Kentucky",
             "population": 13889,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23578,7 +26056,13 @@ module.exports ={
           "properties": {
             "name": "Livingston County, Kentucky",
             "population": 9479,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23628,7 +26112,13 @@ module.exports ={
           "properties": {
             "name": "Magoffin County, Kentucky",
             "population": 13229,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23647,7 +26137,13 @@ module.exports ={
           "properties": {
             "name": "Martin County, Kentucky",
             "population": 12934,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23695,7 +26191,13 @@ module.exports ={
           "properties": {
             "name": "Monroe County, Kentucky",
             "population": 10925,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23714,7 +26216,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, Kentucky",
             "population": 26517,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23732,7 +26240,13 @@ module.exports ={
           "properties": {
             "name": "Nelson County, Kentucky",
             "population": 43500,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23780,7 +26294,13 @@ module.exports ={
           "properties": {
             "name": "Allen County, Indiana",
             "population": 355940,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23802,7 +26322,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Georgia",
             "population": 7962,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -23987,7 +26513,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Iowa",
             "population": 16791,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24034,7 +26566,13 @@ module.exports ={
           "properties": {
             "name": "Keokuk County, Iowa",
             "population": 10480,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24110,7 +26648,13 @@ module.exports ={
           "properties": {
             "name": "Mills County, Iowa",
             "population": 15028,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24302,7 +26846,13 @@ module.exports ={
           "properties": {
             "name": "Ringgold County, Iowa",
             "population": 5123,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24375,7 +26925,13 @@ module.exports ={
           "properties": {
             "name": "Van Buren County, Iowa",
             "population": 7565,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24394,7 +26950,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Iowa",
             "population": 21765,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24527,7 +27089,13 @@ module.exports ={
           "properties": {
             "name": "Chase County, Kansas",
             "population": 2788,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24545,7 +27113,13 @@ module.exports ={
           "properties": {
             "name": "Chautauqua County, Kansas",
             "population": 3654,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -24620,7 +27194,13 @@ module.exports ={
           "properties": {
             "name": "Marshall County, Minnesota",
             "population": 9475,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25201,7 +27781,13 @@ module.exports ={
           "properties": {
             "name": "Amite County, Mississippi",
             "population": 13139,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25249,7 +27835,13 @@ module.exports ={
           "properties": {
             "name": "Bolivar County, Mississippi",
             "population": 34239,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25267,7 +27859,13 @@ module.exports ={
           "properties": {
             "name": "Carroll County, Mississippi",
             "population": 10553,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25313,7 +27911,13 @@ module.exports ={
           "properties": {
             "name": "Covington County, Mississippi",
             "population": 19571,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25360,7 +27964,13 @@ module.exports ={
           "properties": {
             "name": "Plymouth County, Iowa",
             "population": 24911,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25377,7 +27987,13 @@ module.exports ={
           "properties": {
             "name": "Hancock County, Mississippi",
             "population": 44044,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25394,7 +28010,13 @@ module.exports ={
           "properties": {
             "name": "Holmes County, Mississippi",
             "population": 19207,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25412,7 +28034,13 @@ module.exports ={
           "properties": {
             "name": "Humphreys County, Mississippi",
             "population": 9399,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25574,7 +28202,13 @@ module.exports ={
           "properties": {
             "name": "Quitman County, Georgia",
             "population": 2542,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25591,7 +28225,13 @@ module.exports ={
           "properties": {
             "name": "Lake of the Woods County, Minnesota",
             "population": 4039,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25663,7 +28303,13 @@ module.exports ={
           "properties": {
             "name": "Edgefield County, South Carolina",
             "population": 26763,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25682,7 +28328,13 @@ module.exports ={
           "properties": {
             "name": "Bradley County, Tennessee",
             "population": 99229,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25701,7 +28353,13 @@ module.exports ={
           "properties": {
             "name": "Carroll County, Tennessee",
             "population": 28486,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25721,7 +28379,13 @@ module.exports ={
           "properties": {
             "name": "Cheatham County, Tennessee",
             "population": 39103,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25742,7 +28406,13 @@ module.exports ={
           "properties": {
             "name": "Claiborne County, Tennessee",
             "population": 32025,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25762,7 +28432,13 @@ module.exports ={
           "properties": {
             "name": "Crockett County, Tennessee",
             "population": 14567,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25780,7 +28456,13 @@ module.exports ={
           "properties": {
             "name": "Cumberland County, Tennessee",
             "population": 56144,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25830,7 +28512,13 @@ module.exports ={
           "properties": {
             "name": "Fayette County, Tennessee",
             "population": 38370,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25849,7 +28537,13 @@ module.exports ={
           "properties": {
             "name": "Fentress County, Tennessee",
             "population": 17945,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25868,7 +28562,13 @@ module.exports ={
           "properties": {
             "name": "Greene County, Tennessee",
             "population": 68755,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25887,7 +28587,13 @@ module.exports ={
           "properties": {
             "name": "Grundy County, Tennessee",
             "population": 13751,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25905,7 +28611,13 @@ module.exports ={
           "properties": {
             "name": "St. Louis County, Minnesota",
             "population": 200150,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -25926,7 +28638,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Maine",
             "population": 34440,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26028,7 +28746,13 @@ module.exports ={
           "properties": {
             "name": "Greene County, Mississippi",
             "population": 14352,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26046,7 +28770,13 @@ module.exports ={
           "properties": {
             "name": "Rock County, Nebraska",
             "population": 1540,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26120,7 +28850,13 @@ module.exports ={
           "properties": {
             "name": "Sheridan County, Nebraska",
             "population": 5432,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26227,7 +28963,13 @@ module.exports ={
           "properties": {
             "name": "Douglas County, Nevada",
             "population": 47056,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26308,7 +29050,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Nevada",
             "population": 5282,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26449,7 +29197,13 @@ module.exports ={
           "properties": {
             "name": "Morrow County, Ohio",
             "population": 34895,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26580,7 +29334,13 @@ module.exports ={
           "properties": {
             "name": "Preble County, Ohio",
             "population": 42240,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26685,7 +29445,13 @@ module.exports ={
           "properties": {
             "name": "Stark County, Ohio",
             "population": 375593,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26857,7 +29623,13 @@ module.exports ={
           "properties": {
             "name": "Henderson County, Tennessee",
             "population": 27835,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26875,7 +29647,13 @@ module.exports ={
           "properties": {
             "name": "Houston County, Tennessee",
             "population": 8375,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26893,7 +29671,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Tennessee",
             "population": 11526,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26911,7 +29695,13 @@ module.exports ={
           "properties": {
             "name": "Lake County, Tennessee",
             "population": 7780,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -26931,7 +29721,13 @@ module.exports ={
           "properties": {
             "name": "Lewis County, Tennessee",
             "population": 12050,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27005,7 +29801,13 @@ module.exports ={
           "properties": {
             "name": "Macon County, Tennessee",
             "population": 22265,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27025,7 +29827,13 @@ module.exports ={
           "properties": {
             "name": "Maury County, Tennessee",
             "population": 80965,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27074,7 +29882,13 @@ module.exports ={
           "properties": {
             "name": "Perry County, Tennessee",
             "population": 7856,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27093,7 +29907,13 @@ module.exports ={
           "properties": {
             "name": "Pickett County, Tennessee",
             "population": 5108,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27112,7 +29932,13 @@ module.exports ={
           "properties": {
             "name": "Caroline County, Maryland",
             "population": 32947,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27130,7 +29956,13 @@ module.exports ={
           "properties": {
             "name": "Carroll County, Maryland",
             "population": 167249,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27236,7 +30068,13 @@ module.exports ={
           "properties": {
             "name": "Prince George's County, Maryland",
             "population": 865443,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27324,7 +30162,13 @@ module.exports ={
           "properties": {
             "name": "Carson City, Nevada",
             "population": 55184,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27631,7 +30475,13 @@ module.exports ={
           "properties": {
             "name": "Alfalfa County, Oklahoma",
             "population": 5631,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27650,7 +30500,13 @@ module.exports ={
           "properties": {
             "name": "Blaine County, Oklahoma",
             "population": 10651,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27669,7 +30525,13 @@ module.exports ={
           "properties": {
             "name": "Bryan County, Oklahoma",
             "population": 42494,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27719,7 +30581,13 @@ module.exports ={
           "properties": {
             "name": "Cimarron County, Oklahoma",
             "population": 2451,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27738,7 +30606,13 @@ module.exports ={
           "properties": {
             "name": "Coal County, Oklahoma",
             "population": 5906,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27756,7 +30630,13 @@ module.exports ={
           "properties": {
             "name": "Craig County, Oklahoma",
             "population": 14922,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27835,7 +30715,13 @@ module.exports ={
           "properties": {
             "name": "Garvin County, Oklahoma",
             "population": 27471,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27881,7 +30767,13 @@ module.exports ={
           "properties": {
             "name": "Wilkes County, North Carolina",
             "population": 69265,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27902,7 +30794,13 @@ module.exports ={
           "properties": {
             "name": "Putnam County, Tennessee",
             "population": 72172,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27951,7 +30849,13 @@ module.exports ={
           "properties": {
             "name": "Brown County, Texas",
             "population": 38018,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -27971,7 +30875,13 @@ module.exports ={
           "properties": {
             "name": "Caldwell County, Texas",
             "population": 38152,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28189,7 +31099,13 @@ module.exports ={
           "properties": {
             "name": "Collingsworth County, Texas",
             "population": 3050,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28694,7 +31610,13 @@ module.exports ={
           "properties": {
             "name": "Yancey County, North Carolina",
             "population": 17814,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28712,7 +31634,13 @@ module.exports ={
           "properties": {
             "name": "Benson County, North Dakota",
             "population": 6677,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28731,7 +31659,13 @@ module.exports ={
           "properties": {
             "name": "Bottineau County, North Dakota",
             "population": 6449,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28779,7 +31713,13 @@ module.exports ={
           "properties": {
             "name": "Eddy County, North Dakota",
             "population": 2393,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28797,7 +31737,13 @@ module.exports ={
           "properties": {
             "name": "Emmons County, North Dakota",
             "population": 3544,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28818,7 +31764,13 @@ module.exports ={
           "properties": {
             "name": "Grant County, North Dakota",
             "population": 2380,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28836,7 +31788,13 @@ module.exports ={
           "properties": {
             "name": "Griggs County, North Dakota",
             "population": 2393,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28855,7 +31813,13 @@ module.exports ={
           "properties": {
             "name": "Kidder County, North Dakota",
             "population": 2426,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28874,7 +31838,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, North Dakota",
             "population": 1972,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -28952,7 +31922,13 @@ module.exports ={
           "properties": {
             "name": "Nelson County, North Dakota",
             "population": 3115,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29001,7 +31977,13 @@ module.exports ={
           "properties": {
             "name": "Bedford County, Tennessee",
             "population": 45060,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29019,7 +32001,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Oklahoma",
             "population": 26275,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29096,7 +32084,13 @@ module.exports ={
           "properties": {
             "name": "Love County, Oklahoma",
             "population": 9404,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29115,7 +32109,13 @@ module.exports ={
           "properties": {
             "name": "McIntosh County, Oklahoma",
             "population": 20266,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29220,7 +32220,13 @@ module.exports ={
           "properties": {
             "name": "Okmulgee County, Oklahoma",
             "population": 39770,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29239,7 +32245,13 @@ module.exports ={
           "properties": {
             "name": "Pawnee County, Oklahoma",
             "population": 16573,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29285,7 +32297,13 @@ module.exports ={
           "properties": {
             "name": "Pottawatomie County, Oklahoma",
             "population": 69676,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29447,7 +32465,13 @@ module.exports ={
           "properties": {
             "name": "Missoula County, Montana",
             "population": 109402,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29469,7 +32493,13 @@ module.exports ={
           "properties": {
             "name": "Musselshell County, Montana",
             "population": 4597,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29487,7 +32517,13 @@ module.exports ={
           "properties": {
             "name": "Phillips County, Montana",
             "population": 4203,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29506,7 +32542,13 @@ module.exports ={
           "properties": {
             "name": "Powell County, Montana",
             "population": 7067,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29584,7 +32626,13 @@ module.exports ={
           "properties": {
             "name": "Sheridan County, Montana",
             "population": 3447,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29602,7 +32650,13 @@ module.exports ={
           "properties": {
             "name": "Sweet Grass County, Montana",
             "population": 3661,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29702,7 +32756,13 @@ module.exports ={
           "properties": {
             "name": "Ramsey County, North Dakota",
             "population": 11450,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29720,7 +32780,13 @@ module.exports ={
           "properties": {
             "name": "Renville County, North Dakota",
             "population": 2468,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29738,7 +32804,13 @@ module.exports ={
           "properties": {
             "name": "Sargent County, North Dakota",
             "population": 3876,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29901,7 +32973,13 @@ module.exports ={
           "properties": {
             "name": "Ashland County, Ohio",
             "population": 53203,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29950,7 +33028,13 @@ module.exports ={
           "properties": {
             "name": "Belmont County, Ohio",
             "population": 70182,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -29999,7 +33083,13 @@ module.exports ={
           "properties": {
             "name": "Carroll County, Ohio",
             "population": 28828,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30131,7 +33221,13 @@ module.exports ={
           "properties": {
             "name": "Reagan County, Texas",
             "population": 3384,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30177,7 +33273,13 @@ module.exports ={
           "properties": {
             "name": "Red River County, Texas",
             "population": 12795,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30227,7 +33329,13 @@ module.exports ={
           "properties": {
             "name": "Runnels County, Texas",
             "population": 10473,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30246,7 +33354,13 @@ module.exports ={
           "properties": {
             "name": "Sabine County, Texas",
             "population": 10642,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30321,7 +33435,13 @@ module.exports ={
           "properties": {
             "name": "Shelby County, Texas",
             "population": 25602,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30341,7 +33461,13 @@ module.exports ={
           "properties": {
             "name": "Smith County, Texas",
             "population": 209691,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30447,7 +33573,13 @@ module.exports ={
           "properties": {
             "name": "Benzie County, Michigan",
             "population": 17554,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30492,7 +33624,13 @@ module.exports ={
           "properties": {
             "name": "Cass County, Michigan",
             "population": 52412,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30565,7 +33703,13 @@ module.exports ={
           "properties": {
             "name": "Wibaux County, Montana",
             "population": 899,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30584,7 +33728,13 @@ module.exports ={
           "properties": {
             "name": "Banner County, Nebraska",
             "population": 778,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30632,7 +33782,13 @@ module.exports ={
           "properties": {
             "name": "Box Butte County, Nebraska",
             "population": 11345,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30710,7 +33866,13 @@ module.exports ={
           "properties": {
             "name": "Chase County, Nebraska",
             "population": 3964,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30787,7 +33949,13 @@ module.exports ={
           "properties": {
             "name": "Dawes County, Nebraska",
             "population": 9176,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30834,7 +34002,13 @@ module.exports ={
           "properties": {
             "name": "Dundy County, Nebraska",
             "population": 1996,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30881,7 +34055,13 @@ module.exports ={
           "properties": {
             "name": "Grant County, Nebraska",
             "population": 608,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -30957,7 +34137,13 @@ module.exports ={
           "properties": {
             "name": "Columbiana County, Ohio",
             "population": 107598,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31153,7 +34339,13 @@ module.exports ={
           "properties": {
             "name": "Harding County, New Mexico",
             "population": 612,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31203,7 +34395,13 @@ module.exports ={
           "properties": {
             "name": "Mora County, New Mexico",
             "population": 4830,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31281,7 +34479,13 @@ module.exports ={
           "properties": {
             "name": "Robertson County, Tennessee",
             "population": 66143,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31390,7 +34594,13 @@ module.exports ={
           "properties": {
             "name": "Tipton County, Tennessee",
             "population": 61038,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31417,7 +34627,13 @@ module.exports ={
           "properties": {
             "name": "Van Buren County, Tennessee",
             "population": 5552,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31551,7 +34767,13 @@ module.exports ={
           "properties": {
             "name": "Newberry County, South Carolina",
             "population": 37432,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31769,7 +34991,13 @@ module.exports ={
           "properties": {
             "name": "Mercer County, Illinois",
             "population": 16421,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31790,7 +35018,13 @@ module.exports ={
           "properties": {
             "name": "McIntosh County, Georgia",
             "population": 14119,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31836,7 +35070,13 @@ module.exports ={
           "properties": {
             "name": "Hamilton County, Nebraska",
             "population": 9096,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31855,7 +35095,13 @@ module.exports ={
           "properties": {
             "name": "Harlan County, Nebraska",
             "population": 3419,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31873,7 +35119,13 @@ module.exports ={
           "properties": {
             "name": "Hitchcock County, Nebraska",
             "population": 2898,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31891,7 +35143,13 @@ module.exports ={
           "properties": {
             "name": "Kearney County, Nebraska",
             "population": 6514,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -31996,7 +35254,13 @@ module.exports ={
           "properties": {
             "name": "Loup County, Nebraska",
             "population": 534,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32043,7 +35307,13 @@ module.exports ={
           "properties": {
             "name": "Marion County, Mississippi",
             "population": 26810,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32062,7 +35332,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, Mississippi",
             "population": 10866,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32080,7 +35356,13 @@ module.exports ={
           "properties": {
             "name": "Newton County, Mississippi",
             "population": 21687,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32098,7 +35380,13 @@ module.exports ={
           "properties": {
             "name": "Pearl River County, Mississippi",
             "population": 55886,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32118,7 +35406,13 @@ module.exports ={
           "properties": {
             "name": "Quitman County, Mississippi",
             "population": 8171,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32135,7 +35429,13 @@ module.exports ={
           "properties": {
             "name": "Rankin County, Mississippi",
             "population": 142136,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32787,7 +36087,13 @@ module.exports ={
           "properties": {
             "name": "Coos County, Oregon",
             "population": 62937,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32803,7 +36109,13 @@ module.exports ={
           "properties": {
             "name": "Crook County, Oregon",
             "population": 21102,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -32964,7 +36276,13 @@ module.exports ={
           "properties": {
             "name": "Lapeer County, Michigan",
             "population": 88626,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33124,7 +36442,13 @@ module.exports ={
           "properties": {
             "name": "Tate County, Mississippi",
             "population": 28580,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33142,7 +36466,13 @@ module.exports ={
           "properties": {
             "name": "Tishomingo County, Mississippi",
             "population": 19573,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33162,7 +36492,13 @@ module.exports ={
           "properties": {
             "name": "Tunica County, Mississippi",
             "population": 10716,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33183,7 +36519,13 @@ module.exports ={
           "properties": {
             "name": "Wayne County, Mississippi",
             "population": 20754,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33203,7 +36545,13 @@ module.exports ={
           "properties": {
             "name": "Webster County, Mississippi",
             "population": 10162,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33223,7 +36571,13 @@ module.exports ={
           "properties": {
             "name": "Wilkinson County, Mississippi",
             "population": 9778,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33302,7 +36656,13 @@ module.exports ={
           "properties": {
             "name": "Bollinger County, Missouri",
             "population": 12389,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33379,7 +36739,13 @@ module.exports ={
           "properties": {
             "name": "Carter County, Missouri",
             "population": 6225,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33457,7 +36823,13 @@ module.exports ={
           "properties": {
             "name": "Hamilton County, New York",
             "population": 4835,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33504,7 +36876,13 @@ module.exports ={
           "properties": {
             "name": "Livingston County, New York",
             "population": 65215,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33694,7 +37072,13 @@ module.exports ={
           "properties": {
             "name": "Sutton County, Texas",
             "population": 4123,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33712,7 +37096,13 @@ module.exports ={
           "properties": {
             "name": "Swisher County, Texas",
             "population": 7816,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33759,7 +37149,13 @@ module.exports ={
           "properties": {
             "name": "Throckmorton County, Texas",
             "population": 1626,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33863,7 +37259,13 @@ module.exports ={
           "properties": {
             "name": "Van Zandt County, Texas",
             "population": 52507,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33912,7 +37314,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Texas",
             "population": 33628,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -33932,7 +37340,13 @@ module.exports ={
           "properties": {
             "name": "Wheeler County, Texas",
             "population": 5414,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34005,7 +37419,13 @@ module.exports ={
           "properties": {
             "name": "Wood County, Texas",
             "population": 41927,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34226,7 +37646,13 @@ module.exports ={
           "properties": {
             "name": "St. Clair County, Michigan",
             "population": 162978,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34273,7 +37699,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, Missouri",
             "population": 222048,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34319,7 +37751,13 @@ module.exports ={
           "properties": {
             "name": "Crawford County, Missouri",
             "population": 24753,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34338,7 +37776,13 @@ module.exports ={
           "properties": {
             "name": "Dade County, Missouri",
             "population": 7811,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34386,7 +37830,13 @@ module.exports ={
           "properties": {
             "name": "Douglas County, Missouri",
             "population": 13690,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34406,7 +37856,13 @@ module.exports ={
           "properties": {
             "name": "Gasconade County, Missouri",
             "population": 15160,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34484,7 +37940,13 @@ module.exports ={
           "properties": {
             "name": "Holt County, Missouri",
             "population": 4840,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34503,7 +37965,13 @@ module.exports ={
           "properties": {
             "name": "Avery County, North Carolina",
             "population": 17815,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34609,7 +38077,13 @@ module.exports ={
           "properties": {
             "name": "Paulding County, Georgia",
             "population": 141846,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34685,7 +38159,13 @@ module.exports ={
           "properties": {
             "name": "St. Lawrence County, New York",
             "population": 112060,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34704,7 +38184,13 @@ module.exports ={
           "properties": {
             "name": "Schenectady County, New York",
             "population": 154466,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34777,7 +38263,13 @@ module.exports ={
           "properties": {
             "name": "Tioga County, New York",
             "population": 51067,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34855,7 +38347,13 @@ module.exports ={
           "properties": {
             "name": "Cameron County, Pennsylvania",
             "population": 5058,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34931,7 +38429,13 @@ module.exports ={
           "properties": {
             "name": "Sumter County, South Carolina",
             "population": 107279,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -34950,7 +38454,13 @@ module.exports ={
           "properties": {
             "name": "Williamsburg County, South Carolina",
             "population": 34361,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35026,7 +38536,13 @@ module.exports ={
           "properties": {
             "name": "Butte County, South Dakota",
             "population": 10122,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35077,7 +38593,13 @@ module.exports ={
           "properties": {
             "name": "Custer County, South Dakota",
             "population": 8219,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35095,7 +38617,13 @@ module.exports ={
           "properties": {
             "name": "Deuel County, South Dakota",
             "population": 4376,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35115,7 +38643,13 @@ module.exports ={
           "properties": {
             "name": "Dewey County, South Dakota",
             "population": 5358,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35134,7 +38668,13 @@ module.exports ={
           "properties": {
             "name": "Edmunds County, South Dakota",
             "population": 4050,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35266,7 +38806,13 @@ module.exports ={
           "properties": {
             "name": "Aitkin County, Minnesota",
             "population": 16166,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35287,7 +38833,13 @@ module.exports ={
           "properties": {
             "name": "Anoka County, Minnesota",
             "population": 331649,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -35306,7 +38858,13 @@ module.exports ={
           "properties": {
             "name": "Big Stone County, Minnesota",
             "population": 5250,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36074,7 +39632,13 @@ module.exports ={
           "properties": {
             "name": "Crawford County, Pennsylvania",
             "population": 88492,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36240,7 +39804,13 @@ module.exports ={
           "properties": {
             "name": "Juniata County, Pennsylvania",
             "population": 24664,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36635,7 +40205,13 @@ module.exports ={
           "properties": {
             "name": "Kittson County, Minnesota",
             "population": 4547,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36652,7 +40228,13 @@ module.exports ={
           "properties": {
             "name": "Laclede County, Missouri",
             "population": 35507,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36671,7 +40253,13 @@ module.exports ={
           "properties": {
             "name": "Lewis County, Missouri",
             "population": 10203,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36690,7 +40278,13 @@ module.exports ={
           "properties": {
             "name": "McDonald County, Missouri",
             "population": 22970,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36708,7 +40302,13 @@ module.exports ={
           "properties": {
             "name": "Maries County, Missouri",
             "population": 9140,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36726,7 +40326,13 @@ module.exports ={
           "properties": {
             "name": "Mercer County, Missouri",
             "population": 3763,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36745,7 +40351,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, Missouri",
             "population": 12181,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36765,7 +40377,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, Missouri",
             "population": 20479,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36814,7 +40432,13 @@ module.exports ={
           "properties": {
             "name": "Ozark County, Missouri",
             "population": 9672,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36833,7 +40457,13 @@ module.exports ={
           "properties": {
             "name": "Perry County, Missouri",
             "population": 18986,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36883,7 +40513,13 @@ module.exports ={
           "properties": {
             "name": "Polk County, Missouri",
             "population": 31035,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -36985,7 +40621,13 @@ module.exports ={
           "properties": {
             "name": "McDowell County, North Carolina",
             "population": 44926,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37033,7 +40675,13 @@ module.exports ={
           "properties": {
             "name": "Mitchell County, North Carolina",
             "population": 15539,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37595,7 +41243,13 @@ module.exports ={
           "properties": {
             "name": "Grand County, Utah",
             "population": 9183,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37641,7 +41295,13 @@ module.exports ={
           "properties": {
             "name": "Anderson County, Texas",
             "population": 58269,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37690,7 +41350,13 @@ module.exports ={
           "properties": {
             "name": "Austin County, Texas",
             "population": 28372,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37709,7 +41375,13 @@ module.exports ={
           "properties": {
             "name": "Bailey County, Texas",
             "population": 7096,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37755,7 +41427,13 @@ module.exports ={
           "properties": {
             "name": "Bee County, Texas",
             "population": 32083,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37949,7 +41627,13 @@ module.exports ={
           "properties": {
             "name": "Ray County, Missouri",
             "population": 23422,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37968,7 +41652,13 @@ module.exports ={
           "properties": {
             "name": "Ripley County, Missouri",
             "population": 14070,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -37986,7 +41676,13 @@ module.exports ={
           "properties": {
             "name": "Ste. Genevieve County, Missouri",
             "population": 18066,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38004,7 +41700,13 @@ module.exports ={
           "properties": {
             "name": "St. Francois County, Missouri",
             "population": 65246,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38023,7 +41725,13 @@ module.exports ={
           "properties": {
             "name": "Schuyler County, Missouri",
             "population": 4397,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38041,7 +41749,13 @@ module.exports ={
           "properties": {
             "name": "Shannon County, Missouri",
             "population": 8407,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38120,7 +41834,13 @@ module.exports ={
           "properties": {
             "name": "Warren County, Missouri",
             "population": 32440,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38138,7 +41858,13 @@ module.exports ={
           "properties": {
             "name": "Webster County, Missouri",
             "population": 36183,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38157,7 +41883,13 @@ module.exports ={
           "properties": {
             "name": "St. Louis city, Missouri",
             "population": 318527,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38289,7 +42021,13 @@ module.exports ={
           "properties": {
             "name": "Transylvania County, North Carolina",
             "population": 32825,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38338,7 +42076,13 @@ module.exports ={
           "properties": {
             "name": "Highland County, Ohio",
             "population": 43454,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38357,7 +42101,13 @@ module.exports ={
           "properties": {
             "name": "Huron County, Ohio",
             "population": 59628,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38524,7 +42274,13 @@ module.exports ={
           "properties": {
             "name": "Bristol County, Rhode Island",
             "population": 49796,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38744,7 +42500,13 @@ module.exports ={
           "properties": {
             "name": "Chesterfield County, South Carolina",
             "population": 46462,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38763,7 +42525,13 @@ module.exports ={
           "properties": {
             "name": "Harding County, South Dakota",
             "population": 1367,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38839,7 +42607,13 @@ module.exports ={
           "properties": {
             "name": "Jones County, South Dakota",
             "population": 1084,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38857,7 +42631,13 @@ module.exports ={
           "properties": {
             "name": "Lake County, South Dakota",
             "population": 11364,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38876,7 +42656,13 @@ module.exports ={
           "properties": {
             "name": "Lyman County, South Dakota",
             "population": 3752,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38899,7 +42685,13 @@ module.exports ={
           "properties": {
             "name": "Meade County, South Dakota",
             "population": 25456,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38918,7 +42710,13 @@ module.exports ={
           "properties": {
             "name": "Miner County, South Dakota",
             "population": 2365,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38936,7 +42734,13 @@ module.exports ={
           "properties": {
             "name": "Moody County, South Dakota",
             "population": 6474,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38953,7 +42757,13 @@ module.exports ={
           "properties": {
             "name": "Shannon County, South Dakota",
             "population": 13683,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -38974,7 +42784,13 @@ module.exports ={
           "properties": {
             "name": "Spink County, South Dakota",
             "population": 6483,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39022,7 +42838,13 @@ module.exports ={
           "properties": {
             "name": "Todd County, South Dakota",
             "population": 9711,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39039,7 +42861,13 @@ module.exports ={
           "properties": {
             "name": "Union County, South Dakota",
             "population": 14377,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39059,7 +42887,13 @@ module.exports ={
           "properties": {
             "name": "Blaine County, Montana",
             "population": 6514,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39106,7 +42940,13 @@ module.exports ={
           "properties": {
             "name": "Chouteau County, Montana",
             "population": 5811,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39127,7 +42967,13 @@ module.exports ={
           "properties": {
             "name": "Daniels County, Montana",
             "population": 1734,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39206,7 +43052,13 @@ module.exports ={
           "properties": {
             "name": "Glacier County, Montana",
             "population": 13422,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39223,7 +43075,13 @@ module.exports ={
           "properties": {
             "name": "Hill County, Montana",
             "population": 16157,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39240,7 +43098,13 @@ module.exports ={
           "properties": {
             "name": "Nuckolls County, Nebraska",
             "population": 4490,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39259,7 +43123,13 @@ module.exports ={
           "properties": {
             "name": "Pawnee County, Nebraska",
             "population": 2753,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39422,7 +43292,13 @@ module.exports ={
           "properties": {
             "name": "Butler County, Iowa",
             "population": 14899,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39497,7 +43373,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Illinois",
             "population": 38908,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39607,7 +43489,13 @@ module.exports ={
           "properties": {
             "name": "Lawrence County, Illinois",
             "population": 16778,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39711,7 +43599,13 @@ module.exports ={
           "properties": {
             "name": "Macoupin County, Illinois",
             "population": 47712,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39817,7 +43711,13 @@ module.exports ={
           "properties": {
             "name": "McDuffie County, Georgia",
             "population": 21762,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39836,7 +43736,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Georgia",
             "population": 27988,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39916,7 +43822,13 @@ module.exports ={
           "properties": {
             "name": "Montgomery County, Georgia",
             "population": 9054,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39962,7 +43874,13 @@ module.exports ={
           "properties": {
             "name": "Oglethorpe County, Georgia",
             "population": 14745,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -39982,7 +43900,13 @@ module.exports ={
           "properties": {
             "name": "Pierce County, Georgia",
             "population": 18631,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40000,7 +43924,13 @@ module.exports ={
           "properties": {
             "name": "Pike County, Georgia",
             "population": 17765,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40017,7 +43947,13 @@ module.exports ={
           "properties": {
             "name": "Pulaski County, Georgia",
             "population": 11801,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40092,7 +44028,13 @@ module.exports ={
           "properties": {
             "name": "Spalding County, Georgia",
             "population": 63979,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40140,7 +44082,13 @@ module.exports ={
           "properties": {
             "name": "Tattnall County, Georgia",
             "population": 25023,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40190,7 +44138,13 @@ module.exports ={
           "properties": {
             "name": "Smith County, Kansas",
             "population": 3835,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40267,7 +44221,13 @@ module.exports ={
           "properties": {
             "name": "Wabaunsee County, Kansas",
             "population": 7048,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40287,7 +44247,13 @@ module.exports ={
           "properties": {
             "name": "Woodson County, Kansas",
             "population": 3311,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40333,7 +44299,13 @@ module.exports ={
           "properties": {
             "name": "Perry County, Kentucky",
             "population": 28617,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40353,7 +44325,13 @@ module.exports ={
           "properties": {
             "name": "Robertson County, Kentucky",
             "population": 2251,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40371,7 +44349,13 @@ module.exports ={
           "properties": {
             "name": "Rowan County, Kentucky",
             "population": 23351,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40448,7 +44432,13 @@ module.exports ={
           "properties": {
             "name": "Trigg County, Kentucky",
             "population": 14282,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40467,7 +44457,13 @@ module.exports ={
           "properties": {
             "name": "Wayne County, Kentucky",
             "population": 20819,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40515,7 +44511,13 @@ module.exports ={
           "properties": {
             "name": "Wolfe County, Kentucky",
             "population": 7298,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40534,7 +44536,13 @@ module.exports ={
           "properties": {
             "name": "Woodford County, Kentucky",
             "population": 24847,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40553,7 +44561,13 @@ module.exports ={
           "properties": {
             "name": "Ascension Parish, Louisiana",
             "population": 107647,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40572,7 +44586,13 @@ module.exports ={
           "properties": {
             "name": "St. Helena Parish, Louisiana",
             "population": 11106,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40590,7 +44610,13 @@ module.exports ={
           "properties": {
             "name": "St. James Parish, Louisiana",
             "population": 21978,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40607,7 +44633,13 @@ module.exports ={
           "properties": {
             "name": "St. Landry Parish, Louisiana",
             "population": 83774,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40626,7 +44658,13 @@ module.exports ={
           "properties": {
             "name": "St. Martin Parish, Louisiana",
             "population": 52343,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40653,7 +44691,13 @@ module.exports ={
           "properties": {
             "name": "St. Tammany Parish, Louisiana",
             "population": 234283,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40673,7 +44717,13 @@ module.exports ={
           "properties": {
             "name": "Vermilion Parish, Louisiana",
             "population": 58041,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40694,7 +44744,13 @@ module.exports ={
           "properties": {
             "name": "Washington Parish, Louisiana",
             "population": 47025,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40713,7 +44769,13 @@ module.exports ={
           "properties": {
             "name": "Bath County, Kentucky",
             "population": 11665,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40731,7 +44793,13 @@ module.exports ={
           "properties": {
             "name": "Bell County, Kentucky",
             "population": 28613,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40781,7 +44849,13 @@ module.exports ={
           "properties": {
             "name": "Breckinridge County, Kentucky",
             "population": 20068,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40800,7 +44874,13 @@ module.exports ={
           "properties": {
             "name": "Bullitt County, Kentucky",
             "population": 74431,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40845,7 +44925,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, Illinois",
             "population": 35544,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40952,7 +45038,13 @@ module.exports ={
           "properties": {
             "name": "Pulaski County, Illinois",
             "population": 6107,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40971,7 +45063,13 @@ module.exports ={
           "properties": {
             "name": "Richland County, Illinois",
             "population": 16181,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -40991,7 +45089,13 @@ module.exports ={
           "properties": {
             "name": "Saline County, Illinois",
             "population": 24975,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41217,7 +45321,13 @@ module.exports ={
           "properties": {
             "name": "Thomas County, Georgia",
             "population": 44715,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41236,7 +45346,13 @@ module.exports ={
           "properties": {
             "name": "Toombs County, Georgia",
             "population": 27270,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41255,7 +45371,13 @@ module.exports ={
           "properties": {
             "name": "Towns County, Georgia",
             "population": 10491,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41301,7 +45423,13 @@ module.exports ={
           "properties": {
             "name": "Walker County, Georgia",
             "population": 68463,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41322,7 +45450,13 @@ module.exports ={
           "properties": {
             "name": "Warren County, Georgia",
             "population": 5788,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41399,7 +45533,13 @@ module.exports ={
           "properties": {
             "name": "Edwards County, Kansas",
             "population": 3021,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41505,7 +45645,13 @@ module.exports ={
           "properties": {
             "name": "Gove County, Kansas",
             "population": 2771,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41526,7 +45672,13 @@ module.exports ={
           "properties": {
             "name": "Greenwood County, Kansas",
             "population": 6654,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41574,7 +45726,13 @@ module.exports ={
           "properties": {
             "name": "Harvey County, Kansas",
             "population": 34572,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41592,7 +45750,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Kansas",
             "population": 19036,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41610,7 +45774,13 @@ module.exports ={
           "properties": {
             "name": "Beauregard Parish, Louisiana",
             "population": 35662,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41628,7 +45798,13 @@ module.exports ={
           "properties": {
             "name": "Bossier Parish, Louisiana",
             "population": 117742,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41647,7 +45823,13 @@ module.exports ={
           "properties": {
             "name": "Caddo Parish, Louisiana",
             "population": 254970,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41668,7 +45850,13 @@ module.exports ={
           "properties": {
             "name": "Cameron Parish, Louisiana",
             "population": 6934,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41687,7 +45875,13 @@ module.exports ={
           "properties": {
             "name": "De Soto Parish, Louisiana",
             "population": 26695,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41706,7 +45900,13 @@ module.exports ={
           "properties": {
             "name": "East Carroll Parish, Louisiana",
             "population": 7738,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41725,7 +45925,13 @@ module.exports ={
           "properties": {
             "name": "Franklin Parish, Louisiana",
             "population": 20714,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41743,7 +45949,13 @@ module.exports ={
           "properties": {
             "name": "Grant Parish, Louisiana",
             "population": 22049,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41760,7 +45972,13 @@ module.exports ={
           "properties": {
             "name": "Jackson Parish, Louisiana",
             "population": 16210,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41778,7 +45996,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson Parish, Louisiana",
             "population": 432706,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41798,7 +46022,13 @@ module.exports ={
           "properties": {
             "name": "Lafayette Parish, Louisiana",
             "population": 221602,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41816,7 +46046,13 @@ module.exports ={
           "properties": {
             "name": "Calloway County, Kentucky",
             "population": 37198,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41834,7 +46070,13 @@ module.exports ={
           "properties": {
             "name": "Carlisle County, Kentucky",
             "population": 5081,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41881,7 +46123,13 @@ module.exports ={
           "properties": {
             "name": "Casey County, Kentucky",
             "population": 15984,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41901,7 +46149,13 @@ module.exports ={
           "properties": {
             "name": "Cumberland County, Kentucky",
             "population": 6857,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41977,7 +46231,13 @@ module.exports ={
           "properties": {
             "name": "Floyd County, Kentucky",
             "population": 39454,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -41995,7 +46255,13 @@ module.exports ={
           "properties": {
             "name": "Garrard County, Kentucky",
             "population": 16892,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42014,7 +46280,13 @@ module.exports ={
           "properties": {
             "name": "Graves County, Kentucky",
             "population": 37200,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42034,7 +46306,13 @@ module.exports ={
           "properties": {
             "name": "Grayson County, Kentucky",
             "population": 25772,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42081,7 +46359,13 @@ module.exports ={
           "properties": {
             "name": "Harrison County, Kentucky",
             "population": 18781,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42131,7 +46415,13 @@ module.exports ={
           "properties": {
             "name": "Hopkins County, Kentucky",
             "population": 46891,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42149,7 +46439,13 @@ module.exports ={
           "properties": {
             "name": "Kimble County, Texas",
             "population": 4577,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42224,7 +46520,13 @@ module.exports ={
           "properties": {
             "name": "Lampasas County, Texas",
             "population": 19837,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42243,7 +46545,13 @@ module.exports ={
           "properties": {
             "name": "Lavaca County, Texas",
             "population": 19269,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42262,7 +46570,13 @@ module.exports ={
           "properties": {
             "name": "Lee County, Texas",
             "population": 16591,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42281,7 +46595,13 @@ module.exports ={
           "properties": {
             "name": "Liberty County, Texas",
             "population": 75662,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42331,7 +46651,13 @@ module.exports ={
           "properties": {
             "name": "Lipscomb County, Texas",
             "population": 3324,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42349,7 +46675,13 @@ module.exports ={
           "properties": {
             "name": "Loving County, Texas",
             "population": 85,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42395,7 +46727,13 @@ module.exports ={
           "properties": {
             "name": "McCulloch County, Texas",
             "population": 8281,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42471,7 +46809,13 @@ module.exports ={
           "properties": {
             "name": "Menard County, Texas",
             "population": 2232,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42546,7 +46890,13 @@ module.exports ={
           "properties": {
             "name": "Suffolk city, Virginia",
             "population": 84216,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42566,7 +46916,13 @@ module.exports ={
           "properties": {
             "name": "Virginia Beach city, Virginia",
             "population": 439528,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42583,7 +46939,13 @@ module.exports ={
           "properties": {
             "name": "Winchester city, Virginia",
             "population": 26330,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42624,7 +46986,13 @@ module.exports ={
           "properties": {
             "name": "Asotin County, Washington",
             "population": 21658,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42726,7 +47094,13 @@ module.exports ={
           "properties": {
             "name": "Ferry County, Washington",
             "population": 7584,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42801,7 +47175,13 @@ module.exports ={
           "properties": {
             "name": "Fairfax city, Virginia",
             "population": 22712,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -42988,7 +47368,13 @@ module.exports ={
           "properties": {
             "name": "Vilas County, Wisconsin",
             "population": 21489,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43007,7 +47393,13 @@ module.exports ={
           "properties": {
             "name": "Waukesha County, Wisconsin",
             "population": 389740,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43055,7 +47447,13 @@ module.exports ={
           "properties": {
             "name": "Big Horn County, Wyoming",
             "population": 11636,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43105,7 +47503,13 @@ module.exports ={
           "properties": {
             "name": "Hot Springs County, Wyoming",
             "population": 4791,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43121,7 +47525,13 @@ module.exports ={
           "properties": {
             "name": "Johnson County, Wyoming",
             "population": 8564,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43201,7 +47611,13 @@ module.exports ={
           "properties": {
             "name": "Hampshire County, West Virginia",
             "population": 23791,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43276,7 +47692,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, West Virginia",
             "population": 36508,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43350,7 +47772,13 @@ module.exports ={
           "properties": {
             "name": "Mingo County, West Virginia",
             "population": 26660,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43371,7 +47799,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, West Virginia",
             "population": 17507,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43389,7 +47823,13 @@ module.exports ={
           "properties": {
             "name": "Ohio County, West Virginia",
             "population": 44307,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43407,7 +47847,13 @@ module.exports ={
           "properties": {
             "name": "Pocahontas County, West Virginia",
             "population": 8750,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43455,7 +47901,13 @@ module.exports ={
           "properties": {
             "name": "Randolph County, West Virginia",
             "population": 29361,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43475,7 +47927,13 @@ module.exports ={
           "properties": {
             "name": "Roane County, West Virginia",
             "population": 14884,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43493,7 +47951,13 @@ module.exports ={
           "properties": {
             "name": "Taylor County, West Virginia",
             "population": 16889,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43538,7 +48002,13 @@ module.exports ={
           "properties": {
             "name": "Upshur County, West Virginia",
             "population": 24210,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43617,7 +48087,13 @@ module.exports ={
           "properties": {
             "name": "Wirt County, West Virginia",
             "population": 5769,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43722,7 +48198,13 @@ module.exports ={
           "properties": {
             "name": "Clark County, Wisconsin",
             "population": 34610,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43770,7 +48252,13 @@ module.exports ={
           "properties": {
             "name": "Crawford County, Wisconsin",
             "population": 16677,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -43788,7 +48276,13 @@ module.exports ={
           "properties": {
             "name": "Island County, Washington",
             "population": 78707,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44164,7 +48658,13 @@ module.exports ={
           "properties": {
             "name": "Appomattox County, Virginia",
             "population": 14952,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44183,7 +48683,13 @@ module.exports ={
           "properties": {
             "name": "Arlington County, Virginia",
             "population": 209077,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44201,7 +48707,13 @@ module.exports ={
           "properties": {
             "name": "Augusta County, Virginia",
             "population": 73662,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44380,7 +48892,13 @@ module.exports ={
           "properties": {
             "name": "Craig County, Virginia",
             "population": 5186,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44399,7 +48917,13 @@ module.exports ={
           "properties": {
             "name": "Cumberland County, Virginia",
             "population": 9951,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44418,7 +48942,13 @@ module.exports ={
           "properties": {
             "name": "Dickenson County, Virginia",
             "population": 15877,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44435,7 +48965,13 @@ module.exports ={
           "properties": {
             "name": "Raleigh County, West Virginia",
             "population": 78852,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44484,7 +49020,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Virginia",
             "population": 56012,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44536,7 +49078,13 @@ module.exports ={
           "properties": {
             "name": "Gloucester County, Virginia",
             "population": 36821,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44643,7 +49191,13 @@ module.exports ={
           "properties": {
             "name": "James City County, Virginia",
             "population": 66939,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44666,7 +49220,13 @@ module.exports ={
           "properties": {
             "name": "Lancaster County, Virginia",
             "population": 11371,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44894,7 +49454,13 @@ module.exports ={
           "properties": {
             "name": "Doddridge County, West Virginia",
             "population": 8147,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44913,7 +49479,13 @@ module.exports ={
           "properties": {
             "name": "Hancock County, West Virginia",
             "population": 30594,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44931,7 +49503,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, West Virginia",
             "population": 21714,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44951,7 +49529,13 @@ module.exports ={
           "properties": {
             "name": "Mercer County, West Virginia",
             "population": 62251,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -44998,7 +49582,13 @@ module.exports ={
           "properties": {
             "name": "Ritchie County, West Virginia",
             "population": 10391,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45018,7 +49608,13 @@ module.exports ={
           "properties": {
             "name": "Tyler County, West Virginia",
             "population": 9188,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45037,7 +49633,13 @@ module.exports ={
           "properties": {
             "name": "Essex County, Virginia",
             "population": 11130,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45057,7 +49659,13 @@ module.exports ={
           "properties": {
             "name": "Mathews County, Virginia",
             "population": 8965,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45073,7 +49681,13 @@ module.exports ={
           "properties": {
             "name": "St. John the Baptist Parish, Louisiana",
             "population": 45741,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45092,7 +49706,13 @@ module.exports ={
           "properties": {
             "name": "Union Parish, Louisiana",
             "population": 22633,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45110,7 +49730,13 @@ module.exports ={
           "properties": {
             "name": "Adair County, Kentucky",
             "population": 18651,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45129,7 +49755,13 @@ module.exports ={
           "properties": {
             "name": "Anderson County, Kentucky",
             "population": 21442,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45149,7 +49781,13 @@ module.exports ={
           "properties": {
             "name": "Ballard County, Kentucky",
             "population": 8268,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45167,7 +49805,13 @@ module.exports ={
           "properties": {
             "name": "Boyd County, Kentucky",
             "population": 49358,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45185,7 +49829,13 @@ module.exports ={
           "properties": {
             "name": "Campbell County, Kentucky",
             "population": 90119,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45231,7 +49881,13 @@ module.exports ={
           "properties": {
             "name": "Edmonson County, Kentucky",
             "population": 12141,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45249,7 +49905,13 @@ module.exports ={
           "properties": {
             "name": "Fleming County, Kentucky",
             "population": 14415,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45268,7 +49930,13 @@ module.exports ={
           "properties": {
             "name": "Grant County, Kentucky",
             "population": 24683,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45320,7 +49988,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Kentucky",
             "population": 13475,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45370,7 +50044,13 @@ module.exports ={
           "properties": {
             "name": "Leslie County, Kentucky",
             "population": 11318,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45387,7 +50067,13 @@ module.exports ={
           "properties": {
             "name": "Creek County, Oklahoma",
             "population": 69934,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45523,7 +50209,13 @@ module.exports ={
           "properties": {
             "name": "Burke County, North Dakota",
             "population": 2011,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45542,7 +50234,13 @@ module.exports ={
           "properties": {
             "name": "Dunn County, North Dakota",
             "population": 3648,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45561,7 +50259,13 @@ module.exports ={
           "properties": {
             "name": "Hettinger County, North Dakota",
             "population": 2502,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45639,7 +50343,13 @@ module.exports ={
           "properties": {
             "name": "Slope County, North Dakota",
             "population": 768,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45659,7 +50369,13 @@ module.exports ={
           "properties": {
             "name": "Towner County, North Dakota",
             "population": 2264,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45678,7 +50394,13 @@ module.exports ={
           "properties": {
             "name": "Athens County, Ohio",
             "population": 64592,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45698,7 +50420,13 @@ module.exports ={
           "properties": {
             "name": "Champaign County, Ohio",
             "population": 39982,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45717,7 +50445,13 @@ module.exports ={
           "properties": {
             "name": "Wyoming County, West Virginia",
             "population": 23668,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45824,7 +50558,13 @@ module.exports ={
           "properties": {
             "name": "Rich County, Utah",
             "population": 2264,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45844,7 +50584,13 @@ module.exports ={
           "properties": {
             "name": "Sevier County, Utah",
             "population": 20759,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45863,7 +50609,13 @@ module.exports ={
           "properties": {
             "name": "Wayne County, Utah",
             "population": 2756,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45908,7 +50660,13 @@ module.exports ={
           "properties": {
             "name": "Albemarle County, Virginia",
             "population": 99484,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -45961,7 +50719,13 @@ module.exports ={
           "properties": {
             "name": "Botetourt County, Virginia",
             "population": 33074,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46069,7 +50833,13 @@ module.exports ={
           "properties": {
             "name": "Baldwin County, Alabama",
             "population": 183226,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46089,7 +50859,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, Alabama",
             "population": 13828,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46107,7 +50883,13 @@ module.exports ={
           "properties": {
             "name": "Crenshaw County, Alabama",
             "population": 13971,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46126,7 +50908,13 @@ module.exports ={
           "properties": {
             "name": "Fayette County, Alabama",
             "population": 17219,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46232,7 +51020,13 @@ module.exports ={
           "properties": {
             "name": "St. Clair County, Alabama",
             "population": 83530,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46280,7 +51074,13 @@ module.exports ={
           "properties": {
             "name": "McCreary County, Kentucky",
             "population": 18204,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46299,7 +51099,13 @@ module.exports ={
           "properties": {
             "name": "Menifee County, Kentucky",
             "population": 6331,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46318,7 +51124,13 @@ module.exports ={
           "properties": {
             "name": "Nicholas County, Kentucky",
             "population": 7092,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46392,7 +51204,13 @@ module.exports ={
           "properties": {
             "name": "Dallas County, Iowa",
             "population": 66997,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46494,7 +51312,13 @@ module.exports ={
           "properties": {
             "name": "Humboldt County, Iowa",
             "population": 9818,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46511,7 +51335,13 @@ module.exports ={
           "properties": {
             "name": "Jasper County, Iowa",
             "population": 36823,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46785,7 +51615,13 @@ module.exports ={
           "properties": {
             "name": "Fairfield County, Ohio",
             "population": 146138,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46803,7 +51639,13 @@ module.exports ={
           "properties": {
             "name": "Do�a Ana County, New Mexico",
             "population": 208794,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46882,7 +51724,13 @@ module.exports ={
           "properties": {
             "name": "Union County, New Mexico",
             "population": 4460,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -46903,7 +51751,13 @@ module.exports ={
           "properties": {
             "name": "Chenango County, New York",
             "population": 50490,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47037,7 +51891,13 @@ module.exports ={
           "properties": {
             "name": "Greene County, Virginia",
             "population": 18453,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47083,7 +51943,13 @@ module.exports ={
           "properties": {
             "name": "Banks County, Georgia",
             "population": 18250,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47102,7 +51968,13 @@ module.exports ={
           "properties": {
             "name": "Berrien County, Georgia",
             "population": 19131,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47122,7 +51994,13 @@ module.exports ={
           "properties": {
             "name": "Brooks County, Georgia",
             "population": 16066,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47256,7 +52134,13 @@ module.exports ={
           "properties": {
             "name": "Southeast Fairbanks Census Area, Alaska",
             "population": 7039,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47275,7 +52159,13 @@ module.exports ={
           "properties": {
             "name": "Yell County, Arkansas",
             "population": 22033,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47552,7 +52442,13 @@ module.exports ={
           "properties": {
             "name": "Custer County, Colorado",
             "population": 4208,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47569,7 +52465,13 @@ module.exports ={
           "properties": {
             "name": "Brown County, Kansas",
             "population": 9962,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47672,7 +52574,13 @@ module.exports ={
           "properties": {
             "name": "Mahnomen County, Minnesota",
             "population": 5442,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47747,7 +52655,13 @@ module.exports ={
           "properties": {
             "name": "Red Lake County, Minnesota",
             "population": 4100,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47792,7 +52706,13 @@ module.exports ={
           "properties": {
             "name": "Sibley County, Minnesota",
             "population": 15189,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47811,7 +52731,13 @@ module.exports ={
           "properties": {
             "name": "Wadena County, Minnesota",
             "population": 13808,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47889,7 +52815,13 @@ module.exports ={
           "properties": {
             "name": "Clarke County, Mississippi",
             "population": 16688,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47906,7 +52838,13 @@ module.exports ={
           "properties": {
             "name": "Forrest County, Mississippi",
             "population": 75378,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -47925,7 +52863,13 @@ module.exports ={
           "properties": {
             "name": "Grenada County, Mississippi",
             "population": 21886,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48063,7 +53007,13 @@ module.exports ={
           "properties": {
             "name": "Butler County, Pennsylvania",
             "population": 183946,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48111,7 +53061,13 @@ module.exports ={
           "properties": {
             "name": "Columbia County, Pennsylvania",
             "population": 66984,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48130,7 +53086,13 @@ module.exports ={
           "properties": {
             "name": "Forest County, Pennsylvania",
             "population": 7664,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48148,7 +53110,13 @@ module.exports ={
           "properties": {
             "name": "Fulton County, Pennsylvania",
             "population": 14829,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48225,7 +53193,13 @@ module.exports ={
           "properties": {
             "name": "Perry County, Pennsylvania",
             "population": 45791,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48298,7 +53272,13 @@ module.exports ={
           "properties": {
             "name": "Barbour County, Alabama",
             "population": 27469,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48319,7 +53299,13 @@ module.exports ={
           "properties": {
             "name": "Butler County, Alabama",
             "population": 20730,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48453,7 +53439,13 @@ module.exports ={
           "properties": {
             "name": "Fairbanks North Star Borough, Alaska",
             "population": 97523,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48556,7 +53548,13 @@ module.exports ={
           "properties": {
             "name": "Okeechobee County, Florida",
             "population": 39779,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48633,7 +53631,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Florida",
             "population": 24732,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48650,7 +53654,13 @@ module.exports ={
           "properties": {
             "name": "Baker County, Georgia",
             "population": 3483,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48697,7 +53707,13 @@ module.exports ={
           "properties": {
             "name": "Butts County, Georgia",
             "population": 23671,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48716,7 +53732,13 @@ module.exports ={
           "properties": {
             "name": "Catoosa County, Georgia",
             "population": 64226,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48732,7 +53754,13 @@ module.exports ={
           "properties": {
             "name": "Clinch County, Georgia",
             "population": 6800,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48751,7 +53779,13 @@ module.exports ={
           "properties": {
             "name": "Cook County, Georgia",
             "population": 17073,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48769,7 +53803,13 @@ module.exports ={
           "properties": {
             "name": "Itawamba County, Mississippi",
             "population": 23362,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48816,7 +53856,13 @@ module.exports ={
           "properties": {
             "name": "Webster Parish, Louisiana",
             "population": 41156,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -48834,7 +53880,13 @@ module.exports ={
           "properties": {
             "name": "West Feliciana Parish, Louisiana",
             "population": 15575,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49173,7 +54225,13 @@ module.exports ={
           "properties": {
             "name": "Dillon County, South Carolina",
             "population": 31733,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49338,7 +54396,13 @@ module.exports ={
           "properties": {
             "name": "Hamblen County, Tennessee",
             "population": 62528,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49413,7 +54477,13 @@ module.exports ={
           "properties": {
             "name": "Lawrence County, Tennessee",
             "population": 41779,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49431,7 +54501,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Tennessee",
             "population": 97976,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49451,7 +54527,13 @@ module.exports ={
           "properties": {
             "name": "Moore County, Tennessee",
             "population": 6349,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49595,7 +54677,13 @@ module.exports ={
           "properties": {
             "name": "Dawson County, Georgia",
             "population": 22246,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49761,7 +54849,13 @@ module.exports ={
           "properties": {
             "name": "Mineral County, Colorado",
             "population": 702,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49893,7 +54987,13 @@ module.exports ={
           "properties": {
             "name": "Bradford County, Florida",
             "population": 28404,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49911,7 +55011,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, Florida",
             "population": 190891,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -49957,7 +55063,13 @@ module.exports ={
           "properties": {
             "name": "Flagler County, Florida",
             "population": 95987,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50086,7 +55198,13 @@ module.exports ={
           "properties": {
             "name": "Ogemaw County, Michigan",
             "population": 21674,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50132,7 +55250,13 @@ module.exports ={
           "properties": {
             "name": "St. Joseph County, Michigan",
             "population": 61314,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50354,7 +55478,13 @@ module.exports ={
           "properties": {
             "name": "Overton County, Tennessee",
             "population": 22040,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50725,7 +55855,13 @@ module.exports ={
           "properties": {
             "name": "Hamlin County, South Dakota",
             "population": 5875,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50743,7 +55879,13 @@ module.exports ={
           "properties": {
             "name": "Hutchinson County, South Dakota",
             "population": 7283,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50853,7 +55995,13 @@ module.exports ={
           "properties": {
             "name": "Conecuh County, Alabama",
             "population": 13188,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -50901,7 +56049,13 @@ module.exports ={
           "properties": {
             "name": "DeKalb County, Alabama",
             "population": 70949,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51008,7 +56162,13 @@ module.exports ={
           "properties": {
             "name": "Lamar County, Alabama",
             "population": 14513,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51085,7 +56245,13 @@ module.exports ={
           "properties": {
             "name": "Lafayette County, Florida",
             "population": 8668,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51278,7 +56444,13 @@ module.exports ={
           "properties": {
             "name": "Cross County, Arkansas",
             "population": 17891,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51296,7 +56468,13 @@ module.exports ={
           "properties": {
             "name": "Dallas County, Arkansas",
             "population": 8122,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51371,7 +56549,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Arkansas",
             "population": 14167,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51477,7 +56661,13 @@ module.exports ={
           "properties": {
             "name": "Moniteau County, Missouri",
             "population": 15587,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51495,7 +56685,13 @@ module.exports ={
           "properties": {
             "name": "Newton County, Missouri",
             "population": 58314,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51571,7 +56767,13 @@ module.exports ={
           "properties": {
             "name": "St. Clair County, Missouri",
             "population": 9693,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51619,7 +56821,13 @@ module.exports ={
           "properties": {
             "name": "Texas County, Missouri",
             "population": 25840,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51640,7 +56848,13 @@ module.exports ={
           "properties": {
             "name": "Wayne County, Missouri",
             "population": 13444,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51714,7 +56928,13 @@ module.exports ={
           "properties": {
             "name": "Gallatin County, Montana",
             "population": 90339,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51735,7 +56955,13 @@ module.exports ={
           "properties": {
             "name": "Marshall County, South Dakota",
             "population": 4631,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51752,7 +56978,13 @@ module.exports ={
           "properties": {
             "name": "Potter County, South Dakota",
             "population": 2327,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51771,7 +57003,13 @@ module.exports ={
           "properties": {
             "name": "Sully County, South Dakota",
             "population": 1382,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51789,7 +57027,13 @@ module.exports ={
           "properties": {
             "name": "Walworth County, South Dakota",
             "population": 5443,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51808,7 +57052,13 @@ module.exports ={
           "properties": {
             "name": "Harmon County, Oklahoma",
             "population": 2888,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51856,7 +57106,13 @@ module.exports ={
           "properties": {
             "name": "Johnston County, Oklahoma",
             "population": 10938,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51906,7 +57162,13 @@ module.exports ={
           "properties": {
             "name": "Major County, Oklahoma",
             "population": 7563,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -51955,7 +57217,13 @@ module.exports ={
           "properties": {
             "name": "Ottawa County, Oklahoma",
             "population": 31940,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52000,7 +57268,13 @@ module.exports ={
           "properties": {
             "name": "Tillman County, Oklahoma",
             "population": 7981,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52202,7 +57476,13 @@ module.exports ={
           "properties": {
             "name": "Prairie County, Arkansas",
             "population": 8659,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52220,7 +57500,13 @@ module.exports ={
           "properties": {
             "name": "Sharp County, Arkansas",
             "population": 17278,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52239,7 +57525,13 @@ module.exports ={
           "properties": {
             "name": "Webster County, Georgia",
             "population": 2773,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52257,7 +57549,13 @@ module.exports ={
           "properties": {
             "name": "White County, Georgia",
             "population": 27141,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52275,7 +57573,13 @@ module.exports ={
           "properties": {
             "name": "Wilcox County, Georgia",
             "population": 9142,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52295,7 +57599,13 @@ module.exports ={
           "properties": {
             "name": "Kalawao County, Hawaii",
             "population": 66,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52452,7 +57762,13 @@ module.exports ={
           "properties": {
             "name": "Adams County, Illinois",
             "population": 67098,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52471,7 +57787,13 @@ module.exports ={
           "properties": {
             "name": "Cass County, Illinois",
             "population": 13570,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52516,7 +57838,13 @@ module.exports ={
           "properties": {
             "name": "Morrill County, Nebraska",
             "population": 4993,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52564,7 +57892,13 @@ module.exports ={
           "properties": {
             "name": "Polk County, Nebraska",
             "population": 5371,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52610,7 +57944,13 @@ module.exports ={
           "properties": {
             "name": "Stanton County, Nebraska",
             "population": 6139,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52739,7 +58079,13 @@ module.exports ={
           "properties": {
             "name": "Cheshire County, New Hampshire",
             "population": 77106,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -52930,7 +58276,13 @@ module.exports ={
           "properties": {
             "name": "Bedford County, Pennsylvania",
             "population": 49680,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53006,7 +58358,13 @@ module.exports ={
           "properties": {
             "name": "Polk County, Texas",
             "population": 45618,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53025,7 +58383,13 @@ module.exports ={
           "properties": {
             "name": "Reeves County, Texas",
             "population": 13606,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53044,7 +58408,13 @@ module.exports ={
           "properties": {
             "name": "San Augustine County, Texas",
             "population": 8898,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53062,7 +58432,13 @@ module.exports ={
           "properties": {
             "name": "Schleicher County, Texas",
             "population": 3327,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53137,7 +58513,13 @@ module.exports ={
           "properties": {
             "name": "Trinity County, Texas",
             "population": 14466,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53155,7 +58537,13 @@ module.exports ={
           "properties": {
             "name": "Walker County, Texas",
             "population": 67447,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53174,7 +58562,13 @@ module.exports ={
           "properties": {
             "name": "Dade County, Georgia",
             "population": 16598,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53220,7 +58614,13 @@ module.exports ={
           "properties": {
             "name": "Douglas County, Georgia",
             "population": 132124,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53390,7 +58790,13 @@ module.exports ={
           "properties": {
             "name": "Monroe County, Arkansas",
             "population": 8145,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53438,7 +58844,13 @@ module.exports ={
           "properties": {
             "name": "De Witt County, Illinois",
             "population": 16562,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53455,7 +58867,13 @@ module.exports ={
           "properties": {
             "name": "Edgar County, Illinois",
             "population": 18513,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53474,7 +58892,13 @@ module.exports ={
           "properties": {
             "name": "Greene County, Illinois",
             "population": 13828,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53493,7 +58917,13 @@ module.exports ={
           "properties": {
             "name": "Hardin County, Illinois",
             "population": 4315,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53512,7 +58942,13 @@ module.exports ={
           "properties": {
             "name": "Fulton County, Indiana",
             "population": 20762,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53678,7 +59114,13 @@ module.exports ={
           "properties": {
             "name": "Noble County, Indiana",
             "population": 47547,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53697,7 +59139,13 @@ module.exports ={
           "properties": {
             "name": "Owen County, Indiana",
             "population": 21583,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53715,7 +59163,13 @@ module.exports ={
           "properties": {
             "name": "Putnam County, Indiana",
             "population": 37995,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53734,7 +59188,13 @@ module.exports ={
           "properties": {
             "name": "Shelby County, Indiana",
             "population": 44435,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53783,7 +59243,13 @@ module.exports ={
           "properties": {
             "name": "De Baca County, New Mexico",
             "population": 2069,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53859,7 +59325,13 @@ module.exports ={
           "properties": {
             "name": "Powder River County, Montana",
             "population": 1639,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -53937,7 +59409,13 @@ module.exports ={
           "properties": {
             "name": "Arthur County, Nebraska",
             "population": 490,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54044,7 +59522,13 @@ module.exports ={
           "properties": {
             "name": "Fillmore County, Nebraska",
             "population": 5867,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54062,7 +59546,13 @@ module.exports ={
           "properties": {
             "name": "Garden County, Nebraska",
             "population": 2011,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54170,7 +59660,13 @@ module.exports ={
           "properties": {
             "name": "Wilson County, Texas",
             "population": 42999,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54302,7 +59798,13 @@ module.exports ={
           "properties": {
             "name": "Williamson County, Tennessee",
             "population": 184225,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54322,7 +59824,13 @@ module.exports ={
           "properties": {
             "name": "Andrews County, Texas",
             "population": 15006,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54341,7 +59849,13 @@ module.exports ={
           "properties": {
             "name": "Bandera County, Texas",
             "population": 20477,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54418,7 +59932,13 @@ module.exports ={
           "properties": {
             "name": "Callahan County, Texas",
             "population": 13521,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54437,7 +59957,13 @@ module.exports ={
           "properties": {
             "name": "Childress County, Texas",
             "population": 7047,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54455,7 +59981,13 @@ module.exports ={
           "properties": {
             "name": "Coleman County, Texas",
             "population": 8817,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54502,7 +60034,13 @@ module.exports ={
           "properties": {
             "name": "Haines Borough, Alaska",
             "population": 2500,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54523,7 +60061,13 @@ module.exports ={
           "properties": {
             "name": "Matanuska-Susitna Borough, Alaska",
             "population": 89319,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54573,7 +60117,13 @@ module.exports ={
           "properties": {
             "name": "Perry County, Alabama",
             "population": 10525,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54767,7 +60317,13 @@ module.exports ={
           "properties": {
             "name": "Calhoun County, Iowa",
             "population": 9936,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54785,7 +60341,13 @@ module.exports ={
           "properties": {
             "name": "Cherokee County, Iowa",
             "population": 12011,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54803,7 +60365,13 @@ module.exports ={
           "properties": {
             "name": "Henderson County, Illinois",
             "population": 7275,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54850,7 +60418,13 @@ module.exports ={
           "properties": {
             "name": "Johnson County, Illinois",
             "population": 12653,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54868,7 +60442,13 @@ module.exports ={
           "properties": {
             "name": "Knox County, Illinois",
             "population": 52698,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54918,7 +60498,13 @@ module.exports ={
           "properties": {
             "name": "Marshall County, Illinois",
             "population": 12567,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54967,7 +60553,13 @@ module.exports ={
           "properties": {
             "name": "Pope County, Illinois",
             "population": 4399,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -54985,7 +60577,13 @@ module.exports ={
           "properties": {
             "name": "St. Clair County, Illinois",
             "population": 268873,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55005,7 +60603,13 @@ module.exports ={
           "properties": {
             "name": "Warren County, Illinois",
             "population": 17723,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55111,7 +60715,13 @@ module.exports ={
           "properties": {
             "name": "Lee County, Mississippi",
             "population": 83235,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55130,7 +60740,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Mississippi",
             "population": 34850,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55208,7 +60824,13 @@ module.exports ={
           "properties": {
             "name": "Scott County, Mississippi",
             "population": 28207,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55226,7 +60848,13 @@ module.exports ={
           "properties": {
             "name": "Sunflower County, Mississippi",
             "population": 29230,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55275,7 +60903,13 @@ module.exports ={
           "properties": {
             "name": "Winston County, Mississippi",
             "population": 19160,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55294,7 +60928,13 @@ module.exports ={
           "properties": {
             "name": "Andrew County, Missouri",
             "population": 17205,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55398,7 +61038,13 @@ module.exports ={
           "properties": {
             "name": "Clinton County, Missouri",
             "population": 20687,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55417,7 +61063,13 @@ module.exports ={
           "properties": {
             "name": "Dallas County, Missouri",
             "population": 16825,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55493,7 +61145,13 @@ module.exports ={
           "properties": {
             "name": "Delta County, Texas",
             "population": 5240,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55512,7 +61170,13 @@ module.exports ={
           "properties": {
             "name": "Duval County, Texas",
             "population": 11821,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55617,7 +61281,13 @@ module.exports ={
           "properties": {
             "name": "Gillespie County, Texas",
             "population": 24777,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55804,7 +61474,13 @@ module.exports ={
           "properties": {
             "name": "Hockley County, Texas",
             "population": 22988,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55882,7 +61558,13 @@ module.exports ={
           "properties": {
             "name": "Karnes County, Texas",
             "population": 14936,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55902,7 +61584,13 @@ module.exports ={
           "properties": {
             "name": "King County, Texas",
             "population": 227,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55948,7 +61636,13 @@ module.exports ={
           "properties": {
             "name": "Leon County, Texas",
             "population": 16827,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55967,7 +61661,13 @@ module.exports ={
           "properties": {
             "name": "Dolores County, Colorado",
             "population": 1806,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -55984,7 +61684,13 @@ module.exports ={
           "properties": {
             "name": "Elbert County, Colorado",
             "population": 23058,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56176,7 +61882,13 @@ module.exports ={
           "properties": {
             "name": "Bartholomew County, Indiana",
             "population": 77297,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56335,7 +62047,13 @@ module.exports ={
           "properties": {
             "name": "Greene County, Georgia",
             "population": 15988,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56354,7 +62072,13 @@ module.exports ={
           "properties": {
             "name": "Haralson County, Georgia",
             "population": 28627,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56433,7 +62157,13 @@ module.exports ={
           "properties": {
             "name": "Long County, Georgia",
             "population": 14488,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56509,7 +62239,13 @@ module.exports ={
           "properties": {
             "name": "Oconee County, Georgia",
             "population": 32814,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56528,7 +62264,13 @@ module.exports ={
           "properties": {
             "name": "Pickens County, Georgia",
             "population": 29445,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56574,7 +62316,13 @@ module.exports ={
           "properties": {
             "name": "Schley County, Georgia",
             "population": 4963,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56620,7 +62368,13 @@ module.exports ={
           "properties": {
             "name": "Iron County, Missouri",
             "population": 10563,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -56694,7 +62448,13 @@ module.exports ={
           "properties": {
             "name": "Ashe County, North Carolina",
             "population": 27099,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57033,7 +62793,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Texas",
             "population": 13590,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57051,7 +62817,13 @@ module.exports ={
           "properties": {
             "name": "Medina County, Texas",
             "population": 46009,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57128,7 +62900,13 @@ module.exports ={
           "properties": {
             "name": "New Kent County, Virginia",
             "population": 18460,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57147,7 +62925,13 @@ module.exports ={
           "properties": {
             "name": "Northumberland County, Virginia",
             "population": 12389,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57226,7 +63010,13 @@ module.exports ={
           "properties": {
             "name": "Bedford city, Virginia",
             "population": 6103,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57240,7 +63030,13 @@ module.exports ={
           "properties": {
             "name": "Danville city, Virginia",
             "population": 43185,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57255,7 +63051,13 @@ module.exports ={
           "properties": {
             "name": "Franklin city, Virginia",
             "population": 8531,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57270,7 +63072,13 @@ module.exports ={
           "properties": {
             "name": "Lynchburg city, Virginia",
             "population": 75657,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57286,7 +63094,13 @@ module.exports ={
           "properties": {
             "name": "Norton city, Virginia",
             "population": 3971,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57300,7 +63114,13 @@ module.exports ={
           "properties": {
             "name": "Portsmouth city, Virginia",
             "population": 95786,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57317,7 +63137,13 @@ module.exports ={
           "properties": {
             "name": "Williamsburg city, Virginia",
             "population": 14207,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57332,7 +63158,13 @@ module.exports ={
           "properties": {
             "name": "Miami-Dade County, Florida",
             "population": 2512219,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57405,7 +63237,13 @@ module.exports ={
           "properties": {
             "name": "Stewart County, Georgia",
             "population": 5991,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57425,7 +63263,13 @@ module.exports ={
           "properties": {
             "name": "Telfair County, Georgia",
             "population": 16312,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57444,7 +63288,13 @@ module.exports ={
           "properties": {
             "name": "Treutlen County, Georgia",
             "population": 6851,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57549,7 +63399,13 @@ module.exports ={
           "properties": {
             "name": "Comanche County, Kansas",
             "population": 1893,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57711,7 +63567,13 @@ module.exports ={
           "properties": {
             "name": "Lane County, Kansas",
             "population": 1666,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -57900,7 +63762,13 @@ module.exports ={
           "properties": {
             "name": "Saline County, Kansas",
             "population": 55493,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58005,7 +63873,13 @@ module.exports ={
           "properties": {
             "name": "Guernsey County, Ohio",
             "population": 40056,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58053,7 +63927,13 @@ module.exports ={
           "properties": {
             "name": "Knox County, Ohio",
             "population": 60791,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58129,7 +64009,13 @@ module.exports ={
           "properties": {
             "name": "Morgan County, Ohio",
             "population": 15042,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58176,7 +64062,13 @@ module.exports ={
           "properties": {
             "name": "Putnam County, Ohio",
             "population": 34445,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58252,7 +64144,13 @@ module.exports ={
           "properties": {
             "name": "Atoka County, Oklahoma",
             "population": 14133,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58355,7 +64253,13 @@ module.exports ={
           "properties": {
             "name": "Kitsap County, Washington",
             "population": 251400,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58373,7 +64277,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Wisconsin",
             "population": 20436,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58393,7 +64303,13 @@ module.exports ={
           "properties": {
             "name": "Langlade County, Wisconsin",
             "population": 19951,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58413,7 +64329,13 @@ module.exports ={
           "properties": {
             "name": "Menominee County, Wisconsin",
             "population": 4274,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58488,7 +64410,13 @@ module.exports ={
           "properties": {
             "name": "St. Croix County, Wisconsin",
             "population": 84363,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58533,7 +64461,13 @@ module.exports ={
           "properties": {
             "name": "Waupaca County, Wisconsin",
             "population": 52377,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58666,7 +64600,13 @@ module.exports ={
           "properties": {
             "name": "Winston County, Alabama",
             "population": 24432,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58684,7 +64624,13 @@ module.exports ={
           "properties": {
             "name": "Aleutians West Census Area, Alaska",
             "population": 5507,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58765,7 +64711,13 @@ module.exports ={
           "properties": {
             "name": "Bristol Bay Borough, Alaska",
             "population": 929,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58780,7 +64732,13 @@ module.exports ={
           "properties": {
             "name": "Sheridan County, Kansas",
             "population": 2562,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58883,7 +64841,13 @@ module.exports ={
           "properties": {
             "name": "Powell County, Kentucky",
             "population": 12638,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58902,7 +64866,13 @@ module.exports ={
           "properties": {
             "name": "Rockcastle County, Kentucky",
             "population": 17090,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58921,7 +64891,13 @@ module.exports ={
           "properties": {
             "name": "Spencer County, Kentucky",
             "population": 17135,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58939,7 +64915,13 @@ module.exports ={
           "properties": {
             "name": "Warren County, Kentucky",
             "population": 113787,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58958,7 +64940,13 @@ module.exports ={
           "properties": {
             "name": "Whitley County, Kentucky",
             "population": 35756,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58977,7 +64965,13 @@ module.exports ={
           "properties": {
             "name": "Assumption Parish, Louisiana",
             "population": 23321,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -58998,7 +64992,13 @@ module.exports ={
           "properties": {
             "name": "Caldwell Parish, Louisiana",
             "population": 10118,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59018,7 +65018,13 @@ module.exports ={
           "properties": {
             "name": "Catahoula Parish, Louisiana",
             "population": 10409,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59037,7 +65043,13 @@ module.exports ={
           "properties": {
             "name": "Iberville Parish, Louisiana",
             "population": 33386,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59057,7 +65069,13 @@ module.exports ={
           "properties": {
             "name": "LaSalle Parish, Louisiana",
             "population": 14840,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59076,7 +65094,13 @@ module.exports ={
           "properties": {
             "name": "Morehouse Parish, Louisiana",
             "population": 27893,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59095,7 +65119,13 @@ module.exports ={
           "properties": {
             "name": "Richland Parish, Louisiana",
             "population": 20785,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59115,7 +65145,13 @@ module.exports ={
           "properties": {
             "name": "Cottle County, Texas",
             "population": 1600,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59134,7 +65170,13 @@ module.exports ={
           "properties": {
             "name": "Crockett County, Texas",
             "population": 3669,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59156,7 +65198,13 @@ module.exports ={
           "properties": {
             "name": "Culberson County, Texas",
             "population": 2386,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59174,7 +65222,13 @@ module.exports ={
           "properties": {
             "name": "Dallam County, Texas",
             "population": 6734,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59276,7 +65330,13 @@ module.exports ={
           "properties": {
             "name": "Eastland County, Texas",
             "population": 18519,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59326,7 +65386,13 @@ module.exports ={
           "properties": {
             "name": "Falls County, Texas",
             "population": 17756,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59344,7 +65410,13 @@ module.exports ={
           "properties": {
             "name": "Fannin County, Texas",
             "population": 33867,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59477,7 +65549,13 @@ module.exports ={
           "properties": {
             "name": "Hamilton County, Texas",
             "population": 8448,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59496,7 +65574,13 @@ module.exports ={
           "properties": {
             "name": "Motley County, Texas",
             "population": 1153,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59572,7 +65656,13 @@ module.exports ={
           "properties": {
             "name": "Nottoway County, Virginia",
             "population": 15875,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59590,7 +65680,13 @@ module.exports ={
           "properties": {
             "name": "Orange County, Virginia",
             "population": 33625,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59702,7 +65798,13 @@ module.exports ={
           "properties": {
             "name": "Rockbridge County, Virginia",
             "population": 22357,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59728,7 +65830,13 @@ module.exports ={
           "properties": {
             "name": "Scott County, Virginia",
             "population": 23061,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59748,7 +65856,13 @@ module.exports ={
           "properties": {
             "name": "Shenandoah County, Virginia",
             "population": 42076,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59796,7 +65910,13 @@ module.exports ={
           "properties": {
             "name": "Sussex County, Virginia",
             "population": 12095,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -59908,7 +66028,13 @@ module.exports ={
           "properties": {
             "name": "Forest County, Wisconsin",
             "population": 9361,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60101,7 +66227,13 @@ module.exports ={
           "properties": {
             "name": "Niobrara County, Wyoming",
             "population": 2478,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60152,7 +66284,13 @@ module.exports ={
           "properties": {
             "name": "Sublette County, Wyoming",
             "population": 10065,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60200,7 +66338,13 @@ module.exports ={
           "properties": {
             "name": "Washakie County, Wyoming",
             "population": 8425,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60308,7 +66452,13 @@ module.exports ={
           "properties": {
             "name": "Hardeman County, Texas",
             "population": 4124,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60504,7 +66654,13 @@ module.exports ={
           "properties": {
             "name": "Hopkins County, Texas",
             "population": 35088,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60522,7 +66678,13 @@ module.exports ={
           "properties": {
             "name": "Irion County, Texas",
             "population": 1596,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60569,7 +66731,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, Texas",
             "population": 14075,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60589,7 +66757,13 @@ module.exports ={
           "properties": {
             "name": "Jeff Davis County, Texas",
             "population": 2319,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60608,7 +66782,13 @@ module.exports ={
           "properties": {
             "name": "Jim Wells County, Texas",
             "population": 41014,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60627,7 +66807,13 @@ module.exports ={
           "properties": {
             "name": "Jones County, Texas",
             "population": 20137,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60646,7 +66832,13 @@ module.exports ={
           "properties": {
             "name": "Kendall County, Texas",
             "population": 33745,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60665,7 +66857,13 @@ module.exports ={
           "properties": {
             "name": "Tazewell County, Virginia",
             "population": 44846,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60748,7 +66946,13 @@ module.exports ={
           "properties": {
             "name": "Bristol city, Virginia",
             "population": 17747,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60763,7 +66967,13 @@ module.exports ={
           "properties": {
             "name": "Chesapeake city, Virginia",
             "population": 223233,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60782,7 +66992,13 @@ module.exports ={
           "properties": {
             "name": "Covington city, Virginia",
             "population": 5903,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60796,7 +67012,13 @@ module.exports ={
           "properties": {
             "name": "Falls Church city, Virginia",
             "population": 12300,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60811,7 +67033,13 @@ module.exports ={
           "properties": {
             "name": "Galax city, Virginia",
             "population": 6942,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60826,7 +67054,13 @@ module.exports ={
           "properties": {
             "name": "Lexington city, Virginia",
             "population": 6990,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60840,7 +67074,13 @@ module.exports ={
           "properties": {
             "name": "Manassas city, Virginia",
             "population": 37943,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60855,7 +67095,13 @@ module.exports ={
           "properties": {
             "name": "Manassas Park city, Virginia",
             "population": 14409,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60870,7 +67116,13 @@ module.exports ={
           "properties": {
             "name": "Norfolk city, Virginia",
             "population": 243056,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60887,7 +67139,13 @@ module.exports ={
           "properties": {
             "name": "Petersburg city, Virginia",
             "population": 32226,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60905,7 +67163,13 @@ module.exports ={
           "properties": {
             "name": "Radford city, Virginia",
             "population": 16511,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60920,7 +67184,13 @@ module.exports ={
           "properties": {
             "name": "Staunton city, Virginia",
             "population": 23906,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -60993,7 +67263,13 @@ module.exports ={
           "properties": {
             "name": "Marquette County, Wisconsin",
             "population": 15366,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61068,7 +67344,13 @@ module.exports ={
           "properties": {
             "name": "Pepin County, Wisconsin",
             "population": 7458,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61087,7 +67369,13 @@ module.exports ={
           "properties": {
             "name": "Pierce County, Wisconsin",
             "population": 40842,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61191,7 +67479,13 @@ module.exports ={
           "properties": {
             "name": "Wahkiakum County, Washington",
             "population": 4003,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61267,7 +67561,13 @@ module.exports ={
           "properties": {
             "name": "Boone County, West Virginia",
             "population": 24617,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61285,7 +67585,13 @@ module.exports ={
           "properties": {
             "name": "Brooke County, West Virginia",
             "population": 24021,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61331,7 +67637,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, West Virginia",
             "population": 9432,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61377,7 +67689,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Florida",
             "population": 11545,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61434,7 +67752,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Florida",
             "population": 14564,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61599,7 +67923,13 @@ module.exports ={
           "properties": {
             "name": "Saline County, Arkansas",
             "population": 107498,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61617,7 +67947,13 @@ module.exports ={
           "properties": {
             "name": "Sebastian County, Arkansas",
             "population": 125795,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61666,7 +68002,13 @@ module.exports ={
           "properties": {
             "name": "Yukon-Koyukuk Census Area, Alaska",
             "population": 5637,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61689,7 +68031,13 @@ module.exports ={
           "properties": {
             "name": "Warren County, Indiana",
             "population": 8490,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61764,7 +68112,13 @@ module.exports ={
           "properties": {
             "name": "Gallatin County, Illinois",
             "population": 5592,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -61783,7 +68137,13 @@ module.exports ={
           "properties": {
             "name": "Hancock County, Illinois",
             "population": 19063,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62009,7 +68369,13 @@ module.exports ={
           "properties": {
             "name": "Morton County, Kansas",
             "population": 3207,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62027,7 +68393,13 @@ module.exports ={
           "properties": {
             "name": "Norton County, Kansas",
             "population": 5658,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62075,7 +68447,13 @@ module.exports ={
           "properties": {
             "name": "Rawlins County, Kansas",
             "population": 2555,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62095,7 +68473,13 @@ module.exports ={
           "properties": {
             "name": "Riley County, Kansas",
             "population": 71927,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62142,7 +68526,13 @@ module.exports ={
           "properties": {
             "name": "Madison Parish, Louisiana",
             "population": 12113,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62217,7 +68607,13 @@ module.exports ={
           "properties": {
             "name": "Knott County, Kentucky",
             "population": 16368,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62266,7 +68662,13 @@ module.exports ={
           "properties": {
             "name": "Letcher County, Kentucky",
             "population": 24336,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62284,7 +68686,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, Kentucky",
             "population": 26786,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62303,7 +68711,13 @@ module.exports ={
           "properties": {
             "name": "McLean County, Kentucky",
             "population": 9554,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62322,7 +68736,13 @@ module.exports ={
           "properties": {
             "name": "Marion County, Kentucky",
             "population": 19872,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62372,7 +68792,13 @@ module.exports ={
           "properties": {
             "name": "Meade County, Kentucky",
             "population": 28979,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62448,7 +68874,13 @@ module.exports ={
           "properties": {
             "name": "Fayette County, Iowa",
             "population": 20894,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62466,7 +68898,13 @@ module.exports ={
           "properties": {
             "name": "Fremont County, Iowa",
             "population": 7373,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62512,7 +68950,13 @@ module.exports ={
           "properties": {
             "name": "Harrison County, Iowa",
             "population": 14838,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62589,7 +69033,13 @@ module.exports ={
           "properties": {
             "name": "Newton County, Indiana",
             "population": 14199,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62636,7 +69086,13 @@ module.exports ={
           "properties": {
             "name": "Monona County, Iowa",
             "population": 9242,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62682,7 +69138,13 @@ module.exports ={
           "properties": {
             "name": "Sioux County, Iowa",
             "population": 33776,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62728,7 +69190,13 @@ module.exports ={
           "properties": {
             "name": "Wayne County, Iowa",
             "population": 6372,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62832,7 +69300,13 @@ module.exports ={
           "properties": {
             "name": "Bourbon County, Kansas",
             "population": 15060,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62850,7 +69324,13 @@ module.exports ={
           "properties": {
             "name": "Orleans Parish, Louisiana",
             "population": 341407,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62951,7 +69431,13 @@ module.exports ={
           "properties": {
             "name": "Roseau County, Minnesota",
             "population": 15665,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -62998,7 +69484,13 @@ module.exports ={
           "properties": {
             "name": "Traverse County, Minnesota",
             "population": 3549,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63045,7 +69537,13 @@ module.exports ={
           "properties": {
             "name": "Wilkin County, Minnesota",
             "population": 6584,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63093,7 +69591,13 @@ module.exports ={
           "properties": {
             "name": "Adams County, Mississippi",
             "population": 32391,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63139,7 +69643,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, Mississippi",
             "population": 20633,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63187,7 +69697,13 @@ module.exports ={
           "properties": {
             "name": "Lucas County, Iowa",
             "population": 8913,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63290,7 +69806,13 @@ module.exports ={
           "properties": {
             "name": "Clinton County, Pennsylvania",
             "population": 39261,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63366,7 +69888,13 @@ module.exports ={
           "properties": {
             "name": "Issaquena County, Mississippi",
             "population": 1556,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63385,7 +69913,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Mississippi",
             "population": 7743,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63404,7 +69938,13 @@ module.exports ={
           "properties": {
             "name": "Lafayette County, Mississippi",
             "population": 47586,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63480,7 +70020,13 @@ module.exports ={
           "properties": {
             "name": "St. Bernard Parish, Louisiana",
             "population": 35947,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63561,7 +70107,13 @@ module.exports ={
           "properties": {
             "name": "Divide County, North Dakota",
             "population": 2095,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63578,7 +70130,13 @@ module.exports ={
           "properties": {
             "name": "Golden Valley County, North Dakota",
             "population": 1646,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63654,7 +70212,13 @@ module.exports ={
           "properties": {
             "name": "Oktibbeha County, Mississippi",
             "population": 47486,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63702,7 +70266,13 @@ module.exports ={
           "properties": {
             "name": "Pike County, Mississippi",
             "population": 40300,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63720,7 +70290,13 @@ module.exports ={
           "properties": {
             "name": "Sharkey County, Mississippi",
             "population": 4835,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63737,7 +70313,13 @@ module.exports ={
           "properties": {
             "name": "Stone County, Mississippi",
             "population": 17657,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63931,7 +70513,13 @@ module.exports ={
           "properties": {
             "name": "Greene County, Pennsylvania",
             "population": 38614,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -63949,7 +70537,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Pennsylvania",
             "population": 45051,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64027,7 +70621,13 @@ module.exports ={
           "properties": {
             "name": "McKean County, Pennsylvania",
             "population": 43451,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64196,7 +70796,13 @@ module.exports ={
           "properties": {
             "name": "Chester County, Tennessee",
             "population": 17043,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64214,7 +70820,13 @@ module.exports ={
           "properties": {
             "name": "McIntosh County, North Dakota",
             "population": 2813,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64261,7 +70873,13 @@ module.exports ={
           "properties": {
             "name": "Jefferson County, Oklahoma",
             "population": 6445,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64280,7 +70898,13 @@ module.exports ={
           "properties": {
             "name": "Latimer County, Oklahoma",
             "population": 11099,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64359,7 +70983,13 @@ module.exports ={
           "properties": {
             "name": "Marshall County, Oklahoma",
             "population": 15774,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64377,7 +71007,13 @@ module.exports ={
           "properties": {
             "name": "Nowata County, Oklahoma",
             "population": 10627,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64454,7 +71090,13 @@ module.exports ={
           "properties": {
             "name": "Cortland County, New York",
             "population": 49453,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64474,7 +71116,13 @@ module.exports ={
           "properties": {
             "name": "Delaware County, New York",
             "population": 47851,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64781,7 +71429,13 @@ module.exports ={
           "properties": {
             "name": "Jersey County, Illinois",
             "population": 22939,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64799,7 +71453,13 @@ module.exports ={
           "properties": {
             "name": "Jo Daviess County, Illinois",
             "population": 22663,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64907,7 +71567,13 @@ module.exports ={
           "properties": {
             "name": "Decatur County, Tennessee",
             "population": 11732,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64962,7 +71628,13 @@ module.exports ={
           "properties": {
             "name": "Gibson County, Tennessee",
             "population": 49594,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -64981,7 +71653,13 @@ module.exports ={
           "properties": {
             "name": "Giles County, Tennessee",
             "population": 29439,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65239,7 +71917,13 @@ module.exports ={
           "properties": {
             "name": "Curry County, Oregon",
             "population": 22344,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65257,7 +71941,13 @@ module.exports ={
           "properties": {
             "name": "Harney County, Oregon",
             "population": 7359,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65277,7 +71967,13 @@ module.exports ={
           "properties": {
             "name": "Leelanau County, Michigan",
             "population": 21677,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65503,7 +72199,13 @@ module.exports ={
           "properties": {
             "name": "Kane County, Utah",
             "population": 7093,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65522,7 +72224,13 @@ module.exports ={
           "properties": {
             "name": "Cocke County, Tennessee",
             "population": 35631,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65605,7 +72313,13 @@ module.exports ={
           "properties": {
             "name": "Sioux County, Nebraska",
             "population": 1262,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65652,7 +72366,13 @@ module.exports ={
           "properties": {
             "name": "Washington County, Nebraska",
             "population": 20201,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65727,7 +72447,13 @@ module.exports ={
           "properties": {
             "name": "Arenac County, Michigan",
             "population": 15952,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65745,7 +72471,13 @@ module.exports ={
           "properties": {
             "name": "Park County, Montana",
             "population": 15655,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65764,7 +72496,13 @@ module.exports ={
           "properties": {
             "name": "Pondera County, Montana",
             "population": 6147,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65783,7 +72521,13 @@ module.exports ={
           "properties": {
             "name": "Prairie County, Montana",
             "population": 1193,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65802,7 +72546,13 @@ module.exports ={
           "properties": {
             "name": "Ravalli County, Montana",
             "population": 40311,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65937,7 +72687,13 @@ module.exports ={
           "properties": {
             "name": "Yalobusha County, Mississippi",
             "population": 12647,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -65984,7 +72740,13 @@ module.exports ={
           "properties": {
             "name": "Barton County, Missouri",
             "population": 12428,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -66032,7 +72794,13 @@ module.exports ={
           "properties": {
             "name": "Caldwell County, Missouri",
             "population": 9302,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -66141,7 +72909,13 @@ module.exports ={
           "properties": {
             "name": "Barnwell County, South Carolina",
             "population": 22523,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -66417,7 +73191,13 @@ module.exports ={
           "properties": {
             "name": "Treasure County, Montana",
             "population": 698,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -66433,7 +73213,13 @@ module.exports ={
           "properties": {
             "name": "Valley County, Montana",
             "population": 7423,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -66482,7 +73268,13 @@ module.exports ={
           "properties": {
             "name": "Sioux County, North Dakota",
             "population": 4193,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -66932,7 +73724,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Missouri",
             "population": 52637,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67066,7 +73864,13 @@ module.exports ={
           "properties": {
             "name": "Henry County, Tennessee",
             "population": 32271,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67113,7 +73917,13 @@ module.exports ={
           "properties": {
             "name": "Johnson County, Tennessee",
             "population": 18199,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67133,7 +73943,13 @@ module.exports ={
           "properties": {
             "name": "Lauderdale County, Tennessee",
             "population": 27772,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67151,7 +73967,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, Tennessee",
             "population": 33295,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67200,7 +74022,13 @@ module.exports ={
           "properties": {
             "name": "Meigs County, Tennessee",
             "population": 11696,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67218,7 +74046,13 @@ module.exports ={
           "properties": {
             "name": "Monroe County, Tennessee",
             "population": 44680,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67237,7 +74071,13 @@ module.exports ={
           "properties": {
             "name": "Obion County, Tennessee",
             "population": 31721,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67341,7 +74181,13 @@ module.exports ={
           "properties": {
             "name": "Refugio County, Texas",
             "population": 7352,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67477,7 +74323,13 @@ module.exports ={
           "properties": {
             "name": "Terrell County, Texas",
             "population": 1001,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67552,7 +74404,13 @@ module.exports ={
           "properties": {
             "name": "Waller County, Texas",
             "population": 42894,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67630,7 +74488,13 @@ module.exports ={
           "properties": {
             "name": "Winkler County, Texas",
             "population": 7137,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67675,7 +74539,13 @@ module.exports ={
           "properties": {
             "name": "Zapata County, Texas",
             "population": 14014,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67752,7 +74622,13 @@ module.exports ={
           "properties": {
             "name": "Aransas County, Texas",
             "population": 23391,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67778,7 +74654,13 @@ module.exports ={
           "properties": {
             "name": "Bowie County, Texas",
             "population": 92460,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67825,7 +74707,13 @@ module.exports ={
           "properties": {
             "name": "St. Charles County, Missouri",
             "population": 360695,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -67845,7 +74733,13 @@ module.exports ={
           "properties": {
             "name": "St. Louis County, Missouri",
             "population": 999147,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68183,7 +75077,13 @@ module.exports ={
           "properties": {
             "name": "Presque Isle County, Michigan",
             "population": 13368,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68284,7 +75184,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, South Dakota",
             "population": 3067,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68331,7 +75237,13 @@ module.exports ={
           "properties": {
             "name": "Lincoln County, South Dakota",
             "population": 45055,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68350,7 +75262,13 @@ module.exports ={
           "properties": {
             "name": "McPherson County, South Dakota",
             "population": 2485,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68399,7 +75317,13 @@ module.exports ={
           "properties": {
             "name": "Perkins County, South Dakota",
             "population": 2890,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68418,7 +75342,13 @@ module.exports ={
           "properties": {
             "name": "Roberts County, South Dakota",
             "population": 10158,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -68959,7 +75889,13 @@ module.exports ={
           "properties": {
             "name": "Harrison County, Missouri",
             "population": 8901,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69096,7 +76032,13 @@ module.exports ={
           "properties": {
             "name": "Camden County, North Carolina",
             "population": 9965,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69115,7 +76057,13 @@ module.exports ={
           "properties": {
             "name": "Carteret County, North Carolina",
             "population": 66415,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69133,7 +76081,13 @@ module.exports ={
           "properties": {
             "name": "Mississippi County, Missouri",
             "population": 14231,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69185,7 +76139,13 @@ module.exports ={
           "properties": {
             "name": "Oregon County, Missouri",
             "population": 10885,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69205,7 +76165,13 @@ module.exports ={
           "properties": {
             "name": "Pemiscot County, Missouri",
             "population": 18288,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69400,7 +76366,13 @@ module.exports ={
           "properties": {
             "name": "Adair County, Oklahoma",
             "population": 22470,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69508,7 +76480,13 @@ module.exports ={
           "properties": {
             "name": "Cotton County, Oklahoma",
             "population": 6171,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69527,7 +76505,13 @@ module.exports ={
           "properties": {
             "name": "Delaware County, Oklahoma",
             "population": 41332,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69576,7 +76560,13 @@ module.exports ={
           "properties": {
             "name": "Watauga County, North Carolina",
             "population": 51103,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69594,7 +76584,13 @@ module.exports ={
           "properties": {
             "name": "Burleson County, Texas",
             "population": 17160,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69726,7 +76722,13 @@ module.exports ={
           "properties": {
             "name": "Sequatchie County, Tennessee",
             "population": 14173,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69806,7 +76808,13 @@ module.exports ={
           "properties": {
             "name": "Unicoi County, Tennessee",
             "population": 18287,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69825,7 +76833,13 @@ module.exports ={
           "properties": {
             "name": "Wayne County, Tennessee",
             "population": 17015,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -69898,7 +76912,13 @@ module.exports ={
           "properties": {
             "name": "Schuyler County, New York",
             "population": 18472,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70150,7 +77170,13 @@ module.exports ={
           "properties": {
             "name": "Stone County, Missouri",
             "population": 31968,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70198,7 +77224,13 @@ module.exports ={
           "properties": {
             "name": "Worth County, Missouri",
             "population": 2146,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70216,7 +77248,13 @@ module.exports ={
           "properties": {
             "name": "Beaverhead County, Montana",
             "population": 9228,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70267,7 +77305,13 @@ module.exports ={
           "properties": {
             "name": "Tyrrell County, North Carolina",
             "population": 4367,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70284,7 +77328,13 @@ module.exports ={
           "properties": {
             "name": "Harrison County, Ohio",
             "population": 15818,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70302,7 +77352,13 @@ module.exports ={
           "properties": {
             "name": "Hocking County, Ohio",
             "population": 29372,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70476,7 +77532,13 @@ module.exports ={
           "properties": {
             "name": "Baltimore city, Maryland",
             "population": 620644,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70521,7 +77583,13 @@ module.exports ={
           "properties": {
             "name": "Marion County, South Carolina",
             "population": 33038,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70623,7 +77691,13 @@ module.exports ={
           "properties": {
             "name": "Corson County, South Dakota",
             "population": 4046,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70644,7 +77718,13 @@ module.exports ={
           "properties": {
             "name": "Fall River County, South Dakota",
             "population": 7028,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70662,7 +77742,13 @@ module.exports ={
           "properties": {
             "name": "Gregory County, South Dakota",
             "population": 4251,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70801,7 +77887,13 @@ module.exports ={
           "properties": {
             "name": "Tripp County, South Dakota",
             "population": 5608,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70848,7 +77940,13 @@ module.exports ={
           "properties": {
             "name": "Carter County, Montana",
             "population": 1276,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70927,7 +78025,13 @@ module.exports ={
           "properties": {
             "name": "Fergus County, Montana",
             "population": 11507,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -70948,7 +78052,13 @@ module.exports ={
           "properties": {
             "name": "Garfield County, Montana",
             "population": 1100,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71164,7 +78274,13 @@ module.exports ={
           "properties": {
             "name": "Grand Traverse County, Michigan",
             "population": 87483,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71183,7 +78299,13 @@ module.exports ={
           "properties": {
             "name": "Hooker County, Nebraska",
             "population": 689,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71288,7 +78410,13 @@ module.exports ={
           "properties": {
             "name": "Madison County, Mississippi",
             "population": 95481,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71307,7 +78435,13 @@ module.exports ={
           "properties": {
             "name": "Marshall County, Mississippi",
             "population": 37019,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71382,7 +78516,13 @@ module.exports ={
           "properties": {
             "name": "Houston County, Minnesota",
             "population": 19001,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71489,7 +78629,13 @@ module.exports ={
           "properties": {
             "name": "Pamlico County, North Carolina",
             "population": 13145,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71623,7 +78769,13 @@ module.exports ={
           "properties": {
             "name": "Pike County, Pennsylvania",
             "population": 57437,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71699,7 +78851,13 @@ module.exports ={
           "properties": {
             "name": "Catron County, New Mexico",
             "population": 3686,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71775,7 +78933,13 @@ module.exports ={
           "properties": {
             "name": "Mineral County, Montana",
             "population": 4203,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71949,7 +79113,13 @@ module.exports ={
           "properties": {
             "name": "Levy County, Florida",
             "population": 40541,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -71997,7 +79167,13 @@ module.exports ={
           "properties": {
             "name": "Crittenden County, Arkansas",
             "population": 50618,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72137,7 +79313,13 @@ module.exports ={
           "properties": {
             "name": "Lawrence County, Arkansas",
             "population": 17314,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72156,7 +79338,13 @@ module.exports ={
           "properties": {
             "name": "Lee County, Arkansas",
             "population": 10430,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72348,7 +79536,13 @@ module.exports ={
           "properties": {
             "name": "Calhoun County, Illinois",
             "population": 5065,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72484,7 +79678,13 @@ module.exports ={
           "properties": {
             "name": "Custer County, Idaho",
             "population": 4338,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72565,7 +79765,13 @@ module.exports ={
           "properties": {
             "name": "Clinton County, Indiana",
             "population": 33179,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72585,7 +79791,13 @@ module.exports ={
           "properties": {
             "name": "Yakutat City and Borough, Alaska",
             "population": 644,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72682,7 +79894,13 @@ module.exports ={
           "properties": {
             "name": "Bear Lake County, Idaho",
             "population": 5977,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72699,7 +79917,13 @@ module.exports ={
           "properties": {
             "name": "Bingham County, Idaho",
             "population": 45312,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72751,7 +79975,13 @@ module.exports ={
           "properties": {
             "name": "Perry County, Arkansas",
             "population": 10413,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72770,7 +80000,13 @@ module.exports ={
           "properties": {
             "name": "Phillips County, Arkansas",
             "population": 21646,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -72906,7 +80142,13 @@ module.exports ={
           "properties": {
             "name": "Scott County, Indiana",
             "population": 24044,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73127,7 +80369,13 @@ module.exports ={
           "properties": {
             "name": "Harris County, Georgia",
             "population": 31870,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73146,7 +80394,13 @@ module.exports ={
           "properties": {
             "name": "Henry County, Georgia",
             "population": 203185,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73195,7 +80449,13 @@ module.exports ={
           "properties": {
             "name": "Johnson County, Georgia",
             "population": 9981,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73213,7 +80473,13 @@ module.exports ={
           "properties": {
             "name": "Lee County, Georgia",
             "population": 28449,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73465,7 +80731,13 @@ module.exports ={
           "properties": {
             "name": "Union County, Illinois",
             "population": 17799,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73485,7 +80757,13 @@ module.exports ={
           "properties": {
             "name": "Wabash County, Illinois",
             "population": 11935,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73562,7 +80840,13 @@ module.exports ={
           "properties": {
             "name": "Turner County, Georgia",
             "population": 8834,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73610,7 +80894,13 @@ module.exports ={
           "properties": {
             "name": "Ware County, Georgia",
             "population": 36099,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73631,7 +80921,13 @@ module.exports ={
           "properties": {
             "name": "Hickman County, Kentucky",
             "population": 4869,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73650,7 +80946,13 @@ module.exports ={
           "properties": {
             "name": "Kleberg County, Texas",
             "population": 31925,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73678,7 +80980,13 @@ module.exports ={
           "properties": {
             "name": "McMullen County, Texas",
             "population": 696,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73751,7 +81059,13 @@ module.exports ={
           "properties": {
             "name": "Montague County, Texas",
             "population": 19737,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73770,7 +81084,13 @@ module.exports ={
           "properties": {
             "name": "McDowell County, West Virginia",
             "population": 21966,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73815,7 +81135,13 @@ module.exports ={
           "properties": {
             "name": "Monroe County, West Virginia",
             "population": 13528,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73833,7 +81159,13 @@ module.exports ={
           "properties": {
             "name": "Pendleton County, West Virginia",
             "population": 7666,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -73853,7 +81185,13 @@ module.exports ={
           "properties": {
             "name": "Preston County, West Virginia",
             "population": 33471,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74091,7 +81429,13 @@ module.exports ={
           "properties": {
             "name": "Lee County, Virginia",
             "population": 25528,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74110,7 +81454,13 @@ module.exports ={
           "properties": {
             "name": "Caldwell County, Kentucky",
             "population": 12977,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74339,7 +81689,13 @@ module.exports ={
           "properties": {
             "name": "Foard County, Texas",
             "population": 1273,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74386,7 +81742,13 @@ module.exports ={
           "properties": {
             "name": "Gaines County, Texas",
             "population": 17572,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74461,7 +81823,13 @@ module.exports ={
           "properties": {
             "name": "Prince Edward County, Virginia",
             "population": 23017,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74639,7 +82007,13 @@ module.exports ={
           "properties": {
             "name": "Spotsylvania County, Virginia",
             "population": 122854,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74719,7 +82093,13 @@ module.exports ={
           "properties": {
             "name": "Okanogan County, Washington",
             "population": 40959,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74830,7 +82210,13 @@ module.exports ={
           "properties": {
             "name": "Houston County, Texas",
             "population": 23512,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74850,7 +82236,13 @@ module.exports ={
           "properties": {
             "name": "Hudspeth County, Texas",
             "population": 3407,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -74926,7 +82318,13 @@ module.exports ={
           "properties": {
             "name": "Westmoreland County, Virginia",
             "population": 17468,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75062,7 +82460,13 @@ module.exports ={
           "properties": {
             "name": "Pacific County, Washington",
             "population": 20945,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75079,7 +82483,13 @@ module.exports ={
           "properties": {
             "name": "Colonial Heights city, Virginia",
             "population": 17426,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75094,7 +82504,13 @@ module.exports ={
           "properties": {
             "name": "Fredericksburg city, Virginia",
             "population": 24932,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75109,7 +82525,13 @@ module.exports ={
           "properties": {
             "name": "Hampton city, Virginia",
             "population": 137471,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75126,7 +82548,13 @@ module.exports ={
           "properties": {
             "name": "Newport News city, Virginia",
             "population": 180831,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75143,7 +82571,13 @@ module.exports ={
           "properties": {
             "name": "Poquoson city, Virginia",
             "population": 12110,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75159,7 +82593,13 @@ module.exports ={
           "properties": {
             "name": "Roanoke city, Virginia",
             "population": 96742,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75256,7 +82696,13 @@ module.exports ={
           "properties": {
             "name": "San Juan County, Washington",
             "population": 15740,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75358,7 +82804,13 @@ module.exports ={
           "properties": {
             "name": "Evangeline Parish, Louisiana",
             "population": 33989,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75406,7 +82858,13 @@ module.exports ={
           "properties": {
             "name": "Logan County, Nebraska",
             "population": 724,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75510,7 +82968,13 @@ module.exports ={
           "properties": {
             "name": "Trousdale County, Tennessee",
             "population": 7827,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75556,7 +83020,13 @@ module.exports ={
           "properties": {
             "name": "Panola County, Texas",
             "population": 23814,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75602,7 +83072,13 @@ module.exports ={
           "properties": {
             "name": "Martinsville city, Virginia",
             "population": 13854,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75703,7 +83179,13 @@ module.exports ={
           "properties": {
             "name": "Cullman County, Alabama",
             "population": 80403,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75722,7 +83204,13 @@ module.exports ={
           "properties": {
             "name": "Pike County, Alabama",
             "population": 32750,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75769,7 +83257,13 @@ module.exports ={
           "properties": {
             "name": "Fulton County, Arkansas",
             "population": 12301,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75788,7 +83282,13 @@ module.exports ={
           "properties": {
             "name": "Scott County, Arkansas",
             "population": 11170,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75807,7 +83307,13 @@ module.exports ={
           "properties": {
             "name": "Kenton County, Kentucky",
             "population": 159926,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75825,7 +83331,13 @@ module.exports ={
           "properties": {
             "name": "Mahaska County, Iowa",
             "population": 22432,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75844,7 +83356,13 @@ module.exports ={
           "properties": {
             "name": "Cannon County, Tennessee",
             "population": 13797,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75889,7 +83407,13 @@ module.exports ={
           "properties": {
             "name": "Sheridan County, North Dakota",
             "population": 1282,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -75965,7 +83489,13 @@ module.exports ={
           "properties": {
             "name": "Tallahatchie County, Mississippi",
             "population": 15262,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76137,7 +83667,13 @@ module.exports ={
           "properties": {
             "name": "Ben Hill County, Georgia",
             "population": 17612,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76155,7 +83691,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Indiana",
             "population": 23108,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76175,7 +83717,13 @@ module.exports ={
           "properties": {
             "name": "West Carroll Parish, Louisiana",
             "population": 11587,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76278,7 +83826,13 @@ module.exports ={
           "properties": {
             "name": "Carroll County, Georgia",
             "population": 110750,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76442,7 +83996,13 @@ module.exports ={
           "properties": {
             "name": "Clay County, Kentucky",
             "population": 21833,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76491,7 +84051,13 @@ module.exports ={
           "properties": {
             "name": "Screven County, Georgia",
             "population": 14574,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76510,7 +84076,13 @@ module.exports ={
           "properties": {
             "name": "Sumter County, Georgia",
             "population": 32425,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76561,7 +84133,13 @@ module.exports ={
           "properties": {
             "name": "Terrell County, Georgia",
             "population": 9365,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76668,7 +84246,13 @@ module.exports ={
           "properties": {
             "name": "Pike County, Kentucky",
             "population": 64887,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76689,7 +84273,13 @@ module.exports ={
           "properties": {
             "name": "Shelby County, Kentucky",
             "population": 42286,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76708,7 +84298,13 @@ module.exports ={
           "properties": {
             "name": "Simpson County, Kentucky",
             "population": 17323,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76754,7 +84350,13 @@ module.exports ={
           "properties": {
             "name": "Union County, Kentucky",
             "population": 14992,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76803,7 +84405,13 @@ module.exports ={
           "properties": {
             "name": "Doniphan County, Kansas",
             "population": 7931,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76822,7 +84430,13 @@ module.exports ={
           "properties": {
             "name": "Geary County, Kansas",
             "population": 34110,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76867,7 +84481,13 @@ module.exports ={
           "properties": {
             "name": "Greeley County, Kansas",
             "population": 1234,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76915,7 +84535,13 @@ module.exports ={
           "properties": {
             "name": "Jewell County, Kansas",
             "population": 3085,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76935,7 +84561,13 @@ module.exports ={
           "properties": {
             "name": "Calcasieu Parish, Louisiana",
             "population": 192307,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76953,7 +84585,13 @@ module.exports ={
           "properties": {
             "name": "Claiborne Parish, Louisiana",
             "population": 17059,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76972,7 +84610,13 @@ module.exports ={
           "properties": {
             "name": "Concordia Parish, Louisiana",
             "population": 20624,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -76992,7 +84636,13 @@ module.exports ={
           "properties": {
             "name": "East Feliciana Parish, Louisiana",
             "population": 20252,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77123,7 +84773,13 @@ module.exports ={
           "properties": {
             "name": "Walworth County, Wisconsin",
             "population": 102310,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77345,7 +85001,13 @@ module.exports ={
           "properties": {
             "name": "Allen Parish, Louisiana",
             "population": 25740,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77363,7 +85025,13 @@ module.exports ={
           "properties": {
             "name": "Avoyelles Parish, Louisiana",
             "population": 41925,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77383,7 +85051,13 @@ module.exports ={
           "properties": {
             "name": "St. Mary Parish, Louisiana",
             "population": 54285,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77401,7 +85075,13 @@ module.exports ={
           "properties": {
             "name": "Tensas Parish, Louisiana",
             "population": 5189,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77422,7 +85102,13 @@ module.exports ={
           "properties": {
             "name": "Terrebonne Parish, Louisiana",
             "population": 111666,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77439,7 +85125,13 @@ module.exports ={
           "properties": {
             "name": "Boyle County, Kentucky",
             "population": 28445,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77487,7 +85179,13 @@ module.exports ={
           "properties": {
             "name": "Iberia Parish, Louisiana",
             "population": 73527,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77516,7 +85214,13 @@ module.exports ={
           "properties": {
             "name": "Christian County, Kentucky",
             "population": 73722,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77536,7 +85240,13 @@ module.exports ={
           "properties": {
             "name": "Crittenden County, Kentucky",
             "population": 9321,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77584,7 +85294,13 @@ module.exports ={
           "properties": {
             "name": "Franklin County, Kentucky",
             "population": 49399,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77603,7 +85319,13 @@ module.exports ={
           "properties": {
             "name": "Fulton County, Kentucky",
             "population": 6758,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77657,7 +85379,13 @@ module.exports ={
           "properties": {
             "name": "Harlan County, Kentucky",
             "population": 29210,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77676,7 +85404,13 @@ module.exports ={
           "properties": {
             "name": "Waushara County, Wisconsin",
             "population": 24565,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77755,7 +85489,13 @@ module.exports ={
           "properties": {
             "name": "Crook County, Wyoming",
             "population": 7036,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77835,7 +85575,13 @@ module.exports ={
           "properties": {
             "name": "Hardy County, West Virginia",
             "population": 13912,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77854,7 +85600,13 @@ module.exports ={
           "properties": {
             "name": "Jackson County, West Virginia",
             "population": 29206,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77874,7 +85626,13 @@ module.exports ={
           "properties": {
             "name": "Lewis County, West Virginia",
             "population": 16389,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -77959,7 +85717,13 @@ module.exports ={
           "properties": {
             "name": "Bland County, Virginia",
             "population": 6827,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
@@ -78007,7 +85771,13 @@ module.exports ={
           "properties": {
             "name": "Charlotte County, Virginia",
             "population": 12546,
-            "coal": 0
+            "coal": 0,
+            "hydroelectric": 0,
+            "wind": 0,
+            "naturalGas": 0,
+            "petroleum": 0,
+            "solar": 0,
+            "nuclear": 0
           },
           "arcs": [
             [
