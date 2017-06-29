@@ -4,6 +4,7 @@ const topojson = require('topojson');
 const MapBubble = require('react-d3-map-bubble').MapBubble;
 const us = require('./data/us2.js');
 
+
 const buttonStyles = {
     margin: 'auto',
     width: '50%',
@@ -33,6 +34,21 @@ export default class EnergySourceMap extends React.Component {
 
         let tooltipContent = function(d) {return d.properties;}
 
+        let file = function callAjax(url, callback){
+            var xmlhttp;
+            // compatible with IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(){
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
+                    console.log(xmlhttp.responseText);
+                    callback(xmlhttp.responseText);
+                }
+            }
+            xmlhttp.open("GET", '/data/test.js', true);
+            xmlhttp.send();
+        }
+        console.log(file);
+        
 
         this.state = {
             width: 960,

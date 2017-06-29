@@ -19,6 +19,7 @@ var app = express();
 
 app.use(bodyParser.json());
 app.use('/public', express.static(__dirname + '/public'));
+app.use('/data', express.static(__dirname + '/public/data'));
 
 app.use((req, res, next) => {
     var now = new Date().toString();
