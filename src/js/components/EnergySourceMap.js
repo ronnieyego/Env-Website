@@ -4,7 +4,7 @@ const topojson = require('topojson');
 const MapBubble = require('react-d3-map-bubble').MapBubble;
 
 const buttonStyles = {
-    margin: 'auto',
+    textAlign: 'left',
     width: '50%',
     border: '3px solid green',
     padding: '10px'
@@ -20,6 +20,8 @@ export default class EnergySourceMap extends React.Component {
             range: [0, 15]
         };
 
+        let sources = ['coal', 'hydroelectric', 'wind', 'naturalGas', 'petroleum', 'solar', 'nuclear'];
+        let sortButtons = this.getEnergyFilterOptions(sources);
         this.state = {
             mapData,
             width: 960,
@@ -33,7 +35,8 @@ export default class EnergySourceMap extends React.Component {
             tooltipContent,
             polygonClass: 'land',
             meshClass: 'border',
-            circleClass: 'bubble'
+            circleClass: 'bubble',
+            sortButtons
         };
 	}
 
@@ -62,8 +65,10 @@ export default class EnergySourceMap extends React.Component {
                 });
             });
     };
-    buttonClick(e) {
-        console.log(e.target.value);
+    getEnergyFilterOptions(energySourceArray) {
+        let sources = energySourceArray.sort();
+        let list = sources.map(source => { return <li>{source} <input type="radio" id={source} name="source" value={source} key={source} onClick={this.changeDataSource.bind(this)} /></li> });
+        return list;
     }
 
     changeDataSource(e) {
@@ -78,6 +83,7 @@ export default class EnergySourceMap extends React.Component {
     }
 
   render() {
+      //
     let map;
     if (this.state.mapData) {
         map = <MapBubble
@@ -103,41 +109,7 @@ export default class EnergySourceMap extends React.Component {
         <div>
              {map}
             <form style={buttonStyles}>
-                <label>
-                    Coal 
-                    <input type="radio" id="coal" name="source" value="coal" onClick={this.changeDataSource.bind(this)} />
-                </label>
-                <label>
-                    Solar 
-                    <input type="radio" id="solar" name="source" value="solar" onClick={this.changeDataSource.bind(this)} />  
-                </label>
-                <label>
-                    Wind 
-                    <input type="radio" id="wind" name="source" value="wind" onClick={this.changeDataSource.bind(this)}/>
-                </label>
-                <br />
-                <label>
-                    Natural Gas 
-                    <input type="radio" id="naturalGas" name="source" value="naturalGas" onClick={this.changeDataSource.bind(this)} />
-                </label>
-                <label>
-                    Geothermal 
-                    <input type="radio" id="geothermal" name="source" value="geothermal" onClick={this.changeDataSource.bind(this)} />  
-                </label>
-                <label>
-                    Nuclear 
-                    <input type="radio" id="nuclear" name="source" value="nuclear" onClick={this.changeDataSource.bind(this)}/>
-                </label>
-                <br />
-                <label>
-                    Hydroelectric 
-                    <input type="radio" id="hydroelectric" name="source" value="hydroelectric" onClick={this.changeDataSource.bind(this)} />  
-                </label>
-                <label>
-                    Oil 
-                    <input type="radio" id="petroleum" name="source" value="petroleum" onClick={this.changeDataSource.bind(this)}/>
-                </label>
-
+                <ul>{this.state.sortButtons}</ul>
             </form>
         </div>
 
