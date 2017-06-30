@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from '../components/Header.js';
 import SideNav from '../components/SideNav.js';
-import EnergySourceMap from '../components/energy-source-map/EnergySourceMap.js';
+import EnergySourceMap from '../components/EnergySourceMap.js';
 
 export default class Coal extends React.Component {
 	

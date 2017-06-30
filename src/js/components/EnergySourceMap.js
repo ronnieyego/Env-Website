@@ -2,8 +2,6 @@
 const React = require('react');
 const topojson = require('topojson');
 const MapBubble = require('react-d3-map-bubble').MapBubble;
-const us = require('./data/us2.js');
-
 
 const buttonStyles = {
     margin: 'auto',
@@ -15,42 +13,15 @@ const buttonStyles = {
 export default class EnergySourceMap extends React.Component {
 	constructor() {
 		super();
-        
-        // data should be a MultiLineString
-        let dataStates = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
-        /// data should be polygon
-        let dataCounties = topojson.feature(us, us.objects.nation);
-
-        // domain
+        let mapData, dataStates, dataCounties, circles, circleValue, tooltipContent;
         let domain = {
             scale: 'sqrt',
             domain: [0, 2000],
             range: [0, 15]
         };
 
-        let circles = topojson.feature(us, us.objects.counties).features
-            .sort(function(a, b) { return b.properties.coal - a.properties.coal; })
-        let circleValue = function(d) { return +d.properties.coal; };
-
-        let tooltipContent = function(d) {return d.properties;}
-
-        let file = function callAjax(url, callback){
-            var xmlhttp;
-            // compatible with IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function(){
-                if (xmlhttp.readyState == 4 && xmlhttp.status == 200){
-                    console.log(xmlhttp.responseText);
-                    callback(xmlhttp.responseText);
-                }
-            }
-            xmlhttp.open("GET", '/data/test.js', true);
-            xmlhttp.send();
-        }
-        console.log(file);
-        
-
         this.state = {
+            mapData,
             width: 960,
             height: 700,
             dataStates,
@@ -64,15 +35,40 @@ export default class EnergySourceMap extends React.Component {
             meshClass: 'border',
             circleClass: 'bubble'
         };
-
 	}
+
+    componentDidMount() {
+        console.log('Getting US Energy Data');
+        fetch('/data/us.json')  
+            .then(function(response) {
+                return response.json();     
+            })
+            .then(us => {
+                let dataStates = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
+                let dataCounties = topojson.feature(us, us.objects.nation);
+
+                let circles = topojson.feature(us, us.objects.counties).features
+                    .sort(function(a, b) { return b.properties.coal - a.properties.coal; })
+                let circleValue = function(d) { return +d.properties.coal; };
+                let tooltipContent = function(d) {return d.properties;}
+                    
+                this.setState({
+                    mapData: us,
+                    dataStates,
+                    dataCounties,
+                    circles,
+                    circleValue,
+                    tooltipContent
+                });
+            });
+    };
     buttonClick(e) {
         console.log(e.target.value);
     }
 
     changeDataSource(e) {
         let source = e.target.value
-        let circles = topojson.feature(us, us.objects.counties).features
+        let circles = topojson.feature(this.state.mapData, this.state.mapData.objects.counties).features
             .sort(function(a, b) { return b.properties[source] - a.properties[source]; })
         let circleValue = function(d) { return +d.properties[source]; };
         this.setState({ 
@@ -82,9 +78,9 @@ export default class EnergySourceMap extends React.Component {
     }
 
   render() {
-      return (
-        <div>
-            <MapBubble
+    let map;
+    if (this.state.mapData) {
+        map = <MapBubble
                 width= {this.state.width}
                 height= {this.state.height}
                 dataPolygon= {this.state.dataCounties}
@@ -100,7 +96,12 @@ export default class EnergySourceMap extends React.Component {
                 showGraticule= {false}
                 showTooltip= {true}
                 showLegend= {true}
-            />  
+            /> 
+    } // Should add an else with a loading bar thats the size of the map.
+
+      return (
+        <div>
+             {map}
             <form style={buttonStyles}>
                 <label>
                     Coal 
