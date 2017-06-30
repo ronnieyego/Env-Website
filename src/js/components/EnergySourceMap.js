@@ -31,12 +31,6 @@ export default class EnergySourceMap extends React.Component {
         let currentSource = props.currentSource || 'coal';
         let currentUtility = props.currentUtility || 'all';
 
-        
-        let sortSources = this.getEnergyFilterOptions(sources);
-
-        
-        let sortUtilities = this.getUtilityFilterOptions(utilities);
-
         this.state = {
             mapData,
             width,
@@ -51,11 +45,13 @@ export default class EnergySourceMap extends React.Component {
             polygonClass: 'land',
             meshClass: 'border',
             circleClass: 'bubble',
-            sortSources,
-            sortUtilities,
             currentSource,
-            currentUtility
+            currentUtility,
+            sortSources: null,
+            sortUtilities: null,
         };
+        this.state.sortSources = this.getEnergyFilterOptions(sources);
+        this.state.sortUtilities = this.getUtilityFilterOptions(utilities);
 	}
 
     componentDidMount() {
@@ -100,13 +96,13 @@ export default class EnergySourceMap extends React.Component {
     };
     getEnergyFilterOptions(energySourceArray) {
         let sources = energySourceArray.sort();
-        let list = sources.map(source => { return <li>{getSourceDisplayname(source)} <input type="radio" id={source} name="source" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.filterMap.bind(this)} /></li> });
+        let list = sources.map(source => { return <li>{getSourceDisplayname(source)} <input type="radio" id={source} defaultChecked={source === this.state.currentSource} name="source" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.filterMap.bind(this)} /></li> });
         return list;
     }
 
     getUtilityFilterOptions(utilitySourceArray) {
         let sources = utilitySourceArray.sort();
-        let list = sources.map(source => { return <li>{getProducerDisplayname(source)} <input type="radio" id={source} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.filterMap.bind(this)} /></li> });
+        let list = sources.map(source => { return <li>{getProducerDisplayname(source)} <input type="radio" id={source} defaultChecked={source === this.state.currentUtility} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.filterMap.bind(this)} /></li> });
         return list;
     }
 
@@ -126,6 +122,7 @@ export default class EnergySourceMap extends React.Component {
             });
         }
         let circleValue = function(d) { return +d.properties[source]; };
+        
         this.setState({ 
             circles,
             circleValue,
@@ -136,8 +133,6 @@ export default class EnergySourceMap extends React.Component {
 
 
   render() {
-    console.log('this.state.currentSource', this.state.currentSource);
-    console.log('this.state.currentUtility', this.state.currentUtility);
     let map;
     if (this.state.mapData) {
         map = <MapBubble
