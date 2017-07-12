@@ -66,3 +66,9 @@ circle:hover {
 .mesh-bubble {
   stroke: #EEE !important;
 }
+
+.energy-map-surce-filter {
+  display: 'inline-flex';
+  margin: 10px;
+  justify-content: flex-start;
+}

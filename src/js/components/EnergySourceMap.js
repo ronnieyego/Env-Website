@@ -17,7 +17,7 @@ const height = 700;
 
 // Keep these names as they map to the fields in Map json.
 const sources = ['coal', 'hydroelectric', 'wind', 'naturalGas', 'petroleum', 'solar', 'nuclear'];
-const utilities = ['all', 'IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
+const utilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
 
 export default class EnergySourceMap extends React.Component {
 	constructor(props) {
@@ -28,14 +28,13 @@ export default class EnergySourceMap extends React.Component {
             domain: [0, 2000],
             range: [0, 15]
         };
-        let currentSource = props.currentSource || 'coal';
-        let currentUtility = props.currentUtility || 'all';
+        let currentSources = ['coal'];
+        let currentUtilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
+        
+        let sortSources = this.getEnergyFilterOptions(sources, currentSources);
 
         
-        let sortSources = this.getEnergyFilterOptions(sources);
-
-        
-        let sortUtilities = this.getUtilityFilterOptions(utilities);
+        let sortUtilities = this.getUtilityFilterOptions(utilities, currentUtilities);
 
         this.state = {
             mapData,
@@ -53,8 +52,8 @@ export default class EnergySourceMap extends React.Component {
             circleClass: 'bubble',
             sortSources,
             sortUtilities,
-            currentSource,
-            currentUtility
+            currentSources,
+            currentUtilities
         };
 	}
 
@@ -98,46 +97,99 @@ export default class EnergySourceMap extends React.Component {
                 });
             });
     };
-    getEnergyFilterOptions(energySourceArray) {
+
+    getEnergyFilterOptions(energySourceArray, currentSources) {
         let sources = energySourceArray.sort();
-        let list = sources.map(source => { return <li>{getSourceDisplayname(source)} <input type="radio" id={source} name="source" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.filterMap.bind(this)} /></li> });
+        let list = sources.map(source => { return <li>{getSourceDisplayname(source)} <input type="checkbox" checked={currentSources.indexOf(source) !== -1} id={source} name="source" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.updateSources.bind(this)} /></li> });
         return list;
     }
 
-    getUtilityFilterOptions(utilitySourceArray) {
+    getUtilityFilterOptions(utilitySourceArray, currentUtilities) {
         let sources = utilitySourceArray.sort();
-        let list = sources.map(source => { return <li>{getProducerDisplayname(source)} <input type="radio" id={source} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.filterMap.bind(this)} /></li> });
+        let list = sources.map(source => { return <li>{getProducerDisplayname(source)} <input type="checkbox" checked={true} id={source} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.updateUtilities.bind(this)} /></li> });
         return list;
     }
 
-    filterMap(event) {
-        let id = event.target.value;
-        // check to see if its a source or utility change
-        let source = sources.indexOf(id) !== -1 ? event.target.value : this.state.currentSource;
-        let utility = utilities.indexOf(id) !== -1 ? event.target.value : this.state.currentUtility;
-
-        let circles = topojson.feature(this.state.mapData, this.state.mapData.objects.counties).features
-            .sort(function(a, b) { return b.properties[source] - a.properties[source]; })
-
-        if(utility !== 'all') {
-            // Check to see if i need to filter results and do so
-            circles = circles.filter(val => {
-                return val.properties.sector === utility;
-            });
+    updateSources(e) {
+        let source = e.target.value;
+        let current = this.state.currentSources;
+        let index = current.indexOf(source);
+        if(index !== -1) { // source is active.  Remove it from currentSources
+            current.splice(index, 1);
+        } else {
+            current.push(source);
         }
-        let circleValue = function(d) { return +d.properties[source]; };
+        this.setState({ currentSources: current});
+        this.renderMap()
+
+    }
+
+    updateUtilities(e) {
+        let utility = e.target.value;
+        let current = this.state.currentUtilities;
+        let index = current.indexOf(utility);
+        if(index !== -1) { // utility is active.  Remove it from currentUtilities
+            current.splice(index, 1);
+        } else {
+            current.push(utility);
+        }
+        this.setState({ currentUtilities: current});
+        this.renderMap()
+
+    }
+
+    renderMap() {
+        const currentSources = this.state.currentSources;
+        const currentUtilities = this.state.currentUtilities;
+        let circles = topojson.feature(this.state.mapData, this.state.mapData.objects.counties).features
+            //.sort(function(a, b) { return b.properties[source] - a.properties[source]; })
+        
+        // Filter by energy source
+        circles = circles.filter(county => {
+            let res = false;
+            currentSources.forEach(filteredEnergySource => {
+                if(county.properties[filteredEnergySource] > 0) {
+                    res = true;
+                }
+            });
+            if (res) {
+                return true;
+            }
+            return false;
+        });
+
+        // Filter by utility
+        circles = circles.filter(county => {
+            let res = false;
+            currentUtilities.forEach(activeUtility => {
+                if(county.properties.sector === activeUtility) {
+                    res = true;
+                }
+            });
+            if (res) {
+                return true;
+            }
+            return false;
+        });
+
+        let circleValue = function(d) { 
+            let val = 0;
+            currentSources.forEach(filteredEnergySource => {
+                if (d.properties[filteredEnergySource] > val) {
+                    val = d.properties[filteredEnergySource];
+                }
+            });
+            return val; 
+        };
         this.setState({ 
             circles,
-            circleValue,
-            currentSource: source,
-            currentUtility: utility
+            circleValue
         });
     }
 
-
   render() {
-    console.log('this.state.currentSource', this.state.currentSource);
-    console.log('this.state.currentUtility', this.state.currentUtility);
+    console.log('this.state.currentSources', this.state.currentSources);
+    console.log('this.state.currentUtilities', this.state.currentUtilities);
     let map;
     if (this.state.mapData) {
         map = <MapBubble
