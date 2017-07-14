@@ -36,8 +36,57 @@
   stroke-linecap: round;
 }
 
-.bubble {
+
+
+.circleRed {
   fill: red;
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+.circleWhite {
+  fill: beige;
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+
+.circleGreen {
+  fill: green;
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+
+.circleYellow {
+  fill: yellow;
+  fill-opacity: .5;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+
+.circleBlack {
+  fill: black;
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+
+.circleGray {
+  fill: darkgrey;
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+
+.circleBlue {
+  fill: blue;
   fill-opacity: .3;
   stroke: #fff;
   stroke-width: .5px;

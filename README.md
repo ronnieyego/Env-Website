@@ -26,3 +26,8 @@ Other ideas:
  1. Add concept of a user login and a personal energy profile
  2. Add a state seo page that has the best thing you can do to reduce your footprint
 
+
+Dev note:
+In order for the energySourceMap to render, I need to change line 198 in the following package node_modules/react-d3-map-bubble/lib/map.js to be "circleClass: d.properties.class"
+Otherwise, all circles will be black and not be colored by energy source.
+

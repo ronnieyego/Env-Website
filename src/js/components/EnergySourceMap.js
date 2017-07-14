@@ -3,7 +3,7 @@ const React = require('react');
 const topojson = require('topojson');
 const MapBubble = require('react-d3-map-bubble').MapBubble;
 
-const { getProducerDisplayname, getSourceDisplayname } = require('../utils/nameMaps.js');
+const { getSourceCssName, getProducerDisplayname, getSourceDisplayname } = require('../utils/nameMaps.js');
 
 const buttonStyles = {
     textAlign: 'left',
@@ -31,8 +31,8 @@ export default class EnergySourceMap extends React.Component {
         let currentSources = ['coal'];
         let currentUtilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
         
-        let sortSources = this.getEnergyFilterOptions(sources, currentSources);
-        let sortUtilities = this.getUtilityFilterOptions(utilities, currentUtilities);
+        //let sortSources = this.getEnergyFilterOptions(sources, currentSources);
+        //let sortUtilities = this.getUtilityFilterOptions(utilities, currentUtilities);
 
         this.state = {
             mapData,
@@ -48,8 +48,6 @@ export default class EnergySourceMap extends React.Component {
             polygonClass: 'land',
             meshClass: 'border',
             circleClass: 'bubble',
-            sortSources,
-            sortUtilities,
             currentSources,
             currentUtilities
         };
@@ -71,18 +69,31 @@ export default class EnergySourceMap extends React.Component {
                 let dataStates = topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; });
                 let dataCounties = topojson.feature(us, us.objects.nation);
 
-                let circles = topojson.feature(us, us.objects.counties).features
-                    .sort(function(a, b) { return b.properties.coal - a.properties.coal; })
-                let circleValue = function(d) { return +d.properties.coal; };
-                let tooltipContent = function(d) {
-                    /* TODO there is a bug where i keep adding MWHs
-                    sources.forEach(el => {
-                        if(d.properties[el]) {
-                            d.properties[el] += ' MHWs';
+                let circles = topojson.feature(us, us.objects.counties).features;
+                circles = this.filterBySource(circles);
+                circles = this.filterByUtility(circles);
+                let currentSources = this.state.currentSources;
+                let circleValue = function(d) { 
+                    let val = 0;
+                    currentSources.forEach(filteredEnergySource => {
+                        if (d.properties[filteredEnergySource] > val) {
+                            val = d.properties[filteredEnergySource];
                         }
                     });
-                    */
-                    return d.properties;
+                    return val; 
+                };
+                let tooltipContent = function(d) {
+                    // TODO there is a bug where i keep adding MWHs
+                    let payload = {};
+                    payload.name = d.properties.name;
+                    payload.population = d.properties.population;
+                    if (d.properties.entityName) { // Name of the power producer
+                        payload['Energy Producer'] = d.properties.entityName;
+                    }
+                    sources.forEach(el => {
+                        payload[el] = d.properties[el] +' MHWs';
+                    });
+                    return payload;
                 }
                     
                 this.setState({
@@ -104,7 +115,7 @@ export default class EnergySourceMap extends React.Component {
 
     getUtilityFilterOptions(utilitySourceArray, currentUtilities) {
         let sources = utilitySourceArray.sort();
-        let list = sources.map(source => { return <li>{getProducerDisplayname(source)} <input type="checkbox" checked={true} id={source} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.updateUtilities.bind(this)} /></li> });
+        let list = sources.map(source => { return <li>{getProducerDisplayname(source)} <input type="checkbox" checked={currentUtilities.indexOf(source) !== -1} id={source} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.updateUtilities.bind(this)} /></li> });
         return list;
     }
 
@@ -136,17 +147,13 @@ export default class EnergySourceMap extends React.Component {
 
     }
 
-    renderMap() {
-        const currentSources = this.state.currentSources;
-        const currentUtilities = this.state.currentUtilities;
-        let circles = topojson.feature(this.state.mapData, this.state.mapData.objects.counties).features
-            //.sort(function(a, b) { return b.properties[source] - a.properties[source]; })
-        
-        // Filter by energy source
-        circles = circles.filter(county => {
+    filterBySource(circles) {
+        let currentSources = this.state.currentSources;
+        return circles.filter(county => {
             let res = false;
             currentSources.forEach(filteredEnergySource => {
                 if(county.properties[filteredEnergySource] > 0) {
+                    county.properties.class = getSourceCssName(filteredEnergySource);
                     res = true;
                 }
             });
@@ -155,9 +162,11 @@ export default class EnergySourceMap extends React.Component {
             }
             return false;
         });
+    };
 
-        // Filter by utility
-        circles = circles.filter(county => {
+    filterByUtility(circles) {
+        const currentUtilities = this.state.currentUtilities;
+        return circles.filter(county => {
             let res = false;
             currentUtilities.forEach(activeUtility => {
                 if(county.properties.sector === activeUtility) {
@@ -169,6 +178,19 @@ export default class EnergySourceMap extends React.Component {
             }
             return false;
         });
+    };
+
+    renderMap() {
+        const currentSources = this.state.currentSources;
+        const currentUtilities = this.state.currentUtilities;
+        let circles = topojson.feature(this.state.mapData, this.state.mapData.objects.counties).features
+            //.sort(function(a, b) { return b.properties[source] - a.properties[source]; })
+        
+        // Filter by energy source
+        circles = this.filterBySource(circles);
+
+        // Filter by utility
+        circles = this.filterByUtility(circles);
 
         let circleValue = function(d) { 
             let val = 0;
@@ -188,7 +210,10 @@ export default class EnergySourceMap extends React.Component {
   render() {
     console.log('this.state.currentSources', this.state.currentSources);
     console.log('this.state.currentUtilities', this.state.currentUtilities);
+    const sourceFilterButtons = this.getEnergyFilterOptions(sources, this.state.currentSources);
+    const utilityFilterButtons = this.getUtilityFilterOptions(utilities, this.state.currentUtilities);
     let map;
+    console.log(this.state.circleClass);
     if (this.state.mapData) {
         map = <MapBubble
                 width= {this.state.width}
@@ -221,10 +246,10 @@ export default class EnergySourceMap extends React.Component {
             This map shows the location, intensity, and type of electricity generated in the US.
              <div style={filterStyle}>
                 <form style={buttonStyles}>
-                    <ul style={{listStyleType :'none'}} ><b>Filter by energy source</b>{this.state.sortSources}</ul>
+                    <ul style={{listStyleType :'none'}} ><b>Filter by energy source</b>{sourceFilterButtons}</ul>
                 </form>
                 <form style={buttonStyles}>
-                    <ul style={{listStyleType :'none'}} ><b>Filter by production source</b>{this.state.sortUtilities}</ul>
+                    <ul style={{listStyleType :'none'}} ><b>Filter by production source</b>{utilityFilterButtons}</ul>
                 </form>
             </div>
             {map}
