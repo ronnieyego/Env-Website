@@ -30,7 +30,16 @@ export default class EnergySourceMap extends React.Component {
         };
         let currentSources = ['coal'];
         let currentUtilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
-        
+        let sourceTotals = {
+            coal: 39833,
+            hydroelectric: 20918
+            naturalGas: 122443,
+            nuclear: 20557,
+            petroleum: 2945,
+            solar: 3522,
+            wind: 31393
+        };
+
         //let sortSources = this.getEnergyFilterOptions(sources, currentSources);
         //let sortUtilities = this.getUtilityFilterOptions(utilities, currentUtilities);
 
@@ -49,13 +58,14 @@ export default class EnergySourceMap extends React.Component {
             meshClass: 'border',
             circleClass: 'bubble',
             currentSources,
-            currentUtilities
+            currentUtilities,
+            sourceTotals
         };
 	}
 
     componentDidMount() {
         // The data fetch should happen in a HOC, not here
-        // THis is because this function will run multiple times for some reason
+        // This is because this function will run multiple times for some reason
         // I implemented a hack to get around this
         if(this.state.mapData) {
             return true;
@@ -95,14 +105,24 @@ export default class EnergySourceMap extends React.Component {
                     });
                     return payload;
                 }
-                    
+                let sourceTotals = {};
+                let countyArray = us.objects.counties.geometries;
+                sources.forEach(source => {
+                    let sourceTotal = 0;
+                    countyArray.forEach(county => {
+                        sourceTotal += county.properties[source];
+                    });
+                    sourceTotals[source] = Math.round(sourceTotal);
+                })    
+                
                 this.setState({
                     mapData: us,
                     dataStates,
                     dataCounties,
                     circles,
                     circleValue,
-                    tooltipContent
+                    tooltipContent,
+                    sourceTotals
                 });
             });
     };
@@ -208,8 +228,7 @@ export default class EnergySourceMap extends React.Component {
     }
 
   render() {
-    console.log('this.state.currentSources', this.state.currentSources);
-    console.log('this.state.currentUtilities', this.state.currentUtilities);
+    console.log('this state', this.state);
     const sourceFilterButtons = this.getEnergyFilterOptions(sources, this.state.currentSources);
     const utilityFilterButtons = this.getUtilityFilterOptions(utilities, this.state.currentUtilities);
     let map;
