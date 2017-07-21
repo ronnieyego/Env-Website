@@ -31,7 +31,7 @@
     "mongodb": "^2.2.5",
     "mongoose": "^4.5.9",
     "react": "^15.5.4",
-    "react-d3-map-bubble": "^0.6.0",
+    "react-d3-map-bubble": "git+https://github.com/stevenyee99/react-d3-map-bubble.git",
     "react-dom": "^15.5.4",
     "react-modal": "^1.7.7",
     "react-sidebar": "^2.3.2",

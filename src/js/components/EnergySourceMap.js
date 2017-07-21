@@ -32,7 +32,7 @@ export default class EnergySourceMap extends React.Component {
         let currentUtilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
         let sourceTotals = {
             coal: 39833,
-            hydroelectric: 20918
+            hydroelectric: 20918,
             naturalGas: 122443,
             nuclear: 20557,
             petroleum: 2945,
