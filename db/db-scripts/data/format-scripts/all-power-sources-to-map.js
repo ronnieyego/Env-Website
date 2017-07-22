@@ -1,68 +1,8 @@
 const fs = require('fs');
 const plants = require('../formatted/energy/all-power-plants');
 const us = require('../formatted/energy/us');
-
-const mapping = {
-    "AL": "Alabama",
-    "AK": "Alaska",
-    "AS": "American Samoa",
-    "AZ": "Arizona",
-    "AR": "Arkansas",
-    "CA": "California",
-    "CO": "Colorado",
-    "CT": "Connecticut",
-    "DE": "Delaware",
-    "DC": "District Of Columbia",
-    "FM": "Federated States Of Micronesia",
-    "FL": "Florida",
-    "GA": "Georgia",
-    "GU": "Guam",
-    "HI": "Hawaii",
-    "ID": "Idaho",
-    "IL": "Illinois",
-    "IN": "Indiana",
-    "IA": "Iowa",
-    "KS": "Kansas",
-    "KY": "Kentucky",
-    "LA": "Louisiana",
-    "ME": "Maine",
-    "MH": "Marshall Islands",
-    "MD": "Maryland",
-    "MA": "Massachusetts",
-    "MI": "Michigan",
-    "MN": "Minnesota",
-    "MS": "Mississippi",
-    "MO": "Missouri",
-    "MT": "Montana",
-    "NE": "Nebraska",
-    "NV": "Nevada",
-    "NH": "New Hampshire",
-    "NJ": "New Jersey",
-    "NM": "New Mexico",
-    "NY": "New York",
-    "NC": "North Carolina",
-    "ND": "North Dakota",
-    "MP": "Northern Mariana Islands",
-    "OH": "Ohio",
-    "OK": "Oklahoma",
-    "OR": "Oregon",
-    "PW": "Palau",
-    "PA": "Pennsylvania",
-    "PR": "Puerto Rico",
-    "RI": "Rhode Island",
-    "SC": "South Carolina",
-    "SD": "South Dakota",
-    "TN": "Tennessee",
-    "TX": "Texas",
-    "UT": "Utah",
-    "VT": "Vermont",
-    "VI": "Virgin Islands",
-    "VA": "Virginia",
-    "WA": "Washington",
-    "WV": "West Virginia",
-    "WI": "Wisconsin",
-    "WY": "Wyoming"
-};
+const stateAbbrMapping = require('./utils/state-abbr-mapping');
+const missingCounty = require('./utils/county-map');
 
 let noCounty = 0;
 let found1 = 0;
@@ -76,27 +16,32 @@ for(let i = 0; i< plants.length; i++) {
         noCounty++;
     } else {
         let state = plants[i].state;
-        let key = plants[i].county + ' County, ' + mapping[state];
+        let key = plants[i].county + ' County, ' + stateAbbrMapping[state];
 
         let found = false;
         geos.forEach( el => {
             let name = el.properties.name;
-            if(key === name) {
+            name = name.trim();
+            name = name.toLowerCase();
+            key = key.trim();
+            key = key.toLowerCase();
+            if(key === name || missingCounty[key] === name) {
                 found = true;
-                // Note this wont work as intended because I havent deduped plants by county
+
+                el.properties["numberOfPlants"] = el.properties["numberOfPlants"] ? el.properties["numberOfPlants"] + plants[i].numberOfPlants : plants[i].numberOfPlants;
+                el.properties["hydroelectric"] = el.properties["hydroelectric"] ? el.properties["hydroelectric"] + plants[i].hydroelectric : plants[i].hydroelectric;
+                el.properties["wind"] = el.properties["wind"] ? el.properties["wind"] + plants[i].wind : plants[i].wind;
+                el.properties["coal"] = el.properties["coal"] ? el.properties["coal"] + plants[i].coal : plants[i].coal;
+                el.properties["naturalGas"] = el.properties["naturalGas"] ? el.properties["naturalGas"] + plants[i].naturalGas : plants[i].naturalGas;
+                el.properties["petroleum"] = el.properties["petroleum"] ? el.properties["petroleum"] + plants[i].petroleum : plants[i].petroleum;
+                el.properties["geothermal"] = el.properties["geothermal"] ? el.properties["geothermal"] + plants[i].geothermal : plants[i].geothermal;
+                el.properties["solar"] = el.properties["solar"] ? el.properties["solar"] + plants[i].solar : plants[i].solar;
+                el.properties["nuclear"] = el.properties["nuclear"] ? el.properties["nuclear"] + plants[i].nuclear : plants[i].nuclear;
                 el.properties["entityName"] = plants[i].entityName;
                 el.properties["entityCapactity"] = plants[i].entityCapactity;
                 el.properties["state"] = plants[i].state;
-                el.properties["numberOfPlants"] = plants[i].numberOfPlants;
-                el.properties["hydroelectric"] = plants[i].hydroelectric;
-                el.properties["wind"] = plants[i].wind;
-                el.properties["coal"] = plants[i].coal;
-                el.properties["naturalGas"] = plants[i].naturalGas;
-                el.properties["petroleum"] = plants[i].petroleum;
-                el.properties["geothermal"] = plants[i].geothermal;
-                el.properties["solar"] = plants[i].solar;
-                el.properties["nuclear"] = plants[i].nuclear;
-                el.properties["sector"] = plants[i].sector;
+                // If any plants are a utility, then call the whole county a utility
+                el.properties["sector"] = el.properties["sector"] === 'Electric Utility' ? el.properties["sector"] : plants[i].sector;
             } 
         })
         if(found) {
@@ -114,12 +59,14 @@ geos.forEach( el => {
     powerSource.forEach( power => {
         if(!el.properties[power]){
             el.properties[power] = 0;
+        } else {
+            el.properties[power] = Math.round(el.properties[power]);
         }
     })
 });
 
-let entities = 'module.exports =' + JSON.stringify(us, null, 2);
-    fs.writeFile(__dirname + "/../formatted/energy/us2.js", entities, function(err) {
+let entities = JSON.stringify(us, null, 2);
+    fs.writeFile(__dirname + "/../formatted/energy/us.json", entities, function(err) {
         if(err) {
             return console.log(err);
         }
