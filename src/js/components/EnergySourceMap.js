@@ -32,7 +32,7 @@ export default class EnergySourceMap extends React.Component {
         let currentUtilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
         let sourceTotals = {
             coal: 39833,
-            hydroelectric: 20918
+            hydroelectric: 20918,
             naturalGas: 122443,
             nuclear: 20557,
             petroleum: 2945,
@@ -84,16 +84,17 @@ export default class EnergySourceMap extends React.Component {
                 circles = this.filterByUtility(circles);
                 let currentSources = this.state.currentSources;
                 let circleValue = function(d) { 
-                    let val = 0;
+                    let finalVal = 0;
                     currentSources.forEach(filteredEnergySource => {
-                        if (d.properties[filteredEnergySource] > val) {
-                            val = d.properties[filteredEnergySource];
+                        // Need to handle case where multiple sources exist in same county
+                        // I will choose the largest 
+                        if (d.properties[filteredEnergySource] > finalVal) {
+                            finalVal = d.properties[filteredEnergySource];
                         }
                     });
-                    return val; 
+                    return finalVal; 
                 };
                 let tooltipContent = function(d) {
-                    // TODO there is a bug where i keep adding MWHs
                     let payload = {};
                     payload.name = d.properties.name;
                     payload.population = d.properties.population;
@@ -171,13 +172,16 @@ export default class EnergySourceMap extends React.Component {
         let currentSources = this.state.currentSources;
         return circles.filter(county => {
             let res = false;
+            // Class should be largest value based on filtered energy source.
+            let sourceVal = 0;
             currentSources.forEach(filteredEnergySource => {
-                if(county.properties[filteredEnergySource] > 0) {
+                if(county.properties[filteredEnergySource] > sourceVal) {
+                    sourceVal = county.properties[filteredEnergySource];
                     county.properties.class = getSourceCssName(filteredEnergySource);
                     res = true;
                 }
             });
-            if (res) {
+            if(res) {
                 return true;
             }
             return false;
@@ -213,13 +217,15 @@ export default class EnergySourceMap extends React.Component {
         circles = this.filterByUtility(circles);
 
         let circleValue = function(d) { 
-            let val = 0;
+            let finalVal = 0;
             currentSources.forEach(filteredEnergySource => {
-                if (d.properties[filteredEnergySource] > val) {
-                    val = d.properties[filteredEnergySource];
+                // Need to handle case where multiple sources exist in same county
+                // I will choose the largest 
+                if (d.properties[filteredEnergySource] > finalVal) {
+                    finalVal = d.properties[filteredEnergySource];
                 }
             });
-            return val; 
+            return finalVal;  
         };
         this.setState({ 
             circles,
