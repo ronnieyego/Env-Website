@@ -13,13 +13,13 @@ switch(process.env.page) {
     entry = './js/homepage-entry.js';
     filename = 'homepage.min.js';
     break;
-  case 'coal':
-    entry = './js/coal-entry.js';
-    filename = 'coal.min.js';
+  case 'usenergy':
+    entry = './js/us-energy.js';
+    filename = 'us-energy.min.js';
     break;
-  case 'energy':
+  case 'stateenergy':
     entry = './js/state-energy-profile.js';
-    filename = 'energy.min.js';
+    filename = 'state-energy.min.js';
     break;
   default: //defaults to solar
     entry = './js/client.js';

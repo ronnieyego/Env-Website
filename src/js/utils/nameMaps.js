@@ -14,16 +14,16 @@ const cssMap = {
     coal: 'circleRed',
     hydroelectric: 'circleBlue',
     wind: 'circleGreen',
-    naturalGas: 'circleGray',
+    naturalGas: 'circleLightBlue',
     petroleum: 'circleBlack',
     solar: 'circleYellow',
-    nuclear: 'circleWhite'
+    nuclear: 'circleOrange'
 };
 
 const producerMap = {
     'all': 'All',
-    'IPP CHP': '??? Also Private??',
-    'IPP Non-CHP': 'Private',
+    'IPP CHP': 'Private Co-generation',
+    'IPP Non-CHP': 'Private non Co-generation',
     'Electric Utility': 'Electric Utility'
 }
 

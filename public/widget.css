@@ -45,8 +45,8 @@
   stroke-width: .5px;
   pointer-events: all;
 }
-.circleWhite {
-  fill: beige;
+.circleOrange {
+  fill: orangered;
   fill-opacity: .3;
   stroke: #fff;
   stroke-width: .5px;
@@ -77,8 +77,8 @@
   pointer-events: all;
 }
 
-.circleGray {
-  fill: darkgrey;
+.circleLightBlue {
+  fill: lightblue;
   fill-opacity: .3;
   stroke: #fff;
   stroke-width: .5px;

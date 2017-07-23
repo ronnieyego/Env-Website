@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/server";
 //Pages
 import Layout from './src/js/components/Layout';
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
-import Coal from './src/js/pages/Coal';
+import UsEnergy from './src/js/pages/UsEnergy';
 
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
@@ -17,11 +17,11 @@ const renderFullPage = (markup, data, page) => {
         case 'solar-widget':
             jsLocation = '/public/scripts.min.js';
             break;
-        case 'coal':
-            jsLocation = '/public/coal.min.js';
+        case 'us-energy':
+            jsLocation = '/public/us-energy.min.js';
             break;
-        case 'energy-profile':
-            jsLocation = '/public/energy.min.js';
+        case 'state-energy-profile':
+            jsLocation = '/public/state-energy.min.js';
             break;
         default:
             jsLocation = '/public/scripts.min.js';
@@ -149,7 +149,7 @@ const stateEnergyMiddleware =  (req, res) => {
                 delete allData.US;
                 allData['stateComparisons'] = comparisons;
                 const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...allData}/>);
-                res.status(200).send(renderFullPage(appMarkup, allData, 'energy-profile'));
+                res.status(200).send(renderFullPage(appMarkup, allData, 'state-energy-profile'));
             })
             .catch(e => {
                 console.log('Error appending US data');
@@ -163,8 +163,8 @@ const stateEnergyMiddleware =  (req, res) => {
 };
 
 const coalMiddleware = (req, res) => {
-    const appMarkup = ReactDOM.renderToString(<Coal />);
-    res.status(200).send(renderFullPage(appMarkup, {}, 'coal'));
+    const appMarkup = ReactDOM.renderToString(<UsEnergy />);
+    res.status(200).send(renderFullPage(appMarkup, {}, 'us-energy'));
 }
 
 
