@@ -162,7 +162,7 @@ const stateEnergyMiddleware =  (req, res) => {
     }
 };
 
-const coalMiddleware = (req, res) => {
+const usEnergyMapMiddleware = (req, res) => {
     const appMarkup = ReactDOM.renderToString(<UsEnergy />);
     res.status(200).send(renderFullPage(appMarkup, {}, 'us-energy'));
 }
@@ -171,5 +171,5 @@ const coalMiddleware = (req, res) => {
 module.exports = {
     solarMiddleware,
     stateEnergyMiddleware,
-    coalMiddleware
+    usEnergyMapMiddleware
 }
