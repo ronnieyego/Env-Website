@@ -1,6 +1,6 @@
 const React = require('react');
 const topojson = require('topojson');
-const MapBubble = require('react-d3-map-bubble').MapBubble;
+const MapBubble  = require('../../../external/react-d3-bubble/index').MapBubble;
 
 const { getSourceCssName, getProducerDisplayname, getSourceDisplayname } = require('../utils/nameMaps.js');
 
