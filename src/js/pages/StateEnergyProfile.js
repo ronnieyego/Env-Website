@@ -118,6 +118,7 @@ export default class StateEnergyProfile extends React.Component {
 
 		return (
 			<div className="container-fluid text-center" >
+				<Header />
 				<div className="transparent-image">
 				  <img src='../public/background.jpg' />
 				  <div className="row content">

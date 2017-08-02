@@ -28,7 +28,6 @@ export default class EnergyFooter extends React.Component {
             let html = <a href={href} style={linkStyle} target="_blank">{getFullStateName(state)}</a>;
             return html;
         })
-        console.log('links are', links);
         return links;
     }
 

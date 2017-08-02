@@ -234,7 +234,6 @@ export default class EnergySourceMap extends React.Component {
     const sourceFilterButtons = this.getEnergyFilterOptions(sources, this.state.currentSources);
     const utilityFilterButtons = this.getUtilityFilterOptions(utilities, this.state.currentUtilities);
     let map;
-    console.log(this.state.circleClass);
     if (this.state.mapData) {
         map = <MapBubble
                 width= {this.state.width}
