@@ -274,7 +274,7 @@ export default class EnergySourceMap extends React.Component {
             <br />
             This interactive map shows the location, output (MWHs/year), and type of electricity generated in the US.
             <br />
-            This incudes both private and public active power stations in the US as of April 2017 (source: <a href="https://www.eia.gov/electricity/data/eia860m/">EIA</a>)
+            This includes both private and public active power stations in the US as of April 2017 (source: <a href="https://www.eia.gov/electricity/data/eia860m/">EIA</a>)
              <div style={filterStyle}>
                 <form style={buttonStyles}>
                     <ul style={{listStyleType :'none'}} ><b>Filter by energy source</b>{sourceFilterButtons}</ul>
