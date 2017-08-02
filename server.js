@@ -35,6 +35,8 @@ app.use((req, res, next) => {
     next(); //Next is needed in order to get past the middleware
 });
 
+app.get('/', usEnergyMapMiddleware); // Should build a homepage :)
+
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/homepage.html'));
 });
@@ -42,7 +44,7 @@ app.get('/home/:test', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/homepage.html'));
 });
 
-//  app.get('/solar', solarMiddleware);  Broken since there's no state param
+app.get('/solar', solarMiddleware);  //Broken since there's no state param
 app.get('/solar/:state', solarMiddleware);
 
 app.get('/energy/:state', stateEnergyMiddleware);

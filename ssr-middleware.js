@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from "react-dom/server";
+import Q from 'q';
 
 //Pages
 import Layout from './src/js/components/Layout';
@@ -68,7 +69,8 @@ const appendUSAverages = data => {
 };
 
 const solarMiddleware =  (req, res) => {
-    let state = (req.params.state).toUpperCase();
+    console.log('req is ', req.params);
+    let state = req.params.state ? req.params.state.toUpperCase() : 'US';
     if(validStateId(state)) {
 // Getting state data        
         let myPromise = new Promise((resolve, reject) => {
@@ -115,6 +117,10 @@ const solarMiddleware =  (req, res) => {
                 const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
                 res.status(200).send(renderFullPage(appMarkup, stateData, 'solar-widget'));
             });
+        })
+        .catch(e => {
+            console.log('error in getting solar data', e);
+            res.status(500).send("Something went wrong while fetching the data :(");
         });
     } else {
         console.log('inproper query param');

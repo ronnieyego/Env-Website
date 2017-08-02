@@ -142,5 +142,5 @@ const stateEnergyconsumption = data => {
 // let data = stateEnergyconsumption(rawStateEnergyConsumptionData);
 // let data  = stateMisc(rawStateMiscData);
 
-let data = aggregateFormattedData(formattedStateMiscData, formattedStateEnergyProductionData, formattedStateEnergyConsumptionData, formattedSolarInstallCost, formattedStateComparisonData);
-//console.log(data);
+ let data = aggregateFormattedData(formattedStateMiscData, formattedStateEnergyProductionData, formattedStateEnergyConsumptionData, formattedSolarInstallCost, formattedStateComparisonData);
+console.log(data);
