@@ -32,9 +32,9 @@ export default class SolarWidget extends React.Component {
 	    	if(props.misc.installPrice6kw && props.misc.installPrice10kw) {
 	    		installPrice6kw = props.misc.installPrice6kw;
 	    		installPrice10kw = props.misc.installPrice10kw;
-	    	} else if (props.usAverages.installPrice6kw && props.usAverages.installPrice10kw) {
-	    		installPrice6kw = props.usAverages.installPrice6kw;
-	    		installPrice10kw = props.usAverages.installPrice10kw;
+	    	} else if (props.US.misc.installPrice6kw && props.US.misc.installPrice10kw) {
+	    		installPrice6kw = props.US.misc.installPrice6kw;
+	    		installPrice10kw = props.US.misc.installPrice10kw;
 	    	}
 				installPricePerWatt = (((installPrice6kw/6000) + (installPrice10kw/10000))/2).toFixed(1);
 	    	//averageCO2PerKwh = props.energyPoduction.averageCO2PerKwh;  Calculating each time.  Should probably pass in from server
@@ -73,9 +73,9 @@ export default class SolarWidget extends React.Component {
 	    	if(window.__STATE__.misc.installPrice6kw && window.__STATE__.misc.installPrice10kw) {
 	    		this.state.installPrice6kw = window.__STATE__.misc.installPrice6kw;
 	    		this.state.installPrice10kw = window.__STATE__.misc.installPrice10kw;
-	    	} else if (window.__STATE__.usAverages.installPrice6kw && window.__STATE__.usAverages.installPrice10kw) {
-	    		this.state.installPrice6kw = window.__STATE__.usAverages.installPrice6kw;
-	    		this.state.installPrice10kw = window.__STATE__.usAverages.installPrice10kw;
+	    	} else if (window.__STATE__.US.misc.installPrice6kw && window.__STATE__.US.misc.installPrice10kw) {
+	    		this.state.installPrice6kw = window.__STATE__.US.misc.installPrice6kw;
+	    		this.state.installPrice10kw = window.__STATE__.US.misc.installPrice10kw;
 	    	}
 	  	}
 

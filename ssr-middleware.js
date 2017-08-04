@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom/server";
 import Q from 'q';
+import _ from 'lodash';
 
 //Pages
 import Layout from './src/js/components/Layout';
@@ -51,72 +52,57 @@ const renderFullPage = (markup, data, page) => {
     `
 };
 
-const appendUSAverages = data => {
-    return new Promise((resolve, reject) => {
-        States.find({ stateId: 'US'})
+const appendUSAverages = stateData => {
+    const appendUSAveragesDeferred = Q.defer();
+    console.log('for ', stateData.misc.stateFullName, ' i got this: ', _.get(stateData, 'misc.installPrice6kw'));
+    console.log('for ', stateData.misc.stateFullName, ' i got this: ', _.get(stateData, 'misc.installPrice10kw'));
+    console.log('it evals to, ',  (_.get(stateData, 'misc.installPrice6kw') || _.get(stateData, 'misc.installPrice10kw')));
+    if (typeof (_.get(stateData, 'misc.installPrice6kw') || _.get(stateData, 'misc.installPrice10kw')) == 'undefined') {
+         States.find({ stateId: 'US'})
         .then( usData => {
             if(!usData) {
-                reject('Couldn\'t find state data');
+                appendUSAveragesDeferred.reject('Couldn\'t find state data');
             } else {
                 let res = JSON.parse(JSON.stringify(usData[0]));
-                data['US'] = res;
-                console.log('added US data');
-                resolve(data);
+                stateData['US'] = res;
+                appendUSAveragesDeferred.resolve(stateData);
             }
         });
-    });
-
+    } else {
+        appendUSAveragesDeferred.resolve(stateData);
+    }
+   
+    return appendUSAveragesDeferred.promise
 };
+
+const getStateData = stateId => {
+    const getStateDataDeferred = Q.defer();
+    States.find({ stateId: stateId}).then((stateInfo) => {
+        if(!stateInfo) {
+            getStateDataDeferred.reject('Couldn\'t find state data');
+        } else {
+            let res = JSON.parse(JSON.stringify(stateInfo[0]));
+            let production = res.energyProduction;
+            let averageCO2PerKwh = getCo2EmissionsByKwh(production.total, production.naturalGas, production.coal, production.petroleum);
+            res.energyProduction.averageCO2PerKwh = averageCO2PerKwh;
+            getStateDataDeferred.resolve(res);
+        }              
+    });
+    return getStateDataDeferred.promise;
+}
 
 const solarMiddleware =  (req, res) => {
     console.log('req is ', req.params);
     let state = req.params.state ? req.params.state.toUpperCase() : 'US';
     if(validStateId(state)) {
-// Getting state data        
-        let myPromise = new Promise((resolve, reject) => {
-            States.find({ stateId: state}).then((stateInfo) => {
-                if(!stateInfo) {
-                    reject('Couldn\'t find state data');
-                } else {
-                    let res = JSON.parse(JSON.stringify(stateInfo[0]));
-                    let production = res.energyProduction;
-                    let averageCO2PerKwh = getCo2EmissionsByKwh(production.total, production.naturalGas, production.coal, production.petroleum);
-                    res.energyProduction.averageCO2PerKwh = averageCO2PerKwh;
-                    resolve(res);
-                }
-                            
-            });
+        getStateData(state)
+        .then(stateData => {
+            // Check to see if I have install price data for states.  If not, add it!
+            return appendUSAverages(stateData);
         })
-        myPromise.then((stateData) => {
-// Check to see if I have install price data for states.  If not, add it!
-// TODO: I'm nesting a promise chain here.  I can probably do better
-    // Note:  I created a function that appends all US data.  I could use it here as a short cleanup
-            let uSAverages = new Promise((resolve, reject) => {
-                if(!stateData.misc.installPrice6kw || !stateData.misc.installPrice10kw) { 
-                        States.find({ stateId: 'US'})
-                        .then((stateInfo) => {
-                            if(!stateInfo) {
-                                reject('Couldn\'t find state data');
-                            } else {
-                                let res = JSON.parse(JSON.stringify(stateInfo[0]));
-                                let averages = {
-                                    'installPrice6kw': res.misc.installPrice6kw,
-                                    'installPrice10kw': res.misc.installPrice10kw
-                                }
-                                stateData['usAverages'] = averages;
-                                resolve(stateData);
-                            }
-
-                    }) 
-                }else {
-// State already has install price                    
-                    resolve(stateData);
-                }
-            })
-            uSAverages.then(stateData => {
-                const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
-                res.status(200).send(renderFullPage(appMarkup, stateData, 'solar-widget'));
-            });
+        .then(stateData => {
+            const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
+            res.status(200).send(renderFullPage(appMarkup, stateData, 'solar-widget'));
         })
         .catch(e => {
             console.log('error in getting solar data', e);
