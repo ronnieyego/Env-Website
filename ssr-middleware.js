@@ -54,24 +54,16 @@ const renderFullPage = (markup, data, page) => {
 
 const appendUSAverages = stateData => {
     const appendUSAveragesDeferred = Q.defer();
-    console.log('for ', stateData.misc.stateFullName, ' i got this: ', _.get(stateData, 'misc.installPrice6kw'));
-    console.log('for ', stateData.misc.stateFullName, ' i got this: ', _.get(stateData, 'misc.installPrice10kw'));
-    console.log('it evals to, ',  (_.get(stateData, 'misc.installPrice6kw') || _.get(stateData, 'misc.installPrice10kw')));
-    if (typeof (_.get(stateData, 'misc.installPrice6kw') || _.get(stateData, 'misc.installPrice10kw')) == 'undefined') {
-         States.find({ stateId: 'US'})
-        .then( usData => {
-            if(!usData) {
-                appendUSAveragesDeferred.reject('Couldn\'t find state data');
-            } else {
-                let res = JSON.parse(JSON.stringify(usData[0]));
-                stateData['US'] = res;
-                appendUSAveragesDeferred.resolve(stateData);
-            }
-        });
-    } else {
-        appendUSAveragesDeferred.resolve(stateData);
-    }
-   
+    States.find({ stateId: 'US'})
+    .then( usData => {
+        if(!usData) {
+            appendUSAveragesDeferred.reject('Couldn\'t find state data');
+        } else {
+            let res = JSON.parse(JSON.stringify(usData[0]));
+            stateData['US'] = res;
+            appendUSAveragesDeferred.resolve(stateData);
+        }
+    });
     return appendUSAveragesDeferred.promise
 };
 
@@ -119,34 +111,20 @@ const solarMiddleware =  (req, res) => {
 const stateEnergyMiddleware =  (req, res) => {
     let state = (req.params.state).toUpperCase();
     if(validStateId(state)) {
-// Getting state data        
-        let myPromise = new Promise((resolve, reject) => {
-            States.find({ stateId: state}).then((stateInfo) => {
-                if(!stateInfo) {
-                    reject('Couldn\'t find state data');
-                } else {
-                    let res = JSON.parse(JSON.stringify(stateInfo[0]));
-                    let production = res.energyProduction;
-                    let averageCO2PerKwh = getCo2EmissionsByKwh(production.total, production.naturalGas, production.coal, production.petroleum);
-                    res.energyProduction.averageCO2PerKwh = averageCO2PerKwh;
-                    resolve(res);
-                }
-                            
-            });
+        getStateData(state)
+        .then(stateData => {
+            return appendUSAverages(stateData);
         })
-        myPromise.then((stateData) => {
-            appendUSAverages(stateData)
-            .then(allData => {
-                let comparisons = allData.US.stateComparisons;
-                delete allData.US;
-                allData['stateComparisons'] = comparisons;
-                const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...allData}/>);
-                res.status(200).send(renderFullPage(appMarkup, allData, 'state-energy-profile'));
-            })
-            .catch(e => {
-                console.log('Error appending US data');
-                res.status(500).send("There was a problem appending US data");
-            });
+        .then(allData => {
+            let comparisons = allData.US.stateComparisons;
+            delete allData.US;
+            allData['stateComparisons'] = comparisons;
+            const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...allData}/>);
+            res.status(200).send(renderFullPage(appMarkup, allData, 'state-energy-profile'));
+        })
+        .catch(e => {
+            console.log('Error appending US data');
+            res.status(500).send("There was a problem appending US data");
         });
     } else {
         console.log('inproper query param');
