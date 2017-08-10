@@ -21,6 +21,10 @@ switch(process.env.page) {
     entry = './js/state-energy-profile.js';
     filename = 'state-energy.min.js';
     break;
+  case 'footprint':
+    entry = './js/footprint-entry.js';
+    filename = 'footprint.min.js';
+    break;
   default: //defaults to solar
     entry = './js/client.js';
     filename = 'scripts.min.js';

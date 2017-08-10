@@ -25,6 +25,9 @@ const renderFullPage = (markup, data, page) => {
         case 'state-energy-profile':
             jsLocation = '/public/state-energy.min.js';
             break;
+        case 'footprint':
+            jsLocation = '/public/footprint.min.js';
+            break;
         default:
             jsLocation = '/public/scripts.min.js';
     };
@@ -146,8 +149,14 @@ const usEnergyMapMiddleware = (req, res) => {
     res.status(200).send(renderFullPage(appMarkup, {}, 'us-energy'));
 }
 
+const footprintMiddleware = (req, res) => {
+    const appMarkup = ReactDOM.renderToString(<UsEnergy />);
+    res.status(200).send(renderFullPage(appMarkup, {}, 'footprint'));
+}
+
 
 module.exports = {
+    footprintMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,
     usEnergyMapMiddleware
