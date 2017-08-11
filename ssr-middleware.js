@@ -7,6 +7,7 @@ import _ from 'lodash';
 import Layout from './src/js/components/Layout';
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
+import FootprintCalculator from './src/js/pages/FootprintCalculator';
 
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
@@ -150,7 +151,7 @@ const usEnergyMapMiddleware = (req, res) => {
 }
 
 const footprintMiddleware = (req, res) => {
-    const appMarkup = ReactDOM.renderToString(<UsEnergy />);
+    const appMarkup = ReactDOM.renderToString(<FootprintCalculator />);
     res.status(200).send(renderFullPage(appMarkup, {}, 'footprint'));
 }
 
