@@ -1,7 +1,10 @@
 import React from "react";
 import _ from 'lodash';
 
-import calculateFootprintSubmit from '../utils/footprint/calculate-footprint-submit';
+
+import ApplianceForm from './ApplianceForm';
+import BooleanForm from './BooleanForm';
+import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 
 const appliance =[
   {
@@ -180,30 +183,50 @@ const formatQuestionName = name => {
 export default class FootprintForm extends React.Component {
 	constructor() {
 		super();
-        let applianceHour = _.filter(appliance, function(o) { return o['use-type'] === 'hour'; });
-        applianceHour = applianceHour.map(question => {
-            return (<li>{formatQuestionName(question.name)}<input id={question.name} type="text" style={{marginLeft: '50px', width: '50px'}} onChange={this.questionOnSubmit.bind(this)} /></li>);
-        });
-        let applianceMonth = _.filter(appliance, function(o) { return o['use-type'] === 'month'; });
-        applianceMonth = applianceMonth.map(question => {
-            return (<li>{formatQuestionName(question.name)}<input type="checkbox" id={question.name} name={question.name} onChange={this.boolQuestionOnSubmit.bind(this)} /></li>);
-        });
-
-
         let data = {
             appliance: {
                 hour: [],
                 month: [],
                 own: []
             }
+        };
+        this.state = {
+          data
         }
+        let applianceHour = _.filter(appliance, function(o) { return o['use-type'] === 'hour'; });
+        applianceHour = applianceHour.map(question => {
+            //let value = this.getQuestionValue('applianceGroup', question.name);
+            return (<li style={{marginTop: '6px'}}><div>{formatQuestionName(question.name)}<input id={question.name} type="text" style={{position: 'absolute', right: '50%', width: '50px'}} onChange={this.questionOnSubmit.bind(this)} /></div></li>); //value={value}
+        });
+        let booleanQuestions = _.filter(appliance, function(o) { return o['use-type'] === 'month'; });
+        booleanQuestions = booleanQuestions.map(question => {
+            return (<li>{formatQuestionName(question.name)}<input type="checkbox" id={question.name} name={question.name} onChange={this.boolQuestionOnSubmit.bind(this)} /></li>);
+        });
+
+
+        
+
+        let step = 1;
         this.state = {
             applianceHour,
-            applianceMonth,
-            data
+            booleanQuestions,
+            data,
+            step
 
         }
 	}
+  // Todo
+  // This isn't called.  I need to fix it
+    getQuestionValue(questionGroup, id) {
+		  let group = this.state.data[questionGroup]
+      console.log('group is', group)
+      group.forEach(question => {
+        if(question.name === id){
+          return question.value;
+        }
+      });
+      return '';
+    }
 
     appendQuestionData(currentData, questionName, value) {
         let question = _.filter(appliance, function(o){ return o.name === questionName});
@@ -227,7 +250,7 @@ export default class FootprintForm extends React.Component {
 
     questionOnSubmit(e) {
         let id = e.target.id;
-		let value = document.getElementById(id).value;
+		    let value = document.getElementById(id).value;
         value = parseInt(value) >= 0 ? value : 0; // Only counts numbers
         let data = this.state.data;
         this.appendQuestionData(data, id, value);
@@ -235,7 +258,7 @@ export default class FootprintForm extends React.Component {
 
     boolQuestionOnSubmit(e) {
         let id = e.target.id;
-	    let value = document.getElementById(id).checked;
+	      let value = document.getElementById(id).checked;
         let data = this.state.data; 
         this.appendQuestionData(data, id, value);
     }
@@ -247,8 +270,18 @@ export default class FootprintForm extends React.Component {
         console.log('the hourlySum is', hourlySum);
     }
 
+    increaseStep() {
+      let newStep = this.state.step + 1;
+      this.setState({step: newStep});
+    }
+
+    decreaseStep() {
+      let newStep = this.state.step - 1;
+      this.setState({step: newStep});
+    }
+
 	render() {
-        console.log('state data: ', this.state.data);
+        console.log('state data: ', this.state);
         const containerStyle = {
             border: '3px solid gray',
             margin: 'auto',
@@ -261,35 +294,33 @@ export default class FootprintForm extends React.Component {
             textAlign: 'center',
             backgroundColor: 'white'
         };
-        const subCategory = {
-            fontWeight: 'bold',
-            textAlign: 'center'
+
+        const buttonStyle = {
+          display: 'flex',
+          justifyContent: 'space-between'
         };
-        const questionsStyle = {
-            textAlign: 'left',
-            marginLeft: '15px',
-            marginTop: '5px',
-            marginBottom: '5px'
+        let form = (<ApplianceForm questions={this.state.applianceHour} />);
+        let leftButton = this.state.step === 1 ? <div /> : (<button type="button" className="left-btn" onClick={this.decreaseStep.bind(this)}>Back</button>);
+        let rightButton = this.state.step === 2 ? (<button type="button" className="right-btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>) : (<button type="button" className="right-btn" onClick={this.increaseStep.bind(this)}>Next</button>);
+        switch(this.state.step) {
+          case 1: 
+            form = (<ApplianceForm questions={this.state.applianceHour} />);
+            break;
+          case 2:
+            form = (<BooleanForm questions={this.state.booleanQuestions} />);
+            break;
+          default:
+            (<ApplianceForm questions={this.state.applianceHour} />);
         };
+
 		return (
 			<div style={containerStyle}>
 				<h2 style={headerStyle}> Calculate your environmental footprint</h2>
-                <h3 style={subCategory}>Daily use Appliances</h3>
-                <div style={questionsStyle}>
-                    <ul>How many hours a day do you use the following?
-                        {this.state.applianceHour}
-                    </ul>
-                    <ul>Do you own the following?
-                        {this.state.applianceMonth}
-                    </ul>
+                {form}
+                <div style={buttonStyle}>
+                  {leftButton}
+                  {rightButton}
                 </div>
-                <h3 style={subCategory}>Monthly use Appliances</h3>
-                <div style={questionsStyle}>
-                    <ul>How many times a month do you use the following?
-                        
-                    </ul>
-                </div>
-                <button type="button" className="btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>
 			</div>
 		);
 	}

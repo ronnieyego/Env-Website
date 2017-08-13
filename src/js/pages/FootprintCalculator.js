@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from '../components/Header.js';
-import FootprintForm from '../components/FootprintForm.js';
+import FootprintForm from '../components/footprint-calculator/FootprintForm.js';
 
 export default class FootprintCalcPage extends React.Component {
 	
