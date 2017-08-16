@@ -6,7 +6,7 @@ import ApplianceForm from './ApplianceForm';
 import BooleanForm from './BooleanForm';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 
-const appliance =[
+const appliance = [
   {
     "name": "portable-heater",
     "kwh": 1.5,
@@ -21,157 +21,157 @@ const appliance =[
     "name": "electric-furnace",
     "kwh": 10.5,
     "use-type": "hour"
+  },
+  {
+    "name": "wall-ac",
+    "kwh": 0.73,
+    "use-type": "hour"
+  },
+  {
+    "name": "central-ac",
+    "kwh": 3,
+    "use-type": "hour"
+  },
+  {
+    "name": "portable-fan",
+    "kwh": 0.03,
+    "use-type": "hour"
+  },
+  {
+    "name": "cieling-fan",
+    "kwh": 0.075,
+    "use-type": "hour"
+  },
+  {
+    "name": "water-heater",
+    "kwh": 12.7,
+    "use-type": "day"
+  },
+  {
+    "name": "oven",
+    "kwh": 2.3,
+    "use-type": "hour"
+  },
+  {
+    "name": "stove-top",
+    "kwh": 1.25,
+    "use-type": "hour"
+  },
+  {
+    "name": "coffee-maker",
+    "kwh": 0.12,
+    "use-type": "hour"
+  },
+  {
+    "name": "dishwasher",
+    "kwh": 1,
+    "use-type": "hour"
+  },
+  {
+    "name": "toaster-oven",
+    "kwh": 0.75,
+    "use-type": "hour"
+  },
+  {
+    "name": "energy-efficient-refridgerator",
+    "kwh": 37.5,
+    "use-type": "month"
+  },
+  {
+    "name": "refridgerator",
+    "kwh": 125,
+    "use-type": "month"
+  },
+  {
+    "name": "freezer",
+    "kwh": 90,
+    "use-type": "month"
+  },
+  {
+    "name": "tv-plasma",
+    "kwh": 0.48,
+    "use-type": "hour"
+  },
+  {
+    "name": "tv-lcd",
+    "kwh": 0.016,
+    "use-type": "hour"
+  },
+  {
+    "name": "tivo",
+    "kwh": 28.8,
+    "use-type": "month"
+  },
+  {
+    "name": "game-console",
+    "kwh": 0.15,
+    "use-type": "hour"
+  },
+  {
+    "name": "computer-desktop",
+    "kwh": 0.15,
+    "use-type": "hour"
+  },
+  {
+    "name": "computer-sleep-mode",
+    "kwh": 0.003,
+    "use-type": "hour"
+  },
+  {
+    "name": "computer-laptop",
+    "kwh": 0.04,
+    "use-type": "hour"
+  },
+  {
+    "name": "computer-monitor",
+    "kwh": 0.08,
+    "use-type": "hour"
+  },
+  {
+    "name": "speakers",
+    "kwh": 0.05,
+    "use-type": "hour"
+  },
+  {
+    "name": "lightbulb",
+    "kwh": 0.1,
+    "use-type": "hour"
+  },
+  {
+    "name": "lightbulb-cfl",
+    "kwh": 0.01,
+    "use-type": "hour"
+  },
+  {
+    "name": "clothes-dryer",
+    "kwh": 3,
+    "use-type": "hour"
+  },
+  {
+    "name": "clothes-washer-cold",
+    "kwh": 2.3,
+    "use-type": "hour"
+  },
+  {
+    "name": "clothes-washer-hot",
+    "kwh": 6.3,
+    "use-type": "hour"
+  },
+  {
+    "name": "hair-dryer",
+    "kwh": 1.5,
+    "use-type": "hour"
+  },
+  {
+    "name": "pool-water-pump",
+    "kwh": 1.12,
+    "use-type": "hour"
+  },
+  {
+    "name": "pool-heater",
+    "kwh": 5.5,
+    "use-type": "hour"
   }
-  // {
-  //   "name": "wall-ac",
-  //   "kwh": 0.73,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "central-ac",
-  //   "kwh": 3,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "portable-fan",
-  //   "kwh": 0.03,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "cieling-fan",
-  //   "kwh": 0.075,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "water-heater",
-  //   "kwh": 12.7,
-  //   "use-type": "day"
-  // },
-  // {
-  //   "name": "oven",
-  //   "kwh": 2.3,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "stove-top",
-  //   "kwh": 1.25,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "coffee-maker",
-  //   "kwh": 0.12,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "dishwasher",
-  //   "kwh": 1,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "toaster-oven",
-  //   "kwh": 0.75,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "energy-efficient-refridgerator",
-  //   "kwh": 37.5,
-  //   "use-type": "month"
-  // },
-  // {
-  //   "name": "refridgerator",
-  //   "kwh": 125,
-  //   "use-type": "month"
-  // },
-  // {
-  //   "name": "freezer",
-  //   "kwh": 90,
-  //   "use-type": "month"
-  // },
-  // {
-  //   "name": "tv-plasma",
-  //   "kwh": 0.48,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "tv-lcd",
-  //   "kwh": 0.016,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "tivo",
-  //   "kwh": 28.8,
-  //   "use-type": "month"
-  // },
-  // {
-  //   "name": "game-console",
-  //   "kwh": 0.15,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "computer-desktop",
-  //   "kwh": 0.15,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "computer-sleep-mode",
-  //   "kwh": 0.003,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "computer-laptop",
-  //   "kwh": 0.04,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "computer-monitor",
-  //   "kwh": 0.08,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "speakers",
-  //   "kwh": 0.05,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "lightbulb",
-  //   "kwh": 0.1,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "lightbulb-cfl",
-  //   "kwh": 0.01,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "clothes-dryer",
-  //   "kwh": 3,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "clothes-washer-cold",
-  //   "kwh": 2.3,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "clothes-washer-hot",
-  //   "kwh": 6.3,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "hair-dryer",
-  //   "kwh": 1.5,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "pool-water-pump",
-  //   "kwh": 1.12,
-  //   "use-type": "hour"
-  // },
-  // {
-  //   "name": "pool-heater",
-  //   "kwh": 5.5,
-  //   "use-type": "hour"
-  // }
 ];
 
 export default class FootprintForm extends React.Component {
@@ -197,6 +197,8 @@ export default class FootprintForm extends React.Component {
         data,
         step
     }
+    console.log('Footprint Form rendered.  State is: ', this.state);
+
 	}
 
     getQuestionFromName(name) {
@@ -227,9 +229,8 @@ export default class FootprintForm extends React.Component {
     }
 
     submitCalculator() {
-        let data = this.state.data;
-        let hourlySum = calculateFootprintSubmit(data);
-        console.log('the hourlySum is', hourlySum);
+        let footprintResults = calculateFootprintSubmit(this.state.data);
+        console.log('Footprint results are back.  Values in kwh/period', footprintResults);
     }
 
     increaseStep() {
@@ -243,7 +244,6 @@ export default class FootprintForm extends React.Component {
     }
 
 	render() {
-        console.log('state data: ', this.state);
         const containerStyle = {
             border: '3px solid gray',
             margin: 'auto',
@@ -269,7 +269,7 @@ export default class FootprintForm extends React.Component {
             form = (<ApplianceForm questions={this.state.applianceHour} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
             break;
           case 2:
-            form = (<BooleanForm questions={this.state.booleanQuestions} boolQuestionOnChange={this.boolQuestionOnChange} />);
+            form = (<BooleanForm questions={this.state.booleanQuestions} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
             break;
           default:
             form = (<ApplianceForm questions={this.state.applianceHour} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);

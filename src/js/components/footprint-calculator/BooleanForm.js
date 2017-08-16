@@ -6,18 +6,21 @@ export default class BooleanForm extends React.Component {
 
     constructor(props) {
 	    super();
-        let questions = props.questions;
-        let formQuestions = []; // Cause props are immutable
-        questions.map(question => {
-            formQuestions.push(<BooleanQuestion name={question.name} questionGroup={'boolean'} boolQuestionOnChange={props.boolQuestionOnChange} />);
-        })
-        this.state = {
-            questions: formQuestions
-        };
+        this.updateQuestion = this.updateQuestion.bind(this)
 	}
 
+    updateQuestion(e) {
+        let id = e.target.id;
+		let value = document.getElementById(id).value;
+        console.log('boolean question', value);
+        this.props.updateData('boolean', id, value)
+    }
+
 	render() {
-        console.log('Boolean Form question', this.state.questions)
+        const questions = this.props.questions.map(question => {
+            let value = this.props.getQuestionValue(question, 'boolean');
+            return (<BooleanQuestion key={question.name} id={question.name} question={question} questionGroup={'boolean'} updateQuestion={this.updateQuestion} value={value} />);
+        })
         const subCategory = {
             fontWeight: 'bold',
             textAlign: 'center'
@@ -35,7 +38,7 @@ export default class BooleanForm extends React.Component {
                 <div style={questionsStyle}>
                     How many hours a day do you use the following?
                     <ul>
-                        {this.state.questions}
+                        {questions}
                     </ul>
                 </div>
             </div>

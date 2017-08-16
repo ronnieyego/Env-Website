@@ -19,13 +19,18 @@ export default class Question extends React.Component {
         return name;
     }
 
+    updateQuestion(e) {
+        this.props.updateQuestion(e);
+    }
+
 	render() {
         const questionStyle = {position: 'absolute', right: '25%', width: '50px'}
+        console.log('bool question value is ', this.props.question.name, this.props.value);
 		return (
             <li style={{marginTop: '6px'}}>
                 <div>
-                    {this.formatName(this.props.name)}
-                    <input id={this.props.name} type="checkbox" style={questionStyle} onChange={ (e) => this.props.boolQuestionOnChange(e, this.props.questionGroup)}  />
+                    {this.formatName(this.props.question.name)}
+                    <input id={this.props.id} type="checkbox" style={questionStyle} onChange={this.updateQuestion.bind(this)} checked={this.props.value}  />
                 </div>
             </li>
 		);
