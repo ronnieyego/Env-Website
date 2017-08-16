@@ -4,6 +4,9 @@ import _ from 'lodash';
 
 import ApplianceForm from './ApplianceForm';
 import BooleanForm from './BooleanForm';
+import FoodForm from './FoodForm';
+import TransportationForm from './TransportationForm';
+
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 
 const appliance = [
@@ -171,7 +174,95 @@ const appliance = [
     "name": "pool-heater",
     "kwh": 5.5,
     "use-type": "hour"
-  }
+  },
+  {
+    "name": "grain",
+    "kwh": 0.43,
+    "calories-lb": 390,
+    "use-type": "pound"
+  },
+  {
+    "name": "vegetables",
+    "kwh": 0.43,
+    "calories-lb": 390,
+    "use-type": "pound"
+  },
+  {
+    "name": "milk",
+    "kwh": 0.75,
+    "calories-lb": 291,
+    "use-type": "pound"
+  },
+  {
+    "name": "fruit",
+    "kwh": 1.67,
+    "calories-lb": 1824,
+    "use-type": "pound"
+  },
+  {
+    "name": "eggs",
+    "kwh": 4,
+    "calories-lb": 650,
+    "use-type": "pound"
+  },
+  {
+    "name": "chicken",
+    "kwh": 4.4,
+    "calories-lb": 216,
+    "use-type": "pound"
+  },
+  {
+    "name": "dairy",
+    "kwh": 6.75,
+    "calories-lb": 573,
+    "use-type": "pound"
+  },
+  {
+    "name": "pork",
+    "kwh": 12.6,
+    "calories-lb": 480,
+    "use-type": "pound"
+  },
+  {
+    "name": "beef",
+    "kwh": 31.5,
+    "calories-lb": 1176,
+    "use-type": "pound"
+  },
+  {
+        name: 'Whats the MPG of you car?',
+        "use-type": "transportation"
+    },
+    {
+        name: 'How many miles do you drive for work/school/errands each week?',
+        "use-type": "transportation"
+    },
+    {
+        name: 'Do you carpool?',
+        "use-type": "transportation",
+        useBool: true
+    },
+    {
+        name: 'How many miles do you bus for work/school/errands each week?',
+        "use-type": "transportation"
+    },
+    {
+        name: 'Within the last year, how many times did you take a roadtrip?',
+        "use-type": "transportation"
+    },
+    {
+        name: 'Do you usually carpool for roadtrips?',
+        "use-type": "transportation",
+        useBool: true
+    },
+    {
+        name: 'How many far is your average roadtrip?',
+        "use-type": "transportation"
+    },
+    {
+        name: 'Within the last year, how many miles did you fly?',
+        "use-type": "transportation"
+    }
 ];
 
 export default class FootprintForm extends React.Component {
@@ -182,18 +273,24 @@ export default class FootprintForm extends React.Component {
     
     let data = {
         applianceHour: {},
-        boolean: {}
+        boolean: {},
+        foodQuestions: {},
+        transportation: {}
     };
     this.state = {
         data
     };
     let applianceHour = _.filter(appliance, function(o) { return o['use-type'] === 'hour'; });
     let booleanQuestions = _.filter(appliance, function(o) { return o['use-type'] === 'month'; });
+    let foodQuestions = _.filter(appliance, function(o) { return o['use-type'] === 'pound'; });
+    let transportation = _.filter(appliance, function(o) { return o['use-type'] === 'transportation'; });
     let step = 1;
     
     this.state = {
         applianceHour,
         booleanQuestions,
+        foodQuestions,
+        transportation,
         data,
         step
     }
@@ -263,13 +360,20 @@ export default class FootprintForm extends React.Component {
         };
         let form;
         let leftButton = this.state.step === 1 ? <div /> : (<button type="button" className="left-btn" onClick={this.decreaseStep.bind(this)}>Back</button>);
-        let rightButton = this.state.step === 2 ? (<button type="button" className="right-btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>) : (<button type="button" className="right-btn" onClick={this.increaseStep.bind(this)}>Next</button>);
+        let rightButton = this.state.step === 4 ? (<button type="button" className="right-btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>) : (<button type="button" className="right-btn" onClick={this.increaseStep.bind(this)}>Next</button>);
         switch(this.state.step) {
           case 1: 
             form = (<ApplianceForm questions={this.state.applianceHour} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
             break;
           case 2:
             form = (<BooleanForm questions={this.state.booleanQuestions} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
+            break;
+          case 3:
+            form = (<FoodForm questions={this.state.foodQuestions} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
+            break;
+          case 4:
+            // Transportation has the questions within itself
+            form = (<TransportationForm questions={this.state.transportation} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
             break;
           default:
             form = (<ApplianceForm questions={this.state.applianceHour} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);

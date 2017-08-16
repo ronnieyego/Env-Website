@@ -11,15 +11,15 @@ export default class BooleanForm extends React.Component {
 
     updateQuestion(e) {
         let id = e.target.id;
-		let value = document.getElementById(id).value;
-        console.log('boolean question', value);
+		let value = document.getElementById(id).checked;
         this.props.updateData('boolean', id, value)
     }
 
 	render() {
         const questions = this.props.questions.map(question => {
             let value = this.props.getQuestionValue(question, 'boolean');
-            return (<BooleanQuestion key={question.name} id={question.name} question={question} questionGroup={'boolean'} updateQuestion={this.updateQuestion} value={value} />);
+            let checked = value ? 'checked' : 'unchecked';
+            return (<BooleanQuestion key={question.name} id={question.name} question={question} questionGroup={'boolean'} updateQuestion={this.updateQuestion} checked={checked} />);
         })
         const subCategory = {
             fontWeight: 'bold',

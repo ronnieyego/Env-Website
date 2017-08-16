@@ -13,56 +13,56 @@
 module.exports = [
   {
     "food": "grain",
-    "kwh-lb": 0.43,
-    "calories-lb": 390,
-    "use-type": "pound"
+    "kwh": 0.43,
+    "calories/lb": 390,
+    "type": "pound"
   },
   {
     "food": "vegetables",
-    "kwh-lb": 0.43,
-    "calories-lb": 390,
-    "use-type": "pound"
+    "kwh": 0.43,
+    "calories/lb": 390,
+    "type": "pound"
   },
   {
     "food": "milk",
-    "kwh-lb": 0.75,
-    "calories-lb": 291,
-    "use-type": "pound"
+    "kwh": 0.75,
+    "calories/lb": 291,
+    "type": "pound"
   },
   {
     "food": "fruit",
-    "kwh-lb": 1.67,
-    "calories-lb": 1824,
-    "use-type": "pound"
+    "kwh": 1.67,
+    "calories/lb": 1824,
+    "type": "pound"
   },
   {
     "food": "eggs",
-    "kwh-lb": 4,
-    "calories-lb": 650,
-    "use-type": "pound"
+    "kwh": 4,
+    "calories/lb": 650,
+    "type": "pound"
   },
   {
     "food": "chicken",
-    "kwh-lb": 4.4,
-    "calories-lb": 216,
-    "use-type": "pound"
+    "kwh": 4.4,
+    "calories/lb": 216,
+    "type": "pound"
   },
   {
     "food": "dairy",
-    "kwh-lb": 6.75,
-    "calories-lb": 573,
-    "use-type": "pound"
+    "kwh": 6.75,
+    "calories/lb": 573,
+    "type": "pound"
   },
   {
     "food": "pork",
-    "kwh-lb": 12.6,
-    "calories-lb": 480,
-    "use-type": "pound"
+    "kwh": 12.6,
+    "calories/lb": 480,
+    "type": "pound"
   },
   {
     "food": "beef",
-    "kwh-lb": 31.5,
-    "calories-lb": 1176,
-    "use-type": "pound"
+    "kwh": 31.5,
+    "calories/lb": 1176,
+    "type": "pound"
   }
 ]

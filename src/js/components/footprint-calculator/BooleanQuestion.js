@@ -25,12 +25,13 @@ export default class Question extends React.Component {
 
 	render() {
         const questionStyle = {position: 'absolute', right: '25%', width: '50px'}
-        console.log('bool question value is ', this.props.question.name, this.props.value);
+        const checked = this.props.checked;
+        const input = checked === 'checked' ? <input id={this.props.id} type="checkbox" style={questionStyle} onChange={this.updateQuestion.bind(this)} checked  /> : <input id={this.props.id} type="checkbox" style={questionStyle} onChange={this.updateQuestion.bind(this)} />
 		return (
             <li style={{marginTop: '6px'}}>
                 <div>
                     {this.formatName(this.props.question.name)}
-                    <input id={this.props.id} type="checkbox" style={questionStyle} onChange={this.updateQuestion.bind(this)} checked={this.props.value}  />
+                    {input}
                 </div>
             </li>
 		);

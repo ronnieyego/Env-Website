@@ -14,6 +14,7 @@ export default function(data, metaData) {
     
     compiledFootprint.dailyUse = sumQuestionSet(data.applianceHour);
     compiledFootprint.monthlyUse = sumQuestionSet(data.boolean);
+    compiledFootprint.food = sumQuestionSet(data.foodQuestions);
 
     return compiledFootprint;
 }
@@ -25,11 +26,11 @@ const sumQuestionSet = questionSet => {
         let questionTotal = 0;
         if(answer.value > 0) { //Int question
             questionTotal = answer.kwh * answer.value;
-        } else if (answer.value === 'on') { // boolean question
+        } else if (answer.value) { // boolean question
             questionTotal = answer.kwh;
         }
         
         groupSum += questionTotal;
     });
-    return groupSum;
+    return groupSum.toFixed(1);
 }
