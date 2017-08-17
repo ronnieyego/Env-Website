@@ -20,12 +20,14 @@ export default class Question extends React.Component {
     }
 
 	render() {
-        const questionStyle = {position: 'absolute', right: '50%', width: '50px'}
+        const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
+        const textStyle = {width: textWidth, display: 'inline-block'}
+        const inputStyle = {width: '50px'}
 		return (
             <li style={{marginTop: '6px'}}>
-                <div>
-                    {this.formatName(this.props.question.name)}
-                    <input id={this.props.id} type="text" style={questionStyle} onChange={this.updateQuestion.bind(this)} value={this.props.value}  />
+                <div style={{display: 'inline-block'}}>
+                    <div style={textStyle}>{this.formatName(this.props.question.name)} </div>
+                    <input id={this.props.id} type="text" style={inputStyle} onChange={this.updateQuestion.bind(this)} value={this.props.value}  />
                 </div>
             </li>
 		);

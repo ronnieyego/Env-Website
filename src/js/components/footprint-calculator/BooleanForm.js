@@ -16,11 +16,7 @@ export default class BooleanForm extends React.Component {
     }
 
 	render() {
-        const questions = this.props.questions.map(question => {
-            let value = this.props.getQuestionValue(question, 'boolean');
-            let checked = value ? 'checked' : 'unchecked';
-            return (<BooleanQuestion key={question.name} id={question.name} question={question} questionGroup={'boolean'} updateQuestion={this.updateQuestion} checked={checked} />);
-        })
+        
         const subCategory = {
             fontWeight: 'bold',
             textAlign: 'center'
@@ -31,6 +27,12 @@ export default class BooleanForm extends React.Component {
             marginTop: '5px',
             marginBottom: '5px'
         };
+        const textWidth = '250px';
+        const questions = this.props.questions.map(question => {
+            let value = this.props.getQuestionValue(question, 'boolean');
+            let checked = value ? 'checked' : 'unchecked';
+            return (<BooleanQuestion key={question.name} id={question.name} question={question} questionGroup={'boolean'} updateQuestion={this.updateQuestion} checked={checked} textWidth={textWidth} />);
+        });
 
 		return (
             <div>

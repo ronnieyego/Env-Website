@@ -27,9 +27,10 @@ export default class FoodForm extends React.Component {
             marginTop: '5px',
             marginBottom: '5px'
         };
+        const textWidth = '75px';
         const questions = this.props.questions.map(question => {
                 let value = this.props.getQuestionValue(question, 'foodQuestions');
-                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} />);
+                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} textWidth={textWidth} />);
             });
 		return (
             

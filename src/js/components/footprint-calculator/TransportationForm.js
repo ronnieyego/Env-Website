@@ -70,13 +70,14 @@ export default class TransportationForm extends React.Component {
             marginTop: '5px',
             marginBottom: '5px'
         };
+        const textWidth = '350px';
         const questions = this.props.questions.map(question => {
                 let value = this.props.getQuestionValue(question, 'transportation');
                 if(question.useBool) {
                     let checked = value ? 'checked' : 'unchecked';
-                    return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} />)
+                    return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} textWidth={textWidth}  />)
                 }
-                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} />);
+                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} textWidth={textWidth} />);
             });
 		return (
             <div>

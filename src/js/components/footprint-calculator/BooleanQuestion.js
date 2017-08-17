@@ -24,13 +24,14 @@ export default class Question extends React.Component {
     }
 
 	render() {
-        const questionStyle = {position: 'absolute', right: '25%', width: '50px'}
         const checked = this.props.checked;
-        const input = checked === 'checked' ? <input id={this.props.id} type="checkbox" style={questionStyle} onChange={this.updateQuestion.bind(this)} checked  /> : <input id={this.props.id} type="checkbox" style={questionStyle} onChange={this.updateQuestion.bind(this)} />
-		return (
+        const input = checked === 'checked' ? <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} checked  /> : <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} />
+		const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
+        const textStyle = {width: textWidth, display: 'inline-block'}
+        return (
             <li style={{marginTop: '6px'}}>
                 <div>
-                    {this.formatName(this.props.question.name)}
+                    <div style={textStyle}>{this.formatName(this.props.question.name)} </div>
                     {input}
                 </div>
             </li>
