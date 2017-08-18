@@ -234,6 +234,10 @@ const appliance = [
         "use-type": "transportation"
     },
     {
+        name: 'What\'s the fuel for your car?',
+        "use-type": "transportation"
+    },
+    {
         name: 'How many miles do you drive for work, school, and errands each week?',
         "use-type": "transportation"
     },
@@ -290,8 +294,6 @@ export default class FootprintForm extends React.Component {
         data,
         step
     }
-    console.log('Footprint Form rendered.  State is: ', this.state);
-
 	}
 
     getQuestionFromName(name) {
@@ -321,9 +323,30 @@ export default class FootprintForm extends React.Component {
       this.setState({data});
     }
 
+    validateData() {
+      let transportData = this.state.data.transportation;
+      let transportationQuestions = _.filter(this.state.transportation, function(o) { return o['useBool'] !== true; })
+        .map(question => question.name);
+      let missingQuestions = [];
+      transportationQuestions.forEach(question => {
+        if(!transportData[question]) {
+          missingQuestions.push(question);
+        }
+      });
+      if(missingQuestions.length > 0) {
+        return false;
+      }
+      return true;
+
+  }
     submitCalculator() {
-        let footprintResults = calculateFootprintSubmit(this.state.data);
-        console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+        let valid = this.validateData();
+        if (valid) {
+          let footprintResults = calculateFootprintSubmit(this.state.data);
+          console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+        } else {
+          alert('Please fill out all of the fields');
+        }
     }
 
     increaseStep() {
