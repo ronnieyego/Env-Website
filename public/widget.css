@@ -142,4 +142,5 @@ input[type='checkbox'] {
 }
 input[type='checkbox']:checked {
     background: #abd;
+    content: '✔';
 }

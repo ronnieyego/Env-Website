@@ -7,6 +7,9 @@ export default class Question extends React.Component {
 	}
 
     formatName(name) {
+        if(!name) {
+            return '';
+        }
         name = name.replace(/-/g,' ');
         name = name.charAt(0).toUpperCase() + name.slice(1);
         return name;

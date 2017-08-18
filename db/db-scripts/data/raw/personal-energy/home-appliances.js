@@ -1,155 +1,155 @@
-// Main source:  http://www.siliconvalleypower.com/for-residents/save-energy/appliance-energy-use-chart
+// Main source:  http://www.siliconvalleypower.com/for-residents/save-energy/name-energy-use-chart
 // I updated the names a bit and validated some of the numbers.
 // All in all it looks decent.  Might want to add more later.
 
 module.exports = [
   {
-    "appliance": "house-furnace",
+    "name": "house-furnace",
     "kwh": 10.5,
     "use-type": "hour"
   },
   {
-    "appliance": "house-heat-pump",
+    "name": "house-heat-pump",
     "kwh": 10,
     "use-type": "hour"
   },
   {
-    "appliance": "portable-heater",
+    "name": "portable-heater",
     "kwh": 1.5,
     "use-type": "hour"
   },
   {
-    "appliance": "central-ac",
+    "name": "central-ac",
     "kwh": 3,
     "use-type": "hour"
   },
   {
-    "appliance": "cieling-fan",
+    "name": "cieling-fan",
     "kwh": 0.075,
     "use-type": "hour"
   },
   {
-    "appliance": "wall-ac",
+    "name": "wall-ac",
     "kwh": 0.73,
     "use-type": "hour"
   },
   {
-    "appliance": "portable-fan",
+    "name": "portable-fan",
     "kwh": 0.03,
     "use-type": "hour"
   },
   {
-    "appliance": "speakers",
+    "name": "speakers",
     "kwh": 0.05,
     "use-type": "hour"
   },
   {
-    "appliance": "tv",
+    "name": "tv",
     "kwh": 0.48,
     "use-type": "hour"
   },
   {
-    "appliance": "lightbulb-cfl",
+    "name": "lightbulb-cfl",
     "kwh": 0.01,
     "use-type": "hour"
   },
   {
-    "appliance": "lightbulb-halogen",
+    "name": "lightbulb-halogen",
     "kwh": 0.1,
     "use-type": "hour"
   },
   {
-    "appliance": "game-console",
+    "name": "game-console",
     "kwh": 0.15,
     "use-type": "hour"
   },
   {
-    "appliance": "computer-desktop",
+    "name": "computer-desktop",
     "kwh": 0.15,
     "use-type": "hour"
   },
   {
-    "appliance": "computer-laptop",
+    "name": "computer-laptop",
     "kwh": 0.04,
     "use-type": "hour"
   },
   {
-    "appliance": "computer-monitor",
+    "name": "computer-monitor",
     "kwh": 0.08,
     "use-type": "hour"
   },
   {
-    "appliance": "hot-shower",
+    "name": "hot-shower",
     "kwh": 12.7,
     "use-type": "hour"
   },
   {
-    "appliance": "hair-dryer",
+    "name": "hair-dryer",
     "kwh": 1.5,
     "use-type": "hour"
   },
   {
-    "appliance": "oven",
+    "name": "oven",
     "kwh": 2.3,
     "use-type": "hour"
   },
   {
-    "appliance": "stove-top",
+    "name": "stove-top",
     "kwh": 1.25,
     "use-type": "hour"
   },
   {
-    "appliance": "toaster-oven",
+    "name": "toaster-oven",
     "kwh": 0.75,
     "use-type": "hour"
   },
   {
-    "appliance": "coffee-maker",
+    "name": "coffee-maker",
     "kwh": 0.12,
     "use-type": "hour"
   },
   {
-    "appliance": "refridgerator",
+    "name": "refridgerator",
     "kwh": 125,
     "use-type": "monthly-own"
   },
   {
-    "appliance": "energy-efficient-refridgerator",
+    "name": "energy-efficient-refridgerator",
     "kwh": 37.5,
     "use-type": "monthly-own"
   },
   {
-    "appliance": "freezer",
+    "name": "freezer",
     "kwh": 90,
     "use-type": "monthly-own"
   },
   {
-    "appliance": "tivo",
+    "name": "tivo",
     "kwh": 28.8,
     "use-type": "monthly-own"
   },
   {
-    "appliance": "pool",
+    "name": "pool",
     "kwh": 806,
     "use-type": "monthly-own"
   },
   {
-    "appliance": "clothes-washer-cold",
+    "name": "clothes-washer-cold",
     "kwh": 2.3,
     "use-type": "monthly-use"
   },
   {
-    "appliance": "clothes-washer-hot",
+    "name": "clothes-washer-hot",
     "kwh": 6.3,
     "use-type": "monthly-use"
   },
   {
-    "appliance": "clothes-dryer",
+    "name": "clothes-dryer",
     "kwh": 3,
     "use-type": "monthly-use"
   },
   {
-    "appliance": "dishwasher",
+    "name": "dishwasher",
     "kwh": 1,
     "use-type": "monthly-use"
   }
