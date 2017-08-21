@@ -1,15 +1,6 @@
 import React from "react";
 import { PieChart, Pie, Legend, Sector, Cell } from  'recharts';
 
-
-const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-                  {name: 'Group C', value: 300}, {name: 'Group D', value: 200}
-            ];
-const legendData = [
-    { value: 'Solar', type: 'line', id: 'ID01' },
-    { value: 'Coal', type: 'line', id: 'ID02' }
-    ];
-
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
 
 const RADIAN = Math.PI / 180;                    
@@ -25,10 +16,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
-
-export default class TestPie extends React.Component {
-
-
+export default class StateEnergyPieChart extends React.Component {
     constructor(props) {
 	    super();
 
@@ -46,7 +34,7 @@ export default class TestPie extends React.Component {
             pNaturalGal: 0,
             pRenewables: 0,
             pNuclear: 0,
-            graphData: {}
+            graphData: [{}]
         }
 
         if(typeof window !== 'undefined') {
@@ -65,23 +53,26 @@ export default class TestPie extends React.Component {
                     { source: 'Coal', amount: this.state.coal},
                     { source: 'HydroElectric', amount: this.state.hydroElectric},
                     { source: 'Natural Gas', amount: this.state.naturalGas},
-                    { source: 'Nuclear', amount: this.state.nuclear }
+                    { source: 'Nuclear', amount: this.state.nuclear },
+                    { source: 'Solar', amount: this.state.solar},
+                    { source: 'Wind', amount: this.state.wind}
                 ];
+            this.state.legendPayload = this.state.graphData.map((data, index) => { 
+                return { id: data.source, value: data.source, type: 'circle', color: COLORS[index % COLORS.length] }
+            });
         }
     }
 	render() {
-		return (
+        console.log('in state energy PIE chart')
+        return (
             <div>
                 <PieChart width={730} height={300}>
                     <Pie legendType='circle' dataKey='amount' data={this.state.graphData} cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label={renderCustomizedLabel}>
-                        {data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} key={index}/>)}
+                        {this.state.graphData.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} key={index}/>)}
                     </Pie>
-                    <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} />
+                    <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} payload={this.state.legendPayload} />
                     
                 </PieChart>
-            <br />
-            <br />
-            Below the piechart!
             </div>
 		);
 	}

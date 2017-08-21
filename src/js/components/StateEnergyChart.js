@@ -60,6 +60,7 @@ export default class StateEnergyChart extends React.Component {
     }
 
 	render() {
+        console.log('in state energy hart')
         const legendText = [{value: `Energy production breakdown for ${this.state.stateName}`, type: 'line', id: 'ID01' }];
 		return (
             <div>

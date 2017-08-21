@@ -3,7 +3,7 @@ import React from "react";
 import Header from '../components/Header.js';
 import SideNav from '../components/SideNav.js';
 import StateEnergyChart from '../components/StateEnergyChart.js';
-import TestPie from '../components/TestPie.js';
+import StateEnergyPieChart from '../components/StateEnergyPieChart.js';
 
 
 const energyTypes = ['coal', 'geothermal', 'hydroElectric', 'naturalGas', 'nuclear', 'petroleum', 'solar', 'wind']
@@ -132,7 +132,7 @@ export default class StateEnergyProfile extends React.Component {
 						<StateEnergyChart {...this.props} />
 						<p>This is a breakdown of state produced energy</p>
 						<ul>{this.state.sortedEnergy}</ul>
-						<TestPie />
+						<StateEnergyPieChart />
 
 					</div>
 					<div className="col-sm-2 sidenav">
