@@ -40,7 +40,7 @@ const sumQuestionSet = questionSet => {
 
 const sumTransportantSet = answers => {
     const carMpg = answers['Whats the MPG of you car?'].value;
-    const dailyMiles = answers['How many miles do you drive for work, school, and errands each week?'].value;
+    const dailyMiles = answers['On average, how many miles do you drive for work, school, and errands each day?'].value;
     const doesCarpool = answers['Do you carpool?'] ? answers['Do you carpool?'].value : false;
     const numOfRoadTrips = answers['Within the last year, how many times did you take a roadtrip or drive for an extended distance?'].value;
     const roadTripMiles = answers['How many far is your average roadtrip?'].value;

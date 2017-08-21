@@ -1,6 +1,7 @@
 import React from "react";
 import Question from './Question';
 import BooleanQuestion from './BooleanQuestion';
+import DropDownQuestion from './DropDownQuestion';
 
 // const formQuestions = [
 //     {
@@ -45,18 +46,23 @@ export default class TransportationForm extends React.Component {
 	    super();
         this.updateQuestion = this.updateQuestion.bind(this)
         this.updateQuestionBool = this.updateQuestionBool.bind(this)
+        this.updateData = this.updateData.bind(this)
 	}
 
     updateQuestion(e) {
         let id = e.target.id;
 		let value = document.getElementById(id).value;
-        value = parseInt(value) >= 0 ? value : 0; // Only counts numbers
+        //value = parseInt(value) >= 0 ? value : 0; // Only counts numbers
+        
         this.props.updateData('transportation', id, value)
     }
     updateQuestionBool(e) {
         let id = e.target.id;
 		let value = document.getElementById(id).checked;
         this.props.updateData('transportation', id, value)
+    }
+    updateData(question, value) {
+        this.props.updateData('transportation', question, value)
     }
 
 	render() {
@@ -76,6 +82,8 @@ export default class TransportationForm extends React.Component {
                 if(question.useBool) {
                     let checked = value ? 'checked' : 'unchecked';
                     return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} textWidth={textWidth}  />)
+                } else if (question.selectOptions) {
+                    return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestion} textWidth={textWidth} selected={value} updateData={this.updateData} />)
                 }
                 return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} textWidth={textWidth} />);
             });

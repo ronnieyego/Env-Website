@@ -1,7 +1,6 @@
 import React from "react";
 import BooleanQuestion from './BooleanQuestion';
 
-
 export default class BooleanForm extends React.Component {
 
     constructor(props) {

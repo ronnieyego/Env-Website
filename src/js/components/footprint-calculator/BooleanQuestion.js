@@ -1,12 +1,5 @@
 import React from "react";
 
-// props: {
-//    questionName 
-//    onChange,
-//    value
-//    questionGroup
-// }
-
 export default class Question extends React.Component {
 
     constructor(props) {

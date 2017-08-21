@@ -116,6 +116,7 @@ export default class FootprintForm extends React.Component {
     }
 
 	render() {
+    console.log('Footprint form answers', this.state.data);
       if(!this.state.applianceHour) {
         return (<div>{'Loading Data'}</div>);
       }
