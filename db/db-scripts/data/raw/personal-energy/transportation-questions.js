@@ -8,7 +8,7 @@ const transportationQuestions = [
         "use-type": "transportation"
     },
     {
-        name: 'How many miles do you drive for work, school, and errands each week?',
+        name: 'On average, how many miles do you drive for work, school, and errands each day?',
         "use-type": "transportation"
     },
     {

@@ -23,7 +23,8 @@ export default class FootprintForm extends React.Component {
     };
     this.state = {
         data,
-        step: 1
+        step: 1,
+        maxSteps: 4
     }
 	}
   componentDidMount() {
@@ -137,7 +138,7 @@ export default class FootprintForm extends React.Component {
         };
         let form;
         let leftButton = this.state.step === 1 ? <div /> : (<button type="button" className="left-btn" onClick={this.decreaseStep.bind(this)}>Back</button>);
-        let rightButton = this.state.step === 4 ? (<button type="button" className="right-btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>) : (<button type="button" className="right-btn" onClick={this.increaseStep.bind(this)}>Next</button>);
+        let rightButton = this.state.step === this.state.maxSteps ? (<button type="button" className="right-btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>) : (<button type="button" className="right-btn" onClick={this.increaseStep.bind(this)}>Next</button>);
         switch(this.state.step) {
           case 1: 
             form = (<ApplianceForm questions={this.state.applianceHour} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
@@ -162,6 +163,7 @@ export default class FootprintForm extends React.Component {
           {form}
           <div style={buttonStyle}>
             {leftButton}
+            Step {this.state.step} of {this.state.maxSteps}
             {rightButton}
           </div>
 			</div>

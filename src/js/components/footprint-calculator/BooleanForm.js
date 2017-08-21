@@ -36,9 +36,9 @@ export default class BooleanForm extends React.Component {
 
 		return (
             <div>
-            <h3 style={subCategory}>Daily use Appliances</h3>
+            <h3 style={subCategory}>Appliance Ownership</h3>
                 <div style={questionsStyle}>
-                    How many hours a day do you use the following?
+                    Which of the following do you own?
                     <ul>
                         {questions}
                     </ul>
