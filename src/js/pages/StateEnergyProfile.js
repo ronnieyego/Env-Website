@@ -5,7 +5,6 @@ import SideNav from '../components/SideNav.js';
 import StateEnergyChart from '../components/StateEnergyChart.js';
 import StateEnergyPieChart from '../components/StateEnergyPieChart.js';
 
-
 const energyTypes = ['coal', 'geothermal', 'hydroElectric', 'naturalGas', 'nuclear', 'petroleum', 'solar', 'wind']
 const mapEnergyTypes = {
 	coal: 'Coal',
@@ -22,11 +21,7 @@ const listItems = numbers.map((number) =>
   <li>{number}</li>
 );
 
- 
-
 export default class StateEnergyProfile extends React.Component {
-	
-
 	constructor(props) {
 		super();
 		let stateName, stateId, averageCO2PerKwh, totalEnergyProduced, stateRankCo2, stateRankEnergyProduced;
@@ -115,15 +110,12 @@ export default class StateEnergyProfile extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div className="container-fluid text-center" >
 				<Header />
 				<div className="transparent-image">
 				  <img src='../public/background.jpg' />
-				  <div className="row content">
-				  <SideNav />
-
+				  <div className="row content" style={{marginLeft: '50px'}}>
 					<div className="col-sm-8 text-left" display="inline-block">
 						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>State Energy Profile</h1>
 						<p>States generate their electricity in different ways depending on different economic and social factors.  Generally states in the northwest primarily use hydroelectric and natural gas while appalachian states tend to use more coal.</p>
@@ -133,7 +125,6 @@ export default class StateEnergyProfile extends React.Component {
 						<p>This is a breakdown of state produced energy</p>
 						<ul>{this.state.sortedEnergy}</ul>
 						<StateEnergyPieChart />
-
 					</div>
 					<div className="col-sm-2 sidenav">
 						<div className="well">

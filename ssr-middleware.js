@@ -3,14 +3,17 @@ import ReactDOM from "react-dom/server";
 import Q from 'q';
 import _ from 'lodash';
 
-//Pages
+// Pages
 import Layout from './src/js/components/Layout';
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
 
+// Database
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
+
+// Utils
 import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 
@@ -39,7 +42,7 @@ const renderFullPage = (markup, data, page) => {
             <head>
                 <meta charset='utf-8'>
                 <title>Footprint Finder</title>
-                 <link rel="shortcut icon" type="image/x-icon" href="/public/favicon.ico" />
+                <link rel="shortcut icon" type="image/png" href="/public/footprint.png">
                  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
                  <link type="text/css" href="/public/widget.css" rel="stylesheet"/>
                  <script>

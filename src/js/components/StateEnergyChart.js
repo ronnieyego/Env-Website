@@ -3,7 +3,6 @@ import { Radar, RadarChart, PolarGrid, Legend,
          PolarAngleAxis, PolarRadiusAxis } from  'recharts';
 
 export default class StateEnergyChart extends React.Component {
-
     constructor(props) {
 	    super();
         let stateName;
@@ -31,7 +30,6 @@ export default class StateEnergyChart extends React.Component {
 
         if(typeof window !== 'undefined') {
               //this.state.totalEnergyConsumption = window.__STATE__.energyProduction.totalEnergyConsumption;
-              
               this.state.stateName = window.__STATE__.misc.stateFullName;
 
               //Absolute Numbers
@@ -49,7 +47,6 @@ export default class StateEnergyChart extends React.Component {
               this.state.pNuclear = window.__STATE__.energyProduction.pNuclear;
               this.state.pRenewables = window.__STATE__.energyProduction.pSolar + window.__STATE__.energyProduction.pHydroelectric + window.__STATE__.energyProduction.pWind + window.__STATE__.energyProduction.pGeothermal;
 
-
               this.state.graphData = [
                     { source: 'Coal', amount: this.state.pCoal },
                     { source: 'Renewables', amount: this.state.pRenewables},
@@ -60,7 +57,7 @@ export default class StateEnergyChart extends React.Component {
     }
 
 	render() {
-        console.log('in state energy hart')
+        console.log('in state energy chart')
         const legendText = [{value: `Energy production breakdown for ${this.state.stateName}`, type: 'line', id: 'ID01' }];
 		return (
             <div>
@@ -71,7 +68,7 @@ export default class StateEnergyChart extends React.Component {
                     <PolarRadiusAxis/>
                     <Legend align='center' verticalAlign='top' payload={legendText}/>
                 </RadarChart>
-                <p>Data for this chart from the EIA 2015</p>
+                <p>Data for this chart comes from the <a href="https://www.eia.gov/electricity/data/state/" target="_blank">EIA</a></p>
             </div>
 		);
 	}

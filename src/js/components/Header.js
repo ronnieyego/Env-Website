@@ -1,6 +1,5 @@
 import React from "react";
 
-
 export default class Header extends React.Component {
 
 	render() {
@@ -13,7 +12,7 @@ export default class Header extends React.Component {
 			        <span className="icon-bar"></span>
 			        <span className="icon-bar"></span>
 			      </button>
-			      <a className="navbar-brand" href="#">Logo</a>
+			      <img className="navbar-brand" src="/public/footprint.png"/>
 			    </div>
 			    <div className="collapse navbar-collapse" id="myNavbar">
 			      <ul className="nav navbar-nav">
