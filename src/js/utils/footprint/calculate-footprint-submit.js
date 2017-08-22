@@ -16,9 +16,9 @@ module.exports = function(data, metaData) {
         transportationData: {}
     };
     
-    compiledFootprint.applianceDaily = sumQuestionSet(data.applianceHour);
-    compiledFootprint.applianceMonthly = sumQuestionSet(data.boolean);
-    compiledFootprint.appliance = parseInt(compiledFootprint.applianceDaily) +  parseInt(compiledFootprint.applianceMonthly);
+    const applinaceQuestionSet = Object.assign(data.applianceHour,data.boolean);
+    compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
+    compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
     compiledFootprint.foodDaily = sumQuestionSet(data.foodQuestions);
     compiledFootprint.food = parseInt(compiledFootprint.foodDaily) * 28;
     const transportationResults = sumTransportantSet(data.transportation);
@@ -29,26 +29,44 @@ module.exports = function(data, metaData) {
     compiledFootprint.monthlyCar = transportationResults.monthlyCar;
     compiledFootprint.monthlyFly = transportationResults.monthlyFly;
 
-    compiledFootprint.totalEnergy = (parseInt(compiledFootprint.applianceDaily) + parseInt(compiledFootprint.applianceMonthly) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation)).toLocaleString();
+    compiledFootprint.totalEnergy = (parseInt(compiledFootprint.appliance) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation)).toLocaleString();
 
     return compiledFootprint;
 }
+
+const getAnswerValue = answer => {
+    if(answer.value > 0) { //Int question
+        return answer.kwh * answer.value;
+    } else if (answer.value) { // boolean question
+         return answer.kwh;
+    }
+};
 
 const sumQuestionSet = questionSet => {
     let groupSum = 0;
     Object.keys(questionSet).forEach(key => {
         let answer = questionSet[key];
-        let questionTotal = 0;
-        if(answer.value > 0) { //Int question
-            questionTotal = answer.kwh * answer.value;
-        } else if (answer.value) { // boolean question
-            questionTotal = answer.kwh;
-        }
-        
+        let questionTotal = getAnswerValue(answer);
         groupSum += questionTotal;
     });
     return groupSum.toFixed(1);
 }
+
+const getSubcategories = questionSet => {
+    let res = {};
+    Object.keys(questionSet).forEach(key => {
+        let answer = questionSet[key];
+        const subCategory = answer['sub-grouping'] ? answer['sub-grouping'] : 'other';
+        if(res[subCategory]) {
+            res[subCategory] += getAnswerValue(answer);
+        } else {
+            res[subCategory] = getAnswerValue(answer);
+        }
+    });
+    return res;
+};
+
+
 
 const sumTransportantSet = answers => {
     const results = {};
@@ -78,6 +96,5 @@ const sumTransportantSet = answers => {
     results.monthlyFly = totalMonthlyFly.toFixed(1);
     results.transportation = monthlyEnergyFromTransportation.toFixed(1);
     return results
-    
 }
 

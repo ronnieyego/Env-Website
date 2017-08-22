@@ -22,12 +22,18 @@ export default class ResultsPieChart extends React.Component {
 
 	render() {
         const graphData = this.props.graphData;
+        graphData.sort((a,b) => {
+            return a.amount < b.amount;
+        });
         const categoryList = graphData.map(data => {
-            return <li>{`${data.source}: ${data.amount.toLocaleString()} kwhs`}</li>;
+            const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
+            return <li>{`${name}: ${data.amount.toLocaleString()} kwhs`}</li>;
         });
         const legendPayload = graphData.map((data, index) => { 
-            return { id: data.source, value: data.source, type: 'circle', color: COLORS[index % COLORS.length] }
+            const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
+            return { id: data.source, value: name, type: 'circle', color: COLORS[index % COLORS.length] }
         });
+
 
         const styles = {
             display: 'flex',

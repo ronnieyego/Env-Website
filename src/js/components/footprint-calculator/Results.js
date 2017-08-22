@@ -44,20 +44,29 @@ export default class Results extends React.Component {
         })
         
         // Transportation Summary
-        const transportationCategoryBreakdown = [
+        const transportationBreakdown = [
             {source: 'Daily Use', amount: parseInt(res.monthlyCar)},
             {source: 'Roadtrips', amount: parseInt(res.monthlyRoadTrip)},
             {source: 'Flying', amount: parseInt(res.monthlyFly)}
         ];
+
+        
+        const appliancekeys = Object.keys(res.applianceSubCategories);
+        const applianceBreakdown = appliancekeys.map(key => {
+            return {source: key, amount: res.applianceSubCategories[key]}
+        });
         
 		return (
             <div style={containerStyle}>
                 <h1>You use <b>{monthlyUse} kwhs</b> each month.</h1>
                 <div id="top-level-sumamry">
-                        <ResultsPieChart graphData={categoryBreakDownData} title={'Monthly Energy Breakdown'} /> 
+                    <ResultsPieChart graphData={categoryBreakDownData} title={'Monthly Energy Breakdown'} /> 
                 </div>
                 <div id="transportation-summary">
-                     <ResultsPieChart graphData={transportationCategoryBreakdown} title={'Transportation breakdown'} /> 
+                    <ResultsPieChart graphData={transportationBreakdown} title={'Transportation Breakdown'} /> 
+                </div>
+                <div id="appliance-summary">
+                    <ResultsPieChart graphData={applianceBreakdown} title={'Appliance Breakdown'} /> 
                 </div>
                 <button onClick={this.props.backToForm} >Update your answers</button>
             </div>
