@@ -12,12 +12,24 @@ module.exports = function(data, metaData) {
     //     boolean: {}
     //     ...
     // }
-    const compiledFootprint = {};
+    const compiledFootprint = {
+        transportationData: {}
+    };
     
     compiledFootprint.applianceDaily = sumQuestionSet(data.applianceHour);
     compiledFootprint.applianceMonthly = sumQuestionSet(data.boolean);
-    compiledFootprint.food = sumQuestionSet(data.foodQuestions);
-    compiledFootprint.transportation = sumTransportantSet(data.transportation);
+    compiledFootprint.appliance = parseInt(compiledFootprint.applianceDaily) +  parseInt(compiledFootprint.applianceMonthly);
+    compiledFootprint.foodDaily = sumQuestionSet(data.foodQuestions);
+    compiledFootprint.food = parseInt(compiledFootprint.foodDaily) * 28;
+    const transportationResults = sumTransportantSet(data.transportation);
+    compiledFootprint.transportation = transportationResults.transportation;
+
+    compiledFootprint.monthlyRoadTrip = transportationResults.monthlyRoadTrip;
+    compiledFootprint.monthlyCommute = transportationResults.monthlyCommute;
+    compiledFootprint.monthlyCar = transportationResults.monthlyCar;
+    compiledFootprint.monthlyFly = transportationResults.monthlyFly;
+
+    compiledFootprint.totalEnergy = (parseInt(compiledFootprint.applianceDaily) + parseInt(compiledFootprint.applianceMonthly) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation)).toLocaleString();
 
     return compiledFootprint;
 }
@@ -39,6 +51,7 @@ const sumQuestionSet = questionSet => {
 }
 
 const sumTransportantSet = answers => {
+    const results = {};
     const carMpg = answers['Whats the MPG of you car?'].value;
     const dailyMiles = answers['On average, how many miles do you drive for work, school, and errands each day?'].value;
     const doesCarpool = answers['Do you carpool?'] ? answers['Do you carpool?'].value : false;
@@ -53,11 +66,19 @@ const sumTransportantSet = answers => {
     const roadTripMonthGas =  (numOfRoadTrips * roadTripMiles / (carMpg * roadTripCarpool))/12; // 12 months/year
     const montlyFlyGas = flyMiles/12;
 
+    const totalCommuteCar = monthlyGas * gasKwh;
+    const totalRoadTripCar = roadTripMonthGas * gasKwh;
+    const totalMonthlyCar2 = totalCommuteCar + totalRoadTripCar;
     const totalMonthlyCar = (monthlyGas + roadTripMonthGas) * gasKwh;
     const totalMonthlyFly = montlyFlyGas * jetFuelKwh;
     const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly;
 
-    return monthlyEnergyFromTransportation.toFixed(1);
+    results.monthlyRoadTrip = totalRoadTripCar.toFixed(1);
+    results.monthlyCommute = totalCommuteCar.toFixed(1);
+    results.monthlyCar = totalMonthlyCar.toFixed(1);
+    results.monthlyFly = totalMonthlyFly.toFixed(1);
+    results.transportation = monthlyEnergyFromTransportation.toFixed(1);
+    return results
     
 }
 

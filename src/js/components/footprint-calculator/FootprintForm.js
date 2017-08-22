@@ -100,6 +100,7 @@ export default class FootprintForm extends React.Component {
         if (valid) {
           let footprintResults = calculateFootprintSubmit(this.state.data);
           console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+          this.props.displayResults(this.state.data,footprintResults);
         } else {
           alert('Please fill out all of the fields');
         }
