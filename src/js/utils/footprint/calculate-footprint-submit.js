@@ -68,8 +68,7 @@ const sumTransportantSet = answers => {
 
     const totalCommuteCar = monthlyGas * gasKwh;
     const totalRoadTripCar = roadTripMonthGas * gasKwh;
-    const totalMonthlyCar2 = totalCommuteCar + totalRoadTripCar;
-    const totalMonthlyCar = (monthlyGas + roadTripMonthGas) * gasKwh;
+    const totalMonthlyCar = totalCommuteCar + totalRoadTripCar;
     const totalMonthlyFly = montlyFlyGas * jetFuelKwh;
     const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly;
 

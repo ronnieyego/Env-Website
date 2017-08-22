@@ -10,19 +10,13 @@ import TransportationForm from './TransportationForm';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 
 export default class FootprintForm extends React.Component {
-	constructor() {
+	constructor(props) {
 		super();
     this.getQuestionValue = this.getQuestionValue.bind(this)
     this.updateData = this.updateData.bind(this)
     
-    let data = {
-        applianceHour: {},
-        boolean: {},
-        foodQuestions: {},
-        transportation: {}
-    };
     this.state = {
-        data,
+        data: props.data,
         step: 1,
         maxSteps: 4
     }

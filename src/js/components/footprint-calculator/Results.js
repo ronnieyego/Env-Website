@@ -1,5 +1,5 @@
 import React from "react";
-import { PieChart, Pie, Legend, Sector, Cell } from  'recharts';
+import ResultsPieChart from './ResultsPieChart';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
 
@@ -25,10 +25,15 @@ export default class Results extends React.Component {
 	render() {
         console.log('results props', this.props);
         const containerStyle = {
-            margin: 'auto'
+            margin: 'auto',
+            marginLeft: '25px',
+            textAlign: 'center'
         };
 
         const res = this.props.results;
+
+        // Top level summary
+        const monthlyUse = res.totalEnergy;
         const categoryBreakDownData = [
             {source: 'Appliances', amount: parseInt(res.appliance)},
             {source: 'Food', amount: parseInt(res.food)},
@@ -37,28 +42,24 @@ export default class Results extends React.Component {
         const categoryList = categoryBreakDownData.map(data => {
             return <li>{`${data.source}: ${data.amount.toLocaleString()} kwhs`}</li>;
         })
-        const legendPayload = categoryBreakDownData.map((data, index) => { 
-            return { id: data.source, value: data.source, type: 'circle', color: COLORS[index % COLORS.length] }
-        });
         
-        const monthlyUse = res.totalEnergy;
+        // Transportation Summary
+        const transportationCategoryBreakdown = [
+            {source: 'Daily Use', amount: parseInt(res.monthlyCar)},
+            {source: 'Roadtrips', amount: parseInt(res.monthlyRoadTrip)},
+            {source: 'Flying', amount: parseInt(res.monthlyFly)}
+        ];
+        
 		return (
             <div style={containerStyle}>
-                <h1>You use {monthlyUse}kwhs each month.</h1>
-                <div><b>Monthly use by category</b>
-                    <ul>
-                        {categoryList}
-                    </ul>
+                <h1>You use <b>{monthlyUse} kwhs</b> each month.</h1>
+                <div id="top-level-sumamry">
+                        <ResultsPieChart graphData={categoryBreakDownData} title={'Monthly Energy Breakdown'} /> 
                 </div>
-                <div>
-                    <PieChart width={730} height={300}>
-                        <Pie legendType='circle' dataKey='amount' data={categoryBreakDownData} cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label={renderCustomizedLabel}>
-                            {categoryBreakDownData.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} key={index}/>)}
-                        </Pie>
-                        <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} payload={legendPayload} />
-                        
-                    </PieChart>
+                <div id="transportation-summary">
+                     <ResultsPieChart graphData={transportationCategoryBreakdown} title={'Transportation breakdown'} /> 
                 </div>
+                <button onClick={this.props.backToForm} >Update your answers</button>
             </div>
 		);
 	}
