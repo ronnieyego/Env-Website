@@ -2,6 +2,7 @@
 const daysInMonth = 30;
 const gasKwh = 34.4;
 const jetFuelKwh = 37.12;
+const mpgPerPersonPlane = 84.9;
 
 
 module.exports = function(data, metaData) {
@@ -82,7 +83,7 @@ const sumTransportantSet = answers => {
     const monthlyGas = dailyMiles * 30/(carMpg * carpool);
     const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;
     const roadTripMonthGas =  (numOfRoadTrips * roadTripMiles / (carMpg * roadTripCarpool))/12; // 12 months/year
-    const montlyFlyGas = flyMiles/12;
+    const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
 
     const totalCommuteCar = monthlyGas * gasKwh;
     const totalRoadTripCar = roadTripMonthGas * gasKwh;
