@@ -50,10 +50,16 @@ export default class Results extends React.Component {
             {source: 'Flying', amount: parseInt(res.monthlyFly)}
         ];
 
-        
+        // Appliance Summary
         const appliancekeys = Object.keys(res.applianceSubCategories);
         const applianceBreakdown = appliancekeys.map(key => {
             return {source: key, amount: res.applianceSubCategories[key]}
+        });
+
+        // Food Summary
+        const foodkeys = Object.keys(res.foodSubCategories);
+        const foodBreakdown = foodkeys.map(key => {
+            return {source: key, amount: res.foodSubCategories[key]}
         });
         
 		return (
@@ -68,7 +74,20 @@ export default class Results extends React.Component {
                 <div id="appliance-summary">
                     <ResultsPieChart graphData={applianceBreakdown} title={'Appliance Breakdown'} /> 
                 </div>
-                <button onClick={this.props.backToForm} >Update your answers</button>
+                <div id="food-summary">
+                    <ResultsPieChart graphData={foodBreakdown} title={'Food Breakdown'} /> 
+                </div>
+                <button onClick={this.props.backToForm} >Change your answers</button>
+                <div style={{textAlign: 'left'}}>This footprint is incomplete. Future updadates will include
+                    <ul>
+                        <li>Embodied energy (the energy cost of making your house, car and stuff)</li>
+                        <li>Energy use from work</li>
+                        <li>Energy use from the public sector and other shared expenditures</li>
+                        <li>Water and carbon footprint</li>
+                        <li>Things that can affect your footprint (i.e what happens if you go vegan)</li>
+                        <li>What you can do to reduce your footprint</li>
+                    </ul>
+                </div>
             </div>
 		);
 	}

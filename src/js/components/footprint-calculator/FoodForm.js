@@ -37,7 +37,8 @@ export default class FoodForm extends React.Component {
             <div>
             <h3 style={subCategory}>Food</h3>
                 <div style={questionsStyle}>
-                    How many pounds of each food do you eat each day?
+                    How many pounds of each food do you eat each day?  
+                    <br />The average person eats 3-5 pounds per day.
                     <ul>
                         {questions}
                     </ul>

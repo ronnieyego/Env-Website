@@ -35,7 +35,7 @@ app.use((req, res, next) => {
     next(); //Next is needed in order to get past the middleware
 });
 
-app.get('/', usEnergyMapMiddleware); // Should build a homepage :)
+app.get('/', footprintMiddleware); 
 
 app.get('/home', (req, res) => {
     res.sendFile(path.join(__dirname+'/public/homepage.html'));

@@ -19,8 +19,8 @@ module.exports = function(data, metaData) {
     const applinaceQuestionSet = Object.assign(data.applianceHour,data.boolean);
     compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
     compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
-    compiledFootprint.foodDaily = sumQuestionSet(data.foodQuestions);
-    compiledFootprint.food = parseInt(compiledFootprint.foodDaily) * 28;
+    compiledFootprint.food = parseInt(sumQuestionSet(data.foodQuestions)) * 28;
+    compiledFootprint.foodSubCategories = getSubcategories(data.foodQuestions);
     const transportationResults = sumTransportantSet(data.transportation);
     compiledFootprint.transportation = transportationResults.transportation;
 
