@@ -37,8 +37,8 @@ module.exports = function(data, metaData) {
 
 const getAnswerValue = answer => {
     if(answer.value > 0) { //Int question
-        return answer.kwh * answer.value;
-    } else if (answer.value) { // boolean question
+        return answer.kwh * parseFloat(answer.value).toFixed(2);
+    } else if (answer.value === true) { // boolean question
          return answer.kwh;
     }
 };
@@ -80,7 +80,7 @@ const sumTransportantSet = answers => {
     const flyMiles = answers['Within the last year, how many miles did you fly?'].value;
 
     const carpool = doesCarpool ? 2 : 1;
-    const monthlyGas = dailyMiles * 30/(carMpg * carpool);
+    const monthlyGas = dailyMiles * 30/(carMpg * carpool); // unit is gallons
     const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;
     const roadTripMonthGas =  (numOfRoadTrips * roadTripMiles / (carMpg * roadTripCarpool))/12; // 12 months/year
     const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
