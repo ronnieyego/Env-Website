@@ -9,10 +9,9 @@ describe('Cost Calculator', () => {
     it('should calculate kwhs used', done => {
         let result = costCalc(CALC_PAYLOAD);
 
-        expect(result.applianceDaily).toEqual(30.5);
-        expect(result.applianceMonthly).toEqual(156.3);
-        expect(result.food).toEqual(58.2);
-        expect(result.transportation).toEqual(6751.0);
+        expect(result.appliance).toEqual(1049);
+        expect(result.food).toEqual(1680);
+        expect(result.transportation).toEqual(22746.6);
         done();
     });
 });

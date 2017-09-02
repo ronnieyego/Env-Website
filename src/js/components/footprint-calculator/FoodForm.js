@@ -9,11 +9,8 @@ export default class FoodForm extends React.Component {
         this.updateQuestion = this.updateQuestion.bind(this)
 	}
 
-    updateQuestion(e) {
-        let id = e.target.id;
-		let value = document.getElementById(id).value;
-        value = parseInt(value) >= 0 ? value : 0; // Only counts numbers
-        this.props.updateData('foodQuestions', id, value)
+    updateQuestion(questionId, value) {
+        this.props.updateData('foodQuestions', questionId, value)
     }
 
 	render() {

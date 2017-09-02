@@ -79,7 +79,7 @@ export default class FootprintForm extends React.Component {
         .map(question => question.name);
       let missingQuestions = [];
       transportationQuestions.forEach(question => {
-        if(!transportData[question]) {
+        if(!transportData[question] || transportData[question].value === '') {
           missingQuestions.push(question);
         }
       });

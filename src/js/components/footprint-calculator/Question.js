@@ -18,8 +18,9 @@ export default class Question extends React.Component {
     updateQuestion(e) {
         let id = e.target.id;
         let value = document.getElementById(id).value;
-        value = parseInt(value) >= 0 ? value : 0; // Only counts numbers
-        this.props.updateQuestion(e);
+        value = value.replace(/[^\d.-]/g, ''); // Only keep numbers and .
+        console.log(value, '   ', id);
+        this.props.updateQuestion(id, value);
     }
 
 	render() {

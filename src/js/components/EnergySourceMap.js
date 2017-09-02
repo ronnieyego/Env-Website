@@ -16,6 +16,7 @@ const height = 700;
 
 // Keep these names as they map to the fields in Map json.
 const sources = ['coal', 'hydroelectric', 'wind', 'naturalGas', 'petroleum', 'solar', 'nuclear'];
+const sourceButtonBorders = ['red', 'blue', 'lightgrey', 'orange', 'black', 'yellow', 'green'];
 const utilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
 
 export default class EnergySourceMap extends React.Component {
@@ -126,13 +127,29 @@ export default class EnergySourceMap extends React.Component {
 
     getEnergyFilterOptions(energySourceArray, currentSources) {
         let sources = energySourceArray.sort();
-        let list = sources.map(source => { return <li><input type="checkbox" checked={currentSources.indexOf(source) !== -1} id={source} name="source" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.updateSources.bind(this)} />  {getSourceDisplayname(source)}</li> });
+        let list = sources.map((source, index) => {
+            const color =  sourceButtonBorders[index];
+            const buttonStyle = {
+                marginLeft: '10px',
+                marginRight: '10px', 
+                marginTop: '18px', 
+                outline: `4px dashed ${color}`
+            };
+            return <li><input type="checkbox" checked={currentSources.indexOf(source) !== -1} id={source} name="source" value={source} style={buttonStyle} key={source} onClick={this.updateSources.bind(this)} />  {getSourceDisplayname(source)}</li> 
+        });
         return list;
     }
 
     getUtilityFilterOptions(utilitySourceArray, currentUtilities) {
         let sources = utilitySourceArray.sort();
-        let list = sources.map(source => { return <li><input type="checkbox" checked={currentUtilities.indexOf(source) !== -1} id={source} name="utility" value={source} style={{marginLeft: '10px'}} key={source} onClick={this.updateUtilities.bind(this)} />  {getProducerDisplayname(source)}</li> });
+        let list = sources.map(source => { 
+            const buttonStyle = {
+                marginLeft: '10px',
+                marginRight: '10px', 
+                marginTop: '10px', 
+            };
+            return <li><input type="checkbox" checked={currentUtilities.indexOf(source) !== -1} id={source} name="utility" value={source} style={buttonStyle} key={source} onClick={this.updateUtilities.bind(this)} />  {getProducerDisplayname(source)}</li> 
+        });
         return list;
     }
 

@@ -3,57 +3,18 @@ import Question from './Question';
 import BooleanQuestion from './BooleanQuestion';
 import DropDownQuestion from './DropDownQuestion';
 
-// const formQuestions = [
-//     {
-//         name: 'Whats the MPG of you car?',
-//         "use-type": "transportation"
-//     },
-//     {
-//         name: 'How many miles do you drive for work/school/errands each week?',
-//         "use-type": "transportation"
-//     },
-//     {
-//         name: 'Do you carpool?',
-//         "use-type": "transportation",
-//         useBool: true
-//     },
-//     {
-//         name: 'How many miles do you bus for work/school/errands each week?',
-//         "use-type": "transportation"
-//     },
-//     {
-//         name: 'Within the last year, how many times did you take a roadtrip?',
-//         "use-type": "transportation"
-//     },
-//     {
-//         name: 'Do you usually carpool for roadtrips?',
-//         "use-type": "transportation",
-//         useBool: true
-//     },
-//     {
-//         name: 'How many far is your average roadtrip?',
-//         "use-type": "transportation"
-//     },
-//     {
-//         name: 'Within the last year, how many miles did you fly?',
-//         "use-type": "transportation"
-//     }
-// ];
-
 export default class TransportationForm extends React.Component {
 
     constructor(props) {
 	    super();
-        this.updateQuestion = this.updateQuestion.bind(this)
+        this.updateQuestionDropdown = this.updateQuestionDropdown.bind(this)
         this.updateQuestionBool = this.updateQuestionBool.bind(this)
         this.updateData = this.updateData.bind(this)
 	}
 
-    updateQuestion(e) {
+    updateQuestionDropdown(e) {
         let id = e.target.id;
 		let value = document.getElementById(id).value;
-        //value = parseInt(value) >= 0 ? value : 0; // Only counts numbers
-        
         this.props.updateData('transportation', id, value)
     }
     updateQuestionBool(e) {
@@ -83,9 +44,9 @@ export default class TransportationForm extends React.Component {
                     let checked = value ? 'checked' : 'unchecked';
                     return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} textWidth={textWidth}  />)
                 } else if (question.selectOptions) {
-                    return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestion} textWidth={textWidth} selected={value} updateData={this.updateData} />)
+                    return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestionDropdown} textWidth={textWidth} selected={value} updateData={this.updateData} />)
                 }
-                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} textWidth={textWidth} />);
+                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateData} value={value} textWidth={textWidth} />);
             });
 		return (
             <div>

@@ -132,7 +132,11 @@ circle:hover {
   background-color: lightgoldenrodyellow;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
+      transform:scale(1.5, 1.5);
+    }
+
+/*input[type='checkbox'] {
     -webkit-appearance:none;
     width:20px;
     height:20px;
@@ -143,4 +147,4 @@ input[type='checkbox'] {
 input[type='checkbox']:checked {
     background: #abd;
     content: '✔';
-}
+}*/

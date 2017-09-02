@@ -6,13 +6,7 @@ const mpgPerPersonPlane = 84.9;
 
 
 module.exports = function(data, metaData) {
-    // Calculate hourly
-    // expected data structure
-    // data: {
-    //     applianceHour: {},
-    //     boolean: {}
-    //     ...
-    // }
+
     const compiledFootprint = {
         transportationData: {}
     };
@@ -36,11 +30,23 @@ module.exports = function(data, metaData) {
 }
 
 const getAnswerValue = answer => {
-    if(answer.value > 0) { //Int question
-        return answer.kwh * parseFloat(answer.value).toFixed(2);
-    } else if (answer.value === true) { // boolean question
-         return answer.kwh;
+    if(answer.value === ''){
+        return 0;
     }
+    if(typeof answer.value === 'boolean') {
+        return answer.kwh;
+    }
+    answer.value = answer.value.trim();
+    answer.value = answer.value.replace(' ', '');
+    answer.value = parseFloat(answer.value).toFixed(2);
+    if(answer.value > 0) { //Int question
+        if(answer.kwh) { // Standard question
+            return answer.kwh * answer.value;
+        }
+        return answer.value;  // Transportation form
+    }
+    console.log('Problem with answer', answer);
+    return 0; // Something went wrong (ie. '' passed in);
 };
 
 const sumQuestionSet = questionSet => {
@@ -71,13 +77,13 @@ const getSubcategories = questionSet => {
 
 const sumTransportantSet = answers => {
     const results = {};
-    const carMpg = answers['Whats the MPG of you car?'].value;
-    const dailyMiles = answers['On average, how many miles do you drive for work, school, and errands each day?'].value;
-    const doesCarpool = answers['Do you carpool?'] ? answers['Do you carpool?'].value : false;
-    const numOfRoadTrips = answers['Within the last year, how many times did you take a roadtrip or drive for an extended distance?'].value;
-    const roadTripMiles = answers['How many far is your average roadtrip?'].value;
-    const doesRoadTripCarpool = answers['Do you usually carpool for roadtrips?'] ? answers['Do you usually carpool for roadtrips?'].value : false;
-    const flyMiles = answers['Within the last year, how many miles did you fly?'].value;
+    const carMpg = getAnswerValue(answers['Whats the MPG of you car?']);
+    const dailyMiles = getAnswerValue(answers['On average, how many miles do you drive for work, school, and errands each day?']);
+    const doesCarpool = answers['Do you carpool?'] ? getAnswerValue(answers['Do you carpool?']) : false;
+    const numOfRoadTrips = getAnswerValue(answers['Within the last year, how many times did you take a roadtrip or drive for an extended distance?']);
+    const roadTripMiles = getAnswerValue(answers['How many far is your average roadtrip?']);
+    const doesRoadTripCarpool = answers['Do you usually carpool for roadtrips?'] ? getAnswerValue(answers['Do you usually carpool for roadtrips?']) : false;
+    const flyMiles = getAnswerValue(answers['Within the last year, how many miles did you fly?']);
 
     const carpool = doesCarpool ? 2 : 1;
     const monthlyGas = dailyMiles * 30/(carMpg * carpool); // unit is gallons
