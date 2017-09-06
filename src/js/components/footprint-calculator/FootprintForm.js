@@ -43,7 +43,7 @@ export default class FootprintForm extends React.Component {
             transportation
           });
           console.log('state has been set');
-        })
+        });
   };
 
     getQuestionFromName(name) {
@@ -94,6 +94,18 @@ export default class FootprintForm extends React.Component {
         if (valid) {
           let footprintResults = calculateFootprintSubmit(this.state.data);
           console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+          fetch('/api/footprint-form/answer', {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              formName: 'footprint-finder',
+              formAnswers: this.state.data,
+              results: footprintResults
+            })
+          });
           this.props.displayResults(this.state.data,footprintResults);
         } else {
           alert('Please fill out all of the fields');

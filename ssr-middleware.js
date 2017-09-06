@@ -12,6 +12,7 @@ import FootprintCalculator from './src/js/pages/FootprintCalculator';
 // Database
 import { mongoose } from './db/mongoose';
 import { States } from './db/models/states';
+import { FormAnswers } from './db/models/form-answers';
 
 // Utils
 import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
@@ -157,7 +158,6 @@ const footprintMiddleware = (req, res) => {
     const appMarkup = ReactDOM.renderToString(<FootprintCalculator />);
     res.status(200).send(renderFullPage(appMarkup, {}, 'footprint'));
 }
-
 
 module.exports = {
     footprintMiddleware,

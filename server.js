@@ -3,15 +3,15 @@
 //  2.  Start Node server.  run this file!
 
 import express from 'express';
-import bodyParser  from 'body-parser';
-import fs  from 'fs';
-import path  from "path";
+import bodyParser from 'body-parser';
+import fs from 'fs';
+import path from "path";
+import moment from 'moment-timezone';
 
 import { footprintMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 
-const {ObjectID} = require('mongodb');
-const { mongoose } = require('./db/mongoose');
-const { Zips } = require('./db/models/zips');
+import { mongoose } from './db/mongoose';
+import { FormAnswers } from './db/models/form-answers';
 
 const port = process.env.PORT || 3000;
 
@@ -57,6 +57,38 @@ app.get('/test', (req, res) => {
     res.send('Reach the test page');
 });
 
+// APIs
+
+app.post('/api/footprint-form/answer', (req, res) => {
+    console.log('request is', req.body);
+
+    // This get current time should be a util
+    const d = new Date();
+    const myTimezone = "America/Los_Angeles";
+    const myDatetimeFormat= "YYYY-MM-DD hh:mm:ss";
+    const myDatetimeString = moment(d).tz(myTimezone).format(myDatetimeFormat);
+
+    const Answer = new FormAnswers({
+        formName: req.body.formName,
+        formAnswers: req.body.formAnswers,
+        results: req.body.results,
+        dateSubmitted: myDatetimeString
+    });
+
+    Answer.save().then(doc => {
+        res.send(doc)
+    }, error => {
+        res.status(400).send(error);
+    });
+});
+
+app.get('/api/footprint-form/answers', (req,res) => {
+    FormAnswers.find().then(answers => {
+        res.send({answers});
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);
