@@ -4,6 +4,8 @@ import Header from '../components/Header.js';
 import FootprintForm from '../components/footprint-calculator/FootprintForm.js';
 import Results from '../components/footprint-calculator/Results.js';
 
+import { getAverage } from '../utils/footprint/get-average-american-footprint';
+
 export default class FootprintCalcPage extends React.Component {
 	
 	constructor(props) {
@@ -18,7 +20,8 @@ export default class FootprintCalcPage extends React.Component {
 				foodQuestions: {},
 				transportation: {}
 			},
-			results: {}
+			results: {},
+			averageAmerican: getAverage()
 		}
 	}
 
@@ -35,7 +38,18 @@ export default class FootprintCalcPage extends React.Component {
 	}
 	
 	render() {
-		let formOrResults = this.state.showResults ? <Results answers={this.state.answers} results={this.state.results} backToForm={this.backToForm} /> : <FootprintForm  displayResults={this.displayResults} data={this.state.answers}/>;
+		let formOrResults = this.state.showResults ? 
+			<Results 
+				answers={this.state.answers} 
+				results={this.state.results} 
+				backToForm={this.backToForm} 
+				averageAmerican={this.state.averageAmerican} 
+			/> 
+			: 
+			<FootprintForm  
+			displayResults={this.displayResults} 
+			data={this.state.answers}
+			/>;
 		return (
 			<div className="container-fluid text-center">
 					<Header />

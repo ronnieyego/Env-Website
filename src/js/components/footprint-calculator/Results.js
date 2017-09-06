@@ -1,6 +1,7 @@
 import React from "react";
 import ResultsPieChart from './ResultsPieChart';
 
+
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
 
 const RADIAN = Math.PI / 180;                    
@@ -42,6 +43,14 @@ export default class Results extends React.Component {
         const categoryList = categoryBreakDownData.map(data => {
             return <li>{`${data.source}: ${data.amount.toLocaleString()} kwhs`}</li>;
         })
+
+        // Average American Summary
+        const avg = this.props.averageAmerican;
+        const averageAmerican = [
+            {source: 'Appliance', amount: parseInt(avg.appliance)},
+            {source: 'Food', amount: parseInt(avg.food)},
+            {source: 'Transportation', amount: parseInt(avg.transportation)}
+        ];
         
         // Transportation Summary
         const transportationBreakdown = [
@@ -76,6 +85,9 @@ export default class Results extends React.Component {
                 </div>
                 <div id="food-summary">
                     <ResultsPieChart graphData={foodBreakdown} title={'Food Breakdown'} /> 
+                </div>
+                <div id="average-american">
+                    <ResultsPieChart graphData={averageAmerican} title={'Average American Energy Breakdown'} /> 
                 </div>
                 <button onClick={this.props.backToForm} >Change your answers</button>
                 <div style={{textAlign: 'left'}}>This footprint is incomplete. Future updadates will include
