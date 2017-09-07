@@ -6,7 +6,7 @@ const CALC_PAYLOAD = {
       "use-type": "hour",
       "sub-grouping": "heating",
       "use-bool": "",
-      "value": ".23.23"
+      "value": "23"
     },
     "house-heat-pump": {
       "name": "house-heat-pump",
@@ -22,7 +22,7 @@ const CALC_PAYLOAD = {
       "use-type": "hour",
       "sub-grouping": "heating",
       "use-bool": "",
-      "value": ""
+      "value": "0.2.23"
     },
     "central-ac": {
       "name": "central-ac",
@@ -30,7 +30,7 @@ const CALC_PAYLOAD = {
       "use-type": "hour",
       "sub-grouping": "cooling",
       "use-bool": "",
-      "value": "0.23.23"
+      "value": ".23"
     },
     "ceiling-fan": {
       "name": "ceiling-fan",
@@ -38,7 +38,7 @@ const CALC_PAYLOAD = {
       "use-type": "hour",
       "sub-grouping": "cooling",
       "use-bool": "",
-      "value": "323"
+      "value": ".23.23"
     },
     "wall-ac": {
       "name": "wall-ac",
@@ -46,7 +46,15 @@ const CALC_PAYLOAD = {
       "use-type": "hour",
       "sub-grouping": "cooling",
       "use-bool": "",
-      "value": "0003"
+      "value": ""
+    },
+    "portable-fan": {
+      "name": "portable-fan",
+      "kwh": 0.03,
+      "use-type": "hour",
+      "sub-grouping": "cooling",
+      "use-bool": "",
+      "value": "1"
     },
     "speakers": {
       "name": "speakers",
@@ -54,7 +62,7 @@ const CALC_PAYLOAD = {
       "use-type": "hour",
       "sub-grouping": "entertainment",
       "use-bool": "",
-      "value": "11"
+      "value": "1"
     },
     "tv": {
       "name": "tv",
@@ -161,18 +169,18 @@ const CALC_PAYLOAD = {
       "value": "1"
     }
   },
-  "boolean": {
-    "energy-efficient-refridgerator": {
-      "name": "energy-efficient-refridgerator",
-      "kwh": 37.5,
+  "household": {
+    "refridgerator": {
+      "name": "refridgerator",
+      "kwh": 125,
       "use-type": "monthly-own",
       "sub-grouping": "cooking",
       "use-bool": "bool",
       "value": true
     },
-    "refridgerator": {
-      "name": "refridgerator",
-      "kwh": 125,
+    "energy-efficient-refridgerator": {
+      "name": "energy-efficient-refridgerator",
+      "kwh": 37.5,
       "use-type": "monthly-own",
       "sub-grouping": "cooking",
       "use-bool": "bool",
@@ -193,80 +201,113 @@ const CALC_PAYLOAD = {
       "sub-grouping": "entertainment",
       "use-bool": "bool",
       "value": true
+    },
+    "clothes-washer-cold": {
+      "name": "clothes-washer-cold",
+      "kwh": 2.3,
+      "use-type": "monthly-use",
+      "sub-grouping": "cleanliness",
+      "use-bool": "",
+      "value": ".23"
+    },
+    "clothes-washer-hot": {
+      "name": "clothes-washer-hot",
+      "kwh": 6.3,
+      "use-type": "monthly-use",
+      "sub-grouping": "cleanliness",
+      "use-bool": "",
+      "value": "0.23"
+    },
+    "clothes-dryer": {
+      "name": "clothes-dryer",
+      "kwh": 3,
+      "use-type": "monthly-use",
+      "sub-grouping": "cleanliness",
+      "use-bool": "",
+      "value": "..23.2.3"
     }
   },
   "foodQuestions": {
     "grain": {
       "name": "grain",
-      "kwh": 0.43,
-      "calories/lb": 390,
-      "use-type": "pound",
+      "kwh": 0.11,
+      "calories/serving": 100,
+      "use-type": "serving",
       "sub-grouping": "produce",
-      "value": "0.23"
+      "subtext": "Serving size: 1 slice of bread",
+      "value": "5"
     },
     "vegetables": {
       "name": "vegetables",
-      "kwh": 0.43,
-      "calories/lb": 390,
-      "use-type": "pound",
+      "kwh": 0.11,
+      "calories/serving": 59,
+      "use-type": "serving",
       "sub-grouping": "produce",
-      "value": ".232.3"
-    },
-    "fruit": {
-      "name": "fruit",
-      "kwh": 1.67,
-      "calories/lb": 1824,
-      "use-type": "pound",
-      "sub-grouping": "produce",
-      "value": "00.2"
+      "subtext": "Serving size: 1 cup of leafy vegetables or 0.5 cups of other veggies",
+      "value": "5"
     },
     "milk": {
       "name": "milk",
-      "kwh": 0.75,
-      "calories/lb": 291,
-      "use-type": "pound",
+      "kwh": 0.38,
+      "calories/serving": 103,
+      "use-type": "serving",
       "sub-grouping": "dairy",
-      "value": "1.2"
+      "subtext": "Serving size: 1 cup",
+      "value": "5"
+    },
+    "fruit": {
+      "name": "fruit",
+      "kwh": 0.32,
+      "calories/serving": 95,
+      "use-type": "serving",
+      "sub-grouping": "produce",
+      "subtext": "Serving size: 1 apple or 0.5 cups",
+      "value": "5"
     },
     "eggs": {
       "name": "eggs",
-      "kwh": 4,
-      "calories/lb": 650,
-      "use-type": "pound",
+      "kwh": 0.55,
+      "calories/serving": 89,
+      "use-type": "serving",
       "sub-grouping": "dairy",
-      "value": "1"
+      "subtext": "Serving size: 1 egg",
+      "value": "5"
     },
     "chicken": {
       "name": "chicken",
-      "kwh": 4.4,
-      "calories/lb": 216,
-      "use-type": "pound",
+      "kwh": 0.83,
+      "calories/serving": 204,
+      "use-type": "serving",
       "sub-grouping": "meat",
-      "value": "1"
+      "subtext": "Serving size: 3 oz",
+      "value": "5"
     },
     "dairy": {
       "name": "dairy",
-      "kwh": 6.75,
-      "calories/lb": 573,
-      "use-type": "pound",
+      "kwh": 0.64,
+      "calories/serving": 170,
+      "use-type": "serving",
       "sub-grouping": "meat",
-      "value": "1"
+      "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese",
+      "value": "5"
     },
     "pork": {
       "name": "pork",
-      "kwh": 12.6,
-      "calories/lb": 480,
-      "use-type": "pound",
+      "kwh": 2.3,
+      "calories/serving": 206,
+      "use-type": "serving",
       "sub-grouping": "meat",
-      "value": "1"
+      "subtext": "Serving size: 3 oz",
+      "value": "5"
     },
     "beef": {
       "name": "beef",
-      "kwh": 31.5,
-      "calories/lb": 1176,
-      "use-type": "pound",
+      "kwh": 5.9,
+      "calories/serving": 213,
+      "use-type": "serving",
       "sub-grouping": "meat",
-      "value": "1"
+      "subtext": "Serving size: 3 oz",
+      "value": "5"
     }
   },
   "transportation": {
@@ -283,12 +324,12 @@ const CALC_PAYLOAD = {
     "Whats the MPG of you car?": {
       "name": "Whats the MPG of you car?",
       "use-type": "transportation",
-      "value": ".23"
+      "value": "0.23"
     },
     "On average, how many miles do you drive for work, school, and errands each day?": {
       "name": "On average, how many miles do you drive for work, school, and errands each day?",
       "use-type": "transportation",
-      "value": "5"
+      "value": ".23"
     },
     "Within the last year, how many times did you take a roadtrip or drive for an extended distance?": {
       "name": "Within the last year, how many times did you take a roadtrip or drive for an extended distance?",
@@ -306,7 +347,7 @@ const CALC_PAYLOAD = {
       "value": "5"
     }
   }
-}
+};
 
 module.exports = {
     CALC_PAYLOAD

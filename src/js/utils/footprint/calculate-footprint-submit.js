@@ -4,13 +4,12 @@ const gasKwh = 34.4;
 const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
 
-
 module.exports = function(data, metaData) {
-
     const compiledFootprint = {
         transportationData: {}
     };
-    
+
+    // console.log('Questions with values', JSON.stringify(data, null, 2));
     const applinaceQuestionSet = Object.assign(data.applianceHour,data.household);
     compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
     compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
