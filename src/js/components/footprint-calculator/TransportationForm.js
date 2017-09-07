@@ -46,7 +46,7 @@ export default class TransportationForm extends React.Component {
                 } else if (question.selectOptions) {
                     return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestionDropdown} textWidth={textWidth} selected={value} updateData={this.updateData} />)
                 }
-                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateData} value={value} textWidth={textWidth} />);
+                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateData} value={value} textWidth={textWidth} subText={question.subtext} />);
             });
 		return (
             <div>

@@ -11,7 +11,7 @@ module.exports = function(data, metaData) {
         transportationData: {}
     };
     
-    const applinaceQuestionSet = Object.assign(data.applianceHour,data.boolean);
+    const applinaceQuestionSet = Object.assign(data.applianceHour,data.household);
     compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
     compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
     compiledFootprint.food = parseInt(sumQuestionSet(data.foodQuestions)) * 28;

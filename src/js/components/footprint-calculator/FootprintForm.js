@@ -3,7 +3,7 @@ import _ from 'lodash';
 
 
 import ApplianceForm from './ApplianceForm';
-import BooleanForm from './BooleanForm';
+import HouseholdForm from './HouseholdForm';
 import FoodForm from './FoodForm';
 import TransportationForm from './TransportationForm';
 
@@ -31,14 +31,14 @@ export default class FootprintForm extends React.Component {
         .then( response => {
           const allQuestions = response.questions;
           const applianceHour = _.filter(allQuestions, function(o) { return o['use-type'] === 'hour'; });
-          const booleanQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'monthly-own'; });
-          const foodQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'pound'; });
+          const houseHoldQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+          const foodQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'serving'; });
           const transportation = _.filter(allQuestions, function(o) { return o['use-type'] === 'transportation'; });
 
           this.setState({
             allQuestions,
             applianceHour,
-            booleanQuestions,
+            houseHoldQuestions,
             foodQuestions,
             transportation
           });
@@ -152,7 +152,7 @@ export default class FootprintForm extends React.Component {
             form = (<ApplianceForm questions={this.state.applianceHour} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
             break;
           case 2:
-            form = (<BooleanForm questions={this.state.booleanQuestions} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
+            form = (<HouseholdForm questions={this.state.houseHoldQuestions} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);
             break;
           case 3:
             form = (<FoodForm questions={this.state.foodQuestions} updateData={this.updateData} getQuestionValue={this.getQuestionValue} />);

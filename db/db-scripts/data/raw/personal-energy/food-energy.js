@@ -13,65 +13,74 @@
 module.exports = [
   {
     "name": "grain",
-    "kwh": 0.43,
-    "calories/lb": 390,
-    "use-type": "pound",
-    "sub-grouping": "produce"
+    "kwh": 0.11,
+    "calories/serving": 100,
+    "use-type": "serving",
+    "sub-grouping": "produce",
+    "subtext": "Serving size: 1 slice of bread"
   },
   {
     "name": "vegetables",
-    "kwh": 0.43,
-    "calories/lb": 390,
-    "use-type": "pound",
-    "sub-grouping": "produce"
+    "kwh": 0.11,
+    "calories/serving": 59,
+    "use-type": "serving",
+    "sub-grouping": "produce",
+    "subtext": "Serving size: 1 cup of leafy vegetables or a 0.5 cups of other veggies"
   },
   {
     "name": "milk",
-    "kwh": 0.75,
-    "calories/lb": 291,
-    "use-type": "pound",
-    "sub-grouping": "dairy"
+    "kwh": 0.38,
+    "calories/serving": 103,
+    "use-type": "serving",
+    "sub-grouping": "dairy",
+    "subtext": "Serving size: 1 cup"
   },
   {
     "name": "fruit",
-    "kwh": 1.67,
-    "calories/lb": 1824,
-    "use-type": "pound",
-    "sub-grouping": "produce"
+    "kwh": 0.32,
+    "calories/serving": 95,
+    "use-type": "serving",
+    "sub-grouping": "produce",
+    "subtext": "Serving size: 1 apple or 0.5 cups"
   },
   {
     "name": "eggs",
-    "kwh": 4,
-    "calories/lb": 650,
-    "use-type": "pound",
-    "sub-grouping": "dairy"
+    "kwh": 0.55,
+    "calories/serving": 89,
+    "use-type": "serving",
+    "sub-grouping": "dairy",
+    "subtext": "Serving size: 1 egg"
   },
   {
     "name": "chicken",
-    "kwh": 4.4,
-    "calories/lb": 216,
-    "use-type": "pound",
-    "sub-grouping": "meat"
+    "kwh": 0.83,
+    "calories/serving": 204,
+    "use-type": "serving",
+    "sub-grouping": "meat",
+    "subtext": "Serving size: 3 oz"
   },
   {
     "name": "dairy",
-    "kwh": 6.75,
-    "calories/lb": 573,
-    "use-type": "pound",
-    "sub-grouping": "meat"
+    "kwh": 0.64,
+    "calories/serving": 170,
+    "use-type": "serving",
+    "sub-grouping": "meat",
+    "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese"
   },
   {
     "name": "pork",
-    "kwh": 12.6,
-    "calories/lb": 480,
-    "use-type": "pound",
-    "sub-grouping": "meat"
+    "kwh": 2.3,
+    "calories/serving": 206,
+    "use-type": "serving",
+    "sub-grouping": "meat",
+    "subtext": "Serving size: 3 oz"
   },
   {
     "name": "beef",
-    "kwh": 31.5,
-    "calories/lb": 1176,
-    "use-type": "pound",
-    "sub-grouping": "meat"
+    "kwh": 5.9,
+    "calories/serving": 213,
+    "use-type": "serving",
+    "sub-grouping": "meat",
+    "subtext": "Serving size: 3 oz"
   }
 ];

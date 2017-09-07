@@ -16,7 +16,7 @@ export default class FootprintCalcPage extends React.Component {
 			showResults: false,
 			answers: {
 				applianceHour: {},
-				boolean: {},
+				household: {},
 				foodQuestions: {},
 				transportation: {}
 			},
