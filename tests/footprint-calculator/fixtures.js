@@ -321,7 +321,7 @@ const CALC_PAYLOAD = {
       ],
       "value": "Gasoline"
     },
-    "Whats the MPG of you car?": {
+    "What\'s the MPG of your car?": {
       "name": "Whats the MPG of you car?",
       "use-type": "transportation",
       "value": "0.23"

@@ -1,12 +1,12 @@
 const transportationQuestions = [
     {
-        name: 'Whats the MPG of you car?',
-        "use-type": "transportation"
-    },
-    {
         name: 'What\'s the fuel for your car?',
         "use-type": "transportation",
         "selectOptions": ["Gasoline", "Diesel", "Electric"]
+    },
+    {
+        name: 'What\'s the MPG of your car?',
+        "use-type": "transportation"
     },
     {
         name: 'On average, how many miles do you drive for work, school, and errands each day?',

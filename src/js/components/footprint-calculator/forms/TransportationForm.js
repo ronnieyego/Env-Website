@@ -38,16 +38,26 @@ export default class TransportationForm extends React.Component {
             marginBottom: '5px'
         };
         const textWidth = '350px';
+        let electricVehicle = false;
         const questions = this.props.questions.map(question => {
-                let value = this.props.getQuestionValue(question, 'transportation');
-                if(question.useBool) {
-                    let checked = value ? 'checked' : 'unchecked';
-                    return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} textWidth={textWidth}  />)
-                } else if (question.selectOptions) {
-                    return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestionDropdown} textWidth={textWidth} selected={value} updateData={this.updateData} />)
-                }
-                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateData} value={value} textWidth={textWidth} subText={question.subtext} />);
-            });
+
+            let value = this.props.getQuestionValue(question, 'transportation');
+            if(question.name === 'What\'s the fuel for your car?' && value === 'Electric'){
+                electricVehicle = true;
+            } else if (question.name === 'What\'s the fuel for your car?' && value !== 'Electric') {
+                electricVehicle = false;
+            }
+            if(question.name === 'What\'s the MPG of your car?' && electricVehicle) {
+                return; // Don't show question.
+            }
+            if(question.useBool) {
+                let checked = value ? 'checked' : 'unchecked';
+                return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} textWidth={textWidth}  />)
+            } else if (question.selectOptions) {
+                return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestionDropdown} textWidth={textWidth} selected={value} updateData={this.updateData} />)
+            }
+            return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateData} value={value} textWidth={textWidth} subText={question.subtext} />);
+        });
 		return (
             <div>
             <h3 style={subCategory}>Transportation</h3>

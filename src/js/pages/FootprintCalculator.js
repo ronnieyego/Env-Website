@@ -1,7 +1,7 @@
 import React from "react";
 
 import Header from '../components/Header.js';
-import FootprintForm from '../components/footprint-calculator/FootprintForm.js';
+import FootprintForm from '../components/footprint-calculator/forms/FootprintForm.js';
 import Results from '../components/footprint-calculator/Results.js';
 
 import { getAverage } from '../utils/footprint/get-average-american-footprint';

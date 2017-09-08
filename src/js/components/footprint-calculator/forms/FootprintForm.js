@@ -7,7 +7,7 @@ import HouseholdForm from './HouseholdForm';
 import FoodForm from './FoodForm';
 import TransportationForm from './TransportationForm';
 
-import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
+import calculateFootprintSubmit from '../../../utils/footprint/calculate-footprint-submit';
 
 export default class FootprintForm extends React.Component {
 	constructor(props) {
@@ -58,6 +58,7 @@ export default class FootprintForm extends React.Component {
       }
       return '';
     }
+    
 
     updateData(questionGroup, questionName, value) {
       let data = this.state.data;
@@ -80,7 +81,10 @@ export default class FootprintForm extends React.Component {
       let missingQuestions = [];
       transportationQuestions.forEach(question => {
         if(!transportData[question] || transportData[question].value === '') {
-          missingQuestions.push(question);
+          if(transportData["What's the fuel for your car?"].value !== 'Electric' || question !== 'What\'s the MPG of your car?') {
+            missingQuestions.push(question);
+        }
+          
         }
       });
       if(missingQuestions.length > 0) {

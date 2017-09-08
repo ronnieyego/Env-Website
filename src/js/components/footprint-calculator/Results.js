@@ -54,7 +54,7 @@ export default class Results extends React.Component {
         
         // Transportation Summary
         const transportationBreakdown = [
-            {source: 'Daily Use', amount: parseInt(res.monthlyCar)},
+            {source: 'Daily Use', amount: parseInt(res.monthlyCommute)},
             {source: 'Roadtrips', amount: parseInt(res.monthlyRoadTrip)},
             {source: 'Flying', amount: parseInt(res.monthlyFly)}
         ];

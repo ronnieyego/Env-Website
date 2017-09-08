@@ -8,8 +8,17 @@ questions.push(...food);
 questions.push(...homeAppliances);
 questions.push(...transportationQuestions);
 
-let stringQuestions = 'module.exports =' + JSON.stringify(questions);
+let stringQuestions = 'module.exports =' + JSON.stringify(questions, null, 2);
     fs.writeFile(__dirname + "/../../formatted/footprint/questions.js", stringQuestions, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        
+        console.log("Footprint questions data written");
+    });
+
+let publicQuestions = '{"questions": ' + JSON.stringify(questions, null, 2) + '}';
+fs.writeFile(__dirname + "/../../../../../public/data/temp-footprint-questions.json", publicQuestions, function(err) {
         if(err) {
             return console.log(err);
         }

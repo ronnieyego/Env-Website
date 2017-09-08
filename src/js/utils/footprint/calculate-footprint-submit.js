@@ -1,5 +1,6 @@
 // This util takes in data and calculates your energy footprint.  Yay!
 const daysInMonth = 30;
+const kwhPer100MilesElectricCar = 30; // kwhs for an average electric car to go 100mi
 const gasKwh = 34.4;
 const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
@@ -34,6 +35,9 @@ const getAnswerValue = answer => {
     }
     if(typeof answer.value === 'boolean') {
         return answer.kwh;
+    }
+    if(answer.selectOptions) { // Dropdown Question
+        return answer.value;
     }
     answer.value = answer.value.trim();
     answer.value = answer.value.replace(' ', '');
@@ -76,7 +80,11 @@ const getSubcategories = questionSet => {
 
 const sumTransportantSet = answers => {
     const results = {};
-    const carMpg = getAnswerValue(answers['Whats the MPG of you car?']);
+    const carType = getAnswerValue(answers['What\'s the fuel for your car?']);
+    let carMpg;
+    if(carType !== 'Electric') {
+        carMpg = getAnswerValue(answers['What\'s the MPG of your car?']);
+    }
     const dailyMiles = getAnswerValue(answers['On average, how many miles do you drive for work, school, and errands each day?']);
     const doesCarpool = answers['Do you carpool?'] ? getAnswerValue(answers['Do you carpool?']) : false;
     const numOfRoadTrips = getAnswerValue(answers['Within the last year, how many times did you take a roadtrip or drive for an extended distance?']);
@@ -85,13 +93,26 @@ const sumTransportantSet = answers => {
     const flyMiles = getAnswerValue(answers['Within the last year, how many miles did you fly?']);
 
     const carpool = doesCarpool ? 2 : 1;
-    const monthlyGas = dailyMiles * 30/(carMpg * carpool); // unit is gallons
     const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;
-    const roadTripMonthGas =  (numOfRoadTrips * roadTripMiles / (carMpg * roadTripCarpool))/12; // 12 months/year
-    const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
+    const monthlyCommuteMiles = dailyMiles * 30/carpool;
+    const monthlyRoadTripMiles = (numOfRoadTrips * roadTripMiles / roadTripCarpool)/12; // 12 months/year
 
-    const totalCommuteCar = monthlyGas * gasKwh;
-    const totalRoadTripCar = roadTripMonthGas * gasKwh;
+    let totalCommuteCar;
+    let totalRoadTripCar;
+    if(carType !== 'Electric') {
+        console.log('Ah.  You don\'t drive an electric car.  JUDGEMENT!!');
+        const monthlyGas = monthlyCommuteMiles/carMpg; // unit is gallons
+        const roadTripMonthGas =  monthlyRoadTripMiles/carMpg; // 12 months/year
+        totalCommuteCar = monthlyGas * gasKwh;
+        totalRoadTripCar = roadTripMonthGas * gasKwh;
+    } else {
+        console.log('Congrats on driving an electric car.  Hope its a Tesla!');
+        totalCommuteCar = monthlyCommuteMiles * kwhPer100MilesElectricCar/100;
+        totalRoadTripCar = monthlyRoadTripMiles * kwhPer100MilesElectricCar/100;
+    }
+    
+    const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
+    
     const totalMonthlyCar = totalCommuteCar + totalRoadTripCar;
     const totalMonthlyFly = montlyFlyGas * jetFuelKwh;
     const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly;

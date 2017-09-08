@@ -17,7 +17,7 @@ module.exports = [
     "calories/serving": 100,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "subtext": "Serving size: 1 slice of bread"
+    "subtext": "Serving size: 1 slice of bread or 1 cup of cereal or 0.5 cups of cooked rice"
   },
   {
     "name": "vegetables",
@@ -25,7 +25,7 @@ module.exports = [
     "calories/serving": 59,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "subtext": "Serving size: 1 cup of leafy vegetables or a 0.5 cups of other veggies"
+    "subtext": "Serving size: 1 cup of leafy vegetables or 0.5 cups of other veggies"
   },
   {
     "name": "milk",
@@ -57,7 +57,7 @@ module.exports = [
     "calories/serving": 204,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 3 oz"
+    "subtext": "Serving size: 3 oz about the size of a deck of cards"
   },
   {
     "name": "dairy",
@@ -73,7 +73,7 @@ module.exports = [
     "calories/serving": 206,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 3 oz"
+    "subtext": "Serving size: 3 oz about the size of a deck of cards"
   },
   {
     "name": "beef",
@@ -81,6 +81,14 @@ module.exports = [
     "calories/serving": 213,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 3 oz"
+    "subtext": "Serving size: 3 oz about the size of a deck of cards"
+  },
+  {
+    "name": "junk food",
+    "kwh": 0.11,
+    "calories/serving": 200,
+    "use-type": "serving",
+    "sub-grouping": "junk-food",
+    "subtext": "Serving size: 16 delicious chips or one glorious cookie or a refreshing soda or not enough cake"
   }
-];
+]
