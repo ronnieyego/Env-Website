@@ -3,6 +3,7 @@ import ResultsPieChart from './ResultsPieChart';
 
 import PersonalBreakdown from './PersonalBreakdown';
 import Compare from './Compare';
+import Savings from './Savings';
 import Facts from './Facts';
 
 
@@ -52,6 +53,9 @@ export default class Results extends React.Component {
             case 'compare':
                 shownResults = <Compare averageAmerican={this.props.averageAmerican} />;
                 break;
+            case 'savings':
+                shownResults = <Savings results={this.props.results} />
+                break;
             default:
         }
 
@@ -65,7 +69,7 @@ export default class Results extends React.Component {
                     <div style={{display: 'flex', justifyContent: 'space-around', marginTop: '15px', marginBottom: '15px'}}>
                         <button type="submit" id="personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Energy Breakdown</button>
                         <button type="submit" id="compare" onClick={this.switchResult.bind(this)}>How I compare to others</button>
-                        <button type="submit" id="save" onClick={this.switchResult.bind(this)}>Ways to reduce my energy</button>
+                        <button type="submit" id="savings" onClick={this.switchResult.bind(this)}>Ways to reduce my energy</button>
                     </div>
                 </div>
                 
