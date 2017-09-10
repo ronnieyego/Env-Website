@@ -17,8 +17,11 @@ module.exports = function(data, metaData) {
     compiledFootprint.food = parseInt(sumQuestionSet(data.foodQuestions)) * 28;
     compiledFootprint.foodSubCategories = getSubcategories(data.foodQuestions);
     const transportationResults = sumTransportantSet(data.transportation);
+    
+    compiledFootprint.transportationBreakdown = transportationResults;
     compiledFootprint.transportation = transportationResults.transportation;
-
+    
+    // Remove these and swap out their data grabs in Results
     compiledFootprint.monthlyRoadTrip = transportationResults.monthlyRoadTrip;
     compiledFootprint.monthlyCommute = transportationResults.monthlyCommute;
     compiledFootprint.monthlyCar = transportationResults.monthlyCar;
@@ -26,6 +29,7 @@ module.exports = function(data, metaData) {
 
     compiledFootprint.totalEnergy = (parseInt(compiledFootprint.appliance) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation)).toLocaleString();
 
+    console.log(JSON.stringify(compiledFootprint, null, 2));
     return compiledFootprint;
 }
 
@@ -117,6 +121,11 @@ const sumTransportantSet = answers => {
     const totalMonthlyFly = montlyFlyGas * jetFuelKwh;
     const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly;
 
+    results.carMpg = carMpg;
+    results.carType = carType;
+    results.carPoolWork = doesCarpool;
+    results.carPoolTrips = doesRoadTripCarpool;
+    results.totalMilesDriven = (monthlyCommuteMiles + monthlyRoadTripMiles).toFixed(1);
     results.monthlyRoadTrip = totalRoadTripCar.toFixed(1);
     results.monthlyCommute = totalCommuteCar.toFixed(1);
     results.monthlyCar = totalMonthlyCar.toFixed(1);
