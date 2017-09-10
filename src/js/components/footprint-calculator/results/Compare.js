@@ -1,7 +1,7 @@
 import React from "react";
 import ResultsPieChart from './ResultsPieChart';
 
-import StateDropdown from '../../StateDropDown';
+import StateDropdown from '../../StateDropdown';
 import { getAverage } from '../../../utils/footprint/get-average-american-footprint';
 
 const containerStyle = {
