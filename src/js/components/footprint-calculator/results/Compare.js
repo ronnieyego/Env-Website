@@ -44,13 +44,10 @@ export default class Compare extends React.Component {
 
 	render() {
         const averageGraphData = getAverage(this.state.state, this.state.age, this.state.gender);
-        
 
         const monthlyUse = this.props.monthlyUse;
         const averageTotal = averageGraphData.total
         const percentDiff = ((1 - ((averageTotal - monthlyUse)/averageTotal)) * 100).toFixed(0);
-
-        console.log('averageTotal', averageTotal, 'monthlyUse', monthlyUse);
         const comparisonText = monthlyUse < averageTotal ? `Congratulations you use ${percentDiff}% less energy than this average American!` : `You use ${percentDiff}% more energy than this average American`;
         
         // Average American Summary
