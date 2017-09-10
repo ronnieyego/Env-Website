@@ -24,10 +24,18 @@ export default class ApplianceForm extends React.Component {
             marginTop: '5px',
             marginBottom: '5px'
         };
-        const textWidth = '150px';
+        const textWidth = '250px';
         const questions = this.props.questions.map(question => {
-                let value = this.props.getQuestionValue(question, 'applianceHour');
-                return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestion} value={value} textWidth={textWidth} subText={question.subtext} />);
+            let value = this.props.getQuestionValue(question, 'applianceHour');
+            return (<Question 
+                key={question.name} 
+                id={question.name} 
+                question={question} 
+                updateQuestion={this.updateQuestion} 
+                value={value} 
+                textWidth={textWidth} 
+                subtext={question.subtext} 
+                />);
             });
 		return (
             

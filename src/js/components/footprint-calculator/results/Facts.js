@@ -6,7 +6,7 @@ const facts = [
     'Beef is energy intensive.  It takes over 50 times more energy to get a pound of beef than a pound of grain.  Pork is 21 times more expensive while chicken is only 7.5 times more expensive.',
     'While energy efficient bulbs use 10 times less energy than a standard halogen, you could get the same energy savings by driving 1 mile less each month.',
 ].map(fact => {
-    return (<li>{fact}</li>);
+    return (<li key={fact} id={fact}>{fact}</li>);
 })
 
 export default class Facts extends React.Component {

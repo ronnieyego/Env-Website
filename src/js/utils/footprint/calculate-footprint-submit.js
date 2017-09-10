@@ -27,9 +27,8 @@ module.exports = function(data, metaData) {
     compiledFootprint.monthlyCar = transportationResults.monthlyCar;
     compiledFootprint.monthlyFly = transportationResults.monthlyFly;
 
-    compiledFootprint.totalEnergy = (parseInt(compiledFootprint.appliance) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation)).toLocaleString();
+    compiledFootprint.totalEnergy = (parseInt(compiledFootprint.appliance) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation));
 
-    console.log(JSON.stringify(compiledFootprint, null, 2));
     return compiledFootprint;
 }
 

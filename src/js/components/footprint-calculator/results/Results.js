@@ -51,7 +51,7 @@ export default class Results extends React.Component {
                 shownResults = <PersonalBreakdown results={this.props.results} />;
                 break;
             case 'compare':
-                shownResults = <Compare averageAmerican={this.props.averageAmerican} />;
+                shownResults = <Compare averageAmerican={this.props.averageAmerican} monthlyUse={monthlyUse} />;
                 break;
             case 'savings':
                 shownResults = <Savings results={this.props.results} />
@@ -63,9 +63,10 @@ export default class Results extends React.Component {
 
 		return (
             <div style={containerStyle}>
-                <h1>You use <b>{monthlyUse} kwhs</b> each month.</h1>
+                <h1>You use <b>{monthlyUse.toLocaleString()} kwhs</b> each month.</h1>
                 
-                <div>Results: I want to see
+                <div>
+                    <h2>Lets dive a little deeper</h2>
                     <div style={{display: 'flex', justifyContent: 'space-around', marginTop: '15px', marginBottom: '15px'}}>
                         <button type="submit" id="personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Energy Breakdown</button>
                         <button type="submit" id="compare" onClick={this.switchResult.bind(this)}>How I compare to others</button>
@@ -75,6 +76,14 @@ export default class Results extends React.Component {
                 
                 {shownResults}
 
+                <br />
+                <br />
+                
+                <Facts />
+                
+                {/* 
+                Removed cause it looked bad.  To maybe be added again
+                
                 <button onClick={this.props.backToForm} >Change your answers</button>
                 <div style={{textAlign: 'left'}}>This footprint is incomplete. Future updadates will include
                     <ul>
@@ -86,7 +95,8 @@ export default class Results extends React.Component {
                         <li>What you can do to reduce your footprint</li>
                     </ul>
                 </div>
-                <Facts />
+                */}
+                
             </div>
 		);
 	}

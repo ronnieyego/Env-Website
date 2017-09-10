@@ -27,7 +27,7 @@ export default class ResultsPieChart extends React.Component {
         });
         const categoryList = graphData.map(data => {
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
-            return <li>{`${name}: ${data.amount.toLocaleString()} kwhs`}</li>;
+            return <li key={name} id={name}>{`${name}: ${data.amount.toLocaleString()} kwhs`}</li>;
         });
         const legendPayload = graphData.map((data, index) => { 
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
@@ -49,7 +49,7 @@ export default class ResultsPieChart extends React.Component {
 		return (
             <div style={{border: '3px solid gray'}}>
                 <h2><b>{this.props.title || ''}</b></h2>
-                <h3>{this.props.subtitle || ''}</h3>
+                <h3><b>{this.props.subtitle || ''}</b></h3>
                 <div style={styles}>
                     <div>
                         <PieChart width={500} height={300}>

@@ -4,8 +4,6 @@ import Header from '../components/Header.js';
 import FootprintForm from '../components/footprint-calculator/forms/FootprintForm.js';
 import Results from '../components/footprint-calculator/results/Results.js';
 
-import { getAverage } from '../utils/footprint/get-average-american-footprint';
-
 export default class FootprintCalcPage extends React.Component {
 	
 	constructor(props) {
@@ -20,8 +18,7 @@ export default class FootprintCalcPage extends React.Component {
 				foodQuestions: {},
 				transportation: {}
 			},
-			results: {},
-			averageAmerican: getAverage()
+			results: {}
 		}
 	}
 

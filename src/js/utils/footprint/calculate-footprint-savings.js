@@ -48,23 +48,23 @@ const betterDriving = res => {
 const getSavings = res => {
     let results = [
         {
-            display: 'Going vegetarian',
+            display: 'going vegetarian',
             amount: _.get(res, 'foodSubCategories.meat', 0)
         },
         {
-            display: 'Going vegan',
+            display: 'going vegan',
             amount: _.get(res, 'foodSubCategories.meat', 0) + _.get(res, 'foodSubCategories.dairy', 0)
         },
         {
-            display: 'Increasing mpg on your car',
+            display: 'increasing mpg on your car',
             amount: betterDriving(res)
         },
         {
-            display: 'Move next to your work',
+            display: 'moving next to your work',
             amount: _.get(res, 'transportationBreakdown.monthlyCommute', 0)
         },
         {
-            display: 'Don\'t heat your house/apartment',
+            display: 'not heating your house/apartment',
             amount: _.get(res, 'applianceSubCategories.heating', 0)
         }
     ];
