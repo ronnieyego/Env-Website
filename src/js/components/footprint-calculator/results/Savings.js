@@ -1,4 +1,6 @@
 import React from "react";
+
+import Card from './Card';
 import getSavings from '../../../utils/footprint/calculate-footprint-savings'
 
 export default class Compare extends React.Component {
@@ -7,12 +9,16 @@ export default class Compare extends React.Component {
 	    super();
 	}
 
-
 	render() {
         const results = this.props.results;
         let savings = getSavings(results);
         savings = savings.map(saving => {
-            return <li>{saving.amount} kwh saved by {saving.display}</li>;
+            return <Card 
+                amount={saving.amount} 
+                display={saving.display} 
+                subtext={saving.subtext} 
+                learnMore={saving.learnMore}
+            />
         })
         const containerStyle = {
             margin: 'auto',
@@ -24,10 +30,7 @@ export default class Compare extends React.Component {
 		return (
             <div style={containerStyle}>
                 <b>Savings below</b>
-                <ul>
                     {savings}
-                </ul>
-                
             </div>
 		);
 	}

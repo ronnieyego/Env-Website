@@ -1,7 +1,8 @@
 import React from "react";
-import ResultsPieChart from './ResultsPieChart';
 
+import ResultsPieChart from './ResultsPieChart';
 import StateDropdown from '../../StateDropdown';
+
 import { getAverage } from '../../../utils/footprint/get-average-american-footprint';
 
 const containerStyle = {
@@ -46,7 +47,7 @@ export default class Compare extends React.Component {
         const averageGraphData = getAverage(this.state.state, this.state.age, this.state.gender);
 
         const monthlyUse = this.props.monthlyUse;
-        const averageTotal = averageGraphData.total
+        const averageTotal = parseInt(averageGraphData.total);
         const percentDiff = ((1 - ((averageTotal - monthlyUse)/averageTotal)) * 100).toFixed(0);
         const comparisonText = monthlyUse < averageTotal ? `Congratulations you use ${percentDiff}% less energy than this average American!` : `You use ${percentDiff}% more energy than this average American`;
         

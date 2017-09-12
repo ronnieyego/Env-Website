@@ -44,7 +44,7 @@ export default class Results extends React.Component {
         };
 
         const res = this.props.results;
-        const monthlyUse = res.totalEnergy;
+        const monthlyUse = parseInt(res.totalEnergy);
         let shownResults;
         switch(this.state.resultsShown) {
             case 'personalBreakdown':

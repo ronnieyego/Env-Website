@@ -1,5 +1,10 @@
 const _ = require('lodash');
 
+// SHould import these from DB or static file
+const kwhPerGallon = 34.4;
+const mpg = 23.6;
+const kwhPer100MilesElectricCar = 30;
+
 const res = {
   "transportationData": {},
   "appliance": 1229,
@@ -19,7 +24,7 @@ const res = {
     "junk-food": 0.33
   },
   "transportationBreakdown": {
-    "carMpg": "5.00",
+    "carMpg": "25.00",
     "carType": "Gasoline",
     "carPoolWork": false,
     "carPoolTrips": false,
@@ -43,29 +48,63 @@ const betterDriving = res => {
     const monthlyCar = res.transportationBreakdown.monthlyCar;
     const percentImprovement = currentMpg/(currentMpg * 1.15);
     return  (monthlyCar - (monthlyCar * percentImprovement)).toFixed(1);
-}
+};
+
+const electricCar = res => {
+    const carType = _.get(res, 'transportationBreakdown.carType', 'Electric'); // If error then return 0 and not show card
+    if(carType === 'Electric') {
+        return 0;
+    }
+    const totalMiles = _.get(res, 'transportationBreakdown.totalMilesDriven', 0);
+    const mpg = _.get(res, 'transportationBreakdown.carMpg', 0);
+    const gasEnergy = kwhPerGallon * totalMiles / mpg;
+    const electricEnergy = kwhPer100MilesElectricCar * totalMiles / 100;
+    const diff = parseInt(gasEnergy - electricEnergy);
+    if(diff < 0) {
+        return {
+            amount: diff,
+            subtext: 'Wow you have a very energy efficient car.  Keep it!'
+        }
+    }
+    return {
+        amount: diff,
+        subtext: 'An electric car is about 4 times more energy efficient than a combustible enginge.'
+    };
+};
 
 const getSavings = res => {
     let results = [
         {
-            display: 'going vegetarian',
+            display: 'Go vegetarian',
             amount: _.get(res, 'foodSubCategories.meat', 0)
         },
         {
-            display: 'going vegan',
+            display: 'Go vegan',
             amount: _.get(res, 'foodSubCategories.meat', 0) + _.get(res, 'foodSubCategories.dairy', 0)
         },
         {
-            display: 'increasing mpg on your car',
-            amount: betterDriving(res)
+            display: 'Drive more efficiently',
+            amount: betterDriving(res),
+            subtext: 'This can be done by not staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
+            learnMore: 'https://www.fueleconomy.gov/feg/driveHabits.jsp'
         },
         {
-            display: 'moving next to your work',
-            amount: _.get(res, 'transportationBreakdown.monthlyCommute', 0)
+            display: 'Move within walking distance of your work',
+            amount: _.get(res, 'transportationBreakdown.monthlyCommute', 0),
+            learnMore: 'https://www.citylab.com/life/2012/04/why-bigger-cities-are-greener/863/'
         },
         {
-            display: 'not heating your house/apartment',
+            display: 'Don\'t heat your house/apartment',
             amount: _.get(res, 'applianceSubCategories.heating', 0)
+        },
+        {
+            display: 'Turn off the lights more',
+            amount: _.get(res, 'applianceSubCategories.lighting', 0) * .5
+        },
+        {
+            display: 'Switch to an electric car',
+            amount: electricCar(res).amount,
+            subtext: electricCar(res).subtext
         }
     ];
 

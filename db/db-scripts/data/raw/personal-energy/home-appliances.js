@@ -76,10 +76,10 @@ module.exports = [
     "subtext": ""
   },
   {
-    "name": "energy-efficient-lightbulbs",
+    "name": "energy-efficient-lightbulb",
     "kwh": 0.01,
     "use-type": "hour",
-    "sub-grouping": "other",
+    "sub-grouping": "lighting",
     "use-bool": "",
     "subtext": "Enter the total number of light bulbs times the number of hours each one is on"
   },
@@ -87,7 +87,7 @@ module.exports = [
     "name": "standard-lightbulb",
     "kwh": 0.1,
     "use-type": "hour",
-    "sub-grouping": "other",
+    "sub-grouping": "lighting",
     "use-bool": "",
     "subtext": "Enter the total number of light bulbs times the number of hours each one is on"
   },
@@ -212,7 +212,7 @@ module.exports = [
     "subtext": ""
   },
   {
-    "name": "clothes-washer-cold-water",
+    "name": "clothes-washer-with-cold-water",
     "kwh": 2.3,
     "use-type": "monthly-use",
     "sub-grouping": "cleanliness",
@@ -220,7 +220,7 @@ module.exports = [
     "subtext": ""
   },
   {
-    "name": "clothes-washer-hot-water",
+    "name": "clothes-washer-with-hot-water",
     "kwh": 6.3,
     "use-type": "monthly-use",
     "sub-grouping": "cleanliness",
