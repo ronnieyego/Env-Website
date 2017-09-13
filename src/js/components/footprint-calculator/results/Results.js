@@ -36,7 +36,6 @@ export default class Results extends React.Component {
     }
 
 	render() {
-        console.log('results state', this.state);
         const containerStyle = {
             margin: 'auto',
             marginLeft: '25px',

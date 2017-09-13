@@ -11,7 +11,7 @@ export default class Card extends React.Component {
         const style = {
             marginTop: '15px',
             border: '1px solid gray',
-            backgroundColor: 'light gray',
+            backgroundColor: this.props.color || '',
             textAlign: 'center'
         };
         const textStyle = {
@@ -23,7 +23,7 @@ export default class Card extends React.Component {
             ) : '';
 		return (
             <div style={style}>
-                <h2>{this.props.display}</h2>
+                <h2 style={{fontWeight: 400, marginLeft: '15px', marginRight: '15px'}}>{this.props.display}</h2>
                 <p>Energy Saved: <b>{this.props.amount.toLocaleString()} kwhs</b></p>
                 <p style={textStyle}>{this.props.subtext}</p>
                 {learnMore}

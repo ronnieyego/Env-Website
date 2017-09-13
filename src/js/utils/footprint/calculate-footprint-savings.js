@@ -119,5 +119,3 @@ const getSavings = res => {
 }
 
 module.exports = getSavings;
-
-console.log(getSavings(res));

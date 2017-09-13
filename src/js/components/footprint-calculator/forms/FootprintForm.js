@@ -83,10 +83,13 @@ export default class FootprintForm extends React.Component {
         if(!transportData[question] || transportData[question].value === '') {
           if(transportData["What's the fuel for your car?"].value !== 'Electric' || question !== 'What\'s the MPG of your car?') {
             missingQuestions.push(question);
-        }
-          
+          }
         }
       });
+
+      if(transportData['What\'s the MPG of your car?'] && transportData['What\'s the MPG of your car?'].value == 0) {
+          return false;
+        }
       if(missingQuestions.length > 0) {
         return false;
       }
@@ -127,7 +130,6 @@ export default class FootprintForm extends React.Component {
     }
 
 	render() {
-    console.log('Footprint form answers', this.state.data);
       if(!this.state.applianceHour) {
         return (<div>{'Loading Data'}</div>);
       }
@@ -170,15 +172,22 @@ export default class FootprintForm extends React.Component {
         };
 
 		return (
-			<div style={containerStyle}>
-				<h2 style={headerStyle}> Calculate your environmental footprint</h2>
-          {form}
-          <div style={buttonStyle}>
-            {leftButton}
-            Step {this.state.step} of {this.state.maxSteps}
-            {rightButton}
-          </div>
-			</div>
+      <div>
+        <div style={{textAlign:'left'}}>
+            <p>There is a ton of advice on how to lower your ecological footprint, "drive less, turn off your lights, dont' eat meat".  Sure, they're all good ideas, but have drastically different impacts.  One flaw I've found in all of these suggestions is that they take a qualitative approach to a very quantitative problem.</p>
+            <p>The calculator below attempts to give you reasonably accurate insights on your ecological footprint.  The goal is to give you the ability to reduce your footprint in a way that fits with your life.  The form takes about 5 minutes to fill out.</p>    
+        </div>
+        <div style={containerStyle}>
+          
+          <h2 style={headerStyle}> Calculate your environmental footprint</h2>
+            {form}
+            <div style={buttonStyle}>
+              {leftButton}
+              Step {this.state.step} of {this.state.maxSteps}
+              {rightButton}
+            </div>
+        </div>
+      </div>
 		);
 	}
 }

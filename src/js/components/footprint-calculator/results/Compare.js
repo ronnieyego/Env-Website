@@ -18,7 +18,6 @@ const buttonStyles = { // Buttons to change state, age, gender
 }
 
 export default class Compare extends React.Component {
-
     constructor(props) {
 	    super();
         this.state = {
@@ -48,7 +47,7 @@ export default class Compare extends React.Component {
 
         const monthlyUse = this.props.monthlyUse;
         const averageTotal = parseInt(averageGraphData.total);
-        const percentDiff = ((1 - ((averageTotal - monthlyUse)/averageTotal)) * 100).toFixed(0);
+        const percentDiff = (((averageTotal - monthlyUse)/averageTotal) * 100).toFixed(0);
         const comparisonText = monthlyUse < averageTotal ? `Congratulations you use ${percentDiff}% less energy than this average American!` : `You use ${percentDiff}% more energy than this average American`;
         
         // Average American Summary

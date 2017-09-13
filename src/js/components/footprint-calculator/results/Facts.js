@@ -24,7 +24,7 @@ export default class Facts extends React.Component {
         };
         
 		return (
-            <div style={containerStyle}><b>Random energy facts</b>
+            <div style={containerStyle}><b>Energy facts</b>
                 <ul>
                     {facts}
                 </ul>
