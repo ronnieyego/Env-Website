@@ -185,6 +185,10 @@ export default class SolarWidget extends React.Component {
 			percentElectrictyGenerated: this.state.percentElectrictyGenerated,
 			co2Saved: this.state.co2Saved
 		};
+		const topInputStyle = {
+			display: 'flex',
+			justifyContent: 'space-between'
+		};
 
 		return (
 			<div id="widget" style={widgetStyles}>
@@ -192,17 +196,17 @@ export default class SolarWidget extends React.Component {
 	            <br></br>
 	            <br></br>
 				<div style={inputStypes}>				
-					<div className='solar-widget-top-div'>
+					<div style={topInputStyle}>
 						Install Price
-						<input className='solar-widget-top-input' type='text' value={'$' + (systemOutput * this.state.installPricePerWatt).toLocaleString()} />
+						<input style={{width: '90px'}} type='text' value={'$' + (systemOutput * this.state.installPricePerWatt).toLocaleString()} />
 					</div>
-					<div className='solar-widget-top-div'>
+					<div style={topInputStyle}>
 						Peak System Output
-						<input className='solar-widget-top-input' type='text' value={systemOutput.toLocaleString() + ' watts'} />
+						<input style={{width: '90px'}} type='text' value={systemOutput.toLocaleString() + ' watts'} />
 					</div>
-					<div className='solar-widget-top-div'>
+					<div style={topInputStyle}>
 						Energy per month
-						<input className='solar-widget-top-input' type='text' value={kWhPerMonth.toLocaleString() + ' kWhs'} />
+						<input style={{width: '90px'}} type='text' value={kWhPerMonth.toLocaleString() + ' kWhs'} />
 					</div>
 				</div>
 				<br />

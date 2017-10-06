@@ -113,9 +113,7 @@ export default class StateEnergyProfile extends React.Component {
 		return (
 			<div className="container-fluid text-center" >
 				<Header />
-				<div className="transparent-image">
-				  <img src='../public/background.jpg' />
-				  <div className="row content" style={{marginLeft: '50px'}}>
+				<div className="row content" style={{marginLeft: '50px'}}>
 					<div className="col-sm-8 text-left" display="inline-block">
 						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>State Energy Profile</h1>
 						<p>States generate their electricity in different ways depending on different economic and social factors.  Generally states in the northwest primarily use hydroelectric and natural gas while appalachian states tend to use more coal.</p>
@@ -126,15 +124,6 @@ export default class StateEnergyProfile extends React.Component {
 						<ul>{this.state.sortedEnergy}</ul>
 						<StateEnergyPieChart />
 					</div>
-					<div className="col-sm-2 sidenav">
-						<div className="well">
-						<p>ADS</p>
-						</div>
-						<div className="well">
-						<p>ADS</p>
-						</div>
-					</div>
-				  </div>
 				</div>
 			</div>
 		);

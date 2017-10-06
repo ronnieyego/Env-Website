@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const { lightYearsForCar } = require('./saving-fact-functions');
 
 // SHould import these from DB or static file
 const kwhPerGallon = 34.4;
@@ -76,33 +77,40 @@ const getSavings = res => {
     let results = [
         {
             display: 'Go vegetarian',
+            card: true,
             amount: _.get(res, 'foodSubCategories.meat', 0)
         },
         {
             display: 'Go vegan',
+            card: true,
             amount: _.get(res, 'foodSubCategories.meat', 0) + _.get(res, 'foodSubCategories.dairy', 0)
         },
         {
             display: 'Drive more efficiently',
+            card: true,
             amount: betterDriving(res),
             subtext: 'This can be done by not staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
             learnMore: 'https://www.fueleconomy.gov/feg/driveHabits.jsp'
         },
         {
             display: 'Move within walking distance of your work',
+            card: true,
             amount: _.get(res, 'transportationBreakdown.monthlyCommute', 0),
             learnMore: 'https://www.citylab.com/life/2012/04/why-bigger-cities-are-greener/863/'
         },
         {
             display: 'Don\'t heat your house/apartment',
+            card: true,
             amount: _.get(res, 'applianceSubCategories.heating', 0)
         },
         {
             display: 'Turn off the lights more',
+            card: true,
             amount: _.get(res, 'applianceSubCategories.lighting', 0) * .5
         },
         {
             display: 'Switch to an electric car',
+            card: true,
             amount: electricCar(res).amount,
             subtext: electricCar(res).subtext
         }

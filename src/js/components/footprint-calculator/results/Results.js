@@ -50,10 +50,13 @@ export default class Results extends React.Component {
                 shownResults = <PersonalBreakdown results={this.props.results} />;
                 break;
             case 'compare':
-                shownResults = <Compare averageAmerican={this.props.averageAmerican} monthlyUse={monthlyUse} />;
+                shownResults = <Compare results={this.props.results}
+                                        averageAmerican={this.props.averageAmerican}
+                                        monthlyUse={monthlyUse} 
+                                        />;
                 break;
             case 'savings':
-                shownResults = <Savings results={this.props.results} />
+                shownResults = <Savings results={this.props.results} answers={this.props.answers} />
                 break;
             default:
         }

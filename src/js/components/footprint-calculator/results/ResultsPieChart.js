@@ -60,7 +60,7 @@ export default class ResultsPieChart extends React.Component {
                         </PieChart>
                     </div>
                     <div style={breakDownStyles}>{this.props.breakDownText || ''}
-                        <ul>
+                        <ul style={{marginRight: '15px'}}>
                             {categoryList}
                         </ul>
                     </div>

@@ -14,7 +14,12 @@ export default class Compare extends React.Component {
 
 	render() {
         const results = this.props.results;
-        let savings = getSavings(results);
+
+        console.log('results are ', this.props);
+        console.log('answers are', JSON.stringify(this.props.answers,null,2));
+        const savings = getSavings(results).filter(saving => {
+            return saving.card === true;
+        })
 
         let useful = savings.filter(card => {
             return card.amount >= impactLevel;

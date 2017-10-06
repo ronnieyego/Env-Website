@@ -47,9 +47,19 @@ export default class Compare extends React.Component {
 
         const monthlyUse = this.props.monthlyUse;
         const averageTotal = parseInt(averageGraphData.total);
-        const percentDiff = (((averageTotal - monthlyUse)/averageTotal) * 100).toFixed(0);
-        const comparisonText = monthlyUse < averageTotal ? `Congratulations you use ${percentDiff}% less energy than this average American!` : `You use ${percentDiff}% more energy than this average American`;
+        const diff = averageTotal - monthlyUse;
+        const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
+        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less energy than this average American!` : `You use ${percentDiff * -1}% more energy than this average American`;
         
+
+        const res = this.props.results;
+        // Personal
+        const categoryBreakDownData = [
+            {source: 'Appliances', amount: parseInt(res.appliance)},
+            {source: 'Food', amount: parseInt(res.food)},
+            {source: 'Transportation', amount: parseInt(res.transportation)},
+        ];
+
         // Average American Summary
         const averageAmerican = [
             {source: 'Appliance', amount: parseInt(averageGraphData.appliance)},
@@ -60,13 +70,20 @@ export default class Compare extends React.Component {
         
 		return (
             <div style={containerStyle}>
-                <div id="average-american">
+                <div style={{display:'flex'}}>
                     <ResultsPieChart 
-                        graphData={averageAmerican} 
-                        title={'Average American Energy Breakdown'} 
-                        subtitle={subtitle}
+                        graphData={categoryBreakDownData} 
+                        title={'Your Energy Breakdown'}
+                        subtitle={`Total energy: ${this.props.results.totalEnergy.toLocaleString()} kwhs per month`} 
                         /> 
-                </div>
+                    <div id="average-american">
+                        <ResultsPieChart 
+                            graphData={averageAmerican} 
+                            title={'Average American Energy Breakdown'} 
+                            subtitle={subtitle}
+                            /> 
+                    </div>
+                </div>   
                 <p style={{marginTop:'15px', marginBottom: '15px'}}>{comparisonText}</p>
                 <div id="compare-button-container" style={buttonStyles}>
                     <div>
