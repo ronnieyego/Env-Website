@@ -3,6 +3,11 @@ import ReactDOM from "react-dom/server";
 import Q from 'q';
 import _ from 'lodash';
 
+// Redux
+import reducers from './src/js/redux/reducers/index';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
 // Pages
 import Layout from './src/js/components/Layout';
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
@@ -155,8 +160,17 @@ const usEnergyMapMiddleware = (req, res) => {
 }
 
 const footprintMiddleware = (req, res) => {
-    const appMarkup = ReactDOM.renderToString(<FootprintCalculator />);
-    res.status(200).send(renderFullPage(appMarkup, {}, 'footprint'));
+     // Create a new Redux store instance
+    const store = createStore(reducers);
+
+    // Grab the initial state from our Redux store
+    const preloadedState = store.getState();
+
+    const appMarkup = ReactDOM.renderToString(
+    <Provider store={store}>
+        <FootprintCalculator />
+    </Provider>);
+    res.status(200).send(renderFullPage(appMarkup, preloadedState, 'footprint'));
 }
 
 module.exports = {
