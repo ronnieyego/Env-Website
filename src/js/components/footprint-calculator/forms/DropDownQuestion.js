@@ -1,18 +1,13 @@
 import React from "react";
 
-// props: {
-//    questionName 
-//    onChange,
-//    value
-//    questionGroup
-// }
+import { updateQuestions} from '../../../actions/footprint/form-actions';
 
 export default class DropdownQuestion extends React.Component {
 
     constructor(props) {
 	    super();
         // Saves the default value in form response data.  
-        props.updateData(props.id, props.selected || props.selectOptions[0]);
+        props.dispatch(updateQuestions(props.id, props.selected));
 	}
 
     formatName(name) {
@@ -24,7 +19,7 @@ export default class DropdownQuestion extends React.Component {
     updateQuestion(e) {
         let id = e.target.id;
 		let value = document.getElementById(id).value;
-        this.props.updateData(id, value)
+        this.props.dispatch(updateQuestions(id, value));
     }
 
 	render() {
@@ -41,7 +36,7 @@ export default class DropdownQuestion extends React.Component {
             <li style={{marginTop: '6px'}}>
                 <div>
                     <div style={textStyle} >{this.formatName(this.props.question.name)} </div>
-                    <select id={this.props.id} onChange={this.props.updateQuestion.bind(this)} >
+                    <select id={this.props.id} onChange={this.updateQuestion.bind(this)} >
                         {dropDownOptions}
                     </select>
                 </div>

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../components/Header.js';
-import FootprintForm from '../components/footprint-calculator/forms/FootprintForm.js';
+import FootprintFormHoc from '../components/footprint-calculator/forms/FootprintFormHoc';
 import Results from '../components/footprint-calculator/results/Results.js';
 
 @connect((store, props) => {
@@ -49,7 +49,7 @@ export default class FootprintCalcPage extends React.Component {
 				averageAmerican={this.state.averageAmerican} 
 			/> 
 			: 
-			<FootprintForm  
+			<FootprintFormHoc  
 			displayResults={this.displayResults} 
 			data={this.state.answers}
 			/>;

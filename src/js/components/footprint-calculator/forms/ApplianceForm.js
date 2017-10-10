@@ -6,12 +6,7 @@ export default class ApplianceForm extends React.Component {
 
     constructor(props) {
 	    super();
-        this.updateQuestion = this.updateQuestion.bind(this)
 	}
-
-    updateQuestion(questionId, value) {
-        this.props.updateData('applianceHour', questionId, value)
-    }
 
 	render() {
         const subCategory = {
@@ -26,15 +21,15 @@ export default class ApplianceForm extends React.Component {
         };
         const textWidth = '250px';
         const questions = this.props.questions.map(question => {
-            let value = this.props.getQuestionValue(question, 'applianceHour');
+            let value = question.value;
             return (<Question 
                 key={question.name} 
                 id={question.name} 
                 question={question} 
-                updateQuestion={this.updateQuestion} 
                 value={value} 
                 textWidth={textWidth} 
                 subtext={question.subtext} 
+                dispatch={this.props.dispatch}
                 />);
             });
 		return (

@@ -1,19 +1,33 @@
 const footprintFormReducer = (state = {
     questions: [],
-    answers: [],
+    getQuestionsError: false,
+    step: 1,
     text: 'hello redux!'    
 }, action) => {
     const newState ={...state}
     switch (action.type) {
-        case 'ADD_QUESTION': {
-            let newQuestions = state.questions.slice();
-            newQuestions.push(action.payload);
-            state = { ...state, questions: newQuestions};
+        case 'GET_QUESTIONS': {
+            state = { ...state, questions: action.payload};
+            break;
+        }
+        case 'ERROR_LOADING_QUESTIONS': {
+            state = {...state, getQuestionsError: true}
             break;
         }
         case 'REMOVE_QUESTIONS': {
             state = { ...state, questions: []};
             break;
+        }
+        case 'UPDATE_QUESTIONS': {
+            state = {...state, questions: action.payload}
+            break;
+        }
+        case 'INCREASE_STEP': {
+            state = {...state, step: state['step'] + 1}
+            break;
+        }
+        case 'DECREASE_STEP': {
+            state = {...state, step: state['step'] - 1}
         }
     }
     return state;

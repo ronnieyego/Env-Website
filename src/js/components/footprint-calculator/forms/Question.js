@@ -1,5 +1,8 @@
 import React from "react";
 
+import { updateQuestions} from '../../../actions/footprint/form-actions';
+
+
 export default class Question extends React.Component {
 
     constructor(props) {
@@ -19,7 +22,7 @@ export default class Question extends React.Component {
         let id = e.target.id;
         let value = document.getElementById(id).value;
         value = value.replace(/[^\d.-]/g, ''); // Only keep numbers and .
-        this.props.updateQuestion(id, value);
+        this.props.dispatch(updateQuestions(id, value));
     }
 
 	render() {

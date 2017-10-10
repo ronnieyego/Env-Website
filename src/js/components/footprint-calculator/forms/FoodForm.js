@@ -9,12 +9,7 @@ export default class FoodForm extends React.Component {
         this.state = {
             calories: 0
         }
-        this.updateQuestion = this.updateQuestion.bind(this)
 	}
-
-    updateQuestion(questionId, value) {
-        this.props.updateData('foodQuestions', questionId, value)
-    }
 
 	render() {
         const subCategory = {
@@ -30,17 +25,17 @@ export default class FoodForm extends React.Component {
         const textWidth = '75px';
         let calories = 0;
         const questions = this.props.questions.map(question => {
-            let value = this.props.getQuestionValue(question, 'foodQuestions');
+            let value = question.value;
             calories += value * question['calories/serving'];
             return (
                 <Question 
                 key={question.name}
                 id={question.name}
                 question={question}
-                updateQuestion={this.updateQuestion}
                 value={value}
                 textWidth={textWidth}
-                subtext={question.subtext}/>
+                subtext={question.subtext}
+                dispatch={this.props.dispatch}/>
             );
         });
 

@@ -7,24 +7,7 @@ export default class TransportationForm extends React.Component {
 
     constructor(props) {
 	    super();
-        this.updateQuestionDropdown = this.updateQuestionDropdown.bind(this)
-        this.updateQuestionBool = this.updateQuestionBool.bind(this)
-        this.updateData = this.updateData.bind(this)
 	}
-
-    updateQuestionDropdown(e) {
-        let id = e.target.id;
-		let value = document.getElementById(id).value;
-        this.props.updateData('transportation', id, value)
-    }
-    updateQuestionBool(e) {
-        let id = e.target.id;
-		let value = document.getElementById(id).checked;
-        this.props.updateData('transportation', id, value)
-    }
-    updateData(question, value) {
-        this.props.updateData('transportation', question, value)
-    }
 
 	render() {
         const subCategory = {
@@ -40,8 +23,7 @@ export default class TransportationForm extends React.Component {
         const textWidth = '350px';
         let electricVehicle = false;
         const questions = this.props.questions.map(question => {
-
-            let value = this.props.getQuestionValue(question, 'transportation');
+            let value = question.value;
             if(question.name === 'What\'s the fuel for your car?' && value === 'Electric'){
                 electricVehicle = true;
             } else if (question.name === 'What\'s the fuel for your car?' && value !== 'Electric') {
@@ -52,11 +34,11 @@ export default class TransportationForm extends React.Component {
             }
             if(question.useBool) {
                 let checked = value ? 'checked' : 'unchecked';
-                return (<BooleanQuestion key={question.name} id={question.name} question={question} updateQuestion={this.updateQuestionBool} checked={checked} textWidth={textWidth}  />)
+                return (<BooleanQuestion key={question.name} id={question.name} question={question} checked={checked} textWidth={textWidth} dispatch={this.props.dispatch}  />)
             } else if (question.selectOptions) {
-                return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} updateQuestion={this.updateQuestionDropdown} textWidth={textWidth} selected={value} updateData={this.updateData} />)
+                return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} textWidth={textWidth} selected={value} dispatch={this.props.dispatch} />)
             }
-            return (<Question key={question.name} id={question.name} question={question} updateQuestion={this.updateData} value={value} textWidth={textWidth} subText={question.subtext} />);
+            return (<Question key={question.name} id={question.name} question={question} value={value} textWidth={textWidth} subText={question.subtext} dispatch={this.props.dispatch} />);
         });
 		return (
             <div>

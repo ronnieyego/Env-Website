@@ -1,5 +1,7 @@
 import React from "react";
 
+import { updateQuestions} from '../../../actions/footprint/form-actions';
+
 export default class Question extends React.Component {
 
     constructor(props) {
@@ -13,7 +15,9 @@ export default class Question extends React.Component {
     }
 
     updateQuestion(e) {
-        this.props.updateQuestion(e);
+        const id = e.target.id;
+        const value = document.getElementById(id).value;
+        this.props.dispatch(updateQuestions(id, value));
     }
 
 	render() {
