@@ -55,10 +55,6 @@ const stateIds = [
 ];
 
 export default class StateDropdown extends React.Component {
-    constructor(props) {
-	    super();
-	}
-
 	render() {
         const dropDownOptions = stateIds.map(state => {
             if(state === this.props.selected) { // Parent component passes down which value is selected

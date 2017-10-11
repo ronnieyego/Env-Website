@@ -18,32 +18,34 @@ const buttonStyles = { // Buttons to change state, age, gender
 }
 
 export default class Compare extends React.Component {
-    constructor(props) {
-	    super();
-        this.state = {
-            state: 'US',
-            age: 'average',
-            gender: 'male'
-        }
-        this.updateQuestion = this.updateQuestion.bind(this);
-	}
+
+    capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
     updateQuestion(e) {
         const id = e.target.id;
         const value = document.getElementById(id).value;
+        let state = this.props.state;
+        let age = this.props.age;
+        let gender = this.props.gender;
         if(id === 'compare-state-dropdown') {
-            this.setState({state: value});
+            state = value;
+            this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_STATE', payload: state});
         } else if( id === 'age-bracket') {
-            this.setState({age: value});
+            age = value;
+            this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_AGE', payload: age});
         } else if(id === 'gender') {
-            this.setState({gender: value});
-        } else {
-            console.log('Error on the Compare component.  Unexpected id in updateQuestion');
-        }
+            gender = value;
+            this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_GENDER', payload: gender});
+        } 
+        const average = getAverage(state, age,gender);
+        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
     }
 
 	render() {
-        const averageGraphData = getAverage(this.state.state, this.state.age, this.state.gender);
+        const averageGraphData = this.props.averageAmerican;
+        console.log('in compare. Average american is', averageGraphData);
 
         const monthlyUse = this.props.monthlyUse;
         const averageTotal = parseInt(averageGraphData.total);
@@ -61,6 +63,7 @@ export default class Compare extends React.Component {
         ];
 
         // Average American Summary
+        
         const averageAmerican = [
             {source: 'Appliance', amount: parseInt(averageGraphData.appliance)},
             {source: 'Food', amount: parseInt(averageGraphData.food)},
@@ -68,6 +71,22 @@ export default class Compare extends React.Component {
         ];
         const subtitle = `Total energy: ${averageTotal.toLocaleString()} kwhs per month`;
         
+        const genderSelects = ['male', 'female'].map(gender => {
+            if(gender === this.props.gender) {
+                return <option key={gender} value={gender} selected="selected">{this.capitalize(gender)}</option>
+            }
+            return <option key={gender} value={gender}>{this.capitalize(gender)}</option>
+        })
+
+        const ageRanges = ['American Average', '16-19', '20-34', '35-54', '55-64', '65+'];
+        const ageSelects = ageRanges.map(age => {
+            if(age === this.props.age) {
+                return <option key={age} value={age} selected="selected">{age}</option>
+            }
+            return <option key={age} value={age}>{age}</option>
+        });
+                            
+
 		return (
             <div style={containerStyle}>
                 <div style={{display:'flex'}}>
@@ -89,26 +108,20 @@ export default class Compare extends React.Component {
                     <div>
                         <b style={{marginBottom: '5px'}}>Change State</b>
                         <br />
-                        <StateDropdown id="compare-state-dropdown" updateQuestion={this.updateQuestion} selected={this.state.state} />
+                        <StateDropdown id="compare-state-dropdown" updateQuestion={this.updateQuestion} selected={this.props.state} />
                     </div>
                     <div>
                         <b>Change age group</b>
                         <br />
-                        <select id="age-bracket" onChange={this.updateQuestion.bind(this)} >
-                            <option key={'american-average'} value={'average'}>American average</option>
-                            <option key={'16-19'} value={'16-19'}>16-19</option>
-                            <option key={'20-34'} value={'20-34'}>20-34</option>
-                            <option key={'35-54'} value={'35-54'}>35-54</option>
-                            <option key={'55-64'} value={'55-64'}>55-64</option>
-                            <option key={'65+'} value={'65+'}>65+</option>
+                        <select id="age-bracket" onChange={this.updateQuestion.bind(this)} selected={this.props.age} >
+                            {ageSelects}
                         </select> 
                     </div>
                     <div>
                         <b>Change gender</b>
                         <br />
-                        <select id="gender" onChange={this.updateQuestion.bind(this)} >
-                            <option key={'change-male'} value={'male'}>Male</option>
-                            <option key={'change-female'} value={'female'}>Female</option>
+                        <select id="gender" onChange={this.updateQuestion.bind(this)} selected={this.props.gender} >
+                            {genderSelects}
                         </select> 
                     </div>
                 </div>

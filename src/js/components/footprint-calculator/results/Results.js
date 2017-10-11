@@ -1,10 +1,12 @@
 import React from "react";
+import { connect } from 'react-redux';
 import ResultsPieChart from './ResultsPieChart';
 
 import PersonalBreakdown from './PersonalBreakdown';
 import Compare from './Compare';
 import Savings from './Savings';
 import Facts from './Facts';
+
 
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
@@ -21,18 +23,26 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
+
+@connect((store, props) => {
+	return {
+		results: store.footprintFormAnswers.formResults,
+        resultsShown: store.footprintFormAnswers.resultsShown,
+		averageAmerican: store.footprintFormAnswers.averageAmerican,
+		state: store.footprintFormAnswers.state,
+		age: store.footprintFormAnswers.age,
+		gender: store.footprintFormAnswers.gender
+	};
+})
 export default class Results extends React.Component {
-
-    constructor(props) {
-	    super();
-        this.state = {
-            resultsShown: 'none'
-        }
-	}
-
+    
     switchResult(e) {
         const id = e.target.id
-        this.setState({ resultsShown: id});
+        this.props.dispatch({type: 'UPDATE_RESULTS_SHOWN', payload: id});
+    }
+
+    backToResults() {
+        this.props.dispatch({type: 'DISPLAY_ANSWERS', payload: false});
     }
 
 	render() {
@@ -45,20 +55,23 @@ export default class Results extends React.Component {
         const res = this.props.results;
         const monthlyUse = parseInt(res.totalEnergy);
         let shownResults;
-        switch(this.state.resultsShown) {
+        switch(this.props.resultsShown) {
             case 'personalBreakdown':
                 shownResults = <PersonalBreakdown results={this.props.results} />;
                 break;
             case 'compare':
                 shownResults = <Compare results={this.props.results}
                                         averageAmerican={this.props.averageAmerican}
-                                        monthlyUse={monthlyUse} 
+                                        state={this.props.state}
+                                        age={this.props.age}
+                                        gender={this.props.gender}
+                                        monthlyUse={monthlyUse}
+                                        dispatch={this.props.dispatch}
                                         />;
                 break;
             case 'savings':
-                shownResults = <Savings results={this.props.results} answers={this.props.answers} />
+                shownResults = <Savings results={this.props.results}/>
                 break;
-            default:
         }
 
          
@@ -77,7 +90,10 @@ export default class Results extends React.Component {
                 </div>
                 
                 {shownResults}
-
+                <br />
+                <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                    <button onClick={() =>this.backToResults()}>Back to Form</button>
+                </div>
                 <br />
                 <br />
                 

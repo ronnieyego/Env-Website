@@ -17,21 +17,14 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 export default class PersonalBreakdown extends React.Component {
 
-    constructor(props) {
-	    super();
-	}
-
-
 	render() {
         const containerStyle = {
             margin: 'auto',
             textAlign: 'center'
         };
-
         const res = this.props.results;
 
         // Top level summary
-        
         const categoryBreakDownData = [
             {source: 'Appliances', amount: parseInt(res.appliance)},
             {source: 'Food', amount: parseInt(res.food)},

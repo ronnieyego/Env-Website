@@ -104,9 +104,15 @@ export const submitForm = questionPayload => {
                 })
             });
             dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
-            dispatch({type: 'DISPLAY_ANSWERS'});
+            dispatch({type: 'DISPLAY_ANSWERS', payload: true});
         } else {
             alert('Please fill out all of the fields');
         }
     }
-}
+};
+
+const updateAverageAmerican = averageAmerican => {
+    dispatch => {
+        dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: averageAmerican})
+    }
+};

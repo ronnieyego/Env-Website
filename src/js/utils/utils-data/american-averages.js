@@ -21,7 +21,7 @@ const americanCarMiles = {
         male: 10304,
         female: 4785,
     },
-    'average': {
+    'American Average': {
         male: 16550,
         female: 10142,
     }
