@@ -1,3 +1,5 @@
+import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
+
 // Utils. . . maybe make own file eventually?
 const updateQuestion = (allQuestions, id, value) => {
     return allQuestions.forEach(question => {
@@ -7,6 +9,39 @@ const updateQuestion = (allQuestions, id, value) => {
         return;
     });
 };
+
+const getAnswerFromKey = (questionSet, key) => {
+    let answer = null;
+    questionSet.forEach(question => {
+        if(question.name === key) {
+            answer = question.value;
+            return;
+        }
+    });
+    return answer;
+}
+
+const validateForm = questions => {
+      const transportationQuestions = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
+      let filteredTransportationQuestions = _.filter(transportationQuestions, function(o) { return o['useBool'] !== true; })
+      let missingQuestions = [];
+      filteredTransportationQuestions.forEach(question => {
+        if(!question.value || question.value === '') {
+          if(getAnswerFromKey(questions, "What's the fuel for your car?") !== 'Electric' || question.name !== 'What\'s the MPG of your car?') {
+            missingQuestions.push(question);
+          }
+        }
+      });
+      console.log('missing questions', missingQuestions);
+
+      if(getAnswerFromKey(questions, 'What\'s the MPG of your car?') == 0) {
+          return false;
+        }
+      if(missingQuestions.length > 0) {
+        return false;
+      }
+      return true;
+}
 
 
 //
@@ -49,3 +84,29 @@ export const decreaseStep = () => {
         dispatch({type: 'DECREASE_STEP', payload: {}});
     }
 };
+
+export const submitForm = questionPayload => {
+    return dispatch => {
+        let valid = validateForm(questionPayload);    
+        if (valid) {
+            let footprintResults = calculateFootprintSubmit(questionPayload);
+            console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+            fetch('/api/footprint-form/answer', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    formName: 'footprint-finder',
+                    formAnswers: questionPayload,
+                    results: footprintResults
+                })
+            });
+            dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
+            dispatch({type: 'DISPLAY_ANSWERS'});
+        } else {
+            alert('Please fill out all of the fields');
+        }
+    }
+}

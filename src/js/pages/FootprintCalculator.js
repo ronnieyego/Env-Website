@@ -7,7 +7,8 @@ import Results from '../components/footprint-calculator/results/Results.js';
 
 @connect((store, props) => {
 	return {
-		text: store.footprintForm.text
+		displayAnswers: store.footprintFormAnswers.displayAnswers,
+		results: store.footprintFormAnswers.formResults
 	};
 })
 export default class FootprintCalcPage extends React.Component {
@@ -41,10 +42,10 @@ export default class FootprintCalcPage extends React.Component {
 	
 	render() {
 		console.log('props', this.props);
-		let formOrResults = this.state.showResults ? 
+		let formOrResults = this.props.displayAnswers ? 
 			<Results 
 				answers={this.state.answers} 
-				results={this.state.results} 
+				results={this.props.results} 
 				backToForm={this.backToForm} 
 				averageAmerican={this.state.averageAmerican} 
 			/> 

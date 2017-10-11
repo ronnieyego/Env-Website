@@ -5,19 +5,22 @@ const gasKwh = 34.4;
 const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
 
-module.exports = function(data, metaData) {
+module.exports = function(questions) {
     const compiledFootprint = {
         transportationData: {}
     };
+    const applianceHour = _.filter(questions, function(o) { return o['use-type'] === 'hour'; });
+    const houseHoldQuestions = _.filter(questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+    const foodQuestions = _.filter(questions, function(o) { return o['use-type'] === 'serving'; });
+    const transportation = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
 
-    // console.log('Questions with values', JSON.stringify(data, null, 2));
-    const applinaceQuestionSet = Object.assign(data.applianceHour,data.household);
+    const applinaceQuestionSet = Object.assign(applianceHour, houseHoldQuestions);
     compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
     compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
-    compiledFootprint.food = parseInt(sumQuestionSet(data.foodQuestions)) * 28;
-    compiledFootprint.foodSubCategories = getSubcategories(data.foodQuestions);
-    const transportationResults = sumTransportantSet(data.transportation);
+    compiledFootprint.food = parseInt(sumQuestionSet(foodQuestions)) * 28;
+    compiledFootprint.foodSubCategories = getSubcategories(foodQuestions);
     
+    const transportationResults = sumTransportantSet(transportation);
     compiledFootprint.transportationBreakdown = transportationResults;
     compiledFootprint.transportation = transportationResults.transportation;
     
@@ -32,34 +35,33 @@ module.exports = function(data, metaData) {
     return compiledFootprint;
 }
 
-const getAnswerValue = answer => {
-    if(answer.value === ''){
+const getAnswerValue = question => {
+    if(!question.value || question.value === ''){
         return 0;
     }
-    if(typeof answer.value === 'boolean') {
-        return answer.kwh;
+    if(typeof question.value === 'boolean') {
+        return question.kwh;
     }
-    if(answer.selectOptions) { // Dropdown Question
-        return answer.value;
+    if(question.selectOptions) { // Dropdown Question
+        return question.value;
     }
-    answer.value = answer.value.trim();
-    answer.value = answer.value.replace(' ', '');
-    answer.value = parseFloat(answer.value).toFixed(2);
-    if(answer.value > 0) { //Int question
-        if(answer.kwh) { // Standard question
-            return answer.kwh * answer.value;
+    question.value = question.value.trim();
+    question.value = question.value.replace(' ', '');
+    question.value = parseFloat(question.value).toFixed(2);
+    if(question.value > 0) { //Int question
+        if(question.kwh) { // Standard question
+            return question.kwh * question.value;
         }
-        return answer.value;  // Transportation form
+        return question.value;  // Transportation form
     }
-    console.log('Problem with answer', answer);
+    console.log('Problem with question', question);
     return 0; // Something went wrong (ie. '' passed in);
 };
 
 const sumQuestionSet = questionSet => {
     let groupSum = 0;
-    Object.keys(questionSet).forEach(key => {
-        let answer = questionSet[key];
-        let questionTotal = getAnswerValue(answer);
+    questionSet.forEach(question => {
+        let questionTotal = getAnswerValue(question);
         groupSum += questionTotal;
     });
     return groupSum.toFixed(1);
@@ -67,33 +69,43 @@ const sumQuestionSet = questionSet => {
 
 const getSubcategories = questionSet => {
     let res = {};
-    Object.keys(questionSet).forEach(key => {
-        let answer = questionSet[key];
-        const subCategory = answer['sub-grouping'] ? answer['sub-grouping'] : 'other';
+    questionSet.forEach(question => {
+        const subCategory = question['sub-grouping'] ? question['sub-grouping'] : 'other';
         if(res[subCategory]) {
-            res[subCategory] += getAnswerValue(answer);
+            res[subCategory] += getAnswerValue(question);
         } else {
-            res[subCategory] = getAnswerValue(answer);
+            res[subCategory] = getAnswerValue(question);
         }
     });
     return res;
 };
 
+const getAnswerFromKey = (questionSet, key) => {
+    let answer = null;
+    questionSet.forEach(question => {
+        if(question.name === key) {
+            answer = question.value;
+            return;
+        }
+    });
+    return answer;
+}
 
 
-const sumTransportantSet = answers => {
+
+const sumTransportantSet = questionSet => {
     const results = {};
-    const carType = getAnswerValue(answers['What\'s the fuel for your car?']);
+    const carType = getAnswerFromKey(questionSet, 'What\'s the fuel for your car?');
     let carMpg;
     if(carType !== 'Electric') {
-        carMpg = getAnswerValue(answers['What\'s the MPG of your car?']);
+        carMpg = getAnswerFromKey(questionSet, 'What\'s the MPG of your car?');
     }
-    const dailyMiles = getAnswerValue(answers['On average, how many miles do you drive for work, school, and errands each day?']);
-    const doesCarpool = answers['Do you carpool?'] ? getAnswerValue(answers['Do you carpool?']) : false;
-    const numOfRoadTrips = getAnswerValue(answers['Within the last year, how many times did you take a roadtrip or drive for an extended distance?']);
-    const roadTripMiles = getAnswerValue(answers['How many far is your average roadtrip?']);
-    const doesRoadTripCarpool = answers['Do you usually carpool for roadtrips?'] ? getAnswerValue(answers['Do you usually carpool for roadtrips?']) : false;
-    const flyMiles = getAnswerValue(answers['Within the last year, how many miles did you fly?']);
+    const dailyMiles = getAnswerFromKey(questionSet, 'On average, how many miles do you drive for work, school, and errands each day?');
+    const doesCarpool = getAnswerFromKey(questionSet, 'Do you carpool?') ? getAnswerFromKey(questionSet, 'Do you carpool?') : false;
+    const numOfRoadTrips = getAnswerFromKey(questionSet, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?');
+    const roadTripMiles = getAnswerFromKey(questionSet, 'How many far is your average roadtrip?');
+    const doesRoadTripCarpool = getAnswerFromKey(questionSet, 'Do you usually carpool for roadtrips?') ? getAnswerFromKey(questionSet, 'Do you usually carpool for roadtrips?') : false;
+    const flyMiles = getAnswerFromKey(questionSet, 'Within the last year, how many miles did you fly?');
 
     const carpool = doesCarpool ? 2 : 1;
     const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;

@@ -4,11 +4,6 @@ import { updateQuestions} from '../../../actions/footprint/form-actions';
 
 
 export default class Question extends React.Component {
-
-    constructor(props) {
-	    super();
-	}
-
     formatName(name) {
         if(!name) {
             return '';

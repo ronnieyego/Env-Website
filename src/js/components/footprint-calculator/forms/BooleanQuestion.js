@@ -4,10 +4,6 @@ import { updateQuestions} from '../../../actions/footprint/form-actions';
 
 export default class Question extends React.Component {
 
-    constructor(props) {
-	    super();
-	}
-
     formatName(name) {
         name = name.replace(/-/g,' ');
         name = name.charAt(0).toUpperCase() + name.slice(1);

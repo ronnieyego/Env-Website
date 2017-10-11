@@ -6,16 +6,11 @@ import FoodForm from './FoodForm';
 import HouseholdForm from './HouseholdForm';
 import TransportationForm from './TransportationForm';
 
-
-import calculateFootprintSubmit from '../../../utils/footprint/calculate-footprint-submit';
+import { submitForm } from '../../../actions/footprint/form-actions';
 
 const MAX_STEPS = 4
 
 export default class FootprintForm extends React.Component {
-  constructor(props) {
-    super()
-  }
-
     decreaseStep() {
       this.props.dispatch({type: 'DECREASE_STEP'});
     }
@@ -23,51 +18,9 @@ export default class FootprintForm extends React.Component {
     increaseStep() {
       this.props.dispatch({type: 'INCREASE_STEP'});
     }
-    validateData() {
-      // Rewrite
 
-      // let transportationQuestions = this.props.transportationQuestions;
-      // let filteredTransportationQuestions = _.filter(transportationQuestions, function(o) { return o['useBool'] !== true; })
-      //   .map(question => question.name);
-      // let missingQuestions = [];
-      // filteredTransportationQuestions.forEach(question => {
-      //   if(!transportData[question] || transportData[question].value === '') {
-      //     if(transportData["What's the fuel for your car?"].value !== 'Electric' || question !== 'What\'s the MPG of your car?') {
-      //       missingQuestions.push(question);
-      //     }
-      //   }
-      // });
-
-      // if(transportData['What\'s the MPG of your car?'] && transportData['What\'s the MPG of your car?'].value == 0) {
-      //     return false;
-      //   }
-      // if(missingQuestions.length > 0) {
-      //   return false;
-      // }
-      return true;
-
-  }
     submitCalculator() {
-        let valid = this.validateData();
-        if (valid) {
-          let footprintResults = calculateFootprintSubmit(this.props.questions);
-          console.log('Footprint results are back.  Values in kwh/period', footprintResults);
-          fetch('/api/footprint-form/answer', {
-            method: 'POST',
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              formName: 'footprint-finder',
-              formAnswers: this.props.questions,
-              results: footprintResults
-            })
-          });
-          this.props.displayResults(this.props.questions,footprintResults);
-        } else {
-          alert('Please fill out all of the fields');
-        }
+        this.props.dispatch(submitForm(this.props.questions));
     }
 
 	render() {

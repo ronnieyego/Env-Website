@@ -6,8 +6,8 @@ export default class DropdownQuestion extends React.Component {
 
     constructor(props) {
 	    super();
-        // Saves the default value in form response data.  
-        props.dispatch(updateQuestions(props.id, props.selected));
+        // Saves the default value in form response data. 
+        props.dispatch(updateQuestions(props.id, props.selectOptions[0]));
 	}
 
     formatName(name) {
