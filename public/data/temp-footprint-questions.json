@@ -248,7 +248,7 @@
     "subtext": ""
   },
   {
-    "name": "refridgerator",
+    "name": "refrigerator",
     "kwh": 125,
     "use-type": "monthly-own",
     "sub-grouping": "cooking",
@@ -256,7 +256,7 @@
     "subtext": ""
   },
   {
-    "name": "energy-efficient-refridgerator",
+    "name": "energy-efficient-refrigerator",
     "kwh": 37.5,
     "use-type": "monthly-own",
     "sub-grouping": "cooking",
