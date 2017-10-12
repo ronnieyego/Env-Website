@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 // This util takes in data and calculates your energy footprint.  Yay!
 const daysInMonth = 30;
 const kwhPer100MilesElectricCar = 30; // kwhs for an average electric car to go 100mi
@@ -94,6 +96,8 @@ const getAnswerFromKey = (questionSet, key) => {
 
 
 const sumTransportantSet = questionSet => {
+
+
     const results = {};
     const carType = getAnswerFromKey(questionSet, 'What\'s the fuel for your car?');
     let carMpg;

@@ -1,17 +1,18 @@
-"use strict";
-const expect = require('expect');
+import 'babel-polyfill';
+import expect  from 'expect';
 
-const { CALC_PAYLOAD } = require('./fixtures'); 
-const costCalc = require('../../src/js/utils/footprint/calculate-footprint-submit');
+import { CALC_PAYLOAD } from './fixtures';
+import  submitForm from '../../src/js/utils/footprint/calculate-footprint-submit';
 
 
 describe('Cost Calculator', () => {
     it('should calculate kwhs used', done => {
-        let result = costCalc(CALC_PAYLOAD);
+        let result = submitForm(CALC_PAYLOAD);
+        console.log(result);
 
-        expect(result.appliance).toEqual(1263);
-        expect(result.food).toEqual(1540);
-        expect(result.transportation).toEqual(1343.8);
+        expect(result.appliance).toEqual(18);
+        expect(result.food).toEqual(280);
+        expect(result.transportation).toEqual(1036.4);
         done();
     });
 });
