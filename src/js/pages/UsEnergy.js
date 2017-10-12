@@ -1,7 +1,6 @@
 import React from "react";
 
 import Header from '../components/Header.js';
-import SideNav from '../components/SideNav.js';
 import EnergySourceMap from '../components/EnergySourceMap.js';
 import EnergyFooter from '../components/EnergyFooter.js';
 

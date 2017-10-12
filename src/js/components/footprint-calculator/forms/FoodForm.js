@@ -25,8 +25,8 @@ export default class FoodForm extends React.Component {
         const textWidth = '75px';
         let calories = 0;
         const questions = this.props.questions.map(question => {
-            let value = question.value;
-            calories += value * question['calories/serving'];
+            const value = question.value;
+            calories += value ? value * question['calories/serving'] : 0;
             return (
                 <Question 
                 key={question.name}
