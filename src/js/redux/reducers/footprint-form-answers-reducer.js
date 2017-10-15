@@ -6,10 +6,12 @@ const footprintFormAnswersReducer = (state = {
     formResults: {},
     errorGettingFormResults: false,
     resultsShown: '',
+    userState: 'US',
+    stateCo2PerKwh: 0,
     averageAmerican: getAverage('US', 'American Average', 'male'),
-    state: 'US',
-    age: 'average',
-    gender: 'male'
+    averageAmericanState: 'US',
+    averagaeAmericanAge: 'average',
+    averageAmericanGender: 'male'
 }, action) => {
     switch (action.type) {
         case 'DISPLAY_ANSWERS': {
@@ -28,6 +30,14 @@ const footprintFormAnswersReducer = (state = {
             state = { ...state, formResults: action.payload};
             break;
         }
+        case 'UPDATE_USER_STATE': {
+            state = { ...state, userState: action.payload};
+            break;
+        }
+        case 'UPDATE_CO2_PER_KWH': {
+            state = { ...state, stateCo2PerKwh: action.payload};
+            break;
+        }
         case 'UPDATE_RESULTS_SHOWN': {
             state = { ...state, resultsShown: action.payload};
             break;
@@ -37,15 +47,15 @@ const footprintFormAnswersReducer = (state = {
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_STATE': {
-            state = { ...state, state: action.payload};
+            state = { ...state, averageAmericanState: action.payload};
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_AGE': {
-            state = { ...state, age: action.payload};
+            state = { ...state, averageAmericanAge: action.payload};
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_GENDER': {
-            state = { ...state, gender: action.payload};
+            state = { ...state, averageAmericanGender: action.payload};
             break;
         }
       }

@@ -22,6 +22,7 @@ import { FormAnswers } from './db/models/form-answers';
 // Utils
 import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
 import validStateId from './src/js/utils/check-if-valid-state-id';
+import getStateData from './src/js/utils/apis/get-state-data';
 
 const renderFullPage = (markup, data, page) => {
     let jsLocation;
@@ -88,22 +89,6 @@ const appendUSAverages = stateData => {
     });
     return appendUSAveragesDeferred.promise
 };
-
-const getStateData = stateId => {
-    const getStateDataDeferred = Q.defer();
-    States.find({ stateId: stateId}).then((stateInfo) => {
-        if(!stateInfo) {
-            getStateDataDeferred.reject('Couldn\'t find state data');
-        } else {
-            let res = JSON.parse(JSON.stringify(stateInfo[0]));
-            let production = res.energyProduction;
-            let averageCO2PerKwh = getCo2EmissionsByKwh(production.total, production.naturalGas, production.coal, production.petroleum);
-            res.energyProduction.averageCO2PerKwh = averageCO2PerKwh;
-            getStateDataDeferred.resolve(res);
-        }              
-    });
-    return getStateDataDeferred.promise;
-}
 
 const solarMiddleware =  (req, res) => {
     console.log('req is ', req.params);

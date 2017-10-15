@@ -1,3 +1,6 @@
+import Q from 'q';
+
+import getStateData from '../../utils/apis/get-state-data';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 
 // Utils. . . maybe make own file eventually?
@@ -87,24 +90,36 @@ export const decreaseStep = () => {
 
 export const submitForm = questionPayload => {
     return dispatch => {
-        let valid = validateForm(questionPayload);    
+        let valid = validateForm(questionPayload);
+        const state = 'WA'; //Remove obviously    
         if (valid) {
-            let footprintResults = calculateFootprintSubmit(questionPayload);
-            console.log('Footprint results are back.  Values in kwh/period', footprintResults);
-            fetch('/api/footprint-form/answer', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    formName: 'footprint-finder',
-                    formAnswers: questionPayload,
-                    results: footprintResults
-                })
-            });
-            dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
-            dispatch({type: 'DISPLAY_ANSWERS', payload: true});
+            Q.fcall(state => {
+                return getStateData(state)
+            })
+            .then(stateData => {
+                const stateCo2 = _.get(stateData, 'energyProduction.averageCO2PerKwh');
+                let footprintResults = calculateFootprintSubmit(questionPayload);
+                console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+                fetch('/api/footprint-form/answer', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        formName: 'footprint-finder',
+                        formAnswers: questionPayload,
+                        results: footprintResults
+                    })
+                });
+                dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
+                dispatch({type: 'DISPLAY_ANSWERS', payload: true});
+                dispatch({type: 'UPDATE_CO2_PER_KWH', payload: stateCo2});
+            })
+            .catch(e => {
+                console.log('Error - problem submitting questionForm');
+            })
+            
         } else {
             alert('Please fill out all of the fields');
         }
@@ -115,4 +130,16 @@ const updateAverageAmerican = averageAmerican => {
     dispatch => {
         dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: averageAmerican})
     }
+};
+
+const updateUserState = userState => {
+   dispatch => {
+        dispatch({type: 'UPDATE_USER_STATE', payload: userState})
+    } 
+};
+
+const updateStateCo2PerKwh = co2 => {
+   dispatch => {
+        dispatch({type: 'UPDATE_CO2_PER_KWH', payload: co2})
+    } 
 };

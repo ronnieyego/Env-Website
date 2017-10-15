@@ -6,11 +6,15 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from "path";
+import _ from 'lodash';
 import moment from 'moment-timezone';
 
 import { footprintMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import validStateId from './src/js/utils/check-if-valid-state-id';
+// import getStateData from './src/js/utils/apis/get-state-data';
 
 import { mongoose } from './db/mongoose';
+import { States } from './db/models/states';
 import { FormAnswers } from './db/models/form-answers';
 
 const port = process.env.PORT || 3000;
@@ -89,6 +93,27 @@ app.get('/api/footprint-form/answers', (req,res) => {
         res.status(400).send(e);
     });
 });
+
+// app.get('/api/get-energy-intensity-by-state/:state', (req, res) => {
+//     let state = (req.params.state).toUpperCase();
+//     if(validStateId(state)) {
+//         return getStateData(state)
+//         .then(stateData => {
+//             const stateCo2 = _.get(stateData, 'energyProduction.averageCO2PerKwh');
+//             if (!stateCo2) {
+//                 throw Error `Could not find averageCo2/Kwh for ${state}.`;
+//             }
+//             console.log('averageCO2PerKwh', stateCo2);
+//         })
+//         .catch(e => {
+//             throw Error `Could not find averageCo2/Kwh for ${state}. -- ${e}`;
+//         })
+//     } else {
+//         console.log('inproper query param');
+//         res.status(400).send("inproper query param");
+//     }
+
+// })
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);
