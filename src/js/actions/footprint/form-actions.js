@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 
 // Utils. . . maybe make own file eventually?
@@ -32,12 +33,11 @@ const validateForm = questions => {
           }
         }
       });
-      console.log('missing questions', missingQuestions);
-
       if(getAnswerFromKey(questions, 'What\'s the MPG of your car?') == 0) {
           return false;
         }
       if(missingQuestions.length > 0) {
+        console.log('missing questions', missingQuestions);
         return false;
       }
       return true;
@@ -87,24 +87,51 @@ export const decreaseStep = () => {
 
 export const submitForm = questionPayload => {
     return dispatch => {
-        let valid = validateForm(questionPayload);    
+        let valid = validateForm(questionPayload);  
+        const state = 'WA';  
         if (valid) {
-            let footprintResults = calculateFootprintSubmit(questionPayload);
-            console.log('Footprint results are back.  Values in kwh/period', footprintResults);
-            fetch('/api/footprint-form/answer', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    formName: 'footprint-finder',
-                    formAnswers: questionPayload,
-                    results: footprintResults
-                })
+            fetch(`/api/get-energy-intensity-by-state/${state}`, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    }
+            })
+            .then(res => {
+                return res.json();
+            })
+            .then(stateData => {
+                const stateCo2 = _.get(stateData, 'energyProduction.averageCO2PerKwh');
+                if (!stateCo2) {
+                    // Dispatch error!
+                    console.log(`Error -- Could not get state co2/kwh data for ${state}.`);
+                }
+                console.log('got State kwh data!! WOOOO', stateCo2);
+                const payload = {
+                    questions: questionPayload,
+                    stateCo2
+                };
+                const footprintResults = calculateFootprintSubmit(payload);
+                console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+                fetch('/api/footprint-form/answer', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        formName: 'footprint-finder',
+                        formAnswers: questionPayload,
+                        results: footprintResults
+                    })
+                });
+                dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
+                dispatch({type: 'DISPLAY_ANSWERS', payload: true});
+            })
+            .catch(e => {
+                console.log('Error calculating footprint. ', e);
             });
-            dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
-            dispatch({type: 'DISPLAY_ANSWERS', payload: true});
+            
         } else {
             alert('Please fill out all of the fields');
         }

@@ -2,6 +2,10 @@
 // Source http://www.inference.org.uk/withouthotair/c13/page_77.shtml
 // Data shouls be viewed as approximations not fact
 
+// CO2 mean is from the FAO
+//Co2 veggies/produce mostly came from a canadian and sweedish study
+// Not super accurate
+
 // Changed some values
 /*
     grain and vegetables were corn
@@ -15,6 +19,7 @@ module.exports = [
     "name": "grain",
     "kwh": 0.11,
     "calories/serving": 100,
+    "co2": 0.23,
     "use-type": "serving",
     "sub-grouping": "produce",
     "subtext": "Serving size: 1 slice of bread or 1 cup of cereal or 0.5 cups of cooked rice"
@@ -23,6 +28,7 @@ module.exports = [
     "name": "vegetables",
     "kwh": 0.11,
     "calories/serving": 59,
+    "co2": 0.5,
     "use-type": "serving",
     "sub-grouping": "produce",
     "subtext": "Serving size: 1 cup of leafy vegetables or 0.5 cups of other veggies"
@@ -31,6 +37,7 @@ module.exports = [
     "name": "milk",
     "kwh": 0.38,
     "calories/serving": 103,
+    "co2": 0.52,
     "use-type": "serving",
     "sub-grouping": "dairy",
     "subtext": "Serving size: 1 cup"
@@ -39,6 +46,7 @@ module.exports = [
     "name": "fruit",
     "kwh": 0.32,
     "calories/serving": 95,
+    "co2": 0.38,
     "use-type": "serving",
     "sub-grouping": "produce",
     "subtext": "Serving size: 1 apple or 0.5 cups"
@@ -47,6 +55,7 @@ module.exports = [
     "name": "eggs",
     "kwh": 0.55,
     "calories/serving": 89,
+    "co2": 0.69,
     "use-type": "serving",
     "sub-grouping": "dairy",
     "subtext": "Serving size: 1 egg"
@@ -55,6 +64,7 @@ module.exports = [
     "name": "chicken",
     "kwh": 0.83,
     "calories/serving": 204,
+    "co2": 1.01,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 3 oz about the size of a deck of cards"
@@ -63,6 +73,7 @@ module.exports = [
     "name": "dairy",
     "kwh": 0.64,
     "calories/serving": 170,
+    "co2": 4,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese"
@@ -71,6 +82,7 @@ module.exports = [
     "name": "pork",
     "kwh": 2.3,
     "calories/serving": 206,
+    "co2": 1.14,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 3 oz about the size of a deck of cards"
@@ -79,6 +91,7 @@ module.exports = [
     "name": "beef",
     "kwh": 5.9,
     "calories/serving": 213,
+    "co2": 5.24,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 3 oz about the size of a deck of cards"
@@ -87,8 +100,9 @@ module.exports = [
     "name": "junk food",
     "kwh": 0.11,
     "calories/serving": 200,
+    "co2": 0.5,
     "use-type": "serving",
     "sub-grouping": "junk-food",
     "subtext": "Serving size: 16 delicious chips or one glorious cookie or a refreshing soda or not enough cake"
   }
-]
+];

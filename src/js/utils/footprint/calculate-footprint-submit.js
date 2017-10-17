@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import { getApplianceSubcategories, getFoodSubcategories, sumCo2QuestionSet } from './calculate-co2-submit';
+import getAnswerFromKey from './get-answer-from-key';
 
 // This util takes in data and calculates your energy footprint.  Yay!
 const daysInMonth = 30;
@@ -7,16 +9,17 @@ const gasKwh = 34.4;
 const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
 
-module.exports = function(questions) {
+module.exports = payload => {
     const compiledFootprint = {
         transportationData: {}
     };
-    const applianceHour = _.filter(questions, function(o) { return o['use-type'] === 'hour'; });
-    const houseHoldQuestions = _.filter(questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
-    const foodQuestions = _.filter(questions, function(o) { return o['use-type'] === 'serving'; });
-    const transportation = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
-
+    const applianceHour = _.filter(payload.questions, function(o) { return o['use-type'] === 'hour'; });
+    const houseHoldQuestions = _.filter(payload.questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+    const foodQuestions = _.filter(payload.questions, function(o) { return o['use-type'] === 'serving'; });
+    const transportation = _.filter(payload.questions, function(o) { return o['use-type'] === 'transportation'; });
     const applinaceQuestionSet = Object.assign(applianceHour, houseHoldQuestions);
+
+// Energy
     compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
     compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
     compiledFootprint.food = parseInt(sumQuestionSet(foodQuestions)) * 28;
@@ -33,6 +36,12 @@ module.exports = function(questions) {
     compiledFootprint.monthlyFly = transportationResults.monthlyFly;
 
     compiledFootprint.totalEnergy = (parseInt(compiledFootprint.appliance) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation));
+// Co2
+    compiledFootprint.co2 = {};
+    compiledFootprint.co2.transportationSubCategories = sumCo2QuestionSet(transportation, 'transportation');
+    compiledFootprint.co2.transportation = compiledFootprint.co2.transportationSubCategories.monthlyCo2FromTransportation;
+    compiledFootprint.co2.food = sumCo2QuestionSet(foodQuestions, 'food');
+    compiledFootprint.co2.appliance = sumCo2QuestionSet(applinaceQuestionSet, 'appliance');
 
     return compiledFootprint;
 }
@@ -41,7 +50,7 @@ const getAnswerValue = question => {
     if(!question.value || question.value === ''){
         return 0;
     }
-    if(typeof question.value === 'boolean') {
+    if(question['use-bool']) {
         return question.kwh;
     }
     if(question.selectOptions) { // Dropdown Question
@@ -82,22 +91,7 @@ const getSubcategories = questionSet => {
     return res;
 };
 
-const getAnswerFromKey = (questionSet, key) => {
-    let answer = null;
-    questionSet.forEach(question => {
-        if(question.name === key) {
-            answer = question.value;
-            return;
-        }
-    });
-    return answer;
-}
-
-
-
 const sumTransportantSet = questionSet => {
-
-
     const results = {};
     const carType = getAnswerFromKey(questionSet, 'What\'s the fuel for your car?');
     let carMpg;

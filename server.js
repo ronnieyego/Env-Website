@@ -7,8 +7,11 @@ import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from "path";
 import moment from 'moment-timezone';
+import _ from 'lodash';
 
 import { footprintMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import validStateId from './src/js/utils/check-if-valid-state-id';
+import getStateData from './src/js/utils/apis/get-state-data';
 
 import { mongoose } from './db/mongoose';
 import { FormAnswers } from './db/models/form-answers';
@@ -88,6 +91,27 @@ app.get('/api/footprint-form/answers', (req,res) => {
     }, (e) => {
         res.status(400).send(e);
     });
+});
+
+app.get('/api/get-energy-intensity-by-state/:state', (req, res) => {
+    console.log('started to fetch data');
+    let state = (req.params.state).toUpperCase();
+    if(validStateId(state)) {
+        return getStateData(state)
+        .then(stateData => {
+            if (!stateData) {
+                throw Error `Could not find state data for ${state}.`;
+            }
+            res.status(200).send(stateData);
+        })
+        .catch(e => {
+            console.log(`Could not find averageCo2/Kwh for ${state}. -- ${e}`);
+            res.status(500).send(100000);
+        })
+    } else {
+        console.log('inproper query param');
+        res.status(400).send(100000);
+    }
 });
 
 app.listen(port, () => {
