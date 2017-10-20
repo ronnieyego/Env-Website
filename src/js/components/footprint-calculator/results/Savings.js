@@ -16,7 +16,7 @@ export default class Compare extends React.Component {
         const results = this.props.results;
         const savings = getSavings(results).filter(saving => {
             return saving.card === true;
-        })
+        });
 
         let useful = savings.filter(card => {
             return card.amount >= impactLevel;
@@ -28,10 +28,11 @@ export default class Compare extends React.Component {
         useful = useful.map(saving => {
             return <Card 
                 color={'lightgreen'}
-                amount={saving.amount} 
-                display={saving.display} 
-                subtext={saving.subtext} 
+                amount={saving.amount}
+                display={saving.display}
+                subtext={saving.subtext}
                 learnMore={saving.learnMore}
+                key={saving.display}
             />
         });
 
@@ -42,6 +43,7 @@ export default class Compare extends React.Component {
                 display={saving.display} 
                 subtext={saving.subtext} 
                 learnMore={saving.learnMore}
+                key={saving.display}
             />
         });
         const containerStyle = {

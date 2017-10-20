@@ -16,18 +16,17 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 
 export default class ResultsPieChart extends React.Component {
-    constructor(props) {
-	    super();
-	}
 
 	render() {
+        const units = this.props.category === 'energy' ? 'kwhs' : 'lbs/CO';
+        const sub2 = this.props.category === 'energy' ? '' : <sub>2</sub>;
         const graphData = this.props.graphData;
         graphData.sort((a,b) => {
             return a.amount < b.amount;
         });
         const categoryList = graphData.map(data => {
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
-            return <li key={name} id={name}>{`${name}: ${data.amount.toLocaleString()} kwhs`}</li>;
+            return <li key={name} id={name}>{`${name}: ${data.amount.toLocaleString()} ${units}`}{sub2}</li>;
         });
         const legendPayload = graphData.map((data, index) => { 
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);

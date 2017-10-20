@@ -2,10 +2,12 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 export default class Card extends React.Component {
-
-    constructor(props) {
-	    super();
-	}
+    static propTypes = {
+        amount: PropTypes.number,
+        display: PropTypes.string,
+        subtext: PropTypes.string,
+        link: PropTypes.string
+    };
 
 	render() {
         const style = {
@@ -30,11 +32,4 @@ export default class Card extends React.Component {
             </div>
 		);
 	}
-};
-
-Card.propTypes = {
-  amount: PropTypes.number,
-  display: PropTypes.string,
-  subtext: PropTypes.string,
-  link: PropTypes.string
 };

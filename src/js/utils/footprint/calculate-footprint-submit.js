@@ -1,6 +1,9 @@
 import _ from 'lodash';
 import { getApplianceSubcategories, getFoodSubcategories, sumCo2QuestionSet } from './calculate-co2-submit';
+import { getEnergySubcategories, sumEnergyQuestionSet } from './calculate-energy-submit';
 import getAnswerFromKey from './get-answer-from-key';
+
+
 
 // This util takes in data and calculates your energy footprint.  Yay!
 const daysInMonth = 30;
@@ -20,126 +23,29 @@ module.exports = payload => {
     const applinaceQuestionSet = Object.assign(applianceHour, houseHoldQuestions);
 
 // Energy
-    compiledFootprint.appliance = parseInt(sumQuestionSet(applinaceQuestionSet));
-    compiledFootprint.applianceSubCategories = getSubcategories(applinaceQuestionSet);
-    compiledFootprint.food = parseInt(sumQuestionSet(foodQuestions)) * 28;
-    compiledFootprint.foodSubCategories = getSubcategories(foodQuestions);
+    compiledFootprint.energy = {};
+    compiledFootprint.energy.appliance = sumEnergyQuestionSet(applinaceQuestionSet, 'appliance');
+    compiledFootprint.energy.applianceSubCategories = getEnergySubcategories(applinaceQuestionSet);
+    compiledFootprint.energy.food = sumEnergyQuestionSet(foodQuestions, 'food') * 28;
+    compiledFootprint.energy.foodSubCategories = getEnergySubcategories(foodQuestions);
     
-    const transportationResults = sumTransportantSet(transportation);
-    compiledFootprint.transportationBreakdown = transportationResults;
-    compiledFootprint.transportation = transportationResults.transportation;
+    const transportationResults = sumEnergyQuestionSet(transportation, 'transportation');
+    compiledFootprint.energy.transportationSubCategories = transportationResults;
+    compiledFootprint.energy.transportation = transportationResults.transportation;
     
-    // Remove these and swap out their data grabs in Results
-    compiledFootprint.monthlyRoadTrip = transportationResults.monthlyRoadTrip;
-    compiledFootprint.monthlyCommute = transportationResults.monthlyCommute;
-    compiledFootprint.monthlyCar = transportationResults.monthlyCar;
-    compiledFootprint.monthlyFly = transportationResults.monthlyFly;
+    compiledFootprint.energy.totalEnergy = (parseInt(compiledFootprint.energy.appliance) + parseInt(compiledFootprint.energy.food) + parseInt(compiledFootprint.energy.transportation));
 
-    compiledFootprint.totalEnergy = (parseInt(compiledFootprint.appliance) + parseInt(compiledFootprint.food) + parseInt(compiledFootprint.transportation));
 // Co2
     compiledFootprint.co2 = {};
     compiledFootprint.co2.transportationSubCategories = sumCo2QuestionSet(transportation, 'transportation');
     compiledFootprint.co2.transportation = compiledFootprint.co2.transportationSubCategories.monthlyCo2FromTransportation;
     compiledFootprint.co2.food = sumCo2QuestionSet(foodQuestions, 'food');
     compiledFootprint.co2.appliance = sumCo2QuestionSet(applinaceQuestionSet, 'appliance');
-
+    compiledFootprint.co2.foodSubCategories = getFoodSubcategories(foodQuestions);
+    compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(foodQuestions);
+    compiledFootprint.co2.totalCo2 = parseInt(compiledFootprint.co2.transportation) + parseInt(compiledFootprint.co2.food) + parseInt(compiledFootprint.co2.appliance);
     return compiledFootprint;
 }
 
-const getAnswerValue = question => {
-    if(!question.value || question.value === ''){
-        return 0;
-    }
-    if(question['use-bool']) {
-        return question.kwh;
-    }
-    if(question.selectOptions) { // Dropdown Question
-        return question.value;
-    }
-    question.value = question.value.trim();
-    question.value = question.value.replace(' ', '');
-    question.value = parseFloat(question.value).toFixed(2);
-    if(question.value > 0) { //Int question
-        if(question.kwh) { // Standard question
-            return question.kwh * question.value;
-        }
-        return question.value;  // Transportation form
-    }
-    console.log('Problem with question', question);
-    return 0; // Something went wrong (ie. '' passed in);
-};
 
-const sumQuestionSet = questionSet => {
-    let groupSum = 0;
-    questionSet.forEach(question => {
-        let questionTotal = getAnswerValue(question);
-        groupSum += questionTotal;
-    });
-    return groupSum.toFixed(1);
-}
-
-const getSubcategories = questionSet => {
-    let res = {};
-    questionSet.forEach(question => {
-        const subCategory = question['sub-grouping'] ? question['sub-grouping'] : 'other';
-        if(res[subCategory]) {
-            res[subCategory] += getAnswerValue(question);
-        } else {
-            res[subCategory] = getAnswerValue(question);
-        }
-    });
-    return res;
-};
-
-const sumTransportantSet = questionSet => {
-    const results = {};
-    const carType = getAnswerFromKey(questionSet, 'What\'s the fuel for your car?');
-    let carMpg;
-    if(carType !== 'Electric') {
-        carMpg = getAnswerFromKey(questionSet, 'What\'s the MPG of your car?');
-    }
-    const dailyMiles = getAnswerFromKey(questionSet, 'On average, how many miles do you drive for work, school, and errands each day?');
-    const doesCarpool = getAnswerFromKey(questionSet, 'Do you carpool?') ? getAnswerFromKey(questionSet, 'Do you carpool?') : false;
-    const numOfRoadTrips = getAnswerFromKey(questionSet, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?');
-    const roadTripMiles = getAnswerFromKey(questionSet, 'How many far is your average roadtrip?');
-    const doesRoadTripCarpool = getAnswerFromKey(questionSet, 'Do you usually carpool for roadtrips?') ? getAnswerFromKey(questionSet, 'Do you usually carpool for roadtrips?') : false;
-    const flyMiles = getAnswerFromKey(questionSet, 'Within the last year, how many miles did you fly?');
-
-    const carpool = doesCarpool ? 2 : 1;
-    const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;
-    const monthlyCommuteMiles = dailyMiles * 30/carpool;
-    const monthlyRoadTripMiles = (numOfRoadTrips * roadTripMiles / roadTripCarpool)/12; // 12 months/year
-
-    let totalCommuteCar;
-    let totalRoadTripCar;
-    if(carType !== 'Electric') {
-        console.log('Ah.  You don\'t drive an electric car.  JUDGEMENT!!');
-        const monthlyGas = monthlyCommuteMiles/carMpg; // unit is gallons
-        const roadTripMonthGas =  monthlyRoadTripMiles/carMpg; // 12 months/year
-        totalCommuteCar = monthlyGas * gasKwh;
-        totalRoadTripCar = roadTripMonthGas * gasKwh;
-    } else {
-        console.log('Congrats on driving an electric car.  Hope its a Tesla!');
-        totalCommuteCar = monthlyCommuteMiles * kwhPer100MilesElectricCar/100;
-        totalRoadTripCar = monthlyRoadTripMiles * kwhPer100MilesElectricCar/100;
-    }
-    
-    const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
-    
-    const totalMonthlyCar = totalCommuteCar + totalRoadTripCar;
-    const totalMonthlyFly = montlyFlyGas * jetFuelKwh;
-    const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly;
-
-    results.carMpg = carMpg;
-    results.carType = carType;
-    results.carPoolWork = doesCarpool;
-    results.carPoolTrips = doesRoadTripCarpool;
-    results.totalMilesDriven = (monthlyCommuteMiles + monthlyRoadTripMiles).toFixed(1);
-    results.monthlyRoadTrip = totalRoadTripCar.toFixed(1);
-    results.monthlyCommute = totalCommuteCar.toFixed(1);
-    results.monthlyCar = totalMonthlyCar.toFixed(1);
-    results.monthlyFly = totalMonthlyFly.toFixed(1);
-    results.transportation = monthlyEnergyFromTransportation.toFixed(1);
-    return results
-}
 

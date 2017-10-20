@@ -23,6 +23,7 @@ export default class PersonalBreakdown extends React.Component {
             textAlign: 'center'
         };
         const res = this.props.results;
+        const category = this.props.category === 'energy' ? 'Energy' : 'CO2';
 
         // Top level summary
         const categoryBreakDownData = [
@@ -33,9 +34,9 @@ export default class PersonalBreakdown extends React.Component {
 
         // Transportation Summary
         const transportationBreakdown = [
-            {source: 'Daily Use', amount: parseInt(res.monthlyCommute)},
-            {source: 'Roadtrips', amount: parseInt(res.monthlyRoadTrip)},
-            {source: 'Flying', amount: parseInt(res.monthlyFly)}
+            {source: 'Daily Use', amount: parseInt(res.transportationSubCategories.monthlyCommute)},
+            {source: 'Roadtrips', amount: parseInt(res.transportationSubCategories.monthlyRoadTrip)},
+            {source: 'Flying', amount: parseInt(res.transportationSubCategories.monthlyFly)}
         ];
 
         // Appliance Summary
@@ -53,16 +54,35 @@ export default class PersonalBreakdown extends React.Component {
 		return (
             <div style={containerStyle}>
                 <div id="top-level-sumamry">
-                    <ResultsPieChart graphData={categoryBreakDownData} title={'Monthly Energy Breakdown'} key={'Monthly Energy Breakdown'} /> 
+                    <ResultsPieChart 
+                        graphData={categoryBreakDownData} 
+                        title={`Monthly ${category} Breakdown`} 
+                        key={`Monthly ${category} Breakdown`} 
+                        category={this.props.category}
+                    /> 
                 </div>
                 <div id="transportation-summary">
-                    <ResultsPieChart graphData={transportationBreakdown} title={'Transportation Breakdown'} key={'Transportation Breakdown'} /> 
+                    <ResultsPieChart 
+                        graphData={transportationBreakdown}
+                        title={'Transportation Breakdown'}
+                        key={'Transportation Breakdown'}
+                        category={this.props.category}/> 
                 </div>
                 <div id="appliance-summary">
-                    <ResultsPieChart graphData={applianceBreakdown} title={'Appliance Breakdown'} key={'Appliance Breakdown'} /> 
+                    <ResultsPieChart 
+                        graphData={applianceBreakdown}
+                        title={'Appliance Breakdown'}
+                        key={'Appliance Breakdown'}
+                        category={this.props.category}
+                    /> 
                 </div>
                 <div id="food-summary">
-                    <ResultsPieChart graphData={foodBreakdown} title={'Food Breakdown'} key={'Food Breakdown'} /> 
+                    <ResultsPieChart 
+                        graphData={foodBreakdown}
+                        title={'Food Breakdown'}
+                        key={'Food Breakdown'}
+                        category={this.props.category}
+                    /> 
                 </div>
             </div>
 		);

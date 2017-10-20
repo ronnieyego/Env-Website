@@ -1,6 +1,6 @@
 import getAnswerFromKey from './get-answer-from-key';
 
-const stateCo2 = 3;
+const stateCo2 = 0.003;
 const co2PerGallonOfGas = 50;
 const co2PerGallonOfJetFuel = 50;
 const mpgPerPersonPlane = 84.9;
@@ -70,19 +70,19 @@ const getApplianceSubcategories = applianceSet => {
 
 const getApplianceValue = (question, stateCo2) => {
     if(question['use-bool']) {
-        return (question.kwh * stateCo2).toFixed(2);
+        return (question.kwh * stateCo2);
     }
     if(!question.value || question.value === ''){
         return 0;
     }
     if(question.selectOptions) { // Dropdown Question
-        return (question.value * stateCo2).toFixed(2);
+        return (question.value * stateCo2);
     }
     question.value = question.value.trim();
     question.value = question.value.replace(' ', '');
-    question.value = parseFloat(question.value).toFixed(2);
+    question.value = parseFloat(question.value);
     if(question.value > 0 && question.kwh) { //Int question
-        return (question.kwh * question.value *  stateCo2).toFixed(2);
+        return (question.kwh * question.value *  stateCo2);
     }
     console.log('Problem with co2/appliance question', question);
     return 0; // Something went wrong (ie. '' passed in);
@@ -124,10 +124,11 @@ const sumTransportationSet = transportatioSet => {
     const totalMonthlyCarCo2 = totalCommuteCarCo2 + totalRoadTripCarCo2;
     const monthlyCo2FromTransportation = totalMonthlyCarCo2 + totalMonthlyFlyCo2;
 
-    results.totalCommuteCarCo2 = totalCommuteCarCo2.toFixed(1);
-    results.totalRoadTripCarCo2 = totalRoadTripCarCo2.toFixed(1);
-    results.totalMonthlyFlyCo2 = totalMonthlyFlyCo2.toFixed(1);
-    results.monthlyCo2FromTransportation = monthlyCo2FromTransportation.toFixed(1);
+    results.monthlyCar = Math.round(totalMonthlyCarCo2 * 100)/100;
+    results.monthlyCommute = Math.round(totalCommuteCarCo2 * 100)/100;
+    results.monthlyRoadTrip = Math.round(totalRoadTripCarCo2 * 100)/100;
+    results.monthlyFly = Math.round(totalMonthlyFlyCo2 * 100)/100;
+    results.monthlyCo2FromTransportation = Math.round(monthlyCo2FromTransportation * 100)/100;
 
     return results;
 }

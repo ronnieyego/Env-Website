@@ -7,23 +7,6 @@ import Compare from './Compare';
 import Savings from './Savings';
 import Facts from './Facts';
 
-
-
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
-
-const RADIAN = Math.PI / 180;                    
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = outerRadius * 1.25;
-  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
-  return (
-    <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-        {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-
-
 @connect((store, props) => {
 	return {
 		results: store.footprintFormAnswers.formResults,
@@ -52,25 +35,50 @@ export default class Results extends React.Component {
             textAlign: 'center'
         };
 
+        const tableStyle = {
+            minWidth: '650px',
+            width: '100%',
+            margin: 'auto'
+        }
+
+        const tdStyle = {
+            paddingTop: '20px'
+        };
+
         const res = this.props.results;
-        const monthlyUse = parseInt(res.totalEnergy);
+        const monthlyEnergyUse = parseInt(res.energy.totalEnergy);
+        const monthlyCo2Use = parseInt(res.co2.totalCo2);
         let shownResults;
         switch(this.props.resultsShown) {
-            case 'personalBreakdown':
-                shownResults = <PersonalBreakdown results={this.props.results} />;
+            case 'energy-personalBreakdown':
+                shownResults = <PersonalBreakdown 
+                    results={this.props.results.energy} 
+                    category={'energy'}
+                    />;
                 break;
-            case 'compare':
-                shownResults = <Compare results={this.props.results}
-                                        averageAmerican={this.props.averageAmerican}
-                                        state={this.props.state}
-                                        age={this.props.age}
-                                        gender={this.props.gender}
-                                        monthlyUse={monthlyUse}
-                                        dispatch={this.props.dispatch}
-                                        />;
+            case 'co2-personalBreakdown':
+                shownResults = <PersonalBreakdown 
+                    results={this.props.results.co2} 
+                    category={'co2'}
+                    />;
                 break;
-            case 'savings':
-                shownResults = <Savings results={this.props.results}/>
+            case 'energy-compare':
+                shownResults = <Compare 
+                                    results={this.props.results.energy}
+                                    averageAmerican={this.props.averageAmerican}
+                                    state={this.props.state}
+                                    age={this.props.age}
+                                    gender={this.props.gender}
+                                    monthlyUse={monthlyEnergyUse}
+                                    dispatch={this.props.dispatch}
+                                    category={this.props.category}
+                                />;
+                break;
+            case 'energy-savings':
+                shownResults = <Savings 
+                    results={this.props.results.energy}
+                    category={this.props.category}
+                />
                 break;
         }
 
@@ -78,15 +86,24 @@ export default class Results extends React.Component {
 
 		return (
             <div style={containerStyle}>
-                <h1>You use <b>{monthlyUse.toLocaleString()} kwhs</b> each month.</h1>
+                <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub> each month.</h1>
                 
                 <div>
                     <h2>Lets dive a little deeper</h2>
-                    <div style={{display: 'flex', justifyContent: 'space-around', marginTop: '15px', marginBottom: '15px'}}>
-                        <button type="submit" id="personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Energy Breakdown</button>
-                        <button type="submit" id="compare" onClick={this.switchResult.bind(this)}>How I compare to others</button>
-                        <button type="submit" id="savings" onClick={this.switchResult.bind(this)}>Ways to reduce my energy</button>
-                    </div>
+                    <table style={tableStyle}>
+                        <tr>
+                            <td style={tdStyle}><b>CO<sub>2</sub></b></td>
+                            <td style={tdStyle}><button type="submit" id="co2-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal CO<sub>2</sub> Breakdown</button></td>
+                            <td style={tdStyle}><button type="submit" id="co2-compare" onClick={this.switchResult.bind(this)}>Compare my emissions</button></td>
+                            <td style={tdStyle}><button type="submit" id="co2-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my carbon footprint</button></td>
+                        </tr>
+                        <tr>
+                            <td style={tdStyle}><b>Energy</b></td>
+                            <td style={tdStyle}><button type="submit" id="energy-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Energy Breakdown</button></td>
+                            <td style={tdStyle}><button type="submit" id="energy-compare" onClick={this.switchResult.bind(this)}>How I compare to others</button></td>
+                            <td style={tdStyle}><button type="submit" id="energy-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my energy</button></td>
+                        </tr>
+                    </table>
                 </div>
                 
                 {shownResults}

@@ -21,7 +21,7 @@ const americanCarMiles = {
         male: 10304,
         female: 4785,
     },
-    'American Average': {
+    'average': {
         male: 16550,
         female: 10142,
     }
@@ -34,14 +34,45 @@ const kwhPerMonthAppliance = 901;
 // Total servings of food/year eaten by Americans and energy/serving
 // Source:  NPR  http://www.npr.org/sections/thesalt/2011/12/31/144478009/the-average-american-ate-literally-a-ton-this-year
 // Based on this data:  https://www.ers.usda.gov/Data/FoodConsumption/
+
+
+
 const food = {
-    dairy: [630, .75], // Servings/year, energy/serving
-    grain: [197, .43],
-    fruit: [273, 1.67],
-    vegetables: [556, .43],  // Veges + fats/sugars
-    chicken: [54, 4.4],
-    pork: [60, 12.6],
-    beef: [71, 31.5]
+    dairy: {
+        yearServings: 630,
+        energyPerServing: 0.75,
+        co2PerServing: 4
+    },
+    grain: {
+        yearServings: 197,
+        energyPerServing: 0.43,
+        co2PerServing: 0.23
+    },
+    fruit: {
+        yearServings: 273,
+        energyPerServing: 1.67,
+        co2PerServing: 0.38
+    },
+    vegetables: {
+        yearServings: 556,
+        energyPerServing: 0.43,
+        co2PerServing: 0.5
+    },
+    chicken: {
+        yearServings: 54,
+        energyPerServing: 4.4,
+        co2PerServing: 1.01
+     },
+    pork: {
+        yearServings: 60,
+        energyPerServing: 12.6,
+        co2PerServing: 1.14
+     },
+    beef: {
+        yearServings: 71,
+        energyPerServing: 31.5,
+        co2PerServing: 5.24
+    }
 };
 
 const utilityUse = {
@@ -97,6 +128,60 @@ const utilityUse = {
     WI: 668,
     WY: 832,
     US: 901
+};
+
+const utilityEmissionsPerState = {
+    // Units lb/Co2 per kwh
+    AK: 0.0276,
+    AL: 0.0289,
+    AR: 0.0322,
+    AZ: 0.031,
+    CA: 0.0179,
+    CO: 0.0549,
+    CT: 0.0178,
+    DE: 0.031,
+    FL: 0.0354,
+    GA: 0.0328,
+    HI: 0.0437,
+    IA: 0.0441,
+    ID: 0.0072,
+    IL: 0.0581,
+    IN: 0.0582,
+    KS: 0.0453,
+    KY: 0.0586,
+    LA: 0.0311,
+    MA: 0.022,
+    MD: 0.0259,
+    ME: 0.046,
+    MI: 0.0417,
+    MN: 0.0381,
+    MO: 0.0524,
+    MS: 0.0289,
+    MT: 0.003,
+    NC: 0.0304,
+    ND: 0.0536,
+    NE: 0.0417,
+    NH: 0.0383,
+    NM: 0.0568,
+    NV: 0.0335,
+    NY: 0.013,
+    OH: 0.0544,
+    OK: 0.0449,
+    OR: 0.0091,
+    PA: 0.0023,
+    RI: 0.046,
+    SC: 0.0209,
+    SD: 0.0153,
+    TN: 0.0301,
+    TX: 0.0488,
+    UT: 0.0561,
+    VA: 0.0265,
+    VT: 0.0002,
+    WA: 0.003,
+    WI: 0.0523,
+    WV: 0.0627,
+    WY: 0.0594,
+    US: 0.0349
 }
     
 
@@ -105,6 +190,7 @@ module.exports = {
     americanCarMiles,
     food, 
     kwhPerMonthAppliance,
+    utilityEmissionsPerState,
     utilityUse
 }
  

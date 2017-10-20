@@ -7,6 +7,7 @@ import { getAverage } from '../../../utils/footprint/get-average-american-footpr
 
 const containerStyle = {
     margin: 'auto',
+    marginTop: '20px',
     textAlign: 'center'
 };
 
@@ -18,6 +19,10 @@ const buttonStyles = { // Buttons to change state, age, gender
 }
 
 export default class Compare extends React.Component {
+    constructor(props) {
+        super();
+        this.updateQuestion = this.updateQuestion.bind(this);
+    }
 
     capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -44,8 +49,8 @@ export default class Compare extends React.Component {
     }
 
 	render() {
-        const averageGraphData = this.props.averageAmerican;
-        console.log('in compare. Average american is', averageGraphData);
+        const averageGraphData = this.props.averageAmerican.energy;
+        console.log('in compare. Average american is', this.props.averageAmerican);
 
         const monthlyUse = this.props.monthlyUse;
         const averageTotal = parseInt(averageGraphData.total);
@@ -93,13 +98,15 @@ export default class Compare extends React.Component {
                     <ResultsPieChart 
                         graphData={categoryBreakDownData} 
                         title={'Your Energy Breakdown'}
-                        subtitle={`Total energy: ${this.props.results.totalEnergy.toLocaleString()} kwhs per month`} 
+                        subtitle={`Total energy: ${this.props.results.totalEnergy.toLocaleString()} kwhs per month`}
+                        category={this.props.category}
                         /> 
                     <div id="average-american">
                         <ResultsPieChart 
-                            graphData={averageAmerican} 
-                            title={'Average American Energy Breakdown'} 
+                            graphData={averageAmerican}
+                            title={'Average American Energy Breakdown'}
                             subtitle={subtitle}
+                            category={this.props.category}
                             /> 
                     </div>
                 </div>   
@@ -108,7 +115,11 @@ export default class Compare extends React.Component {
                     <div>
                         <b style={{marginBottom: '5px'}}>Change State</b>
                         <br />
-                        <StateDropdown id="compare-state-dropdown" updateQuestion={this.updateQuestion} selected={this.props.state} />
+                        <StateDropdown
+                            id="compare-state-dropdown"
+                            updateQuestion={this.updateQuestion}
+                            selected={this.props.state} 
+                        />
                     </div>
                     <div>
                         <b>Change age group</b>

@@ -24,7 +24,7 @@ const res = {
     "meat": 29.01,
     "junk-food": 0.33
   },
-  "transportationBreakdown": {
+  "transportationSubCategories": {
     "carMpg": "25.00",
     "carType": "Gasoline",
     "carPoolWork": false,
@@ -37,27 +37,23 @@ const res = {
     "transportation": "1046.5"
   },
   "transportation": "1046.5",
-  "monthlyRoadTrip": "14.3",
-  "monthlyCommute": "1032.0",
-  "monthlyCar": "1046.3",
-  "monthlyFly": "0.2",
   "totalEnergy": "3,199"
 };
 
 const betterDriving = res => {
-    const currentMpg = res.transportationBreakdown.carMpg;
-    const monthlyCar = res.transportationBreakdown.monthlyCar;
+    const currentMpg = res.transportationSubCategories.carMpg;
+    const monthlyCar = res.transportationSubCategories.monthlyCar;
     const percentImprovement = currentMpg/(currentMpg * 1.15);
     return  (monthlyCar - (monthlyCar * percentImprovement)).toFixed(1);
 };
 
 const electricCar = res => {
-    const carType = _.get(res, 'transportationBreakdown.carType', 'Electric'); // If error then return 0 and not show card
+    const carType = _.get(res, 'transportationSubCategories.carType', 'Electric'); // If error then return 0 and not show card
     if(carType === 'Electric') {
         return 0;
     }
-    const totalMiles = _.get(res, 'transportationBreakdown.totalMilesDriven', 0);
-    const mpg = _.get(res, 'transportationBreakdown.carMpg', 0);
+    const totalMiles = _.get(res, 'transportationSubCategories.totalMilesDriven', 0);
+    const mpg = _.get(res, 'transportationSubCategories.carMpg', 0);
     const gasEnergy = kwhPerGallon * totalMiles / mpg;
     const electricEnergy = kwhPer100MilesElectricCar * totalMiles / 100;
     const diff = parseInt(gasEnergy - electricEnergy);
@@ -95,7 +91,7 @@ const getSavings = res => {
         {
             display: 'Move within walking distance of your work',
             card: true,
-            amount: _.get(res, 'transportationBreakdown.monthlyCommute', 0),
+            amount: _.get(res, 'transportationSubCategories.monthlyCommute', 0),
             learnMore: 'https://www.citylab.com/life/2012/04/why-bigger-cities-are-greener/863/'
         },
         {
