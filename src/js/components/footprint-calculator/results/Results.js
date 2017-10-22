@@ -71,7 +71,19 @@ export default class Results extends React.Component {
                                     gender={this.props.gender}
                                     monthlyUse={monthlyEnergyUse}
                                     dispatch={this.props.dispatch}
-                                    category={this.props.category}
+                                    category={'energy'}
+                                />;
+                break;
+            case 'co2-compare':
+                shownResults = <Compare 
+                                    results={this.props.results.co2}
+                                    averageAmerican={this.props.averageAmerican}
+                                    state={this.props.state}
+                                    age={this.props.age}
+                                    gender={this.props.gender}
+                                    monthlyUse={monthlyCo2Use}
+                                    dispatch={this.props.dispatch}
+                                    category={'co2'}
                                 />;
                 break;
             case 'energy-savings':

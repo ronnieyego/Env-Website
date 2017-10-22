@@ -24,9 +24,9 @@ const getAverageCo2 = (state, age, gender) => {
 
     const carCo2 = carMiles * co2PerGallonOfGasoline;
     const planeCo2 = planeMiles * co2PerGallonOfJetFuel;
-    const transportationCo2 = parseInt(carCo2 + planeCo2);
+    const transportation = parseInt(carCo2 + planeCo2);
 
-    const applianceCo2 = parseInt(averages.utilityUse[state] * averages.utilityEmissionsPerState[state]);
+    const appliance = parseInt(averages.utilityUse[state] * averages.utilityEmissionsPerState[state]);
 
     let foodKeys = Object.keys(averages.food);
 
@@ -35,14 +35,14 @@ const getAverageCo2 = (state, age, gender) => {
         const energy = food.yearServings * food.co2PerServing;
         return total + energy;
     }, 0);
-    const foodCo2 = parseInt(totalYearFoodCo2/12);
-    const totalCo2 = parseInt(applianceCo2 + foodCo2 + transportationCo2);
+    const food = parseInt(totalYearFoodCo2/12);
+    const total = parseInt(appliance + food + transportation);
 
     return {
-        applianceCo2,
-        foodCo2,
-        transportationCo2,
-        totalCo2
+        appliance,
+        food,
+        transportation,
+        total
     };
 
 }

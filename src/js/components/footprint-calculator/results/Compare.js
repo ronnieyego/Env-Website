@@ -49,7 +49,8 @@ export default class Compare extends React.Component {
     }
 
 	render() {
-        const averageGraphData = this.props.averageAmerican.energy;
+        const averageGraphData = this.props.category === 'energy' ? this.props.averageAmerican.energy : this.props.averageAmerican.co2;
+        const units = this.props.category === 'energy' ? 'kwhs' : 'lb/CO2';
         console.log('in compare. Average american is', this.props.averageAmerican);
 
         const monthlyUse = this.props.monthlyUse;
@@ -60,6 +61,9 @@ export default class Compare extends React.Component {
         
 
         const res = this.props.results;
+        const total = this.props.category === 'energy' ? res.totalEnergy : res.totalCo2;
+        
+        console.log('compare res are', res);
         // Personal
         const categoryBreakDownData = [
             {source: 'Appliances', amount: parseInt(res.appliance)},
@@ -98,7 +102,7 @@ export default class Compare extends React.Component {
                     <ResultsPieChart 
                         graphData={categoryBreakDownData} 
                         title={'Your Energy Breakdown'}
-                        subtitle={`Total energy: ${this.props.results.totalEnergy.toLocaleString()} kwhs per month`}
+                        subtitle={`Total ${this.props.category.toUpperCase()}: ${total.toLocaleString()} ${units} per month`}
                         category={this.props.category}
                         /> 
                     <div id="average-american">

@@ -1,8 +1,8 @@
 import getAnswerFromKey from './get-answer-from-key';
 
 const stateCo2 = 0.003;
-const co2PerGallonOfGas = 50;
-const co2PerGallonOfJetFuel = 50;
+const co2PerGallonOfGas = 19.6;
+const co2PerGallonOfJetFuel = 21.1;
 const mpgPerPersonPlane = 84.9;
 
 const getFoodValue = question => {
@@ -69,7 +69,7 @@ const getApplianceSubcategories = applianceSet => {
 }
 
 const getApplianceValue = (question, stateCo2) => {
-    if(question['use-bool']) {
+    if(question['use-bool'] && question.value === 'on') {
         return (question.kwh * stateCo2);
     }
     if(!question.value || question.value === ''){

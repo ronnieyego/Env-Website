@@ -42,7 +42,7 @@ module.exports = payload => {
     compiledFootprint.co2.food = sumCo2QuestionSet(foodQuestions, 'food');
     compiledFootprint.co2.appliance = sumCo2QuestionSet(applinaceQuestionSet, 'appliance');
     compiledFootprint.co2.foodSubCategories = getFoodSubcategories(foodQuestions);
-    compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(foodQuestions);
+    compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(applinaceQuestionSet);
     compiledFootprint.co2.totalCo2 = parseInt(compiledFootprint.co2.transportation) + parseInt(compiledFootprint.co2.food) + parseInt(compiledFootprint.co2.appliance);
     return compiledFootprint;
 }
