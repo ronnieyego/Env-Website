@@ -1,20 +1,18 @@
 import React from "react";
 
 import Card from './Card';
-import getSavings from '../../../utils/footprint/calculate-footprint-savings'
+import getSavings from '../../../utils/footprint/calculate-footprint-savings';
+import { getCo2Savings } from '../../../utils/footprint/calculate-co2-savings';
 
 
 const impactLevel = 100;
 
 export default class Compare extends React.Component {
 
-    constructor(props) {
-	    super();
-	}
-
 	render() {
         const results = this.props.results;
-        const savings = getSavings(results).filter(saving => {
+        const savingSet = this.props.category === 'energy' ? getSavings(results) : getCo2Savings(results, this.props.questions);
+        const savings = savingSet.filter(saving => {
             return saving.card === true;
         });
 
@@ -33,6 +31,7 @@ export default class Compare extends React.Component {
                 subtext={saving.subtext}
                 learnMore={saving.learnMore}
                 key={saving.display}
+                category={this.props.category}
             />
         });
 
@@ -44,6 +43,7 @@ export default class Compare extends React.Component {
                 subtext={saving.subtext} 
                 learnMore={saving.learnMore}
                 key={saving.display}
+                category={this.props.category}
             />
         });
         const containerStyle = {

@@ -13,9 +13,7 @@ const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
 
 module.exports = payload => {
-    const compiledFootprint = {
-        transportationData: {}
-    };
+    const compiledFootprint = {};
     const applianceHour = _.filter(payload.questions, function(o) { return o['use-type'] === 'hour'; });
     const houseHoldQuestions = _.filter(payload.questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
     const foodQuestions = _.filter(payload.questions, function(o) { return o['use-type'] === 'serving'; });
@@ -44,6 +42,11 @@ module.exports = payload => {
     compiledFootprint.co2.foodSubCategories = getFoodSubcategories(foodQuestions);
     compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(applinaceQuestionSet);
     compiledFootprint.co2.totalCo2 = parseInt(compiledFootprint.co2.transportation) + parseInt(compiledFootprint.co2.food) + parseInt(compiledFootprint.co2.appliance);
+
+// Meta
+    compiledFootprint.meta = {};
+    compiledFootprint.meta.stateCo2 = payload.stateCo2 || .05;
+
     return compiledFootprint;
 }
 

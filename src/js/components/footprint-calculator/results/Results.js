@@ -9,6 +9,7 @@ import Facts from './Facts';
 
 @connect((store, props) => {
 	return {
+        questions: store.footprintForm.questions,
 		results: store.footprintFormAnswers.formResults,
         resultsShown: store.footprintFormAnswers.resultsShown,
 		averageAmerican: store.footprintFormAnswers.averageAmerican,
@@ -89,7 +90,14 @@ export default class Results extends React.Component {
             case 'energy-savings':
                 shownResults = <Savings 
                     results={this.props.results.energy}
-                    category={this.props.category}
+                    category={'energy'}
+                />
+                break;
+            case 'co2-savings':
+                shownResults = <Savings 
+                    results={this.props.results.co2}
+                    questions={this.props.questions}
+                    category={'co2'}
                 />
                 break;
         }

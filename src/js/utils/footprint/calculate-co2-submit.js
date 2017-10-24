@@ -9,9 +9,11 @@ const getFoodValue = question => {
     if(!question.value || question.value === ''){
         return 0;
     }
-    question.value = question.value.trim();
-    question.value = question.value.replace(' ', '');
-    question.value = parseFloat(question.value).toFixed(2);
+    if(typeof question.value === 'string') {
+        question.value = question.value.trim();
+        question.value = question.value.replace(' ', '');
+    }
+    question.value = parseFloat(question.value);
     if(question.value > 0 && question.co2) { // Standard question
         return question.co2 * question.value;
     }
@@ -78,8 +80,10 @@ const getApplianceValue = (question, stateCo2) => {
     if(question.selectOptions) { // Dropdown Question
         return (question.value * stateCo2);
     }
-    question.value = question.value.trim();
-    question.value = question.value.replace(' ', '');
+    if(typeof question.value === 'string'){
+        question.value = question.value.trim();
+        question.value = question.value.replace(' ', '');
+    }
     question.value = parseFloat(question.value);
     if(question.value > 0 && question.kwh) { //Int question
         return (question.kwh * question.value *  stateCo2);
@@ -124,6 +128,8 @@ const sumTransportationSet = transportatioSet => {
     const totalMonthlyCarCo2 = totalCommuteCarCo2 + totalRoadTripCarCo2;
     const monthlyCo2FromTransportation = totalMonthlyCarCo2 + totalMonthlyFlyCo2;
 
+    results.carMpg = carMpg;
+    results.totalMilesDriven = Math.round((monthlyCommuteMiles + monthlyRoadTripMiles) * 100)/100;
     results.monthlyCar = Math.round(totalMonthlyCarCo2 * 100)/100;
     results.monthlyCommute = Math.round(totalCommuteCarCo2 * 100)/100;
     results.monthlyRoadTrip = Math.round(totalRoadTripCarCo2 * 100)/100;

@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const { lightYearsForCar } = require('./saving-fact-functions');
 
 // SHould import these from DB or static file
 const kwhPerGallon = 34.4;

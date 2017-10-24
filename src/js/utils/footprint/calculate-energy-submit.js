@@ -18,9 +18,11 @@ const getAnswerValue = question => {
     if(question.selectOptions) { // Dropdown Question
         return question.value;
     }
-    question.value = question.value.trim();
-    question.value = question.value.replace(' ', '');
-    question.value = parseFloat(question.value).toFixed(2);
+    if(typeof question.value === 'string') {
+        question.value = question.value.trim();
+        question.value = question.value.replace(' ', '');
+    }
+    question.value = parseFloat(question.value);
     if(question.value > 0) { //Int question
         if(question.kwh) { // Standard question
             return question.kwh * question.value;
