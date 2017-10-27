@@ -12,13 +12,17 @@ export default class Question extends React.Component {
 
     updateQuestion(e) {
         const id = e.target.id;
-        const value = document.getElementById(id).value;
+        let value = document.getElementById(id).value;
+        value = this.props.checked && value === 'on' ? 'off' : 'on';
         this.props.dispatch(updateQuestions(id, value));
     }
 
 	render() {
-        const checked = this.props.checked;
-        const input = checked === 'checked' ? <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} checked  /> : <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} />
+        const input = this.props.checked ? (
+            <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} checked="checked"/>
+        ) : (
+            <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} />
+        );
 		const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
         const textStyle = {width: textWidth, display: 'inline-block'}
         return (

@@ -50,6 +50,7 @@ export default class Compare extends React.Component {
 
 	render() {
         const averageGraphData = this.props.category === 'energy' ? this.props.averageAmerican.energy : this.props.averageAmerican.co2;
+        const title = this.props.category === 'energy' ? 'Energy' : 'Carbon';
         const units = this.props.category === 'energy' ? 'kwhs' : 'lb/CO2';
         console.log('in compare. Average american is', this.props.averageAmerican);
 
@@ -59,6 +60,11 @@ export default class Compare extends React.Component {
         const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
         const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less energy than this average American!` : `You use ${percentDiff * -1}% more energy than this average American`;
         
+        const subtitle = this.props.category === 'energy' ? (
+            `Total energy: ${averageTotal.toLocaleString()} kwhs per month`
+        ) : (
+            `Total Co2: ${averageTotal.toLocaleString()} lb/Co2 per month`
+        );
 
         const res = this.props.results;
         const total = this.props.category === 'energy' ? res.totalEnergy : res.totalCo2;
@@ -78,7 +84,7 @@ export default class Compare extends React.Component {
             {source: 'Food', amount: parseInt(averageGraphData.food)},
             {source: 'Transportation', amount: parseInt(averageGraphData.transportation)}
         ];
-        const subtitle = `Total energy: ${averageTotal.toLocaleString()} kwhs per month`;
+        
         
         const genderSelects = ['male', 'female'].map(gender => {
             if(gender === this.props.gender) {
@@ -108,7 +114,7 @@ export default class Compare extends React.Component {
                     <div id="average-american">
                         <ResultsPieChart 
                             graphData={averageAmerican}
-                            title={'Average American Energy Breakdown'}
+                            title={`Average American ${title} Breakdown`}
                             subtitle={subtitle}
                             category={this.props.category}
                             /> 

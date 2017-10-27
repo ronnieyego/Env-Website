@@ -29,8 +29,7 @@ export default class Household extends React.Component {
         const textWidth = '250px';
         const allQuestions = this.props.questions;
         const boolQuestions = this.filterQuestions(allQuestions, 'monthly-own').map(question => {
-            const value = question.value;
-            const checked = value ? 'checked' : 'unchecked';
+            const checked = question.value === 'on' ? true : false;
             return (<BooleanQuestion 
                 key={question.name} 
                 id={question.name} 
