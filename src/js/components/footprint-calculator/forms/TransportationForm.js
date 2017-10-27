@@ -33,7 +33,7 @@ export default class TransportationForm extends React.Component {
                 return; // Don't show question.
             }
             if(question.useBool) {
-                let checked = value ? 'checked' : 'unchecked';
+                const checked = value === 'on' ? true : false;
                 return (<BooleanQuestion key={question.name} id={question.name} question={question} checked={checked} textWidth={textWidth} dispatch={this.props.dispatch}  />)
             } else if (question.selectOptions) {
                 return (<DropDownQuestion key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} textWidth={textWidth} selected={value} dispatch={this.props.dispatch} />)

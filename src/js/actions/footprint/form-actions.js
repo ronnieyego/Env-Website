@@ -90,47 +90,26 @@ export const submitForm = questionPayload => {
         let valid = validateForm(questionPayload);  
         const state = 'WA';  
         if (valid) {
-            fetch(`/api/get-energy-intensity-by-state/${state}`, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    }
-            })
-            .then(res => {
-                return res.json();
-            })
-            .then(stateData => {
-                const stateCo2 = _.get(stateData, 'energyProduction.averageCO2PerKwh');
-                if (!stateCo2) {
-                    // Dispatch error!
-                    console.log(`Error -- Could not get state co2/kwh data for ${state}.`);
-                }
-                console.log('got State kwh data!! WOOOO', stateCo2);
-                const payload = {
-                    questions: questionPayload,
-                    stateCo2
-                };
-                const footprintResults = calculateFootprintSubmit(payload);
-                console.log('Footprint results are back.  Values in kwh/period', footprintResults);
-                fetch('/api/footprint-form/answer', {
-                    method: 'POST',
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        formName: 'footprint-finder',
-                        formAnswers: questionPayload,
-                        results: footprintResults
-                    })
-                });
-                dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
-                dispatch({type: 'DISPLAY_ANSWERS', payload: true});
-            })
-            .catch(e => {
-                console.log('Error calculating footprint. ', e);
+            const payload = {
+                questions: questionPayload,
+                state
+            };
+            const footprintResults = calculateFootprintSubmit(payload);
+            console.log('Footprint results are back.  Values in kwh/period', footprintResults);
+            fetch('/api/footprint-form/answer', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    formName: 'footprint-finder',
+                    formAnswers: questionPayload,
+                    results: footprintResults
+                })
             });
+            dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
+            dispatch({type: 'DISPLAY_ANSWERS', payload: true});
             
         } else {
             alert('Please fill out all of the fields');

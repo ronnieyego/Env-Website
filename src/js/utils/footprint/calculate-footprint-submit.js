@@ -3,6 +3,8 @@ import { getApplianceSubcategories, getFoodSubcategories, sumCo2QuestionSet } fr
 import { getEnergySubcategories, sumEnergyQuestionSet } from './calculate-energy-submit';
 import getAnswerFromKey from './get-answer-from-key';
 
+import { utilityEmissionsPerState } from '../utils-data/state-energy-and-emissions';
+
 
 
 // This util takes in data and calculates your energy footprint.  Yay!
@@ -13,11 +15,21 @@ const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
 
 module.exports = payload => {
+    const { questions, state } = payload;
+    let stateCo2;
+    try {
+        stateCo2 = utilityEmissionsPerState[state];
+    } catch (e) {
+        throw Error(`Could not find co2e/kwh for ${state}`);
+    }
+    
+
+// Get Questions
     const compiledFootprint = {};
-    const applianceHour = _.filter(payload.questions, function(o) { return o['use-type'] === 'hour'; });
-    const houseHoldQuestions = _.filter(payload.questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
-    const foodQuestions = _.filter(payload.questions, function(o) { return o['use-type'] === 'serving'; });
-    const transportation = _.filter(payload.questions, function(o) { return o['use-type'] === 'transportation'; });
+    const applianceHour = _.filter(questions, function(o) { return o['use-type'] === 'hour'; });
+    const houseHoldQuestions = _.filter(questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+    const foodQuestions = _.filter(questions, function(o) { return o['use-type'] === 'serving'; });
+    const transportation = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
     const applinaceQuestionSet = Object.assign(applianceHour, houseHoldQuestions);
 
 // Energy
@@ -35,17 +47,17 @@ module.exports = payload => {
 
 // Co2
     compiledFootprint.co2 = {};
-    compiledFootprint.co2.transportationSubCategories = sumCo2QuestionSet(transportation, 'transportation');
+    compiledFootprint.co2.transportationSubCategories = sumCo2QuestionSet(transportation, 'transportation', stateCo2);
     compiledFootprint.co2.transportation = compiledFootprint.co2.transportationSubCategories.monthlyCo2FromTransportation;
-    compiledFootprint.co2.food = sumCo2QuestionSet(foodQuestions, 'food');
-    compiledFootprint.co2.appliance = sumCo2QuestionSet(applinaceQuestionSet, 'appliance');
-    compiledFootprint.co2.foodSubCategories = getFoodSubcategories(foodQuestions);
-    compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(applinaceQuestionSet);
+    compiledFootprint.co2.food = sumCo2QuestionSet(foodQuestions, 'food', stateCo2);
+    compiledFootprint.co2.appliance = sumCo2QuestionSet(applinaceQuestionSet, 'appliance', stateCo2);
+    compiledFootprint.co2.foodSubCategories = getFoodSubcategories(foodQuestions, stateCo2);
+    compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(applinaceQuestionSet, stateCo2);
     compiledFootprint.co2.totalCo2 = parseInt(compiledFootprint.co2.transportation) + parseInt(compiledFootprint.co2.food) + parseInt(compiledFootprint.co2.appliance);
 
 // Meta
     compiledFootprint.meta = {};
-    compiledFootprint.meta.stateCo2 = payload.stateCo2 || .05;
+    compiledFootprint.meta.stateCo2 = stateCo2 || .05;
 
     return compiledFootprint;
 }

@@ -1,4 +1,5 @@
-const averages = require('../utils-data/american-averages');
+const { americanCarMiles, americanFood, kwhPerMonthAppliance } = require('../utils-data/american-averages');
+const { utilityEmissionsPerState, utilityUse} = require('../utils-data/state-energy-and-emissions');
 
 // Hacky V1 to get us average energy
 const kwhPerGallon = 34.4;
@@ -15,7 +16,7 @@ const co2PerGallonOfGasoline = 19.64;
 const planeMiles = 2000;
 
 const getTransit = (stage, age, gender) => ({
-        carMiles: (averages.americanCarMiles[age][gender])/mpg/12,
+        carMiles: (americanCarMiles[age][gender])/mpg/12,
         planeMiles: planeMiles/mpgPerPersonPlane/12
     });
 
@@ -26,12 +27,12 @@ const getAverageCo2 = (state, age, gender) => {
     const planeCo2 = planeMiles * co2PerGallonOfJetFuel;
     const transportation = parseInt(carCo2 + planeCo2);
 
-    const appliance = parseInt(averages.utilityUse[state] * averages.utilityEmissionsPerState[state]);
+    const appliance = parseInt(utilityUse[state] * utilityEmissionsPerState[state]);
 
-    let foodKeys = Object.keys(averages.food);
+    let foodKeys = Object.keys(americanFood);
 
     const totalYearFoodCo2 = foodKeys.reduce((total, current) => {
-        const food = averages.food[current];
+        const food = americanFood[current];
         const energy = food.yearServings * food.co2PerServing;
         return total + energy;
     }, 0);
@@ -54,15 +55,15 @@ const getAverageEnergy = (state, age, gender) => {
     const monthlyTransportation = monthlyCar + monthlyPlane;
 
 
-    let foodKeys = Object.keys(averages.food);
+    let foodKeys = Object.keys(americanFood);
     const totalYearFood = foodKeys.reduce((total, current) => {
-        const food = averages.food[current];
+        const food = americanFood[current];
         const energy = food.yearServings * food.energyPerServing;
         return total + energy;
     }, 0);
     
     const totalMonthFood = totalYearFood/12;
-    const appliance = averages.utilityUse[state];
+    const appliance = utilityUse[state];
     const energyTotal = totalMonthFood + monthlyTransportation + appliance;
 
     return {

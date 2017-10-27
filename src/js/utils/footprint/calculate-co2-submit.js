@@ -1,6 +1,5 @@
 import getAnswerFromKey from './get-answer-from-key';
 
-const stateCo2 = 0.003;
 const co2PerGallonOfGas = 19.6;
 const co2PerGallonOfJetFuel = 21.1;
 const mpgPerPersonPlane = 84.9;
@@ -21,7 +20,7 @@ const getFoodValue = question => {
     return 0; // Something went wrong (ie. '' passed in);
 };
 
-const sumCo2QuestionSet = (questionSet, type) => {
+const sumCo2QuestionSet = (questionSet, type, stateCo2) => {
     if(type === 'transportation') {
         return sumTransportationSet(questionSet);
     }
@@ -44,7 +43,7 @@ const sumCo2QuestionSet = (questionSet, type) => {
     return groupSum;
 }
 
-const getFoodSubcategories = foodSet => {
+const getFoodSubcategories = (foodSet, stateCo2) => {
     let res = {};
     foodSet.forEach(question => {
         const subCategory = question['sub-grouping'] ? question['sub-grouping'] : 'other';
@@ -57,7 +56,7 @@ const getFoodSubcategories = foodSet => {
     return res;
 };
 
-const getApplianceSubcategories = applianceSet => {
+const getApplianceSubcategories = (applianceSet, stateCo2) => {
     let res = {};
     applianceSet.forEach(question => {
         const subCategory = question['sub-grouping'] ? question['sub-grouping'] : 'other';
@@ -92,7 +91,7 @@ const getApplianceValue = (question, stateCo2) => {
     return 0; // Something went wrong (ie. '' passed in);
 };
 
-const sumTransportationSet = transportatioSet => {
+const sumTransportationSet = (transportatioSet, stateCo2) => {
     const results = {};
     const carType = getAnswerFromKey(transportatioSet, 'What\'s the fuel for your car?');
     let carMpg;
