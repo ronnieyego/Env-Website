@@ -86,9 +86,11 @@ export const decreaseStep = () => {
 };
 
 export const submitForm = questionPayload => {
-    return dispatch => {
-        let valid = validateForm(questionPayload);  
-        const state = 'WA';  
+    return (dispatch, getState) => {
+        const valid = validateForm(questionPayload);  
+        const store = getState();
+        const state = store.footprintFormAnswers.userState;
+        console.log('user state is', state);
         if (valid) {
             const payload = {
                 questions: questionPayload,

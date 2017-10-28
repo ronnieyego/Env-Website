@@ -1,4 +1,4 @@
-import React from "react";
+import React, { PropTypes } from "react";
 
 const stateIds = [
 'US',
@@ -55,6 +55,11 @@ const stateIds = [
 ];
 
 export default class StateDropdown extends React.Component {
+    static propTypes = {
+        id: PropTypes.string,
+        updateQuestion: PropTypes.func
+    }
+    
 	render() {
         const dropDownOptions = stateIds.map(state => {
             if(state === this.props.selected) { // Parent component passes down which value is selected

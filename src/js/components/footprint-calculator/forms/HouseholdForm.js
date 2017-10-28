@@ -3,13 +3,20 @@ import _ from 'lodash';
 
 import BooleanQuestion from './BooleanQuestion';
 import Question from './Question';
+import StateDropDown from '../../StateDropdown';
 
 export default class Household extends React.Component {
+    constructor() {
+        super();
+        this.updateStateDropdown = this.updateStateDropdown.bind(this);
+    }
 
-    constructor(props) {
-	    super();
-	}
-
+    updateStateDropdown(e) {
+        const id = e.target.id;
+        const value = document.getElementById(id).value;
+        this.props.dispatch({type: 'UPDATE_USER_STATE', payload: value});
+    }
+    
     filterQuestions(questions, filter) {
         return _.filter(questions, function(o) { return o['use-type'] === filter; });
     }
@@ -56,6 +63,10 @@ export default class Household extends React.Component {
             <div>
             <h3 style={subCategory}>Household information</h3>
                 <div style={questionsStyle}>
+                    What state do you live in?
+                    <ul>
+                        <StateDropDown id="userState" updateQuestion={this.updateStateDropdown} />
+                    </ul>
                     Which of the following do you own?
                     <ul>
                         {boolQuestions}

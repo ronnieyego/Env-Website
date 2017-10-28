@@ -13,9 +13,9 @@ import Facts from './Facts';
 		results: store.footprintFormAnswers.formResults,
         resultsShown: store.footprintFormAnswers.resultsShown,
 		averageAmerican: store.footprintFormAnswers.averageAmerican,
-		state: store.footprintFormAnswers.state,
-		age: store.footprintFormAnswers.age,
-		gender: store.footprintFormAnswers.gender
+		averageAmericanState: store.footprintFormAnswers.averageAmericanState,
+		averageAmericanAge: store.footprintFormAnswers.averageAmericanAge,
+		averageAmericanGender: store.footprintFormAnswers.averageAmericanGender
 	};
 })
 export default class Results extends React.Component {
@@ -67,9 +67,9 @@ export default class Results extends React.Component {
                 shownResults = <Compare 
                                     results={this.props.results.energy}
                                     averageAmerican={this.props.averageAmerican}
-                                    state={this.props.state}
-                                    age={this.props.age}
-                                    gender={this.props.gender}
+                                    state={this.props.averageAmericanState}
+                                    age={this.props.averageAmericanAge}
+                                    gender={this.props.averageAmericanGender}
                                     monthlyUse={monthlyEnergyUse}
                                     dispatch={this.props.dispatch}
                                     category={'energy'}
@@ -79,9 +79,9 @@ export default class Results extends React.Component {
                 shownResults = <Compare 
                                     results={this.props.results.co2}
                                     averageAmerican={this.props.averageAmerican}
-                                    state={this.props.state}
-                                    age={this.props.age}
-                                    gender={this.props.gender}
+                                    state={this.props.averageAmericanState}
+                                    age={this.props.averageAmericanAge}
+                                    gender={this.props.averageAmericanGender}
                                     monthlyUse={monthlyCo2Use}
                                     dispatch={this.props.dispatch}
                                     category={'co2'}

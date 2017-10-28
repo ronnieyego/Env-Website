@@ -6,10 +6,11 @@ const footprintFormAnswersReducer = (state = {
     formResults: {},
     errorGettingFormResults: false,
     resultsShown: '',
+    userState: 'US',
     averageAmerican: getAverage('US', 'average', 'male'),
-    state: 'US',
-    age: 'average',
-    gender: 'male'
+    averageAmericanState: 'US',
+    averageAmericanAge: 'average',
+    averageAmericanGender: 'male'
 }, action) => {
     switch (action.type) {
         case 'DISPLAY_ANSWERS': {
@@ -30,6 +31,10 @@ const footprintFormAnswersReducer = (state = {
         }
         case 'UPDATE_RESULTS_SHOWN': {
             state = { ...state, resultsShown: action.payload};
+            break;
+        }
+        case 'UPDATE_USER_STATE': {
+            state = { ...state, userState: action.payload};
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN': {
