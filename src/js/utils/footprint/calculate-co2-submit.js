@@ -14,7 +14,7 @@ const getFoodValue = question => {
     }
     question.value = parseFloat(question.value);
     if(question.value > 0 && question.co2) { // Standard question
-        return question.co2 * question.value;
+        return question.co2 * question.value * 30; //Converts from daily to monthly
     }
     console.log('Problem with food/co2 question', question);
     return 0; // Something went wrong (ie. '' passed in);

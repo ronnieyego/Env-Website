@@ -76,9 +76,6 @@ const americanFood = {
 };
 
 
-    
-
-
 module.exports = {
     americanCarMiles,
     americanFood, 

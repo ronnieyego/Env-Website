@@ -89,13 +89,13 @@ export default class Results extends React.Component {
                 break;
             case 'energy-savings':
                 shownResults = <Savings 
-                    results={this.props.results.energy}
+                    results={this.props.results}
                     category={'energy'}
                 />
                 break;
             case 'co2-savings':
                 shownResults = <Savings 
-                    results={this.props.results.co2}
+                    results={this.props.results}
                     questions={this.props.questions}
                     category={'co2'}
                 />
