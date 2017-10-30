@@ -63,6 +63,12 @@ export default class Results extends React.Component {
                     category={'co2'}
                     />;
                 break;
+            case 'water-personalBreakdown':
+                shownResults = <PersonalBreakdown 
+                    results={this.props.results.water} 
+                    category={'water'}
+                    />;
+                break;
             case 'energy-compare':
                 shownResults = <Compare 
                                     results={this.props.results.energy}
@@ -100,6 +106,13 @@ export default class Results extends React.Component {
                     category={'co2'}
                 />
                 break;
+            case 'water-savings':
+                shownResults = <Savings 
+                    results={this.props.results}
+                    questions={this.props.questions}
+                    category={'water'}
+                />
+                break;
         }
 
          
@@ -116,6 +129,12 @@ export default class Results extends React.Component {
                             <td style={tdStyle}><button type="submit" id="co2-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal CO<sub>2</sub> Breakdown</button></td>
                             <td style={tdStyle}><button type="submit" id="co2-compare" onClick={this.switchResult.bind(this)}>Compare my emissions</button></td>
                             <td style={tdStyle}><button type="submit" id="co2-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my carbon footprint</button></td>
+                        </tr>
+                        <tr>
+                            <td style={tdStyle}><b>Water</b></td>
+                            <td style={tdStyle}><button type="submit" id="water-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Water Breakdown</button></td>
+                            <td style={tdStyle}><button type="submit" id="water-compare" onClick={this.switchResult.bind(this)}>Compare my water use</button></td>
+                            <td style={tdStyle}><button type="submit" id="water-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my water use</button></td>
                         </tr>
                         <tr>
                             <td style={tdStyle}><b>Energy</b></td>

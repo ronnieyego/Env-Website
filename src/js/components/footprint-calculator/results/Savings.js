@@ -3,6 +3,7 @@ import React from "react";
 import Card from './Card';
 import getSavings from '../../../utils/footprint/calculate-footprint-savings';
 import { getCo2Savings } from '../../../utils/footprint/calculate-co2-savings';
+import { getWaterSavings } from '../../../utils/footprint/calculate-water-savings';
 
 
 const impactLevel = 100;
@@ -11,7 +12,20 @@ export default class Compare extends React.Component {
 
 	render() {
         const results = this.props.results;
-        const savingSet = this.props.category === 'energy' ? getSavings(results) : getCo2Savings(results, this.props.questions);
+        let savingSet;
+        switch(this.props.category) {
+            case 'energy':
+                savingSet = getSavings(results);
+                break;
+            case 'co2':
+                savingSet = getCo2Savings(results, this.props.questions);
+                break;
+            case 'water':
+                savingSet = getWaterSavings(results, this.props.questions);
+                break;
+            default:
+                console.log('Error in savings.  Category unknow: ', this.props.category);
+        }
         const savings = savingSet.filter(saving => {
             return saving.card === true;
         });

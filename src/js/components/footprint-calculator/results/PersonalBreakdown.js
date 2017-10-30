@@ -23,17 +23,29 @@ export default class PersonalBreakdown extends React.Component {
             textAlign: 'center'
         };
         const res = this.props.results;
-        const category = this.props.category === 'energy' ? 'Energy' : 'CO2';
-
+        let category;
+        switch(this.props.category) {
+            case 'energy':
+                category = 'Energy';
+                break;
+            case 'co2':
+                category = 'CO2';
+                break;
+            case 'water':
+                category = 'Water';
+                break;
+            default:
+                console.log('unknown category for personal breakdown: ', this.props.category);
+        }
         // Top level summary
         const categoryBreakDownData = [
             {source: 'Appliances', amount: parseInt(res.appliance)},
             {source: 'Food', amount: parseInt(res.food)},
-            {source: 'Transportation', amount: parseInt(res.transportation)},
+            {source: 'Transportation', amount: parseInt(res.transportation) || 0}, // Default to 0 for Water
         ];
 
         // Transportation Summary
-        const transportationBreakdown = [
+        const transportationBreakdown = this.props.category === 'water' ? null : [
             {source: 'Daily Use', amount: parseInt(res.transportationSubCategories.monthlyCommute)},
             {source: 'Roadtrips', amount: parseInt(res.transportationSubCategories.monthlyRoadTrip)},
             {source: 'Flying', amount: parseInt(res.transportationSubCategories.monthlyFly)}
@@ -61,6 +73,7 @@ export default class PersonalBreakdown extends React.Component {
                         category={this.props.category}
                     /> 
                 </div>
+                {this.props.category !== 'water' &&
                 <div id="transportation-summary">
                     <ResultsPieChart 
                         graphData={transportationBreakdown}
@@ -68,6 +81,7 @@ export default class PersonalBreakdown extends React.Component {
                         key={'Transportation Breakdown'}
                         category={this.props.category}/> 
                 </div>
+                }
                 <div id="appliance-summary">
                     <ResultsPieChart 
                         graphData={applianceBreakdown}

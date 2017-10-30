@@ -18,8 +18,19 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 export default class ResultsPieChart extends React.Component {
 
 	render() {
-        const units = this.props.category === 'energy' ? 'kwhs' : 'lbs/CO';
-        const sub2 = this.props.category === 'energy' ? '' : <sub>2</sub>;
+        let units;
+        switch(this.props.category) {
+            case 'energy':
+                units = 'kwhs';
+                break;
+            case 'co2':
+                units = 'lb/CO';
+                break;
+            case 'water':
+                units = 'gallons';
+                break;
+        }
+        const sub2 = this.props.category === 'co2' ? <sub>2</sub> : '';
         const graphData = this.props.graphData;
         graphData.sort((a,b) => {
             return a.amount < b.amount;

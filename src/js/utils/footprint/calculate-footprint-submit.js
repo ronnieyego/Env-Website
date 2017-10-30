@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import { getApplianceSubcategories, getFoodSubcategories, sumCo2QuestionSet } from './calculate-co2-submit';
 import { getEnergySubcategories, sumEnergyQuestionSet } from './calculate-energy-submit';
+import { getWaterApplianceSubcategories, getWaterFoodSubcategories, sumWaterQuestionSet } from './calculate-water-submit';
 import getAnswerFromKey from './get-answer-from-key';
 
 import { utilityEmissionsPerState } from '../utils-data/state-energy-and-emissions';
@@ -54,6 +55,14 @@ module.exports = payload => {
     compiledFootprint.co2.foodSubCategories = getFoodSubcategories(foodQuestions, stateCo2);
     compiledFootprint.co2.applianceSubCategories = getApplianceSubcategories(applinaceQuestionSet, stateCo2);
     compiledFootprint.co2.totalCo2 = parseInt(compiledFootprint.co2.transportation) + parseInt(compiledFootprint.co2.food) + parseInt(compiledFootprint.co2.appliance);
+
+// Water
+    compiledFootprint.water = {};
+    compiledFootprint.water.food = sumWaterQuestionSet(foodQuestions, 'food');
+    compiledFootprint.water.appliance = sumWaterQuestionSet(applinaceQuestionSet, 'appliance');
+    compiledFootprint.water.foodSubCategories = getWaterFoodSubcategories(foodQuestions);
+    compiledFootprint.water.applianceSubCategories = getWaterApplianceSubcategories(applinaceQuestionSet);
+    compiledFootprint.water.totalWater = parseInt(compiledFootprint.water.food) + parseInt(compiledFootprint.water.appliance);
 
 // Meta
     compiledFootprint.meta = {};
