@@ -21,7 +21,7 @@ const americanCarMiles = {
         male: 10304,
         female: 4785,
     },
-    'average': {
+    'American Average': {
         male: 16550,
         female: 10142,
     }
@@ -36,42 +36,54 @@ const kwhPerMonthAppliance = 901;
 // Based on this data:  https://www.ers.usda.gov/Data/FoodConsumption/
 
 
-
 const americanFood = {
     dairy: {
-        yearServings: 630,
+        yearServings: 2293,
         energyPerServing: 0.75,
-        co2PerServing: 4
+        co2PerServing: 4,
+        water: 59.6
+    },
+    milk: {
+        yearServings: 1066,
+        energyPerServing: 0.38,
+        co2PerServing: .52,
+        water: 44.2  
     },
     grain: {
-        yearServings: 197,
+        yearServings: 1051,
         energyPerServing: 0.43,
-        co2PerServing: 0.23
+        co2PerServing: 0.23,
+        water: 45
     },
     fruit: {
-        yearServings: 273,
+        yearServings: 1456,
         energyPerServing: 1.67,
-        co2PerServing: 0.38
+        co2PerServing: 0.38,
+        water: 54
     },
     vegetables: {
-        yearServings: 556,
+        yearServings: 2965,
         energyPerServing: 0.43,
-        co2PerServing: 0.5
+        co2PerServing: 0.5,
+        water: 43
     },
     chicken: {
-        yearServings: 54,
+        yearServings: 288,
         energyPerServing: 4.4,
-        co2PerServing: 1.01
+        co2PerServing: 1.01,
+        water: 85.6
      },
     pork: {
-        yearServings: 60,
+        yearServings: 320,
         energyPerServing: 12.6,
-        co2PerServing: 1.14
+        co2PerServing: 1.14,
+        water: 122.9
      },
     beef: {
-        yearServings: 71,
+        yearServings: 378,
         energyPerServing: 31.5,
-        co2PerServing: 5.24
+        co2PerServing: 5.24,
+        water: 374.8
     }
 };
 

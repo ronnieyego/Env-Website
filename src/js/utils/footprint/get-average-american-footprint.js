@@ -74,11 +74,28 @@ const getAverageEnergy = (state, age, gender) => {
     };
 };
 
+const getAverageWater = (state, age, gender) => {
+    const foodKeys = Object.keys(americanFood);
+    const totalYearFood = foodKeys.reduce((total, current) => {
+        const food = americanFood[current];
+        const water = food.yearServings * food.water;
+        return total + water;
+    }, 0);
+    const totalMonthFood = totalYearFood/12;
+    const applianceMonthly = 90 * 30;
+    const total = totalMonthFood + applianceMonthly;
+    return {
+        food: totalMonthFood,
+        appliance: applianceMonthly,
+        total
+    };
+}
 
 const getAverage = (state, age, gender) => {
     return {
         co2: getAverageCo2(state, age, gender),
-        energy: getAverageEnergy(state, age, gender)
+        energy: getAverageEnergy(state, age, gender),
+        water: getAverageWater(state, age, gender)
     }
 }
 

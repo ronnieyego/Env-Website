@@ -7,9 +7,9 @@ const footprintFormAnswersReducer = (state = {
     errorGettingFormResults: false,
     resultsShown: '',
     userState: 'US',
-    averageAmerican: getAverage('US', 'average', 'male'),
+    averageAmerican: getAverage('US', 'American Average', 'male'),
     averageAmericanState: 'US',
-    averageAmericanAge: 'average',
+    averageAmericanAge: 'American Average',
     averageAmericanGender: 'male'
 }, action) => {
     switch (action.type) {

@@ -49,6 +49,7 @@ export default class Results extends React.Component {
         const res = this.props.results;
         const monthlyEnergyUse = parseInt(res.energy.totalEnergy);
         const monthlyCo2Use = parseInt(res.co2.totalCo2);
+        const monthlyWaterUse = parseInt(res.water.totalWater);
         let shownResults;
         switch(this.props.resultsShown) {
             case 'energy-personalBreakdown':
@@ -91,6 +92,18 @@ export default class Results extends React.Component {
                                     monthlyUse={monthlyCo2Use}
                                     dispatch={this.props.dispatch}
                                     category={'co2'}
+                                />;
+                break;
+            case 'water-compare':
+                shownResults = <Compare 
+                                    results={this.props.results.water}
+                                    averageAmerican={this.props.averageAmerican}
+                                    state={this.props.averageAmericanState}
+                                    age={this.props.averageAmericanAge}
+                                    gender={this.props.averageAmericanGender}
+                                    monthlyUse={monthlyWaterUse}
+                                    dispatch={this.props.dispatch}
+                                    category={'water'}
                                 />;
                 break;
             case 'energy-savings':
