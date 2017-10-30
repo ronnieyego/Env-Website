@@ -8,11 +8,14 @@ const gasKwh = 34.4;
 const jetFuelKwh = 37.12;
 const mpgPerPersonPlane = 84.9;
 
-const getAnswerValue = question => {
-    if(!question.value || question.value === ''){
+const getMonthlyValue = question => {
+   if(!question.value || question.value === ''){
         return 0;
+    } 
+    if(question['use-type'] === 'monthly-use'){
+        return question.kwh * question.value;
     }
-    if(question['use-bool']) {
+    if(question['use-type'] === 'monthly-own'){
         return question.kwh;
     }
     if(question.selectOptions) { // Dropdown Question
@@ -23,15 +26,12 @@ const getAnswerValue = question => {
         question.value = question.value.replace(' ', '');
     }
     question.value = parseFloat(question.value);
-    if(question.value > 0) { //Int question
-        if(question.kwh) { // Standard question
-            return question.kwh * question.value;
-        }
-        return question.value;  // Transportation form
+    if(question.value > 0 && question.kwh) { //Int question
+            return question.kwh * question.value * 30;
     }
     console.log('Problem with question', question);
     return 0; // Something went wrong (ie. '' passed in);
-};
+}
 
 const sumEnergyQuestionSet = (questionSet, type) => {
     if (type === 'transportation') {
@@ -39,8 +39,7 @@ const sumEnergyQuestionSet = (questionSet, type) => {
     }
     let groupSum = 0;
     questionSet.forEach(question => {
-        let questionTotal = getAnswerValue(question);
-        groupSum += questionTotal;
+        groupSum += getMonthlyValue(question)
     });
     return Math.round(groupSum * 100)/100;
 }
@@ -50,9 +49,9 @@ const getEnergySubcategories = questionSet => {
     questionSet.forEach(question => {
         const subCategory = question['sub-grouping'] ? question['sub-grouping'] : 'other';
         if(res[subCategory]) {
-            res[subCategory] += getAnswerValue(question);
+            res[subCategory] += getMonthlyValue(question);
         } else {
-            res[subCategory] = getAnswerValue(question);
+            res[subCategory] = getMonthlyValue(question);
         }
     });
     return res;

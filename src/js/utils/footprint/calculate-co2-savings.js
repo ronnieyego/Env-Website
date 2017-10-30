@@ -64,12 +64,12 @@ const getCo2Savings = (res, questions) => {
         {
             display: 'Go vegan',
             card: true,
-            amount: _.get(res, 'foodSubCategories.meat', 0) + _.get(res, 'foodSubCategories.dairy', 0)
+            amount: _.get(res, 'co2.foodSubCategories.meat', 0) + _.get(res, 'co2.  foodSubCategories.dairy', 0)
         },
         {
             display: 'Go vegetarian',
             card: true,
-            amount: _.get(res, 'foodSubCategories.meat', 0)
+            amount: _.get(res, 'co2.foodSubCategories.meat', 0)
         },
         {
             display: 'Move to Washington',

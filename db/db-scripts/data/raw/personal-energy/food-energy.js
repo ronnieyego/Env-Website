@@ -6,6 +6,8 @@
 //Co2 veggies/produce mostly came from a canadian and sweedish study
 // Not super accurate
 
+// Water is from waterfootprint.org  Reasonably accurate
+
 // Changed some values
 /*
     grain and vegetables were corn
@@ -20,6 +22,7 @@ module.exports = [
     "kwh": 0.11,
     "calories/serving": 100,
     "co2": 0.23,
+    "water": 45,
     "use-type": "serving",
     "sub-grouping": "produce",
     "subtext": "Serving size: 1 slice of bread or 1 cup of cereal or 0.5 cups of cooked rice"
@@ -29,6 +32,7 @@ module.exports = [
     "kwh": 0.11,
     "calories/serving": 59,
     "co2": 0.5,
+    "water": 43,
     "use-type": "serving",
     "sub-grouping": "produce",
     "subtext": "Serving size: 1 cup of leafy vegetables or 0.5 cups of other veggies"
@@ -38,6 +42,7 @@ module.exports = [
     "kwh": 0.38,
     "calories/serving": 103,
     "co2": 0.52,
+    "water": 44.2,
     "use-type": "serving",
     "sub-grouping": "dairy",
     "subtext": "Serving size: 1 cup"
@@ -47,6 +52,7 @@ module.exports = [
     "kwh": 0.32,
     "calories/serving": 95,
     "co2": 0.38,
+    "water": 54,
     "use-type": "serving",
     "sub-grouping": "produce",
     "subtext": "Serving size: 1 apple or 0.5 cups"
@@ -56,6 +62,7 @@ module.exports = [
     "kwh": 0.55,
     "calories/serving": 89,
     "co2": 0.69,
+    "water": 52.7,
     "use-type": "serving",
     "sub-grouping": "dairy",
     "subtext": "Serving size: 1 egg"
@@ -65,6 +72,7 @@ module.exports = [
     "kwh": 0.83,
     "calories/serving": 204,
     "co2": 1.01,
+    "water": 85.6,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 3 oz about the size of a deck of cards"
@@ -74,6 +82,7 @@ module.exports = [
     "kwh": 0.64,
     "calories/serving": 170,
     "co2": 4,
+    "water": 59.6,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese"
@@ -83,6 +92,7 @@ module.exports = [
     "kwh": 2.3,
     "calories/serving": 206,
     "co2": 1.14,
+    "water": 122.9,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 3 oz about the size of a deck of cards"
@@ -92,6 +102,7 @@ module.exports = [
     "kwh": 5.9,
     "calories/serving": 213,
     "co2": 5.24,
+    "water": 375.8,
     "use-type": "serving",
     "sub-grouping": "meat",
     "subtext": "Serving size: 3 oz about the size of a deck of cards"
@@ -101,6 +112,7 @@ module.exports = [
     "kwh": 0.11,
     "calories/serving": 200,
     "co2": 0.5,
+    "water": 45,
     "use-type": "serving",
     "sub-grouping": "junk-food",
     "subtext": "Serving size: 16 delicious chips or one glorious cookie or a refreshing soda or not enough cake"

@@ -2,11 +2,14 @@
 // I updated the names a bit and validated some of the numbers.
 // All in all it looks decent.  Might want to add more later.
 
+// Water use is just from google.
+
 module.exports = [
   {
     "name": "house-furnace",
     "kwh": 10.5,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
     "subtext": "Standard full house heating system.  Usually electric or natural gas"
@@ -15,6 +18,7 @@ module.exports = [
     "name": "house-heat-pump",
     "kwh": 10,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
     "subtext": "Heat pumps generally transfer cool underground air from the outside to cool a house"
@@ -23,6 +27,7 @@ module.exports = [
     "name": "portable-heater",
     "kwh": 1.5,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
     "subtext": ""
@@ -31,6 +36,7 @@ module.exports = [
     "name": "central-air-conditioning",
     "kwh": 3,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
     "subtext": "AC that's part of a house HVAC system"
@@ -39,6 +45,7 @@ module.exports = [
     "name": "window-mount-air-conditioning",
     "kwh": 0.73,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
     "subtext": "A single unit positioned in a window"
@@ -47,6 +54,7 @@ module.exports = [
     "name": "ceiling-fan",
     "kwh": 0.075,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
     "subtext": ""
@@ -55,6 +63,7 @@ module.exports = [
     "name": "portable-fan",
     "kwh": 0.03,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
     "subtext": ""
@@ -63,6 +72,7 @@ module.exports = [
     "name": "speakers",
     "kwh": 0.05,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
     "subtext": ""
@@ -71,6 +81,7 @@ module.exports = [
     "name": "tv",
     "kwh": 0.48,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
     "subtext": ""
@@ -79,6 +90,7 @@ module.exports = [
     "name": "energy-efficient-lightbulb",
     "kwh": 0.01,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
     "subtext": "Enter the total number of light bulbs times the number of hours each one is on"
@@ -87,6 +99,7 @@ module.exports = [
     "name": "standard-lightbulb",
     "kwh": 0.1,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
     "subtext": "Enter the total number of light bulbs times the number of hours each one is on"
@@ -95,6 +108,7 @@ module.exports = [
     "name": "game-console",
     "kwh": 0.15,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
     "subtext": ""
@@ -103,6 +117,7 @@ module.exports = [
     "name": "computer-desktop",
     "kwh": 0.15,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
     "subtext": ""
@@ -111,6 +126,7 @@ module.exports = [
     "name": "computer-laptop",
     "kwh": 0.04,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
     "subtext": ""
@@ -119,6 +135,7 @@ module.exports = [
     "name": "computer-monitor",
     "kwh": 0.08,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
     "subtext": ""
@@ -127,6 +144,7 @@ module.exports = [
     "name": "hot-shower",
     "kwh": 12.7,
     "use-type": "hour",
+    "water": 60,
     "sub-grouping": "cleanliness",
     "use-bool": "",
     "subtext": ""
@@ -135,6 +153,7 @@ module.exports = [
     "name": "hair-dryer",
     "kwh": 1.5,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cleanliness",
     "use-bool": "",
     "subtext": ""
@@ -143,6 +162,7 @@ module.exports = [
     "name": "oven",
     "kwh": 2.3,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
     "subtext": ""
@@ -151,6 +171,7 @@ module.exports = [
     "name": "stove-top",
     "kwh": 1.25,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
     "subtext": ""
@@ -159,6 +180,7 @@ module.exports = [
     "name": "toaster-oven",
     "kwh": 0.75,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
     "subtext": ""
@@ -167,6 +189,7 @@ module.exports = [
     "name": "coffee-maker",
     "kwh": 0.12,
     "use-type": "hour",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
     "subtext": ""
@@ -175,6 +198,7 @@ module.exports = [
     "name": "refridgerator",
     "kwh": 125,
     "use-type": "monthly-own",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
     "subtext": ""
@@ -183,6 +207,7 @@ module.exports = [
     "name": "energy-efficient-refridgerator",
     "kwh": 37.5,
     "use-type": "monthly-own",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
     "subtext": ""
@@ -191,6 +216,7 @@ module.exports = [
     "name": "freezer",
     "kwh": 90,
     "use-type": "monthly-own",
+    "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
     "subtext": ""
@@ -199,6 +225,7 @@ module.exports = [
     "name": "tivo",
     "kwh": 28.8,
     "use-type": "monthly-own",
+    "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "bool",
     "subtext": ""
@@ -207,6 +234,7 @@ module.exports = [
     "name": "swimming-pool",
     "kwh": 806,
     "use-type": "monthly-own",
+    "water": 3500,
     "sub-grouping": "entertainment",
     "use-bool": "bool",
     "subtext": ""
@@ -215,6 +243,7 @@ module.exports = [
     "name": "clothes-washer-with-cold-water",
     "kwh": 2.3,
     "use-type": "monthly-use",
+    "water": 35,
     "sub-grouping": "cleanliness",
     "use-bool": "",
     "subtext": ""
@@ -223,6 +252,7 @@ module.exports = [
     "name": "clothes-washer-with-hot-water",
     "kwh": 6.3,
     "use-type": "monthly-use",
+    "water": 35,
     "sub-grouping": "cleanliness",
     "use-bool": "",
     "subtext": ""
@@ -231,6 +261,7 @@ module.exports = [
     "name": "dryer",
     "kwh": 3,
     "use-type": "monthly-use",
+    "water": "",
     "sub-grouping": "cleanliness",
     "use-bool": "",
     "subtext": ""
@@ -239,6 +270,7 @@ module.exports = [
     "name": "dishwasher",
     "kwh": 1,
     "use-type": "monthly-use",
+    "water": 6,
     "sub-grouping": "cooking",
     "use-bool": "",
     "subtext": ""

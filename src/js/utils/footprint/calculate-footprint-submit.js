@@ -30,13 +30,13 @@ module.exports = payload => {
     const houseHoldQuestions = _.filter(questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
     const foodQuestions = _.filter(questions, function(o) { return o['use-type'] === 'serving'; });
     const transportation = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
-    const applinaceQuestionSet = Object.assign(applianceHour, houseHoldQuestions);
+    const applinaceQuestionSet = applianceHour.concat(houseHoldQuestions);
 
 // Energy
     compiledFootprint.energy = {};
     compiledFootprint.energy.appliance = sumEnergyQuestionSet(applinaceQuestionSet, 'appliance');
     compiledFootprint.energy.applianceSubCategories = getEnergySubcategories(applinaceQuestionSet);
-    compiledFootprint.energy.food = sumEnergyQuestionSet(foodQuestions, 'food') * 28;
+    compiledFootprint.energy.food = sumEnergyQuestionSet(foodQuestions, 'food');
     compiledFootprint.energy.foodSubCategories = getEnergySubcategories(foodQuestions);
     
     const transportationResults = sumEnergyQuestionSet(transportation, 'transportation');
