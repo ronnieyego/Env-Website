@@ -42,7 +42,7 @@ const footprintFormAnswersReducer = (state = {
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_STATE': {
-            state = { ...state, state: action.payload};
+            state = { ...state, averageAmericanState: action.payload};
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_AGE': {

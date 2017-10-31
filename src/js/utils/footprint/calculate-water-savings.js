@@ -1,5 +1,15 @@
 import _ from 'lodash';
-import getAnswer from './get-answer-from-key';
+import { getQuestionFromKey } from './get-question-utils';
+
+const showerSavings = questions => {
+    const question = getQuestionFromKey(questions, 'hot-shower');
+    const answer = question.value;
+    if (typeof answer === 'NaN') {
+        return 0;
+    }
+    const monthlyUse = answer * question.water * 30;
+    return monthlyUse/4; // They're about 4 times more efficient
+}
 
 const getWaterSavings = (res, questions) => {
     let results = [
@@ -16,7 +26,7 @@ const getWaterSavings = (res, questions) => {
         {
             display: 'Use a water saving showerhead',
             card: true,
-            amount: getAnswer(questions, 'hot-shower')/4 // They're about 4 times more efficient
+            amount:  showerSavings(questions) 
         },
     ];
 

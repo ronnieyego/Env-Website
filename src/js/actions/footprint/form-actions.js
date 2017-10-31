@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
+import { getAnswerFromKey } from '../../utils/footprint/get-question-utils';
 
 // Utils. . . maybe make own file eventually?
 const updateQuestion = (allQuestions, id, value) => {
@@ -10,17 +11,6 @@ const updateQuestion = (allQuestions, id, value) => {
         return;
     });
 };
-
-const getAnswerFromKey = (questionSet, key) => {
-    let answer = null;
-    questionSet.forEach(question => {
-        if(question.name === key) {
-            answer = question.value;
-            return;
-        }
-    });
-    return answer;
-}
 
 const validateForm = questions => {
       const transportationQuestions = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });

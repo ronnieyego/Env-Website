@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import getAnswerFromKey from './get-answer-from-key';
+import { getAnswerFromKey } from './get-question-utils';
 
 // This util takes in data and calculates your energy footprint.  Yay!
 const daysInMonth = 30;

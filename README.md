@@ -31,3 +31,6 @@ Dev note:
 In order for the energySourceMap to render, I need to change line 198 in the following package node_modules/react-d3-map-bubble/lib/map.js to be "circleClass: d.properties.class"
 Otherwise, all circles will be black and not be colored by energy source.
 
+PM note:
+Google analytics url:  https://analytics.google.com/analytics/web/#report/visitors-overview/a104075818w155429254p157100584/%3F_u.date00%3D20170820%26_u.date01%3D20170826/
+

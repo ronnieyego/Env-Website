@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { getApplianceSubcategories, getFoodSubcategories, sumCo2QuestionSet } from './calculate-co2-submit';
 import { getEnergySubcategories, sumEnergyQuestionSet } from './calculate-energy-submit';
 import { getWaterApplianceSubcategories, getWaterFoodSubcategories, sumWaterQuestionSet } from './calculate-water-submit';
-import getAnswerFromKey from './get-answer-from-key';
+import { getAnswerFromKey } from './get-question-utils';
 
 import { utilityEmissionsPerState } from '../utils-data/state-energy-and-emissions';
 

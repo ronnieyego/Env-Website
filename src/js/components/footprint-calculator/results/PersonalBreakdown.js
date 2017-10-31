@@ -24,15 +24,23 @@ export default class PersonalBreakdown extends React.Component {
         };
         const res = this.props.results;
         let category;
+        let total;
+        let units;
         switch(this.props.category) {
             case 'energy':
                 category = 'Energy';
+                total = res.totalEnergy;
+                units = 'kwhs';
                 break;
             case 'co2':
                 category = 'CO2';
+                total = res.totalCo2;
+                units = 'CO2';
                 break;
             case 'water':
                 category = 'Water';
+                total = res.totalWater;
+                units = 'gallons';
                 break;
             default:
                 console.log('unknown category for personal breakdown: ', this.props.category);
@@ -69,6 +77,7 @@ export default class PersonalBreakdown extends React.Component {
                     <ResultsPieChart 
                         graphData={categoryBreakDownData} 
                         title={`Monthly ${category} Breakdown`} 
+                        subtitle={`${total.toLocaleString()} ${units} used each Month`}
                         key={`Monthly ${category} Breakdown`} 
                         category={this.props.category}
                     /> 

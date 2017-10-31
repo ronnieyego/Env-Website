@@ -132,10 +132,11 @@ export default class Results extends React.Component {
 
 		return (
             <div style={containerStyle}>
-                <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub> each month.</h1>
+                <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support your lifestyle.</h1>
                 
                 <div>
-                    <h2>Lets dive a little deeper</h2>
+                    <h3 style={{textAlign: 'left'}}>These numbers may seem surprisingly large (especially water use). It takes a lot of effort to produce the life we live.  The first step in any debate or action is knowing our current position.</h3>
+                    <h2><b>Lets dive a little deeper</b></h2>
                     <table style={tableStyle}>
                         <tr>
                             <td style={tdStyle}><b>CO<sub>2</sub></b></td>

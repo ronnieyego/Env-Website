@@ -1,4 +1,4 @@
-import getAnswerFromKey from './get-answer-from-key';
+import { getAnswerFromKey } from './get-question-utils';
 
 const co2PerGallonOfGas = 19.6;
 const co2PerGallonOfJetFuel = 21.1;
