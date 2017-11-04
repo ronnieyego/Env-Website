@@ -13,6 +13,7 @@ import Layout from './src/js/components/Layout';
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
+import Co2e from './src/js/pages/static/Co2e';
 
 // Database
 import { mongoose } from './db/mongoose';
@@ -38,6 +39,9 @@ const renderFullPage = (markup, data, page) => {
             break;
         case 'footprint':
             jsLocation = '/public/footprint.min.js';
+            break;
+        case 'pages':
+            jsLocation = '/public/static-pages.min.js';
             break;
         default:
             jsLocation = '/public/scripts.min.js';
@@ -158,7 +162,13 @@ const footprintMiddleware = (req, res) => {
     res.status(200).send(renderFullPage(appMarkup, preloadedState, 'footprint'));
 }
 
+const co2eMiddleware = (req, res) => {
+    const appMarkup = ReactDOM.renderToString(<Co2e />)
+    res.status(200).send(renderFullPage(appMarkup, null, 'pages')); 
+}
+
 module.exports = {
+    co2eMiddleware,
     footprintMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,

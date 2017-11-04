@@ -9,7 +9,7 @@ import path from "path";
 import moment from 'moment-timezone';
 import _ from 'lodash';
 
-import { footprintMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import { co2eMiddleware, footprintMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 import getStateData from './src/js/utils/apis/get-state-data';
 
@@ -56,6 +56,8 @@ app.get('/energy', usEnergyMapMiddleware);
 
 app.get('/footprint', footprintMiddleware);
 
+app.get('/pages/co2e', co2eMiddleware)
+
 app.get('/test', (req, res) => {
     res.send('Reach the test page');
 });
@@ -88,6 +90,43 @@ app.post('/api/footprint-form/answer', (req, res) => {
 app.get('/api/footprint-form/answers', (req,res) => {
     FormAnswers.find().then(answers => {
         res.send({answers});
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+app.get('/api/footprint-form/summary', (req,res) => {
+    const getAverage = (answers, path) => {
+        let count = 0;
+        let total = answers.reduce((total, answer) => {
+            let value =  _.get(answer, path, 0);
+            if(value > 0) {
+                count++;
+            }
+            return total + value;
+        }, 0);
+        return { count, total};
+    }
+
+    const results = {};
+    FormAnswers.find().then(answers => {
+        const totalAnswers = answers.length;
+        results.totalSubmissions = totalAnswers;
+        
+        let co2Res = getAverage(answers, 'results.co2.totalCo2');
+        results.totalCo2Answers = co2Res.count;
+        results.averageCo2 = Math.round(co2Res.total/co2Res.count);
+
+        let energyRes = getAverage(answers, 'results.energy.totalEnergy');
+        results.totalEnergyAnswers = energyRes.count;
+        results.averageEnergy = Math.round(energyRes.total/energyRes.count);
+        
+        let waterRes = getAverage(answers, 'results.water.totalWater');
+        results.totalWaterAnswers = waterRes.count;
+        results.averageWater = Math.round(waterRes.total/waterRes.count);
+
+
+        res.send({results});
     }, (e) => {
         res.status(400).send(e);
     });

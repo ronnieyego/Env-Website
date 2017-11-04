@@ -25,6 +25,10 @@ switch(process.env.page) {
     entry = './js/footprint-entry.js';
     filename = 'footprint.min.js';
     break;
+  case 'pages':
+    entry = './js/static-pages-entry.js';
+    filename = 'static-pages.min.js';
+    break;
   default: //defaults to solar
     entry = './js/client.js';
     filename = 'scripts.min.js';
