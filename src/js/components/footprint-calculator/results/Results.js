@@ -6,6 +6,7 @@ import PersonalBreakdown from './PersonalBreakdown';
 import Compare from './Compare';
 import Savings from './Savings';
 import Facts from './Facts';
+import HowMuchCo2 from './HowMuchCo2';
 
 @connect((store, props) => {
 	return {
@@ -135,7 +136,8 @@ export default class Results extends React.Component {
                 <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support your lifestyle.</h1>
                 
                 <div>
-                    <h3 style={{textAlign: 'left'}}>These numbers may seem surprisingly large (especially water use). It takes a lot of effort to produce the life we live.  The first step in any debate or action is knowing our current position.</h3>
+                    <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
+                    {/*<h3 style={{textAlign: 'left'}}>These numbers may seem surprisingly large (especially water use). It takes a lot of effort to produce the life we live.  The first step in any debate or action is knowing our current position.</h3>*/}
                     <h2><b>Lets dive a little deeper</b></h2>
                     <table style={tableStyle}>
                         <tr>

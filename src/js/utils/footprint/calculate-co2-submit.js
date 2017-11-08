@@ -1,8 +1,5 @@
 import { getAnswerFromKey } from './get-question-utils';
-
-const co2PerGallonOfGas = 19.6;
-const co2PerGallonOfJetFuel = 21.1;
-const mpgPerPersonPlane = 84.9;
+import { co2PerGallonOfGas, co2PerGallonOfJetFuel, mpgPerPersonPlane } from '../utils-data/constants';
 
 const getFoodValue = question => {
     if(!question.value || question.value === ''){

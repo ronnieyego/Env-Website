@@ -14,6 +14,7 @@ import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
 import Co2e from './src/js/pages/static/Co2e';
+import FormValues from './src/js/pages/static/Form-Values';
 
 // Database
 import { mongoose } from './db/mongoose';
@@ -167,9 +168,15 @@ const co2eMiddleware = (req, res) => {
     res.status(200).send(renderFullPage(appMarkup, null, 'pages')); 
 }
 
+const formValuesMiddleware = (req, res) => {
+    const appMarkup = ReactDOM.renderToString(<FormValues />)
+    res.status(200).send(renderFullPage(appMarkup, null, 'pages')); 
+}
+
 module.exports = {
     co2eMiddleware,
     footprintMiddleware,
+    formValuesMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,
     usEnergyMapMiddleware
