@@ -56,9 +56,11 @@ app.get('/energy', usEnergyMapMiddleware);
 
 app.get('/footprint', footprintMiddleware);
 
-app.get('/pages/co2e', co2eMiddleware)
+app.get('/pages/co2e', footprintMiddleware)
 
 app.get('/pages/form-data', formValuesMiddleware)
+
+app.get('/pages/how-your-footprint-was-calculated', footprintMiddleware);
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');
