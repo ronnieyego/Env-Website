@@ -43,7 +43,7 @@ module.exports = {
     },
     extensions: ['', '.js']
   },
-  entry: entry, //"./js/state-energy-profile.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage  // ./js/state-energy-profile.js for state energy profile
+  entry: ['babel-polyfill', entry], //"./js/state-energy-profile.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage  // ./js/state-energy-profile.js for state energy profile
   module: {
     rules: [
       {
