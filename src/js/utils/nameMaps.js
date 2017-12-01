@@ -11,13 +11,13 @@ const sourceMap = {
 };
 
 const cssMap = {
-    coal: 'circleRed',
-    hydroelectric: 'circleBlue',
-    wind: 'circleGreen',
-    naturalGas: 'circleLightBlue',
-    petroleum: 'circleBlack',
-    solar: 'circleYellow',
-    nuclear: 'circleOrange'
+    coal: 'circle-red',
+    hydroelectric: 'circle-blue',
+    wind: 'circle-green',
+    naturalGas: 'circle-lightblue',
+    petroleum: 'circle-black',
+    solar: 'circle-yellow',
+    nuclear: 'circle-orange'
 };
 
 const producerMap = {

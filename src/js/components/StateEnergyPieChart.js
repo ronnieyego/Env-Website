@@ -63,7 +63,6 @@ export default class StateEnergyPieChart extends React.Component {
         }
     }
 	render() {
-        console.log('in state energy PIE chart')
         return (
             <div>
                 <PieChart width={730} height={300}>
@@ -71,7 +70,6 @@ export default class StateEnergyPieChart extends React.Component {
                         {this.state.graphData.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} key={index}/>)}
                     </Pie>
                     <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} payload={this.state.legendPayload} />
-                    
                 </PieChart>
             </div>
 		);

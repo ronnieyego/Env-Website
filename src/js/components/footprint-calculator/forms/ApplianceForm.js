@@ -1,6 +1,8 @@
 import React from "react";
 import Question from './Question';
 
+import { TextField } from 'material-ui';
+
 
 export default class ApplianceForm extends React.Component {
 
@@ -13,16 +15,12 @@ export default class ApplianceForm extends React.Component {
             fontWeight: 'bold',
             textAlign: 'center'
         };
-        const questionsStyle = {
-            textAlign: 'left',
-            marginLeft: '15px',
-            marginTop: '5px',
-            marginBottom: '5px'
-        };
+        
         const textWidth = '250px';
         const questions = this.props.questions.map(question => {
             let value = question.value;
             return (<Question 
+                errorText={question.errorText || ''}
                 key={question.name} 
                 id={question.name} 
                 question={question} 
@@ -36,8 +34,8 @@ export default class ApplianceForm extends React.Component {
             
             <div>
             <h3 style={subCategory}>Daily use Appliances</h3>
-                <div style={questionsStyle}>
-                    How many hours a day do you use the following?
+                <div >
+                    <p className="footprint-form-sub-header">How many hours a day do you use the following?</p>
                     <ul>
                         {questions}
                     </ul>

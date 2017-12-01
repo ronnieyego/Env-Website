@@ -12,7 +12,7 @@ module.exports = [
     "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
-    "subtext": "Standard full house heating system.  Usually electric or natural gas"
+    "subtext": "Standard full house heating system."
   },
   {
     "name": "house-heat-pump",
@@ -21,7 +21,7 @@ module.exports = [
     "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
-    "subtext": "Heat pumps generally transfer cool underground air from the outside to cool a house"
+    "subtext": "Heat pumps transfer cool underground air from the outside"
   },
   {
     "name": "portable-heater",
@@ -87,34 +87,25 @@ module.exports = [
     "subtext": ""
   },
   {
-    "name": "energy-efficient-lightbulb",
-    "kwh": 0.01,
-    "use-type": "hour",
-    "water": "",
-    "sub-grouping": "lighting",
-    "use-bool": "",
-    "subtext": "Enter the total number of light bulbs times the number of hours each one is on"
-  },
-  {
-    "name": "standard-lightbulb",
+    "name": "standard-lightbulbs",
     "kwh": 0.1,
     "use-type": "hour",
     "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
-    "subtext": "Enter the total number of light bulbs times the number of hours each one is on"
+    "subtext": "Total daily lightbulb hours"
+  },
+  {
+    "name": "energy-efficient-lightbulbs",
+    "kwh": 0.01,
+    "use-type": "hour",
+    "water": "",
+    "sub-grouping": "lighting",
+    "use-bool": "",
+    "subtext": "Total daily lightbulb hours"
   },
   {
     "name": "game-console",
-    "kwh": 0.15,
-    "use-type": "hour",
-    "water": "",
-    "sub-grouping": "entertainment",
-    "use-bool": "",
-    "subtext": ""
-  },
-  {
-    "name": "computer-desktop",
     "kwh": 0.15,
     "use-type": "hour",
     "water": "",
@@ -132,13 +123,22 @@ module.exports = [
     "subtext": ""
   },
   {
+    "name": "computer-desktop",
+    "kwh": 0.15,
+    "use-type": "hour",
+    "water": "",
+    "sub-grouping": "entertainment",
+    "use-bool": "",
+    "subtext": ""
+  },
+  {
     "name": "computer-monitor",
     "kwh": 0.08,
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": ""
+    "subtext": "Stand alone monitor"
   },
   {
     "name": "hot-shower",
@@ -195,7 +195,7 @@ module.exports = [
     "subtext": ""
   },
   {
-    "name": "refridgerator",
+    "name": "refrigerator",
     "kwh": 125,
     "use-type": "monthly-own",
     "water": "",
@@ -204,7 +204,7 @@ module.exports = [
     "subtext": ""
   },
   {
-    "name": "energy-efficient-refridgerator",
+    "name": "energy-efficient-refrigerator",
     "kwh": 37.5,
     "use-type": "monthly-own",
     "water": "",
@@ -219,7 +219,7 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
-    "subtext": ""
+    "subtext": "Not included in refrigerator"
   },
   {
     "name": "tivo",

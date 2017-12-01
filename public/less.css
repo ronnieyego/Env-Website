@@ -1,0 +1,132 @@
+.footprint {
+  display: flex;
+}
+.footprint-main {
+  display: initial;
+}
+.footprint-form {
+  border: 1px solid gray;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  width: 500px;
+  background-color: lightgoldenrodyellow;
+}
+.footprint-form-header {
+  margin-top: 0px;
+  font-weight: bold;
+  border: 1px solid gray;
+  text-align: center;
+  background-color: white;
+}
+.footprint-form-sub-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+}
+.footprint-form-paragraphs {
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.5;
+}
+.footprint-form-question {
+  margin-top: 10px;
+}
+.footprint-form-question-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.energy-map-button {
+  text-align: left;
+  width: 300px;
+  border: 3px solid gray;
+  margin: 10px;
+}
+.land {
+  fill: #ddd;
+}
+.border {
+  fill: none;
+  stroke: #fff;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.circle,
+.circle-red,
+.circle-orange,
+.circle-green,
+.circle-yellow,
+.circle-black,
+.circle-lightblue,
+.circle-blue {
+  fill-opacity: .3;
+  stroke: #fff;
+  stroke-width: .5px;
+  pointer-events: all;
+}
+.circle-red {
+  fill: red;
+}
+.circle-orange {
+  fill: orangered;
+}
+.circle-green {
+  fill: green;
+}
+.circle-yellow {
+  fill: yellow;
+}
+.circle-black {
+  fill: black;
+}
+.circle-lightblue {
+  fill: lightblue;
+}
+.circle-blue {
+  fill: blue;
+}
+.circle:hover {
+  fill-opacity: .8 !important;
+}
+.legend circle {
+  fill: none;
+  stroke: #ccc;
+}
+.legend text {
+  fill: #777;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+.polygon-bubble {
+  fill: #CCC !important;
+}
+.mesh-bubble {
+  stroke: #EEE !important;
+}
+.energy-map-surce-filter {
+  display: 'inline-flex';
+  margin: 10px;
+  justify-content: flex-start;
+}
+.left-btn {
+  left: 100%;
+  background-color: lightblue;
+}
+.right-btn {
+  right: 100%;
+  background-color: lightgoldenrodyellow;
+}
+input[type="checkbox"] {
+  transform: scale(1.5, 1.5);
+}
+#widget-title {
+  font-weight: bold;
+  font-size: 18;
+}
+.solar-widget-top-input {
+  left: 200px;
+  position: absolute;
+  width: 100px;
+}

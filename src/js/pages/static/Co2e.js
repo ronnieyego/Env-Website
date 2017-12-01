@@ -28,19 +28,19 @@ export default class Co2ePage extends React.Component {
                                 <td><b>Notes</b></td>
                             </tr>
                             <tr>
-                                <td>Co<sub>2</sub></td>
+                                <td>CO<sub>2</sub></td>
                                 <td>1</td>
                                 <td>Found everywhere.  Makes up ~80% of global warming</td>
                             </tr>
                             <tr>
                             <tr>
                                 <td>Methane</td>
-                                <td>20</td>
+                                <td>25</td>
                                 <td>Found in organic decomposition (landfills and swamps).  Makes up ~8% of global warming</td>
                             </tr>
-                                <td>NO<sub>x</sub></td>
-                                <td>200</td>
-                                <td>Found in coal power production  Makes up ~80% of global warming</td>
+                                <td>N<sub>2</sub>O</td>
+                                <td>298</td>
+                                <td>Produced mostly from fertilizer</td>
                             </tr>
                             <tr>
                                 <td>SO<sub>x</sub></td>

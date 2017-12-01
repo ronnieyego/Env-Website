@@ -1,6 +1,7 @@
 import React from "react";
 
-import { updateQuestions} from '../../../actions/footprint/form-actions';
+import { setQuestionError, updateQuestions} from '../../../actions/footprint/form-actions';
+import { TextField } from 'material-ui';
 
 
 export default class Question extends React.Component {
@@ -16,25 +17,40 @@ export default class Question extends React.Component {
     updateQuestion(e) {
         let id = e.target.id;
         let value = document.getElementById(id).value;
-        value = value.replace(/[^\d.-]/g, ''); // Only keep numbers and .
+        let errorText = '';
+        if(value > 24) {
+            errorText = "Fun fact, a day on Pluto lasts 153 hours, on Earth its only lasts 24 hours.";
+        } else if (value < 0) {
+            errorText = "Where can I buy this magical appliance which runs in reverse?";
+        } else if (isNaN(parseInt(value)) || /[^\d.,]/g.test(value)) {
+            errorText = "Please enter a valid number";
+        }
+        //TODO combine into 1 action.
+        this.props.dispatch(setQuestionError(id, errorText));
         this.props.dispatch(updateQuestions(id, value));
     }
 
 	render() {
         const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
-        const textStyle = {width: textWidth, display: 'inline-block'}
-        const inputStyle = {width: '50px'}
-        const subtextStyle = {fontSize: '80%'}
-        const subtext = this.props.subtext ? (<div style={subtextStyle}>{this.props.subtext}</div>) : '';
+        if(this.props.name === "house-heat-pump") {
+            console.log('props are', this.props);
+        }
 		return (
-            <li style={{marginTop: '6px'}}>
-                <div style={{display: 'inline-block'}}>
-                    <div style={textStyle}>{this.formatName(this.props.question.name)} </div>
-                    <input id={this.props.id} type="text" style={inputStyle} onChange={this.updateQuestion.bind(this)} value={this.props.value}  />
+            <li className="footprint-form-question">
+                <div>
+                    <p className="footprint-form-question-name">{this.formatName(this.props.question.name)}</p>
+                    <div>
+                        <TextField
+                            errorText={this.props.errorText}
+                            id={this.props.id}
+                            name={this.props.id}
+                            hintText={this.props.subtext}
+                            onChange={this.updateQuestion.bind(this)}
+
+                        />
+                    </div>
                 </div>
-                {subtext}
             </li>
 		);
 	}
 };
-

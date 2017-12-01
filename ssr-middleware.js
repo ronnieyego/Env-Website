@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom/server";
 import Q from 'q';
 import _ from 'lodash';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Redux
 import reducers from './src/js/redux/reducers/index';
@@ -47,7 +48,7 @@ const renderFullPage = (markup, data, page) => {
         default:
             jsLocation = '/public/scripts.min.js';
     };
-
+    //widget.css
     return `
     <!DOCTYPE html>
         <html>
@@ -56,7 +57,7 @@ const renderFullPage = (markup, data, page) => {
                 <title>Footprint Finder</title>
                 <link rel="shortcut icon" type="image/png" href="/public/footprint.png">
                  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-                 <link type="text/css" href="/public/widget.css" rel="stylesheet"/>
+                 <link type="text/css" href="/public/less.css" rel="stylesheet"/>
                  <script>
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -158,7 +159,9 @@ const footprintMiddleware = (req, res) => {
 
     const appMarkup = ReactDOM.renderToString(
     <Provider store={store}>
-        <FootprintCalculator />
+        <MuiThemeProvider>
+            <FootprintCalculator />
+        </MuiThemeProvider>
     </Provider>);
     res.status(200).send(renderFullPage(appMarkup, preloadedState, 'footprint'));
 }

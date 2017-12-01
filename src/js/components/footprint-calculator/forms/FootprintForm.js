@@ -27,19 +27,6 @@ export default class FootprintForm extends React.Component {
       if(!this.props.applianceHour) {
         return (<div>{'Loading Data'}</div>);
       }
-        const containerStyle = {
-            border: '3px solid gray',
-            margin: 'auto',
-            backgroundColor: 'lightgrey',
-            width: '500px'
-        };
-        const headerStyle = {
-            fontWeight: 'bold',
-            border: '3px solid gray',
-            textAlign: 'center',
-            backgroundColor: 'white'
-        };
-
         const buttonStyle = {
           display: 'flex',
           justifyContent: 'space-between'
@@ -65,14 +52,13 @@ export default class FootprintForm extends React.Component {
         };
 
 		return (
-      <div>
-        <div style={{textAlign:'left'}}>
+      <div className="footprint-main">
+        <div className="footprint-form-paragraphs">
             <p>There is a ton of advice on how to lower your ecological footprint, "drive less, turn off your lights, dont' eat meat".  Sure, they're all good ideas, but have drastically different impacts.  One flaw I've found in all of these suggestions is that they take a qualitative approach to a very quantitative problem.</p>
             <p>The calculator below attempts to give you reasonably accurate insights on your ecological footprint.  The goal is to give you the ability to reduce your footprint in a way that fits with your life.  The form takes about 5 minutes to fill out.</p>    
         </div>
-        <div style={containerStyle}>
-          
-          <h2 style={headerStyle}> Calculate your environmental footprint</h2>
+        <div className="footprint-form">
+          <h2 className="footprint-form-header"> Calculate your environmental footprint</h2>
             {form}
             <div style={buttonStyle}>
               {leftButton}

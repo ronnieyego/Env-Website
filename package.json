@@ -5,9 +5,11 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot",
-    "test": "mocha --compilers js:babel-core/register --recursive tests", 
-    "webstart": "webpack && node index.js",
-    "start": "node index.js"
+    "less": "lessc src/js/css-entry.less public/less.css",
+    "test": "mocha --compilers js:babel-core/register --recursive tests",
+    "webstart": "webpack && lessc src/js/css-entry.less public/less.css && node index.js",
+    "start": "node index.js",
+    "questions": "node db/db-scripts/data/format-scripts/footprint/compile-questions.js"
   },
   "engines": {
     "node": "6.9.1"
@@ -31,6 +33,7 @@
     "d3": "^3.5.6",
     "express": "^4.15.2",
     "lodash": "^4.17.4",
+    "material-ui": "^0.19.4",
     "moment-timezone": "^0.5.13",
     "mongodb": "^2.2.5",
     "mongoose": "^4.5.9",
@@ -42,6 +45,7 @@
     "react-faux-dom": "^2.1.0",
     "react-modal": "^1.7.7",
     "react-redux": "^4.4.6",
+    "react-router-dom": "^4.2.2",
     "react-sidebar": "^2.3.2",
     "recharts": "^1.0.0-alpha.3",
     "redux": "^3.7.2",

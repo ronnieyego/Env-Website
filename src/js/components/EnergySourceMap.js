@@ -221,7 +221,6 @@ export default class EnergySourceMap extends React.Component {
         const currentSources = this.state.currentSources;
         const currentUtilities = this.state.currentUtilities;
         let circles = topojson.feature(this.state.mapData, this.state.mapData.objects.counties).features
-            //.sort(function(a, b) { return b.properties[source] - a.properties[source]; })
         
         // Filter by energy source
         circles = this.filterBySource(circles);
@@ -247,7 +246,6 @@ export default class EnergySourceMap extends React.Component {
     }
 
   render() {
-    console.log('this state', this.state);
     const sourceFilterButtons = this.getEnergyFilterOptions(sources, this.state.currentSources);
     const utilityFilterButtons = this.getUtilityFilterOptions(utilities, this.state.currentUtilities);
     let map;
@@ -292,10 +290,10 @@ export default class EnergySourceMap extends React.Component {
             <br />
             This includes both private and public active power stations in the US as of April 2017 (source: <a href="https://www.eia.gov/electricity/data/eia860m/">EIA</a>)
              <div style={filterStyle}>
-                <form style={buttonStyles}>
+                <form class="energy-map-button">
                     <ul style={{listStyleType :'none'}} ><b>Filter by energy source</b>{sourceFilterButtons}</ul>
                 </form>
-                <form style={buttonStyles}>
+                <form class="energy-map-button">
                     <ul style={{listStyleType :'none'}} ><b>Filter by production source</b>{utilityFilterButtons}</ul>
                 </form>
             </div>

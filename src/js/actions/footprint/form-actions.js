@@ -12,6 +12,15 @@ const updateQuestion = (allQuestions, id, value) => {
     });
 };
 
+const updateQuestionErrorText = (allQuestions, id, errorText) => {
+    return allQuestions.forEach(question => {
+        if (question.name === id) {
+            question.errorText = errorText;
+        };
+        return;
+    });
+};
+
 const validateForm = questions => {
       const transportationQuestions = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
       let filteredTransportationQuestions = _.filter(transportationQuestions, function(o) { return o['useBool'] !== true; })
@@ -62,6 +71,15 @@ export const updateQuestions = (id, value) => {
         dispatch({type: 'UPDATE_QUESTIONS', payload: allQuestions});
     }
 };
+
+export const setQuestionError = (id, errorText) => {
+    return (dispatch, getState) => {
+        const state = getState();
+        const allQuestions = state.footprintForm.questions.slice();
+        const updatedQuestions = updateQuestionErrorText(allQuestions, id, errorText);
+        dispatch({type: 'UPDATE_QUESTIONS', payload: allQuestions});
+    }
+}
 
 export const increaseStep = () => {
     return dispatch => {
