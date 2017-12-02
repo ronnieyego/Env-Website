@@ -1,4 +1,5 @@
 import React from "react";
+import { MenuItem, SelectField } from 'material-ui';
 
 import ResultsPieChart from './ResultsPieChart';
 import StateDropdown from '../../StateDropdown';
@@ -28,6 +29,10 @@ export default class Compare extends React.Component {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
+    updateStateDropdown(event, index, value) {
+        this.props.dispatch({type: 'UPDATE_USER_STATE', payload: value});
+    }
+    
     updateQuestion(e) {
         const id = e.target.id;
         const value = document.getElementById(id).value;
@@ -156,7 +161,7 @@ export default class Compare extends React.Component {
                         <br />
                         <StateDropdown
                             id="compare-state-dropdown"
-                            updateQuestion={this.updateQuestion}
+                            updateQuestion={this.updateStateDropdown.bind(this)}
                             selected={this.props.state} 
                         />
                     </div>

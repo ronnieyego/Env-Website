@@ -1,6 +1,7 @@
 import React from "react";
 
 import { updateQuestions} from '../../../actions/footprint/form-actions';
+import { Checkbox } from 'material-ui';
 
 export default class Question extends React.Component {
 
@@ -18,20 +19,16 @@ export default class Question extends React.Component {
     }
 
 	render() {
-        const input = this.props.checked ? (
-            <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} checked="checked"/>
-        ) : (
-            <input id={this.props.id} type="checkbox" onChange={this.updateQuestion.bind(this)} />
-        );
 		const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
-        const textStyle = {width: textWidth, display: 'inline-block'}
+        const textStyle = {width: textWidth}
         return (
-            <li style={{marginTop: '6px'}}>
-                <div>
-                    <div style={textStyle}>{this.formatName(this.props.question.name)} </div>
-                    {input}
-                </div>
-            </li>
+            <div className="footprint-form-question-boolean">
+                <Checkbox 
+                    id={this.props.id}
+                    label={this.formatName(this.props.question.name)}
+                    onCheck={this.updateQuestion.bind(this)}
+                />
+            </div>
 		);
 	}
 };

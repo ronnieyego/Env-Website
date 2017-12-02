@@ -33,7 +33,7 @@ export default class ApplianceForm extends React.Component {
 		return (
             
             <div>
-            <h3 style={subCategory}>Daily use Appliances</h3>
+            <h3 className="footprint-form-header">Daily use Appliances</h3>
                 <div >
                     <p className="footprint-form-sub-header">How many hours a day do you use the following?</p>
                     <ul>

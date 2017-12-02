@@ -1,19 +1,23 @@
 import React from "react";
+import { connect } from 'react-redux';
 import _ from 'lodash';
+
+import { Divider } from 'material-ui';
 
 import BooleanQuestion from './BooleanQuestion';
 import Question from './Question';
 import StateDropDown from '../../StateDropdown';
 
-export default class Household extends React.Component {
-    constructor() {
-        super();
-        this.updateStateDropdown = this.updateStateDropdown.bind(this);
-    }
 
-    updateStateDropdown(e) {
-        const id = e.target.id;
-        const value = document.getElementById(id).value;
+
+@connect((store, props) => {
+	return {
+		userState: store.footprintFormAnswers.userState,
+	};
+})
+export default class Household extends React.Component {
+
+    updateStateDropdown(event, index, value) {
         this.props.dispatch({type: 'UPDATE_USER_STATE', payload: value});
     }
     
@@ -22,18 +26,6 @@ export default class Household extends React.Component {
     }
 
 	render() {
-        
-        const subCategory = {
-            fontWeight: 'bold',
-            textAlign: 'center'
-        };
-        const questionsStyle = {
-            textAlign: 'left',
-            marginLeft: '15px',
-            marginTop: '5px',
-            marginBottom: '5px'
-        };
-        const textWidth = '250px';
         const allQuestions = this.props.questions;
         const boolQuestions = this.filterQuestions(allQuestions, 'monthly-own').map(question => {
             const checked = question.value === 'on' ? true : false;
@@ -43,17 +35,16 @@ export default class Household extends React.Component {
                 question={question} 
                 questionGroup={'boolean'} 
                 checked={checked} 
-                textWidth={textWidth} 
                 dispatch={this.props.dispatch}/>);
         });
         const questions = this.filterQuestions(allQuestions, 'monthly-use').map(question => {
             const value = question.value;
-            return (<Question 
+            return (<Question
+                errorText={question.errorText || ''}
                 key={question.name} 
                 id={question.name} 
                 question={question} 
                 value={value} 
-                textWidth={textWidth}
                 subText={question.subtext} 
                 dispatch={this.props.dispatch}/>
             );
@@ -61,20 +52,31 @@ export default class Household extends React.Component {
 
 		return (
             <div>
-            <h3 style={subCategory}>Household information</h3>
-                <div style={questionsStyle}>
-                    What state do you live in?
+            <h3 className="footprint-form-header">Household information</h3>
+                <div>
+                    <p className="footprint-form-sub-header">What state do you live in?</p>
                     <ul>
-                        <StateDropDown id="userState" updateQuestion={this.updateStateDropdown} />
+                        <StateDropDown 
+                            id="userState"
+                            updateQuestion={this.updateStateDropdown.bind(this)} 
+                            value={this.props.userState}
+                        />
                     </ul>
-                    Which of the following do you own?
-                    <ul>
+                    <div className="form-divider">
+                        <Divider />
+                    </div>
+                    <p className="footprint-form-sub-header">Which of the following do you own?</p>
                         {boolQuestions}
-                    </ul>
-                    How many times a month do you use the following?
+                    <div className="form-divider">
+                        <Divider />
+                    </div>
+                    <p className="footprint-form-sub-header">How many times a month do you use the following?</p>
                     <ul>
                         {questions}
                     </ul>
+                    <div className="form-divider">
+                        <Divider />
+                    </div>
                 </div>
             </div>
 		);

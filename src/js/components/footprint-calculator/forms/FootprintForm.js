@@ -58,7 +58,7 @@ export default class FootprintForm extends React.Component {
             <p>The calculator below attempts to give you reasonably accurate insights on your ecological footprint.  The goal is to give you the ability to reduce your footprint in a way that fits with your life.  The form takes about 5 minutes to fill out.</p>    
         </div>
         <div className="footprint-form">
-          <h2 className="footprint-form-header"> Calculate your environmental footprint</h2>
+          <h2 className="footprint-form-title"> Calculate your environmental footprint</h2>
             {form}
             <div style={buttonStyle}>
               {leftButton}

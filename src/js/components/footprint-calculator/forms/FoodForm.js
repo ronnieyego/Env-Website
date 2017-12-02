@@ -28,7 +28,8 @@ export default class FoodForm extends React.Component {
             const value = question.value;
             calories += value ? value * question['calories/serving'] : 0;
             return (
-                <Question 
+                <Question
+                errorText={question.errorText || ''}
                 key={question.name}
                 id={question.name}
                 question={question}

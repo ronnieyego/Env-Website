@@ -1,4 +1,5 @@
 import React, { PropTypes } from "react";
+import { MenuItem, SelectField } from 'material-ui';
 
 const stateIds = [
 'US',
@@ -57,21 +58,30 @@ const stateIds = [
 export default class StateDropdown extends React.Component {
     static propTypes = {
         id: PropTypes.string,
+        value: PropTypes.string,
         updateQuestion: PropTypes.func
     }
     
 	render() {
         const dropDownOptions = stateIds.map(state => {
-            if(state === this.props.selected) { // Parent component passes down which value is selected
-                return <option key={state} value={state} selected="selected">{state}</option>
-            }
-            return <option key={state} value={state}>{state}</option>
-        })
+            return <MenuItem 
+                key={state}
+                primaryText={state}
+                value={state}  
+            />
+        });
         
 		return (
-            <select id={this.props.id} onChange={this.props.updateQuestion.bind(this)} >
+            <SelectField
+                floatingLabelText={'Choose your state'}
+                id={this.props.id}
+                menuItemStyle={{fontWeight: 'bold'}}
+                menuStyle={{textAlign: 'center'}}
+                onChange={this.props.updateQuestion.bind(this)}
+                value={this.props.value}
+            >
                 {dropDownOptions}
-            </select>
+            </SelectField>
 		);
 	}
 };
