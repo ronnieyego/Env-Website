@@ -38,7 +38,7 @@ export default class TransportationForm extends React.Component {
             } else if (question.selectOptions) {
                 return (<DropDownQuestion name={question.name} key={question.name} id={question.name} selectOptions={question.selectOptions} question={question} value={value} dispatch={this.props.dispatch} />)
             }
-            return (<Question errorText={question.errorText || ''} key={question.name} id={question.name} question={question} value={value} textWidth={textWidth} subText={question.subtext} dispatch={this.props.dispatch} />);
+            return (<Question errorText={question.errorText || ''} key={question.name} id={question.name} question={question} value={value} textWidth={textWidth} subText={question.subtext} dispatch={this.props.dispatch} validator={question.validator} />);
         });
 		return (
             <div>

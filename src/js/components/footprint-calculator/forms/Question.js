@@ -1,7 +1,9 @@
 import React from "react";
+import { TextField } from 'material-ui';
 
 import { setQuestionError, updateQuestions} from '../../../actions/footprint/form-actions';
-import { TextField } from 'material-ui';
+import { getErrorText } from '../../../utils/footprint/question-validators';
+
 
 
 export default class Question extends React.Component {
@@ -14,17 +16,10 @@ export default class Question extends React.Component {
         return name;
     }
 
-    updateQuestion(e) {
+    updateQuestion(validator, e) {
         let id = e.target.id;
         let value = document.getElementById(id).value;
-        let errorText = '';
-        if(value > 24) {
-            errorText = "Fun fact, a day on Pluto lasts 153 hours, on Earth its only lasts 24 hours.";
-        } else if (value < 0) {
-            errorText = "Where can I buy this magical appliance which runs in reverse?";
-        } else if (isNaN(parseInt(value)) || /[^\d.,]/g.test(value)) {
-            errorText = "Please enter a valid number";
-        }
+        const errorText = getErrorText(value, validator);
         //TODO combine into 1 action.
         this.props.dispatch(setQuestionError(id, errorText));
         this.props.dispatch(updateQuestions(id, value));
@@ -45,7 +40,7 @@ export default class Question extends React.Component {
                             id={this.props.id}
                             name={this.props.id}
                             hintText={this.props.subtext}
-                            onChange={this.updateQuestion.bind(this)}
+                            onChange={this.updateQuestion.bind(this, this.props.validator)}
 
                         />
                     </div>

@@ -25,7 +25,9 @@ module.exports = [
     "water": 45,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "subtext": "Serving size: 1 slice of bread or 1 cup of cereal or 0.5 cups of cooked rice"
+    "validator": "standard-int",
+    "subtext": "Serving size: 1 slice of bread or 0.5 cups of cooked rice",
+    "": ""
   },
   {
     "name": "vegetables",
@@ -35,7 +37,9 @@ module.exports = [
     "water": 43,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "subtext": "Serving size: 1 cup of leafy vegetables or 0.5 cups of other veggies"
+    "validator": "standard-int",
+    "subtext": "Serving size: 1 cup of leafy veggies or 0.5 cups of others",
+    "": ""
   },
   {
     "name": "milk",
@@ -45,7 +49,9 @@ module.exports = [
     "water": 44.2,
     "use-type": "serving",
     "sub-grouping": "dairy",
-    "subtext": "Serving size: 1 cup"
+    "validator": "standard-int",
+    "subtext": "Serving size: 1 cup",
+    "": ""
   },
   {
     "name": "fruit",
@@ -55,7 +61,9 @@ module.exports = [
     "water": 54,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "subtext": "Serving size: 1 apple or 0.5 cups"
+    "validator": "standard-int",
+    "subtext": "Serving size: 1 apple or 0.5 cups",
+    "": ""
   },
   {
     "name": "eggs",
@@ -65,7 +73,9 @@ module.exports = [
     "water": 52.7,
     "use-type": "serving",
     "sub-grouping": "dairy",
-    "subtext": "Serving size: 1 egg"
+    "validator": "standard-int",
+    "subtext": "Serving size: 1 egg",
+    "": ""
   },
   {
     "name": "chicken",
@@ -75,7 +85,9 @@ module.exports = [
     "water": 85.6,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 3 oz about the size of a deck of cards"
+    "validator": "standard-int",
+    "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "": ""
   },
   {
     "name": "dairy",
@@ -85,7 +97,9 @@ module.exports = [
     "water": 59.6,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese"
+    "validator": "standard-int",
+    "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese",
+    "": ""
   },
   {
     "name": "pork",
@@ -95,7 +109,9 @@ module.exports = [
     "water": 122.9,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 3 oz about the size of a deck of cards"
+    "validator": "standard-int",
+    "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "": ""
   },
   {
     "name": "beef",
@@ -105,7 +121,9 @@ module.exports = [
     "water": 375.8,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "subtext": "Serving size: 3 oz about the size of a deck of cards"
+    "validator": "standard-int",
+    "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "": ""
   },
   {
     "name": "junk food",
@@ -115,6 +133,8 @@ module.exports = [
     "water": 45,
     "use-type": "serving",
     "sub-grouping": "junk-food",
-    "subtext": "Serving size: 16 delicious chips or one glorious cookie or a refreshing soda or not enough cake"
+    "validator": "standard-int",
+    "subtext": "Serving size: 16 tasty chips or one glorious cookie or not enough cake",
+    "": ""
   }
 ];

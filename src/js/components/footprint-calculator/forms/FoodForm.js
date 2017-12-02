@@ -36,7 +36,9 @@ export default class FoodForm extends React.Component {
                 value={value}
                 textWidth={textWidth}
                 subtext={question.subtext}
-                dispatch={this.props.dispatch}/>
+                dispatch={this.props.dispatch}
+                validator={question.validator}
+            />
             );
         });
 

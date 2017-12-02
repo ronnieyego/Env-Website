@@ -12,7 +12,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
-    "subtext": "Standard full house heating system."
+    "validator": "hour-question",
+    "subtext": "Standard full house heating system.",
+    "": ""
   },
   {
     "name": "house-heat-pump",
@@ -21,7 +23,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
-    "subtext": "Heat pumps transfer cool underground air from the outside"
+    "validator": "hour-question",
+    "subtext": "Heat pumps transfer cool underground air from the outside",
+    "": ""
   },
   {
     "name": "portable-heater",
@@ -30,7 +34,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "heating",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "central-air-conditioning",
@@ -39,7 +45,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
-    "subtext": "AC that's part of a house HVAC system"
+    "validator": "hour-question",
+    "subtext": "AC that's part of a house HVAC system",
+    "": ""
   },
   {
     "name": "window-mount-air-conditioning",
@@ -48,7 +56,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
-    "subtext": "A single unit positioned in a window"
+    "validator": "hour-question",
+    "subtext": "A single unit positioned in a window",
+    "": ""
   },
   {
     "name": "ceiling-fan",
@@ -57,7 +67,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "portable-fan",
@@ -66,7 +78,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooling",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "speakers",
@@ -75,7 +89,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "tv",
@@ -84,7 +100,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "standard-lightbulbs",
@@ -93,7 +111,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
-    "subtext": "Total daily lightbulb hours"
+    "validator": "hour-question",
+    "subtext": "Total daily lightbulb hours",
+    "": ""
   },
   {
     "name": "energy-efficient-lightbulbs",
@@ -102,7 +122,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
-    "subtext": "Total daily lightbulb hours"
+    "validator": "hour-question",
+    "subtext": "Total daily lightbulb hours",
+    "": ""
   },
   {
     "name": "game-console",
@@ -111,7 +133,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "computer-laptop",
@@ -120,7 +144,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "computer-desktop",
@@ -129,7 +155,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "computer-monitor",
@@ -138,7 +166,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "",
-    "subtext": "Stand alone monitor"
+    "validator": "hour-question",
+    "subtext": "Stand alone monitor",
+    "": ""
   },
   {
     "name": "hot-shower",
@@ -147,7 +177,9 @@ module.exports = [
     "water": 60,
     "sub-grouping": "cleanliness",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "hair-dryer",
@@ -156,7 +188,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cleanliness",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "oven",
@@ -165,7 +199,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "stove-top",
@@ -174,7 +210,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "toaster-oven",
@@ -183,7 +221,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "coffee-maker",
@@ -192,7 +232,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "",
-    "subtext": ""
+    "validator": "hour-question",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "refrigerator",
@@ -201,7 +243,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
-    "subtext": ""
+    "validator": "",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "energy-efficient-refrigerator",
@@ -210,7 +254,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
-    "subtext": ""
+    "validator": "",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "freezer",
@@ -219,7 +265,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cooking",
     "use-bool": "bool",
-    "subtext": "Not included in refrigerator"
+    "validator": "",
+    "subtext": "Not included in refrigerator",
+    "": ""
   },
   {
     "name": "tivo",
@@ -228,7 +276,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "entertainment",
     "use-bool": "bool",
-    "subtext": ""
+    "validator": "",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "swimming-pool",
@@ -237,7 +287,9 @@ module.exports = [
     "water": 3500,
     "sub-grouping": "entertainment",
     "use-bool": "bool",
-    "subtext": ""
+    "validator": "",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "clothes-washer-with-cold-water",
@@ -246,7 +298,9 @@ module.exports = [
     "water": 35,
     "sub-grouping": "cleanliness",
     "use-bool": "",
-    "subtext": ""
+    "validator": "standard-int",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "clothes-washer-with-hot-water",
@@ -255,7 +309,9 @@ module.exports = [
     "water": 35,
     "sub-grouping": "cleanliness",
     "use-bool": "",
-    "subtext": ""
+    "validator": "standard-int",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "dryer",
@@ -264,7 +320,9 @@ module.exports = [
     "water": "",
     "sub-grouping": "cleanliness",
     "use-bool": "",
-    "subtext": ""
+    "validator": "standard-int",
+    "subtext": "",
+    "": ""
   },
   {
     "name": "dishwasher",
@@ -273,6 +331,8 @@ module.exports = [
     "water": 6,
     "sub-grouping": "cooking",
     "use-bool": "",
-    "subtext": ""
+    "validator": "standard-int",
+    "subtext": "",
+    "": ""
   }
 ];

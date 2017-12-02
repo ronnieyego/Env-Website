@@ -8,6 +8,7 @@ const transportationQuestions = [
     {
         name: 'What\'s the MPG of your car?',
         "use-type": "transportation",
+        "validator": "mpg",
         id: 2
     },
     {

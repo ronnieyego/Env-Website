@@ -28,6 +28,7 @@ export default class ApplianceForm extends React.Component {
                 textWidth={textWidth} 
                 subtext={question.subtext} 
                 dispatch={this.props.dispatch}
+                validator={question.validator}
                 />);
             });
 		return (

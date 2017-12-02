@@ -46,7 +46,9 @@ export default class Household extends React.Component {
                 question={question} 
                 value={value} 
                 subText={question.subtext} 
-                dispatch={this.props.dispatch}/>
+                dispatch={this.props.dispatch}
+                validator={question.validator}
+            />
             );
         });
 
