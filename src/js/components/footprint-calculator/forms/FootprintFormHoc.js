@@ -20,16 +20,20 @@ export default class FootprintFormHoc extends React.Component {
 
 	render() {
         const allQuestions = this.props.questions;
-        const applianceHour = _.filter(allQuestions, function(o) { return o['use-type'] === 'hour'; });
+        const hourQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'hour'; });
+        const heatingCoolingQuestions = _.filter(hourQuestions, function(o) { return ['heating', 'cooling'].indexOf(o['sub-grouping']) > -1; });
+        const applianceQuestions = _.filter(hourQuestions, function(o) { return ['heating', 'cooling'].indexOf(o['sub-grouping']) === -1; });
         const houseHoldQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
         const foodQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'serving'; });
         const transportation = _.filter(allQuestions, function(o) { return o['use-type'] === 'transportation'; });
 		return (
             <FootprintForm {...this.props}
-             applianceHour={applianceHour}
-             houseHoldQuestions={houseHoldQuestions}
-             foodQuestions={foodQuestions}
-             transportation={transportation}
+                allQuestions={allQuestions}
+                applianceHour={applianceQuestions}
+                heatingCoolingQuestions={heatingCoolingQuestions}
+                houseHoldQuestions={houseHoldQuestions}
+                foodQuestions={foodQuestions}
+                transportation={transportation}
             />
         )
 	}

@@ -20,16 +20,16 @@ export default class Question extends React.Component {
         let id = e.target.id;
         let value = document.getElementById(id).value;
         const errorText = getErrorText(value, validator);
-        //TODO combine into 1 action.
-        this.props.dispatch(setQuestionError(id, errorText));
-        this.props.dispatch(updateQuestions(id, value));
+        const questionInfo = {
+            id,
+            value,
+            errorText
+        };
+        this.props.dispatch(updateQuestions(questionInfo));
     }
 
 	render() {
         const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
-        if(this.props.name === "house-heat-pump") {
-            console.log('props are', this.props);
-        }
 		return (
             <li className="footprint-form-question">
                 <div>
@@ -41,6 +41,7 @@ export default class Question extends React.Component {
                             name={this.props.id}
                             hintText={this.props.subtext}
                             onChange={this.updateQuestion.bind(this, this.props.validator)}
+                            value={this.props.value}
 
                         />
                     </div>

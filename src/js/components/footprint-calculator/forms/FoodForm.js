@@ -12,17 +12,6 @@ export default class FoodForm extends React.Component {
 	}
 
 	render() {
-        const subCategory = {
-            fontWeight: 'bold',
-            textAlign: 'center'
-        };
-        const questionsStyle = {
-            textAlign: 'left',
-            marginLeft: '15px',
-            marginTop: '5px',
-            marginBottom: '5px'
-        };
-        const textWidth = '75px';
         let calories = 0;
         const questions = this.props.questions.map(question => {
             const value = question.value;
@@ -34,7 +23,6 @@ export default class FoodForm extends React.Component {
                 id={question.name}
                 question={question}
                 value={value}
-                textWidth={textWidth}
                 subtext={question.subtext}
                 dispatch={this.props.dispatch}
                 validator={question.validator}
@@ -43,16 +31,16 @@ export default class FoodForm extends React.Component {
         });
 
         const calorieDisplay = !isNaN(calories) ? 
-            (<div>Your estimated calorie count is <b>{calories.toLocaleString()}</b>.</div>) 
+            (<div>Your estimated calorie count is <b style={{fontWeight: '800'}}>{calories.toLocaleString()}</b>.</div>) 
             :
             'Please submit proper numbers';
 		return (
             
             <div>
-            <h3 style={subCategory}>Food</h3>
-                <div style={questionsStyle}>
-                    How many servings of each food do you eat each day?  
-                    <br />{calorieDisplay}
+            <h3 className="footprint-form-header">Food</h3>
+                <div>
+                    <p className="footprint-form-sub-header">How many servings of each food do you eat each day?</p>
+                    <p className="footprint-form-sub-header">{calorieDisplay}</p>
                     <ul>
                         {questions}
                     </ul>

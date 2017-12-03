@@ -162,7 +162,7 @@ export default class Compare extends React.Component {
                         <StateDropdown
                             id="compare-state-dropdown"
                             updateQuestion={this.updateStateDropdown.bind(this)}
-                            selected={this.props.state} 
+                            value={this.props.state} 
                         />
                     </div>
                     <div>

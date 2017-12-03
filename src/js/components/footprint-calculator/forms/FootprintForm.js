@@ -1,55 +1,102 @@
 import React from "react";
 import _ from 'lodash';
 
+import { RaisedButton } from 'material-ui';
+
 import ApplianceForm from './ApplianceForm';
 import FoodForm from './FoodForm';
+import HeatingCoolingForm from './HeatingCoolingForm';
 import HouseholdForm from './HouseholdForm';
 import TransportationForm from './TransportationForm';
 
 import { submitForm } from '../../../actions/footprint/form-actions';
 
-const MAX_STEPS = 4
+const MAX_STEPS = 5
 
 export default class FootprintForm extends React.Component {
-    decreaseStep() {
-      this.props.dispatch({type: 'DECREASE_STEP'});
+    decreaseStep(formError) {
+      if(!formError) {
+        this.props.dispatch({type: 'DECREASE_STEP'});
+      }
     }
 
-    increaseStep() {
-      this.props.dispatch({type: 'INCREASE_STEP'});
+    increaseStep(formError) {
+      if(!formError) {
+        this.props.dispatch({type: 'INCREASE_STEP'});
+      }
     }
 
-    submitCalculator() {
+    submitCalculator(formError) {
+      if(!formError) {
         this.props.dispatch(submitForm(this.props.questions));
+      }
+    }
+
+    getQuestionErrorIds() {
+      const questions = this.props.allQuestions;
+      let errorIds = [];
+      questions.forEach(question => {
+        if(question.errorText) {
+          errorIds.push(question.name)
+        }
+      });
+      return errorIds;
     }
 
 	render() {
       if(!this.props.applianceHour) {
         return (<div>{'Loading Data'}</div>);
       }
-        const buttonStyle = {
-          display: 'flex',
-          justifyContent: 'space-between'
-        };
-        let form;
-        let leftButton = this.props.step === 1 ? <div /> : (<button type="button" className="left-btn" onClick={() => this.decreaseStep()}>Back</button>);
-        let rightButton = this.props.step === MAX_STEPS ? (<button type="button" className="right-btn" onClick={this.submitCalculator.bind(this)}>Calculate My Footprint</button>) : (<button type="button" className="right-btn" onClick={() => this.increaseStep()}>Next</button>);
-        switch(this.props.step) {
-          case 1: 
-            form = (<ApplianceForm questions={this.props.applianceHour} dispatch={this.props.dispatch} />);
-            break;
-          case 2:
-            form = (<HouseholdForm questions={this.props.houseHoldQuestions} dispatch={this.props.dispatch} />);
-            break;
-          case 3:
-            form = (<FoodForm questions={this.props.foodQuestions} dispatch={this.props.dispatch} />);
-            break;
-          case 4:
-            form = (<TransportationForm questions={this.props.transportation} dispatch={this.props.dispatch} />);
-            break;
-          default:
-            form = (<ApplianceForm questions={this.props.applianceHour} dispatch={this.props.dispatch} />);
-        };
+
+      const errorIds = this.getQuestionErrorIds();
+      const formError = errorIds.length > 0;
+      const buttonJump = formError ? `#${errorIds[0]}` :  '#footprint-form-title'
+        
+      let form;
+      const leftButton = this.props.step === 1 ? <div /> : (
+          <RaisedButton 
+            className="left-btn"
+            href={buttonJump}
+            label="Back"
+            onClick={() => this.decreaseStep(formError)}
+            secondary={true}
+          />
+      );
+      const rightButton = this.props.step === MAX_STEPS ? (
+        <RaisedButton 
+            className="right-btn"
+            href={buttonJump}
+            label="Calculate My Footprint"
+            onClick={this.submitCalculator.bind(this, formError)}
+            primary={true}
+        />) : (
+          <RaisedButton 
+            className="right-btn"
+            href={buttonJump}
+            label="Next"
+            onClick={() => this.increaseStep(formError)}
+            primary={true}
+        />
+      );
+      switch(this.props.step) {
+        case 1: 
+          form = (<HouseholdForm questions={this.props.houseHoldQuestions} dispatch={this.props.dispatch} />);
+          break;
+        case 2:
+          form = (<HeatingCoolingForm questions={this.props.heatingCoolingQuestions} dispatch={this.props.dispatch} />);
+          break;
+        case 3:
+          form = (<ApplianceForm questions={this.props.applianceHour} dispatch={this.props.dispatch} />);
+          break;
+        case 4:
+          form = (<FoodForm questions={this.props.foodQuestions} dispatch={this.props.dispatch} />);
+          break;
+        case 5:
+          form = (<TransportationForm questions={this.props.transportation} dispatch={this.props.dispatch} />);
+          break;
+        default:
+          form = (<ApplianceForm questions={this.props.applianceHour} dispatch={this.props.dispatch} />);
+      };
 
 		return (
       <div className="footprint-main">
@@ -58,9 +105,9 @@ export default class FootprintForm extends React.Component {
             <p>The calculator below attempts to give you reasonably accurate insights on your ecological footprint.  The goal is to give you the ability to reduce your footprint in a way that fits with your life.  The form takes about 5 minutes to fill out.</p>    
         </div>
         <div className="footprint-form">
-          <h2 className="footprint-form-title"> Calculate your environmental footprint</h2>
+          <h2 id="footprint-form-title" className="footprint-form-title"> Calculate your environmental footprint</h2>
             {form}
-            <div style={buttonStyle}>
+            <div className="footprint-form-bottom-buttons">
               {leftButton}
               Step {this.props.step} of {MAX_STEPS}
               {rightButton}

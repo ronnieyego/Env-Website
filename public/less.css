@@ -43,7 +43,11 @@
   font-weight: bold;
 }
 .footprint-form-question-boolean {
-  margin-left: 5px;
+  margin-left: 15px;
+}
+.footprint-form-bottom-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 .form-divider {
   margin-top: 25px;

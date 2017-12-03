@@ -6,17 +6,7 @@ import { TextField } from 'material-ui';
 
 export default class ApplianceForm extends React.Component {
 
-    constructor(props) {
-	    super();
-	}
-
 	render() {
-        const subCategory = {
-            fontWeight: 'bold',
-            textAlign: 'center'
-        };
-        
-        const textWidth = '250px';
         const questions = this.props.questions.map(question => {
             let value = question.value;
             return (<Question 
@@ -25,14 +15,12 @@ export default class ApplianceForm extends React.Component {
                 id={question.name} 
                 question={question} 
                 value={value} 
-                textWidth={textWidth} 
                 subtext={question.subtext} 
                 dispatch={this.props.dispatch}
                 validator={question.validator}
                 />);
             });
 		return (
-            
             <div>
             <h3 className="footprint-form-header">Daily use Appliances</h3>
                 <div >

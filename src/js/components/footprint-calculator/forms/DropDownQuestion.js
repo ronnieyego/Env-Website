@@ -12,7 +12,7 @@ export default class DropdownQuestion extends React.Component {
     }
 
     updateQuestion(id, event, index, value) {
-        this.props.dispatch(updateQuestions(id, value));
+        this.props.dispatch(updateQuestions({id, value}));
     }
 
 	render() {

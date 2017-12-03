@@ -1,25 +1,9 @@
 import _ from 'lodash';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 import { getAnswerFromKey } from '../../utils/footprint/get-question-utils';
+import { updateQuestionSet } from '../../utils/footprint/update-question-set';
 
 // Utils. . . maybe make own file eventually?
-const updateQuestion = (allQuestions, id, value) => {
-    return allQuestions.forEach(question => {
-        if (question.name === id) {
-            question.value = value;
-        };
-        return;
-    });
-};
-
-const updateQuestionErrorText = (allQuestions, id, errorText) => {
-    return allQuestions.forEach(question => {
-        if (question.name === id) {
-            question.errorText = errorText;
-        };
-        return;
-    });
-};
 
 const validateForm = questions => {
       const transportationQuestions = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
@@ -63,12 +47,13 @@ export const getQuestionData = () => {
     }
 };
 
-export const updateQuestions = (id, value) => {
+export const updateQuestions = questionInfo => {
     return (dispatch, getState) => {
         const state = getState();
         const allQuestions = state.footprintForm.questions.slice();
-        const updatedQuestions = updateQuestion(allQuestions, id, value);
-        dispatch({type: 'UPDATE_QUESTIONS', payload: allQuestions});
+        //updateHiddenQuestions
+        const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
+        dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
     }
 };
 
@@ -76,7 +61,7 @@ export const setQuestionError = (id, errorText) => {
     return (dispatch, getState) => {
         const state = getState();
         const allQuestions = state.footprintForm.questions.slice();
-        const updatedQuestions = updateQuestionErrorText(allQuestions, id, errorText);
+        
         dispatch({type: 'UPDATE_QUESTIONS', payload: allQuestions});
     }
 }

@@ -15,15 +15,15 @@ export default class Question extends React.Component {
         const id = e.target.id;
         let value = document.getElementById(id).value;
         value = this.props.checked && value === 'on' ? 'off' : 'on';
-        this.props.dispatch(updateQuestions(id, value));
+        const questionInfo = { id, value }
+        this.props.dispatch(updateQuestions(questionInfo));
     }
 
 	render() {
-		const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
-        const textStyle = {width: textWidth}
         return (
             <div className="footprint-form-question-boolean">
-                <Checkbox 
+                <Checkbox
+                    checked={this.props.checked}
                     id={this.props.id}
                     label={this.formatName(this.props.question.name)}
                     onCheck={this.updateQuestion.bind(this)}
