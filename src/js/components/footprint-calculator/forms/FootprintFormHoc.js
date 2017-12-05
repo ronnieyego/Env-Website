@@ -8,7 +8,8 @@ import _ from 'lodash';
 @connect((store, props) => {
 	return {
 		questions: store.footprintForm.questions,
-        step: store.footprintForm.step
+        step: store.footprintForm.step,
+        isSubmitReady: store.footprintForm.isSubmitReady,
 	};
 })
 export default class FootprintFormHoc extends React.Component {
@@ -34,6 +35,7 @@ export default class FootprintFormHoc extends React.Component {
                 houseHoldQuestions={houseHoldQuestions}
                 foodQuestions={foodQuestions}
                 transportation={transportation}
+                isSubmitReady={this.props.isSubmitReady}
             />
         )
 	}

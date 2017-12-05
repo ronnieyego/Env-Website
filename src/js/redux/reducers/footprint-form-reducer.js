@@ -2,7 +2,8 @@ const footprintFormReducer = (state = {
     questions: [],
     getQuestionsError: false,
     step: 5,
-    text: 'hello redux!'    
+    text: 'hello redux!',
+    isSubmitReady: true
 }, action) => {
     const newState ={...state}
     switch (action.type) {
@@ -28,6 +29,9 @@ const footprintFormReducer = (state = {
         }
         case 'DECREASE_STEP': {
             state = {...state, step: state['step'] - 1}
+        }
+        case 'SUBMIT_READY': {
+            state = {...state, isSubmitReady: action.payload }
         }
     }
     return state;

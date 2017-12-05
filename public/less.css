@@ -49,6 +49,13 @@
   display: flex;
   justify-content: space-between;
 }
+.footprint-form-submit-invalid {
+  margin: 15px 0;
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+}
 .form-divider {
   margin-top: 25px;
   margin-bottom: 25px;

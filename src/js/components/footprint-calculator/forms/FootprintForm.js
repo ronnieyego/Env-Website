@@ -52,11 +52,16 @@ export default class FootprintForm extends React.Component {
       const formError = errorIds.length > 0;
       const buttonJump = formError ? `#${errorIds[0]}` :  '#footprint-form-title'
         
-      let form;
+      const submitError = !this.props.isSubmitReady ? (
+        <div className="footprint-form-submit-invalid">
+          Please fill out all answers
+        </div>
+      ) : null;
+
       const leftButton = this.props.step === 1 ? <div /> : (
           <RaisedButton 
             className="left-btn"
-            href={buttonJump}
+            href={'#footprint-form-title'}
             label="Back"
             onClick={() => this.decreaseStep(formError)}
             secondary={true}
@@ -78,6 +83,8 @@ export default class FootprintForm extends React.Component {
             primary={true}
         />
       );
+
+      let form;
       switch(this.props.step) {
         case 1: 
           form = (<HouseholdForm questions={this.props.houseHoldQuestions} dispatch={this.props.dispatch} />);
@@ -107,6 +114,7 @@ export default class FootprintForm extends React.Component {
         <div className="footprint-form">
           <h2 id="footprint-form-title" className="footprint-form-title"> Calculate your environmental footprint</h2>
             {form}
+            {submitError}
             <div className="footprint-form-bottom-buttons">
               {leftButton}
               Step {this.props.step} of {MAX_STEPS}

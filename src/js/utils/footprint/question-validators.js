@@ -48,7 +48,7 @@ const mpgValidator = value => {
         errorText = '';
     } else if(value > 1000) {
         errorText = 'Congratulations on having the world\'s most fuel efficient car!';
-    } else if (value === 0 ) {
+    } else if (value == 0 ) { // want to match "0"
         errorText = 'A 0 MPG car is called a cart!';
     } else if (value < 0 ) {
         errorText = 'How does this work?  Does your car reduce other people\'s mpg?';

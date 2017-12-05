@@ -296,17 +296,6 @@ module.exports =[
     "": ""
   },
   {
-    "name": "hair-dryer",
-    "kwh": 1.5,
-    "use-type": "hour",
-    "water": "",
-    "sub-grouping": "cleanliness",
-    "use-bool": "",
-    "validator": "hour-question",
-    "subtext": "",
-    "": ""
-  },
-  {
     "name": "oven",
     "kwh": 2.3,
     "use-type": "hour",
@@ -352,7 +341,7 @@ module.exports =[
   },
   {
     "name": "refrigerator",
-    "kwh": 125,
+    "kwh": 215,
     "use-type": "monthly-own",
     "water": "",
     "sub-grouping": "cooking",
@@ -363,7 +352,7 @@ module.exports =[
   },
   {
     "name": "energy-efficient-refrigerator",
-    "kwh": 37.5,
+    "kwh": 70,
     "use-type": "monthly-own",
     "water": "",
     "sub-grouping": "cooking",
@@ -381,17 +370,6 @@ module.exports =[
     "use-bool": "bool",
     "validator": "",
     "subtext": "Not included in refrigerator",
-    "": ""
-  },
-  {
-    "name": "tivo",
-    "kwh": 28.8,
-    "use-type": "monthly-own",
-    "water": "",
-    "sub-grouping": "entertainment",
-    "use-bool": "bool",
-    "validator": "",
-    "subtext": "",
     "": ""
   },
   {

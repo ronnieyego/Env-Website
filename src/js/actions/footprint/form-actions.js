@@ -1,30 +1,64 @@
 import _ from 'lodash';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
-import { getAnswerFromKey } from '../../utils/footprint/get-question-utils';
+import { isValidateAnswer, getAnswerFromKey, getQuestionFromKey } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';
 
 // Utils. . . maybe make own file eventually?
 
 const validateForm = questions => {
-      const transportationQuestions = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
-      let filteredTransportationQuestions = _.filter(transportationQuestions, function(o) { return o['useBool'] !== true; })
-      let missingQuestions = [];
-      filteredTransportationQuestions.forEach(question => {
-        if(!question.value || question.value === '') {
-          if(getAnswerFromKey(questions, "What's the fuel for your car?") !== 'Electric' || question.name !== 'What\'s the MPG of your car?') {
-            missingQuestions.push(question);
-          }
-        }
-      });
-      if(getAnswerFromKey(questions, 'What\'s the MPG of your car?') == 0) {
-          return false;
-        }
-      if(missingQuestions.length > 0) {
+    let valid = true;
+    const missingQuestions = [];
+
+    const fuel = isValidateAnswer(questions, "What's the fuel for your car?", 'not null');
+    const mpg = isValidateAnswer(questions, "What\'s the MPG of your car?", '>0');
+    const commute = isValidateAnswer(questions, "On average, how many miles do you drive for work, school, and errands each day?", 'not null');
+    const roadTripTimes = isValidateAnswer(questions, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?', 'not null');
+    const roadTripDistance = isValidateAnswer(questions, 'How far is your average roadtrip?', '>0');
+    const fly = isValidateAnswer(questions, 'Within the last year, how many miles did you fly?', 'not null');
+    let question;
+    if(!fuel) {
+        question = getQuestionFromKey(questions, "What's the fuel for your car?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!mpg) {
+        question = getQuestionFromKey(questions, "What\'s the MPG of your car?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!commute) {
+        question = getQuestionFromKey(questions, "On average, how many miles do you drive for work, school, and errands each day?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!roadTripTimes) {
+        question = getQuestionFromKey(questions, "Within the last year, how many times did you take a roadtrip or drive for an extended distance?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!roadTripDistance) {
+        question = getQuestionFromKey(questions, "How far is your average roadtrip?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!fly) {
+        question = getQuestionFromKey(questions, "Within the last year, how many miles did you fly?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+
+    if(!valid) {
         console.log('missing questions', missingQuestions);
-        return false;
-      }
-      return true;
-}
+        return { valid: false, questions};
+    }
+    return { valid: true};
+};
 
 
 //
@@ -61,26 +95,27 @@ export const setQuestionError = (id, errorText) => {
     return (dispatch, getState) => {
         const state = getState();
         const allQuestions = state.footprintForm.questions.slice();
-        
         dispatch({type: 'UPDATE_QUESTIONS', payload: allQuestions});
     }
 }
 
 export const increaseStep = () => {
     return dispatch => {
+        dispatch({type: 'SUBMIT_READY', payload: true})
         dispatch({type: 'INCREASE_STEP'});
     }
 };
 
 export const decreaseStep = () => {
     return dispatch => {
+        dispatch({type: 'SUBMIT_READY', payload: true})
         dispatch({type: 'DECREASE_STEP', payload: {}});
     }
 };
 
 export const submitForm = questionPayload => {
     return (dispatch, getState) => {
-        const valid = validateForm(questionPayload);  
+        const {valid, questions} = validateForm(questionPayload);  
         const store = getState();
         const state = store.footprintFormAnswers.userState;
         console.log('user state is', state);
@@ -103,11 +138,15 @@ export const submitForm = questionPayload => {
                     results: footprintResults
                 })
             });
+            dispatch({type: 'SUBMIT_READY', payload: true})
             dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
             dispatch({type: 'DISPLAY_ANSWERS', payload: true});
             
         } else {
-            alert('Please fill out all of the fields');
+            dispatch({type: 'UPDATE_QUESTIONS', payload: questions});
+            dispatch({type: 'SUBMIT_READY', payload: false})
+            console.log('failed validation');
+            //alert('Please fill out all of the fields');
         }
     }
 };
