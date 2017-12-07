@@ -8,7 +8,6 @@ import StateDropdown from '../../components/StateDropdown'
 import { utilityEmissionsPerState } from '../../utils/utils-data/state-energy-and-emissions';
 // import Questions from '../../../../public/data/temp-footprint-questions.json';
 
-
 // Styles
 
 const questionSetStyle = {textAlign: 'left'};
