@@ -99,17 +99,25 @@ export const setQuestionError = (id, errorText) => {
     }
 }
 
-export const increaseStep = () => {
+export const increaseStep = (formError) => {
     return dispatch => {
-        dispatch({type: 'SUBMIT_READY', payload: true})
-        dispatch({type: 'INCREASE_STEP'});
+        if(!formError) {
+            dispatch({type: 'SUBMIT_READY', payload: true})
+            dispatch({type: 'INCREASE_STEP'});
+        } else {
+            dispatch({type: 'SUBMIT_READY', payload: false})
+        }
     }
 };
 
-export const decreaseStep = () => {
+export const decreaseStep = (formError) => {
     return dispatch => {
-        dispatch({type: 'SUBMIT_READY', payload: true})
-        dispatch({type: 'DECREASE_STEP', payload: {}});
+        if(!formError) {
+            dispatch({type: 'SUBMIT_READY', payload: true})
+            dispatch({type: 'DECREASE_STEP', payload: {}});
+        } else {
+            dispatch({type: 'SUBMIT_READY', payload: false})
+        }
     }
 };
 

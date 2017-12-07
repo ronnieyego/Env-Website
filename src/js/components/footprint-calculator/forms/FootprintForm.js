@@ -14,16 +14,24 @@ import { submitForm } from '../../../actions/footprint/form-actions';
 const MAX_STEPS = 5
 
 export default class FootprintForm extends React.Component {
+
+    // For some reason, I can't do these in form actions.  No idea why
     decreaseStep(formError) {
-      if(!formError) {
-        this.props.dispatch({type: 'DECREASE_STEP'});
-      }
+       if(!formError) {
+          this.props.dispatch({type: 'SUBMIT_READY', payload: true})
+          this.props.dispatch({type: 'DECREASE_STEP'});
+        } else {
+          this.props.dispatch({type: 'SUBMIT_READY', payload: false})
+        }
     }
 
     increaseStep(formError) {
       if(!formError) {
-        this.props.dispatch({type: 'INCREASE_STEP'});
-      }
+          this.props.dispatch({type: 'SUBMIT_READY', payload: true})
+          this.props.dispatch({type: 'INCREASE_STEP'});
+        } else {
+          this.props.dispatch({type: 'SUBMIT_READY', payload: false})
+        }
     }
 
     submitCalculator(formError) {
@@ -50,18 +58,19 @@ export default class FootprintForm extends React.Component {
 
       const errorIds = this.getQuestionErrorIds();
       const formError = errorIds.length > 0;
-      const buttonJump = formError ? `#${errorIds[0]}` :  '#footprint-form-title'
+      const buttonJump = formError ? `#${errorIds[0]}` :  '#footprint-form-title';
+      const submitJump = formError ? `#${errorIds[0]}` : '#footprint-finder-page-title';
         
       const submitError = !this.props.isSubmitReady ? (
         <div className="footprint-form-submit-invalid">
-          Please fill out all answers
+          Please fill out all answers correctly.
         </div>
       ) : null;
-
+      
       const leftButton = this.props.step === 1 ? <div /> : (
           <RaisedButton 
             className="left-btn"
-            href={'#footprint-form-title'}
+            href={buttonJump}
             label="Back"
             onClick={() => this.decreaseStep(formError)}
             secondary={true}
@@ -70,7 +79,7 @@ export default class FootprintForm extends React.Component {
       const rightButton = this.props.step === MAX_STEPS ? (
         <RaisedButton 
             className="right-btn"
-            href={buttonJump}
+            href={submitJump}
             label="Calculate My Footprint"
             onClick={this.submitCalculator.bind(this, formError)}
             primary={true}

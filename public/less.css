@@ -30,6 +30,12 @@
   font-weight: bold;
   text-align: left;
 }
+.footprint-form-sub-header-description {
+  font-style: italic;
+  font-size: 18px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
 .footprint-form-paragraphs {
   text-align: left;
   font-size: 18px;
@@ -37,17 +43,23 @@
 }
 .footprint-form-question {
   margin-top: 10px;
+  font-weight: bold;
 }
 .footprint-form-question-name {
   font-size: 18px;
   font-weight: bold;
 }
 .footprint-form-question-boolean {
+  font-size: 16px;
+  font-weight: bold;
   margin-left: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .footprint-form-bottom-buttons {
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
 }
 .footprint-form-submit-invalid {
   margin: 15px 0;

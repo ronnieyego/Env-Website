@@ -2,8 +2,10 @@ import React from "react";
 import Question from './Question';
 import BooleanQuestion from './BooleanQuestion';
 import DropDownQuestion from './DropDownQuestion';
-import { getAnswerFromKey } from '../../../utils/footprint/get-question-utils';
+import { getQuestionFromKey } from '../../../utils/footprint/get-question-utils';
 
+
+const customBooleanStyle = {marginLeft: '-25px', fontSize: '18px'};
 export default class TransportationForm extends React.Component {
 
 	render() {
@@ -20,19 +22,22 @@ export default class TransportationForm extends React.Component {
                         question={question}
                         checked={checked}
                         dispatch={this.props.dispatch}  
+                        styles={customBooleanStyle}
                     />
                 );
             } else if (question.selectOptions) {
                 return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        value={value}
-                        dispatch={this.props.dispatch} 
-                    />
+                    <li>
+                        <DropDownQuestion 
+                            name={question.name}
+                            key={question.name}
+                            id={question.name}
+                            selectOptions={question.selectOptions}
+                            question={question}
+                            value={value}
+                            dispatch={this.props.dispatch} 
+                        />
+                    </li>
                 );
             }
             return (

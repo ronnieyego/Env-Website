@@ -64,21 +64,16 @@ export default class Household extends React.Component {
                             value={this.props.userState}
                         />
                     </ul>
-                    <div className="form-divider">
-                        <Divider />
-                    </div>
                     <p className="footprint-form-sub-header">Which of the following do you own?</p>
                         {boolQuestions}
                     <div className="form-divider">
                         <Divider />
                     </div>
                     <p className="footprint-form-sub-header">How many times a month do you use the following?</p>
+                    <p className="footprint-form-sub-header-description">Please do not include housemate use </p>
                     <ul>
                         {questions}
                     </ul>
-                    <div className="form-divider">
-                        <Divider />
-                    </div>
                 </div>
             </div>
 		);

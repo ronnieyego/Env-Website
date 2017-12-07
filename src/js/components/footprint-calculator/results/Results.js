@@ -75,7 +75,7 @@ export default class Results extends React.Component {
                 shownResults = <Compare 
                                     results={this.props.results.energy}
                                     averageAmerican={this.props.averageAmerican}
-                                    state={this.props.averageAmericanState}
+                                    averageAmericanstate={this.props.averageAmericanState}
                                     age={this.props.averageAmericanAge}
                                     gender={this.props.averageAmericanGender}
                                     monthlyUse={monthlyEnergyUse}
@@ -87,7 +87,7 @@ export default class Results extends React.Component {
                 shownResults = <Compare 
                                     results={this.props.results.co2}
                                     averageAmerican={this.props.averageAmerican}
-                                    state={this.props.averageAmericanState}
+                                    averageAmericanstate={this.props.averageAmericanState}
                                     age={this.props.averageAmericanAge}
                                     gender={this.props.averageAmericanGender}
                                     monthlyUse={monthlyCo2Use}
@@ -99,7 +99,7 @@ export default class Results extends React.Component {
                 shownResults = <Compare 
                                     results={this.props.results.water}
                                     averageAmerican={this.props.averageAmerican}
-                                    state={this.props.averageAmericanState}
+                                    averageAmericanstate={this.props.averageAmericanState}
                                     age={this.props.averageAmericanAge}
                                     gender={this.props.averageAmericanGender}
                                     monthlyUse={monthlyWaterUse}

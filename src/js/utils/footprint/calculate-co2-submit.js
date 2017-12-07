@@ -1,5 +1,5 @@
 import { getAnswerFromKey } from './get-question-utils';
-import { co2PerGallonOfGas, co2PerGallonOfJetFuel, mpgPerPersonPlane } from '../utils-data/constants';
+import { co2PerGallonOfGas, co2PerGallonOfJetFuel, kwhPer100MilesElectricCar, mpgPerPersonPlane } from '../utils-data/constants';
 
 const getFoodValue = question => {
     if(!question.value || question.value === ''){
@@ -88,37 +88,21 @@ const getApplianceValue = (question, stateCo2) => {
     return 0; // Something went wrong (ie. '' passed in);
 };
 
-const sumTransportationSet = (transportatioSet, stateCo2) => {
+const sumTransportationSet = (transportationSet, stateCo2) => {
     const results = {};
-    const carType = getAnswerFromKey(transportatioSet, 'What\'s the fuel for your car?');
-    let carMpg;
-    if(carType !== 'Electric') {
-        carMpg = getAnswerFromKey(transportatioSet, 'What\'s the MPG of your car?');
-    }
-    const dailyMiles = getAnswerFromKey(transportatioSet, 'On average, how many miles do you drive for work, school, and errands each day?');
-    const doesCarpool = getAnswerFromKey(transportatioSet, 'Do you carpool?') ? getAnswerFromKey(transportatioSet, 'Do you carpool?') : false;
-    const numOfRoadTrips = getAnswerFromKey(transportatioSet, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?');
-    const roadTripMiles = getAnswerFromKey(transportatioSet, 'How many far is your average roadtrip?');
-    const doesRoadTripCarpool = getAnswerFromKey(transportatioSet, 'Do you usually carpool for roadtrips?') ? getAnswerFromKey(transportatioSet, 'Do you usually carpool for roadtrips?') : false;
-    const flyMiles = getAnswerFromKey(transportatioSet, 'Within the last year, how many miles did you fly?');
 
-    const carpool = doesCarpool ? 2 : 1;
-    const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;
-    const monthlyCommuteMiles = dailyMiles * 30/carpool;
-    const monthlyRoadTripMiles = (numOfRoadTrips * roadTripMiles / roadTripCarpool)/12; // 12 months/year
-
-    let totalCommuteCarCo2;
-    let totalRoadTripCarCo2;
-    if(carType !== 'Electric') {
-        const monthlyGas = monthlyCommuteMiles/carMpg; // unit is gallons
-        const roadTripMonthGas =  monthlyRoadTripMiles/carMpg; // 12 months/year
-        totalCommuteCarCo2 = monthlyGas * co2PerGallonOfGas;
-        totalRoadTripCarCo2 = roadTripMonthGas * co2PerGallonOfGas;
-    } else {
-        totalCommuteCarCo2 = monthlyCommuteMiles * kwhPer100MilesElectricCar/100 * stateCo2;
-        totalRoadTripCarCo2 = monthlyRoadTripMiles * kwhPer100MilesElectricCar/100 * stateCo2;
+    const doesDrive = getAnswerFromKey(transportationSet, 'Do you drive?') === 'on';
+    let carRes = {};
+    if(doesDrive) {
+        carRes = sumCar(transportationSet, stateCo2);
     }
-    
+    const carMpg = carRes.carMpg;
+    const monthlyCommuteMiles = carRes.monthlyCommuteMiles || 0;
+    const monthlyRoadTripMiles = carRes.monthlyRoadTripMiles || 0;
+    const totalCommuteCarCo2 = carRes.totalCommuteCarCo2 || 0;
+    const totalRoadTripCarCo2 = carRes.totalRoadTripCarCo2 || 0;
+
+    const flyMiles = getAnswerFromKey(transportationSet, 'Within the last year, how many miles did you fly?');
     const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
     const totalMonthlyFlyCo2 = montlyFlyGas * co2PerGallonOfJetFuel;
     const totalMonthlyCarCo2 = totalCommuteCarCo2 + totalRoadTripCarCo2;
@@ -133,7 +117,44 @@ const sumTransportationSet = (transportatioSet, stateCo2) => {
     results.monthlyCo2FromTransportation = Math.round(monthlyCo2FromTransportation * 100)/100;
 
     return results;
+};
+
+const sumCar = (transportationSet, stateCo2) => {
+    const carType = getAnswerFromKey(transportationSet, 'What\'s the fuel for your car?');
+    const carMpg = getAnswerFromKey(transportationSet, 'What\'s the MPG of your car?');
+    const dailyMiles = getAnswerFromKey(transportationSet, 'On average, how many miles do you drive for work, school, and errands each day?');
+    const doesCarpool = getAnswerFromKey(transportationSet, 'Do you carpool?') ? getAnswerFromKey(transportationSet, 'Do you carpool?') : false;
+    const numOfRoadTrips = getAnswerFromKey(transportationSet, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?');
+    const roadTripMiles = getAnswerFromKey(transportationSet, 'How far is your average roadtrip?');
+    const doesRoadTripCarpool = getAnswerFromKey(transportationSet, 'Do you usually carpool for roadtrips?') ? getAnswerFromKey(transportationSet, 'Do you usually carpool for roadtrips?') : false;
+
+    const carpool = doesCarpool ? 2 : 1;
+    const roadTripCarpool = doesRoadTripCarpool ? 2 : 1;
+    const monthlyCommuteMiles = dailyMiles * 30 / carpool;
+    const monthlyRoadTripMiles = (numOfRoadTrips * roadTripMiles / roadTripCarpool) / 12; // 12 months/year
+    
+    let totalCommuteCarCo2;
+    let totalRoadTripCarCo2;
+    if(carType !== 'Electric') {
+        
+        const monthlyGas = monthlyCommuteMiles/carMpg; // unit is gallons
+        const roadTripMonthGas =  monthlyRoadTripMiles/carMpg; // 12 months/year
+        totalCommuteCarCo2 = monthlyGas * co2PerGallonOfGas;
+        totalRoadTripCarCo2 = roadTripMonthGas * co2PerGallonOfGas;
+    } else {
+        totalCommuteCarCo2 = monthlyCommuteMiles * kwhPer100MilesElectricCar/100 * stateCo2;
+        totalRoadTripCarCo2 = monthlyRoadTripMiles * kwhPer100MilesElectricCar/100 * stateCo2;
+    }
+
+    return {
+        carMpg,
+        monthlyCommuteMiles,
+        monthlyRoadTripMiles,
+        totalCommuteCarCo2,
+        totalRoadTripCarCo2
+    };
 }
+
 
 
 module.exports = {

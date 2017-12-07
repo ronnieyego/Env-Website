@@ -134,7 +134,7 @@ module.exports = [
     "use-type": "serving",
     "sub-grouping": "junk-food",
     "validator": "standard-int",
-    "subtext": "Serving size: 16 tasty chips or one glorious cookie or not enough cake",
+    "subtext": "Serving size: 16 chips or 1 cookie or not enough cake",
     "": ""
   }
 ];

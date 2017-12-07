@@ -20,8 +20,9 @@ export default class Question extends React.Component {
     }
 
 	render() {
+        const style = this.props.styles || {}; // Allow for custom styles
         return (
-            <div className="footprint-form-question-boolean">
+            <div className="footprint-form-question-boolean" style={style}>
                 <Checkbox
                     checked={this.props.checked}
                     id={this.props.id}

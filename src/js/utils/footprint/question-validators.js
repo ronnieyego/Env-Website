@@ -6,7 +6,7 @@ const standardIntQuestion = value => {
         errorText = 'Please enter a positive number';
     } else if (value > 999999999999999999999999999) {
         errorText = 'The observeable universe is about this many meters wide (8 x 10^26).  Your footprint is now about the size of the observable universe!';
-    } else if (isNaN(parseInt(value)) || /[^\d.,]/g.test(value)) {
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
         errorText = "Please enter a valid number";
     }
     return errorText;
@@ -20,7 +20,7 @@ const nonZeroIntQuestion = value => {
         errorText = 'Please enter a positive number';
     } else if (value > 999999999999999999999999999) {
         errorText = 'The observeable universe is about this many meters wide (8 x 10^26).  Your footprint is now about the size of the observable universe!';
-    } else if (isNaN(parseInt(value)) || /[^\d.,]/g.test(value)) {
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
         errorText = "Please enter a valid number";
     }
     return errorText;
@@ -36,7 +36,7 @@ const hourQuestion = value => {
         errorText = 'The observeable universe is about this many meters wide (8 x 10^26).  Your footprint is now about the size of the observable universe!';
     }else if (value < 0) {
         errorText = "Where can I buy this magical appliance which runs in reverse?";
-    } else if (isNaN(parseInt(value)) || /[^\d.,]/g.test(value)) {
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
         errorText = "Please enter a valid number";
     }
     return errorText;
@@ -52,7 +52,7 @@ const mpgValidator = value => {
         errorText = 'A 0 MPG car is called a cart!';
     } else if (value < 0 ) {
         errorText = 'How does this work?  Does your car reduce other people\'s mpg?';
-    } else if (isNaN(parseInt(value)) || /[^\d.,]/g.test(value)) {
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
         errorText = "Please enter a valid number";
     }
     return errorText;

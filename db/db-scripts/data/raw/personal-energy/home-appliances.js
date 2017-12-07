@@ -161,17 +161,6 @@ module.exports = [
     "": ""
   },
   {
-    "name": "computer-monitor",
-    "kwh": 0.08,
-    "use-type": "hour",
-    "water": "",
-    "sub-grouping": "entertainment",
-    "use-bool": "",
-    "validator": "hour-question",
-    "subtext": "Stand alone monitor",
-    "": ""
-  },
-  {
     "name": "hot-shower",
     "kwh": 12.7,
     "use-type": "hour",
@@ -246,17 +235,6 @@ module.exports = [
     "use-bool": "bool",
     "validator": "",
     "subtext": "",
-    "": ""
-  },
-  {
-    "name": "freezer",
-    "kwh": 90,
-    "use-type": "monthly-own",
-    "water": "",
-    "sub-grouping": "cooking",
-    "use-bool": "bool",
-    "validator": "",
-    "subtext": "Not included in refrigerator",
     "": ""
   },
   {

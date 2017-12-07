@@ -30,13 +30,15 @@ export default class Compare extends React.Component {
     }
 
     updateStateDropdown(event, index, value) {
-        this.props.dispatch({type: 'UPDATE_USER_STATE', payload: value});
+        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_STATE', payload: value});
+        const average = getAverage(value, this.props.age, this.props.gender);
+        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
     }
     
     updateQuestion(e) {
         const id = e.target.id;
         const value = document.getElementById(id).value;
-        let state = this.props.state;
+        let state = this.props.averageAmericanstate;
         let age = this.props.age;
         let gender = this.props.gender;
         if(id === 'compare-state-dropdown') {
@@ -49,7 +51,7 @@ export default class Compare extends React.Component {
             gender = value;
             this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_GENDER', payload: gender});
         } 
-        const average = getAverage(state, age,gender);
+        const average = getAverage(state, age, gender);
         this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
     }
 
@@ -162,7 +164,7 @@ export default class Compare extends React.Component {
                         <StateDropdown
                             id="compare-state-dropdown"
                             updateQuestion={this.updateStateDropdown.bind(this)}
-                            value={this.props.state} 
+                            value={this.props.averageAmericanstate} 
                         />
                     </div>
                     <div>
