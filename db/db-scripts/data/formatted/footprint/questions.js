@@ -484,6 +484,18 @@ module.exports =[
     ]
   },
   {
+    "name": "How many miles do you bus each month?",
+    "use-type": "transportation",
+    "type": "int",
+    "id": 10
+  },
+  {
+    "name": "How many miles do you ride on the train each month?",
+    "use-type": "transportation",
+    "type": "int",
+    "id": 11
+  },
+  {
     "name": "Within the last year, how many miles did you fly?",
     "use-type": "transportation",
     "type": "int",

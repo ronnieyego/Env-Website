@@ -56,7 +56,9 @@ export default class PersonalBreakdown extends React.Component {
         const transportationBreakdown = this.props.category === 'water' ? null : [
             {source: 'Daily Use', amount: parseInt(res.transportationSubCategories.monthlyCommute)},
             {source: 'Roadtrips', amount: parseInt(res.transportationSubCategories.monthlyRoadTrip)},
-            {source: 'Flying', amount: parseInt(res.transportationSubCategories.monthlyFly)}
+            {source: 'Flying', amount: parseInt(res.transportationSubCategories.monthlyFly)},
+            {source: 'Bus', amount: parseInt(res.transportationSubCategories.monthlyBus)},
+            {source: 'Train', amount: parseInt(res.transportationSubCategories.monthlyTrain)}
         ];
 
         // Appliance Summary

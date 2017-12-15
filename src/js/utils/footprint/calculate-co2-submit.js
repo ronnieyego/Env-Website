@@ -1,5 +1,11 @@
 import { getAnswerFromKey } from './get-question-utils';
-import { co2PerGallonOfGas, co2PerGallonOfJetFuel, kwhPer100MilesElectricCar, mpgPerPersonPlane } from '../utils-data/constants';
+import { 
+    busMpgPerPerson,
+    co2PerGallonOfGas,
+    co2PerGallonOfJetFuel,
+    kwhPer100MilesElectricCar,
+    mpgPerPersonPlane,
+    trainMpgPerPerson } from '../utils-data/constants';
 
 const getFoodValue = question => {
     if(!question.value || question.value === ''){
@@ -102,11 +108,16 @@ const sumTransportationSet = (transportationSet, stateCo2) => {
     const totalCommuteCarCo2 = carRes.totalCommuteCarCo2 || 0;
     const totalRoadTripCarCo2 = carRes.totalRoadTripCarCo2 || 0;
 
+    const busMiles = getAnswerFromKey(transportationSet, 'How many miles do you bus each month?');
+    const trainMiles = getAnswerFromKey(transportationSet, 'How many miles do you ride on the train each month?');
     const flyMiles = getAnswerFromKey(transportationSet, 'Within the last year, how many miles did you fly?');
     const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
+    
     const totalMonthlyFlyCo2 = montlyFlyGas * co2PerGallonOfJetFuel;
     const totalMonthlyCarCo2 = totalCommuteCarCo2 + totalRoadTripCarCo2;
-    const monthlyCo2FromTransportation = totalMonthlyCarCo2 + totalMonthlyFlyCo2;
+    const totalMonthlyBusCo2 = Math.round((busMiles / busMpgPerPerson) * co2PerGallonOfGas, 2);
+    const totalMonthlyTrainCo2 = Math.round((trainMiles / trainMpgPerPerson) * co2PerGallonOfGas, 2);
+    const monthlyCo2FromTransportation = totalMonthlyCarCo2 + totalMonthlyFlyCo2 + totalMonthlyBusCo2 + totalMonthlyTrainCo2;
 
     results.carMpg = carMpg;
     results.totalMilesDriven = Math.round((monthlyCommuteMiles + monthlyRoadTripMiles) * 100)/100;
@@ -114,6 +125,8 @@ const sumTransportationSet = (transportationSet, stateCo2) => {
     results.monthlyCommute = Math.round(totalCommuteCarCo2 * 100)/100;
     results.monthlyRoadTrip = Math.round(totalRoadTripCarCo2 * 100)/100;
     results.monthlyFly = Math.round(totalMonthlyFlyCo2 * 100)/100;
+    results.monthlyBus = totalMonthlyBusCo2;
+    results.monthlyTrain = totalMonthlyTrainCo2;
     results.monthlyCo2FromTransportation = Math.round(monthlyCo2FromTransportation * 100)/100;
 
     return results;

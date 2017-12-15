@@ -1,13 +1,17 @@
 import _ from 'lodash';
 import { getAnswerFromKey } from './get-question-utils';
 
-// This util takes in data and calculates your energy footprint.  Yay!
-const daysInMonth = 30;
-const kwhPer100MilesElectricCar = 30; // kwhs for an average electric car to go 100mi
-const gasKwh = 34.4;
-const jetFuelKwh = 37.12;
-const mpgPerPersonPlane = 84.9;
+import { 
+    busMpgPerPerson,
+    co2PerGallonOfGas,
+    co2PerGallonOfJetFuel,
+    gasKwh,
+    jetFuelKwh,
+    kwhPer100MilesElectricCar,
+    mpgPerPersonPlane,
+    trainMpgPerPerson } from '../utils-data/constants';
 
+// This util takes in data and calculates your energy footprint.  Yay!
 const getMonthlyValue = question => {
    if(!question.value || question.value === ''){
         return 0;
@@ -72,12 +76,16 @@ const sumTransportantSet = questionSet => {
     const totalCommuteCar = carRes.totalCommuteCar || 0;
     const totalRoadTripCar = carRes.totalRoadTripCar || 0;
     
+    const busMiles = getAnswerFromKey(questionSet, 'How many miles do you bus each month?');
+    const trainMiles = getAnswerFromKey(questionSet, 'How many miles do you ride on the train each month?');
     const flyMiles = getAnswerFromKey(questionSet, 'Within the last year, how many miles did you fly?');
     const montlyFlyGas = flyMiles/(mpgPerPersonPlane * 12); // Gallons per person each month
     
     const totalMonthlyCar = totalCommuteCar + totalRoadTripCar;
     const totalMonthlyFly = montlyFlyGas * jetFuelKwh;
-    const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly;
+    const totalMonthlyBus = Math.round((busMiles / busMpgPerPerson) * gasKwh, 2);
+    const totalMonthlyTrain = Math.round((trainMiles / trainMpgPerPerson) * gasKwh, 2);
+    const monthlyEnergyFromTransportation = totalMonthlyCar + totalMonthlyFly + totalMonthlyBus + totalMonthlyTrain;
 
     results.carMpg = carMpg;
     results.carType = carType;
@@ -86,6 +94,8 @@ const sumTransportantSet = questionSet => {
     results.monthlyCommute = totalCommuteCar.toFixed(1);
     results.monthlyCar = totalMonthlyCar.toFixed(1);
     results.monthlyFly = totalMonthlyFly.toFixed(1);
+    results.monthlyBus = totalMonthlyBus;
+    results.monthlyTrain = totalMonthlyTrain;
     results.transportation = monthlyEnergyFromTransportation.toFixed(1);
     return results
 }
