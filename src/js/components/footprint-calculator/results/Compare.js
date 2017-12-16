@@ -20,42 +20,35 @@ const buttonStyles = { // Buttons to change state, age, gender
 }
 
 export default class Compare extends React.Component {
-    constructor(props) {
-        super();
-        this.updateQuestion = this.updateQuestion.bind(this);
-    }
-
     capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
     updateStateDropdown(event, index, value) {
         this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_STATE', payload: value});
-        const average = getAverage(value, this.props.age, this.props.gender);
-        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
+        this.updateAverageAmerican(value, null, null);
     }
-    
-    updateQuestion(e) {
-        const id = e.target.id;
-        const value = document.getElementById(id).value;
-        let state = this.props.averageAmericanstate;
-        let age = this.props.age;
-        let gender = this.props.gender;
-        if(id === 'compare-state-dropdown') {
-            state = value;
-            this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_STATE', payload: state});
-        } else if( id === 'age-bracket') {
-            age = value;
-            this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_AGE', payload: age});
-        } else if(id === 'gender') {
-            gender = value;
-            this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_GENDER', payload: gender});
-        } 
+
+    updateAgeDropdown(event, index, value) {
+        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_AGE', payload: value});
+        this.updateAverageAmerican(null, value, null);
+    }
+
+    updateGenderDropdown(event, index, value) {
+        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN_GENDER', payload: value});
+        this.updateAverageAmerican(null, null, value);
+    }
+
+    updateAverageAmerican(stateOrNull, ageOrNull, genderOrNull) {
+        const state = stateOrNull || this.props.averageAmericanstate;
+        const age = ageOrNull || this.props.age;
+        const gender = genderOrNull || this.props.gender;
         const average = getAverage(state, age, gender);
         this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
     }
-
+    
 	render() {
+        console.log('in compare. Average american is', this.props.averageAmerican);
         const res = this.props.results;
 
         let averageGraphData;
@@ -98,8 +91,6 @@ export default class Compare extends React.Component {
                 subtitle = `Total water: ${averageTotal.toLocaleString()} gallons per month`;
                 break;
         }
-        
-        console.log('in compare. Average american is', this.props.averageAmerican);
 
         const monthlyUse = this.props.monthlyUse;
         const diff = averageTotal - monthlyUse;
@@ -121,22 +112,10 @@ export default class Compare extends React.Component {
             {source: 'Transportation', amount: parseInt(averageGraphData.transportation) || 0}
         ];
         
-        
-        const genderSelects = ['male', 'female'].map(gender => {
-            if(gender === this.props.gender) {
-                return <option key={gender} value={gender} selected="selected">{this.capitalize(gender)}</option>
-            }
-            return <option key={gender} value={gender}>{this.capitalize(gender)}</option>
-        })
+        const genderSelects = ['male', 'female'].map(gender => <MenuItem key={gender} primaryText={this.capitalize(gender)} value={gender} />);
 
         const ageRanges = ['American Average', '16-19', '20-34', '35-54', '55-64', '65+'];
-        const ageSelects = ageRanges.map(age => {
-            if(age === this.props.age) {
-                return <option key={age} value={age} selected="selected">{age}</option>
-            }
-            return <option key={age} value={age}>{age}</option>
-        });
-                            
+        const ageSelects = ageRanges.map(age => <MenuItem key={age} primaryText={age} value={age} />);
 
 		return (
             <div style={containerStyle}>
@@ -165,21 +144,34 @@ export default class Compare extends React.Component {
                             id="compare-state-dropdown"
                             updateQuestion={this.updateStateDropdown.bind(this)}
                             value={this.props.averageAmericanstate} 
+                            subText={''}
                         />
                     </div>
                     <div>
                         <b>Change age group</b>
                         <br />
-                        <select id="age-bracket" onChange={this.updateQuestion.bind(this)} selected={this.props.age} >
+                        <SelectField 
+                            id="age-bracket"
+                            menuItemStyle={{fontWeight: 'bold'}}
+                            menuStyle={{textAlign: 'center'}}
+                            onChange={this.updateAgeDropdown.bind(this)}
+                            value={this.props.age}
+                        >
                             {ageSelects}
-                        </select> 
+                        </SelectField>
                     </div>
                     <div>
                         <b>Change gender</b>
                         <br />
-                        <select id="gender" onChange={this.updateQuestion.bind(this)} selected={this.props.gender} >
+                        <SelectField 
+                            id="gender"
+                            menuItemStyle={{fontWeight: 'bold'}}
+                            menuStyle={{textAlign: 'center'}}
+                            onChange={this.updateGenderDropdown.bind(this)}
+                            value={this.props.gender}
+                        >
                             {genderSelects}
-                        </select> 
+                        </SelectField>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-const { americanCarMiles, americanFood, kwhPerMonthAppliance } = require('../utils-data/american-averages');
+const { americanCarMiles, americanFood, demographicCalories, kwhPerMonthAppliance } = require('../utils-data/american-averages');
 const { utilityEmissionsPerState, utilityUse} = require('../utils-data/state-energy-and-emissions');
 
 // Hacky V1 to get us average energy
@@ -18,7 +18,7 @@ const planeMiles = 2000;
 const getTransit = (stage, age, gender) => ({
         carMiles: (americanCarMiles[age][gender])/mpg/12,
         planeMiles: planeMiles/mpgPerPersonPlane/12
-    });
+});
 
 const getAverageCo2 = (state, age, gender) => {
     const {carMiles, planeMiles } = getTransit(state, age, gender);
@@ -29,13 +29,16 @@ const getAverageCo2 = (state, age, gender) => {
 
     const appliance = parseInt(utilityUse[state] * utilityEmissionsPerState[state]);
 
+    // Food multiplier is because AmericanFood is based off a 3000 calorie diet.
+    const cals = demographicCalories[age][gender];
+    const foodMultiplier = cals / 3000;
     let foodKeys = Object.keys(americanFood);
-
     const totalYearFoodCo2 = foodKeys.reduce((total, current) => {
         const food = americanFood[current];
-        const energy = food.yearServings * food.co2PerServing;
+        const energy = food.yearServings * food.co2PerServing * foodMultiplier;
         return total + energy;
     }, 0);
+
     const food = parseInt(totalYearFoodCo2/12);
     const total = parseInt(appliance + food + transportation);
 
@@ -54,11 +57,13 @@ const getAverageEnergy = (state, age, gender) => {
     const monthlyPlane = planeMiles * kwhPerGallonJetFuel;
     const monthlyTransportation = monthlyCar + monthlyPlane;
 
-
+    // Food multiplier is because AmericanFood is based off a 3000 calorie diet.
+    const cals = demographicCalories[age][gender];
+    const foodMultiplier = cals / 3000;
     let foodKeys = Object.keys(americanFood);
     const totalYearFood = foodKeys.reduce((total, current) => {
         const food = americanFood[current];
-        const energy = food.yearServings * food.energyPerServing;
+        const energy = food.yearServings * food.co2PerServing * foodMultiplier;
         return total + energy;
     }, 0);
     

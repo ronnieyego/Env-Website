@@ -59,6 +59,7 @@ export default class StateDropdown extends React.Component {
     static propTypes = {
         id: PropTypes.string,
         value: PropTypes.string,
+        subText: PropTypes.string,
         updateQuestion: PropTypes.func
     }
     
@@ -70,10 +71,10 @@ export default class StateDropdown extends React.Component {
                 value={state}  
             />
         });
-        
+
 		return (
             <SelectField
-                floatingLabelText={'Choose your state'}
+                floatingLabelText={this.props.subText}
                 id={this.props.id}
                 menuItemStyle={{fontWeight: 'bold'}}
                 menuStyle={{textAlign: 'center'}}

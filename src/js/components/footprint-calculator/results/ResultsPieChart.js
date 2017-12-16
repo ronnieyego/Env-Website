@@ -32,45 +32,37 @@ export default class ResultsPieChart extends React.Component {
         }
         const sub2 = this.props.category === 'co2' ? <sub>2</sub> : '';
         const graphData = this.props.graphData;
+        
         graphData.sort((a,b) => {
             return a.amount < b.amount;
         });
-        const categoryList = graphData.map(data => {
-            const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
-            return <li key={name} id={name}>{`${name}: ${data.amount.toLocaleString()} ${units}`}{sub2}</li>;
-        });
+
         const legendPayload = graphData.map((data, index) => { 
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
             return { id: data.source, value: name, type: 'circle', color: COLORS[index % COLORS.length] }
         });
-
-
-        const styles = {
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: '10px'
-        };
-        const breakDownStyles = {
-            marginTop: '150px',
-            marginLeft: '-100px',
-            textAlign: 'left'
-        }
         
+        const categoryList = graphData.map(data => {
+            const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
+            return <li key={name} id={name}>{`${name}: ${data.amount.toLocaleString()} ${units}`}{sub2}</li>;
+        });
+        
+
 		return (
-            <div style={{border: '3px solid gray'}}>
+            <div className="results-pie">
                 <h2><b>{this.props.title || ''}</b></h2>
                 <h3><b>{this.props.subtitle || ''}</b></h3>
-                <div style={styles}>
+                <div className="results-pie-container">
                     <div>
-                        <PieChart width={500} height={300}>
+                        <PieChart width={400} height={300}>
                             <Pie legendType='circle' dataKey='amount' data={graphData} cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label={renderCustomizedLabel}>
                                 {graphData.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} key={index}/>)}
                             </Pie>
                             <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} payload={legendPayload} />
                         </PieChart>
                     </div>
-                    <div style={breakDownStyles}>{this.props.breakDownText || ''}
-                        <ul style={{marginRight: '15px'}}>
+                    <div className="results-pie-breakdown">{this.props.breakDownText || ''}
+                        <ul className="results-pie-breakdown-list">
                             {categoryList}
                         </ul>
                     </div>

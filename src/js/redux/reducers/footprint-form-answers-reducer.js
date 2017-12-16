@@ -46,11 +46,11 @@ const footprintFormAnswersReducer = (state = {
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_AGE': {
-            state = { ...state, age: action.payload};
+            state = { ...state, averageAmericanAge: action.payload};
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN_GENDER': {
-            state = { ...state, gender: action.payload};
+            state = { ...state, averageAmericanGender: action.payload};
             break;
         }
       }

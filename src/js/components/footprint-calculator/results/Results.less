@@ -1,0 +1,56 @@
+.results {
+    margin: auto;
+    margin-left: 25px;
+    text-align: center;
+
+    &-button {
+        white-space: nowrap;
+        margin: 5px 5px;
+    }
+    &-buttons {
+        min-width: 650px;
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+
+        &-header {
+            background-color: rgb(240, 240, 240);
+            &-cell {
+                padding: 0 10px;
+                font-size: 20px;
+                font-weight: bold;
+                border: 1px solid black;
+            }
+        }
+        &-row {
+        }
+        &-cell {
+            border: 1px solid black;
+        }
+    }
+}
+
+
+.results-pie {
+    border: 3px solid gray;
+
+    &-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    &-breakdown {
+        margin-top: 150px;
+        margin-left: -100px;
+        text-align: left;
+
+        &-list {
+            margin-right: 15px;
+        }
+    }
+}
+
+.recharts-wrapper {
+    margin-left: -10%;
+}

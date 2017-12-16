@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from 'react-redux';
+
 import ResultsPieChart from './ResultsPieChart';
+import { RaisedButton } from 'material-ui';
 
 import PersonalBreakdown from './PersonalBreakdown';
 import Compare from './Compare';
@@ -21,9 +23,8 @@ import HowMuchCo2 from './HowMuchCo2';
 })
 export default class Results extends React.Component {
     
-    switchResult(e) {
-        const id = e.target.id
-        this.props.dispatch({type: 'UPDATE_RESULTS_SHOWN', payload: id});
+    switchResult(payload) {
+        this.props.dispatch({type: 'UPDATE_RESULTS_SHOWN', payload});
     }
 
     backToResults() {
@@ -31,20 +32,8 @@ export default class Results extends React.Component {
     }
 
 	render() {
-        const containerStyle = {
-            margin: 'auto',
-            marginLeft: '25px',
-            textAlign: 'center'
-        };
-
-        const tableStyle = {
-            minWidth: '650px',
-            width: '100%',
-            margin: 'auto'
-        }
-
         const tdStyle = {
-            paddingTop: '20px'
+            
         };
 
         const res = this.props.results;
@@ -132,31 +121,34 @@ export default class Results extends React.Component {
          
 
 		return (
-            <div style={containerStyle}>
+            <div className="results">
                 <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support your lifestyle.</h1>
                 
                 <div>
                     <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                     {/*<h3 style={{textAlign: 'left'}}>These numbers may seem surprisingly large (especially water use). It takes a lot of effort to produce the life we live.  The first step in any debate or action is knowing our current position.</h3>*/}
                     <h2><b>Lets dive a little deeper</b></h2>
-                    <table style={tableStyle}>
-                        <tr>
-                            <td style={tdStyle}><b>CO<sub>2</sub></b></td>
-                            <td style={tdStyle}><button type="submit" id="co2-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal CO<sub>2</sub> Breakdown</button></td>
-                            <td style={tdStyle}><button type="submit" id="co2-compare" onClick={this.switchResult.bind(this)}>Compare my emissions</button></td>
-                            <td style={tdStyle}><button type="submit" id="co2-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my carbon footprint</button></td>
+                    <table className="results-buttons">
+                        <tr className="results-buttons-header">
+                             <td className="results-buttons-header-cell"><b>CO<sub>2</sub></b></td>
+                             <td className="results-buttons-header-cell"><b>Water</b></td>
+                             <td className="results-buttons-header-cell"><b>Energy</b></td>
                         </tr>
-                        <tr>
-                            <td style={tdStyle}><b>Water</b></td>
-                            <td style={tdStyle}><button type="submit" id="water-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Water Breakdown</button></td>
-                            <td style={tdStyle}><button type="submit" id="water-compare" onClick={this.switchResult.bind(this)}>Compare my water use</button></td>
-                            <td style={tdStyle}><button type="submit" id="water-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my water use</button></td>
+                        <tr className="results-buttons-row">
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("co2-personalBreakdown")} label="My Personal CO2 Breakdown" primary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("water-personalBreakdown")} label="My Personal Water Breakdown" secondary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("energy-personalBreakdown")} label="My Personal Energy Breakdown" primary={true}/></td>
                         </tr>
-                        <tr>
-                            <td style={tdStyle}><b>Energy</b></td>
-                            <td style={tdStyle}><button type="submit" id="energy-personalBreakdown" onClick={this.switchResult.bind(this)}>My Personal Energy Breakdown</button></td>
-                            <td style={tdStyle}><button type="submit" id="energy-compare" onClick={this.switchResult.bind(this)}>How I compare to others</button></td>
-                            <td style={tdStyle}><button type="submit" id="energy-savings" onClick={this.switchResult.bind(this)}>Ways to reduce my energy</button></td>
+                        <tr className="results-buttons-row">
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("co2-compare")} label="Compare my emissions" secondary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("water-compare")} label="Compare my water use" primary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("energy-compare")} label="Compare my energy use" secondary={true}/></td>
+                            
+                        </tr>
+                        <tr className="results-buttons-row">
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("co2-savings")} label="Reduce my carbon footprint" primary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("energy-savings")} label="Reduce my energy" secondary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("water-savings")} label="Reduce my water use" primary={true}/></td>
                         </tr>
                     </table>
                 </div>
@@ -164,7 +156,7 @@ export default class Results extends React.Component {
                 {shownResults}
                 <br />
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <button onClick={() =>this.backToResults()}>Back to Form</button>
+                    <RaisedButton onClick={() => this.backToResults()} label="Back to Form" backgroundColor={"lightgrey"} />
                 </div>
                 <br />
                 <br />

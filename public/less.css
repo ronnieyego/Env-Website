@@ -72,6 +72,52 @@
   margin-top: 25px;
   margin-bottom: 25px;
 }
+.results {
+  margin: auto;
+  margin-left: 25px;
+  text-align: center;
+}
+.results-button {
+  white-space: nowrap;
+  margin: 5px 5px;
+}
+.results-buttons {
+  min-width: 650px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+.results-buttons-header {
+  background-color: #f0f0f0;
+}
+.results-buttons-header-cell {
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+.results-buttons-cell {
+  border: 1px solid black;
+}
+.results-pie {
+  border: 3px solid gray;
+}
+.results-pie-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.results-pie-breakdown {
+  margin-top: 150px;
+  margin-left: -100px;
+  text-align: left;
+}
+.results-pie-breakdown-list {
+  margin-right: 15px;
+}
+.recharts-wrapper {
+  margin-left: -10%;
+}
 .energy-map-button {
   text-align: left;
   width: 300px;

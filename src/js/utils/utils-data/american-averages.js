@@ -35,7 +35,7 @@ const kwhPerMonthAppliance = 901;
 // Source:  NPR  http://www.npr.org/sections/thesalt/2011/12/31/144478009/the-average-american-ate-literally-a-ton-this-year
 // Based on this data:  https://www.ers.usda.gov/Data/FoodConsumption/
 
-
+// This diet is 3000 calories a day.  Im just taking the ratio of food from here
 const americanFood = {
     dairy: {
         yearServings: 2293,
@@ -88,9 +88,37 @@ const americanFood = {
 };
 
 
+const demographicCalories ={
+    '16-19': {
+        male: 2600,
+        female: 1950,
+    },
+    '20-34': {
+        male: 2750,
+        female: 2000,
+    },
+    '35-54': {
+        male: 2450,
+        female: 1750,
+    },
+    '55-64': {
+        male: 2100,
+        female: 1750,
+    },
+    '65+': {
+        male: 2100,
+        female: 1650,
+    },
+    'American Average': {
+        male: 2450,
+        female: 1800,
+    }
+}
+
 module.exports = {
     americanCarMiles,
     americanFood, 
+    demographicCalories,
     kwhPerMonthAppliance
     
 }

@@ -14,6 +14,8 @@ const validateForm = questions => {
     const commute = isValidateAnswer(questions, "On average, how many miles do you drive for work, school, and errands each day?", 'not null');
     const roadTripTimes = isValidateAnswer(questions, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?', 'not null');
     const roadTripDistance = isValidateAnswer(questions, 'How far is your average roadtrip?', '>0');
+    const busMiles = isValidateAnswer(questions, 'How many miles do you bus each month?', 'not null');
+    const trainMiles = isValidateAnswer(questions, 'How many miles do you ride on the train each month?', 'not null');
     const fly = isValidateAnswer(questions, 'Within the last year, how many miles did you fly?', 'not null');
     let question;
     if(!fuel) {
@@ -48,6 +50,18 @@ const validateForm = questions => {
     }
     if(!fly) {
         question = getQuestionFromKey(questions, "Within the last year, how many miles did you fly?");
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!busMiles) {
+        question = getQuestionFromKey(questions, 'How many miles do you bus each month?');
+        question.errorText = 'Please submit an answer.';
+        missingQuestions.push(question);
+        valid = false;
+    }
+    if(!trainMiles) {
+        question = getQuestionFromKey(questions, 'How many miles do you ride on the train each month?');
         question.errorText = 'Please submit an answer.';
         missingQuestions.push(question);
         valid = false;

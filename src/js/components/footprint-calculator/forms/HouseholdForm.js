@@ -61,6 +61,7 @@ export default class Household extends React.Component {
                         <StateDropDown 
                             id="userState"
                             updateQuestion={this.updateStateDropdown.bind(this)} 
+                            subText={'Choose your state'}
                             value={this.props.userState}
                         />
                     </ul>
