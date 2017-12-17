@@ -15,7 +15,23 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
   );
 };
 
+const setColors = graphData => {
+    const colorMap = {};
+    graphData.map((data, index) => {
+        colorMap[data.source] = {
+            color: COLORS[index % COLORS.length],
+            index: index
+        }
+    });
+    return colorMap;
+}
+
 export default class ResultsPieChart extends React.Component {
+    constructor(props) {
+        super();
+        // Set fixed order and color for graph
+        this.colorMapping = setColors(props.graphData);
+    }
 
 	render() {
         let units;
@@ -34,12 +50,12 @@ export default class ResultsPieChart extends React.Component {
         const graphData = this.props.graphData;
         
         graphData.sort((a,b) => {
-            return a.amount < b.amount;
+            return this.colorMapping[a.source].index > this.colorMapping[b.source].index;
         });
 
         const legendPayload = graphData.map((data, index) => { 
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
-            return { id: data.source, value: name, type: 'circle', color: COLORS[index % COLORS.length] }
+            return { id: data.source, value: name, type: 'circle', color: this.colorMapping[data.source].color }
         });
         
         const categoryList = graphData.map(data => {
@@ -56,7 +72,7 @@ export default class ResultsPieChart extends React.Component {
                     <div>
                         <PieChart width={400} height={300}>
                             <Pie legendType='circle' dataKey='amount' data={graphData} cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label={renderCustomizedLabel}>
-                                {graphData.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]} key={index}/>)}
+                                {graphData.map((entry, index) => <Cell fill={this.colorMapping[entry.source].color} key={index}/>)}
                             </Pie>
                             <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} payload={legendPayload} />
                         </PieChart>
