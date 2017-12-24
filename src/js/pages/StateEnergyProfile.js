@@ -5,6 +5,8 @@ import SideNav from '../components/SideNav.js';
 import StateEnergyChart from '../components/StateEnergyChart.js';
 import StateEnergyPieChart from '../components/StateEnergyPieChart.js';
 
+import { utilityEmissionsPerState } from '../utils/utils-data/state-energy-and-emissions';
+
 const energyTypes = ['coal', 'geothermal', 'hydroElectric', 'naturalGas', 'nuclear', 'petroleum', 'solar', 'wind']
 const mapEnergyTypes = {
 	coal: 'Coal',
@@ -110,6 +112,8 @@ export default class StateEnergyProfile extends React.Component {
 	}
 
 	render() {
+
+		const CO2PerKwh = utilityEmissionsPerState[this.state.stateId];
 		return (
 			<div className="container-fluid text-center" >
 				<Header />
@@ -117,8 +121,8 @@ export default class StateEnergyProfile extends React.Component {
 					<div className="col-sm-8 text-left" display="inline-block">
 						<h1 style={{textAlign: 'center', fontWeight: 'bold'}}>State Energy Profile</h1>
 						<p>States generate their electricity in different ways depending on different economic and social factors.  Generally states in the northwest primarily use hydroelectric and natural gas while appalachian states tend to use more coal.</p>
-						<p>On average, {this.state.stateName} produces {(this.state.averageCO2PerKwh * 1000).toFixed(1)} pounds of CO2 per every MWh of energy.  {this.state.stateName} ranks number {50 - this.state.stateRankCo2} in CO2 per MWH.</p>
-						<p>In 2015, {this.state.stateName} produced {this.state.totalEnergyProduced.toLocaleString()} MWhs of energy and released {Math.round((this.state.averageCO2PerKwh * 1000 * this.state.totalEnergyProduced)).toLocaleString()} pounds on CO2.  {this.state.stateName} ranks number {this.state.stateRankEnergyProduced} in total energy production</p>
+						<p>On average, {this.state.stateName} produces <b>{CO2PerKwh.toFixed(1)}</b> pounds of CO2 per every MWh of energy.  {this.state.stateName} ranks number {50 - this.state.stateRankCo2} in CO2 per MWH.</p>
+						<p>In 2015, {this.state.stateName} produced <b>{this.state.totalEnergyProduced.toLocaleString()}</b> MWhs of energy and released <b>{Math.round((CO2PerKwh * 1000 * this.state.totalEnergyProduced)).toLocaleString()}</b> pounds on CO2.  {this.state.stateName} ranks number {this.state.stateRankEnergyProduced} in total energy production</p>
 						<StateEnergyChart {...this.props} />
 						<p>This is a breakdown of state produced energy</p>
 						<ul>{this.state.sortedEnergy}</ul>

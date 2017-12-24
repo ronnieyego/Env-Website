@@ -146,7 +146,18 @@ const stateEnergyMiddleware =  (req, res) => {
 };
 
 const usEnergyMapMiddleware = (req, res) => {
-    const appMarkup = ReactDOM.renderToString(<UsEnergy />);
+     // Create a new Redux store instance
+     const store = createStore(reducers);
+     
+    // Grab the initial state from our Redux store
+    const preloadedState = store.getState();
+
+    const appMarkup = ReactDOM.renderToString(
+    <Provider store={store}>
+        <MuiThemeProvider>
+            <UsEnergy />
+        </MuiThemeProvider>
+    </Provider>);
     res.status(200).send(renderFullPage(appMarkup, {}, 'us-energy'));
 }
 
