@@ -5,15 +5,8 @@ import { connect } from 'react-redux';
 const topojson = require('topojson');
 
 import { MapBubble } from '../../../../external/react-d3-bubble/index';
-
+import FilterBox from './FilterBox';
 import { getSourceCssName, getProducerDisplayname, getSourceDisplayname } from '../../utils/nameMaps.js';
-
-const buttonStyles = {
-    textAlign: 'left',
-    width: 300,
-    border: '3px solid gray',
-    margin: '10px'
-}
 
 const width = 960;
 const height = 700;
@@ -48,9 +41,6 @@ const domain = {
 	};
 })
 export default class EnergySourceMapHoc extends React.Component {
-	constructor(props) {
-		super();
-	}
 
     componentDidMount() {
         if(this.props.showMap) {
@@ -115,61 +105,6 @@ export default class EnergySourceMapHoc extends React.Component {
             });
     };
 
-    getEnergyFilterOptions(energySourceArray, currentSources) {
-        let sources = energySourceArray.sort();
-        let list = sources.map((source, index) => {
-            const color =  sourceButtonBorders[index];
-            const buttonStyle = {
-                marginLeft: '10px',
-                marginRight: '10px', 
-                marginTop: '18px', 
-                outline: `4px dashed ${color}`
-            };
-            return <li><input type="checkbox" checked={currentSources.indexOf(source) !== -1} id={source} name="source" value={source} style={buttonStyle} key={source} onClick={this.updateSources.bind(this)} />  {getSourceDisplayname(source)}</li> 
-        });
-        return list;
-    }
-
-    getUtilityFilterOptions(utilitySourceArray, currentUtilities) {
-        let sources = utilitySourceArray.sort();
-        let list = sources.map(source => { 
-            const buttonStyle = {
-                marginLeft: '10px',
-                marginRight: '10px', 
-                marginTop: '10px', 
-            };
-            return <li><input type="checkbox" checked={currentUtilities.indexOf(source) !== -1} id={source} name="utility" value={source} style={buttonStyle} key={source} onClick={this.updateUtilities.bind(this)} />  {getProducerDisplayname(source)}</li> 
-        });
-        return list;
-    }
-
-    updateSources(e) {
-        let source = e.target.value;
-        let current = this.props.currentSources;
-        let index = current.indexOf(source);
-        if(index !== -1) { // source is active.  Remove it from currentSources
-            current.splice(index, 1);
-        } else {
-            current.push(source);
-        }
-        this.props.dispatch({type: 'SET_CURRENT_SOURCES', payload: current});
-        this.renderMap()
-
-    }
-
-    updateUtilities(e) {
-        let utility = e.target.value;
-        let current = this.props.currentUtilities;
-        let index = current.indexOf(utility);
-        if(index !== -1) { // utility is active.  Remove it from currentUtilities
-            current.splice(index, 1);
-        } else {
-            current.push(utility);
-        }
-        this.props.dispatch({type:'SET_CURRENT_SOURCES', payload: current });
-        this.renderMap()
-    }
-
     filterBySource(circles) {
         let currentSources = this.props.currentSources;
         return circles.filter(county => {
@@ -206,9 +141,9 @@ export default class EnergySourceMapHoc extends React.Component {
         });
     };
 
-    renderMap() {
-        const currentSources = this.props.currentSources;
-        const currentUtilities = this.props.currentUtilities;
+    renderMap({sources, utilities}) {
+        const currentSources = sources ||  this.props.currentSources;
+        const currentUtilities = utilities || this.props.currentUtilities;
         let circles = topojson.feature(this.props.mapData, this.props.mapData.objects.counties).features
         
         // Filter by energy source
@@ -228,61 +163,60 @@ export default class EnergySourceMapHoc extends React.Component {
             });
             return finalVal;  
         };
+        
         this.props.dispatch({type: 'SET_CIRCLES', payload: { circles, circleValue }});
     }
 
   render() {
-    const sourceFilterButtons = this.getEnergyFilterOptions(sources, this.props.currentSources);
-    const utilityFilterButtons = this.getUtilityFilterOptions(utilities, this.props.currentUtilities);
-    let map;
-    if (this.props.showMap) {
-        map = <MapBubble
-                width= {width}
-                height= {height}
-                dataPolygon= {this.props.dataCounties}
-                polygonClass= {'land'}
-                dataMesh= {'border'}
-                meshClass = {this.props.meshClass}
-                domain= {domain}
-                dataCircle= {this.props.circles}
-                circleValue= {this.props.circleValue}
-                circleClass= {'bubble'}
-                projection={'null'}
-                tooltipContent= {this.props.tooltipContent}
-                showGraticule= {false}
-                showTooltip= {true}
-                showLegend= {true}
-            /> 
+    if(!this.props.showMap) {
+        return <div styles={{width, height, fontSize: '24px'}}> Map is loading </div>
     } else {
-        map = <div styles={{width, height}} Map is loading />
-    } // Should add an else with a loading bar thats the size of the map.
-
-      return (
-        <div className="us-energy-map-container">
-            <b>Energy generated by source</b>
-            <br />
-            This interactive map shows the location, output (MWHs/year), and type of electricity generated in the US.
-            <br />
-            This includes both private and public active power stations in the US as of April 2017 (source: <a href="https://www.eia.gov/electricity/data/eia860m/">EIA</a>)
-             <div className="us-energy-map-filter">
-                <form class="us-energy-map-filter-button">
-                <ul className="us-energy-map-filter-button-text"><b>Filter by energy source</b>{sourceFilterButtons}</ul>
-                </form>
-                <form class="us-energy-map-filter-button">
-                    <ul className="us-energy-map-filter-button-text"><b>Filter by production source</b>{utilityFilterButtons}</ul>
-                </form>
+        return (
+            <div className="us-energy-map-container">
+                <b>Energy generated by source</b>
+                <br />
+                This interactive map shows the location, output (MWHs/year), and type of electricity generated in the US.
+                <br />
+                This includes both private and public active power stations in the US as of April 2017 (source: <a href="https://www.eia.gov/electricity/data/eia860m/">EIA</a>)
+                    <div className="us-energy-map-filter">
+                    <FilterBox
+                        dispatch={this.props.dispatch}
+                        renderMap={this.renderMap.bind(this)}
+                        filterType={'source'}
+                        filterArray={sources}
+                        currentSelected={this.props.currentSources}
+                        currentSources={this.props.currentSources}
+                        currentUtilities={this.props.currentUtilities}
+                    />
+                    <FilterBox
+                        dispatch={this.props.dispatch}
+                        renderMap={this.renderMap.bind(this)}
+                        filterType={'utility'}
+                        filterArray={utilities}
+                        currentSelected={this.props.currentUtilities}
+                        currentSources={this.props.currentSources}
+                        currentUtilities={this.props.currentUtilities}
+                    />
+                </div>
+                <MapBubble
+                    width= {width}
+                    height= {height}
+                    dataPolygon= {this.props.dataCounties}
+                    polygonClass= {'land'}
+                    dataMesh= {'border'}
+                    meshClass = {this.props.meshClass}
+                    domain= {domain}
+                    dataCircle= {this.props.circles}
+                    circleValue= {this.props.circleValue}
+                    circleClass= {'bubble'}
+                    projection={'null'}
+                    tooltipContent= {this.props.tooltipContent}
+                    showGraticule= {false}
+                    showTooltip= {true}
+                    showLegend= {true}
+                /> 
             </div>
-            {map}
-        </div>
-
-      )
+        )
+    }
   }
-}
-  
-
-
-  
-
-
-
-  
+}  

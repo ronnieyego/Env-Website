@@ -1,7 +1,6 @@
 import React from "react";
 
 import Header from '../components/Header.js';
-import EnergySourceMap from '../components/us-energy/EnergySourceMap.js';
 import EnergySourceMapHoc from '../components/us-energy/EnergySourceMapHoc.js';
 import EnergyFooter from '../components/us-energy/EnergyFooter.js';
 
@@ -18,8 +17,6 @@ export default class UsEnergy extends React.Component {
 						<EnergySourceMapHoc style={{marginLeft: '300px'}} />
 						<EnergyFooter />
 					</div>
-					
-					
 			</div>
 		);
 	}
