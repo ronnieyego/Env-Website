@@ -13,12 +13,13 @@ import HowMuchCo2 from './HowMuchCo2';
 @connect((store, props) => {
 	return {
         questions: store.footprintForm.questions,
+        userState: store.footprintFormAnswers.userState,
 		results: store.footprintFormAnswers.formResults,
         resultsShown: store.footprintFormAnswers.resultsShown,
 		averageAmerican: store.footprintFormAnswers.averageAmerican,
 		averageAmericanState: store.footprintFormAnswers.averageAmericanState,
 		averageAmericanAge: store.footprintFormAnswers.averageAmericanAge,
-		averageAmericanGender: store.footprintFormAnswers.averageAmericanGender
+        averageAmericanGender: store.footprintFormAnswers.averageAmericanGender
 	};
 })
 export default class Results extends React.Component {
@@ -32,10 +33,6 @@ export default class Results extends React.Component {
     }
 
 	render() {
-        const tdStyle = {
-            
-        };
-
         const res = this.props.results;
         const monthlyEnergyUse = parseInt(res.energy.totalEnergy);
         const monthlyCo2Use = parseInt(res.co2.totalCo2);
@@ -118,12 +115,9 @@ export default class Results extends React.Component {
                 break;
         }
 
-         
-
 		return (
             <div className="results">
                 <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support your lifestyle.</h1>
-                
                 <div>
                     <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                     {/*<h3 style={{textAlign: 'left'}}>These numbers may seem surprisingly large (especially water use). It takes a lot of effort to produce the life we live.  The first step in any debate or action is knowing our current position.</h3>*/}

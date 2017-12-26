@@ -1,8 +1,6 @@
 import _ from 'lodash';
 import { utilityEmissionsPerState } from '../utils-data/state-energy-and-emissions';
-
-const co2PerGallonOfGas = 19.6;
-const kwhPer100MilesElectricCar = 30;
+import {co2PerGallonOfGas, kwhPer100MilesElectricCar} from '../utils-data/constants';
 
 const betterDriving = res => {
     const currentMpg = res.co2.transportationSubCategories.carMpg;
@@ -37,14 +35,11 @@ const electricCar = res => {
 };
 
 const moveToWa = res => {
-    const applianceKwh = res.energy.appliance;
-    const currentApplianceCo2 = applianceKwh * res.meta.stateCo2;
-    const waCo2 = utilityEmissionsPerState['WA'];
-    const waApplianceCo2 = applianceKwh * waCo2;
-    console.log('got wa savings', currentApplianceCo2 - waApplianceCo2);
-    return currentApplianceCo2 - waApplianceCo2;
-}
-
+    const currentApplianceCo2 = res.co2.appliance;
+    const percentReduction = utilityEmissionsPerState['WA'] / res.meta.stateCo2;
+    const waApplianceCo2 = res.co2.appliance * percentReduction;
+    return Math.round(currentApplianceCo2 - waApplianceCo2);
+};
 
 const getCo2Savings = (res, questions) => {
     let results = [
@@ -52,7 +47,7 @@ const getCo2Savings = (res, questions) => {
             display: 'Drive more efficiently',
             card: true,
             amount: betterDriving(res),
-            subtext: 'This can be done by staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
+            subtext: 'This can be done by not staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
             learnMore: 'https://www.fueleconomy.gov/feg/driveHabits.jsp'
         },
         {

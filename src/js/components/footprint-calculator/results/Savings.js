@@ -15,7 +15,7 @@ export default class Compare extends React.Component {
         let savingSet;
         switch(this.props.category) {
             case 'energy':
-                savingSet = getSavings(results);
+                savingSet = getSavings(results, this.props.questions);
                 break;
             case 'co2':
                 savingSet = getCo2Savings(results, this.props.questions);

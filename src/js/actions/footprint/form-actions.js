@@ -140,7 +140,6 @@ export const submitForm = questionPayload => {
         const {valid, questions} = validateForm(questionPayload);  
         const store = getState();
         const state = store.footprintFormAnswers.userState;
-        console.log('user state is', state);
         if (valid) {
             const payload = {
                 questions: questionPayload,
@@ -168,7 +167,6 @@ export const submitForm = questionPayload => {
             dispatch({type: 'UPDATE_QUESTIONS', payload: questions});
             dispatch({type: 'SUBMIT_READY', payload: false})
             console.log('failed validation');
-            //alert('Please fill out all of the fields');
         }
     }
 };

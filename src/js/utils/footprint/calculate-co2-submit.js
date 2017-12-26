@@ -88,7 +88,8 @@ const getApplianceValue = (question, stateCo2) => {
     }
     question.value = parseFloat(question.value);
     if(question.value > 0 && question.kwh) { //Int question
-        return (question.kwh * question.value *  stateCo2);
+        return (question.kwh * question.value *  stateCo2 * 30);
+        // Times 30 since these are daily use
     }
     console.log('Problem with co2/appliance question', question);
     return 0; // Something went wrong (ie. '' passed in);

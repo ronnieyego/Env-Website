@@ -1,7 +1,7 @@
 const footprintFormReducer = (state = {
     questions: [],
     getQuestionsError: false,
-    step: 5,
+    step: 1,
     text: 'hello redux!',
     isSubmitReady: true
 }, action) => {

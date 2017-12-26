@@ -23,7 +23,6 @@ module.exports = payload => {
     } catch (e) {
         throw Error(`Could not find co2e/kwh for ${state}`);
     }
-    
 
 // Get Questions
     const compiledFootprint = {};
@@ -66,7 +65,7 @@ module.exports = payload => {
 
 // Meta
     compiledFootprint.meta = {};
-    compiledFootprint.meta.stateCo2 = stateCo2 || .05;
+    compiledFootprint.meta.stateCo2 = stateCo2;
 
     return compiledFootprint;
 }
