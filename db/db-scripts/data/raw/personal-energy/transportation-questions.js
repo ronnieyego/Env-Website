@@ -10,6 +10,7 @@ const transportationQuestions = [
         name: 'What\'s the fuel for your car?',
         "use-type": "transportation",
         "selectOptions": ["Gasoline", "Diesel", "Electric"],
+        value: "Gasoline",
         type: 'dropdown',
         id: 1,
         hideIf: ['noCar']

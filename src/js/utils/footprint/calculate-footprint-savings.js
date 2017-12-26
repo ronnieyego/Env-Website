@@ -84,7 +84,7 @@ const getSavings = res => {
             display: 'Drive more efficiently',
             card: true,
             amount: betterDriving(res),
-            subtext: 'This can be done by not staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
+            subtext: 'This can be done by staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
             learnMore: 'https://www.fueleconomy.gov/feg/driveHabits.jsp'
         },
         {

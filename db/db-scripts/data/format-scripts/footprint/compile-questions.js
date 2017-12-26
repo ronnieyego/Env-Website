@@ -14,7 +14,7 @@ let stringQuestions = 'module.exports =' + JSON.stringify(questions, null, 2);
             return console.log(err);
         }
         
-        console.log("Footprint questions data written");
+        console.log("Footprint questions data written to formatted");
     });
 
 let publicQuestions = '{"questions": ' + JSON.stringify(questions, null, 2) + '}';
@@ -23,5 +23,5 @@ fs.writeFile(__dirname + "/../../../../../public/data/temp-footprint-questions.j
             return console.log(err);
         }
         
-        console.log("Footprint questions data written");
+        console.log("Footprint questions data written to /public");
     });

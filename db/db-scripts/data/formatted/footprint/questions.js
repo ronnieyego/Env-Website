@@ -420,6 +420,7 @@ module.exports =[
       "Diesel",
       "Electric"
     ],
+    "value": "Gasoline",
     "type": "dropdown",
     "id": 1,
     "hideIf": [

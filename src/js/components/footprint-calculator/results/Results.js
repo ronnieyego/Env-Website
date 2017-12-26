@@ -147,8 +147,8 @@ export default class Results extends React.Component {
                         </tr>
                         <tr className="results-buttons-row">
                             <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("co2-savings")} label="Reduce my carbon footprint" primary={true}/></td>
-                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("energy-savings")} label="Reduce my energy" secondary={true}/></td>
-                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("water-savings")} label="Reduce my water use" primary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("water-savings")} label="Reduce my water use" secondary={true}/></td>
+                            <td className="results-buttons-cell"><RaisedButton className="results-button" onClick={() => this.switchResult("energy-savings")} label="Reduce my energy" primary={true}/></td>
                         </tr>
                     </table>
                 </div>
