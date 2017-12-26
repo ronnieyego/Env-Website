@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
 // Pages
-import Layout from './src/js/components/Layout';
+import SolarWidget from './src/js/pages/SolarWidget'
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
@@ -31,7 +31,7 @@ const renderFullPage = (markup, data, page) => {
     let jsLocation;
     switch (page) {
         case 'solar-widget':
-            jsLocation = '/public/scripts.min.js';
+            jsLocation = '/public/solar.min.js';
             break;
         case 'us-energy':
             jsLocation = '/public/us-energy.min.js';
@@ -46,7 +46,7 @@ const renderFullPage = (markup, data, page) => {
             jsLocation = '/public/static-pages.min.js';
             break;
         default:
-            jsLocation = '/public/scripts.min.js';
+            jsLocation = '/public/solar.min.js';
     };
     //widget.css
     return `
@@ -106,7 +106,7 @@ const solarMiddleware =  (req, res) => {
             return appendUSAverages(stateData);
         })
         .then(stateData => {
-            const appMarkup = ReactDOM.renderToString(<Layout {...stateData}/>);
+            const appMarkup = ReactDOM.renderToString(<SolarWidget {...stateData}/>);
             res.status(200).send(renderFullPage(appMarkup, stateData, 'solar-widget'));
         })
         .catch(e => {

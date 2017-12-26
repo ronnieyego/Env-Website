@@ -6,8 +6,8 @@ let entry;
 let filename;
 switch(process.env.page) {
   case 'solar':
-    entry = './js/client.js';
-    filename = 'scripts.min.js';
+    entry = './js/solar-entry.js';
+    filename = 'solar.min.js';
     break;
   case 'home':
     entry = './js/homepage-entry.js';
@@ -30,8 +30,8 @@ switch(process.env.page) {
     filename = 'static-pages.min.js';
     break;
   default: //defaults to solar
-    entry = './js/client.js';
-    filename = 'scripts.min.js';
+    entry = './js/solar-entry.js';
+    filename = 'solar.min.js';
 }
 
 module.exports = {

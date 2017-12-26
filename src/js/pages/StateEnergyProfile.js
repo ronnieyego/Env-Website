@@ -1,7 +1,6 @@
 import React from "react";
 
 import Header from '../components/Header.js';
-import SideNav from '../components/SideNav.js';
 import StateEnergyChart from '../components/StateEnergyChart.js';
 import StateEnergyPieChart from '../components/StateEnergyPieChart.js';
 
