@@ -74,6 +74,7 @@ const renderFullPage = (markup, data, page) => {
                 <div id="app">${markup}</div>
                 <script type="text/javascript">
                 window.__STATE__ = ${JSON.stringify(data)}
+                window.__PRELOADED_STATE__ = ${JSON.stringify(data)}
                 </script>
                 <script type="text/javascript" src=${jsLocation}></script>
             </body>
@@ -132,11 +133,22 @@ const stateEnergyMiddleware =  (req, res) => {
             let comparisons = allData.US.stateComparisons;
             delete allData.US;
             allData['stateComparisons'] = comparisons;
-            const appMarkup = ReactDOM.renderToString(<StateEnergyProfile {...allData}/>);
+
+            // Create a new Redux store instance
+            const store = createStore(reducers, {stateEnergy: {...allData}});
+            
+            const appMarkup = ReactDOM.renderToString(
+                <Provider store={store}>
+                    <MuiThemeProvider>
+                        <StateEnergyProfile {...allData} />
+                    </MuiThemeProvider>
+                </Provider>
+                );
+
             res.status(200).send(renderFullPage(appMarkup, allData, 'state-energy-profile'));
         })
         .catch(e => {
-            console.log('Error appending US data');
+            console.log(e, 'Error appending US data');
             res.status(500).send("There was a problem appending US data");
         });
     } else {

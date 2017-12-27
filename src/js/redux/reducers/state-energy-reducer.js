@@ -3,7 +3,8 @@ const stateEnergyReducer = (state = {
     energyProduction: {},
     misc: {},
     stateComparisons: {},
-    stateId: ''
+    stateId: '',
+    stateName: ''
 }, action) => {
     switch (action.type) {
         case 'SET_STATE_ENERGY_DATA': {
