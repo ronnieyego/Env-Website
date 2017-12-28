@@ -15,7 +15,7 @@ export default class StateEnergyRadarChart extends React.Component {
                     <PolarRadiusAxis/>
                     <Legend align='center' verticalAlign='top' payload={legendText}/>
                 </RadarChart>
-                <p>Data for this chart comes from the <a href="https://www.eia.gov/electricity/data/state/" target="_blank">EIA</a></p>
+                <p className="state-energy-text">Data for this chart comes from the <a href="https://www.eia.gov/electricity/data/state/" target="_blank">EIA</a></p>
             </div>
 		);
 	}

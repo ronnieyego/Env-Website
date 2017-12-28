@@ -32,7 +32,7 @@ export default class StateEnergyHoc extends React.Component {
 		unsorted.sort((a,b) => {
 			return b[1] - a[1];
 		});
-		let final = unsorted.map(el => { return <li>{`${el[0]}: ${el[1].toLocaleString()} MWhs.`}</li> });
+		let final = unsorted.map(el => { return <li className="state-energy-text" key={el}>{`${el[0]}: ${el[1].toLocaleString()} MWhs.`}</li> });
 		return final;
 	}
 
@@ -131,7 +131,7 @@ export default class StateEnergyHoc extends React.Component {
                         totalEnergyProduced={total}
                     />
                     <StateEnergyRadarChart stateId={this.props.stateId} graphData={radarGraphData} />
-                    <p>This is a breakdown of state produced energy</p>
+                    <p className="state-energy-text">This is a breakdown of state produced energy</p>
                     <ul>{sortedEnergy}</ul>
                     <StateEnergyPieChart graphData={pieChartData}/>
                 </div>

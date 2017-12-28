@@ -13,7 +13,7 @@ export default class StateEnergyProfile extends React.Component {
 			<div className="container-fluid text-center" >
 				<Header />
 				<StateEnergyHoc/>
-				<StateEnergyFooter />
+				<StateEnergyFooter openNewTab={false} />
 			</div>
 		);
 	}
