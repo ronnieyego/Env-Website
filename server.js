@@ -157,6 +157,19 @@ app.get('/api/get-energy-intensity-by-state/:state', (req, res) => {
     }
 });
 
+app.get('/api/delete-form-result-by-id/:id', (req, res) => {
+    const id = req.params.id;
+    FormAnswers.findByIdAndRemove(id)
+    .then((delResponse) => {
+        if(!delResponse) {
+            return res.status(404).send('Couldn\'t find answer');
+        } else {
+            return res.status(200).send(delResponse);
+        }              
+    })
+    .catch(e => res.status(500).send('Failed to delete answer', e));
+});
+
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);
 });
