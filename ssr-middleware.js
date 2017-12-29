@@ -27,6 +27,9 @@ import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 import getStateData from './src/js/utils/apis/get-state-data';
 
+// Data
+import footprintQuestions from './public/data/temp-footprint-questions.json';
+
 const renderFullPage = (markup, data, page) => {
     let jsLocation;
     switch (page) {
@@ -174,11 +177,18 @@ const usEnergyMapMiddleware = (req, res) => {
 }
 
 const footprintMiddleware = (req, res) => {
-     // Create a new Redux store instance
-    const store = createStore(reducers);
-
-    // Grab the initial state from our Redux store
-    const preloadedState = store.getState();
+    const questions = footprintQuestions.questions;
+    // need to default the entire form and not just questions
+    // otherwise reducer will think it has state and not do defaults
+    const storeData = {
+        footprintForm: {
+            questions,
+            getQuestionsError: false,
+            step: 1,
+            isSubmitReady: true
+        }
+    };
+    const store = createStore(reducers, storeData);
 
     const appMarkup = ReactDOM.renderToString(
     <Provider store={store}>
@@ -186,7 +196,8 @@ const footprintMiddleware = (req, res) => {
             <FootprintCalculator />
         </MuiThemeProvider>
     </Provider>);
-    res.status(200).send(renderFullPage(appMarkup, preloadedState, 'footprint'));
+    res.status(200).send(renderFullPage(appMarkup, storeData, 'footprint'));
+    
 }
 
 const co2eMiddleware = (req, res) => {

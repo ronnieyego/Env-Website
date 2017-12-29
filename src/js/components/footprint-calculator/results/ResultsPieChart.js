@@ -30,6 +30,7 @@ export default class ResultsPieChart extends React.Component {
     constructor(props) {
         super();
         // Set fixed order and color for graph
+        // In state so the order doesn't change if values change
         this.colorMapping = setColors(props.graphData);
     }
 

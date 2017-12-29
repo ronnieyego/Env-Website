@@ -15,7 +15,8 @@ import _ from 'lodash';
 export default class FootprintFormHoc extends React.Component {
     componentDidMount() {
         if(this.props.questions.length === 0) {
-           this.props.dispatch(getQuestionData());
+            // If server side questions fail to load, load them here.
+            this.props.dispatch(getQuestionData());
         }
     }
 

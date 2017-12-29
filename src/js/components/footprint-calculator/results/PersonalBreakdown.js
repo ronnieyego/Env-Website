@@ -50,7 +50,7 @@ export default class PersonalBreakdown extends React.Component {
             {source: 'Appliances', amount: parseInt(res.appliance)},
             {source: 'Food', amount: parseInt(res.food)},
             {source: 'Transportation', amount: parseInt(res.transportation) || 0}, // Default to 0 for Water
-        ];
+        ].sort((a,b) => b.amount > a.amount);;
 
         // Transportation Summary
         const transportationBreakdown = this.props.category === 'water' ? null : [
@@ -59,19 +59,19 @@ export default class PersonalBreakdown extends React.Component {
             {source: 'Flying', amount: parseInt(res.transportationSubCategories.monthlyFly)},
             {source: 'Bus', amount: parseInt(res.transportationSubCategories.monthlyBus)},
             {source: 'Train', amount: parseInt(res.transportationSubCategories.monthlyTrain)}
-        ];
+        ].sort((a,b) => b.amount > a.amount);
 
         // Appliance Summary
         const appliancekeys = Object.keys(res.applianceSubCategories);
         const applianceBreakdown = appliancekeys.map(key => {
             return {source: key, amount: res.applianceSubCategories[key]}
-        });
+        }).sort((a,b) => b.amount > a.amount);;
 
         // Food Summary
         const foodkeys = Object.keys(res.foodSubCategories);
         const foodBreakdown = foodkeys.map(key => {
             return {source: key, amount: res.foodSubCategories[key]}
-        });
+        }).sort((a,b) => b.amount > a.amount);;
         
 		return (
             <div style={containerStyle}>
