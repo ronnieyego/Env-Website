@@ -9,9 +9,9 @@ switch(process.env.page) {
     entry = './js/solar-entry.js';
     filename = 'solar.min.js';
     break;
-  case 'home':
-    entry = './js/homepage-entry.js';
-    filename = 'homepage.min.js';
+  case 'static':
+    entry = './js/static-pages-entry.js';
+    filename = 'static-pages.min.js';
     break;
   case 'usenergy':
     entry = './js/us-energy.js';

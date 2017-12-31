@@ -21,8 +21,6 @@ delete window.__PRELOADED_STATE__;
 const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, {stateEnergy: {...preloadedState}}, middleware);
 
-console.log('store', store.getState());
-
 const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>

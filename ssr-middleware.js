@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from "react-dom/server";
+import {ServerRouter as Router, Route} from 'react-router-dom';
+
 import Q from 'q';
 import _ from 'lodash';
+
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Redux
@@ -14,8 +18,7 @@ import SolarWidget from './src/js/pages/SolarWidget'
 import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
-import Co2e from './src/js/pages/static/Co2e';
-import FormValues from './src/js/pages/static/Form-Values';
+import StaticPages from './src/js/pages/Static';
 
 // Database
 import { mongoose } from './db/mongoose';
@@ -45,7 +48,7 @@ const renderFullPage = (markup, data, page) => {
         case 'footprint':
             jsLocation = '/public/footprint.min.js';
             break;
-        case 'pages':
+        case 'static-pages':
             jsLocation = '/public/static-pages.min.js';
             break;
         default:
@@ -200,21 +203,22 @@ const footprintMiddleware = (req, res) => {
     
 }
 
-const co2eMiddleware = (req, res) => {
-    const appMarkup = ReactDOM.renderToString(<Co2e />)
-    res.status(200).send(renderFullPage(appMarkup, null, 'pages')); 
-}
-
-const formValuesMiddleware = (req, res) => {
-    const appMarkup = ReactDOM.renderToString(<FormValues />)
-    res.status(200).send(renderFullPage(appMarkup, null, 'pages')); 
+const staticPagesMiddleware = (req, res) => {
+    const store = createStore(reducers);
+    const appMarkup = ReactDOM.renderToString(
+        <Provider store={store}>
+            <MuiThemeProvider>
+                <div />
+            </MuiThemeProvider>
+        </Provider>
+    );
+    res.status(200).send(renderFullPage(appMarkup, null, 'static-pages')); 
 }
 
 module.exports = {
-    co2eMiddleware,
     footprintMiddleware,
-    formValuesMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,
+    staticPagesMiddleware,
     usEnergyMapMiddleware
 }

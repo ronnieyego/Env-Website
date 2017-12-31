@@ -9,7 +9,7 @@ import path from "path";
 import moment from 'moment-timezone';
 import _ from 'lodash';
 
-import { co2eMiddleware, formValuesMiddleware, footprintMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import { co2eMiddleware, footprintMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 import getStateData from './src/js/utils/apis/get-state-data';
 
@@ -40,27 +40,17 @@ app.use((req, res, next) => {
 
 app.get('/', footprintMiddleware); 
 
-app.get('/home', (req, res) => {
-    res.sendFile(path.join(__dirname+'/public/homepage.html'));
-});
-app.get('/home/:test', (req, res) => {
-    res.sendFile(path.join(__dirname+'/public/homepage.html'));
-});
-
-app.get('/solar', solarMiddleware);  //Broken since there's no state param
 app.get('/solar/:state', solarMiddleware);
+app.get('/solar', solarMiddleware);
 
 app.get('/energy/:state', stateEnergyMiddleware);
-
 app.get('/energy', usEnergyMapMiddleware);
 
 app.get('/footprint', footprintMiddleware);
 
-app.get('/pages/co2e', footprintMiddleware)
-
-app.get('/pages/form-data', formValuesMiddleware)
-
-app.get('/pages/how-your-footprint-was-calculated', footprintMiddleware);
+app.get('/co2e', staticPagesMiddleware)
+app.get('/data', staticPagesMiddleware)
+app.get('/how-your-footprint-was-calculated', staticPagesMiddleware);
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');

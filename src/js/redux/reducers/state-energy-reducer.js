@@ -8,13 +8,11 @@ const stateEnergyReducer = (state = {
 }, action) => {
     switch (action.type) {
         case 'SET_STATE_ENERGY_DATA': {
-            state = { state: action.payload };
+            state = { ...state, state: action.payload };
             break;
         }
     }
     return state;
-    
 };
-
 
 module.exports = stateEnergyReducer;

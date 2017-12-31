@@ -268,3 +268,34 @@ input[type="checkbox"] {
   list-style-type: none;
   font-size: 18px;
 }
+.static-page {
+  font-size: 18px;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.static-page h2,
+.static-page h3,
+.static-page h4 {
+  font-weight: bold;
+}
+.static-page-header,
+.static-page-subheader {
+  text-align: center;
+  font-weight: bold;
+}
+.static-page-section {
+  text-align: left;
+}
+.static-page-subsection {
+  margin-left: 15px;
+}
+.static-page-table {
+  width: 100% !important;
+}
+.static-page-table-header {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}

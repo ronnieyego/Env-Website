@@ -20,12 +20,16 @@ export default class HowMuchCo2 extends React.Component {
 	render() {
         const co2 = this.props.co2;
         let text;
-        if (co2 > grandPiano) {
+        if (co2 > grandPiano * 2) {
+            return null
+        } else if (co2 > grandPiano) {
             text = grandText;
         } else if (co2 > tubText) {
             text = tubText;
-        } else {
+        } else if (co2 > table) {
             text = tableText
+        } else {
+            return null;
         }
         const judgement = co2 < this.props.averageAmerican ? notBad : '';
 
