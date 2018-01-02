@@ -8,7 +8,7 @@ export default class HowTheFormWorks extends React.Component {
 			<div className="container-fluid text-center" >
 				<Header />
                 <div className="static-page">
-                    <h1 className="static-page-header">How the Footprint Form Works</h1>
+                    <h1 className="static-page-header">How I Calculated Your Footprint</h1>
                     <div className="static-page-section">
                         <p>Thanks for calculating your footprint!  I'm glad you're curious about how your results were calculated.  It was a lot of work to build this form.  There is a ton of choices to make from getting the best data, to choosing the correct questions, and trying to figure out what is important or not.  This page will dive deeper into all of the decisions that led to your footprint.</p>
                         This page is broken into the following sections:
@@ -19,7 +19,6 @@ export default class HowTheFormWorks extends React.Component {
                             <li>CO<sub>2</sub></li>
                             <li>Form weakness and things that don't add up</li>
                         </ul>
-                        {/**/}
                         {/*<p>This is the hardest part of calculating a footprint.  There are 3 main questions: Can I find data, is the data relevant, and is this data accurate?</p>*/}
                     </div>
                     <div id="how-the-form-works-overview" className="static-page-section">

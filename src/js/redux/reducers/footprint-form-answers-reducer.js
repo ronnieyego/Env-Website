@@ -1,6 +1,7 @@
 import { getAverage } from '../../utils/footprint/get-average-american-footprint';
 
 const footprintFormAnswersReducer = (state = {
+    answerId: '',
     displayAnswers: false,
     questions: [],
     formResults: {},
@@ -27,6 +28,10 @@ const footprintFormAnswersReducer = (state = {
         }
         case 'SUBMIT_FORM_RESULTS': {
             state = { ...state, formResults: action.payload};
+            break;
+        }
+        case 'SET_FORM_ANSWER_ID': {
+            state = { ...state, answerId: action.payload};
             break;
         }
         case 'UPDATE_RESULTS_SHOWN': {

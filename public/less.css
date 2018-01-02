@@ -1,5 +1,6 @@
 .footprint {
-  display: flex;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .footprint-main {
   display: initial;
@@ -82,10 +83,13 @@
   margin: 5px 5px;
 }
 .results-buttons {
-  min-width: 650px;
-  width: 100%;
   border-collapse: collapse;
   margin-bottom: 40px;
+}
+.results-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  min-width: 650px;
 }
 .results-buttons-header {
   background-color: #f0f0f0;

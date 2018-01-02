@@ -8,10 +8,14 @@
         margin: 5px 5px;
     }
     &-buttons {
-        min-width: 650px;
-        width: 100%;
         border-collapse: collapse;
         margin-bottom: 40px;
+
+        &-container {
+            display: flex;
+            justify-content: space-around;
+            min-width: 650px;
+        }
 
         &-header {
             background-color: rgb(240, 240, 240);
@@ -22,8 +26,7 @@
                 border: 1px solid black;
             }
         }
-        &-row {
-        }
+        
         &-cell {
             border: 1px solid black;
         }

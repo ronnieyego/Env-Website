@@ -19,16 +19,12 @@ export default class FootprintCalcPage extends React.Component {
 		return (
 			<div className="container-fluid text-center">
 				<Header />
-				<div className="row footprint">
-					<div className="col-sm-2"></div>
-					<div className="col-lg-8">
-						<p>{this.props.text}</p>
-						<h1 id="footprint-finder-page-title"><b>Footprint Finder</b></h1>
-						<div style={{textAlign: 'left'}}>
-							{formOrResults}
-						</div>
+				<div className="footprint">
+					<p>{this.props.text}</p>
+					<h1 id="footprint-finder-page-title"><b>Footprint Finder</b></h1>
+					<div style={{textAlign: 'left'}}>
+						{formOrResults}
 					</div>
-					<div className="col-sm-2"></div>
 				</div>
 			</div>
 		);

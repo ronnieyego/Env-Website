@@ -140,25 +140,35 @@ export const submitForm = questionPayload => {
         const {valid, questions} = validateForm(questionPayload);  
         const store = getState();
         const state = store.footprintFormAnswers.userState;
+        const answerId = store.footprintFormAnswers.answerId;
+
         if (valid) {
             const payload = {
                 questions: questionPayload,
                 state
             };
             const footprintResults = calculateFootprintSubmit(payload);
-            console.log('Footprint results are back.  Values in kwh/period', footprintResults);
-            fetch('/api/footprint-form/answer', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    formName: 'footprint-finder',
-                    formAnswers: questionPayload,
-                    results: footprintResults
+            console.log('Footprint results are back', footprintResults);
+            if(answerId) {
+                console.log('i will do an update not a post');
+            } else {
+                fetch('/api/footprint-form/answer', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        formName: 'footprint-finder',
+                        formAnswers: questionPayload,
+                        results: footprintResults
+                    })
                 })
-            });
+                .then(res => res.json())
+                .then(res => {
+                    dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']});   
+                });
+            }
             dispatch({type: 'SUBMIT_READY', payload: true})
             dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
             dispatch({type: 'DISPLAY_ANSWERS', payload: true});

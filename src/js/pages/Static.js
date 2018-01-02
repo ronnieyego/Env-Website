@@ -4,7 +4,7 @@ import { browserHistory, BrowserRouter as Router, Route} from 'react-router-dom'
 
 import Header from '../components/Header';
 import CO2e from './static/Co2e'
-import Data from './static/DataHoc';
+import Data from './static/Data';
 import HowTheFormWorks from './static/How-the-form-works';
 
 

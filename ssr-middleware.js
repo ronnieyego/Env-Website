@@ -187,7 +187,7 @@ const footprintMiddleware = (req, res) => {
         footprintForm: {
             questions,
             getQuestionsError: false,
-            step: 1,
+            step: 5,
             isSubmitReady: true
         }
     };
