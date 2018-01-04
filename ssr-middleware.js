@@ -187,7 +187,7 @@ const footprintMiddleware = (req, res) => {
         footprintForm: {
             questions,
             getQuestionsError: false,
-            step: 5,
+            step: 1,
             isSubmitReady: true
         }
     };
@@ -200,7 +200,6 @@ const footprintMiddleware = (req, res) => {
         </MuiThemeProvider>
     </Provider>);
     res.status(200).send(renderFullPage(appMarkup, storeData, 'footprint'));
-    
 }
 
 const staticPagesMiddleware = (req, res) => {
