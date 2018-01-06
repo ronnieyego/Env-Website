@@ -3,6 +3,9 @@ import { getQuestionFromKey } from './get-question-utils';
 
 const showerSavings = questions => {
     const question = getQuestionFromKey(questions, 'hot-shower');
+    if(!question) {
+        return 0;
+    }
     const answer = question.value;
     if (typeof answer === 'NaN') {
         return 0;
