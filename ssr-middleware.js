@@ -12,6 +12,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import reducers from './src/js/redux/reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { baseState } from './src/js/redux/reducers/footprint-form-answers-reducer';
 
 // Pages
 import SolarWidget from './src/js/pages/SolarWidget'
@@ -202,6 +203,41 @@ const footprintMiddleware = (req, res) => {
     res.status(200).send(renderFullPage(appMarkup, storeData, 'footprint'));
 }
 
+const footprintByIdMiddleware = (req, res) => {
+    const id = req.params.id;
+    FormAnswers.find({_id: id}).then(answers => {
+        const answer = answers[0];
+        console.log('answer', answer);
+        if(!answer) {
+            res.send(404);
+        }
+        const storeData = {
+            footprintFormAnswers: {
+                ...baseState,
+                formResults: answer.results,
+                questions: answer.formAnswers
+            }
+        };
+
+        console.log('storeData is', storeData);
+        const store = createStore(reducers, storeData);
+    
+        console.log('store is', store);
+        const appMarkup = ReactDOM.renderToString(
+        <Provider store={store}>
+            <MuiThemeProvider>
+                <div />
+            </MuiThemeProvider>
+        </Provider>);
+        res.status(200).send(renderFullPage(appMarkup, storeData, 'static-pages'));
+
+    })
+    .catch(e => {
+        console.log('error loading footprint by id ', e);
+        res.send(500);
+    });
+}
+
 const staticPagesMiddleware = (req, res) => {
     const store = createStore(reducers);
     const appMarkup = ReactDOM.renderToString(
@@ -216,6 +252,7 @@ const staticPagesMiddleware = (req, res) => {
 
 module.exports = {
     footprintMiddleware,
+    footprintByIdMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,
     staticPagesMiddleware,

@@ -9,7 +9,7 @@ import path from "path";
 import moment from 'moment-timezone';
 import _ from 'lodash';
 
-import { co2eMiddleware, footprintMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import { co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 import getStateData from './src/js/utils/apis/get-state-data';
 
@@ -47,6 +47,7 @@ app.get('/energy/:state', stateEnergyMiddleware);
 app.get('/energy', usEnergyMapMiddleware);
 
 app.get('/footprint', footprintMiddleware);
+app.get('/footprint/:id', footprintByIdMiddleware);
 
 app.get('/co2e', staticPagesMiddleware)
 app.get('/data', staticPagesMiddleware)
@@ -88,6 +89,17 @@ app.get('/api/footprint-form/answers', (req,res) => {
         res.status(400).send(e);
     });
 });
+
+app.get('/api/footprint-form/get-answer-by-id/:id', (req,res) => {
+    const id = req.params.id
+    FormAnswers.find({_id: id}).then(answer => {
+        res.send({answer});
+    }, (e) => {
+        res.status(400).send(e);
+    });
+});
+
+//59b0d463998273abcee9bfa5
 
 app.get('/api/footprint-form/summary', (req,res) => {
     const getAverage = (answers, path) => {

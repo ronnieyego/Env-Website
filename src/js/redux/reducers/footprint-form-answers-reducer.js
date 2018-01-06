@@ -1,6 +1,5 @@
 import { getAverage } from '../../utils/footprint/get-average-american-footprint';
-
-const footprintFormAnswersReducer = (state = {
+const baseState = {
     answerId: '',
     displayAnswers: false,
     questions: [],
@@ -12,7 +11,9 @@ const footprintFormAnswersReducer = (state = {
     averageAmericanState: 'US',
     averageAmericanAge: 'American Average',
     averageAmericanGender: 'male'
-}, action) => {
+};
+
+const footprintFormAnswers = (state = baseState, action) => {
     switch (action.type) {
         case 'DISPLAY_ANSWERS': {
             state = { ...state, displayAnswers: action.payload};
@@ -64,4 +65,7 @@ const footprintFormAnswersReducer = (state = {
 };
 
 
-module.exports = footprintFormAnswersReducer;
+module.exports = {
+    baseState,
+    footprintFormAnswers
+};

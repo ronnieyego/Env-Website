@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import CO2e from './static/Co2e'
 import Data from './static/Data';
 import HowTheFormWorks from './static/How-the-form-works';
+import FootprintResult from './static/FootprintResult';
 
 
 export default class StateEnergyProfile extends React.Component {
@@ -14,6 +15,7 @@ export default class StateEnergyProfile extends React.Component {
 		return (
             <Router history={browserHistory} >
                 <div>
+                    <Route path="/footprint" component={FootprintResult} />
                     <Route exact={true} path="/CO2e" component={CO2e} />
                     <Route exact={true} path="/data" component={Data} />
                     <Route exact={true} path="/how-your-footprint-was-calculated" component={HowTheFormWorks} />
