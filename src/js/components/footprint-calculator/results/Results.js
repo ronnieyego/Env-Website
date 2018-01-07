@@ -15,6 +15,7 @@ import HowMuchCo2 from './HowMuchCo2';
 
 @connect((store, props) => {
 	return {
+        answerId: store.footprintFormAnswers.answerId,
         questions: store.footprintForm.questions,
         userState: store.footprintFormAnswers.userState,
 		results: store.footprintFormAnswers.formResults,
