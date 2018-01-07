@@ -75,6 +75,7 @@
 }
 .results {
   text-align: center;
+  font-weight: normal;
 }
 .results-text {
   text-align: left;
@@ -330,6 +331,10 @@ input[type="checkbox"] {
   font-weight: bold;
   text-align: center;
   margin-top: 15px;
+}
+.share-page {
+  margin-left: 10%;
+  margin-right: 10%;
 }
 .social-icon {
   display: flex;

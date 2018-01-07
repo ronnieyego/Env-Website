@@ -113,9 +113,9 @@ export default class Results extends React.Component {
 		return (
             <div className="container-fluid text-center">
 				<Header />
-                <div className="results">
-                    <h1 className="results-text"><b>What's my environmental footprint?</b></h1>
-                    <h2>This person uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
+                <div className="share-page">
+                    <h1 ><b>What's my environmental footprint?</b></h1>
+                    <h2 className="results-text">This person uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
                     <div>
                         <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                         <h2><b>Lets dive a little deeper</b></h2>

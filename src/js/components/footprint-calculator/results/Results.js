@@ -131,8 +131,8 @@ export default class Results extends React.Component {
                     <a><RaisedButton onClick={() => this.backToResults()} label="Back to Form" backgroundColor={"lightgrey"} /></a>
                     <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got my results" backgroundColor={"lightgrey"} /></a>
                     <FacebookShare
-                            id={this.props.answerId}
-                            displayText="Share on Facebook"
+                        id={this.props.answerId}
+                        displayText="Share on Facebook"
                     />
                 </div>
                 <br />
