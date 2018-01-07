@@ -2,11 +2,11 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import { RaisedButton } from 'material-ui';
-
 import Header from '../../components/Header';
 
 import ResultsPieChart from '../../components/footprint-calculator/results/ResultsPieChart';
 import ResultOptionButtons from '../../components/footprint-calculator/results/ResultOptionButtons';
+import FacebookShare from '../../components/footprint-calculator/results/FacebookShare';
 import PersonalBreakdown from '../../components/footprint-calculator/results/PersonalBreakdown';
 import Compare from '../../components/footprint-calculator/results/Compare';
 import Savings from '../../components/footprint-calculator/results/Savings';
@@ -15,6 +15,7 @@ import HowMuchCo2 from '../../components/footprint-calculator/results/HowMuchCo2
 
 @connect((store, props) => {
 	return {
+        answerId: store.footprintFormAnswers.answerId,
         questions: store.footprintForm.questions,
         userState: store.footprintFormAnswers.userState,
         results: store.footprintFormAnswers.formResults,
@@ -116,7 +117,7 @@ export default class Results extends React.Component {
                     <h1><b>My environmental footprint</b></h1>
                     <h2>I use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support my lifestyle.</h2>
                     <div>
-                        <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
+                        {/* <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} /> */}
                         <h2><b>Lets dive a little deeper</b></h2>
                         <ResultOptionButtons dispatch={this.props.dispatch} />
                     </div>
@@ -125,6 +126,10 @@ export default class Results extends React.Component {
                     <br />
                     <div style={{display: 'flex', justifyContent: 'space-around'}}>
                         <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got these results" backgroundColor={"lightgrey"} /></a>
+                        <FacebookShare
+                            id={this.props.answerId}
+                            displayText="Share on Facebook"
+                        />
                     </div>
                     <br />
                     <br />

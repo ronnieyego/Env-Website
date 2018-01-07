@@ -78,6 +78,15 @@ const renderFullPage = (markup, data, page) => {
             </head>
 
             <body>
+                <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
+                </script>
                 <div id="app">${markup}</div>
                 <script type="text/javascript">
                 window.__STATE__ = ${JSON.stringify(data)}
@@ -207,28 +216,24 @@ const footprintByIdMiddleware = (req, res) => {
     const id = req.params.id;
     FormAnswers.find({_id: id}).then(answers => {
         const answer = answers[0];
-        console.log('answer', answer);
         if(!answer) {
             res.send(404);
         }
         const storeData = {
             footprintFormAnswers: {
                 ...baseState,
+                answerId: id,
                 formResults: answer.results,
                 questions: answer.formAnswers
             }
         };
-
-        console.log('storeData is', storeData);
         const store = createStore(reducers, storeData);
-    
-        console.log('store is', store);
         const appMarkup = ReactDOM.renderToString(
-        <Provider store={store}>
-            <MuiThemeProvider>
-                <div />
-            </MuiThemeProvider>
-        </Provider>);
+            <Provider store={store}>
+                <MuiThemeProvider>
+                    <div />
+                </MuiThemeProvider>
+            </Provider>);
         res.status(200).send(renderFullPage(appMarkup, storeData, 'static-pages'));
 
     })

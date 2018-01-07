@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import { RaisedButton } from 'material-ui';
 
+import FacebookShare from './FacebookShare';
 import ResultsPieChart from './ResultsPieChart';
 import ResultOptionButtons from './ResultOptionButtons';
 import PersonalBreakdown from './PersonalBreakdown';
@@ -127,6 +128,10 @@ export default class Results extends React.Component {
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <RaisedButton onClick={() => this.backToResults()} label="Back to Form" backgroundColor={"lightgrey"} />
                     <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got my results" backgroundColor={"lightgrey"} /></a>
+                    <FacebookShare
+                            id={this.props.answerId}
+                            displayText="Share on Facebook"
+                    />
                 </div>
                 <br />
                 <br />

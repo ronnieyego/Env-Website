@@ -303,3 +303,7 @@ input[type="checkbox"] {
   text-align: center;
   margin-top: 15px;
 }
+.social-icon {
+  display: flex;
+  justify-content: space-around;
+}
