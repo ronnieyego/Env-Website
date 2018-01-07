@@ -116,18 +116,19 @@ export default class Results extends React.Component {
 
 		return (
             <div className="results">
-                <h1>You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support your lifestyle.</h1>
+                <h1 className="results-text">You use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support your lifestyle.</h1>
                 <div>
                     <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                     {/*<h3 style={{textAlign: 'left'}}>These numbers may seem surprisingly large (especially water use). It takes a lot of effort to produce the life we live.  The first step in any debate or action is knowing our current position.</h3>*/}
                     <h2><b>Lets dive a little deeper</b></h2>
                     <ResultOptionButtons dispatch={this.props.dispatch} />
                 </div>
+                <div id="top-of-results" />
                 
                 {shownResults}
                 <br />
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <RaisedButton onClick={() => this.backToResults()} label="Back to Form" backgroundColor={"lightgrey"} />
+                    <a><RaisedButton onClick={() => this.backToResults()} label="Back to Form" backgroundColor={"lightgrey"} /></a>
                     <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got my results" backgroundColor={"lightgrey"} /></a>
                     <FacebookShare
                             id={this.props.answerId}

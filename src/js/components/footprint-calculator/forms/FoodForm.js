@@ -44,6 +44,7 @@ export default class FoodForm extends React.Component {
                     <ul>
                         {questions}
                     </ul>
+                    <p className="footprint-form-sub-header">{calorieDisplay}</p>
                 </div>
             </div>
 		);

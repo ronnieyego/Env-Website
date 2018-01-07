@@ -1,8 +1,9 @@
 .results {
-    margin: auto;
-    margin-left: 25px;
     text-align: center;
 
+    &-text {
+        text-align: left;
+    }
     &-button {
         white-space: nowrap;
         margin: 5px 5px;
@@ -33,6 +34,33 @@
     }
 }
 
+.average-american {
+    min-width: 650px;
+    text-align: center;
+    font-size: 18px;
+
+    &-flex {
+        display: flex;
+    }
+    &-compare {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+    &-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 15px;
+        margin-top: 15px;
+
+        &-text {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+    }
+}
+
 
 .results-pie {
     border: 3px solid gray;
@@ -54,6 +82,13 @@
     }
 }
 
-.recharts-wrapper {
-    margin-left: -10%;
+.recharts {
+    
+    &-wrapper {
+        margin-left: -12%;
+    }
+
+    &-legend-wrapper {
+        margin-left: 30%;
+    }
 }

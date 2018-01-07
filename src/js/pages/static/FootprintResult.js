@@ -114,22 +114,19 @@ export default class Results extends React.Component {
             <div className="container-fluid text-center">
 				<Header />
                 <div className="results">
-                    <h1><b>My environmental footprint</b></h1>
-                    <h2>I use <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support my lifestyle.</h2>
+                    <h1 className="results-text"><b>What's my environmental footprint?</b></h1>
+                    <h2>This person uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
                     <div>
-                        {/* <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} /> */}
+                        <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                         <h2><b>Lets dive a little deeper</b></h2>
                         <ResultOptionButtons dispatch={this.props.dispatch} />
                     </div>
-                    
+                    <div id="top-of-results" />
                     {shownResults}
                     <br />
                     <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                        <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got these results" backgroundColor={"lightgrey"} /></a>
-                        <FacebookShare
-                            id={this.props.answerId}
-                            displayText="Share on Facebook"
-                        />
+                    <a href="/" target="_blank"><RaisedButton label="Calculate my footprint" primary={true} /></a>
+                        <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got these results" secondary={true} /></a>
                     </div>
                     <br />
                     <br />

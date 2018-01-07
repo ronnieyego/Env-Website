@@ -75,7 +75,7 @@ export default class ResultsPieChart extends React.Component {
                             <Pie legendType='circle' dataKey='amount' data={graphData} cx="50%" cy="50%" outerRadius={100} fill="#8884d8" label={renderCustomizedLabel}>
                                 {graphData.map((entry, index) => <Cell fill={this.colorMapping[entry.source].color} key={index}/>)}
                             </Pie>
-                            <Legend verticalAlign="top" height={36} margin={{top: 10, left: 0, right: 0, bottom: 10 }} payload={legendPayload} />
+                            <Legend verticalAlign="top" height={36} margin={{top: 10, left: '30%', right: 0, bottom: 10 }} payload={legendPayload} />
                         </PieChart>
                     </div>
                     <div className="results-pie-breakdown">{this.props.breakDownText || ''}

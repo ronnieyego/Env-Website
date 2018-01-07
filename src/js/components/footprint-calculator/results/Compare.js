@@ -6,19 +6,6 @@ import StateDropdown from '../../StateDropdown';
 
 import { getAverage } from '../../../utils/footprint/get-average-american-footprint';
 
-const containerStyle = {
-    margin: 'auto',
-    marginTop: '20px',
-    textAlign: 'center'
-};
-
-const buttonStyles = { // Buttons to change state, age, gender
-    display: 'flex',
-    justifyContent: 'space-around',
-    marginBottom: '15px',
-    marginTop: '15px'
-}
-
 export default class Compare extends React.Component {
     capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -48,7 +35,6 @@ export default class Compare extends React.Component {
     }
     
 	render() {
-        console.log('in compare. Average american is', this.props.averageAmerican);
         const res = this.props.results;
 
         let averageGraphData;
@@ -67,6 +53,7 @@ export default class Compare extends React.Component {
         let title;
         let units;
         let subtitle;
+        let unitText;
         let total;
         switch(this.props.category) {
             case 'energy':
@@ -74,20 +61,23 @@ export default class Compare extends React.Component {
                 total = res.totalEnergy;
                 title = 'Energy';
                 units = 'kwhs';
+                unitText = 'energy';
                 subtitle = `Total energy: ${averageTotal.toLocaleString()} kwhs per month`;
                 break;
             case 'co2':
                 averageGraphData = this.props.averageAmerican.co2;
                 total = res.totalCo2;
-                title = 'Co2';
+                title = 'CO2';
                 units = 'lb/CO2';
-                subtitle = `Total Co2: ${averageTotal.toLocaleString()} lb/Co2 per month`;
+                unitText = 'CO2';
+                subtitle = `Total CO2: ${averageTotal.toLocaleString()} lb/CO2 per month`;
                 break;
             case 'water':
                 averageGraphData = this.props.averageAmerican.water;
                 total = res.totalWater;
                 title = 'Water';
                 units = 'gallons';
+                unitText = 'water';
                 subtitle = `Total water: ${averageTotal.toLocaleString()} gallons per month`;
                 break;
         }
@@ -95,7 +85,7 @@ export default class Compare extends React.Component {
         const monthlyUse = this.props.monthlyUse;
         const diff = averageTotal - monthlyUse;
         const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
-        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${this.props.category} than this average American!` : `You use ${percentDiff * -1}% more ${this.props.category} than this average American`;
+        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You use ${percentDiff * -1}% more ${this.props.category} than this average American`;
         
         // Personal
         const categoryBreakDownData = [
@@ -105,7 +95,6 @@ export default class Compare extends React.Component {
         ];
 
         // Average American Summary
-        
         const averageAmerican = [
             {source: 'Appliance', amount: parseInt(averageGraphData.appliance)},
             {source: 'Food', amount: parseInt(averageGraphData.food)},
@@ -113,13 +102,12 @@ export default class Compare extends React.Component {
         ];
         
         const genderSelects = ['male', 'female'].map(gender => <MenuItem key={gender} primaryText={this.capitalize(gender)} value={gender} />);
-
         const ageRanges = ['American Average', '16-19', '20-34', '35-54', '55-64', '65+'];
         const ageSelects = ageRanges.map(age => <MenuItem key={age} primaryText={age} value={age} />);
 
 		return (
-            <div style={containerStyle}>
-                <div style={{display:'flex'}}>
+            <div className="average-american">
+                <div className="average-american-flex">
                     <ResultsPieChart 
                         graphData={categoryBreakDownData} 
                         title={`Your ${title} Breakdown`}
@@ -135,10 +123,10 @@ export default class Compare extends React.Component {
                             /> 
                     </div>
                 </div>   
-                <p style={{marginTop:'15px', marginBottom: '15px'}}>{comparisonText}</p>
-                <div id="compare-button-container" style={buttonStyles}>
+                <p className="average-american-compare">{comparisonText}</p>
+                <div className="average-american-buttons" id="compare-button-container">
                     <div>
-                        <b style={{marginBottom: '5px'}}>Change State</b>
+                        <b className="average-american-buttons-text">Change State</b>
                         <br />
                         <StateDropdown
                             id="compare-state-dropdown"
@@ -148,7 +136,7 @@ export default class Compare extends React.Component {
                         />
                     </div>
                     <div>
-                        <b>Change age group</b>
+                        <b className="average-american-buttons-text">Change age group</b>
                         <br />
                         <SelectField 
                             id="age-bracket"
@@ -161,7 +149,7 @@ export default class Compare extends React.Component {
                         </SelectField>
                     </div>
                     <div>
-                        <b>Change gender</b>
+                        <b className="average-american-buttons-text">Change gender</b>
                         <br />
                         <SelectField 
                             id="gender"

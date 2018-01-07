@@ -1,14 +1,19 @@
 import React, { PropTypes } from "react";
 
+const oilDrum = 880;
 const table = 1000;
 const tub = 1568;
 const grandPiano = 3000;
 
-const tableText = 'Your CO2 footprint is comparable to burning your dining room table every month';
-const tubText = 'Your CO2 footprint is comparable to filling a bath tub with gasoline and lighting it on fire every month';
-const grandText = 'Your CO2 footprint is comparable to buring a 600 pound grand piano every month';
+const tableText = 'The CO2 footprint is comparable to burning your dining room table every month';
+const tubText = 'The CO2 footprint is comparable to filling a bath tub with gasoline and lighting it on fire every month';
+const oilDrumText = 'The CO2 footprint is comparable to burning a barrel of oil every month';
+const threeOilDrumsText = 'The CO2 footprint is comparable to burning 3 barrels of oil every month';
+const grandText = 'The CO2 footprint is comparable to burning a 600 pound grand piano every month';
+const getTooMuch = total => `The CO2 footprint is comparable to burning ${Math.round(total/oilDrum)} barrels of oil every month!`;
 
-const notBad = 'That said, you\'re not doing too bad.  This footprint is less than the average american.';
+const notBad = 'That said, its not doing too bad.  This footprint is less than the average american.';
+
 const style = {textAlign: 'left'}
 
 export default class HowMuchCo2 extends React.Component {
@@ -21,13 +26,17 @@ export default class HowMuchCo2 extends React.Component {
         const co2 = this.props.co2;
         let text;
         if (co2 > grandPiano * 2) {
-            return null
-        } else if (co2 > grandPiano) {
+            return getTooMuch(co2);
+        } else if (co2 > grandPiano) { // 3000
             text = grandText;
-        } else if (co2 > tubText) {
+        } else if (co2 > 2200) {
+            text = threeOilDrumsText;
+        } else if (co2 > tub) { // 1500
             text = tubText;
-        } else if (co2 > table) {
+        } else if (co2 > table) { // 1000
             text = tableText
+        } else if (co2 > 500) { // 500
+            text = oilDrumText
         } else {
             return null;
         }
