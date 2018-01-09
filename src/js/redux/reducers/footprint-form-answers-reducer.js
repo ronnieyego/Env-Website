@@ -40,7 +40,7 @@ const footprintFormAnswers = (state = baseState, action) => {
             break;
         }
         case 'UPDATE_USER_STATE': {
-            state = { ...state, userState: action.payload};
+            state = { ...state, userState: action.payload, averageAmericanState: action.payload};
             break;
         }
         case 'UPDATE_AVERAGE_AMERICAN': {

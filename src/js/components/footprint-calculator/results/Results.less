@@ -42,6 +42,16 @@
 
     &-flex {
         display: flex;
+        justify-content: center
+    }
+
+    &-vs-you-total {
+        display: flex;
+        justify-content: space-around;
+        max-width: 600px;
+    }
+    &-divider {
+        border-left: solid black 2px;
     }
     &-compare {
         margin-top: 15px;
@@ -92,4 +102,17 @@
     &-legend-wrapper {
         margin-left: 30%;
     }
+}
+
+.compare {
+    &-bar-chart {
+        margin-left: 0;
+        align-self: center;
+        width: null !important;
+
+        &-legend {
+            margin-left: 30%;
+        }
+    }
+    
 }

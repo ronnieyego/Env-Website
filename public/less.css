@@ -112,6 +112,15 @@
 }
 .average-american-flex {
   display: flex;
+  justify-content: center;
+}
+.average-american-vs-you-total {
+  display: flex;
+  justify-content: space-around;
+  max-width: 600px;
+}
+.average-american-divider {
+  border-left: solid black 2px;
 }
 .average-american-compare {
   margin-top: 15px;
@@ -149,6 +158,14 @@
   margin-left: -12%;
 }
 .recharts-legend-wrapper {
+  margin-left: 30%;
+}
+.compare-bar-chart {
+  margin-left: 0;
+  align-self: center;
+  width: null !important;
+}
+.compare-bar-chart-legend {
   margin-left: 30%;
 }
 .state-energy-text {

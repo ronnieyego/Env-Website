@@ -1,7 +1,6 @@
 import React from "react";
 import { MenuItem, SelectField } from 'material-ui';
-
-import ResultsPieChart from './ResultsPieChart';
+import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'Recharts';
 import StateDropdown from '../../StateDropdown';
 
 import { getAverage } from '../../../utils/footprint/get-average-american-footprint';
@@ -36,9 +35,8 @@ export default class Compare extends React.Component {
     
 	render() {
         const res = this.props.results;
-
         let averageGraphData;
-        switch(this.props.category) { // Next switch needs averageGraphData.  So 2 switches ><
+        switch(this.props.category) { // Need total before the next switch.  So 2 switches ><
             case 'energy':
                 averageGraphData = this.props.averageAmerican.energy;
                 break;
@@ -68,7 +66,7 @@ export default class Compare extends React.Component {
                 averageGraphData = this.props.averageAmerican.co2;
                 total = res.totalCo2;
                 title = 'CO2';
-                units = 'lb/CO2';
+                units = 'lbs/CO2';
                 unitText = 'CO2';
                 subtitle = `Total CO2: ${averageTotal.toLocaleString()} lb/CO2 per month`;
                 break;
@@ -87,19 +85,14 @@ export default class Compare extends React.Component {
         const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
         const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You use ${percentDiff * -1}% more ${this.props.category} than this average American`;
         
-        // Personal
-        const categoryBreakDownData = [
-            {source: 'Appliances', amount: parseInt(res.appliance)},
-            {source: 'Food', amount: parseInt(res.food)},
-            {source: 'Transportation', amount: parseInt(res.transportation) || 0},
+        const barGraphData = [
+            {name: 'Total', You: total, 'Average American': averageTotal},
+            {name: 'Appliance', You: parseInt(res.appliance) || 0, 'Average American': parseInt(averageGraphData.appliance)},
+            {name: 'Food', You: parseInt(res.food) || 0, 'Average American': parseInt(averageGraphData.food)},
+            {name: 'Transportation', You: parseInt(res.transportation) || 0, 'Average American': parseInt(averageGraphData.transportation) || 0}
         ];
 
-        // Average American Summary
-        const averageAmerican = [
-            {source: 'Appliance', amount: parseInt(averageGraphData.appliance)},
-            {source: 'Food', amount: parseInt(averageGraphData.food)},
-            {source: 'Transportation', amount: parseInt(averageGraphData.transportation) || 0}
-        ];
+        const domainMax = Math.max(5000, total, averageTotal);
         
         const genderSelects = ['male', 'female'].map(gender => <MenuItem key={gender} primaryText={this.capitalize(gender)} value={gender} />);
         const ageRanges = ['American Average', '16-19', '20-34', '35-54', '55-64', '65+'];
@@ -107,23 +100,25 @@ export default class Compare extends React.Component {
 
 		return (
             <div className="average-american">
-                <div className="average-american-flex">
-                    <ResultsPieChart 
-                        graphData={categoryBreakDownData} 
-                        title={`Your ${title} Breakdown`}
-                        subtitle={`Total ${title}: ${monthlyUse.toLocaleString()} ${units} per month`}
-                        category={this.props.category}
-                        /> 
-                    <div id="average-american">
-                        <ResultsPieChart 
-                            graphData={averageAmerican}
-                            title={`Average American ${title} Breakdown`}
-                            subtitle={subtitle}
-                            category={this.props.category}
-                            /> 
+                <div>
+                    <h1>You vs an average American</h1>
+                    <p className="average-american-compare">{comparisonText}</p>
+                    <div className="average-american-flex">
+                        <BarChart width={600} height={300} data={barGraphData}
+                                margin={{top: 5, right: 30, left: 20, bottom: 5}}
+                                className="compare-bar-chart">
+                            <XAxis dataKey="name"/>
+                            <YAxis type="number" domain={[0, domainMax]} label={{ value: units, angle: -90, position: 'insideLeft' }}/>
+                            <CartesianGrid strokeDasharray="3 3"/>
+                            <Tooltip/>
+                            <Legend wrapperStyle={{marginLeft: '0px'}} />
+                            <ReferenceLine y={0} stroke='#000'/>
+                            <Bar dataKey="You" fill="#8884d8" />
+                            <Bar dataKey="Average American" fill="#82ca9d" />
+                        </BarChart>
                     </div>
                 </div>   
-                <p className="average-american-compare">{comparisonText}</p>
+                
                 <div className="average-american-buttons" id="compare-button-container">
                     <div>
                         <b className="average-american-buttons-text">Change State</b>

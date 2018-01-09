@@ -108,6 +108,17 @@ export default class Results extends React.Component {
                     category={'water'}
                 />
                 break;
+            default:
+                shownResults = <Compare 
+                                        results={this.props.results.co2}
+                                        averageAmerican={this.props.averageAmerican}
+                                        averageAmericanstate={this.props.averageAmericanState}
+                                        age={this.props.averageAmericanAge}
+                                        gender={this.props.averageAmericanGender}
+                                        monthlyUse={monthlyCo2Use}
+                                        dispatch={this.props.dispatch}
+                                        category={'co2'}
+                                    />;
         }
 
 		return (
@@ -118,11 +129,12 @@ export default class Results extends React.Component {
                     <h2 className="results-text">This person uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
                     <div>
                         <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
+                        <div id="top-of-results" />
+                        <br />
+                        {shownResults}
                         <h2><b>Lets dive a little deeper</b></h2>
                         <ResultOptionButtons dispatch={this.props.dispatch} />
                     </div>
-                    <div id="top-of-results" />
-                    {shownResults}
                     <br />
                     <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <a href="/" target="_blank"><RaisedButton label="Calculate my footprint" primary={true} /></a>
