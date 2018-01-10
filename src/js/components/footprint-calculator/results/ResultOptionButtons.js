@@ -1,39 +1,73 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { RaisedButton } from 'material-ui';
+import FacebookShare from './FacebookShare';
 
 export default class ResultOptionButtons extends React.Component {
-    switchResult(payload) {
-        this.props.dispatch({type: 'UPDATE_RESULTS_SHOWN', payload});
+
+    static proptypes = {
+        dispatch: PropTypes.func,
+        answerId: PropTypes.number,
+        resultsShown: PropTypes.string,
+        resultsUnit: PropTypes.string,
+        shareResults: PropTypes.bool
+    }
+
+    switchResult({resultsShown, resultsUnit}) {
+        this.props.dispatch({type: 'UPDATE_RESULTS_SHOWN', payload: {resultsShown, resultsUnit} });
     }
 
 	render() {
+        let unit = 'CO2';
+        if(this.props.resultsUnit === 'energy') {
+            unit = 'energy'
+        } else if (this.props.resultsUnit === 'water') {
+            unit = 'water'
+        }
 		return (
-            <div className="results-buttons-container">
-                <table className="results-buttons">
-                    <tbody>
-                        <tr className="results-buttons-header"><td className="results-buttons-header-cell"><b>CO<sub>2</sub></b></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("co2-personalBreakdown")} label="My Personal CO2 Breakdown" primary={true}/></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("co2-compare")} label="Compare my emissions" secondary={true}/></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("co2-savings")} label="Reduce my carbon footprint" primary={true}/></td></tr>
-                    </tbody>
-                </table>
-                <table className="results-buttons">
-                    <tbody>
-                        <tr className="results-buttons-header"><td className="results-buttons-header-cell"><b>Water</b></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("water-personalBreakdown")} label="My Personal Water Breakdown" secondary={true}/></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("water-compare")} label="Compare my water use" primary={true}/></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("water-savings")} label="Reduce my water use" secondary={true}/></td></tr>
-                    </tbody>
-                </table>
-                <table className="results-buttons">
-                    <tbody>
-                        <tr className="results-buttons-header"><td className="results-buttons-header-cell"><b>Energy</b></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("energy-personalBreakdown")} label="My Personal Energy Breakdown" primary={true}/></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("energy-compare")} label="Compare my energy use" secondary={true}/></td></tr>
-                        <tr><td className="results-buttons-cell"><RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult("energy-savings")} label="Reduce my energy" primary={true}/></td></tr>
-                    </tbody>
-                </table>
-                
+            <div className="results-changer">
+                <h1><b>I want to . . .</b></h1>
+                {/* {Results shown buttons} */}
+                {this.props.resultsShown !== 'compare' && <div className="results-changer-row">
+                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({ resultsUnit: this.props.resultsUnit, resultsShown: 'compare'})} label="Compare" primary={true}/>
+                    <p className="results-changer-row-explainer">Compare your footprint against different demographics.</p>
+                </div>}
+                {this.props.resultsShown !== 'personalBreakdown' && <div className="results-changer-row">
+                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({ resultsUnit: this.props.resultsUnit, resultsShown: 'personalBreakdown'})} label="Dive Deeper" primary={true}/>
+                    <p className="results-changer-row-explainer">Explore a detailed view into what makes up your {unit} use.</p>
+                </div>}
+                {this.props.resultsShown !== 'savings' && <div className="results-changer-row">
+                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({ resultsUnit: this.props.resultsUnit, resultsShown: 'savings'})} label={`Reduce my ${unit} use`} primary={true}/>
+                    <p className="results-changer-row-explainer">Discover some surprising ways to reduce {unit} use.</p>
+                </div>}
+
+                {/* {Change results unit} */}
+                {this.props.resultsUnit !== 'co2' && <div className="results-changer-row">
+                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({ resultsUnit: 'co2', resultsShown: this.props.resultsShown})} label="Explore CO2" primary={true}/>
+                    <p className="results-changer-row-explainer">How much do you contribute to global warming?</p>
+                </div>}
+                {this.props.resultsUnit !== 'water' && <div className="results-changer-row">
+                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({ resultsUnit: 'water', resultsShown: this.props.resultsShown})} label="Explore Water" primary={true}/>
+                    <p className="results-changer-row-explainer">Most people have no idea how much water they use.</p>
+                </div>}
+                {this.props.resultsUnit !== 'energy' && <div className="results-changer-row">
+                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({ resultsUnit: 'energy', resultsShown: this.props.resultsShown})} label="Explore Energy" primary={true}/>
+                    <p className="results-changer-row-explainer">How much energy do you use and where does it come from?</p>
+                </div>}
+
+                {/* Moar Buttons!! */}
+                <div className="results-changer-row">
+                <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="See the calculations" primary={true} /></a>
+                    <p className="results-changer-row-explainer">A brief guide to how we constructed this footprint.</p>
+                </div>
+                {!this.props.shareResults && <div className="results-changer-row">
+                    <a href="/" target="_blank"><RaisedButton label="Calculate my footprint" secondary={true} /></a>
+                    <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
+                </div>}
+                {this.props.shareResults && <div className="results-changer-row">
+                    <FacebookShare id={this.props.answerId} displayText="Share on Facebook" />
+                    <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
+                </div>}
             </div>
 		);
 	}

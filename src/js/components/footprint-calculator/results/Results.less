@@ -2,36 +2,19 @@
     text-align: center;
     font-weight: normal;
 
-    &-text {
+    &-changer {
         text-align: left;
-    }
-    &-button {
-        white-space: nowrap;
-        margin: 5px 5px;
-    }
-    &-buttons {
-        border-collapse: collapse;
-        margin-bottom: 40px;
-
-        &-container {
-            display: flex;
-            justify-content: space-around;
-            min-width: 650px;
-        }
-
-        &-header {
-            background-color: rgb(240, 240, 240);
-            &-cell {
-                padding: 0 10px;
-                font-size: 20px;
-                font-weight: bold;
-                border: 1px solid black;
+        margin-bottom: 20px;
+        
+        &-row {
+            margin-left: 15px;
+            &-explainer {
+                margin-left: 15px;
             }
         }
-        
-        &-cell {
-            border: 1px solid black;
-        }
+    }   
+    &-text {
+        text-align: left;
     }
 }
 
@@ -55,8 +38,13 @@
     }
     &-compare {
         margin-top: 15px;
-        margin-bottom: 15px;
+        margin-bottom: 5px;
         font-size: 22px;
+
+        &-subtext {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
     }
     &-buttons {
         display: flex;
@@ -115,4 +103,12 @@
         }
     }
     
+}
+
+.display-flex {
+    display: flex;
+ 
+    &-around {
+        justify-content: space-around;
+    }
 }

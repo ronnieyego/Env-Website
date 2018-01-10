@@ -5,7 +5,8 @@ const baseState = {
     questions: [],
     formResults: {},
     errorGettingFormResults: false,
-    resultsShown: '',
+    resultsUnit: 'co2',
+    resultsShown: 'compare',
     userState: 'US',
     averageAmerican: getAverage('US', 'American Average', 'male'),
     averageAmericanState: 'US',
@@ -36,7 +37,11 @@ const footprintFormAnswers = (state = baseState, action) => {
             break;
         }
         case 'UPDATE_RESULTS_SHOWN': {
-            state = { ...state, resultsShown: action.payload};
+            state = { 
+                ...state,
+                resultsShown: action.payload.resultsShown, 
+                resultsUnit: action.payload.resultsUnit
+            };
             break;
         }
         case 'UPDATE_USER_STATE': {

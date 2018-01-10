@@ -20,6 +20,7 @@ import HowMuchCo2 from '../../components/footprint-calculator/results/HowMuchCo2
         userState: store.footprintFormAnswers.userState,
         results: store.footprintFormAnswers.formResults,
         resultsShown: store.footprintFormAnswers.resultsShown,
+        resultsUnit: store.footprintFormAnswers.resultsUnit,
 		averageAmerican: store.footprintFormAnswers.averageAmerican,
 		averageAmericanState: store.footprintFormAnswers.averageAmericanState,
 		averageAmericanAge: store.footprintFormAnswers.averageAmericanAge,
@@ -33,7 +34,7 @@ export default class Results extends React.Component {
         const monthlyCo2Use = parseInt(res.co2.totalCo2);
         const monthlyWaterUse = parseInt(res.water.totalWater);
         let shownResults;
-        switch(this.props.resultsShown) {
+        switch(this.props.resultsUnit + '-' + this.props.resultsShown) {
             case 'energy-personalBreakdown':
                 shownResults = <PersonalBreakdown 
                     results={this.props.results.energy} 
@@ -126,21 +127,20 @@ export default class Results extends React.Component {
 				<Header />
                 <div className="share-page">
                     <h1 ><b>What's my environmental footprint?</b></h1>
-                    <h2 className="results-text">This person uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> each month.  This releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub>.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
+                    <h2 className="results-text">This person releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub> and uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> of energy each month.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
                     <div>
                         <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                         <div id="top-of-results" />
                         <br />
                         {shownResults}
-                        <h2><b>Lets dive a little deeper</b></h2>
-                        <ResultOptionButtons dispatch={this.props.dispatch} />
+                        <ResultOptionButtons 
+                            answerId={this.props.answerId}
+                            dispatch={this.props.dispatch} 
+                            resultsShown={this.props.resultsShown}
+                            resultsUnit={this.props.resultsUnit}
+                            shareResults={false}
+                        />
                     </div>
-                    <br />
-                    <div style={{display: 'flex', justifyContent: 'space-around'}}>
-                    <a href="/" target="_blank"><RaisedButton label="Calculate my footprint" primary={true} /></a>
-                        <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="How I got these results" secondary={true} /></a>
-                    </div>
-                    <br />
                     <br />
                     
                     <Facts />
@@ -149,4 +149,3 @@ export default class Results extends React.Component {
 		);
 	}
 };
-

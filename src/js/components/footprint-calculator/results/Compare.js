@@ -103,6 +103,7 @@ export default class Compare extends React.Component {
                 <div>
                     <h1>You vs an average American</h1>
                     <p className="average-american-compare">{comparisonText}</p>
+                    <p className="average-american-compare-subtext">Use the tool below to compare against different demographics</p>
                     <div className="average-american-flex">
                         <BarChart width={600} height={300} data={barGraphData}
                                 margin={{top: 5, right: 30, left: 20, bottom: 5}}

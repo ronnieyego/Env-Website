@@ -18,11 +18,8 @@ export default class FacebookShare extends React.Component {
 
 	render() {
         return (
-            <FacebookShareButton url={`http://www.footprint-finder.com/footprint/${this.props.id}`} quote="Do you contribute more to global warming thatn me?">
-                <div className="social-icon">
-                    <FacebookIcon round={true} size={32} />
-                </div>
-                <b>{this.props.displayText}</b>
+            <FacebookShareButton url={`http://www.footprint-finder.com/footprint/${this.props.id}`} quote="Do you contribute more to global warming than me?">
+                <FacebookIcon round={true} size={42} />
             </FacebookShareButton>
         );
     }

@@ -10,7 +10,6 @@ const tubText = 'The CO2 footprint is comparable to filling a bath tub with gaso
 const oilDrumText = 'The CO2 footprint is comparable to burning a barrel of oil every month';
 const threeOilDrumsText = 'The CO2 footprint is comparable to burning 3 barrels of oil every month';
 const grandText = 'The CO2 footprint is comparable to burning a 600 pound grand piano every month';
-const getTooMuch = total => `The CO2 footprint is comparable to burning ${Math.round(total/oilDrum)} barrels of oil every month!`;
 
 const notBad = 'That said, its not doing too bad.  This footprint is less than the average american.';
 
@@ -22,11 +21,15 @@ export default class HowMuchCo2 extends React.Component {
         averageAmerican: PropTypes.number
     }
 
+    getTooMuch(total) {
+        return `The CO2 footprint is comparable to burning ${Math.round(total/oilDrum)} barrels of oil every month!`;
+    }
+
 	render() {
         const co2 = this.props.co2;
         let text;
         if (co2 > grandPiano * 2) {
-            return getTooMuch(co2);
+            text = this.getTooMuch(co2);
         } else if (co2 > grandPiano) { // 3000
             text = grandText;
         } else if (co2 > 2200) {

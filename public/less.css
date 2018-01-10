@@ -77,33 +77,17 @@
   text-align: center;
   font-weight: normal;
 }
-.results-text {
+.results-changer {
   text-align: left;
 }
-.results-button {
-  white-space: nowrap;
-  margin: 5px 5px;
+.results-changer-row {
+  margin-left: 15px;
 }
-.results-buttons {
-  border-collapse: collapse;
-  margin-bottom: 40px;
+.results-changer-row-explainer {
+  margin-left: 15px;
 }
-.results-buttons-container {
-  display: flex;
-  justify-content: space-around;
-  min-width: 650px;
-}
-.results-buttons-header {
-  background-color: #f0f0f0;
-}
-.results-buttons-header-cell {
-  padding: 0 10px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 1px solid black;
-}
-.results-buttons-cell {
-  border: 1px solid black;
+.results-text {
+  text-align: left;
 }
 .average-american {
   min-width: 650px;
@@ -124,8 +108,12 @@
 }
 .average-american-compare {
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   font-size: 22px;
+}
+.average-american-compare-subtext {
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 .average-american-buttons {
   display: flex;
@@ -167,6 +155,12 @@
 }
 .compare-bar-chart-legend {
   margin-left: 30%;
+}
+.display-flex {
+  display: flex;
+}
+.display-flex-around {
+  justify-content: space-around;
 }
 .state-energy-text {
   font-size: 18px;
@@ -352,8 +346,4 @@ input[type="checkbox"] {
 .share-page {
   margin-left: 10%;
   margin-right: 10%;
-}
-.social-icon {
-  display: flex;
-  justify-content: space-around;
 }
