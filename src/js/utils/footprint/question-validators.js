@@ -12,6 +12,20 @@ const standardIntQuestion = value => {
     return errorText;
 }
 
+const underTwentyQuestion = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = '';
+    } else if (value < 0 ) {
+        errorText = 'I don\'t know how to calculate diet programs.';
+    } else if (value >= 20) {
+        errorText = 'That\'s a lot of food.  Please enter a real value or consult a doctor immediately.';
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
+        errorText = "Please enter a valid number";
+    }
+    return errorText;
+}
+
 const nonZeroIntQuestion = value => {
     let errorText = '';
     if(value === '') {
@@ -69,6 +83,8 @@ export const getErrorText = (value, type) => {
             return standardIntQuestion(value);
         case 'non-zero-int':
             return nonZeroIntQuestion(value);
+        case 'under-20':
+            return underTwentyQuestion(value);
         case 'mpg':
             return mpgValidator(value);
         default:

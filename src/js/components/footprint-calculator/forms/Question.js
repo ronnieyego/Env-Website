@@ -34,14 +34,16 @@ export default class Question extends React.Component {
             <li className="footprint-form-question">
                 <div>
                     <p className="footprint-form-question-name">{this.formatName(this.props.question.name)}</p>
+                    {this.props.aboveText && <p className="footprint-form-question-subtext">{this.props.aboveText}</p>}
                     <div>
                         <TextField
                             errorText={this.props.errorText}
                             id={this.props.id}
                             name={this.props.id}
-                            hintText={this.props.subtext}
+                            hintText={this.props.subText}
                             onChange={this.updateQuestion.bind(this, this.props.validator)}
                             value={this.props.value}
+                            floatingLabelText={this.props.floatingLabelText}
 
                         />
                     </div>

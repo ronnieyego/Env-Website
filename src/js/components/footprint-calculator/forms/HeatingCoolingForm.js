@@ -14,7 +14,7 @@ export default class HeatingCoolingForm extends React.Component {
                 id={question.name} 
                 question={question} 
                 value={value} 
-                subtext={question.subtext} 
+                subText={question.subtext} 
                 dispatch={this.props.dispatch}
                 validator={question.validator}
                 />);

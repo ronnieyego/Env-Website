@@ -1,9 +1,14 @@
 const userReducer = (state = {
-    userState: 'US'
+    userState: 'US',
+    userGender: ''
 }, action) => {
     switch (action.type) {
         case 'UPDATE_USER_STATE': {
             state = { ...state, userState: action.payload};
+            break;
+        }
+        case 'UPDATE_USER_GENDER': {
+            state = { ...state, userGender: action.payload};
             break;
         }
     }

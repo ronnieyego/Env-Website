@@ -50,6 +50,12 @@
   font-size: 18px;
   font-weight: bold;
 }
+.footprint-form-question-subtext {
+  font-size: 18px;
+  font-weight: normal;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
 .footprint-form-question-boolean {
   font-size: 16px;
   font-weight: bold;
@@ -79,6 +85,7 @@
 }
 .results-changer {
   text-align: left;
+  margin-bottom: 20px;
 }
 .results-changer-row {
   margin-left: 15px;
@@ -160,6 +167,7 @@
   display: flex;
 }
 .display-flex-around {
+  display: flex;
   justify-content: space-around;
 }
 .state-energy-text {

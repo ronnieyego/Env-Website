@@ -105,7 +105,7 @@ export default class FootprintForm extends React.Component {
           form = (<ApplianceForm questions={this.props.applianceHour} dispatch={this.props.dispatch} />);
           break;
         case 4:
-          form = (<FoodForm questions={this.props.foodQuestions} dispatch={this.props.dispatch} />);
+          form = (<FoodForm questions={this.props.foodQuestions} allQuestions={this.props.allQuestions} dispatch={this.props.dispatch} userGender={this.props.userGender} />);
           break;
         case 5:
           form = (<TransportationForm questions={this.props.transportation} dispatch={this.props.dispatch} />);

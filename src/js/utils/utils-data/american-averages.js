@@ -34,8 +34,10 @@ const kwhPerMonthAppliance = 901;
 // Total servings of food/year eaten by Americans and energy/serving
 // Source:  NPR  http://www.npr.org/sections/thesalt/2011/12/31/144478009/the-average-american-ate-literally-a-ton-this-year
 // Based on this data:  https://www.ers.usda.gov/Data/FoodConsumption/
+// Added eggs from https://askkaren.custhelp.com/app/answers/detail/a_id/1410/~/how-many-eggs-do-americans-eat-each-year%3F
 
-// This diet is 3000 calories a day.  Im just taking the ratio of food from here
+// This diet is 3890 calories a day.  Im just taking the ratio of food from here
+const americanDietCalories = 3500;
 const americanFood = {
     dairy: {
         yearServings: 2293,
@@ -73,6 +75,12 @@ const americanFood = {
         co2PerServing: 1.01,
         water: 85.6
      },
+    eggs: {
+        yearServings: 245,
+        energyPerServing: 0.55,
+        co2PerServing: 0.69,
+        water: 52.7
+     },
     pork: {
         yearServings: 320,
         energyPerServing: 12.6,
@@ -84,6 +92,12 @@ const americanFood = {
         energyPerServing: 31.5,
         co2PerServing: 5.24,
         water: 374.8
+    },
+    "junk food" : {
+        yearServings: 752,
+        energyPerServing: .43,
+        co2PerServing: .23,
+        water: 45
     }
 };
 
@@ -117,6 +131,7 @@ const demographicCalories ={
 
 module.exports = {
     americanCarMiles,
+    americanDietCalories,
     americanFood, 
     demographicCalories,
     kwhPerMonthAppliance

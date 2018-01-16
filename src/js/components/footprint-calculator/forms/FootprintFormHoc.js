@@ -10,6 +10,7 @@ import _ from 'lodash';
 		questions: store.footprintForm.questions,
         step: store.footprintForm.step,
         isSubmitReady: store.footprintForm.isSubmitReady,
+        userGender: store.userInfo.userGender
 	};
 })
 export default class FootprintFormHoc extends React.Component {
@@ -37,6 +38,7 @@ export default class FootprintFormHoc extends React.Component {
                 foodQuestions={foodQuestions}
                 transportation={transportation}
                 isSubmitReady={this.props.isSubmitReady}
+                userGender={this.props.userGender}
             />
         )
 	}

@@ -1,4 +1,4 @@
-const { americanCarMiles, americanFood, demographicCalories, kwhPerMonthAppliance } = require('../utils-data/american-averages');
+const { americanCarMiles, americanDietCalories, americanFood, demographicCalories, kwhPerMonthAppliance } = require('../utils-data/american-averages');
 const { utilityEmissionsPerState, utilityUse} = require('../utils-data/state-energy-and-emissions');
 
 // Hacky V1 to get us average energy
@@ -29,9 +29,9 @@ const getAverageCo2 = (state, age, gender) => {
 
     const appliance = parseInt(utilityUse[state] * utilityEmissionsPerState[state]);
 
-    // Food multiplier is because AmericanFood is based off a 3000 calorie diet.
+    // Food multiplier is because AmericanFood is based off a 3890 calorie diet.
     const cals = demographicCalories[age][gender];
-    const foodMultiplier = cals / 3000;
+    const foodMultiplier = cals / americanDietCalories;
     let foodKeys = Object.keys(americanFood);
     const totalYearFoodCo2 = foodKeys.reduce((total, current) => {
         const food = americanFood[current];
@@ -57,9 +57,9 @@ const getAverageEnergy = (state, age, gender) => {
     const monthlyPlane = planeMiles * kwhPerGallonJetFuel;
     const monthlyTransportation = monthlyCar + monthlyPlane;
 
-    // Food multiplier is because AmericanFood is based off a 3000 calorie diet.
+    // Food multiplier is because AmericanFood is based off a 3890 calorie diet.
     const cals = demographicCalories[age][gender];
-    const foodMultiplier = cals / 3000;
+    const foodMultiplier = cals / americanDietCalories;
     let foodKeys = Object.keys(americanFood);
     const totalYearFood = foodKeys.reduce((total, current) => {
         const food = americanFood[current];
