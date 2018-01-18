@@ -1,6 +1,6 @@
 import React from "react";
 import { MenuItem, SelectField } from 'material-ui';
-import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'Recharts';
+import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import StateDropdown from '../../StateDropdown';
 
 import { getAverage } from '../../../utils/footprint/get-average-american-footprint';
