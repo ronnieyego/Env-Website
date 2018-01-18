@@ -48,6 +48,8 @@ export default class TransportationForm extends React.Component {
                     question={question}
                     value={value}
                     subText={question.subtext}
+                    belowText={question.belowText}
+                    belowText2={question.belowText2}
                     dispatch={this.props.dispatch}
                     validator={question.validator}
                 />

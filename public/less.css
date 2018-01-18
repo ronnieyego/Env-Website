@@ -56,6 +56,11 @@
   margin-top: -10px;
   margin-bottom: 20px;
 }
+.footprint-form-question-below-text {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
 .footprint-form-question-boolean {
   font-size: 16px;
   font-weight: bold;
@@ -67,6 +72,7 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
+  margin-top: 30px;
 }
 .footprint-form-submit-invalid {
   margin: 15px 0;

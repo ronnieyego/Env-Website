@@ -35,6 +35,7 @@ export default class Question extends React.Component {
                 <div>
                     <p className="footprint-form-question-name">{this.formatName(this.props.question.name)}</p>
                     {this.props.aboveText && <p className="footprint-form-question-subtext">{this.props.aboveText}</p>}
+                    {this.props.aboveText2 && <p className="footprint-form-question-subtext">{this.props.aboveText2}</p>}
                     <div>
                         <TextField
                             errorText={this.props.errorText}
@@ -47,6 +48,8 @@ export default class Question extends React.Component {
 
                         />
                     </div>
+                    {this.props.belowText && <p className="footprint-form-question-below-text">{this.props.belowText}</p>}
+                    {this.props.belowText2 && <p className="footprint-form-question-below-text">{this.props.belowText2}</p>}
                 </div>
             </li>
 		);

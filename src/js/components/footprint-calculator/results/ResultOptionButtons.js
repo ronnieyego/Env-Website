@@ -68,6 +68,9 @@ export default class ResultOptionButtons extends React.Component {
                     <FacebookShare id={this.props.answerId} displayText="Share on Facebook" />
                     <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
                 </div>}
+                {this.props.shareResults && <div className="results-changer-row">
+                <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.props.dispatch({ type: 'DISPLAY_ANSWERS', action: false})} label="Return to Form" primary={true}/>
+                </div>}
             </div>
 		);
 	}

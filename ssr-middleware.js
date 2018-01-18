@@ -220,6 +220,12 @@ const footprintByIdMiddleware = (req, res) => {
             res.send(404);
         }
         const storeData = {
+            footprintForm: {
+                questions: answer.questions,
+                getQuestionsError: false,
+                step: 1,
+                isSubmitReady: true
+            },
             footprintFormAnswers: {
                 ...baseState,
                 answerId: id,

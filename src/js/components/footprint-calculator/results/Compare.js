@@ -83,7 +83,7 @@ export default class Compare extends React.Component {
         const monthlyUse = this.props.monthlyUse;
         const diff = averageTotal - monthlyUse;
         const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
-        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You use ${percentDiff * -1}% more ${this.props.category} than this average American`;
+        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You use ${percentDiff * -1}% more ${unitText} than this average American`;
         
         const barGraphData = [
             {name: 'Total', You: total, 'Average American': averageTotal},

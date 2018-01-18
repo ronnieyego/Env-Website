@@ -48,6 +48,7 @@ app.get('/energy', usEnergyMapMiddleware);
 
 app.get('/footprint', footprintMiddleware);
 app.get('/footprint/:id', footprintByIdMiddleware);
+app.get('/footprint/form/:id', footprintByIdMiddleware);
 
 app.get('/co2e', staticPagesMiddleware)
 app.get('/data', staticPagesMiddleware)
