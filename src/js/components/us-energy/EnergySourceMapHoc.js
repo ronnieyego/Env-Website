@@ -169,7 +169,7 @@ export default class EnergySourceMapHoc extends React.Component {
 
   render() {
     if(!this.props.showMap) {
-        return <div styles={{width, height, fontSize: '24px'}}> Map is loading </div>
+        return <div className="us-energy-map-loading">Map is loading</div>
     } else {
         return (
             <div className="us-energy-map-container">

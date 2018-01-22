@@ -53,6 +53,7 @@ app.get('/footprint/form/:id', footprintByIdMiddleware);
 app.get('/co2e', staticPagesMiddleware)
 app.get('/data', staticPagesMiddleware)
 app.get('/how-your-footprint-was-calculated', staticPagesMiddleware);
+app.get('/about', staticPagesMiddleware);
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');

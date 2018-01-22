@@ -24,6 +24,7 @@ export default class Header extends React.Component {
 							<li><a href="/how-your-footprint-was-calculated">Form Calculations</a></li>
 							<li><a href="/data">Data</a></li>
 							<li><a href="/co2e">CO<sub>2</sub>e</a></li>
+							<li><a href="/about">About</a></li>
 			      </ul>
 			      <ul className="nav navbar-nav navbar-right">
 			      </ul>

@@ -9,7 +9,8 @@
     "test": "mocha --compilers js:babel-core/register --recursive tests",
     "webstart": "webpack && lessc src/js/css-entry.less public/less.css && node index.js",
     "start": "node index.js",
-    "questions": "node db/db-scripts/data/format-scripts/footprint/compile-questions.js"
+    "questions": "node db/db-scripts/data/format-scripts/footprint/compile-questions.js",
+    "compile": "export page=footprint && webpack && export page=static && webpack && export page=usenergy && webpack && export page=stateenergy && webpack && export page=solar && webpack"
   },
   "engines": {
     "node": "6.9.1"
