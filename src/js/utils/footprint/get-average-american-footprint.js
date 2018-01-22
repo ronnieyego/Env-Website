@@ -38,7 +38,6 @@ const getAverageCo2 = (state, age, gender) => {
 
     const food = parseInt(totalYearFoodCo2/12);
     const total = parseInt(appliance + food + transportation);
-
     return {
         appliance,
         food,
@@ -94,11 +93,11 @@ const getAverageWater = (state, age, gender, energy) => {
 }
 
 const getAverage = (state, age, gender) => {
-    const co2 = getAverageCo2(state, age, gender)
+    const co2 = getAverageCo2(state, age, gender);
     const energy = getAverageEnergy(state, age, gender);
     const water = getAverageWater(state, age, gender, energy);
     return {
-        co2: 
+        co2,
         energy,
         water 
     }

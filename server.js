@@ -62,8 +62,6 @@ app.get('/test', (req, res) => {
 // APIs
 
 app.post('/api/footprint-form/answer', (req, res) => {
-    console.log('request is', req.body);
-
     // This get current time should be a util
     const d = new Date();
     const myTimezone = "America/Los_Angeles";

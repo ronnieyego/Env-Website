@@ -148,7 +148,6 @@ export const submitForm = questionPayload => {
                 state
             };
             const footprintResults = calculateFootprintSubmit(payload);
-            console.log('Footprint results are back', footprintResults);
             if(answerId) {
                 console.log('i will do an update not a post');
             } else {
