@@ -108,7 +108,78 @@ const utilityEmissionsPerState = {
     US: 1.456
 }
 
+const waterUsePerKwhBySource = { 
+    // data from https://www.nirs.org/wp-content/uploads/reactorwatch/water/sr46waterdependency.pdf
+    // Units are gallons/kwh
+"coal": 30.0,
+"hydroElectric": 5.9,
+"naturalGas": 0.9,
+"solar": 0,
+"wind": 0,
+"oil": 530.5,
+"biofuel": 8836,
+"nuclear": 1201.6,
+"geoThermal": 38.1,
+"average": 25.6  // this one based on https://spectrum.ieee.org/energy/environment/how-much-water-does-it-take-to-make-electricity
+
+}
+
+const waterUsePerKwhPerState = {
+    AK:	0.06,
+    AL:	0.48,
+    AR:	0.44,
+    AZ:	0.43,
+    CA:	0.34,
+    CO:	0.02,
+    CT:	0.10,
+    DE:	0.05,
+    FL:	0.17,
+    GA:	0.38,
+    HI:	0.88,
+    IA:	0.03,
+    ID:	0.02,
+    IL:	0.07,
+    IN:	0.06,
+    KS:	0.32,
+    KY:	0.05,
+    LA:	0.32,
+    MA:	0.05,
+    MD:	0.30,
+    ME:	0.53,
+    MI:	0.35,
+    MN:	0.44,
+    MO:	0.19,
+    MS:	0.25,
+    MT:	0.01,
+    NC:	0.44,
+    ND:	0.04,
+    NE:	0.37,
+    NH:	1.73,
+    NJ:	0.01,
+    NM:	0.03,
+    NV:	0.00,
+    NY:	0.02,
+    OH:	0.02,
+    OK:	0.01,
+    OR:	0.02,
+    PA:	0.01,
+    RI:	0.53,
+    SC:	0.73,
+    SD:	0.01,
+    TN:	0.42,
+    TX:	0.03,
+    UT:	0.02,
+    VA:	0.66,
+    VT:	2.85,
+    WA:	0.15,
+    WI:	0.08,
+    WV:	0.03,
+    WY:	0.03,
+    US:	0.25,
+}
+
 module.exports = {
     utilityEmissionsPerState,
-    utilityUse
+    utilityUse,
+    waterUsePerKwhPerState
 }

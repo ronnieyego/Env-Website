@@ -4,7 +4,7 @@ import { getEnergySubcategories, sumEnergyQuestionSet } from './calculate-energy
 import { getWaterApplianceSubcategories, getWaterFoodSubcategories, sumWaterQuestionSet } from './calculate-water-submit';
 import { getAnswerFromKey } from './get-question-utils';
 
-import { utilityEmissionsPerState } from '../utils-data/state-energy-and-emissions';
+import { utilityEmissionsPerState, waterUsePerKwhPerState } from '../utils-data/state-energy-and-emissions';
 
 
 
@@ -18,8 +18,10 @@ const mpgPerPersonPlane = 84.9;
 module.exports = payload => {
     const { questions, state } = payload;
     let stateCo2;
+    let stateWater;
     try {
         stateCo2 = utilityEmissionsPerState[state];
+        stateWater = waterUsePerKwhPerState[state];
     } catch (e) {
         throw Error(`Could not find co2e/kwh for ${state}`);
     }
@@ -57,10 +59,10 @@ module.exports = payload => {
 
 // Water
     compiledFootprint.water = {};
-    compiledFootprint.water.food = sumWaterQuestionSet(foodQuestions, 'food');
-    compiledFootprint.water.appliance = sumWaterQuestionSet(applinaceQuestionSet, 'appliance');
-    compiledFootprint.water.foodSubCategories = getWaterFoodSubcategories(foodQuestions);
-    compiledFootprint.water.applianceSubCategories = getWaterApplianceSubcategories(applinaceQuestionSet);
+    compiledFootprint.water.food = sumWaterQuestionSet(foodQuestions, 'food', stateWater);
+    compiledFootprint.water.appliance = sumWaterQuestionSet(applinaceQuestionSet, 'appliance', stateWater);
+    compiledFootprint.water.foodSubCategories = getWaterFoodSubcategories(foodQuestions, stateWater);
+    compiledFootprint.water.applianceSubCategories = getWaterApplianceSubcategories(applinaceQuestionSet, stateWater);
     compiledFootprint.water.totalWater = parseInt(compiledFootprint.water.food) + parseInt(compiledFootprint.water.appliance);
 
 // Meta

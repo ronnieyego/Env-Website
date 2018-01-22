@@ -1,18 +1,15 @@
 const { americanCarMiles, americanDietCalories, americanFood, demographicCalories, kwhPerMonthAppliance } = require('../utils-data/american-averages');
-const { utilityEmissionsPerState, utilityUse} = require('../utils-data/state-energy-and-emissions');
+const { utilityEmissionsPerState, utilityUse, waterUsePerKwhPerState } = require('../utils-data/state-energy-and-emissions');
+const {
+    gasKwh, 
+    jetFuelKwh, 
+    mpgPerPersonPlane,
+    co2PerGallonOfJetFuel,
+    co2PerGallonOfGas
 
-// Hacky V1 to get us average energy
-const kwhPerGallon = 34.4;
+} = require('../utils-data/constants');
+
 const mpg = 23.6;
-const kwhPerGallonJetFuel = 37.12;
-const mpgPerPersonPlane = 84.9;
-
-//Hacky V1 to get co2
-const co2PerGallonOfJetFuel = 21.1;
-const co2PerGallonOfGasoline = 19.64;
-
-// All of the below are US average per year
-
 const planeMiles = 2000;
 
 const getTransit = (stage, age, gender) => ({
@@ -23,7 +20,7 @@ const getTransit = (stage, age, gender) => ({
 const getAverageCo2 = (state, age, gender) => {
     const {carMiles, planeMiles } = getTransit(state, age, gender);
 
-    const carCo2 = carMiles * co2PerGallonOfGasoline;
+    const carCo2 = carMiles * co2PerGallonOfGas;
     const planeCo2 = planeMiles * co2PerGallonOfJetFuel;
     const transportation = parseInt(carCo2 + planeCo2);
 
@@ -53,8 +50,8 @@ const getAverageCo2 = (state, age, gender) => {
 
 const getAverageEnergy = (state, age, gender) => {
     const {carMiles, planeMiles } = getTransit(state, age, gender);
-    const monthlyCar = carMiles * kwhPerGallon;
-    const monthlyPlane = planeMiles * kwhPerGallonJetFuel;
+    const monthlyCar = carMiles * gasKwh;
+    const monthlyPlane = planeMiles * jetFuelKwh;
     const monthlyTransportation = monthlyCar + monthlyPlane;
 
     // Food multiplier is because AmericanFood is based off a 3890 calorie diet.
@@ -79,7 +76,7 @@ const getAverageEnergy = (state, age, gender) => {
     };
 };
 
-const getAverageWater = (state, age, gender) => {
+const getAverageWater = (state, age, gender, energy) => {
     const foodKeys = Object.keys(americanFood);
     const totalYearFood = foodKeys.reduce((total, current) => {
         const food = americanFood[current];
@@ -87,7 +84,7 @@ const getAverageWater = (state, age, gender) => {
         return total + water;
     }, 0);
     const totalMonthFood = totalYearFood/12;
-    const applianceMonthly = 90 * 30;
+    const applianceMonthly = energy.total * waterUsePerKwhPerState[state];
     const total = totalMonthFood + applianceMonthly;
     return {
         food: totalMonthFood,
@@ -97,10 +94,13 @@ const getAverageWater = (state, age, gender) => {
 }
 
 const getAverage = (state, age, gender) => {
+    const co2 = getAverageCo2(state, age, gender)
+    const energy = getAverageEnergy(state, age, gender);
+    const water = getAverageWater(state, age, gender, energy);
     return {
-        co2: getAverageCo2(state, age, gender),
-        energy: getAverageEnergy(state, age, gender),
-        water: getAverageWater(state, age, gender)
+        co2: 
+        energy,
+        water 
     }
 }
 
