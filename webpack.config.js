@@ -29,6 +29,10 @@ switch(process.env.page) {
     entry = './js/static-pages-entry.js';
     filename = 'static-pages.min.js';
     break;
+  case 'costs':
+    entry = './js/costs-pages-entry.js';
+    filename = 'costs-pages.min.js';
+    break;
   default: //defaults to solar
     entry = './js/solar-entry.js';
     filename = 'solar.min.js';

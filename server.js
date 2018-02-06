@@ -9,7 +9,7 @@ import path from "path";
 import moment from 'moment-timezone';
 import _ from 'lodash';
 
-import { co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import { costPagesMiddleware, co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from './src/js/utils/check-if-valid-state-id';
 import getStateData from './src/js/utils/apis/get-state-data';
 
@@ -39,6 +39,8 @@ app.use((req, res, next) => {
 });
 
 app.get('/', footprintMiddleware); 
+
+app.get('/costs/cup', costPagesMiddleware);
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);

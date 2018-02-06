@@ -95,11 +95,11 @@ export const getQuestionData = () => {
     }
 };
 
+// For footprint form
 export const updateQuestions = questionInfo => {
     return (dispatch, getState) => {
         const state = getState();
         const allQuestions = state.footprintForm.questions.slice();
-        //updateHiddenQuestions
         const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
         dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
     }

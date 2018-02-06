@@ -2,6 +2,7 @@ import React from "react";
 import { MenuItem, SelectField } from 'material-ui';
 
 import { updateQuestions} from '../../../actions/footprint/form-actions';
+import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';
 
 export default class DropdownQuestion extends React.Component {
 
@@ -12,7 +13,11 @@ export default class DropdownQuestion extends React.Component {
     }
 
     updateQuestion(id, event, index, value) {
-        this.props.dispatch(updateQuestions({id, value}));
+        if(this.props.formType && this.props.formType === 'costs') { // There is only 1 form type for now.
+            this.props.dispatch(updateCostsQuestions({id, value}));
+        } else { // Do footprint form
+            this.props.dispatch(updateQuestions({id, value}));
+        }
     }
 
 	render() {

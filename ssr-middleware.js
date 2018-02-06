@@ -52,6 +52,9 @@ const renderFullPage = (markup, data, page) => {
         case 'static-pages':
             jsLocation = '/public/static-pages.min.js';
             break;
+        case 'cost-pages':
+            jsLocation = '/public/costs-pages.min.js';
+            break;
         default:
             jsLocation = '/public/solar.min.js';
     };
@@ -261,7 +264,20 @@ const staticPagesMiddleware = (req, res) => {
     res.status(200).send(renderFullPage(appMarkup, null, 'static-pages')); 
 }
 
+const costPagesMiddleware = (req, res) => {
+    const store = createStore(reducers);
+    const appMarkup = ReactDOM.renderToString(
+        <Provider store={store}>
+            <MuiThemeProvider>
+                <div />
+            </MuiThemeProvider>
+        </Provider>
+    );
+    res.status(200).send(renderFullPage(appMarkup, null, 'cost-pages')); 
+}
+
 module.exports = {
+    costPagesMiddleware,
     footprintMiddleware,
     footprintByIdMiddleware,
     solarMiddleware,

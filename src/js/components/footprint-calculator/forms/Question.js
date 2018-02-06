@@ -2,6 +2,7 @@ import React from "react";
 import { TextField } from 'material-ui';
 
 import { setQuestionError, updateQuestions} from '../../../actions/footprint/form-actions';
+import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';
 import { getErrorText } from '../../../utils/footprint/question-validators';
 
 
@@ -25,7 +26,11 @@ export default class Question extends React.Component {
             value,
             errorText
         };
-        this.props.dispatch(updateQuestions(questionInfo));
+        if(this.props.formType && this.props.formType === 'costs') { // There is only 1 form type for now.
+            this.props.dispatch(updateCostsQuestions(questionInfo));
+        } else { // Do footprint form
+            this.props.dispatch(updateQuestions(questionInfo));
+        }
     }
 
 	render() {
@@ -45,6 +50,8 @@ export default class Question extends React.Component {
                             onChange={this.updateQuestion.bind(this, this.props.validator)}
                             value={this.props.value}
                             floatingLabelText={this.props.floatingLabelText}
+                            // type="number" Should add for mobile, but then you can do stuff like .343.3423.43
+                            // Need to learn how to turn off html5s validation
 
                         />
                     </div>

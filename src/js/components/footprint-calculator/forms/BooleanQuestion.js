@@ -1,6 +1,7 @@
 import React from "react";
 
 import { updateQuestions} from '../../../actions/footprint/form-actions';
+import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';
 import { Checkbox } from 'material-ui';
 
 export default class Question extends React.Component {
@@ -15,8 +16,12 @@ export default class Question extends React.Component {
         const id = e.target.id;
         let value = document.getElementById(id).value;
         value = this.props.checked && value === 'on' ? 'off' : 'on';
-        const questionInfo = { id, value }
-        this.props.dispatch(updateQuestions(questionInfo));
+        const questionInfo = { id, value };
+        if(this.props.formType && this.props.formType === 'costs') { // There is only 1 form type for now.
+            this.props.dispatch(updateCostsQuestions(questionInfo));
+        } else { // Do footprint form
+            this.props.dispatch(updateQuestions(questionInfo));
+        }
     }
 
 	render() {

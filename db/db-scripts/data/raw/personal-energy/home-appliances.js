@@ -112,7 +112,7 @@ module.exports = [
     "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
-    "validator": "hour-question",
+    "validator": "<300",
     "subtext": "Total daily lightbulb hours",
     "": ""
   },
@@ -123,7 +123,7 @@ module.exports = [
     "water": "",
     "sub-grouping": "lighting",
     "use-bool": "",
-    "validator": "hour-question",
+    "validator": "<300",
     "subtext": "Total daily lightbulb hours",
     "": ""
   },
