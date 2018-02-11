@@ -1,6 +1,10 @@
-// To start testing:
+// To start testing (Mac)
 //  1.  Start MongoDb.  Find mongo at ~/mongo/bin.  Command:  ./mongod -dbpath ~/mongo-data
 //  2.  Start Node server.  run this file!
+
+// To start testing (Windows 10)
+// 1. Start MongoDB. Command: "\Program Files\MongoDB\Server\3.6\bin\mongod.exe"
+// 2. Start Node server, run this file!
 
 import express from 'express';
 import bodyParser from 'body-parser';
