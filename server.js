@@ -1,6 +1,10 @@
-// To start testing:
+// To start testing (Mac)
 //  1.  Start MongoDb.  Find mongo at ~/mongo/bin.  Command:  ./mongod -dbpath ~/mongo-data
 //  2.  Start Node server.  run this file!
+
+// To start testing (Windows 10)
+// 1. Start MongoDB. Command: "\Program Files\MongoDB\Server\3.6\bin\mongod.exe"
+// 2. Start Node server, run this file!
 
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -38,7 +42,7 @@ app.use((req, res, next) => {
     next(); //Next is needed in order to get past the middleware
 });
 
-app.get('/', footprintMiddleware); 
+app.get('/', footprintMiddleware);
 
 app.get('/costs/cup', costPagesMiddleware);
 
@@ -101,8 +105,6 @@ app.get('/api/footprint-form/get-answer-by-id/:id', (req,res) => {
     });
 });
 
-//59b0d463998273abcee9bfa5
-
 app.get('/api/footprint-form/summary', (req,res) => {
     const getAverage = (answers, path) => {
         let count = 0;
@@ -120,7 +122,7 @@ app.get('/api/footprint-form/summary', (req,res) => {
     FormAnswers.find().then(answers => {
         const totalAnswers = answers.length;
         results.totalSubmissions = totalAnswers;
-        
+
         let co2Res = getAverage(answers, 'results.co2.totalCo2');
         results.totalCo2Answers = co2Res.count;
         results.averageCo2 = Math.round(co2Res.total/co2Res.count);
@@ -128,7 +130,7 @@ app.get('/api/footprint-form/summary', (req,res) => {
         let energyRes = getAverage(answers, 'results.energy.totalEnergy');
         results.totalEnergyAnswers = energyRes.count;
         results.averageEnergy = Math.round(energyRes.total/energyRes.count);
-        
+
         let waterRes = getAverage(answers, 'results.water.totalWater');
         results.totalWaterAnswers = waterRes.count;
         results.averageWater = Math.round(waterRes.total/waterRes.count);
@@ -169,7 +171,7 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
             return res.status(404).send('Couldn\'t find answer');
         } else {
             return res.status(200).send(delResponse);
-        }              
+        }
     })
     .catch(e => res.status(500).send('Failed to delete answer', e));
 });
