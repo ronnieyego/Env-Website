@@ -30,7 +30,7 @@ export default class CupHoc extends React.Component {
         const questions = _.filter(this.props.questions, question => { 
             const forms = question['forms'];
             const index = forms.indexOf('cup');
-            return index !== -1; 
+            return index !== -1 && !question.hidden; 
         });
 
 		return (

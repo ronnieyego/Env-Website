@@ -1,15 +1,19 @@
-import { getAnswerFromKey } from './get-question-utils';
+import { getAnswerFromId, getAnswerFromKey } from './get-question-utils';
 
 export const updateHiddenQuestions = questionSet => {
+    // Footprint Form
     const noCar = getAnswerFromKey(questionSet, 'Do you drive?') === 'on' ? false : true;
     const electricCar = getAnswerFromKey(questionSet, 'What\'s the fuel for your car?') === 'Electric' ? true : false;
+    
+    // Costs form
+    const answer = getAnswerFromId(questionSet, 1000);
+    const isSingleUseCup = ["Paper", "Paper with plastic lining", "Styrafoam"].indexOf(getAnswerFromId(questionSet, 1000)) !== -1 ? true : false;
     let hideIfArray = [];
-    if(noCar) {
-        hideIfArray.push('noCar');
-    }
-    if(electricCar) {
-        hideIfArray.push('electricCar');
-    }
+    
+    // THis string needs to match the hideIf field in the question.  Yay for Magic Strings!
+    if(noCar) { hideIfArray.push('noCar')}
+    if(electricCar) { hideIfArray.push('electricCar');}
+    if(isSingleUseCup) { hideIfArray.push('singleUseCup');}
     const updatedQuestionSet = questionSet.map(question => {
         const hideIf = question.hideIf;
         let hideQuestion = false;

@@ -9,6 +9,17 @@ export const getAnswerFromKey = (questionSet, key) => {
     return answer;
 }
 
+export const getAnswerFromId = (questionSet, id) => {
+    let answer = null;
+    questionSet.forEach(question => {
+        if(question.id === id) {
+            answer = question.value;
+            return;
+        }
+    });
+    return answer;
+}
+
 export const getQuestionFromKey = (questionSet, key) => {
     let foundQuestion = null;
     questionSet.forEach(question => {

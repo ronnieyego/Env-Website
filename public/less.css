@@ -332,6 +332,19 @@ input[type="checkbox"] {
   list-style-type: none;
   font-size: 18px;
 }
+.costs {
+  text-align: left;
+  background-color: #d3f9ea;
+}
+.costs-form-header {
+  text-align: center;
+  font-weight: bold;
+}
+.costs-form-sub-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 18px;
+}
 .static-page {
   font-size: 18px;
   text-align: left;

@@ -44,10 +44,10 @@ export default class Cup extends React.Component {
         });
 
 		return (
-            <div>
-                <h3 className="footprint-form-header">Cup</h3>
+            <div className="costs">
+                <h3 className="costs-form-header">What's the CO2 of a cup?</h3>
                     <div >
-                        <p className="footprint-form-sub-header">Its a page about cups!</p>
+                        <p className="costs-form-sub-header">Its a page about cups!</p>
                         <ul>
                             {questions}
                         </ul>

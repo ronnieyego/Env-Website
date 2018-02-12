@@ -30,6 +30,7 @@ const usesPerWash = 35;
 
 const questions = [
     {    
+        id: 1000,
         name: 'What type of cup are you interested in?',
         "selectOptions": ["Paper", "Paper with plastic lining", "Styrafoam", "Glass", "Steel"],
         value: "Paper",
@@ -41,7 +42,7 @@ const questions = [
         name: 'How many times do you use this cup before you wash it?',
         validator: "non-zero-int",
         type: 'int',
-        hideIf: ['disposable'],
+        hideIf: ['singleUseCup'],
         forms: ['cup'],
         formType: 'costs'
     },
@@ -49,6 +50,7 @@ const questions = [
         name: 'How do you clean your cup?',
         "selectOptions": ['Dishwasher', 'Handwash'],
         value: "Dishwasher",
+        hideIf: ['singleUseCup'],
         type: 'dropdown',
         forms: ['cup'],
         formType: 'costs'
