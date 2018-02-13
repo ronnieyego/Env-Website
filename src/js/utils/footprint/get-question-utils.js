@@ -20,6 +20,17 @@ export const getAnswerFromId = (questionSet, id) => {
     return answer;
 }
 
+export const getQuestionFromId = (questionSet, id) => {
+    let foundQuestion = null;
+    questionSet.forEach(question => {
+        if(question.id === id) {
+            foundQuestion = question;
+            return;
+        }
+    });
+    return foundQuestion;
+}
+
 export const getQuestionFromKey = (questionSet, key) => {
     let foundQuestion = null;
     questionSet.forEach(question => {

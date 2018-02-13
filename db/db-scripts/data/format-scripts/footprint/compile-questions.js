@@ -25,3 +25,10 @@ fs.writeFile(__dirname + "/../../../../../public/data/temp-footprint-questions.j
         
         console.log("Footprint questions data written to /public");
     });
+fs.writeFile(__dirname + "/../../../../../public/data/footprint-questions.js", 'module.exports = ' + JSON.stringify(questions, null, 2), function(err) {
+    if(err) {
+        return console.log(err);
+    }
+    
+    console.log("Footprint questions data written to as js json /public");
+});

@@ -7,6 +7,7 @@
 
 module.exports = [
   {
+    "id": 10,
     "name": "house-furnace",
     "kwh": 10.5,
     "use-type": "hour",
@@ -18,6 +19,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 11,
     "name": "house-heat-pump",
     "kwh": 10,
     "use-type": "hour",
@@ -29,6 +31,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 12,
     "name": "portable-heater",
     "kwh": 1.5,
     "use-type": "hour",
@@ -40,6 +43,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 13,
     "name": "central-air-conditioning",
     "kwh": 3,
     "use-type": "hour",
@@ -51,6 +55,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 14,
     "name": "window-mount-air-conditioning",
     "kwh": 0.73,
     "use-type": "hour",
@@ -62,6 +67,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 15,
     "name": "ceiling-fan",
     "kwh": 0.075,
     "use-type": "hour",
@@ -73,6 +79,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 16,
     "name": "portable-fan",
     "kwh": 0.03,
     "use-type": "hour",
@@ -84,6 +91,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 17,
     "name": "speakers",
     "kwh": 0.05,
     "use-type": "hour",
@@ -95,6 +103,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 18,
     "name": "tv",
     "kwh": 0.48,
     "use-type": "hour",
@@ -106,6 +115,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 19,
     "name": "standard-lightbulbs",
     "kwh": 0.1,
     "use-type": "hour",
@@ -117,6 +127,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 20,
     "name": "energy-efficient-lightbulbs",
     "kwh": 0.01,
     "use-type": "hour",
@@ -128,6 +139,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 21,
     "name": "game-console",
     "kwh": 0.15,
     "use-type": "hour",
@@ -139,6 +151,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 22,
     "name": "computer-laptop",
     "kwh": 0.04,
     "use-type": "hour",
@@ -150,6 +163,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 23,
     "name": "computer-desktop",
     "kwh": 0.15,
     "use-type": "hour",
@@ -161,6 +175,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 24,
     "name": "hot-shower",
     "kwh": 12.7,
     "use-type": "hour",
@@ -172,6 +187,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 25,
     "name": "oven",
     "kwh": 2.3,
     "use-type": "hour",
@@ -183,6 +199,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 26,
     "name": "stove-top",
     "kwh": 1.25,
     "use-type": "hour",
@@ -194,6 +211,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 27,
     "name": "toaster-oven",
     "kwh": 0.75,
     "use-type": "hour",
@@ -205,6 +223,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 28,
     "name": "coffee-maker",
     "kwh": 0.12,
     "use-type": "hour",
@@ -216,6 +235,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 29,
     "name": "refrigerator",
     "kwh": 215,
     "use-type": "monthly-own",
@@ -227,6 +247,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 30,
     "name": "energy-efficient-refrigerator",
     "kwh": 70,
     "use-type": "monthly-own",
@@ -238,6 +259,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 31,
     "name": "swimming-pool",
     "kwh": 806,
     "use-type": "monthly-own",
@@ -249,6 +271,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 32,
     "name": "clothes-washer-with-cold-water",
     "kwh": 2.3,
     "use-type": "monthly-use",
@@ -260,6 +283,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 33,
     "name": "clothes-washer-with-hot-water",
     "kwh": 6.3,
     "use-type": "monthly-use",
@@ -271,6 +295,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 34,
     "name": "dryer",
     "kwh": 3,
     "use-type": "monthly-use",
@@ -282,6 +307,7 @@ module.exports = [
     "": ""
   },
   {
+    "id": 35,
     "name": "dishwasher",
     "kwh": 1,
     "use-type": "monthly-use",

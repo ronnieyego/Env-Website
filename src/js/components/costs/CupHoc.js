@@ -9,7 +9,9 @@ import { getQuestionFromKey } from '../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {
-        questions: store.costsForms.questions
+        questions: store.costsForms.questions,
+        cupCo2: store.costsForms.cupCo2,
+        cupWashCo2: store.costsForms.cupWashCo2
     };
 })
 export default class CupHoc extends React.Component {
@@ -37,6 +39,8 @@ export default class CupHoc extends React.Component {
             <Cup
                 dispatch={this.props.dispatch}    
                 questions={questions}
+                cupCo2={this.props.cupCo2}
+                cupWashCo2={this.props.cupWashCo2}
             />
         );
 	}

@@ -1,26 +1,26 @@
 const cupData = [
     {
-        name: 'glass',
+        name: 'Glass',
         co2: 1.1,
         kwh: 1.39
     },
     {
-        name: 'steel',
+        name: 'Steel',
         co2: 2.6,
         kwh: 3.3
     },
     {
-        name: 'paper',
+        name: 'Paper',
         co2: 0.06,
         kwh: 0.12
     },
     {
-        name: 'styrafoam',
+        name: 'Styrafoam',
         co2: 0.02,
         kwh: 0.05
     },
     {
-        name: 'polyethylene',
+        name: 'Paper with plastic lining',
         co2: 0.66,
         kwh: 0.83
     }
@@ -38,15 +38,17 @@ const questions = [
         forms: ['cup'],
         formType: 'costs'
     },
-    {
-        name: 'How many times do you use this cup before you wash it?',
-        validator: "non-zero-int",
-        type: 'int',
-        hideIf: ['singleUseCup'],
-        forms: ['cup'],
-        formType: 'costs'
-    },
+    // {
+    //     id: 1001,
+    //     name: 'How many times do you use this cup before you wash it?',
+    //     validator: "non-zero-int",
+    //     type: 'int',
+    //     hideIf: ['singleUseCup'],
+    //     forms: ['cup'],
+    //     formType: 'costs'
+    // },
     {    
+        id: 1002,
         name: 'How do you clean your cup?',
         "selectOptions": ['Dishwasher', 'Handwash'],
         value: "Dishwasher",
