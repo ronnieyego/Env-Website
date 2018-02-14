@@ -2,10 +2,13 @@ import React from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import _ from 'lodash';
-import cupData from './cup-data';
+import { cupData, cupQuestions, usesPerWash} from './cup-data';
+import footprintQuestions from '../../../../public/data/footprint-questions.js';
+import { utilityEmissionsPerState }from '../../utils/utils-data/state-energy-and-emissions';
+import { gallonsPerWashedDish, kwhPerGallon } from '../../utils/utils-data/constants';
 import Cup from './Cup';
 
-import { getQuestionFromKey } from '../../utils/footprint/get-question-utils';
+import { getAnswerFromId, getQuestionFromId } from '../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {
@@ -18,14 +21,71 @@ export default class CupHoc extends React.Component {
 
     componentDidMount() {
         const questions = _.filter(this.props.questions, question => { question['forms'].indexOf('cup') !== -1 });
-        const cupQuestions = cupData.questions;
         if(questions.length < cupQuestions.length) {
             const questionsToAdd = cupQuestions.filter(question => {
-                const isNotQuestionInSet = getQuestionFromKey(questions, question.name) ? false : true;
+                const isNotQuestionInSet = getQuestionFromId(questions, question.id) ? false : true;
                 return isNotQuestionInSet;
             });
             this.props.dispatch({type: 'ADD_QUESTIONS_TO_COST_QUESTIONS', payload: questionsToAdd});
         }
+    }
+
+    getUses(resuableCreateCo2, disposableCreateCo2, cupWashCo2) {
+         return Math.round((resuableCreateCo2/ (disposableCreateCo2 - cupWashCo2)));
+    }
+
+    getAllUses(resuableCreateCo2, cupWashCo2) {
+        const paper = this.getUses(resuableCreateCo2, this.getCupDataCo2('Paper'),cupWashCo2)
+        const styrafoam = this.getUses(resuableCreateCo2, this.getCupDataCo2('Styrafoam'),cupWashCo2)
+        return { paper, styrafoam};
+    }
+
+    getCupDataCo2(type) {
+        return cupData.filter(data => data.name === type)[0].co2;
+    }
+
+    calculateText(typeSelected, cupWashCo2) {
+        let reuseableUses;
+        let text;
+        switch(typeSelected) {
+            case 'Ceramic Mug':
+                reuseableUses = this.getAllUses(this.getCupDataCo2('Ceramic Mug'), cupWashCo2);
+                text = `Ceramic mugs are a good choice.  They can be used for years and contain how and cold drinks.  After ${reuseableUses.paper} uses, ceramic mugs will have a lower footprint that drinking paper cupers; ${reuseableUses.styrafoam} uses for styrafoam cups.`;
+                break;
+            case 'Glass':
+                reuseableUses = this.getAllUses(this.getCupDataCo2('Glass'), cupWashCo2);
+                text = `Glass cups are a great choice.  They tend to last for years and don't take up much room in the dishwasher.  After ${reuseableUses.paper} uses, glass cups will have a lower footprint that drinking paper cupers; ${reuseableUses.styrafoam} uses for styrafoam cups.`;
+                break;
+            case 'Reuseable Plastic':
+                reuseableUses = this.getAllUses(this.getCupDataCo2('Reuseable Plastic'), cupWashCo2);
+                text = `Reuseable plastic cups are either the best or worst.  They have the lowest footprint of the reuseable cups.  However, most people don't use them to their full potential and tend to throw them away after just a few uses.  After ${reuseableUses.paper} uses, resuable plastic cups will have a lower footprint that drinking paper cupers; ${reuseableUses.styrafoam} uses for styrafoam cups.`;
+                break;
+            case 'Paper':
+                text = `Paper cups can be the worst of the disposable cups and produce 3 times the CO2 of a styrafoam cup.  Many paper cups have a plastic lining that prevent recycling.  To make things worse, they don't insulate hot drinks well and usually require an addition cardboard sleeve.`;
+                break;
+            case 'Styrafoam':
+                text = `Styrafoam cups are a reasonable choice for a disposable cup given that they take one third of the CO2 to produce vs a paper cup.  However, styrafoam does not degrade and improper disposal can have a signifiant impact.`;
+                break;
+        }
+        return text;
+    }
+
+    calculateCupCo2(cupQuestions) {
+        const cupType = getAnswerFromId(cupQuestions, 1000) || 'Ceramic Mug';
+        const cupCo2 = this.getCupDataCo2(cupType);
+
+        const washTypeQ = getQuestionFromId(cupQuestions, 1002) || 'Dishwasher';
+        const washType = washTypeQ && !washTypeQ.hidden && washTypeQ.value;
+        let cupWashCo2 = 0;
+        if(washType === 'Dishwasher') {
+            const dishwasher = getQuestionFromId(footprintQuestions, 35); //Id for dishwasher is 35
+            const Co2FromWater = dishwasher.water * kwhPerGallon;
+            cupWashCo2 = ((dishwasher.kwh * utilityEmissionsPerState.US) + Co2FromWater) / usesPerWash;
+        } else if (washType === 'Handwash') {
+            cupWashCo2 = kwhPerGallon * gallonsPerWashedDish;
+        }
+        cupWashCo2 = Math.round(cupWashCo2 * 100)/100;
+        return {cupCo2, cupWashCo2};
     }
 
 	render() {
@@ -34,13 +94,18 @@ export default class CupHoc extends React.Component {
             const index = forms.indexOf('cup');
             return index !== -1 && !question.hidden; 
         });
+        const {cupCo2, cupWashCo2} = this.calculateCupCo2(questions);
+        const typeSelected = getAnswerFromId(questions, 1000);
+        const displayText = this.calculateText(typeSelected, cupWashCo2);
 
+        
 		return (
             <Cup
                 dispatch={this.props.dispatch}    
                 questions={questions}
-                cupCo2={this.props.cupCo2}
-                cupWashCo2={this.props.cupWashCo2}
+                cupCo2={cupCo2}
+                cupWashCo2={cupWashCo2}
+                displayText={displayText}
             />
         );
 	}

@@ -108,6 +108,7 @@ const utilityEmissionsPerState = {
     US: 1.456
 }
 
+
 const waterUsePerKwhBySource = { 
     // data from https://www.nirs.org/wp-content/uploads/reactorwatch/water/sr46waterdependency.pdf
     // Units are gallons/kwh
@@ -124,6 +125,7 @@ const waterUsePerKwhBySource = {
 
 }
 
+// Average number of gallons per kwh
 const waterUsePerKwhPerState = {
     AK:	0.06,
     AL:	0.48,

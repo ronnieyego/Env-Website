@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import { RaisedButton } from 'material-ui';
 
 import Question from '../footprint-calculator/forms/Question';
 import DropDownQuestion from '../footprint-calculator/forms/DropDownQuestion';
@@ -53,17 +52,12 @@ export default class Cup extends React.Component {
                 <div >
                     <p className="costs-form-sub-header">{this.props.cupCo2}lb/CO<sub>2</sub> to create the cup</p>
                     {this.props.cupWashCo2 && <p className="costs-form-sub-header">{this.props.cupWashCo2}lb/CO<sub>2</sub> for each wash</p> }
+
+                    <p className="costs-form-explainer">{this.props.displayText}</p>
                     <ul>
                         {questions}
                     </ul>
                 </div>
-                <RaisedButton 
-                    className="right-btn"
-                    //href={submitJump}
-                    label="What's the CO2 of a Cup?"
-                    onClick={() => this.props.dispatch(calculateCupCO2())}
-                    primary={true}
-                />    
             </div>
 		);
 	}
