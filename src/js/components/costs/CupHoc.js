@@ -44,21 +44,40 @@ export default class CupHoc extends React.Component {
         return cupData.filter(data => data.name === type)[0].co2;
     }
 
-    calculateText(typeSelected, cupWashCo2) {
+    getPaperStyrafoamUseText(reuseableUses, cupType, washType) {
+        const wash = washType === 'Handwash' ? 'by hand' : 'using a dishwasher';
+        const dishwasher = washType === 'Dishwasher' ? 'and the energy used in a dishwasher' : '';
+        const paper = reuseableUses.paper > 0 ? `After ${reuseableUses.paper} uses, a ${cupType} will have a lower footprint than drinking from paper cups. `
+            : `Surprisingly, it releases more CO2 to wash a ${cupType} ${wash} than it takes to create a paper cup. The CO2 of washing comes from pumping water into your house ${dishwasher}. I did not include the transportation or disposal costs of the paper cup. `
+        const styrafoam = reuseableUses.styrafoam > 0 ? `After ${reuseableUses.styrafoam} uses, a ${cupType} will have a lower footprint than drinking from styrafoam cups. `
+            : `Surprisingly, it releases more CO2 to wash a cup ${wash} than it takes to create a styrafoam cup. The CO2 of washing comes from pumping water into your house ${dishwasher}. I did not include the transportation or disposal costs of the styrafoam cup. `
+
+        const bothUnder = `Surprisingly, it releases more CO2 to wash a ${cupType} ${wash} than it takes to create either a styrafoam cup or a paper cup. The CO2 of washing comes from pumping water into your house ${dishwasher}. I did not include the transportation or disposal costs of the styrafoam cup nor the paper cup.`;
+
+        const returnText = reuseableUses.paper <= 0 && reuseableUses.styrafoam <= 0 ? bothUnder : paper + styrafoam;
+        return returnText;
+    }
+
+    calculateText(typeSelected, cupWashCo2, washType) {
         let reuseableUses;
+        let cupType;
         let text;
+        let paperStyrafoamText;
         switch(typeSelected) {
             case 'Ceramic Mug':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Ceramic Mug'), cupWashCo2);
-                text = `Ceramic mugs are a good choice.  They can be used for years and contain how and cold drinks.  After ${reuseableUses.paper} uses, ceramic mugs will have a lower footprint that drinking paper cupers; ${reuseableUses.styrafoam} uses for styrafoam cups.`;
+                paperStyrafoamText = this.getPaperStyrafoamUseText(reuseableUses, 'ceramic mug', washType);
+                text = 'Ceramic mugs are a good choice.  They can be used for years and contain how and cold drinks. ' + paperStyrafoamText;  
                 break;
             case 'Glass':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Glass'), cupWashCo2);
-                text = `Glass cups are a great choice.  They tend to last for years and don't take up much room in the dishwasher.  After ${reuseableUses.paper} uses, glass cups will have a lower footprint that drinking paper cupers; ${reuseableUses.styrafoam} uses for styrafoam cups.`;
+                paperStyrafoamText = this.getPaperStyrafoamUseText(reuseableUses, 'glass cup', washType);
+                text = 'Glass cups are a great choice.  They tend to last for years and don\'t take up much room in the dishwasher. ' + paperStyrafoamText;  
                 break;
             case 'Reuseable Plastic':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Reuseable Plastic'), cupWashCo2);
-                text = `Reuseable plastic cups are either the best or worst.  They have the lowest footprint of the reuseable cups.  However, most people don't use them to their full potential and tend to throw them away after just a few uses.  After ${reuseableUses.paper} uses, resuable plastic cups will have a lower footprint that drinking paper cupers; ${reuseableUses.styrafoam} uses for styrafoam cups.`;
+                paperStyrafoamText = this.getPaperStyrafoamUseText(reuseableUses, 'plastic cup', washType);
+                text = 'Reuseable plastic cups are either the best or worst.  They have the lowest footprint of the reuseable cups.  However, most people don\'t use them to their full potential and tend to throw them away after just a few uses. ' + paperStyrafoamText;
                 break;
             case 'Paper':
                 text = `Paper cups can be the worst of the disposable cups and produce 3 times the CO2 of a styrafoam cup.  Many paper cups have a plastic lining that prevent recycling.  To make things worse, they don't insulate hot drinks well and usually require an addition cardboard sleeve.`;
@@ -82,10 +101,10 @@ export default class CupHoc extends React.Component {
             const Co2FromWater = dishwasher.water * kwhPerGallon;
             cupWashCo2 = ((dishwasher.kwh * utilityEmissionsPerState.US) + Co2FromWater) / usesPerWash;
         } else if (washType === 'Handwash') {
-            cupWashCo2 = kwhPerGallon * gallonsPerWashedDish;
+            cupWashCo2 = kwhPerGallon * gallonsPerWashedDish * utilityEmissionsPerState.US;
         }
         cupWashCo2 = Math.round(cupWashCo2 * 100)/100;
-        return {cupCo2, cupWashCo2};
+        return {cupCo2, cupWashCo2, washType};
     }
 
 	render() {
@@ -94,9 +113,9 @@ export default class CupHoc extends React.Component {
             const index = forms.indexOf('cup');
             return index !== -1 && !question.hidden; 
         });
-        const {cupCo2, cupWashCo2} = this.calculateCupCo2(questions);
+        const {cupCo2, cupWashCo2, washType} = this.calculateCupCo2(questions);
         const typeSelected = getAnswerFromId(questions, 1000);
-        const displayText = this.calculateText(typeSelected, cupWashCo2);
+        const displayText = this.calculateText(typeSelected, cupWashCo2, washType);
 
         
 		return (

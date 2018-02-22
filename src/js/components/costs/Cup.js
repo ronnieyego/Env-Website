@@ -51,7 +51,7 @@ export default class Cup extends React.Component {
                 <h3 className="costs-form-header">What's the CO2 of a cup?</h3>
                 <div >
                     <p className="costs-form-sub-header">{this.props.cupCo2}lb/CO<sub>2</sub> to create the cup</p>
-                    {this.props.cupWashCo2 && <p className="costs-form-sub-header">{this.props.cupWashCo2}lb/CO<sub>2</sub> for each wash</p> }
+                    {this.props.cupWashCo2 > 0 ? <p className="costs-form-sub-header">{this.props.cupWashCo2}lb/CO<sub>2</sub> for each wash</p> : '' }
 
                     <p className="costs-form-explainer">{this.props.displayText}</p>
                     <ul>

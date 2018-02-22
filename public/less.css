@@ -339,10 +339,16 @@ input[type="checkbox"] {
 .costs-form-header {
   text-align: center;
   font-weight: bold;
+  font-size: 24px;
 }
 .costs-form-sub-header {
   text-align: center;
   font-weight: bold;
+  font-size: 22px;
+}
+.costs-form-explainer {
+  padding-left: 40px;
+  padding-right: 40px;
   font-size: 18px;
 }
 .static-page {
