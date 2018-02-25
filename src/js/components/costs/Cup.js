@@ -40,6 +40,7 @@ export default class Cup extends React.Component {
                         value={question.value}
                         dispatch={this.props.dispatch}
                         formType={question.formType}
+                        marginLeft="0px"
                     />
                 );
             }

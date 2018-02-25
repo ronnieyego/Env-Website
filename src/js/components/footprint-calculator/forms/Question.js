@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import { TextField } from 'material-ui';
 
 import { setQuestionError, updateQuestions} from '../../../actions/footprint/form-actions';
@@ -8,6 +9,26 @@ import { getErrorText } from '../../../utils/footprint/question-validators';
 
 
 export default class Question extends React.Component {
+
+    static proptypes = {
+        formType: PropTypes.string, // Where do i dispatch answers to
+        
+        // Core
+        id: PropTypes.string,
+        errorText: PropTypes.string,
+        validator: PropTypes.string,
+        value: PropTypes.string,
+        subText: PropTypes.string,
+        floatingLabelText: PropTypes.string,
+
+        // Looks
+        textWidth: PropTypes.string,
+        aboveText: PropTypes.string,
+        aboveText2: PropTypes.string,
+        belowText: PropTypes.string,
+        belowText2: PropTypes.string
+    }
+
     formatName(name) {
         if(!name) {
             return '';

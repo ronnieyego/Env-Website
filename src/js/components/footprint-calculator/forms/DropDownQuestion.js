@@ -29,10 +29,11 @@ export default class DropdownQuestion extends React.Component {
                 value={this.formatName(option)}  
             />
         });
+        const marginLeft = this.props.marginLeft ? this.props.marginLeft : '10px';
         
         return (
             <div>
-                <p className="footprint-form-sub-header">{this.formatName(this.props.name)}</p>
+                <p className="footprint-form-sub-header" style={{marginLeft}}>{this.formatName(this.props.name)}</p>
                 <SelectField
                     id={this.props.id}
                     menuItemStyle={{fontWeight: 'bold'}}

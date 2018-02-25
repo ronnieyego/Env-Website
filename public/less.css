@@ -336,10 +336,17 @@ input[type="checkbox"] {
   text-align: left;
   background-color: #d3f9ea;
 }
+.costs-page {
+  font-size: 18px;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+}
 .costs-form-header {
   text-align: center;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 36px;
+  margin-top: 20px;
 }
 .costs-form-sub-header {
   text-align: center;
