@@ -23,6 +23,13 @@
   font-weight: bold;
   text-align: center;
 }
+.footprint-form-subtext {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 18px;
+  text-align: left;
+}
 .footprint-form-sub-header {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -347,6 +354,7 @@ input[type="checkbox"] {
   font-weight: bold;
   font-size: 36px;
   margin-top: 20px;
+  padding-top: 20px;
 }
 .costs-form-sub-header {
   text-align: center;
@@ -356,6 +364,10 @@ input[type="checkbox"] {
 .costs-form-explainer {
   padding-left: 40px;
   padding-right: 40px;
+  font-size: 18px;
+}
+.costs-form-bottom-paragraph {
+  margin: 15px;
   font-size: 18px;
 }
 .static-page {
@@ -392,4 +404,22 @@ input[type="checkbox"] {
 .share-page {
   margin-left: 10%;
   margin-right: 10%;
+}
+.pie {
+  border: 3px solid gray;
+}
+.pie-header {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+.pie-subheader {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+}
+.pie-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
 }

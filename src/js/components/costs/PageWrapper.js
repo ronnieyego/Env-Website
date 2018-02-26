@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 import Header from '../Header';
+import CarHoc from './CarHoc';
 import CupHoc from './CupHoc';
 
 export default class PageWrapper extends React.Component {
@@ -16,6 +17,9 @@ export default class PageWrapper extends React.Component {
             case 'cup':
                 page = <CupHoc />;
                 break;
+            case 'car':
+                page = <CarHoc />;
+                break;
         }
 
 		return (
@@ -24,6 +28,9 @@ export default class PageWrapper extends React.Component {
                 <div className="costs-page">
                     {page}
                 </div>
+                <br />
+                <br />
+                <br />
             </div>
 		);
 	}

@@ -45,6 +45,7 @@ app.use((req, res, next) => {
 app.get('/', footprintMiddleware);
 
 app.get('/costs/cup', costPagesMiddleware);
+app.get('/costs/car', costPagesMiddleware);
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);
@@ -89,7 +90,10 @@ app.post('/api/footprint-form/answer', (req, res) => {
 });
 
 app.get('/api/footprint-form/answers', (req,res) => {
-    FormAnswers.find().then(answers => {
+    FormAnswers.find()
+        .sort({dateSubmitted: -1})
+        .limit(10)
+        .then(answers => {
         res.send({answers});
     }, (e) => {
         res.status(400).send(e);

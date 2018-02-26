@@ -2,9 +2,10 @@ import React from "react";
 import { connect } from 'react-redux';
 import { browserHistory, BrowserRouter as Router, Route} from 'react-router-dom';
 
-import PageWrapperComponent from '../components/costs/PageWrapper';
+import PageWrapper from '../components/costs/PageWrapper';
 
-const PageWrapper = () => <PageWrapperComponent page='cup' />;
+const cup = () => <PageWrapper page='cup' />;
+const car = () => <PageWrapper page='car' />;
 
 export default class Costs extends React.Component {
 
@@ -12,7 +13,8 @@ export default class Costs extends React.Component {
 		return (
             <Router history={browserHistory} >
                 <div>
-                    <Route exact={true} path="/costs/cup" component={PageWrapper} />
+                    <Route exact={true} path="/costs/cup" component={cup} />
+                    <Route exact={true} path="/costs/car" component={car} />
                 </div>
             </Router>
 		);

@@ -46,6 +46,8 @@ export default class ResultsPieChart extends React.Component {
             case 'water':
                 units = 'gallons';
                 break;
+            default:
+                units = '';
         }
         const sub2 = this.props.category === 'co2' ? <sub>2</sub> : '';
         const graphData = this.props.graphData;
@@ -63,7 +65,6 @@ export default class ResultsPieChart extends React.Component {
             const name = data.source.charAt(0).toUpperCase() + data.source.slice(1);
             return <li key={name} id={name}>{`${name}: ${data.amount.toLocaleString()} ${units}`}{sub2}</li>;
         });
-        
 
 		return (
             <div className="results-pie">

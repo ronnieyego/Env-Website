@@ -1,10 +1,21 @@
 import React from "react";
+import Proptypes from 'prop-types';
 import { MenuItem, SelectField } from 'material-ui';
 
 import { updateQuestions} from '../../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';
 
 export default class DropdownQuestion extends React.Component {
+
+    static proptype = {
+        id: Proptypes.string,
+        name: Proptypes.string,
+        marginLeft: Proptypes.string,
+        value: Proptypes.string,
+        selectOptions: Proptypes.string,
+        subtext: Proptypes.string,
+        formType: Proptypes.string
+    }
 
     formatName(name) {
         name = name.replace(/-/g,' ');
@@ -34,6 +45,7 @@ export default class DropdownQuestion extends React.Component {
         return (
             <div>
                 <p className="footprint-form-sub-header" style={{marginLeft}}>{this.formatName(this.props.name)}</p>
+                {this.props.subtext ? <p className="footprint-form-subtext">{this.props.subtext}</p> : ''}
                 <SelectField
                     id={this.props.id}
                     menuItemStyle={{fontWeight: 'bold'}}
