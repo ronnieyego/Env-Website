@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Question from '../footprint-calculator/forms/Question';
 import DropDownQuestion from '../footprint-calculator/forms/DropDownQuestion';
 import PieChart from '../PieChart';
+import HowMuchCo2 from '../HowMuchCo2';
 
 export default class Car extends React.Component {
 
@@ -54,7 +55,11 @@ export default class Car extends React.Component {
             <div className="costs">
                 <h3 className="costs-form-header">What's the lifetime CO<sub>2</sub> of a car?</h3>
                 <div>
-                    <p className="costs-form-sub-header">{this.props.totalCo2.toLocaleString()} lbs/CO<sub>2</sub> is the lifetime CO<sub>2</sub> for this car.</p>
+                    <p className="costs-form-sub-header">
+                        <span>
+                            <HowMuchCo2 co2={this.props.totalCo2} /> lbs/CO<sub>2</sub> is the lifetime CO<sub>2</sub> for this car.
+                        </span>         
+                    </p>
                     <p className="costs-form-explainer">{this.props.text}</p>
                     <ul>
                         {questions}
