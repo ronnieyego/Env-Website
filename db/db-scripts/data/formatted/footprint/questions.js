@@ -466,6 +466,7 @@ module.exports =[
     "use-type": "transportation",
     "type": "int",
     "id": 3,
+    "value": 0,
     "hideIf": [
       "noCar"
     ]
@@ -485,6 +486,7 @@ module.exports =[
     "validator": "non-zero-int",
     "type": "int",
     "id": 5,
+    "value": 0,
     "hideIf": [
       "noCar"
     ]
@@ -494,6 +496,7 @@ module.exports =[
     "use-type": "transportation",
     "type": "int",
     "id": 6,
+    "value": 0,
     "hideIf": [
       "noCar"
     ]
@@ -511,12 +514,14 @@ module.exports =[
     "name": "How many miles do you bus each month?",
     "use-type": "transportation",
     "type": "int",
+    "value": 0,
     "id": 10
   },
   {
     "name": "How many miles do you ride on the train each month?",
     "use-type": "transportation",
     "type": "int",
+    "value": 0,
     "id": 11
   },
   {
@@ -526,6 +531,7 @@ module.exports =[
     "subtext": "Planes get about 90 mpg per person!",
     "use-type": "transportation",
     "type": "int",
+    "value": 0,
     "id": 8
   }
 ]

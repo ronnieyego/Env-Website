@@ -55,11 +55,11 @@ export default class Car extends React.Component {
             <div className="costs">
                 <h3 className="costs-form-header">What's the lifetime CO<sub>2</sub> of a car?</h3>
                 <div>
-                    <p className="costs-form-sub-header">
+                    <div className="costs-form-sub-header">
                         <span>
                             <HowMuchCo2 co2={this.props.totalCo2} /> lbs/CO<sub>2</sub> is the lifetime CO<sub>2</sub> for this car.
                         </span>         
-                    </p>
+                    </div>
                     <p className="costs-form-explainer">{this.props.text}</p>
                     <ul>
                         {questions}

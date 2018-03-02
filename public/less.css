@@ -93,6 +93,7 @@
   margin-bottom: 25px;
 }
 .results {
+  display: inline;
   text-align: center;
   font-weight: normal;
 }
@@ -108,6 +109,12 @@
 }
 .results-text {
   text-align: left;
+}
+.results-title {
+  text-align: left;
+  font-size: 33px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 .average-american {
   min-width: 650px;
@@ -422,4 +429,18 @@ input[type="checkbox"] {
   display: flex;
   justify-content: center;
   margin-bottom: 10px;
+}
+.how-much-co2-fact {
+  max-width: 450px;
+}
+.how-much-co2-fact-name {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.how-much-co2-fact-description {
+  font-size: 16px;
+  text-align: left;
+  margin-bottom: 15px;
 }

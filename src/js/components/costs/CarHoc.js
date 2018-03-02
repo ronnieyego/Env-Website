@@ -39,8 +39,8 @@ export default class CarHoc extends React.Component {
     }
 
     calculateDrivingCo2(carQuestions) {
-        const mpg = getAnswerFromId(carQuestions, 1005);
-        const miles = getAnswerFromId(carQuestions, 1006); 
+        const mpg = getAnswerFromId(carQuestions, 1005) || 25;
+        const miles = getAnswerFromId(carQuestions, 1006) || 100000; 
 
         const carCo2 = Math.round(co2PerGallonOfGas * miles / mpg);
         return carCo2;

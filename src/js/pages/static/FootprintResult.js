@@ -11,7 +11,7 @@ import PersonalBreakdown from '../../components/footprint-calculator/results/Per
 import Compare from '../../components/footprint-calculator/results/Compare';
 import Savings from '../../components/footprint-calculator/results/Savings';
 import Facts from '../../components/footprint-calculator/results/Facts';
-import HowMuchCo2 from '../../components/footprint-calculator/results/HowMuchCo2';
+import HowMuchCo2 from '../../components/HowMuchCo2';
 
 @connect((store, props) => {
 	return {
@@ -127,20 +127,21 @@ export default class Results extends React.Component {
 				<Header />
                 <div className="share-page">
                     <h1 ><b>What's my environmental footprint?</b></h1>
-                    <h2 className="results-text">This person releases <b>{monthlyCo2Use.toLocaleString()}</b> pounds of CO<sub>2</sub> and uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> of energy each month.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.</h2>
+                    <span className="results-title">
+                        This person <b><HowMuchCo2 co2={monthlyCo2Use} /></b> pounds of CO<sub>2</sub> and uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> of energy each month.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.
+                    </span>
                     <div>
-                        <HowMuchCo2 co2={monthlyCo2Use} averageAmerican={this.props.averageAmerican.co2.total} />
                         <div id="top-of-results" />
-                        <br />
-                        {shownResults}
-                        <ResultOptionButtons 
-                            answerId={this.props.answerId}
-                            dispatch={this.props.dispatch} 
-                            resultsShown={this.props.resultsShown}
-                            resultsUnit={this.props.resultsUnit}
-                            shareResults={false}
-                        />
-                    </div>
+                            <br />
+                            {shownResults}
+                            <ResultOptionButtons 
+                                answerId={this.props.answerId}
+                                dispatch={this.props.dispatch} 
+                                resultsShown={this.props.resultsShown}
+                                resultsUnit={this.props.resultsUnit}
+                                shareResults={false}
+                            />
+                        </div>
                     <br />
                     
                     <Facts />
