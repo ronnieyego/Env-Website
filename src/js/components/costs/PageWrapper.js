@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 import Header from '../Header';
 import CarHoc from './CarHoc';
+import ClothesHoc from './ClothesHoc';
 import CupHoc from './CupHoc';
+
 
 export default class PageWrapper extends React.Component {
 
@@ -14,11 +16,15 @@ export default class PageWrapper extends React.Component {
 	render() {
         let page;
         switch(this.props.page) {
-            case 'cup':
-                page = <CupHoc />;
-                break;
+           
             case 'car':
                 page = <CarHoc />;
+                break;
+            case 'clothes':
+                page = <ClothesHoc />;
+                break;
+            case 'cup':
+                page = <CupHoc />;
                 break;
         }
 
