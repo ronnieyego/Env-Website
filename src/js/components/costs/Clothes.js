@@ -9,6 +9,7 @@ export default class Clothes extends React.Component {
 
     static propTypes = {
         questions: PropTypes.array.isRequired,
+        co2: PropTypes.object //{ total, shirts, jackets, pants, shorts, socksUndies, accessories, shoes }
     }
 
 	render() {
@@ -54,7 +55,7 @@ export default class Clothes extends React.Component {
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            Text goes here
+                            Text goes here  {this.props.co2.total}
                             {/* <HowMuchCo2 co2={this.props.totalCo2} /> lbs/CO<sub>2</sub> is the lifetime CO<sub>2</sub> for this car. */}
                         </span>         
                     </div>
