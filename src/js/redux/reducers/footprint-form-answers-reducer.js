@@ -11,7 +11,9 @@ const baseState = {
     averageAmerican: getAverage('US', 'American Average', 'male'),
     averageAmericanState: 'US',
     averageAmericanAge: 'American Average',
-    averageAmericanGender: 'male'
+    averageAmericanGender: 'male',
+    averageAmericanShoppingHabit: 'normal',
+    averageAmericanSize: 'Medium'
 };
 
 const footprintFormAnswers = (state = baseState, action) => {
@@ -62,6 +64,14 @@ const footprintFormAnswers = (state = baseState, action) => {
         }
         case 'UPDATE_AVERAGE_AMERICAN_GENDER': {
             state = { ...state, averageAmericanGender: action.payload};
+            break;
+        }
+        case 'UPDATE_AVERAGE_AMERICAN_SHOPPING_HABIT': {
+            state = { ...state, averageAmericanShoppingHabit: action.payload};
+            break;
+        }
+        case 'UPDATE_AVERAGE_AMERICAN_SIZE': {
+            state = { ...state, averageAmericanSize: action.payload};
             break;
         }
       }

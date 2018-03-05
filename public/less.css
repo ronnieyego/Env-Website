@@ -369,6 +369,22 @@ input[type="checkbox"] {
   text-align: center;
   font-weight: bold;
   font-size: 22px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.costs-form-large-bold-left {
+  text-align: left;
+  font-size: 26px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-right: 15px;
+  margin-bottom: 25px;
+}
+.costs-form-sub-text {
+  text-align: left;
+  font-size: 22px;
+  margin-left: 25px;
+  margin-right: 15px;
 }
 .costs-form-explainer {
   padding-left: 40px;
@@ -445,4 +461,12 @@ input[type="checkbox"] {
   font-size: 16px;
   text-align: left;
   margin-bottom: 15px;
+}
+.compare-bar-chart {
+  margin: 10px;
+}
+.compare-bar-chart-title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 22px;
 }

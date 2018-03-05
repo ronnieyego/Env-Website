@@ -44,7 +44,7 @@ export default class DropdownQuestion extends React.Component {
         
         return (
             <div>
-                <p className="footprint-form-sub-header" style={{marginLeft}}>{this.formatName(this.props.name)}</p>
+                <p className="footprint-form-question-name" style={{marginLeft}}>{this.formatName(this.props.name)}</p>
                 {this.props.subtext ? <p className="footprint-form-subtext">{this.props.subtext}</p> : ''}
                 <SelectField
                     id={this.props.id}

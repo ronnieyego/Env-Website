@@ -57,29 +57,27 @@ export default class Question extends React.Component {
 	render() {
         const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
 		return (
-            <li className="footprint-form-question">
+            <div className="footprint-form-question">
+                <p className="footprint-form-question-name">{this.formatName(this.props.question.name)}</p>
+                {this.props.aboveText && <p className="footprint-form-question-subtext">{this.props.aboveText}</p>}
+                {this.props.aboveText2 && <p className="footprint-form-question-subtext">{this.props.aboveText2}</p>}
                 <div>
-                    <p className="footprint-form-question-name">{this.formatName(this.props.question.name)}</p>
-                    {this.props.aboveText && <p className="footprint-form-question-subtext">{this.props.aboveText}</p>}
-                    {this.props.aboveText2 && <p className="footprint-form-question-subtext">{this.props.aboveText2}</p>}
-                    <div>
-                        <TextField
-                            errorText={this.props.errorText}
-                            id={this.props.id}
-                            name={this.props.id}
-                            hintText={this.props.subText}
-                            onChange={this.updateQuestion.bind(this, this.props.validator)}
-                            value={this.props.value}
-                            floatingLabelText={this.props.floatingLabelText}
-                            // type="number" Should add for mobile, but then you can do stuff like .343.3423.43
-                            // Need to learn how to turn off html5s validation
+                    <TextField
+                        errorText={this.props.errorText}
+                        id={this.props.id}
+                        name={this.props.id}
+                        hintText={this.props.subText}
+                        onChange={this.updateQuestion.bind(this, this.props.validator)}
+                        value={this.props.value}
+                        floatingLabelText={this.props.floatingLabelText}
+                        // type="number" Should add for mobile, but then you can do stuff like .343.3423.43
+                        // Need to learn how to turn off html5s validation
 
-                        />
-                    </div>
-                    {this.props.belowText && <p className="footprint-form-question-below-text">{this.props.belowText}</p>}
-                    {this.props.belowText2 && <p className="footprint-form-question-below-text">{this.props.belowText2}</p>}
+                    />
                 </div>
-            </li>
+                {this.props.belowText && <p className="footprint-form-question-below-text">{this.props.belowText}</p>}
+                {this.props.belowText2 && <p className="footprint-form-question-below-text">{this.props.belowText2}</p>}
+            </div>
 		);
 	}
 };

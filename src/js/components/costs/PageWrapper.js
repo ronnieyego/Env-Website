@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Header from '../Header';
 import CarHoc from './CarHoc';
-import ClothesHoc from './ClothesHoc';
+import ClothesHoc from './clothes/ClothesHoc';
 import CupHoc from './CupHoc';
 
 

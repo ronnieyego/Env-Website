@@ -127,9 +127,56 @@ const demographicCalories ={
         male: 2450,
         female: 1800,
     }
+};
+
+const americanClothing = {
+    shopper: { // https://recoveringshopaholic.com/2013/02/12/what-is-a-normal-sized-wardrobe/
+        male : {
+            shirts: 112,
+            pants: 10,
+            shorts: 10,
+            jackets: 10,
+            shoes: 12,
+            socksUndies: 60, // Estimate.  20 of each 
+            accessories: 15 // Estimate. 
+        },
+        female: {
+            shirts: 114,
+            pants: 24,
+            shorts: 24,
+            jackets: 73,
+            shoes: 53,
+            socksUndies: 80, // Estimate
+            accessories: 50
+        }
+    },
+    normal: { 
+        // 103 items for a woman http://www.dailymail.co.uk/femail/article-3564177/The-struggle-real-Infographic-reveals-average-woman-103-ITEMS-closet-laying-REAL-reasons-never-wear.html
+        // Ratios derived from heave shopper above
+        // Guy is a complete guess.  Mostly from https://www.reddit.com/r/AskMen/comments/1s9xlg/guys_how_much_clothing_do_you_own/?st=jece3lxu&sh=78e8f922
+        male : {
+            shirts: 28,
+            pants: 6,
+            shorts: 4,
+            jackets: 8,
+            shoes: 10,
+            socksUndies: 36, 
+            accessories: 5
+        },
+        female: {
+            shirts: 30,
+            pants: 6,
+            shorts: 6,
+            jackets: 19,
+            shoes: 14,
+            socksUndies: 40, 
+            accessories: 13
+        } 
+    }
 }
 
 module.exports = {
+    americanClothing,
     americanCarMiles,
     americanDietCalories,
     americanFood, 
