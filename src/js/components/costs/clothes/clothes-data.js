@@ -64,31 +64,10 @@ const percentShoeIsRubber = .08
 
 const clothesQuestions = [
     {    
-        id: 1007,
-        name: 'What size do you usually buy?',
-        "selectOptions": [
-            'X Small',
-            'Small',
-            'Medium',
-            'Large',
-            'X Large'
-        ],
-        subtext: 'X-small uses ~25% less material than X-large clothes.',
-        value: "Medium",
-        type: 'dropdown',
-        forms: ['clothes'],
-        formType: 'costs'
-    },
-    {    
-        id: 1017,
-        name: 'Are you a girl or guy?',
-        "selectOptions": [
-            'Female',
-            'Male'
-        ],
-        subtext: 'Men\'s clothes are larger than women\'s clothes.',
-        value: "Female",
-        type: 'dropdown',
+        id: 1008,
+        name: 'How many shirts do you own?',
+        type: 'int',
+        value: 0,
         forms: ['clothes'],
         formType: 'costs'
     },
@@ -104,14 +83,6 @@ const clothesQuestions = [
         subtext: 'If you\'re not sure if a shirt is local/organic, its not.',
         value: "Cotton",
         type: 'dropdown',
-        forms: ['clothes'],
-        formType: 'costs'
-    },
-    {    
-        id: 1008,
-        name: 'How many shirts do you own?',
-        type: 'int',
-        value: 0,
         forms: ['clothes'],
         formType: 'costs'
     },
@@ -193,7 +164,36 @@ const clothesQuestions = [
         type: 'int',
         forms: ['clothes'],
         formType: 'costs'
-    }
+    },
+    {    
+        id: 1007,
+        name: 'What size do you usually buy?',
+        "selectOptions": [
+            'X Small',
+            'Small',
+            'Medium',
+            'Large',
+            'X Large'
+        ],
+        subtext: 'X-small uses ~25% less material than X-large clothes.',
+        value: "Medium",
+        type: 'dropdown',
+        forms: ['clothes'],
+        formType: 'costs'
+    },
+    {    
+        id: 1017,
+        name: 'Are you a girl or guy?',
+        "selectOptions": [
+            'Female',
+            'Male'
+        ],
+        subtext: 'Men\'s clothes are larger than women\'s clothes.',
+        value: "Female",
+        type: 'dropdown',
+        forms: ['clothes'],
+        formType: 'costs'
+    },
 ];
 
 

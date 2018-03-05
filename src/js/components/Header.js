@@ -21,7 +21,8 @@ export default class Header extends React.Component {
 			        <li><a href="/">Footprint</a></li>
 			        <li><a href="/energy">Energy</a></li>
 			        <li><a href="/costs/car">Cars</a></li>
-							<li><a href="/how-your-footprint-was-calculated">Form Calculations</a></li>
+							<li><a href="/costs/clothes">Clothes</a></li>
+							<li><a href="/how-your-footprint-was-calculated">Footprint Calculations</a></li>
 							<li><a href="/data">Data</a></li>
 							<li><a href="/co2e">CO<sub>2</sub>e</a></li>
 							<li><a href="/about">About</a></li>
