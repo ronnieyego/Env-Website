@@ -1,10 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types'
 
-import Question from '../footprint-calculator/forms/Question';
-import DropDownQuestion from '../footprint-calculator/forms/DropDownQuestion';
-
-import { calculateCupCO2 } from '../../actions/cost-forms/costs-actions'
+import Question from '../../footprint-calculator/forms/Question';
+import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 
 export default class Cup extends React.Component {
 

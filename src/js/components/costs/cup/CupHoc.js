@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import _ from 'lodash';
 import { cupData, cupQuestions, usesPerWash} from './cup-data';
-import footprintQuestions from '../../../../public/data/footprint-questions.js';
-import { utilityEmissionsPerState }from '../../utils/utils-data/state-energy-and-emissions';
-import { gallonsPerWashedDish, kwhPerGallon } from '../../utils/utils-data/constants';
+import footprintQuestions from '../../../../../public/data/footprint-questions.js';
+import { utilityEmissionsPerState }from '../../../utils/utils-data/state-energy-and-emissions';
+import { gallonsPerWashedDish, kwhPerGallon } from '../../../utils/utils-data/constants';
 import Cup from './Cup';
 
-import { getAnswerFromId, getQuestionFromId } from '../../utils/footprint/get-question-utils';
+import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {

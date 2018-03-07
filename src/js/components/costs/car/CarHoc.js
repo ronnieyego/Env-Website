@@ -5,10 +5,10 @@ import { connect } from 'react-redux';
 import { carQuestions, classData, co2PerPound, creationBreakdown } from './car-data';
 import Car from './Car';
 
-import { co2PerGallonOfGas } from '../../utils/utils-data/constants';
+import { co2PerGallonOfGas } from '../../../utils/utils-data/constants';
 
 
-import { getAnswerFromId, getQuestionFromId } from '../../utils/footprint/get-question-utils';
+import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {

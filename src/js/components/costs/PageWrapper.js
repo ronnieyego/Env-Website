@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 import Header from '../Header';
-import CarHoc from './CarHoc';
+import CarHoc from './car/CarHoc';
 import ClothesHoc from './clothes/ClothesHoc';
-import CupHoc from './CupHoc';
+import CupHoc from './cup/CupHoc';
 
 
 export default class PageWrapper extends React.Component {

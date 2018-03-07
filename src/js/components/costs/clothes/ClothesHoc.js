@@ -78,7 +78,7 @@ export default class ClothesHoc extends React.Component {
             jackets: averageProfile.jackets,
             shirtMaterial: 'Cotton',
             pants: averageProfile.pants,
-            pantsMaterial: 'Its a mix',
+            pantsMaterial: 'Mostly demin',
             shorts: averageProfile.shorts,
             shoes: averageProfile.shoes,
             shoeType: 'Its a mix of shoes',

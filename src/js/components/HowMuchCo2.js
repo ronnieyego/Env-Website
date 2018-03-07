@@ -5,10 +5,22 @@ import ReactTooltip from 'react-tooltip';
 
 const data = [
     {
+        name: 'A Large Campfire',
+        description: 'An average campfire burning ~20 pounds of wood',
+        source: 'https://www.reddit.com/r/askscience/comments/h5tuq/how_much_carbon_dioxide_does_a_standard_campfire/?st=jef7sh2f&sh=7073ed92',
+        amount: 20
+    },
+    {
         name: 'Tree sequestering',
         description: 'This is how much CO2 a tree absorbs each year.',
         source: 'http://www.americanforests.org/explore-forests/forest-facts/',
         amount: 48
+    },
+    {
+        name: 'Using 100 Tea Candles',
+        description: 'Each tea candle is 50g and is about 1in radius and 1in tall.',
+        source: 'http://www.michaelsmithnews.com/2014/03/the-chemistry-of-earth-hour-1-candle-x-1-hour-8-x-the-co2-from-1-lightbulb-x-1-hour.html',
+        amount: 69
     },
     {
         name: 'One bookcase' ,
@@ -51,6 +63,12 @@ const data = [
         description: 'Twitter\'s servers use about 8MW of energy in Georgia.  GA utilities release 1.16 pounds of CO2 per kwh',
         source: 'https://www.quora.com/Data-Centers-How-much-energy-does-a-server-farm-consume',
         amount: 9280
+    },
+    {
+        name: 'Making a cement driveway',
+        description: 'A standard 600 sqft driveway weighs almost 40,000 pounds of CO2 intensive concrete.',
+        source: 'https://www.quora.com/Data-Centers-How-much-energy-does-a-server-farm-consume',
+        amount: 17512
     },
     {
         name: 'Raising one cow',
@@ -96,7 +114,13 @@ const data = [
         description: 'General Sherman, the world\'s largest tree (by volume) weighs an estimated 1.5 Million pounds and holds a ton of carbon.',
         source: 'https://www.dewharvest.com/carbon-dioxide-stored-by-general-sherman-giant-sequoia.html',
         amount: 3172213
-    }
+    },
+    {
+        name: 'Cement Industry in 1 Year',
+        description: 'Gloabal cement emissions.  This industry alone contributes 3.4% to all CO2 emissions.',
+        source: 'https://www3.epa.gov/ttnchie1/conference/ei13/ghg/hanle.pdf',
+        amount: 1827632154000
+    },
 ];
 
 
@@ -117,7 +141,7 @@ const upperLimit = {
     description: 'Wow this is a lot!  I don\'t even have anything to compare this against.  In any case, you should probably change something or else say "my bad" when people talk about climate change.',
     amount: 4000000
 };;
-const range = .2; // 10% range for amounts
+const range = .2; // 20% range for amounts
 
 export default class HowMuchCo2 extends React.Component {
     static propTypes = {
@@ -148,7 +172,7 @@ export default class HowMuchCo2 extends React.Component {
         const id3 =`how-much-co2-desciption-${fact.name}`
         return (
             <div id={id1} className="how-much-co2-fact">
-                <div id={id2} className="how-much-co2-fact-name">{fact.name} ({fact.amount.toLocaleString()} lb/CO2)</div>
+                <div id={id2} className="how-much-co2-fact-name">{fact.name} ({fact.amount.toLocaleString()} pounds of CO<sub>2</sub>)</div>
                 <div id={id3} className="how-much-co2-fact-description">{fact.description}</div>
                 <br />
             </div>

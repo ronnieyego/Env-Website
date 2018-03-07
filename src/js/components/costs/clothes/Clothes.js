@@ -71,7 +71,7 @@ export default class Clothes extends React.Component {
         }
 
         const yourResText = this.props.co2.totalCo2 ? 
-            `You use have ${this.props.co2.totalCo2} articles of clothing which cost ${this.props.co2.totalCo2} pounds of CO2.` 
+            `You use have ${this.props.co2.totalArticles} articles of clothing which cost ${this.props.co2.totalCo2} pounds of CO2.` 
             :
             'Please fill out the questionaire below to see if your wardrobe is more environmentally friendly!'
         
@@ -88,7 +88,9 @@ export default class Clothes extends React.Component {
                         </p>
                     </div>
 
-                    <CompareBarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} />
+                    <div className="display-flex-around">
+                        <CompareBarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} />
+                    </div>
                     <div className="average-american-buttons" id="compare-button-container">
                         <div>
                             <b className="average-american-buttons-text">Change gender</b>

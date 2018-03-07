@@ -22,11 +22,11 @@ const weightOfClothes = { // In pounds
     'pants-average': 1,
 // Shoes
     'Dress Shoes':	1.875,
-    'Boots':	5,
+    'Boots':	4,
     'Sneakers':	2.25,
     'Sandals':	1.75,
     'Open (e.g. heels and flats)':	1.25,
-    'Its a mix of shoes': (1.25, 2.25, 5, 1.875, 1.75)/5 // All other shoes averaged
+    'Its a mix of shoes': (1.25 + 2.25 + 4 + 1.875 + 1.75)/5 // All other shoes averaged
 };
 
 const sizeDifference = { 
