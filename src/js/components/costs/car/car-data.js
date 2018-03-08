@@ -1,6 +1,7 @@
 // Main source:  How bad are bannanas.
 // From 3 car classes and their CO2, I extrapolated CO2 by weight
 // This gave a range of 7-15Lb/CO2 per lb.  From there i got the weight of each car class times the "Ruggedness" or each car.
+import ids from '../../../utils/ids/index';
 
 
 const classData = {
@@ -64,7 +65,7 @@ const creationBreakdown = [ // Modified from how bad are banannas
 
 const carQuestions = [
     {    
-        id: 1003,
+        id: ids.carSize,
         name: 'What class of car do you drive?',
         "selectOptions": [
             'Smart car',
@@ -83,7 +84,7 @@ const carQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1004,
+        id: ids.carRuggedness,
         name: 'Which of the following best descibes your vehicle?',
         "selectOptions": ['Lightweight', 'Standard', 'Luxurious', 'Rugged' ],
         subtext: 'This question helps estimate the composition of your vehicle.  Rugged cars tend to use more metals and less plastic which make them more CO2 intensive to create',
@@ -93,7 +94,7 @@ const carQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1005,
+        id: ids.carMpg,
         name: 'What\'s the MPG of your vehicle?',
         value: 25,
         type: 'int',
@@ -101,7 +102,7 @@ const carQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1006,
+        id: ids.carMileage,
         name: 'What\' the total mileage of the vehicle?',
         value: 100000,
         type: 'int',

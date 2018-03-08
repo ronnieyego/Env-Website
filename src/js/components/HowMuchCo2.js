@@ -5,6 +5,18 @@ import ReactTooltip from 'react-tooltip';
 
 const data = [
     {
+        name: 'Charging your Ipad once',
+        description: 'It takes 0.06 kWhs to charge an Ipad.  The US emits 1.456 pounds of CO2 per kWh on average.',
+        source: 'https://www.forbes.com/pictures/ekhf45ffjkj/ipad-150-per-year/#7728644cb9ea',
+        amount: 0.09
+    },
+    {
+        name: 'Watching TV for an hour',
+        description: 'Most TVs use about 0.48 kWs.  The US emits 1.456 pounds of CO2 per kWh on average.',
+        amount: 0.0672
+    },
+    
+    {
         name: 'A Large Campfire',
         description: 'An average campfire burning ~20 pounds of wood',
         source: 'https://www.reddit.com/r/askscience/comments/h5tuq/how_much_carbon_dioxide_does_a_standard_campfire/?st=jef7sh2f&sh=7073ed92',
@@ -23,6 +35,11 @@ const data = [
         amount: 69
     },
     {
+        name: 'One Pound of Chicken',
+        description: 'This is a combination of feed, manure, and processing.',
+        amount: 161
+    },
+    {
         name: 'One bookcase' ,
         description: 'This how much CO2 it takes to create a 4 x 3 bookcase of books',
         amount: 400
@@ -32,6 +49,11 @@ const data = [
         description: 'This is how much CO2 you inhale and exhale in one year.',
         source: 'http://www.slate.com/articles/news_and_politics/explainer/2009/08/7_billion_carbon_sinks.html',
         amount: 828
+    },
+    {
+        name: 'One Pound of Beef',
+        description: 'This is a mostly due to cow flatulence.',
+        amount: 838
     },
     {
         name: 'Burning an oil drum',
@@ -47,6 +69,11 @@ const data = [
         name: 'Burning a tub of gasoline',
         description: 'This is how much CO2 you\'d emit if you filled your bathtub with gasoline and lit it on fire',
         amount: 1568
+    },
+    {
+        name: 'Small BBQ',
+        description: 'Most of this come from growing 6 pounds of meat (2 beef, 2 pork, 2 chicken).  ~20 pounds comes from fuel for the grill itself.',
+        amount: 2423
     },
     {
         name: 'Flying across America',
@@ -131,17 +158,14 @@ const iconSize = {
     color: 'mediumpurple'
 };
 
-const lowerLimit = {
-    name: 'This footprint is pretty insignificant',
-    description: 'While there are things that this footprint compares to, its pretty small in the grand scheme of things and I wouldn\'t worry about it.',
-    amount: 25
-};
 const upperLimit = {
     name: 'This footprint is huge',
     description: 'Wow this is a lot!  I don\'t even have anything to compare this against.  In any case, you should probably change something or else say "my bad" when people talk about climate change.',
     amount: 4000000
-};;
-const range = .2; // 20% range for amounts
+};
+const range = .3; // 30% range for amounts
+const FACTS_TO_DISPLAY = 3
+
 
 export default class HowMuchCo2 extends React.Component {
     static propTypes = {
@@ -149,21 +173,31 @@ export default class HowMuchCo2 extends React.Component {
         fontSize: PropTypes.number
     }
 
+    sortFacts(co2, facts) {
+        if(facts.length < FACTS_TO_DISPLAY) {
+            return facts;
+        }
+        const sorted = facts.sort((a,b) => {
+            return Math.abs(a.co2 - co2) > Math.abs(b.co2 - co2);
+        });
+        const reduced = sorted.slice(0,FACTS_TO_DISPLAY);
+        return reduced.sort((a,b) => {
+            return a.co2 > b.co2;
+        })
+    }
+
     getTooMuch(total) {
         return `The CO2 footprint is comparable to burning ${Math.round(total/burnOilDrum)} barrels of oil every month!`;
     }
 
     getLikelyFacts(co2) {
-        if( co2 < lowerLimit.amount) {
-            return [lowerLimit]
-        }
         if( co2 > upperLimit.amount) {
             return [upperLimit]
         }
         const facts = data.filter(fact => {
             return (fact.amount > (co2 * (1 - range))) && (fact.amount < (co2 * (1+range)))
         });
-        return facts;
+        return this.sortFacts(co2, facts);
     }
 
     renderFact(fact) {
@@ -172,7 +206,7 @@ export default class HowMuchCo2 extends React.Component {
         const id3 =`how-much-co2-desciption-${fact.name}`
         return (
             <div id={id1} className="how-much-co2-fact">
-                <div id={id2} className="how-much-co2-fact-name">{fact.name} ({fact.amount.toLocaleString()} pounds of CO<sub>2</sub>)</div>
+                <div id={id2} className="how-much-co2-fact-name">{fact.name}: {fact.amount.toLocaleString()} pounds of CO<sub>2</sub></div>
                 <div id={id3} className="how-much-co2-fact-description">{fact.description}</div>
                 <br />
             </div>
@@ -186,7 +220,7 @@ export default class HowMuchCo2 extends React.Component {
 		return (
             <span>
                 <span style={spanStyle} data-tip data-for='howMuchCo2'>{co2.toLocaleString()} <i className="material-icons" style={iconSize}>help</i> </span>
-                <ReactTooltip id='howMuchCo2' type='dark' effect='solid'>
+                <ReactTooltip place="bottom" id='howMuchCo2' type='dark' effect='solid'>
                     <div id={`howMuchCO2-${co2}`}>
                         <p className="how-much-co2-fact-name">This footprint is close to. . .</p>
                         {display}

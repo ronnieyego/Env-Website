@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import ids from '../../../utils/ids/index';
 import { 
     clothesQuestions,
     co2PerPoundOfFabric,
@@ -89,18 +90,18 @@ export default class ClothesHoc extends React.Component {
         }
 
         const totalCo2Payload = {
-            shirts: getAnswerFromId(questions, 1008) || 0,
-            jackets: getAnswerFromId(questions, 1009) || 0,
-            shirtMaterial: getAnswerFromId(questions, 1011) || 'Cotton',
-            pants: getAnswerFromId(questions, 1010) || 0,
-            pantsMaterial: getAnswerFromId(questions, 1018) || 'Mostly demin',
-            shorts: getAnswerFromId(questions, 1012) || 0,
-            shoes: getAnswerFromId(questions, 1013) || 0,
-            shoeType: getAnswerFromId(questions, 1014) || 'Boots',
-            socksUndies: getAnswerFromId(questions, 1015) || 0,
-            accessories: getAnswerFromId(questions, 1016) || 0,
-            gender: getAnswerFromId(questions, 1017) || 'Female',
-            size: getAnswerFromId(questions, 1007) || 'Medium',
+            shirts: getAnswerFromId(questions, ids.shirtsOwn) || 0,
+            jackets: getAnswerFromId(questions, ids.jacketsOwn) || 0,
+            shirtMaterial: getAnswerFromId(questions, ids.shirtPrimaryMaterial) || 'Cotton',
+            pants: getAnswerFromId(questions, ids.pantsOwn) || 0,
+            pantsMaterial: getAnswerFromId(questions, ids.shortsPrimaryMaterial) || 'Mostly demin',
+            shorts: getAnswerFromId(questions, ids.shortsOwn) || 0,
+            shoes: getAnswerFromId(questions, ids.shoesOwn) || 0,
+            shoeType: getAnswerFromId(questions, ids.shoeType) || 'Boots',
+            socksUndies: getAnswerFromId(questions, ids.socksOwn) || 0,
+            accessories: getAnswerFromId(questions, ids.accessoriesOwn) || 0,
+            gender: getAnswerFromId(questions, ids.yourGender) || 'Female',
+            size: getAnswerFromId(questions, ids.clothesSize) || 'Medium',
         }
          
 

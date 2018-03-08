@@ -1,3 +1,4 @@
+import ids from '../../../utils/ids/index';
 
 const co2PerPoundOfFabric = { // Mishmash of sources see google sheet
     'Cotton':	1.848,
@@ -64,7 +65,7 @@ const percentShoeIsRubber = .08
 
 const clothesQuestions = [
     {    
-        id: 1008,
+        id: ids.shirtsOwn,
         name: 'How many shirts do you own?',
         type: 'int',
         value: 0,
@@ -72,7 +73,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1011,
+        id: ids.shirtPrimaryMaterial,
         name: 'What\'s the primary material for your shirts',
         "selectOptions": [
             'Cotton',
@@ -87,7 +88,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1009,
+        id: ids.jacketsOwn,
         name: 'How many jackets, coats, and sweaters do you own',
         type: 'int',
         value: 0,
@@ -95,7 +96,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1010,
+        id: ids.pantsOwn,
         name: 'How many pants do you own?',
         value: 0,
         type: 'int',
@@ -103,7 +104,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1012,
+        id: ids.shortsOwn,
         name: 'How many shorts do you own?',
         value: 0,
         type: 'int',
@@ -111,7 +112,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1018,
+        id: ids.shortsPrimaryMaterial,
         name: 'What\'s the primary material for your pants/shorts',
         "selectOptions": [
             'Mostly demin',
@@ -126,7 +127,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1013,
+        id: ids.shoesOwn,
         name: 'How many shoes do you own?',
         value: 0,
         type: 'int',
@@ -134,7 +135,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1014,
+        id: ids.shoeType,
         name: 'What\'s the primary type of shoe you own',
         "selectOptions": [
             'Dress Shoes',
@@ -150,7 +151,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1015,
+        id: ids.socksOwn,
         name: 'How many pairs of socks and underwear do you own?',
         value: 0,
         type: 'int',
@@ -158,7 +159,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1016,
+        id: ids.accessoriesOwn,
         name: 'How many accessories (scarves, hats, belts, gloves, etc) do you own?',
         value: 0,
         type: 'int',
@@ -166,7 +167,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1007,
+        id: ids.clothesSize,
         name: 'What size do you usually buy?',
         "selectOptions": [
             'X Small',
@@ -182,7 +183,7 @@ const clothesQuestions = [
         formType: 'costs'
     },
     {    
-        id: 1017,
+        id: ids.yourGender,
         name: 'Are you a girl or guy?',
         "selectOptions": [
             'Female',

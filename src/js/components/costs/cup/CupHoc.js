@@ -5,6 +5,8 @@ import _ from 'lodash';
 import { cupData, cupQuestions, usesPerWash} from './cup-data';
 import footprintQuestions from '../../../../../public/data/footprint-questions.js';
 import { utilityEmissionsPerState }from '../../../utils/utils-data/state-energy-and-emissions';
+
+import ids from '../../../utils/ids/index';
 import { gallonsPerWashedDish, kwhPerGallon } from '../../../utils/utils-data/constants';
 import Cup from './Cup';
 
@@ -90,10 +92,10 @@ export default class CupHoc extends React.Component {
     }
 
     calculateCupCo2(cupQuestions) {
-        const cupType = getAnswerFromId(cupQuestions, 1000) || 'Ceramic Mug';
+        const cupType = getAnswerFromId(cupQuestions, ids.cupType) || 'Ceramic Mug';
         const cupCo2 = this.getCupDataCo2(cupType);
 
-        const washTypeQ = getQuestionFromId(cupQuestions, 1002) || 'Dishwasher';
+        const washTypeQ = getQuestionFromId(cupQuestions, ids.cupClean) || 'Dishwasher';
         const washType = washTypeQ && !washTypeQ.hidden && washTypeQ.value;
         let cupWashCo2 = 0;
         if(washType === 'Dishwasher') {

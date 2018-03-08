@@ -57,7 +57,7 @@ export default class Car extends React.Component {
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            <HowMuchCo2 co2={this.props.totalCo2} /> lbs/CO<sub>2</sub> is the lifetime CO<sub>2</sub> for this car.
+                            This car will emit <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub> in its lifetime
                         </span>         
                     </div>
                     <p className="costs-form-explainer">{this.props.text}</p>
