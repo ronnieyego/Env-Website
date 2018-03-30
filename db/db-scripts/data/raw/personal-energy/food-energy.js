@@ -25,8 +25,9 @@ module.exports = [
     "water": 45,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "validator": "under-20",
+    "validator": "standard-int",
     "subtext": "Serving size: 1 slice of bread or 0.5 cups of cooked rice",
+    "id": 101,
     "": ""
   },
   {
@@ -37,8 +38,10 @@ module.exports = [
     "water": 43,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "validator": "under-20",
-    "subtext": "Serving size: 1 cup of leafy veggies or 0.5 cups of others"
+    "validator": "standard-int",
+    "subtext": "Serving size: 1 cup of leafy veggies or 0.5 cups of others",
+    "id": 102,
+    "": ""
   },
   {
     "name": "milk",
@@ -48,8 +51,9 @@ module.exports = [
     "water": 44.2,
     "use-type": "serving",
     "sub-grouping": "dairy",
-    "validator": "under-20",
+    "validator": "standard-int",
     "subtext": "Serving size: 1 cup",
+    "id": 103,
     "": ""
   },
   {
@@ -60,8 +64,9 @@ module.exports = [
     "water": 54,
     "use-type": "serving",
     "sub-grouping": "produce",
-    "validator": "under-20",
+    "validator": "standard-int",
     "subtext": "Serving size: 1 apple or 0.5 cups",
+    "id": 104,
     "": ""
   },
   {
@@ -72,8 +77,22 @@ module.exports = [
     "water": 52.7,
     "use-type": "serving",
     "sub-grouping": "dairy",
-    "validator": "under-20",
+    "validator": "standard-int",
     "subtext": "Serving size: 1 egg",
+    "id": 105,
+    "": ""
+  },
+  {
+    "name": "chicken",
+    "kwh": 0.83,
+    "calories/serving": 204,
+    "co2": 1.01,
+    "water": 85.6,
+    "use-type": "serving",
+    "sub-grouping": "meat",
+    "validator": "standard-int",
+    "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "id": 106,
     "": ""
   },
   {
@@ -84,19 +103,9 @@ module.exports = [
     "water": 59.6,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "validator": "under-20",
-    "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese"
-  },
-  {
-    "name": "chicken",
-    "kwh": 0.83,
-    "calories/serving": 204,
-    "co2": 1.01,
-    "water": 85.6,
-    "use-type": "serving",
-    "sub-grouping": "meat",
-    "validator": "under-20",
-    "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "validator": "standard-int",
+    "subtext": "Serving size: 0.75 cups of yogurt or 1.5 oz of cheese",
+    "id": 107,
     "": ""
   },
   {
@@ -107,8 +116,9 @@ module.exports = [
     "water": 122.9,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "validator": "under-20",
+    "validator": "standard-int",
     "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "id": 108,
     "": ""
   },
   {
@@ -119,8 +129,10 @@ module.exports = [
     "water": 375.8,
     "use-type": "serving",
     "sub-grouping": "meat",
-    "validator": "under-20",
-    "subtext": "Serving size: 3 oz about the size of a deck of cards"
+    "validator": "standard-int",
+    "subtext": "Serving size: 3 oz about the size of a deck of cards",
+    "id": 109,
+    "": ""
   },
   {
     "name": "junk food",
@@ -130,8 +142,9 @@ module.exports = [
     "water": 45,
     "use-type": "serving",
     "sub-grouping": "junk-food",
-    "validator": "under-20",
+    "validator": "standard-int",
     "subtext": "Serving size: 16 chips or 1 cookie or not enough cake",
+    "id": 110,
     "": ""
   }
 ];

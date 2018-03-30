@@ -1,4 +1,16 @@
+// 1025 currenet max
+
 export default {
+
+ // BBQ
+    grillType: 1022,
+    numberBurners: 1023,
+    numberChimneys: 1024,
+    hoursGrilling: 1025,
+    poundsChicken: 1018,
+    poundsBeef: 1019,
+    poundsPork: 1020,
+    poundsVegetables: 1021,
 
 // Clothes
     shirtsOwn: 1008,

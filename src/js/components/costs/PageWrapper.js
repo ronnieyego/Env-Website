@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 import Header from '../Header';
+
+import BbqHoc from './bbq/BbqHoc';
 import CarHoc from './car/CarHoc';
 import ClothesHoc from './clothes/ClothesHoc';
 import CupHoc from './cup/CupHoc';
@@ -17,6 +19,9 @@ export default class PageWrapper extends React.Component {
         let page;
         switch(this.props.page) {
            
+            case 'bbq':
+                page = <BbqHoc />;
+                break;
             case 'car':
                 page = <CarHoc />;
                 break;

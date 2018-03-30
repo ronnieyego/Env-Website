@@ -1,9 +1,18 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { MenuItem, SelectField } from 'material-ui';
 
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 export default class CompareBarChar extends React.Component {
+
+    static propTypes = {
+        graphData: PropTypes.array, // Array of {name: 'Grilling', You: grillCo2 || 0, 'Average American': 55 },
+        dataKey: PropTypes.string, // Data key to look for in data set.
+        compare: PropTypes.bool, // If true, looks for average american.  
+        units: PropTypes.string, //units on left side
+        title: PropTypes.string 
+    }
         
     getDomainMax(barGraphData) {
         let max = 0;
@@ -27,6 +36,7 @@ export default class CompareBarChar extends React.Component {
         const max = domainMax > defaultMax ? domainMax : defaultMax;
         const units = this.props.units;
         const title = this.props.title || '';
+        const dataKey = this.props.dataKey || 'You';
 
         return (
             <div className="compare-bar-chart">
@@ -40,8 +50,8 @@ export default class CompareBarChar extends React.Component {
                     <Tooltip/>
                     <Legend wrapperStyle={{marginLeft: '0px'}} />
                     <ReferenceLine y={0} stroke='#000'/>
-                    <Bar dataKey="You" fill="#8884d8" />
-                    <Bar dataKey="Average American" fill="#82ca9d" />
+                    <Bar dataKey={dataKey} fill="#8884d8" />
+                    {this.props.compare && <Bar dataKey="Average American" fill="#82ca9d" />}
                 </BarChart>
             </div>
         );

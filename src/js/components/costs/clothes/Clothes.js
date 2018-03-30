@@ -89,7 +89,7 @@ export default class Clothes extends React.Component {
                     </div>
 
                     <div className="display-flex-around">
-                        <CompareBarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} />
+                        <CompareBarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} compare={true} />
                     </div>
                     <div className="average-american-buttons" id="compare-button-container">
                         <div>
