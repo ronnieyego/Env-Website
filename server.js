@@ -45,6 +45,7 @@ app.use((req, res, next) => {
 app.get('/', footprintMiddleware);
 
 
+app.get('/costs/books', costPagesMiddleware);
 app.get('/costs/bbq', costPagesMiddleware);
 app.get('/costs/car', costPagesMiddleware);
 app.get('/costs/clothes', costPagesMiddleware);

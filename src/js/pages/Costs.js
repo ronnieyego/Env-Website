@@ -4,6 +4,7 @@ import { browserHistory, BrowserRouter as Router, Route} from 'react-router-dom'
 
 import PageWrapper from '../components/costs/PageWrapper';
 
+const books = () => <PageWrapper page='books' />;
 const bbq = () => <PageWrapper page='bbq' />;
 const car = () => <PageWrapper page='car' />;
 const clothes = () => <PageWrapper page='clothes' />;
@@ -15,6 +16,7 @@ export default class Costs extends React.Component {
 		return (
             <Router history={browserHistory} >
                 <div>
+                    <Route exact={true} path="/costs/books" component={books} />
                     <Route exact={true} path="/costs/bbq" component={bbq} />
                     <Route exact={true} path="/costs/car" component={car} />
                     <Route exact={true} path="/costs/cup" component={cup} />

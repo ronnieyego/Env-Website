@@ -1,8 +1,11 @@
-// 1025 currenet max
+// 1026 currenet max
 
 export default {
 
- // BBQ
+// Books
+    numberBooks: 1026,
+
+// BBQ
     grillType: 1022,
     numberBurners: 1023,
     numberChimneys: 1024,
