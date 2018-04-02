@@ -66,9 +66,7 @@ export default class Clothes extends React.Component {
         const genderSelects = ['male', 'female'].map(gender => <MenuItem key={gender} primaryText={this.capitalize(gender)} value={gender} />);
         const sizeSelects = ['X Small', 'Small', 'Medium', 'Large', 'X Large'].map(size => <MenuItem key={size} primaryText={size} value={size} />);
         const habitSelects = ['normal', 'shopper'].map(habit => <MenuItem key={habit} primaryText={this.capitalize(habit)} value={habit} />);
-        const selectsStyle = {
-            width: '150px'
-        }
+        const selectsStyle = { width: '150px' };
 
         const yourResText = this.props.co2.totalCo2 ? 
             `You use have ${this.props.co2.totalArticles} articles of clothing which cost ${this.props.co2.totalCo2} pounds of CO2.` 

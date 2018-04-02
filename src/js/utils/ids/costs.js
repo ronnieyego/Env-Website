@@ -1,4 +1,4 @@
-// 1026 currenet max
+// 1032 currenet max
 
 export default {
 
@@ -37,6 +37,15 @@ export default {
     carMileage: 1006,
 // Cup
     cupType: 1000,
-    cupClean: 1002
+    cupClean: 1002,
+
+// Furniture
+    numTables: 1027,
+    numChairs: 1028,
+    numBeds: 1029,
+    numCouches: 1030,
+    numDrawers: 1031,
+    numBookcases: 1032,
+
 
 }

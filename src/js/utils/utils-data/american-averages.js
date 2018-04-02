@@ -173,6 +173,25 @@ const americanClothing = {
             accessories: 13
         } 
     }
+};
+
+const americanFurniture = {
+    house: {
+        chairs: 16,
+        tables: 6,
+        couches: 4,
+        drawers: 10,
+        bookcases: 6,
+        beds: 3,
+    },
+    apartment: {
+        chairs: 4,
+        tables: 3,
+        couches: 1,
+        drawers: 6,
+        bookcases: 2,
+        beds: 1
+    }
 }
 
 module.exports = {
@@ -180,6 +199,7 @@ module.exports = {
     americanCarMiles,
     americanDietCalories,
     americanFood, 
+    americanFurniture,
     demographicCalories,
     kwhPerMonthAppliance
     

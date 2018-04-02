@@ -50,6 +50,7 @@ app.get('/costs/bbq', costPagesMiddleware);
 app.get('/costs/car', costPagesMiddleware);
 app.get('/costs/clothes', costPagesMiddleware);
 app.get('/costs/cup', costPagesMiddleware);
+app.get('/costs/furniture', costPagesMiddleware);
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);

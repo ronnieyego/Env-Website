@@ -9,6 +9,7 @@ const bbq = () => <PageWrapper page='bbq' />;
 const car = () => <PageWrapper page='car' />;
 const clothes = () => <PageWrapper page='clothes' />;
 const cup = () => <PageWrapper page='cup' />;
+const furniture = () => <PageWrapper page='furniture' />;
 
 export default class Costs extends React.Component {
 
@@ -21,6 +22,7 @@ export default class Costs extends React.Component {
                     <Route exact={true} path="/costs/car" component={car} />
                     <Route exact={true} path="/costs/cup" component={cup} />
                     <Route exact={true} path="/costs/clothes" component={clothes} />
+                    <Route exact={true} path="/costs/furniture" component={furniture} />
                 </div>
             </Router>
 		);

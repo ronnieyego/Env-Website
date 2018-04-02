@@ -8,6 +8,7 @@ import BbqHoc from './bbq/BbqHoc';
 import CarHoc from './car/CarHoc';
 import ClothesHoc from './clothes/ClothesHoc';
 import CupHoc from './cup/CupHoc';
+import FurnitureHoc from './furniture/FurnitureHoc';
 
 
 export default class PageWrapper extends React.Component {
@@ -34,6 +35,9 @@ export default class PageWrapper extends React.Component {
                 break;
             case 'cup':
                 page = <CupHoc />;
+                break;
+            case 'furniture':
+                page = <FurnitureHoc />;
                 break;
         }
 

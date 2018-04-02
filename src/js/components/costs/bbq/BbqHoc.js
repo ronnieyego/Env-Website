@@ -62,6 +62,7 @@ export default class BbqHoc extends React.Component {
                 throw new Error('BBQ type not found');
             }
         }
+        grillCo2 = Math.round(grillCo2 * 10)/10;
         const totalFoodCo2 = this.getFoodCo2(questions);
         const totalCo2 = grillCo2 + totalFoodCo2.totalFoodCo2;
         return { totalCo2, questionsToRemove, grillCo2, ...totalFoodCo2 };

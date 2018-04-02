@@ -13,7 +13,8 @@ const baseState = {
     averageAmericanAge: 'American Average',
     averageAmericanGender: 'male',
     averageAmericanShoppingHabit: 'normal',
-    averageAmericanSize: 'Medium'
+    averageAmericanSize: 'Medium',
+    averageAmericanHouseType: 'Small Apartment'
 };
 
 const footprintFormAnswers = (state = baseState, action) => {
@@ -72,6 +73,10 @@ const footprintFormAnswers = (state = baseState, action) => {
         }
         case 'UPDATE_AVERAGE_AMERICAN_SIZE': {
             state = { ...state, averageAmericanSize: action.payload};
+            break;
+        }
+        case 'UPDATE_AVERAGE_AMERICAN_HOUSE_TYPE': {
+            state = { ...state, averageAmericanHouseType: action.payload};
             break;
         }
       }
