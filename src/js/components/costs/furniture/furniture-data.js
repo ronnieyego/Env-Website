@@ -53,7 +53,7 @@ const furnitureData = {
             description: 'A standard bookcase'
         },
         filingCabinet: {
-            amound: 97,
+            amount: 97,
             description: 'Waist high steel filing cabinet'
         },
         drawer: {

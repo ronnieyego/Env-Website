@@ -1,12 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { Divider, MenuItem, RaisedButton, SelectField } from 'material-ui';
+import _ from 'lodash';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../HowMuchCo2';
 
 import BarChart from '../../CompareBarChart';
+import FurnitureTable from './FurnitureTable';
 
 
 export default class Furniture extends React.Component {
@@ -64,19 +66,23 @@ export default class Furniture extends React.Component {
                 <div>
                     <div className="costs-form-sub-text">
                         <span>
-                            The average american who lives in a {this.props.aaHouseType} has {this.props.aaTotalFurniture} pieces of furniture which released <HowMuchCo2 co2={this.props.aaTotalCo2} /> pounds of CO<sub>2</sub>.
+                            The average american who lives in a {_.lowerCase(this.props.aaHouseType)} has {this.props.aaTotalFurniture} pieces of furniture which released {this.props.aaTotalCo2.toLocaleString()} pounds of CO<sub>2</sub>.
                         </span>  
                     </div>
                     <div className="costs-form-sub-text">
-                        {this.props.totalCo2 && <span>
-                            Your furniture released <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub>.
-                        </span> 
-                        || <span>Please fill out the questionaire below to see if your more environmentally friendly! </span>}
-                         
+                        {
+                            this.props.totalCo2 && 
+                            <span>
+                                Your furniture released <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub>.
+                            </span> 
+                            || 
+                            <span>Please fill out the questionaire below to see if you're more environmentally friendly!</span>
+                        }
                     </div>
                     
                 </div>
-                <div>
+                <br />
+                <div className="centered">
                     <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs an Average American"} defaultMax={300} compare={true} dataKey={'You'} />
                 </div>
                 <div className="average-american-buttons" id="compare-button-container">
@@ -104,11 +110,15 @@ export default class Furniture extends React.Component {
                 <br />
                 <Divider />
                 <br />
+                <FurnitureTable />
+                <br />
+                <Divider />
+                <br />
                 <div>
                     <p className="costs-form-sub-header">Sources and Assumptions</p>
-                    <p className="costs-form-bottom-paragraph">The average book here is about 1/2 inches thick and paperback.  This is a touch smaller than a paperback version of the first Harry Potter novel.  I most used <a href="https://gowageningen.files.wordpress.com/2014/04/co2-footprints-of-kindle-vs-ipad-vs-books.pdf" target="_blank">this study</a> to get the CO<sub>2</sub> per book.  Information about electronic readers came from environmental reports procuded by Dell, Apple, and Amazon.</p>
-                    <p className="costs-form-bottom-paragraph">I am estimating that it takes about 6 hours to read a book all the way though. This is based on reading 300 words/minute.  This estimate is likely off, but since the energy cost of electronic readers is so small, I don't think it matters too much.</p>
-
+                    <p className="costs-form-bottom-paragraph">Most of this data came from a British industry group called FIRA.  They did an internal study accross their manufacturers and give very detailed insight into the CO2 breakdown of each item.  I augmented this data with internal audits of other companies.  However, I found no American manufacturers that did a self audit.  I am assuming that furniture manufactured in the States will have a similar footprint to those made in Europe.</p>
+                    <p className="costs-form-bottom-paragraph">There is a lot of variablity when it comes to furniture since each piece can come in all different shapes and sizes.  On this page, I made assumptions based on what I think you'd have in your house.  I.e. your table will be made of wood and not steel/particle board.</p>
+                    <p className="costs-form-bottom-paragraph">While it differs per each piece of furniture, roughly 70% of the emissions comes from extracting and processing the raw material.  Around 20% comes from energy to power to the manufacturing process and about 10% comes from transportation.</p>
                 </div>
             </div>
 		);
