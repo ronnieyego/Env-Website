@@ -408,6 +408,20 @@ input[type="checkbox"] {
   margin: 15px;
   font-size: 18px;
 }
+.costs-footer {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.costs-footer-links {
+  display: flex;
+  justify-content: space-around;
+  border: 1px black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .centered {
   margin-left: auto;
   margin-right: auto;

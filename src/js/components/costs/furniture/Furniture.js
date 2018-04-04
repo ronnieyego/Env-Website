@@ -61,7 +61,7 @@ export default class Furniture extends React.Component {
         const houseTypeSelects = ['Small Apartment', '3 Bedroom House'].map(houseType => <MenuItem key={houseType} primaryText={houseType} value={houseType} />);
 
 		return (
-            <div className="costs">
+            <div>
                 <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of furniture?</h3>
                 <div>
                     <div className="costs-form-sub-text">

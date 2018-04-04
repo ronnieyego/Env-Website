@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 import Header from '../Header';
+import CostsFooter from './CostsFooter';
 import pages from './pages-index';
 
 export default class PageWrapper extends React.Component {
@@ -17,11 +18,11 @@ export default class PageWrapper extends React.Component {
             <div>
                 <Header />
                 <div className="costs-page">
-                    {page}
+                    <div className="costs">
+                        {page}
+                        <CostsFooter />
+                    </div>
                 </div>
-                <br />
-                <br />
-                <br />
             </div>
 		);
 	}
