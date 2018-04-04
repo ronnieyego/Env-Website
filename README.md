@@ -1,35 +1,23 @@
 # Env-Website
-This is my website about environmental things.
+The goal of Footprint-finder is to empower people to understand their footprint and give them the tools to reduce it.
 
-Stage 1 is to build a solar widget
- a. It should be able to take state information and output cost and footprint info.
+Right now I'm trying to catalogue the CO2 footprint of things and from there figure out the best ways to reduce one's footprint.
 
-Stage 2 is to build a state energy profile
- a. It should be able to display in charts how the state generates its energy
- b. It should also display how the state consumes its energy
-   i.  Transportation will be a large differentiator
+# How to contribute
+You will need the following:
+ 1.  Node (I'm using version 6.9)
+ 2.  Npm
+ 3.  Webpack (install with npm install -g webpack)
+ 4.  MongoDb
+ 5.  RoboMongo (GUI for MongoDb)
 
-Stage 3 is to build a footprint calculator
- a. It should have direct energy usages
-   i. Utilities
-   ii. Transportation
- b. It should have indirect energy usages
-   i. Food
-   ii. Home
-   iii. Possessions
-   iv. Infrastructure
+Follow the MongoDb documentaion to get MongoDb running locally.
+  -Start MongoDb.  Find mongo at ~/mongo/bin.  Command:  ./mongod -dbpath ~/mongo-data
+Use RoboMongo to access mongo on your localhose.  Create a database called EnvWebsite.
 
-Stage 4 is to start selling ads
-Stage 5 is to grow users
+Once you have that and MonogDb is running, run 'npm install' to get all of my dependencies.
+Then run 'npm run compile' to build the js.  Also run export page='costs'.  I have webpack configured to look at enviornment variables.  Then do 'npm run webstart' to run the server.  After this point you will be able to go to the route at localhost:3000/. . . 
 
-Other ideas:
- 1. Add concept of a user login and a personal energy profile
- 2. Add a state seo page that has the best thing you can do to reduce your footprint
-
-
-Dev note:
-In order for the energySourceMap to render, I need to change line 198 in the following package node_modules/react-d3-map-bubble/lib/map.js to be "circleClass: d.properties.class"
-Otherwise, all circles will be black and not be colored by energy source.
 
 PM note:
 Google analytics url:  https://analytics.google.com/analytics/web/#report/visitors-overview/a104075818w155429254p157100584/%3F_u.date00%3D20170820%26_u.date01%3D20170826/

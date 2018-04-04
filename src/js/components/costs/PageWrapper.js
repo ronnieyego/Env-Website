@@ -2,14 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types'
 
 import Header from '../Header';
-
-import BooksHoc from './books/BooksHoc';
-import BbqHoc from './bbq/BbqHoc';
-import CarHoc from './car/CarHoc';
-import ClothesHoc from './clothes/ClothesHoc';
-import CupHoc from './cup/CupHoc';
-import FurnitureHoc from './furniture/FurnitureHoc';
-
+import pages from './pages-index';
 
 export default class PageWrapper extends React.Component {
 
@@ -18,28 +11,7 @@ export default class PageWrapper extends React.Component {
     }
 
 	render() {
-        let page;
-        switch(this.props.page) {
-           
-            case 'books': 
-                page = <BooksHoc />
-                break;
-            case 'bbq':
-                page = <BbqHoc />;
-                break;
-            case 'car':
-                page = <CarHoc />;
-                break;
-            case 'clothes':
-                page = <ClothesHoc />;
-                break;
-            case 'cup':
-                page = <CupHoc />;
-                break;
-            case 'furniture':
-                page = <FurnitureHoc />;
-                break;
-        }
+        const page = pages[this.props.page];
 
 		return (
             <div>
