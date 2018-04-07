@@ -120,13 +120,3 @@ module.exports = {
     co2PerPound,
     creationBreakdown
 }
-
-
-
-
-// 138891 pound wood weight of a 2 story house
-// 3,812 pounds of CO2 per short ton
-
-// 4012 oak weight per cord
-
-// 133420 lb CO2 per house

@@ -9,8 +9,8 @@ import FurnitureHoc from './furniture/FurnitureHoc';
 import HomeHoc from './home/HomeHoc';
 
 export default {
-    books: <BooksHoc />,
     bbq: <BbqHoc />,
+    books: <BooksHoc />,
     car: <CarHoc />,
     clothes: <ClothesHoc />,
     cup: <CupHoc />,

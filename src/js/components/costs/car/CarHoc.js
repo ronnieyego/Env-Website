@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
-import { carQuestions, classData, co2PerPound, creationBreakdown } from './car-data';
+import { classData, co2PerPound, creationBreakdown } from './car-data';
 import Car from './Car';
 
 import { co2PerGallonOfGas } from '../../../utils/utils-data/constants';
@@ -18,21 +18,10 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 })
 export default class CarHoc extends React.Component {
 
-    componentDidMount() {
-        const questions = _.filter(this.props.questions, question => { question['forms'].indexOf('car') !== -1 });
-        if(questions.length < carQuestions.length) {
-            const questionsToAdd = carQuestions.filter(question => {
-                const isNotQuestionInSet = getQuestionFromId(questions, question.id) ? false : true;
-                return isNotQuestionInSet;
-            });
-            this.props.dispatch({type: 'ADD_QUESTIONS_TO_COST_QUESTIONS', payload: questionsToAdd});
-        }
-    }
-
     calculateCreationCo2(carQuestions) {
-        const carClass = getAnswerFromId(carQuestions, ids.carSize) || 'Midsize car';
+        const carClass = getAnswerFromId(carQuestions, ids.carSize);
         const carWeight = classData[carClass].weight;
-        const carRuggedness = getAnswerFromId(carQuestions, ids.carRuggedness) || 'Standard';
+        const carRuggedness = getAnswerFromId(carQuestions, ids.carRuggedness);
         const carCo2PerPound = co2PerPound[carRuggedness];
 
         const carCo2 = Math.round(carWeight * carCo2PerPound);
@@ -40,16 +29,16 @@ export default class CarHoc extends React.Component {
     }
 
     calculateDrivingCo2(carQuestions) {
-        const mpg = getAnswerFromId(carQuestions, ids.carMpg) || 25;
-        const miles = getAnswerFromId(carQuestions, ids.carMileage) || 100000; 
+        const mpg = getAnswerFromId(carQuestions, ids.carMpg)
+        const miles = getAnswerFromId(carQuestions, ids.carMileage) 
 
         const carCo2 = Math.round(co2PerGallonOfGas * miles / mpg);
         return carCo2;
     }
 
     getCo2text(carQuestions, carCreationCo2, carMileageCo2) {
-        const carClass = (getAnswerFromId(carQuestions, ids.carSize) || 'Midsize car').toLowerCase();
-        const carRuggedness = (getAnswerFromId(carQuestions, ids.carRuggedness) || 'Standard').toLowerCase();
+        const carClass = (getAnswerFromId(carQuestions, ids.carSize)).toLowerCase();
+        const carRuggedness = (getAnswerFromId(carQuestions, ids.carRuggedness)).toLowerCase();
 
         const text = `A ${carRuggedness} ${carClass} emits ${carCreationCo2.toLocaleString()} pounds of CO2 during its creation process and ${carMileageCo2.toLocaleString()} pounds of CO2 via driving.`;
         return text;

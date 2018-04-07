@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
-import { bbqQuestions, co2PerBurnerHour, co2PerChimney, foodCo2 } from './bbq-data';
+import { co2PerBurnerHour, co2PerChimney, foodCo2 } from './bbq-data';
 import Bbq from './Bbq';
 
 import { utilityEmissionsPerState }from '../../../utils/utils-data/state-energy-and-emissions';
@@ -17,22 +17,11 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 })
 export default class BbqHoc extends React.Component {
 
-    componentDidMount() {
-        const questions = _.filter(this.props.questions, question => { question['forms'].indexOf('bbq') !== -1 });
-        if(questions.length < bbqQuestions.length) {
-            const questionsToAdd = bbqQuestions.filter(question => {
-                const isNotQuestionInSet = getQuestionFromId(questions, question.id) ? false : true;
-                return isNotQuestionInSet;
-            });
-            this.props.dispatch({type: 'ADD_QUESTIONS_TO_COST_QUESTIONS', payload: questionsToAdd});
-        }
-    }
-
     getFoodCo2(questions) {
-        const chicken = getAnswerFromId(questions, ids.poundsChicken) || 1;
-        const beef = getAnswerFromId(questions, ids.poundsBeef) || 1;
-        const pork = getAnswerFromId(questions, ids.poundsPork) || 1;
-        const vegetables = getAnswerFromId(questions, ids.poundsVegetables) || 1;
+        const chicken = getAnswerFromId(questions, ids.poundsChicken);
+        const beef = getAnswerFromId(questions, ids.poundsBeef);
+        const pork = getAnswerFromId(questions, ids.poundsPork);
+        const vegetables = getAnswerFromId(questions, ids.poundsVegetables);
         const chickenCo2 = chicken * foodCo2.chicken;
         const porkCo2 = pork * foodCo2.pork;
         const beefCo2 = beef * foodCo2.beef;
@@ -44,9 +33,9 @@ export default class BbqHoc extends React.Component {
     getBbqCo2AndQuestions(questions) {
         let grillCo2;
         let questionsToRemove = [];
-        const grillType = getAnswerFromId(questions, ids.grillType) || 'Propane';
+        const grillType = getAnswerFromId(questions, ids.grillType);
         if (grillType === 'Charcoal') {
-            const chimneys = getAnswerFromId(questions, ids.numberChimneys) || 1;
+            const chimneys = getAnswerFromId(questions, ids.numberChimneys);
             grillCo2 = chimneys * co2PerChimney;
             questionsToRemove = [ids.numberBurners, ids.hoursGrilling];
         } else {

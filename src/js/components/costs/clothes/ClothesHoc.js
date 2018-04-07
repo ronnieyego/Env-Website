@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
 import { 
-    clothesQuestions,
     co2PerPoundOfFabric,
     pantsMaterial,
     percentShoeIsRubber,
@@ -28,17 +27,6 @@ import { americanClothing } from '../../../utils/utils-data/american-averages';
     };
 })
 export default class ClothesHoc extends React.Component {
-
-    componentDidMount() {
-        const questions = _.filter(this.props.questions, question => { question['forms'].indexOf('clothes') !== -1 });
-        if(questions.length < clothesQuestions.length) {
-            const questionsToAdd = clothesQuestions.filter(question => {
-                const isNotQuestionInSet = getQuestionFromId(questions, question.id) ? false : true;
-                return isNotQuestionInSet;
-            });
-            this.props.dispatch({type: 'ADD_QUESTIONS_TO_COST_QUESTIONS', payload: questionsToAdd});
-        }
-    }
 
     getCompareGraphData(you, aa) {
         return [
@@ -90,18 +78,18 @@ export default class ClothesHoc extends React.Component {
         }
 
         const totalCo2Payload = {
-            shirts: getAnswerFromId(questions, ids.shirtsOwn) || 0,
-            jackets: getAnswerFromId(questions, ids.jacketsOwn) || 0,
-            shirtMaterial: getAnswerFromId(questions, ids.shirtPrimaryMaterial) || 'Cotton',
-            pants: getAnswerFromId(questions, ids.pantsOwn) || 0,
-            pantsMaterial: getAnswerFromId(questions, ids.shortsPrimaryMaterial) || 'Mostly demin',
-            shorts: getAnswerFromId(questions, ids.shortsOwn) || 0,
-            shoes: getAnswerFromId(questions, ids.shoesOwn) || 0,
-            shoeType: getAnswerFromId(questions, ids.shoeType) || 'Boots',
-            socksUndies: getAnswerFromId(questions, ids.socksOwn) || 0,
-            accessories: getAnswerFromId(questions, ids.accessoriesOwn) || 0,
-            gender: getAnswerFromId(questions, ids.yourGender) || 'Female',
-            size: getAnswerFromId(questions, ids.clothesSize) || 'Medium',
+            shirts: getAnswerFromId(questions, ids.shirtsOwn),
+            jackets: getAnswerFromId(questions, ids.jacketsOwn),
+            shirtMaterial: getAnswerFromId(questions, ids.shirtPrimaryMaterial),
+            pants: getAnswerFromId(questions, ids.pantsOwn),
+            pantsMaterial: getAnswerFromId(questions, ids.shortsPrimaryMaterial),
+            shorts: getAnswerFromId(questions, ids.shortsOwn),
+            shoes: getAnswerFromId(questions, ids.shoesOwn),
+            shoeType: getAnswerFromId(questions, ids.shoeType),
+            socksUndies: getAnswerFromId(questions, ids.socksOwn),
+            accessories: getAnswerFromId(questions, ids.accessoriesOwn),
+            gender: getAnswerFromId(questions, ids.yourGender),
+            size: getAnswerFromId(questions, ids.clothesSize),
         }
          
 

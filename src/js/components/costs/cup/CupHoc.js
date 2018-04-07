@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
 import _ from 'lodash';
-import { cupData, cupQuestions, usesPerWash} from './cup-data';
+import { cupData, usesPerWash} from './cup-data';
 import footprintQuestions from '../../../../../public/data/footprint-questions.js';
 import { utilityEmissionsPerState }from '../../../utils/utils-data/state-energy-and-emissions';
 
@@ -20,18 +20,6 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
     };
 })
 export default class CupHoc extends React.Component {
-
-    componentDidMount() {
-        const questions = _.filter(this.props.questions, question => { question['forms'].indexOf('cup') !== -1 });
-        if(questions.length < cupQuestions.length) {
-            const questionsToAdd = cupQuestions.filter(question => {
-                const isNotQuestionInSet = getQuestionFromId(questions, question.id) ? false : true;
-                return isNotQuestionInSet;
-            });
-            this.props.dispatch({type: 'ADD_QUESTIONS_TO_COST_QUESTIONS', payload: questionsToAdd});
-        }
-    }
-
     getUses(resuableCreateCo2, disposableCreateCo2, cupWashCo2) {
          return Math.round((resuableCreateCo2/ (disposableCreateCo2 - cupWashCo2)));
     }
@@ -92,10 +80,10 @@ export default class CupHoc extends React.Component {
     }
 
     calculateCupCo2(cupQuestions) {
-        const cupType = getAnswerFromId(cupQuestions, ids.cupType) || 'Ceramic Mug';
+        const cupType = getAnswerFromId(cupQuestions, ids.cupType);
         const cupCo2 = this.getCupDataCo2(cupType);
 
-        const washTypeQ = getQuestionFromId(cupQuestions, ids.cupClean) || 'Dishwasher';
+        const washTypeQ = getQuestionFromId(cupQuestions, ids.cupClean);
         const washType = washTypeQ && !washTypeQ.hidden && washTypeQ.value;
         let cupWashCo2 = 0;
         if(washType === 'Dishwasher') {

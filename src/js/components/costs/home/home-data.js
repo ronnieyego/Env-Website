@@ -48,7 +48,7 @@ const co2Breakdown = {
     }
 }
 
-const houseQuestions = [
+const homeQuestions = [
     {    
         id: ids.homeMaterial,
         name: 'What is the primary building material of the house?',
@@ -75,7 +75,7 @@ const houseQuestions = [
         id: ids.homeSqft,
         name: 'How many square feet is your home?',
         subtext: 'A "standard" house is about 2,500 sqft while a 2-bedroom apartment is about 1,000 sqft.',
-        value: 1,
+        value: 2500,
         type: 'int',
         forms: ['house'],
         formType: 'costs'
@@ -86,5 +86,5 @@ module.exports = {
     co2PerSqFt,
     co2Breakdown,
     homeTypeAdjuster,
-    houseQuestions
+    homeQuestions
 }

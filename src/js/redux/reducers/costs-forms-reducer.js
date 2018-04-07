@@ -1,5 +1,7 @@
+import costQuestions from '../../components/costs/questions-index';
+
 const costsFormsReducer = (state = {
-    questions: [],
+    questions: costQuestions,
     cupCo2: 0,
     cupWashCo2: 0,
     cupTextDisplay: ''

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
-import { furnitureQuestions, furnitureData } from './furniture-data';
+import { furnitureData } from './furniture-data';
 import Furniture from './Furniture';
 
 import { americanFurniture } from '../../../utils/utils-data/american-averages';
@@ -18,25 +18,14 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 })
 export default class FurnitureHoc extends React.Component {
 
-    componentDidMount() {
-        const questions = _.filter(this.props.questions, question => { question['forms'].indexOf('furniture') !== -1 });
-        if(questions.length < furnitureQuestions.length) {
-            const questionsToAdd = furnitureQuestions.filter(question => {
-                const isNotQuestionInSet = getQuestionFromId(questions, question.id) ? false : true;
-                return isNotQuestionInSet;
-            });
-            this.props.dispatch({type: 'ADD_QUESTIONS_TO_COST_QUESTIONS', payload: questionsToAdd});
-        }
-    }
-
     getTotalCo2(questions) {
         // Add lamps
-        const numTables = getAnswerFromId(questions, ids.numTables) || 0;
-        const numChairs = getAnswerFromId(questions, ids.numChairs) || 0;
-        const numBeds = getAnswerFromId(questions, ids.numBeds) || 0;
-        const numCouches = getAnswerFromId(questions, ids.numCouches) || 0;
-        const numDrawers = getAnswerFromId(questions, ids.numDrawers) || 0;
-        const numBookcases = getAnswerFromId(questions, ids.numBookcases) || 0;
+        const numTables = getAnswerFromId(questions, ids.numTables);
+        const numChairs = getAnswerFromId(questions, ids.numChairs);
+        const numBeds = getAnswerFromId(questions, ids.numBeds);
+        const numCouches = getAnswerFromId(questions, ids.numCouches);
+        const numDrawers = getAnswerFromId(questions, ids.numDrawers);
+        const numBookcases = getAnswerFromId(questions, ids.numBookcases);
 
         const tableCo2 = numTables * furnitureData.table.dining.amount;
         const chairCo2 = numChairs * furnitureData.chair.wooden.amount;
