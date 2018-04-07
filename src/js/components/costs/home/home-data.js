@@ -32,8 +32,7 @@ const co2Breakdown = {
     },
     Wood: {
         Foundation: 0.15,
-        Frame: 0.14,
-        Doors:	0.15,
+        Wood: 0.29,
         HVAC: 0.07,
         Insulation: 0.14,
         Drywall: 0.08,
@@ -82,8 +81,6 @@ const houseQuestions = [
         formType: 'costs'
     },
 ];
-
-
 
 module.exports = {
     co2PerSqFt,
