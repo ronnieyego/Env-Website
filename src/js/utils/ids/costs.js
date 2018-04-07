@@ -1,4 +1,4 @@
-// 1032 currenet max
+// 1035 currenet max
 
 export default {
 
@@ -38,6 +38,11 @@ export default {
 // Cup
     cupType: 1000,
     cupClean: 1002,
+
+// House
+    homeMaterial: 1033,
+    homeType: 1034,
+    homeSqft: 1035,
 
 // Furniture
     numTables: 1027,

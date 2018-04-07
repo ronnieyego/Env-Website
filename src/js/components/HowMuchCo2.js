@@ -186,10 +186,6 @@ export default class HowMuchCo2 extends React.Component {
         })
     }
 
-    getTooMuch(total) {
-        return `The CO2 footprint is comparable to burning ${Math.round(total/burnOilDrum)} barrels of oil every month!`;
-    }
-
     getLikelyFacts(co2) {
         if( co2 > upperLimit.amount) {
             return [upperLimit]

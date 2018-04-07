@@ -44,12 +44,12 @@ app.use((req, res, next) => {
 
 app.get('/', footprintMiddleware);
 
-
 app.get('/costs/books', costPagesMiddleware);
 app.get('/costs/bbq', costPagesMiddleware);
 app.get('/costs/car', costPagesMiddleware);
 app.get('/costs/clothes', costPagesMiddleware);
 app.get('/costs/cup', costPagesMiddleware);
+app.get('/costs/home', costPagesMiddleware);
 app.get('/costs/furniture', costPagesMiddleware);
 
 app.get('/solar/:state', solarMiddleware);

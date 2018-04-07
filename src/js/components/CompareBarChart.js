@@ -27,10 +27,27 @@ export default class CompareBarChar extends React.Component {
         });
         return max;
     }
+
+    roundData(graphData) {
+        return graphData.map(row => {
+            const rowKeys = Object.keys(row);
+            rowKeys.forEach(key => {
+                const value = row[key];
+                if(typeof value === 'number') {
+                    if(value < 10) {
+                        row[key] = Math.round(value * 100)/100;
+                    } else {
+                        row[key] = Math.round(value);
+                    }
+                }
+            });
+            return row;
+        })
+    }
     
     render() {
     
-        const barGraphData = this.props.graphData;
+        const barGraphData = this.roundData(this.props.graphData);
         const defaultMax = this.props.defaultMax || 0;
         const domainMax = this.getDomainMax(barGraphData);
         const max = domainMax > defaultMax ? domainMax : defaultMax;
