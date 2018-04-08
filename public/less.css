@@ -461,6 +461,14 @@ input[type="checkbox"] {
   margin-left: 10%;
   margin-right: 10%;
 }
+.nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #41f496 !important;
+}
+.nav-dropdown {
+  line-height: 50px !important;
+}
 .pie {
   border: 3px solid gray;
 }
