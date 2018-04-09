@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types'
-import _ from 'lodash';
 import { cupData, usesPerWash} from './cup-data';
 import footprintQuestions from '../../../../../public/data/footprint-questions.js';
 import { utilityEmissionsPerState }from '../../../utils/utils-data/state-energy-and-emissions';
@@ -98,7 +97,7 @@ export default class CupHoc extends React.Component {
     }
 
 	render() {
-        const questions = _.filter(this.props.questions, question => { 
+        const questions = this.props.questions.filter(question => { 
             const forms = question['forms'];
             const index = forms.indexOf('cup');
             return index !== -1 && !question.hidden; 

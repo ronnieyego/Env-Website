@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import filter from 'lodash/filter';
 import { getApplianceSubcategories, getFoodSubcategories, sumCo2QuestionSet } from './calculate-co2-submit';
 import { getEnergySubcategories, sumEnergyQuestionSet } from './calculate-energy-submit';
 import { getWaterApplianceSubcategories, getWaterFoodSubcategories, sumWaterQuestionSet } from './calculate-water-submit';
@@ -28,10 +28,10 @@ module.exports = payload => {
 
 // Get Questions
     const compiledFootprint = {};
-    const applianceHour = _.filter(questions, function(o) { return o['use-type'] === 'hour'; });
-    const houseHoldQuestions = _.filter(questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
-    const foodQuestions = _.filter(questions, function(o) { return o['use-type'] === 'serving'; });
-    const transportation = _.filter(questions, function(o) { return o['use-type'] === 'transportation'; });
+    const applianceHour = filter(questions, function(o) { return o['use-type'] === 'hour'; });
+    const houseHoldQuestions = filter(questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+    const foodQuestions = filter(questions, function(o) { return o['use-type'] === 'serving'; });
+    const transportation = filter(questions, function(o) { return o['use-type'] === 'transportation'; });
     const applinaceQuestionSet = applianceHour.concat(houseHoldQuestions);
 
 // Energy

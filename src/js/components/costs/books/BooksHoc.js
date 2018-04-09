@@ -50,7 +50,7 @@ export default class BooksHoc extends React.Component {
     }
 
 	render() {
-        let questions = _.filter(this.props.questions, question => { 
+        let questions = this.props.questions.filter(question => { 
             const forms = question['forms'];
             const index = forms.indexOf('books');
             return index !== -1 && !question.hidden; 

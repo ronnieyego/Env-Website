@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import { getAnswerFromKey } from './get-question-utils';
 
 import { 

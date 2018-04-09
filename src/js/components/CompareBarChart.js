@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { MenuItem, SelectField } from 'material-ui';
+import MenuItem from 'material-ui/MenuItem';
+import SelectField from 'material-ui/SelectField'
 
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 

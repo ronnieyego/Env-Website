@@ -67,6 +67,7 @@
     "mocha": "^3.0.2",
     "nodemon": "^1.10.2",
     "redux-devtools": "^3.4.0",
-    "supertest": "^2.0.0"
+    "supertest": "^2.0.0",
+    "webpack-bundle-analyzer": "^2.11.1"
   }
 }

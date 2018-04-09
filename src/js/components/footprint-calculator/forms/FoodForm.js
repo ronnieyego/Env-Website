@@ -1,6 +1,8 @@
 import React from "react";
 
-import { MenuItem, SelectField, Slider } from 'material-ui';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
 import Question from './Question';
 
 import { updateQuestionSet} from '../../../actions/footprint/form-actions';

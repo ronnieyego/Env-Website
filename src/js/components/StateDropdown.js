@@ -1,5 +1,7 @@
 import React, { PropTypes } from "react";
-import { MenuItem, SelectField } from 'material-ui';
+import MenuItem from 'material-ui/MenuItem';
+import SelectField from 'material-ui/SelectField';
+
 
 const stateIds = [
 'US',

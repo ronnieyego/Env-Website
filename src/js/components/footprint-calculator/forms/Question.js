@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import { TextField } from 'material-ui';
+import TextField from 'material-ui/TextField';
 
 import { setQuestionError, updateQuestions} from '../../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';

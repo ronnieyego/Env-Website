@@ -1,7 +1,7 @@
 import React from "react";
 import Question from './Question';
 
-import { TextField } from 'material-ui';
+import TextField from 'material-ui/TextField';
 
 export default class HeatingCoolingForm extends React.Component {
 

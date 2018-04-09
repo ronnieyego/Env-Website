@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
-import _ from 'lodash';
 
-import { Divider } from 'material-ui';
+import Divider from 'material-ui/Divider';
 
 import BooleanQuestion from './BooleanQuestion';
 import Question from './Question';
@@ -22,7 +21,7 @@ export default class Household extends React.Component {
     }
     
     filterQuestions(questions, filter) {
-        return _.filter(questions, function(o) { return o['use-type'] === filter; });
+        return questions.filter(question => question['use-type'] === filter );
     }
 
 	render() {

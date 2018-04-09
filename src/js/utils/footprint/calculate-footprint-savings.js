@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const get = require('lodash/get');
 
 // SHould import these from DB or static file
 const kwhPerGallon = 34.4;
@@ -47,12 +47,12 @@ const betterDriving = res => {
 };
 
 const electricCar = res => {
-    const carType = _.get(res, 'energy.transportationSubCategories.carType', 'Electric'); // If error then return 0 and not show card
+    const carType = get(res, 'energy.transportationSubCategories.carType', 'Electric'); // If error then return 0 and not show card
     if(carType === 'Electric') {
         return 0;
     }
-    const totalMiles = _.get(res, 'energy.transportationSubCategories.totalMilesDriven', 0);
-    const mpg = _.get(res, 'energy.transportationSubCategories.carMpg', 0);
+    const totalMiles = get(res, 'energy.transportationSubCategories.totalMilesDriven', 0);
+    const mpg = get(res, 'energy.transportationSubCategories.carMpg', 0);
     const gasEnergy = kwhPerGallon * totalMiles / mpg;
     const electricEnergy = kwhPer100MilesElectricCar * totalMiles / 100;
     const diff = parseInt(gasEnergy - electricEnergy);
@@ -73,12 +73,12 @@ const getSavings = res => {
         {
             display: 'Go vegetarian',
             card: true,
-            amount: _.get(res, 'energy.foodSubCategories.meat', 0)
+            amount: get(res, 'energy.foodSubCategories.meat', 0)
         },
         {
             display: 'Go vegan',
             card: true,
-            amount: _.get(res, 'energy.foodSubCategories.meat', 0) + _.get(res, 'energy.foodSubCategories.dairy', 0)
+            amount: get(res, 'energy.foodSubCategories.meat', 0) + get(res, 'energy.foodSubCategories.dairy', 0)
         },
         {
             display: 'Drive more efficiently',
@@ -90,18 +90,18 @@ const getSavings = res => {
         {
             display: 'Move within walking distance of your work',
             card: true,
-            amount: _.get(res, 'energy.transportationSubCategories.monthlyCommute', 0),
+            amount: get(res, 'energy.transportationSubCategories.monthlyCommute', 0),
             learnMore: 'https://www.citylab.com/life/2012/04/why-bigger-cities-are-greener/863/'
         },
         {
             display: 'Don\'t heat your house/apartment',
             card: true,
-            amount: _.get(res, 'energy.applianceSubCategories.heating', 0)
+            amount: get(res, 'energy.applianceSubCategories.heating', 0)
         },
         {
             display: 'Turn off the lights more',
             card: true,
-            amount: _.get(res, 'energy.applianceSubCategories.lighting', 0) * .5
+            amount: get(res, 'energy.applianceSubCategories.lighting', 0) * .5
         },
         {
             display: 'Switch to an electric car',

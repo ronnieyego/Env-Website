@@ -1,7 +1,6 @@
 import React from "react";
-import _ from 'lodash';
 
-import { RaisedButton } from 'material-ui';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import ApplianceForm from './ApplianceForm';
 import FoodForm from './FoodForm';

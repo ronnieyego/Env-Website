@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 import { isValidateAnswer, getAnswerFromKey, getQuestionFromKey } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types'
-import { Checkbox } from 'material-ui';
+import Checkbox from 'material-ui/Checkbox';
 import { 
     getSourceCssName, 
     getProducerDisplayname, 

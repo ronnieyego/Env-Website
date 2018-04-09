@@ -52,7 +52,7 @@ export default class ClothesHoc extends React.Component {
     }
     
 	render() {
-        const questions = _.filter(this.props.questions, question => { 
+        const questions = this.props.questions.filter(question => { 
             const forms = question['forms'];
             const index = forms.indexOf('clothes');
             return index !== -1 && !question.hidden; 

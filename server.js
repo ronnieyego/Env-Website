@@ -11,7 +11,7 @@ import bodyParser from 'body-parser';
 import fs from 'fs';
 import path from "path";
 import moment from 'moment-timezone';
-import _ from 'lodash';
+import get from 'lodash/get';
 
 import { costPagesMiddleware, co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from './src/js/utils/check-if-valid-state-id';
@@ -118,7 +118,7 @@ app.get('/api/footprint-form/summary', (req,res) => {
     const getAverage = (answers, path) => {
         let count = 0;
         let total = answers.reduce((total, answer) => {
-            let value =  _.get(answer, path, 0);
+            let value =  get(answer, path, 0);
             if(value > 0) {
                 count++;
             }

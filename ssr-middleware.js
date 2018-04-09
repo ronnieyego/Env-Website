@@ -3,8 +3,6 @@ import ReactDOM from "react-dom/server";
 import {ServerRouter as Router, Route} from 'react-router-dom';
 
 import Q from 'q';
-import _ from 'lodash';
-
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 

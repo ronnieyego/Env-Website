@@ -1,6 +1,7 @@
 import React from "react";
 import Proptypes from 'prop-types';
-import { MenuItem, SelectField } from 'material-ui';
+import MenuItem from 'material-ui/MenuItem';
+import SelectField from 'material-ui/SelectField'
 
 import { updateQuestions} from '../../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';

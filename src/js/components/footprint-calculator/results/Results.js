@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-import { RaisedButton } from 'material-ui';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import ResultsPieChart from './ResultsPieChart';
 import ResultOptionButtons from './ResultOptionButtons';

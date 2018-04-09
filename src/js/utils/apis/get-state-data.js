@@ -1,5 +1,4 @@
 import Q from 'q';
-import _ from 'lodash';
 
 import { mongoose } from '../../../../db/mongoose';
 import { States } from '../../../../db/models/states';

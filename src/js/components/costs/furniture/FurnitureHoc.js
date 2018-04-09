@@ -59,7 +59,7 @@ export default class FurnitureHoc extends React.Component {
     }
 
 	render() {
-        const questions = _.filter(this.props.questions, question => { 
+        const questions = this.props.questions.filter(question => { 
             const forms = question['forms'];
             const index = forms.indexOf('furniture');
             return index !== -1 && !question.hidden; 

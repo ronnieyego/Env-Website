@@ -463,11 +463,19 @@ input[type="checkbox"] {
 }
 .nav {
   display: flex;
-  justify-content: space-around;
-  background-color: #41f496 !important;
+  justify-content: space-between;
+  background-color: #91e0c0 !important;
+}
+.nav-item {
+  font-weight: bold !important;
+  font-size: 22px !important;
 }
 .nav-dropdown {
   line-height: 50px !important;
+  margin-right: -35px !important;
+  margin-top: -8px;
+  font-weight: bold !important;
+  font-size: 22px !important;
 }
 .pie {
   border: 3px solid gray;

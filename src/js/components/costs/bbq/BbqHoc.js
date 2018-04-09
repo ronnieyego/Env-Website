@@ -59,7 +59,7 @@ export default class BbqHoc extends React.Component {
     }
 
 	render() {
-        let questions = _.filter(this.props.questions, question => { 
+        let questions = this.props.questions.filter(question => { 
             const forms = question['forms'];
             const index = forms.indexOf('bbq');
             return index !== -1 && !question.hidden; 

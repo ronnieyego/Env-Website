@@ -2,7 +2,7 @@ import React from "react";
 
 import { updateQuestions} from '../../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';
-import { Checkbox } from 'material-ui';
+import Checkbox from 'material-ui/Checkbox';
 
 export default class Question extends React.Component {
 

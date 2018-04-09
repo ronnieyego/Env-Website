@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import _ from 'lodash';
+import filter from 'lodash/filter';
 
 import { TableRow, TableRowColumn } from 'material-ui/Table';
 
@@ -46,12 +46,12 @@ export default class DataHoc extends React.Component {
 
 	render() {
         const co2PerKwh = utilityEmissionsPerState[this.props.userState];
-        const applianceHour = _.filter(this.props.questions, function(o) { return o['use-type'] === 'hour'; });
-        const houseHoldQuestions = _.filter(this.props.questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+        const applianceHour = filter(this.props.questions, function(o) { return o['use-type'] === 'hour'; });
+        const houseHoldQuestions = filter(this.props.questions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
         const appliances = applianceHour.concat(houseHoldQuestions);
         const applianceRows = appliances.map(question => getFoodApplianceRow(question, co2PerKwh));
 
-        const foodQuestions = _.filter(this.props.questions, function(o) { return o['use-type'] === 'serving'; });
+        const foodQuestions = filter(this.props.questions, function(o) { return o['use-type'] === 'serving'; });
         const foodRows = foodQuestions.map(question => getFoodApplianceRow(question, co2PerKwh));
 
         const transportationRows = transportationData.map(row => {

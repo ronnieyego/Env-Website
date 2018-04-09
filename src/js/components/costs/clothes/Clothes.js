@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import { Divider, MenuItem, RaisedButton, SelectField } from 'material-ui';
+import Divider from 'material-ui/Divider';
+import MenuItem from 'material-ui/MenuItem';
+import RaisedButton from 'material-ui/RaisedButton';
+import SelectField from 'material-ui/SelectField';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';

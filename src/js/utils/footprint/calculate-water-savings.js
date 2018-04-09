@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import get from 'lodash/get';
 import { getQuestionFromKey } from './get-question-utils';
 
 const showerSavings = questions => {
@@ -19,12 +19,12 @@ const getWaterSavings = (res, questions) => {
         {
             display: 'Go vegan',
             card: true,
-            amount: _.get(res, 'water.foodSubCategories.meat', 0) + _.get(res, 'water.foodSubCategories.dairy', 0)
+            amount: get(res, 'water.foodSubCategories.meat', 0) + get(res, 'water.foodSubCategories.dairy', 0)
         },
         {
             display: 'Go vegetarian',
             card: true,
-            amount: _.get(res, 'water.foodSubCategories.meat', 0)
+            amount: get(res, 'water.foodSubCategories.meat', 0)
         },
         {
             display: 'Use a water saving showerhead',

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { RaisedButton } from 'material-ui';
+import RaisedButton from 'material-ui/RaisedButton';
 import FacebookShare from './FacebookShare';
 
 export default class ResultOptionButtons extends React.Component {

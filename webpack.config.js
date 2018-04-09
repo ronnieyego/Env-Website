@@ -2,6 +2,8 @@ const path = require('path');
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
 let entry;
 let filename;
 switch(process.env.page) {
@@ -71,7 +73,9 @@ module.exports = {
     path: __dirname + "/public/",
     filename: filename //"energy.min.js"  //scripts.min.js for widget // homepage.min.js // energy.min.js
   },
-  plugins: debug ? [] : [
+  plugins: debug ? [
+    //new BundleAnalyzerPlugin() // default port is 8888
+  ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),

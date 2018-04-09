@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import FootprintForm from './FootprintForm';
 import { increaseStep, decreaseStep, getQuestionData } from '../../../actions/footprint/form-actions';
-import _ from 'lodash';
+import filter from 'lodash/filter';
 
 @connect((store, props) => {
 	return {
@@ -23,12 +23,12 @@ export default class FootprintFormHoc extends React.Component {
 
 	render() {
         const allQuestions = this.props.questions;
-        const hourQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'hour'; });
-        const heatingCoolingQuestions = _.filter(hourQuestions, function(o) { return ['heating', 'cooling'].indexOf(o['sub-grouping']) > -1; });
-        const applianceQuestions = _.filter(hourQuestions, function(o) { return ['heating', 'cooling'].indexOf(o['sub-grouping']) === -1; });
-        const houseHoldQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
-        const foodQuestions = _.filter(allQuestions, function(o) { return o['use-type'] === 'serving'; });
-        const transportation = _.filter(allQuestions, function(o) { return o['use-type'] === 'transportation'; });
+        const hourQuestions = filter(allQuestions, function(o) { return o['use-type'] === 'hour'; });
+        const heatingCoolingQuestions = filter(hourQuestions, function(o) { return ['heating', 'cooling'].indexOf(o['sub-grouping']) > -1; });
+        const applianceQuestions = filter(hourQuestions, function(o) { return ['heating', 'cooling'].indexOf(o['sub-grouping']) === -1; });
+        const houseHoldQuestions = filter(allQuestions, function(o) { return o['use-type'] === 'monthly-own' || o['use-type'] === 'monthly-use'; });
+        const foodQuestions = filter(allQuestions, function(o) { return o['use-type'] === 'serving'; });
+        const transportation = filter(allQuestions, function(o) { return o['use-type'] === 'transportation'; });
 		return (
             <FootprintForm {...this.props}
                 allQuestions={allQuestions}

@@ -1,4 +1,4 @@
-import _ from 'lodash';
+import get from 'lodash/get';
 import { utilityEmissionsPerState } from '../utils-data/state-energy-and-emissions';
 import {co2PerGallonOfGas, kwhPer100MilesElectricCar} from '../utils-data/constants';
 
@@ -10,16 +10,16 @@ const betterDriving = res => {
 };
 
 const electricCar = res => {
-    const carType = _.get(res, 'co2.transportationSubCategories.carType', 'Electric'); // If error then return 0 and not show card
+    const carType = get(res, 'co2.transportationSubCategories.carType', 'Electric'); // If error then return 0 and not show card
     if(carType === 'Electric') {
         return 0;
     }
-    const totalMiles = _.get(res, 'co2.transportationSubCategories.totalMilesDriven', 0);
-    const mpg = _.get(res, 'co2.transportationSubCategories.carMpg', 0);
+    const totalMiles = get(res, 'co2.transportationSubCategories.totalMilesDriven', 0);
+    const mpg = get(res, 'co2.transportationSubCategories.carMpg', 0);
     const gallonsUsed = totalMiles/mpg;
     const gasCo2 = gallonsUsed * co2PerGallonOfGas; // Current co2 used
     const electricEnergy = kwhPer100MilesElectricCar * totalMiles / 100; // kwhs for electric car
-    const stateCo2 = _.get(res, 'meta.stateCo2', 0.05);
+    const stateCo2 = get(res, 'meta.stateCo2', 0.05);
     const co2FromElectric = electricEnergy * stateCo2;
     const diff = parseInt(gasCo2 - co2FromElectric);
     if(diff < 0) {
@@ -59,12 +59,12 @@ const getCo2Savings = (res, questions) => {
         {
             display: 'Go vegan',
             card: true,
-            amount: _.get(res, 'co2.foodSubCategories.meat', 0) + _.get(res, 'co2.foodSubCategories.dairy', 0)
+            amount: get(res, 'co2.foodSubCategories.meat', 0) + get(res, 'co2.foodSubCategories.dairy', 0)
         },
         {
             display: 'Go vegetarian',
             card: true,
-            amount: _.get(res, 'co2.foodSubCategories.meat', 0)
+            amount: get(res, 'co2.foodSubCategories.meat', 0)
         },
         {
             display: 'Move to Washington',
