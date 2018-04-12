@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import _ from 'lodash/flattenDeep';
+import flattenDeep from 'lodash/flattenDeep';
 
 import { furnitureData } from './furniture-data';
 
@@ -45,7 +45,7 @@ export default class FurnitureTable extends React.Component {
                 );
             });
         });
-        tableRows = _.flattenDeep(tableRows);
+        tableRows = flattenDeep(tableRows);
 
 		return (
             <div className="costs-page-data-table">

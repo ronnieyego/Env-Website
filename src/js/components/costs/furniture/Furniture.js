@@ -5,7 +5,6 @@ import Divider from 'material-ui/Divider';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
-import lowerCase from 'lodash/lowerCase';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
@@ -70,7 +69,7 @@ export default class Furniture extends React.Component {
                 <div>
                     <div className="costs-form-sub-text">
                         <span>
-                            The average american who lives in a {lowerCase(this.props.aaHouseType)} has {this.props.aaTotalFurniture} pieces of furniture which released {this.props.aaTotalCo2.toLocaleString()} pounds of CO<sub>2</sub>.
+                            The average american who lives in a {this.props.aaHouseType.toLowerCase()} has {this.props.aaTotalFurniture} pieces of furniture which released {this.props.aaTotalCo2.toLocaleString()} pounds of CO<sub>2</sub>.
                         </span>  
                     </div>
                     <div className="costs-form-sub-text">
