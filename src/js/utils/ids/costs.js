@@ -1,4 +1,4 @@
-// 1035 currenet max
+// 1036 currenet max
 
 export default {
 
@@ -52,5 +52,7 @@ export default {
     numDrawers: 1031,
     numBookcases: 1032,
 
+// Tablets
+    tabletType: 1036
 
 }

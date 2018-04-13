@@ -8,7 +8,7 @@ export default class EnergyFooter extends React.Component {
         const target = this.props.openNewTab ? '_blank' : '_self';
         const links = stateIds.map(state => {
             const href = `/energy/${state}`;
-            let html = <a href={href} className="state-energy-footer-link" target={target}>{getFullStateName(state)}</a>;
+            let html = <a href={href} key={`energy-footer-${state}`} className="state-energy-footer-link" target={target}>{getFullStateName(state)}</a>;
             return html;
         })
         return links;

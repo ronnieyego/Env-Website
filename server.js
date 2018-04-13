@@ -20,6 +20,8 @@ import getStateData from './src/js/utils/apis/get-state-data';
 import { mongoose } from './db/mongoose';
 import { FormAnswers } from './db/models/form-answers';
 
+import costPages from './src/js/components/costs/pages-index';
+
 const port = process.env.PORT || 3000;
 
 var app = express();
@@ -44,13 +46,11 @@ app.use((req, res, next) => {
 
 app.get('/', footprintMiddleware);
 
-app.get('/costs/books', costPagesMiddleware);
-app.get('/costs/bbq', costPagesMiddleware);
-app.get('/costs/car', costPagesMiddleware);
-app.get('/costs/clothes', costPagesMiddleware);
-app.get('/costs/cup', costPagesMiddleware);
-app.get('/costs/home', costPagesMiddleware);
-app.get('/costs/furniture', costPagesMiddleware);
+// Costs pages
+const costKeys = Object.keys(costPages);
+costKeys.forEach(key => {
+    app.get(`/costs/${key}`, costPagesMiddleware);    
+})
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);

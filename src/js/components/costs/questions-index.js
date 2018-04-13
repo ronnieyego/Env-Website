@@ -7,6 +7,7 @@ import { clothesQuestions } from './clothes/clothes-data';
 import { cupQuestions } from './cup/cup-data';
 import { furnitureQuestions } from './furniture/furniture-data';
 import { homeQuestions } from './home/home-data';
+import { tabletQuestions } from './tablet/tablet-data';
 
 export default [
     ...bbqQuestions,
@@ -15,5 +16,6 @@ export default [
     ...clothesQuestions,
     ...cupQuestions,
     ...furnitureQuestions,
-    ...homeQuestions
+    ...homeQuestions,
+    ...tabletQuestions
 ];

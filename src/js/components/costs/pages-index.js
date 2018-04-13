@@ -7,6 +7,7 @@ import ClothesHoc from './clothes/ClothesHoc';
 import CupHoc from './cup/CupHoc';
 import FurnitureHoc from './furniture/FurnitureHoc';
 import HomeHoc from './home/HomeHoc';
+import TabletHoc from './tablet/TabletHoc';
 
 export default {
     bbq: <BbqHoc />,
@@ -15,5 +16,6 @@ export default {
     clothes: <ClothesHoc />,
     cup: <CupHoc />,
     home: <HomeHoc />,
-    furniture: <FurnitureHoc />
+    furniture: <FurnitureHoc />,
+    tablet: <TabletHoc />
 };
