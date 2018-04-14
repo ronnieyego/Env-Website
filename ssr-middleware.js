@@ -18,6 +18,7 @@ import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
 import StaticPages from './src/js/pages/Static';
+import costPages from './src/js/components/costs/pages-index';
 
 // Database
 import { mongoose } from './db/mongoose';
@@ -264,6 +265,11 @@ const staticPagesMiddleware = (req, res) => {
 }
 
 const costPagesMiddleware = (req, res) => {
+    const page = req.params.page;
+    const costPagesKeys = Object.keys(costPages);
+    if(costPagesKeys.indexOf(page) === -1) {
+        return res.status(400).send({ message: 'Page not found :('});
+    }
     const store = createStore(reducers);
     const appMarkup = ReactDOM.renderToString(
         <Provider store={store}>
