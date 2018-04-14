@@ -7,6 +7,8 @@ import HowMuchCo2 from '../../HowMuchCo2';
 import BarChart from '../../CompareBarChart';
 import Divider from 'material-ui/Divider';
 
+import { resolveArticle } from '../../../utils/article-fixer';
+
 export default class Tablet extends React.Component {
 
     static propTypes = {
@@ -38,11 +40,11 @@ export default class Tablet extends React.Component {
 
 		return (
             <div className="costs">
-                <h3 className="costs-form-header">What's the lifetime CO<sub>2</sub> of a {this.props.tabletName}?</h3>
+                <h3 className="costs-form-header">What's the lifetime CO<sub>2</sub> of {resolveArticle(this.props.tabletName)}?</h3>
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            A {this.props.tabletName} will emit <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub> in its lifetime.
+                        {resolveArticle(this.props.tabletName, 'A')} will emit <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub> in its lifetime.
                         </span>         
                     </div>
                     <p className="costs-form-explainer">Most of the CO<sub>2</sub> ({this.props.phases.productionCo2} lb/CO<sub>2</sub>) comes from material production phase.  This includes mining the materials, shipping them to the factory, and then assembling them.  Use is generally the next largest bucket ({this.props.phases.useCo2} lb/CO<sub>2</sub>).  While this varies by use and utilities, most tablets assume a 4 year lifecycle and average utilities (see your state's utility emissions <a href="/energy" target="_blank">here</a>.  Transportation has a relatively low cost ({this.props.phases.transportationCo2} lb/CO<sub>2</sub>).  Most tablets are assumbled in Asia and shipped to the US by sea.  Finally the disposal of tablets have a tiny footprint ({this.props.phases.recyclingCo2} lb/CO<sub>2</sub>) which comes from the cost to dismantle and recycle E-waste.</p>

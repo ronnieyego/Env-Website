@@ -13,7 +13,7 @@ export default class PageWrapper extends React.Component {
 
 	render() {
         const keys = Object.keys(pages);
-        const links = keys.map(key => <a href={key}>{Capitalize(key)}</a>);
+        const links = keys.map(key => <a href={key} className="costs-footer-link">{Capitalize(key)}</a>);
             
 		return (
             <div>
@@ -23,7 +23,7 @@ export default class PageWrapper extends React.Component {
                     <div className="costs-footer-title">
                         See the CO<sub>2</sub> cost of other things
                     </div>
-                    <div className="costs-footer-links">
+                    <div className="costs-footer-link-container">
                         {links}
                     </div>
                 </div>

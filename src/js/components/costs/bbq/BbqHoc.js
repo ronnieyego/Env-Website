@@ -66,7 +66,7 @@ export default class BbqHoc extends React.Component {
         });
         
         const {totalCo2, questionsToRemove, grillCo2, totalFoodCo2, chickenCo2, porkCo2, beefCo2, vegetablesCo2} = this.getBbqCo2AndQuestions(questions);
-        questions = _.filter(questions, question => {
+        questions = questions.filter(question => {
             return questionsToRemove.indexOf(question.id) === -1;
         });
 
