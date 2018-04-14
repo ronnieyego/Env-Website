@@ -56,7 +56,7 @@ export default class CupHoc extends React.Component {
             case 'Ceramic Mug':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Ceramic Mug'), cupWashCo2);
                 paperStyrafoamText = this.getPaperStyrafoamUseText(reuseableUses, 'ceramic mug', washType);
-                text = 'Ceramic mugs are a good choice.  They can be used for years and contain how and cold drinks. ' + paperStyrafoamText;  
+                text = 'Ceramic mugs are a good choice.  They can be used for years and contain hot and cold drinks. ' + paperStyrafoamText;  
                 break;
             case 'Glass':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Glass'), cupWashCo2);
@@ -72,7 +72,7 @@ export default class CupHoc extends React.Component {
                 text = `Paper cups can be the worst of the disposable cups and produce 3 times the CO2 of a styrafoam cup.  Many paper cups have a plastic lining that prevent recycling.  To make things worse, they don't insulate hot drinks well and usually require an addition cardboard sleeve.`;
                 break;
             case 'Styrafoam':
-                text = `Styrafoam cups are a reasonable choice for a disposable cup given that they take one third of the CO2 to produce vs a paper cup.  However, styrafoam does not degrade and improper disposal can have a signifiant impact.`;
+                text = `Styrafoam cups are a reasonable choice for a disposable cup given that they take one third of the CO2 to produce vs a paper cup.  However, styrafoam does not degrade and improper disposal can have a significant impact.`;
                 break;
         }
         return text;

@@ -74,7 +74,7 @@ const clothesQuestions = [
     },
     {    
         id: ids.shirtPrimaryMaterial,
-        name: 'What\'s the primary material for your shirts',
+        name: 'What\'s the primary material for your shirts?',
         "selectOptions": [
             'Cotton',
             'Organic Cotton',
@@ -89,7 +89,7 @@ const clothesQuestions = [
     },
     {    
         id: ids.jacketsOwn,
-        name: 'How many jackets, coats, and sweaters do you own',
+        name: 'How many jackets, coats, and sweaters do you own?',
         type: 'int',
         value: 0,
         forms: ['clothes'],
@@ -113,7 +113,7 @@ const clothesQuestions = [
     },
     {    
         id: ids.shortsPrimaryMaterial,
-        name: 'What\'s the primary material for your pants/shorts',
+        name: 'What\'s the primary material for your pants/shorts?',
         "selectOptions": [
             'Mostly demin',
             'Mostly synthetic',
@@ -136,7 +136,7 @@ const clothesQuestions = [
     },
     {    
         id: ids.shoeType,
-        name: 'What\'s the primary type of shoe you own',
+        name: 'What\'s the primary type of shoe you own?',
         "selectOptions": [
             'Dress Shoes',
             'Sneakers',

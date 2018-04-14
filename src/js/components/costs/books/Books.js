@@ -76,7 +76,7 @@ export default class Books extends React.Component {
                 <br />
                 <div>
                     <p className="costs-form-sub-header">Sources and Assumptions</p>
-                    <p className="costs-form-bottom-paragraph">The average book here is about 1/2 inches thick and paperback.  This is a touch smaller than a paperback version of the first Harry Potter novel.  I most used <a href="https://gowageningen.files.wordpress.com/2014/04/co2-footprints-of-kindle-vs-ipad-vs-books.pdf" target="_blank">this study</a> to get the CO<sub>2</sub> per book.  Information about electronic readers came from environmental reports procuded by Dell, Apple, and Amazon.</p>
+                    <p className="costs-form-bottom-paragraph">The average book here is about 1/2 inches thick and paperback.  This is a touch smaller than a paperback version of the first Harry Potter novel.  I mostly used <a href="https://gowageningen.files.wordpress.com/2014/04/co2-footprints-of-kindle-vs-ipad-vs-books.pdf" target="_blank">this study</a> to get the CO<sub>2</sub> per book.  Information about electronic readers came from environmental reports procuced by Dell, Apple, and Amazon.</p>
                     <p className="costs-form-bottom-paragraph">I am estimating that it takes about 6 hours to read a book all the way though. This is based on reading 300 words/minute.  This estimate is likely off, but since the energy cost of electronic readers is so small, I don't think it matters too much.</p>
 
                 </div>
