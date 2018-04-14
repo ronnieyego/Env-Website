@@ -6,7 +6,7 @@ import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../HowMuchCo2';
 import ids from '../../../utils/ids/index';
-
+import { resolveArticle } from '../../../utils/article-fixer';
 import BarChart from '../../CompareBarChart';
 
 export default class House extends React.Component {
@@ -56,14 +56,14 @@ export default class House extends React.Component {
 
 		return (
             <div className="costs">
-                <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of a home?</h3>
+                <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of {resolveArticle(this.props.homeType)}?</h3>
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            This house will emit <HowMuchCo2 co2={this.props.totalCo2} exclude={[ids.buildSuburbanHome, ids.twoBedroomApartment]} /> pounds of CO<sub>2</sub>.
+                            This {this.props.homeType} will emit <HowMuchCo2 co2={this.props.totalCo2} exclude={[ids.buildSuburbanHome, ids.twoBedroomApartment]} /> pounds of CO<sub>2</sub>.
                         </span>         
                     </div>
-                    <p className="costs-form-explainer">{this.props.homeType}s takes a lot of CO<sub>2</sub> to build. Pretty much all of the CO<sub>2</sub> comes from creating the building materials.  Only 2% of CO<sub>2</sub> comes from construction energy and transportation.  This estimate does not include any CO<sub>2</sub> after construction (e.g. heating/cooling). </p>
+                    <p className="costs-form-explainer">{resolveArticle(this.props.homeType, 'A')} takes a lot of CO<sub>2</sub> to build. Pretty much all of the CO<sub>2</sub> comes from creating the building materials.  Only 2% of CO<sub>2</sub> comes from construction energy and transportation.  This estimate does not include any CO<sub>2</sub> after construction (e.g. heating/cooling). </p>
                     <ul>
                         {questions}
                     </ul>

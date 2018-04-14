@@ -11,6 +11,7 @@ import reducers from './src/js/redux/reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { baseState } from './src/js/redux/reducers/footprint-form-answers-reducer';
+import updateCostsReducer from './src/js/components/costs/update-reducer-by-page';
 
 // Pages
 import SolarWidget from './src/js/pages/SolarWidget'
@@ -265,12 +266,14 @@ const staticPagesMiddleware = (req, res) => {
 }
 
 const costPagesMiddleware = (req, res) => {
-    const page = req.params.page;
+    const page = req.params.page.toLowerCase();
     const costPagesKeys = Object.keys(costPages);
     if(costPagesKeys.indexOf(page) === -1) {
         return res.status(400).send({ message: 'Page not found :('});
     }
     const store = createStore(reducers);
+    const currentState = store.getState();
+    const updatedReducer = updateCostsReducer(currentState, page);
     const appMarkup = ReactDOM.renderToString(
         <Provider store={store}>
             <MuiThemeProvider>
@@ -278,7 +281,7 @@ const costPagesMiddleware = (req, res) => {
             </MuiThemeProvider>
         </Provider>
     );
-    res.status(200).send(renderFullPage(appMarkup, null, 'cost-pages')); 
+    res.status(200).send(renderFullPage(appMarkup, updatedReducer, 'cost-pages')); 
 }
 
 module.exports = {

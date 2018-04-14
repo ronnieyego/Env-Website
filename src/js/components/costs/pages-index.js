@@ -10,6 +10,7 @@ import HomeHoc from './home/HomeHoc';
 import TabletHoc from './tablet/TabletHoc';
 
 export default {
+    apartment: <HomeHoc />,
     bbq: <BbqHoc />,
     books: <BooksHoc />,
     car: <CarHoc />,
@@ -17,5 +18,6 @@ export default {
     cup: <CupHoc />,
     home: <HomeHoc />,
     furniture: <FurnitureHoc />,
+    galaxy: <TabletHoc />,
     tablet: <TabletHoc />
 };
