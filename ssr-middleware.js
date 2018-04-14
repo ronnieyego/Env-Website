@@ -19,6 +19,7 @@ import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
 import UsEnergy from './src/js/pages/UsEnergy';
 import FootprintCalculator from './src/js/pages/FootprintCalculator';
 import StaticPages from './src/js/pages/Static';
+import CostsPages from './src/js/pages/Costs';
 import costPages from './src/js/components/costs/pages-index';
 
 // Database
@@ -274,10 +275,11 @@ const costPagesMiddleware = (req, res) => {
     const store = createStore(reducers);
     const currentState = store.getState();
     const updatedReducer = updateCostsReducer(currentState, page);
+    updatedReducer.costsPage = page;
     const appMarkup = ReactDOM.renderToString(
         <Provider store={store}>
             <MuiThemeProvider>
-                <div />
+                <CostsPages page={page} />
             </MuiThemeProvider>
         </Provider>
     );

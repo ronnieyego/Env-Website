@@ -1,25 +1,27 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { browserHistory, BrowserRouter as Router, Route} from 'react-router-dom';
-
-import pages from '../components/costs/pages-index';
-import PageWrapper from '../components/costs/PageWrapper';
+import PropTypes from 'prop-types';
+import costsPages from '../components/costs/pages-index';
+import Header from '../components/Header';
+import CostsFooter from '../components/costs/CostsFooter';
 
 export default class Costs extends React.Component {
 
+    static propTypes = {
+        page: PropTypes.string.isRequired
+    }
+
 	render() {
-        const pageNames = Object.keys(pages);
-        const routes = pageNames.map(pageName => {
-            const path = `/costs/${pageName}`;
-            const component = () => <PageWrapper page={pageName} />;
-            return <Route exact={true} path={path} component={component} />
-        });
+        const page = costsPages[this.props.page];
 		return (
-            <Router history={browserHistory} >
-                <div>
-                    {routes}
+            <div>
+                <Header />
+                <div className="costs-page">
+                    <div className="costs">
+                        {page}
+                        <CostsFooter />
+                    </div>
                 </div>
-            </Router>
+            </div>
 		);
 	}
 }
