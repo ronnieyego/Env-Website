@@ -67,7 +67,6 @@ const renderFullPage = (markup, data, page) => {
                 <meta charset='utf-8'>
                 <title>Footprint Finder</title>
                 <link rel="shortcut icon" type="image/png" href="/public/footprint.png">
-                 <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/cosmo/bootstrap.min.css" type="text/css" rel="stylesheet"/>
                  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
                  <link type="text/css" href="/public/less.css" rel="stylesheet"/>
                  <script>

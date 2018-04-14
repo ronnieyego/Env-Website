@@ -26,5 +26,6 @@ export default {
     buildSuburbanHome: 1522,
     spaceLaunch: 1523,
     generalSherman: 1524,
-    cementIndustryOneYear: 1525
+    cementIndustryOneYear: 1525,
+    ipad: 1526
 };

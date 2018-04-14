@@ -47,6 +47,12 @@ const data = [
         amount: 161
     },
     {
+        id: ids.ipad,
+        name: 'An Ipad',
+        description: 'This includes materials, transportation, use, and disposal',
+        amount: 297
+    },
+    {
         id: ids.oneBookcase ,
         name: 'One bookcase' ,
         description: 'This how much CO2 it takes to create a 7\' x 4\' bookcase of books',

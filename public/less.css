@@ -477,6 +477,10 @@ input[type="checkbox"] {
   justify-content: space-between;
   background-color: #91e0c0 !important;
 }
+.nav-logo {
+  margin-top: 5px;
+  margin-left: 15px;
+}
 .nav-item {
   font-weight: bold !important;
   font-size: 22px !important;

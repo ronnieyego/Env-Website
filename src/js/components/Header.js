@@ -17,7 +17,7 @@ export default class Header extends React.Component {
 		return (
             <Toolbar className="nav">
                 <ToolbarGroup className="nav-item" firstChild={true}>
-                    <a href="/"><img className="navbar-brand" src="/public/footprint.png"/></a>
+                    <a href="/"><img className="nav-logo" height="42" width="42" alt="This is not a site about finding Sasquatch" src="/public/footprint.png"/></a>
                 </ToolbarGroup>
                 <ToolbarGroup className="nav-item">
                     <MenuItem containerElement={<a className="nav-item" href="/"/>} primaryText="Footprint" />
