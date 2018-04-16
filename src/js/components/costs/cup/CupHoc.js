@@ -78,36 +78,39 @@ export default class CupHoc extends React.Component {
         return text;
     }
 
-    calculateCupCo2(cupQuestions) {
-        const cupType = getAnswerFromId(cupQuestions, ids.cupType);
-        const cupCo2 = this.getCupDataCo2(cupType);
-
+    getSelectedWashType(cupQuestions) {
         const washTypeQ = getQuestionFromId(cupQuestions, ids.cupClean);
         const washType = washTypeQ && !washTypeQ.hidden && washTypeQ.value;
+        return washType;
+    }
+
+    getCupWashCo2(washType) {
         let cupWashCo2 = 0;
-        if(washType === 'Dishwasher') {
+        if (washType === 'Dishwasher') {
             const dishwasher = getQuestionFromId(footprintQuestions, 35); //Id for dishwasher is 35
             const Co2FromWater = dishwasher.water * kwhPerGallon;
             cupWashCo2 = ((dishwasher.kwh * utilityEmissionsPerState.US) + Co2FromWater) / usesPerWash;
         } else if (washType === 'Handwash') {
             cupWashCo2 = kwhPerGallon * gallonsPerWashedDish * utilityEmissionsPerState.US;
         }
-        cupWashCo2 = Math.round(cupWashCo2 * 100)/100;
-
-        
-        return {cupCo2, cupWashCo2, washType};
+        return cupWashCo2;
     }
 
-    calculateCompareWashes() {
+    calculateCupCo2(cupQuestions) {
+        const cupType = getAnswerFromId(cupQuestions, ids.cupType);
+        const cupCo2 = this.getCupDataCo2(cupType);
+        const washType = this.getSelectedWashType(cupQuestions);
+        const cupWashCo2 = Math.round(this.getCupWashCo2(washType) * 100)/100;
+        const compareWashes = this.calculateCompareWashes(cupWashCo2)
+        return {cupCo2, cupWashCo2, washType, compareWashes};
+    }
+
+    calculateCompareWashes(cupWashCo2) {
         const paperCo2 = this.getCupDataCo2('Paper');
         const styrafoamCo2 = this.getCupDataCo2('Styrafoam');
         const compareWashes = {};
         const cupTypesWashes = cupData.forEach(cup => {
             const cupCo2 = this.getCupDataCo2(cup.name);
-            let cupWashCo2 = 0;
-            const dishwasher = getQuestionFromId(footprintQuestions, 35); //Id for dishwasher is 35
-            const Co2FromWater = dishwasher.water * kwhPerGallon;
-            cupWashCo2 = ((dishwasher.kwh * utilityEmissionsPerState.US) + Co2FromWater) / usesPerWash;
             const washDiffWithPaper = paperCo2 - cupWashCo2;
             const washDiffWithStyrafoam = styrafoamCo2 - cupWashCo2;
             compareWashes[cup.name] = {};
@@ -124,10 +127,9 @@ export default class CupHoc extends React.Component {
             const index = forms.indexOf('cup');
             return index !== -1 && !question.hidden; 
         });
-        const {cupCo2, cupWashCo2, washType} = this.calculateCupCo2(questions);
+        const {cupCo2, cupWashCo2, washType, compareWashes} = this.calculateCupCo2(questions);
         const typeSelected = getAnswerFromId(questions, 1000);
         const displayText = this.calculateText(typeSelected, cupWashCo2, washType);
-        const compareWashes = this.calculateCompareWashes();
 
         const graphData = [
             {name: 'Ceramic Mug', Paper: compareWashes['Ceramic Mug']['paper'], Styrafoam: compareWashes['Ceramic Mug']['styrafoam']},
@@ -144,6 +146,7 @@ export default class CupHoc extends React.Component {
                 cupWashCo2={cupWashCo2}
                 displayText={displayText}
                 graphData={graphData}
+                washType={washType}
             />
         );
 	}
