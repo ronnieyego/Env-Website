@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import BarChart from '../../CompareBarChart';
+import Divider from 'material-ui/Divider';
 
 export default class Cup extends React.Component {
 
@@ -56,6 +58,15 @@ export default class Cup extends React.Component {
                     <ul>
                         {questions}
                     </ul>
+                    <Divider />
+                    <BarChart 
+                        graphData={this.props.graphData}
+                        units={'Uses'}
+                        title={"Compare to disposables"}
+                        compare={true}
+                        dataKey={'Paper'}
+                        dataKeyCompare={'Styrafoam'}
+                    />
                 </div>
             </div>
 		);
