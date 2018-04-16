@@ -46,6 +46,7 @@ export default class Cup extends React.Component {
             }
             
         });
+        const negativeStyrafoamReason = this.props.washType === 'Dishwasher' ? "WOAO!! What's going on with the Styrafoam? Is that a bug? No, it's not a bug. To wash a cup in a dishwasher it takes 0.05lb/CO2 for each wash, whereas it just takes 0.02lb/CO2 to create a styrafoam cup. Pro tip: handwash your cups!" : ''
 
 		return (
             <div className="costs">
@@ -67,6 +68,9 @@ export default class Cup extends React.Component {
                         dataKey={'Paper'}
                         dataKeyCompare={'Styrafoam'}
                     />
+                    <p>
+                        {negativeStyrafoamReason}
+                    </p>
                 </div>
             </div>
 		);
