@@ -55,7 +55,7 @@ const data = [
     {
         id: ids.oneBookcase ,
         name: 'One bookcase' ,
-        description: 'This how much CO2 it takes to create a 7\' x 4\' bookcase of books',
+        description: 'This is how much CO2 it takes to create a 7\' x 4\' bookcase of books',
         amount: 400
     },
     {

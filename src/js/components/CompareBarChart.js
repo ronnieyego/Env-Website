@@ -55,6 +55,7 @@ export default class CompareBarChar extends React.Component {
         const units = this.props.units;
         const title = this.props.title || '';
         const dataKey = this.props.dataKey || 'You';
+        const dataKeyCompare = this.props.dataKeyCompare || 'Average American';
 
         return (
             <div className="compare-bar-chart">
@@ -69,7 +70,7 @@ export default class CompareBarChar extends React.Component {
                     <Legend wrapperStyle={{marginLeft: '0px'}} />
                     <ReferenceLine y={0} stroke='#000'/>
                     <Bar dataKey={dataKey} fill="#8884d8" />
-                    {this.props.compare && <Bar dataKey="Average American" fill="#82ca9d" />}
+                    {this.props.compare && <Bar dataKey={dataKeyCompare} fill="#82ca9d" />}
                 </BarChart>
             </div>
         );
