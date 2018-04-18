@@ -56,7 +56,7 @@ export default class CupHoc extends React.Component {
             case 'Ceramic Mug':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Ceramic Mug'), cupWashCo2);
                 paperStyrafoamText = this.getPaperStyrafoamUseText(reuseableUses, 'ceramic mug', washType);
-                text = 'Ceramic mugs are a good choice.  They can be used for years and contain how and cold drinks. ' + paperStyrafoamText;  
+                text = 'Ceramic mugs are a good choice.  They can be used for years and contain hot and cold drinks. ' + paperStyrafoamText;  
                 break;
             case 'Glass':
                 reuseableUses = this.getAllUses(this.getCupDataCo2('Glass'), cupWashCo2);
@@ -72,7 +72,7 @@ export default class CupHoc extends React.Component {
                 text = `Paper cups can be the worst of the disposable cups and produce 3 times the CO2 of a styrafoam cup.  Many paper cups have a plastic lining that prevent recycling.  To make things worse, they don't insulate hot drinks well and usually require an addition cardboard sleeve.`;
                 break;
             case 'Styrafoam':
-                text = `Styrafoam cups are a reasonable choice for a disposable cup given that they take one third of the CO2 to produce vs a paper cup.  However, styrafoam does not degrade and improper disposal can have a signifiant impact.`;
+                text = `Styrafoam cups are a reasonable choice for a disposable cup given that they take one third of the CO2 to produce vs a paper cup.  However, styrafoam does not degrade and improper disposal can have a significant impact.`;
                 break;
         }
         return text;
@@ -93,7 +93,29 @@ export default class CupHoc extends React.Component {
             cupWashCo2 = kwhPerGallon * gallonsPerWashedDish * utilityEmissionsPerState.US;
         }
         cupWashCo2 = Math.round(cupWashCo2 * 100)/100;
+
+        
         return {cupCo2, cupWashCo2, washType};
+    }
+
+    calculateCompareWashes() {
+        const paperCo2 = this.getCupDataCo2('Paper');
+        const styrafoamCo2 = this.getCupDataCo2('Styrafoam');
+        const compareWashes = {};
+        const cupTypesWashes = cupData.forEach(cup => {
+            const cupCo2 = this.getCupDataCo2(cup.name);
+            let cupWashCo2 = 0;
+            const dishwasher = getQuestionFromId(footprintQuestions, 35); //Id for dishwasher is 35
+            const Co2FromWater = dishwasher.water * kwhPerGallon;
+            cupWashCo2 = ((dishwasher.kwh * utilityEmissionsPerState.US) + Co2FromWater) / usesPerWash;
+            const washDiffWithPaper = paperCo2 - cupWashCo2;
+            const washDiffWithStyrafoam = styrafoamCo2 - cupWashCo2;
+            compareWashes[cup.name] = {};
+            compareWashes[cup.name]['paper'] = cupCo2/washDiffWithPaper;
+            compareWashes[cup.name]['styrafoam'] = cupCo2/washDiffWithStyrafoam;
+        })
+
+        return compareWashes;
     }
 
 	render() {
@@ -105,7 +127,14 @@ export default class CupHoc extends React.Component {
         const {cupCo2, cupWashCo2, washType} = this.calculateCupCo2(questions);
         const typeSelected = getAnswerFromId(questions, 1000);
         const displayText = this.calculateText(typeSelected, cupWashCo2, washType);
+        const compareWashes = this.calculateCompareWashes();
 
+        const graphData = [
+            {name: 'Ceramic Mug', Paper: compareWashes['Ceramic Mug']['paper'], Styrafoam: compareWashes['Ceramic Mug']['styrafoam']},
+            {name: 'Reuseable Plastic', Paper: compareWashes['Reuseable Plastic']['paper'], Styrafoam: compareWashes['Reuseable Plastic']['styrafoam']},
+            {name: 'Glass', Paper: compareWashes['Glass']['paper'], Styrafoam: compareWashes['Glass']['styrafoam']},
+            {name: 'Steel', Paper: compareWashes['Steel']['paper'], Styrafoam: compareWashes['Steel']['styrafoam']}
+        ];
         
 		return (
             <Cup
@@ -114,6 +143,7 @@ export default class CupHoc extends React.Component {
                 cupCo2={cupCo2}
                 cupWashCo2={cupWashCo2}
                 displayText={displayText}
+                graphData={graphData}
             />
         );
 	}

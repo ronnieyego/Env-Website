@@ -85,9 +85,9 @@ const carQuestions = [
     },
     {    
         id: ids.carRuggedness,
-        name: 'Which of the following best descibes your vehicle?',
+        name: 'Which of the following best describes your vehicle?',
         "selectOptions": ['Lightweight', 'Standard', 'Luxurious', 'Rugged' ],
-        subtext: 'This question helps estimate the composition of your vehicle.  Rugged cars tend to use more metals and less plastic which make them more CO2 intensive to create',
+        subtext: 'This question helps estimate the composition of your vehicle.  Rugged cars tend to use more metals and less plastic which makes them more CO2 intensive to create',
         value: "Standard",
         type: 'dropdown',
         forms: ['car'],

@@ -81,7 +81,7 @@ const furnitureData = {
 const furnitureQuestions = [
     {    
         id: ids.numChairs,
-        name: 'How many chairs do you own',
+        name: 'How many chairs do you own?',
         type: 'int',
         value: 0,
         forms: ['furniture'],
@@ -89,7 +89,7 @@ const furnitureQuestions = [
     },
     {    
         id: ids.numTables,
-        name: 'How many tables do you own',
+        name: 'How many tables do you own?',
         type: 'int',
         value: 0,
         forms: ['furniture'],
@@ -97,7 +97,7 @@ const furnitureQuestions = [
     },
     {    
         id: ids.numCouches,
-        name: 'How many couches do you own',
+        name: 'How many couches do you own?',
         type: 'int',
         value: 0,
         forms: ['furniture'],
@@ -105,7 +105,7 @@ const furnitureQuestions = [
     },
     {    
         id: ids.numBookcases,
-        name: 'How many bookcases do you own',
+        name: 'How many bookcases do you own?',
         type: 'int',
         value: 0,
         forms: ['furniture'],
@@ -121,7 +121,7 @@ const furnitureQuestions = [
     },
     {    
         id: ids.numBeds,
-        name: 'How many beds do you own',
+        name: 'How many beds do you own?',
         type: 'int',
         value: 0,
         forms: ['furniture'],
