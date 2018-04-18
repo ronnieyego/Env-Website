@@ -68,10 +68,17 @@ export default class Computer extends React.Component {
                 <Divider />
                 <div>
                     <br />
+                    <p className="costs-form-sub-header">Rare Earth Metals</p>
+                    <p className="costs-form-bottom-paragraph">As you probably know, electronic equipment uses certain elements called rare earth metals like neodymium, terbium and dysprosium.  These metals are considered to be very toxic to the environment and humans.  While not a problem inside of electronics, a lot of these elements end up in the trash and seep into the environment.</p>
+                    <p className="costs-form-bottom-paragraph">Please dispose of your electronics at an E-waste site to help minimize seepage.</p>
+                </div>
+                <Divider />
+                <div>
+                    <br />
                     <p className="costs-form-sub-header">Methodology and Assumptions</p>
-                    <p className="costs-form-bottom-paragraph">All of this data was self reported by each company.  I am assuming that the self reported data is accurate.  Even though each company has an interest in reporting the lowest CO<sub>2</sub>, most companies adhere to a set of accounting standards.  That said, they each had their own methods and differences to determine lifetime CO<sub>2</sub>.  I did a bit of work to try to resolve some of those differences.  For example, there is a pretty dramatic difference in use CO<sub>2</sub> between Apple and Microsoft.  This stems from 2 different assumptions.  Apple assumes a 4 year lifespan of its products while Microsoft assumes 3 years.  Secondly, each brand assumes a different amount of energy use CO<sub>2</sub>.  Apple does regional while other brands tend not to say.  This leads to discrepencies and the Apple products tend to use fewers watts, but ultimately have a higher use CO<sub>2</sub>.</p>
+                    <p className="costs-form-bottom-paragraph">All of this data was self reported by each company.  I am assuming that the self reported data is accurate.  Even though each company has an interest in reporting the lowest CO<sub>2</sub>, most companies adhere to a set of accounting standards.  That said, they each had their own methods and differences to determine lifetime CO<sub>2</sub>.  I did a bit of work to try to resolve some of those differences.  For example, there is a pretty dramatic difference in use CO<sub>2</sub> between Apple and Microsoft.  This stems from 2 different assumptions.  Apple assumes a 4 year lifespan of its products while Microsoft assumes 3 years.  Secondly, each brand assumes a different amount of energy use CO<sub>2</sub>.  I resolved all use CO<sub>2</sub> by estimating based on the wattage of each device with some estimates about usage hours.  Ultimately, my estimation landed towards the middle of the data I collected and decided to use it instead of the self reported "use" CO<sub>2</sub></p>
                     <p className="costs-form-bottom-paragraph">Some companies have many different products (e.g. Macbook Pro and Macbook Air).  In this case, I simply took the average.  Different products were generally within 20% of eachother's total footprint.  Some companies (like Lenovo) documented over 100 reports for the same product (with minor tweaks).  I took a small sample of these reports and averaged them.  Again, they were very close in total CO<sub>2</sub>.</p>
-                    <p className="costs-form-bottom-paragraph"> </p>
+                    <p className="costs-form-bottom-paragraph">In the case of Samsung, I could not find the data I was looking for (ISO 14040 and ISO 14044 environmental reports).  I did find data documenting the material weight of each part in their phones.  From there I derived "Production" CO<sub>2</sub>.  Its an estimate but landed close to where I expected so I think its reasonable for comparison purposes.</p>
                 </div> 
                 <Divider />
                 <div>
@@ -81,6 +88,8 @@ export default class Computer extends React.Component {
                             <li><a href="https://www.microsoft.com/en-us/environment/product/design" target="_blank">Microsoft</a>:  Click on the link to download a PDF of a lot of Microsoft products.</li>
                             <li><a href="http://www.dell.com/learn/us/en/vn/corp-comm/environment_carbon_footprint_products" target="_blank">Dell</a>:  Dell likes to measure sustainability in terms of orange juice and VW Golfs!</li>
                             <li><a href="https://www3.lenovo.com/us/en/social_responsibility/datasheets_notebooks/" target="_blank">Lenovo</a>:  Lenovo has an environmental report for every version of the Thinkpad.  Click the PCF link rather than the ECO link.</li>
+                            <li><a href="https://storage.googleapis.com/mannequin/sustainability/pdf%234/Pixel%202%20XL%20Product%20Environmental%20Report.pdf" target="_blank">Google</a>: Standard environmental report.</li>
+                            <li><a href="http://images.samsung.com/is/content/samsung/p5/sg/aboutsamsung/2017/aboutsamsung-sg-life-cycle-assessment-en.pdf" target="_blank">Samsung</a>: Most relevant thing I could find.  Samsung has a lot more articles saying they're green than data to back it up.</li>
                             <li>Sony:  Sony: I could not find any information on Sony products.</li>
                             <li><a href="http://www.hp.com/hpinfo/globalcitizenship/media/files/hp_fy11_gcr_products_and_solutions.pdf" target="_blank">HP</a>:  I couldn't find individual product data from HP, but they do have good data on their environmental footprint.</li>
                         </ul>
