@@ -11,7 +11,7 @@ import PersonalBreakdown from '../../components/footprint-calculator/results/Per
 import Compare from '../../components/footprint-calculator/results/Compare';
 import Savings from '../../components/footprint-calculator/results/Savings';
 import Facts from '../../components/footprint-calculator/results/Facts';
-import HowMuchCo2 from '../../components/HowMuchCo2';
+import HowMuchCo2 from '../../components/how-much-co2/HowMuchCo2';
 
 @connect((store, props) => {
 	return {

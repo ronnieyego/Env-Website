@@ -9,7 +9,7 @@ import PersonalBreakdown from './PersonalBreakdown';
 import Compare from './Compare';
 import Savings from './Savings';
 import Facts from './Facts';
-import HowMuchCo2 from '../../HowMuchCo2';
+import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
 @connect((store, props) => {
 	return {

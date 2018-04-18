@@ -12,8 +12,13 @@ import reducers from './redux/reducers/index';
 import Costs from './pages/Costs'
 
 // Grab the state from a global variable injected into the server-generated HTML
-const preloadedState = window.__PRELOADED_STATE__ || {};
+
 const page = window.__PRELOADED_STATE__.costsPage;
+
+// No real need to do this, but i get a console warning saying there's an unknown item when i try to make my store.
+delete window.__PRELOADED_STATE__.costsPage;
+
+const preloadedState = window.__PRELOADED_STATE__ || {};
 
 // Allow the passed state to be garbage-collected
 delete window.__PRELOADED_STATE__;

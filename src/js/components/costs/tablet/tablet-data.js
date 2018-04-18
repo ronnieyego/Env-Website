@@ -8,7 +8,7 @@ const tabletCo2 = {
         co2: 297,
         production:	0.86,
         transportation:	0.03,
-        use:	0.1,
+        use: 0.1,
         recycling:	0.01
     },
     surface: {
@@ -19,27 +19,27 @@ const tabletCo2 = {
         recycling:	0.05
     },
     galaxy: {
-        co2: 268.4,
+        co2: 345.4,
         production:	0.76,
         transportation:	0.06,
-        use:	0.17,
+        use: 0.17,
         recycling:	0.01
     },
     venue: {
         co2: 471.0,
         production:	0.71,
         transportation:	0.15,
-        use:	0.14,
+        use: 0.14,
         recycling:	0.00 
     },
     kindle: {
         co2: 370
     },
     other: {
-        co2: 268.4,
+        co2: 345.4,
         production:	0.76,
         transportation:	0.06,
-        use:	0.17,
+        use: 0.17,
         recycling:	0.01
     },
 };
@@ -78,14 +78,14 @@ const tabletQuestions = [
         id: ids.tabletType,
         name: 'What tablet do you own?',
         "selectOptions": [
-            'Apple Ipad',
+            'Apple iPad',
             'Microsoft Surface',
             'Samsung Galaxy',
             'Dell Venue',
             // 'Amazon Kindle',  Doesn't really fit data model and type
             'Other',
         ],
-        value: "Apple Ipad",
+        value: "Apple iPad",
         type: 'dropdown',
         forms: ['tablet'],
         formType: 'costs'
@@ -95,7 +95,7 @@ const tabletQuestions = [
 const nameMapping = name => {
     let mapping;
     switch(name) {
-        case 'Apple Ipad':
+        case 'Apple iPad':
             mapping = 'ipad';
             break;
         case 'Microsoft Surface':

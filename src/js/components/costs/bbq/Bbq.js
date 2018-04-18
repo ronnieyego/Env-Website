@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
-import HowMuchCo2 from '../../HowMuchCo2';
+import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
 import BarChart from '../../CompareBarChart';
 

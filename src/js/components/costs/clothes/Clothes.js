@@ -8,7 +8,7 @@ import SelectField from 'material-ui/SelectField';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
-import HowMuchCo2 from '../../HowMuchCo2';
+import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import CompareBarChart from '../../CompareBarChart';
 
 export default class Clothes extends React.Component {

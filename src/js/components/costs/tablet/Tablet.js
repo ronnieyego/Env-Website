@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
-import HowMuchCo2 from '../../HowMuchCo2';
+import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import BarChart from '../../CompareBarChart';
 import Divider from 'material-ui/Divider';
 import ids from '../../../utils/ids/index';
@@ -65,7 +65,7 @@ export default class Tablet extends React.Component {
                 <Divider />
                 <div>
                     <p className="costs-form-sub-header">Sources</p>
-                        <ul lassName="costs-form-list">
+                        <ul className="costs-form-list">
                             <li><a href="https://www.apple.com/environment/reports/" target="_blank">Apple</a>: Apple does a fantastic job at catalogging the footprint of their products.</li>
                             <li><a href="https://www.microsoft.com/en-us/environment/product/design" target="_blank">Microsoft</a>:  Click on the link to download a PDF of a lot of Microsoft products.</li>
                             <li><a href="http://www.dell.com/learn/us/en/vn/corp-comm/environment_carbon_footprint_products" target="_blank">Dell</a>:  Dell likes to measure sustainability in terms of orange juice and VW Golfs!</li>

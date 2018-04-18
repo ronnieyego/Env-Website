@@ -92,5 +92,3 @@ export default class FurnitureHoc extends React.Component {
 		);
 	}
 }
-
-

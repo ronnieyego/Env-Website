@@ -5,15 +5,11 @@ import Divider from 'material-ui/Divider';
 import pages from './pages-index';
 import { Capitalize } from '../../utils/capitalize';
 
-export default class PageWrapper extends React.Component {
-
-    static propTypes = {
-        page: PropTypes.string.isRequired
-    }
+export default class CostsFooter extends React.Component {
 
 	render() {
         const keys = Object.keys(pages);
-        const links = keys.map(key => <a href={key} className="costs-footer-link">{Capitalize(key)}</a>);
+        const links = keys.map(key => <a key={`costs-footer-${key}`} href={key} className="costs-footer-link">{Capitalize(key)}</a>);
             
 		return (
             <div>

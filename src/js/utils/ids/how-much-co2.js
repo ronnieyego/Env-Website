@@ -27,5 +27,6 @@ export default {
     spaceLaunch: 1523,
     generalSherman: 1524,
     cementIndustryOneYear: 1525,
-    ipad: 1526
+    ipad: 1526,
+    hpFootprintYear: 1527
 };

@@ -1,4 +1,4 @@
-// 1036 currenet max
+// 1039 currenet max
 
 export default {
 
@@ -35,6 +35,12 @@ export default {
     carRuggedness: 1004,
     carMpg: 1005,
     carMileage: 1006,
+
+// Computer
+    computerType: 1037,
+    computerBrand: 1038,
+    phoneBrand: 1039,
+
 // Cup
     cupType: 1000,
     cupClean: 1002,
