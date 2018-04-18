@@ -16,10 +16,12 @@ export default {
     books: <BooksHoc />,
     car: <CarHoc />,
     clothes: <ClothesHoc />,
+    desktop: <ComputerHoc />,
     computer: <ComputerHoc />,
     cup: <CupHoc />,
     home: <HomeHoc />,
+    iphone: <ComputerHoc />,
     furniture: <FurnitureHoc />,
-    galaxy: <TabletHoc />,
-    tablet: <TabletHoc />
+    laptop: <ComputerHoc />,
+    tablet: <ComputerHoc />,
 };
