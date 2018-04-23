@@ -1,7 +1,8 @@
 import React from 'react';
 
-import BooksHoc from './books/BooksHoc';
 import BbqHoc from './bbq/BbqHoc';
+import BitcoinHoc from './bitcoin/BitcoinHoc';
+import BooksHoc from './books/BooksHoc';
 import CarHoc from './car/CarHoc';
 import ClothesHoc from './clothes/ClothesHoc';
 import ComputerHoc from './computer/ComputerHoc';
@@ -14,6 +15,7 @@ import PetHoc from './pet/PetHoc';
 export default {
     apartment: <HomeHoc />,
     bbq: <BbqHoc />,
+    bitcoin: <BitcoinHoc />,
     books: <BooksHoc />,
     car: <CarHoc />,
     cat: <PetHoc />,

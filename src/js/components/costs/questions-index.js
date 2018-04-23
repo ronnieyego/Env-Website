@@ -1,6 +1,7 @@
 import index from './pages-index';
 
 import { bbqQuestions } from './bbq/bbq-data';
+import { bitcoinQuestions } from './bitcoin/bitcoin-data';
 import { booksQuestions } from './books/books-data';
 import { carQuestions } from './car/car-data';
 import { clothesQuestions } from './clothes/clothes-data';
@@ -12,6 +13,7 @@ import { tabletQuestions } from './tablet/tablet-data';
 import { petQuestions } from './pet/pet-data';
 
 export default [
+    ...bitcoinQuestions,
     ...bbqQuestions,
     ...booksQuestions,
     ...carQuestions,

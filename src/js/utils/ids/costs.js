@@ -1,9 +1,9 @@
-// 1046 currenet max
+// 1047 currenet max
 
 export default {
 
-// Books
-    numberBooks: 1026,
+// Bitcoint
+    bitcoinEstimateType: 1047,
 
 // BBQ
     grillType: 1022,
@@ -14,6 +14,11 @@ export default {
     poundsBeef: 1019,
     poundsPork: 1020,
     poundsVegetables: 1021,
+
+// Books
+    numberBooks: 1026,
+
+
 
 // Clothes
     shirtsOwn: 1008,

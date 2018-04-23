@@ -437,6 +437,9 @@ input[type="checkbox"] {
   margin-left: auto;
   margin-right: auto;
 }
+.no-bullet-list {
+  list-style-type: none;
+}
 .static-page {
   font-size: 18px;
   text-align: left;
