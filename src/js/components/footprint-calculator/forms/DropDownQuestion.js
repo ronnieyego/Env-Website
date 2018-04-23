@@ -19,7 +19,9 @@ export default class DropdownQuestion extends React.Component {
     }
 
     formatName(name) {
-        name = name.replace(/-/g,' ');
+        if(this.props.formType !== 'costs') {
+            name = name.replace(/-/g,' ');
+        }
         name = name.charAt(0).toUpperCase() + name.slice(1);
         return name;
     }
@@ -50,6 +52,7 @@ export default class DropdownQuestion extends React.Component {
                 <SelectField
                     id={this.props.id}
                     menuItemStyle={{fontWeight: 'bold'}}
+                    menuStyle={{textAlign: 'center'}}
                     onChange={this.updateQuestion.bind(this, this.props.id)}
                     value={this.props.value}
                 >

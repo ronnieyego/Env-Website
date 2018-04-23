@@ -1,4 +1,4 @@
-// 1039 currenet max
+// 1046 currenet max
 
 export default {
 
@@ -59,6 +59,17 @@ export default {
     numBookcases: 1032,
 
 // Tablets
-    tabletType: 1036
+    tabletType: 1036,
+
+// Pet
+    petType: 1040,
+    petWeight: 1041,
+    petFood: 1042,
+    catFoodType: 1043,
+    turtleTankSize: 1044,
+    petHeatingLamp: 1045,
+
+// User State
+    userState: 1046,
 
 }

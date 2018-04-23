@@ -28,5 +28,13 @@ export default {
     generalSherman: 1524,
     cementIndustryOneYear: 1525,
     ipad: 1526,
-    hpFootprintYear: 1527
+    hpFootprintYear: 1527,
+    petDog: 1528,
+    petCat: 1529,
+    petTurtle: 1530,
+    petHamster: 1531,
+    petGecko: 1532,
+    petBigDog: 1533,
+    petSmallDog: 1534,
+
 };

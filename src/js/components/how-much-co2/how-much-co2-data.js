@@ -34,8 +34,14 @@ export default [
         amount: 28
     },
     {
+        id: ids.petHamster ,
+        name: 'A Hamster',
+        description: 'A vegetarian hamster will live for 3 years.',
+        amount: 42
+    },
+    {
         id: ids.treeSequester,
-        name: 'Tree sequestering',
+        name: 'Tree Sequestering',
         description: 'This is how much CO2 a tree absorbs each year.',
         source: 'http://www.americanforests.org/explore-forests/forest-facts/',
         amount: 48
@@ -98,10 +104,22 @@ export default [
         amount: 2500 
     },
     {
+        id: ids.petSmallDog ,
+        name: 'Small Dog',
+        description: 'This comes from a dog\'s food.',
+        amount: 3482
+    },
+    {
         id: ids.driveTenThousandMiles ,
         name: 'Driving ten thousand miles',
         description: 'This is how much CO2 you\'ll release if you drive 10,000 miles in a car with 25mpg',
         amount: 8000
+    },
+    {
+        id: ids.petCat ,
+        name: 'A Cat',
+        description: 'This comes from a cat\'s food which is 95% meat.',
+        amount: 9264
     },
     {
         id: ids.powerTwitterOneHour ,
@@ -111,11 +129,29 @@ export default [
         amount: 9280
     },
     {
+        id: ids.petDog ,
+        name: 'A Dog',
+        description: 'This comes from a dog\'s food.',
+        amount: 14812
+    },
+    {
+        id: ids.petTurtle ,
+        name: 'A Turtle',
+        description: 'Pet turtles live for ~40 years.  Most of the CO2 comes from electricity for its tank.',
+        amount: 14812
+    },
+    {
         id: ids.cementDriveway ,
         name: 'Making a cement driveway',
         description: 'A standard 600 sqft driveway weighs almost 40,000 pounds of CO2 intensive concrete.',
         source: 'https://www.quora.com/Data-Centers-How-much-energy-does-a-server-farm-consume',
         amount: 17512
+    },
+    {
+        id: ids.petBigDog ,
+        name: 'Big Dog',
+        description: 'This comes from a dog\'s food.',
+        amount: 17620
     },
     {
         id: ids.raiseOneCow ,

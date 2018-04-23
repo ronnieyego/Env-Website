@@ -9,6 +9,7 @@ import { cupQuestions } from './cup/cup-data';
 import { furnitureQuestions } from './furniture/furniture-data';
 import { homeQuestions } from './home/home-data';
 import { tabletQuestions } from './tablet/tablet-data';
+import { petQuestions } from './pet/pet-data';
 
 export default [
     ...bbqQuestions,
@@ -19,5 +20,6 @@ export default [
     ...cupQuestions,
     ...furnitureQuestions,
     ...homeQuestions,
-    ...tabletQuestions
+    ...tabletQuestions,
+    ...petQuestions
 ];

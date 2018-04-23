@@ -6,7 +6,7 @@ import ids from '../../../utils/ids/index';
 import { co2PerBurnerHour, co2PerChimney, foodCo2 } from './bbq-data';
 import Bbq from './Bbq';
 
-import { utilityEmissionsPerState }from '../../../utils/utils-data/state-energy-and-emissions';
+import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
 import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
