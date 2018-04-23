@@ -46,6 +46,7 @@ export default class Cup extends React.Component {
             }
             
         });
+        const negativeStyrafoamReason = this.props.washType === 'Dishwasher' ? "WOAO!! What's going on with the Styrafoam? Is that a bug? No, it's not a bug. To wash a cup in a dishwasher it takes 0.05lb/CO2 for each wash, whereas it just takes 0.02lb/CO2 to create a styrafoam cup. Pro tip: handwash your cups!" : ''
 
 		return (
             <div className="costs">
@@ -59,14 +60,17 @@ export default class Cup extends React.Component {
                         {questions}
                     </ul>
                     <Divider />
+                    <h3>The following graph shows the number of uses of disposable cups after which it's better to use non-disposable alternatives when washed with <u>{this.props.washType}.</u></h3>
                     <BarChart 
                         graphData={this.props.graphData}
                         units={'Uses'}
-                        title={"Compare to disposables"}
                         compare={true}
                         dataKey={'Paper'}
                         dataKeyCompare={'Styrafoam'}
                     />
+                    <p>
+                        {negativeStyrafoamReason}
+                    </p>
                 </div>
             </div>
 		);
