@@ -18,6 +18,12 @@ export default (storeData, page) => {
         updateComputerType(questions, 'Desktop');
     } else if(page === 'iphone') {
         updateiPhone(questions);
+    } else if(page === 'cat') {
+        updatePet(questions, 'Cat');
+    } else if(page === 'dog') {
+        updatePet(questions, 'Dog');
+    } else if(page === 'hamster') {
+        updatePet(questions, 'Hamster');
     }
     return storeData;
 }
@@ -41,4 +47,9 @@ const updateApartment = questions => {
     sqftQ.value = 1000;
     const materialQ = getQuestionFromId(questions, ids.homeMaterial);
     materialQ.value = 'Concrete';
+};
+
+const updatePet = (questions, petType) => {
+    const petTypeQ = getQuestionFromId(questions, ids.petType);
+    petTypeQ.value = petType;
 };

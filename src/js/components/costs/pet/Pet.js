@@ -61,7 +61,7 @@ export default class House extends React.Component {
         const exludeHowMuchIds = [ids.petDog, ids.petCat, ids.petTurtle, ids.petHamster, ids.petGecko, ids.petBigDog, ids.petSmallDog];
 		return (
             <div className="costs">
-                <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of {resolveArticle(this.props.petType)}?</h3>
+                <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of {resolveArticle(this.props.petType.toLowerCase())}?</h3>
                 <div>
                     <div className="costs-form-sub-header">
                         <span>

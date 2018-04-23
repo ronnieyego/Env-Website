@@ -16,14 +16,17 @@ export default {
     bbq: <BbqHoc />,
     books: <BooksHoc />,
     car: <CarHoc />,
+    cat: <PetHoc />,
     clothes: <ClothesHoc />,
+    dog: <PetHoc />,
     desktop: <ComputerHoc />,
     computer: <ComputerHoc />,
     cup: <CupHoc />,
     home: <HomeHoc />,
+    hamster: <PetHoc />,
     iphone: <ComputerHoc />,
     furniture: <FurnitureHoc />,
     laptop: <ComputerHoc />,
+    pet: <PetHoc />,
     tablet: <ComputerHoc />,
-    pet: <PetHoc />
 };
