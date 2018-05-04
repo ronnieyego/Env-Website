@@ -7,7 +7,7 @@ import Data from './static/Data';
 import HowTheFormWorks from './static/How-the-form-works';
 import FootprintResult from './static/FootprintResult';
 import About from './static/About';
-import HowMuchCO2 from './static/HowMuchCO2';
+import HowMuchCO2 from './static/HowMuchCo2';
 import CostsSearch from '../components/costs/search/Search';
 
 
