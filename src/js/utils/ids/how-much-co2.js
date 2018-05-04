@@ -36,5 +36,6 @@ export default {
     petGecko: 1532,
     petBigDog: 1533,
     petSmallDog: 1534,
+    poundOfPork: 1535,
 
 };

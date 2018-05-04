@@ -48,7 +48,7 @@ export const petFoodCo2 = {
         }
     },
     Hamster: 1.23, // Same as grain,
-    Gecko: 0.24,
+    Gecko: 0.01, // 3 crickets a day at 4lb co2 /lb cricket  Super low
     Turtle: 6.5
 };
 

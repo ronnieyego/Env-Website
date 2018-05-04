@@ -2,6 +2,12 @@ import ids from '../../utils/ids/index';
 
 export default [
     {
+        id: ids.watchTvOneHour,
+        name: 'Watching TV for an hour',
+        description: 'Most TVs use about 0.48 kWs.  The US emits 1.456 pounds of CO2 per kWh on average.',
+        amount: 0.0672
+    },
+    {
         id: ids.chargeIpad,
         name: 'Charging your iPad once',
         description: 'It takes 0.06 kWhs to charge an iPad.  The US emits 1.456 pounds of CO2 per kWh on average.',
@@ -9,46 +15,47 @@ export default [
         amount: 0.09
     },
     {
-        id: ids.watchTvOneHour,
-        name: 'Watching TV for an hour',
-        description: 'Most TVs use about 0.48 kWs.  The US emits 1.456 pounds of CO2 per kWh on average.',
-        amount: 0.0672
-    },
-    {
         id: ids.poundOfChicken,
-        name: 'One Pound of Chicken',
+        name: 'One pound of chicken',
         description: 'This is a combination of feed, manure, and processing.',
         amount: 5
     },
     {
+        id: ids.poundOfPork,
+        name: 'One pound of pork',
+        description: 'This is a combination of feed, manure, and processing.',
+        amount: 6.1
+    },
+    {
         id: ids.largeCampfire,
-        name: 'A Large Campfire',
+        name: 'A large campfire',
         description: 'An average campfire burning ~20 pounds of wood',
         source: 'https://www.reddit.com/r/askscience/comments/h5tuq/how_much_carbon_dioxide_does_a_standard_campfire/?st=jef7sh2f&sh=7073ed92',
         amount: 20
     },
     {
         id: ids.poundOfBeef ,
-        name: 'One Pound of Beef',
+        name: 'One pound of beef',
         description: 'This is a mostly due to cow flatulence.',
         amount: 28
     },
     {
         id: ids.petHamster ,
-        name: 'A Hamster',
+        name: 'A hamster',
         description: 'A vegetarian hamster will live for 3 years.',
+        source: '/costs/hamster',
         amount: 42
     },
     {
         id: ids.treeSequester,
-        name: 'Tree Sequestering',
+        name: 'Tree sequestering',
         description: 'This is how much CO2 a tree absorbs each year.',
         source: 'http://www.americanforests.org/explore-forests/forest-facts/',
         amount: 48
     },
     {
         id: ids.oneHundredTeaCandles,
-        name: 'Using 100 Tea Candles',
+        name: 'Using 100 tea candles',
         description: 'Each tea candle is 50g and is about 1in radius and 1in tall.',
         source: 'http://www.michaelsmithnews.com/2014/03/the-chemistry-of-earth-hour-1-candle-x-1-hour-8-x-the-co2-from-1-lightbulb-x-1-hour.html',
         amount: 69
@@ -57,18 +64,21 @@ export default [
         id: ids.smallBbq ,
         name: 'Small BBQ',
         description: 'Most of this come from growing 6 pounds of meat (2 beef, 2 pork, 2 chicken).  ~20 pounds comes from fuel for the grill itself.',
+        source: '/costs/bbq',
         amount: 100
     },
     {
         id: ids.ipad,
-        name: 'An Ipad',
+        name: 'An iPad',
         description: 'This includes materials, transportation, use, and disposal',
+        source: '/costs/ipad',
         amount: 297
     },
     {
         id: ids.oneBookcase ,
         name: 'One bookcase' ,
         description: 'This is how much CO2 it takes to create a 7\' x 4\' bookcase of books',
+        source: '/costs/books',
         amount: 400
     },
     {
@@ -78,7 +88,6 @@ export default [
         source: 'http://www.slate.com/articles/news_and_politics/explainer/2009/08/7_billion_carbon_sinks.html',
         amount: 828
     },
-    
     {
         id: ids.burnOilDrum ,
         name: 'Burning an oil drum',
@@ -105,9 +114,17 @@ export default [
     },
     {
         id: ids.petSmallDog ,
-        name: 'Small Dog',
+        name: 'Small dog',
         description: 'This comes from a dog\'s food.',
+        source: '/costs/dog',
         amount: 3482
+    },
+    {
+        id: ids.petDog ,
+        name: 'A dog',
+        description: 'This comes from a dog\'s food.',
+        source: '/costs/dog',
+        amount: 7840
     },
     {
         id: ids.driveTenThousandMiles ,
@@ -117,8 +134,9 @@ export default [
     },
     {
         id: ids.petCat ,
-        name: 'A Cat',
+        name: 'A cat',
         description: 'This comes from a cat\'s food which is 95% meat.',
+        source: '/costs/cat',
         amount: 9264
     },
     {
@@ -129,15 +147,10 @@ export default [
         amount: 9280
     },
     {
-        id: ids.petDog ,
-        name: 'A Dog',
-        description: 'This comes from a dog\'s food.',
-        amount: 14812
-    },
-    {
         id: ids.petTurtle ,
-        name: 'A Turtle',
+        name: 'A turtle',
         description: 'Pet turtles live for ~40 years.  Most of the CO2 comes from electricity for its tank.',
+        source: '/costs/turtle',
         amount: 14812
     },
     {
@@ -149,8 +162,9 @@ export default [
     },
     {
         id: ids.petBigDog ,
-        name: 'Big Dog',
+        name: 'Big dog',
         description: 'This comes from a dog\'s food.',
+        source: '/costs/dog',
         amount: 17620
     },
     {
@@ -170,6 +184,7 @@ export default [
         id: ids.twoBedroomApartment ,
         name: '2 Bedroom apartment',
         description: 'This is the building cost for a 1,000 square foot apartment.',
+        source: '/costs/apartment',
         amount: 90000
     },
     {
@@ -200,13 +215,14 @@ export default [
     },
     {
         id: ids.buildSuburbanHome ,
-        name: 'Suburban Home',
+        name: 'Suburban home',
         description: 'The building cost for a large suburb home',
+        source: '/costs/home',
         amount: 400000
     },
     {
         id: ids.spaceLaunch ,
-        name: 'A Space Launch',
+        name: 'A space launch',
         description: 'A Falcon 9 from SpaceX will burn 262,570 pounds of rocket propellant',
         source: 'https://space.stackexchange.com/questions/13082/calculate-falcon-9-co2-emissions',
         amount: 440000
@@ -227,7 +243,7 @@ export default [
     },
     {
         id: ids.cementIndustryOneYear ,
-        name: 'Cement Industry in 1 Year',
+        name: 'Cement industry in 1 Year',
         description: 'Gloabal cement emissions.  This industry alone contributes 3.4% to all CO2 emissions.',
         source: 'https://www3.epa.gov/ttnchie1/conference/ei13/ghg/hanle.pdf',
         amount: 1827632154000

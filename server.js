@@ -44,9 +44,7 @@ app.use((req, res, next) => {
 
 app.get('/', footprintMiddleware);
 
-// Costs pages
 
-app.get(`/costs/:page`, costPagesMiddleware);    
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);
@@ -58,10 +56,14 @@ app.get('/footprint', footprintMiddleware);
 app.get('/footprint/:id', footprintByIdMiddleware);
 app.get('/footprint/form/:id', footprintByIdMiddleware);
 
-app.get('/co2e', staticPagesMiddleware)
-app.get('/data', staticPagesMiddleware)
+app.get('/co2e', staticPagesMiddleware);
+app.get('/data', staticPagesMiddleware);
+app.get('/how-much-co2', staticPagesMiddleware)
 app.get('/how-your-footprint-was-calculated', staticPagesMiddleware);
 app.get('/about', staticPagesMiddleware);
+app.get('/costs', staticPagesMiddleware);
+
+app.get(`/costs/:page`, costPagesMiddleware);    
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');
