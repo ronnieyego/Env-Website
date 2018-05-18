@@ -86,6 +86,28 @@ const mpgValidator = value => {
     return errorText;
 }
 
+const tvSizeValidator = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = '';
+    } else if(value > 125) {
+        errorText = 'Wow that\'s an unrealistically large TV!';
+    } else if (value < 8 ) {
+        errorText = 'You can\'t call something that small a TV.';
+    }
+    return errorText;
+}
+
+const tvWattageValidator = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = '';
+    } else if(value > 500) {
+        errorText = 'What a ridiculously high wattage.  Turn that TV off!';
+    }
+    return errorText;
+}
+
 export const getErrorText = (value, type) => {
     if (!type) {
         return standardIntQuestion(value);
@@ -103,6 +125,10 @@ export const getErrorText = (value, type) => {
             return underThreeHundredQuestion(value);
         case 'mpg':
             return mpgValidator(value);
+        case 'tv-size':
+            return tvSizeValidator(value);
+        case 'tv-wattage':
+            return tvWattageValidator(value);
         default:
             return standardIntQuestion(value);
     };

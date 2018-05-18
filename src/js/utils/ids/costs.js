@@ -1,4 +1,4 @@
-// 1047 currenet max
+// 1052 currenet max
 
 export default {
 
@@ -65,6 +65,13 @@ export default {
 
 // Tablets
     tabletType: 1036,
+
+// TV
+    tvSize: 1048,
+    tvType: 1049,
+    tvKnowWattage: 1050,
+    tvWattage: 1051,
+    tvWatchHours: 1052,
 
 // Pet
     petType: 1040,

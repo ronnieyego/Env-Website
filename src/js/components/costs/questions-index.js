@@ -9,8 +9,10 @@ import { computerQuestions } from './computer/computer-data';
 import { cupQuestions } from './cup/cup-data';
 import { furnitureQuestions } from './furniture/furniture-data';
 import { homeQuestions } from './home/home-data';
-import { tabletQuestions } from './tablet/tablet-data';
 import { petQuestions } from './pet/pet-data';
+import { tabletQuestions } from './tablet/tablet-data';
+import { tvQuestions } from './tv/tv-data';
+
 
 export default [
     ...bitcoinQuestions,
@@ -22,6 +24,7 @@ export default [
     ...cupQuestions,
     ...furnitureQuestions,
     ...homeQuestions,
+    ...petQuestions,
     ...tabletQuestions,
-    ...petQuestions
+    ...tvQuestions,
 ];
