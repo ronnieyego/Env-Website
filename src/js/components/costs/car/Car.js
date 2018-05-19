@@ -61,9 +61,7 @@ export default class Car extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">{this.props.text}</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <PieChart 
                     graphData={this.props.creationBreakdown}

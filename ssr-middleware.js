@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from "react-dom/server";
 import {ServerRouter as Router, Route} from 'react-router-dom';
+import MobileDetect from 'mobile-detect';
 
 import Q from 'q';
 
@@ -64,12 +65,13 @@ const renderFullPage = (markup, data, page) => {
     <!DOCTYPE html>
         <html>
             <head>
-                <meta charset='utf-8'>
+                <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 <title>Footprint Finder</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                 <link rel="shortcut icon" type="image/png" href="/public/footprint.png">
-                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-                 <link type="text/css" href="/public/less.css" rel="stylesheet"/>
-                 <script>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+                <link type="text/css" href="/public/less.css" rel="stylesheet"/>
+                <script>
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -266,6 +268,8 @@ const staticPagesMiddleware = (req, res) => {
 }
 
 const costPagesMiddleware = (req, res) => {
+    const md = new MobileDetect(req.headers['user-agent']);
+    const isMobile = md.phone() !== null;
     const page = req.params.page.toLowerCase();
     const costPagesKeys = Object.keys(costPages);
     if(costPagesKeys.indexOf(page) === -1) {
@@ -273,6 +277,7 @@ const costPagesMiddleware = (req, res) => {
     }
     const store = createStore(reducers);
     const currentState = store.getState();
+    currentState.userInfo.isMobile = isMobile;
     const updatedReducer = updateCostsReducer(currentState, page);
     updatedReducer.costsPage = page;
     const appMarkup = ReactDOM.renderToString(

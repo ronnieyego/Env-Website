@@ -46,7 +46,7 @@ export default class DropdownQuestion extends React.Component {
         const marginLeft = this.props.marginLeft ? this.props.marginLeft : '10px';
         
         return (
-            <div>
+            <div className="footprint-form-question">
                 <p className="footprint-form-question-name" style={{marginLeft}}>{this.formatName(this.props.name)}</p>
                 {this.props.subtext ? <p className="footprint-form-subtext">{this.props.subtext}</p> : ''}
                 <SelectField

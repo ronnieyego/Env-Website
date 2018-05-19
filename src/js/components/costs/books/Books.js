@@ -62,9 +62,7 @@ export default class Books extends React.Component {
                             These will emit <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub>.
                         </span>         
                     </div>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <div>
                     <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"CO2 of reading methods"} defaultMax={1000} compare={false} dataKey={'Device'} />

@@ -56,9 +56,7 @@ export default class Cup extends React.Component {
                     {this.props.cupWashCo2 > 0 ? <p className="costs-form-sub-header">{this.props.cupWashCo2}lb/CO<sub>2</sub> for each wash</p> : '' }
 
                     <p className="costs-form-explainer">{this.props.displayText}</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                     <Divider />
                     <h3>The following graph shows the number of uses of disposable cups after which it's better to use non-disposable alternatives when washed with <u>{this.props.washType}.</u></h3>
                     <BarChart 

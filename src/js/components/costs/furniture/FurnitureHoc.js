@@ -14,6 +14,7 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 	return {
         questions: store.costsForms.questions,
         aaHouseType: store.footprintFormAnswers.averageAmericanHouseType,
+        isMobile: store.userInfo.isMobile,
     };
 })
 export default class FurnitureHoc extends React.Component {
@@ -88,6 +89,7 @@ export default class FurnitureHoc extends React.Component {
                 aaTotalFurniture={aaTotalFurniture}
                 aaTotalCo2={aaTotalCo2}
                 updateHouseTypeDropdown={this.updateHouseTypeDropdown}
+                isMobile={this.props.isMobile}
              />
 		);
 	}

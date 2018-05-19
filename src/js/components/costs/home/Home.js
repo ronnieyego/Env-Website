@@ -64,9 +64,7 @@ export default class House extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">{resolveArticle(this.props.homeType, 'A')} takes a lot of CO<sub>2</sub> to build. Pretty much all of the CO<sub>2</sub> comes from creating the building materials.  Only 2% of CO<sub>2</sub> comes from construction energy and transportation.  This estimate does not include any CO<sub>2</sub> after construction (e.g. heating/cooling). </p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
 
                     <BarChart 
                         graphData={this.props.graphData}

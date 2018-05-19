@@ -17,7 +17,7 @@ export default class UserStateDropdown extends React.Component {
 
 	render() {
 		return (
-            <div>
+            <div className="footprint-form-question">
                 <p className="footprint-form-question-name">What state do you live in?</p>
                 <StateDropdown 
                     id="update-user-state"

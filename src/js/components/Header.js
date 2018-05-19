@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
@@ -9,6 +10,12 @@ import costPagesIndex from './costs/pages-index';
 
 const toolbarStyle = { justifyContent: '' };
 
+
+@connect((store, props) => {
+	return {
+		isMobile: store.userInfo.isMobile,
+	};
+})
 export default class Header extends React.Component {
 
 	render() {

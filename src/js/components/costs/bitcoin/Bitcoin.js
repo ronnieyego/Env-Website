@@ -62,9 +62,7 @@ export default class Books extends React.Component {
                             A bitcoin releases <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub>.  This comes from energy generation to power a processor.  Bitcoin uses a technology called Blockchain which takes a very long time processing transactions.  There is a wide range of estimates for how much energy bitcoin processing takes.
                         </span>         
                     </div>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <br />
                 <Divider />

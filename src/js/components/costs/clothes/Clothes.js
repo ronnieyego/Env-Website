@@ -143,9 +143,7 @@ export default class Clothes extends React.Component {
                     <br />
                     <b className="costs-form-large-bold-left">Discover the CO2 cost of your wardrobe.</b>
                     <br />
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <RaisedButton 
                     className="cost-form-button"

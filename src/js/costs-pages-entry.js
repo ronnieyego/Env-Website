@@ -12,7 +12,6 @@ import reducers from './redux/reducers/index';
 import Costs from './pages/Costs'
 
 // Grab the state from a global variable injected into the server-generated HTML
-
 const page = window.__PRELOADED_STATE__.costsPage;
 
 // No real need to do this, but i get a console warning saying there's an unknown item when i try to make my store.

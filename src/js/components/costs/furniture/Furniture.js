@@ -10,7 +10,7 @@ import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import FurnitureTable from './FurnitureTable';
 
 
@@ -107,13 +107,11 @@ export default class Furniture extends React.Component {
                 <br />
                 <Divider />
                 <br />
-                <ul>
-                    {questions}
-                </ul>
+                {questions}
                 <br />
                 <Divider />
                 <br />
-                <FurnitureTable />
+                <FurnitureTable isMobile={this.props.isMobile} />
                 <br />
                 <Divider />
                 <br />

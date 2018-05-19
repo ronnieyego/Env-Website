@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import costsPages from '../components/costs/pages-index';
-import Header from '../components/Header';
+import Header from '../components/header/HeaderHoc';
 import CostsFooter from '../components/costs/CostsFooter';
 
 export default class Costs extends React.Component {
@@ -13,7 +13,7 @@ export default class Costs extends React.Component {
 	render() {
         const page = costsPages[this.props.page];
 		return (
-            <div>
+            <div className="container-fluid">
                 <Header />
                 <div className="costs-page">
                     <div className="costs">

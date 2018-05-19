@@ -68,9 +68,7 @@ export default class TV extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">Your TV will emit <b>{this.props.yearlyUseCo2.toLocaleString()}</b> pounds of CO<sub>2</sub> each year from useage (creating the electricity to power the TV).  <b>{this.props.embodiedCo2.toLocaleString()}</b> pounds of CO<sub>2</sub> come from manufacturing.  <b>{this.props.transportCo2.toLocaleString()}</b> pounds of CO<sub>2</sub> come from transporting the TV.</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                     <Divider />
                     <div>
                         <p className="costs-form-sub-header">Sources and Methodolgy</p>

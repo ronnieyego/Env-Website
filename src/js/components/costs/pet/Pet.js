@@ -73,9 +73,7 @@ export default class House extends React.Component {
                     {this.props.petType === 'Cat' && <p className="costs-form-explainer">Pretty much all of a cat's CO<sub>2</sub> comes from food and cats are carnivores.  A cat's diet should be at least 90% animal protein.  Most cats will eat 0.2 pounds of food a day and live for about 15 years.</p>}
                     {this.props.petType === 'Hamster' && <p className="costs-form-explainer">Hamsters eat very little and have a plant based diet.  Combined with their relative short lifespan (3 years), hamsters are one of the most environmentally friendly pets out there.</p>}
                     {this.props.petType === 'Gecko' && <p className="costs-form-explainer">Geckos eat insects which are very environmentally friendly and since they're cold blooded, require less calories to sustain themselves.  Pretty much all of a gecko's footprint comes from its heating lamp.  On average a gecko will live about 8 years.</p>}
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
 
                     <Divider />
                     <div>

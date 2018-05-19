@@ -48,9 +48,7 @@ export default class Tablet extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">Most of the CO<sub>2</sub> ({this.props.phases.productionCo2} lb/CO<sub>2</sub>) comes from material production phase.  This includes mining the materials, shipping them to the factory, and then assembling them.  Use is generally the next largest bucket ({this.props.phases.useCo2} lb/CO<sub>2</sub>).  While this varies by use and utilities, most tablets assume a 4 year lifecycle and average utilities (see your state's utility emissions <a href="/energy" target="_blank">here</a>.  Transportation has a relatively low cost ({this.props.phases.transportationCo2} lb/CO<sub>2</sub>).  Most tablets are assumbled in Asia and shipped to the US by sea.  Finally the disposal of tablets have a tiny footprint ({this.props.phases.recyclingCo2} lb/CO<sub>2</sub>) which comes from the cost to dismantle and recycle E-waste.</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <div className="centered">
                     <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"Material Breakdown of a tablet"} defaultMax={300} dataKey={'Phase'} />

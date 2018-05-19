@@ -13,31 +13,37 @@ import {
     TableRowColumn,
   } from 'material-ui/Table';
 
-const tableStyle = {textAlign: 'left', border: '1px solid black'}
-const tdStyle = {
-    whiteSpace: 'normal',
-    wordWrap: 'normal'
-};
-
-const tdHeaderStyle = {
-    ...tdStyle,
-    fontSize: '22px'
-};
-
 
 export default class FurnitureTable extends React.Component {
+
+    static propTypes = {
+        isMobile: PropTypes.bool.isRequired
+    }
+    
 
     capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
 	render() {
+        const tableStyle = {textAlign: 'left', border: '1px solid black'}
+        const tdStyle = this.props.isMobile ? 
+            { whiteSpace: 'normal', wordWrap: 'normal', textOverflow: '', textAlign: 'center', paddingLeft: '2px', paddingRight: '2px' }
+            :
+            {whiteSpace: 'normal', wordWrap: 'normal', textOverflow: ''};
+
+        const tdHeaderStyle = this.props.isMobile ? 
+            { ...tdStyle, fontSize: '16px' } 
+            :
+            { ...tdStyle, fontSize: '22px'};
+
+
         const keys = Object.keys(furnitureData);
         let tableRows = keys.map(key => {
             const moreKeys = Object.keys(furnitureData[key]);
             return moreKeys.map(secondKey => {
                 return (
-                    <TableRow>
+                    <TableRow key={`costs-furniture-table-${secondKey}`}>
                         <TableRowColumn style={tdStyle}>{this.capitalize(key)}</TableRowColumn>
                         <TableRowColumn style={tdStyle}>{furnitureData[key][secondKey].description}</TableRowColumn>
                         <TableRowColumn style={tdStyle}>{furnitureData[key][secondKey].amount}</TableRowColumn>
@@ -46,6 +52,8 @@ export default class FurnitureTable extends React.Component {
             });
         });
         tableRows = flattenDeep(tableRows);
+
+        
 
 		return (
             <div className="costs-page-data-table">

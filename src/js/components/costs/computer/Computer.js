@@ -48,9 +48,7 @@ export default class Computer extends React.Component {
                             This computer will emit <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub> in its lifetime
                         </span>         
                     </div>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <div className="centered">
                     <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={`Material Breakdown of ${resolveArticle(this.props.brand)} ${this.props.computerType.toLowerCase()}`} defaultMax={this.props.graphDefaultMax} dataKey={'Phase'} />
@@ -98,5 +96,3 @@ export default class Computer extends React.Component {
 		);
 	}
 }
-
-

@@ -1,13 +1,19 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField';
+import { connect } from 'react-redux';
+
 
 import { setQuestionError, updateQuestions} from '../../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../../actions/cost-forms/costs-actions';
 import { getErrorText } from '../../../utils/footprint/question-validators';
 
 
-
+@connect((store, props) => {
+	return {
+		isMobile: store.userInfo.isMobile,
+	};
+})
 export default class Question extends React.Component {
 
     static proptypes = {
@@ -56,6 +62,7 @@ export default class Question extends React.Component {
 
 	render() {
         const textWidth = this.props.textWidth ? this.props.textWidth : '250px';
+        const inputStyle = this.props.isMobile ? { textAlign: 'center' } : {};
 		return (
             <div className="footprint-form-question">
                 <p className="footprint-form-question-name">{this.formatName(this.props.question.name)}</p>
@@ -70,6 +77,7 @@ export default class Question extends React.Component {
                         onChange={this.updateQuestion.bind(this, this.props.validator)}
                         value={this.props.value}
                         floatingLabelText={this.props.floatingLabelText}
+                        inputStyle={inputStyle}
                         // type="number" Should add for mobile, but then you can do stuff like .343.3423.43
                         // Need to learn how to turn off html5s validation
 
