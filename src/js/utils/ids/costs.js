@@ -1,4 +1,4 @@
-// 1052 currenet max
+// 1053 currenet max
 
 export default {
 
@@ -72,6 +72,7 @@ export default {
     tvKnowWattage: 1050,
     tvWattage: 1051,
     tvWatchHours: 1052,
+    tvOwnYears: 1053,
 
 // Pet
     petType: 1040,

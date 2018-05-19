@@ -120,6 +120,13 @@ export default [
         amount: 3482
     },
     {
+        id: ids.bigScreenTV ,
+        name: 'Big Screen TV',
+        description: 'This is watching an 80" TV for 8 years (average tv lifespan).  1,000 pounds come from manufacturing and transportation.',
+        source: '/costs/tv',
+        amount: 6850
+    },
+    {
         id: ids.petDog ,
         name: 'A dog',
         description: 'This comes from a dog\'s food.',

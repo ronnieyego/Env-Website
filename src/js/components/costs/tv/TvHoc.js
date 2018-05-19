@@ -28,18 +28,18 @@ export default class TvHoc extends React.Component {
         const type = getAnswerFromId(questions, ids.tvType);
         const userWattage = getAnswerFromId(questions, ids.tvWattage);
         const watchHours = getAnswerFromId(questions, ids.tvWatchHours);
+        const yearsOwn = getAnswerFromId(questions, ids.tvOwnYears);
         const knowWattage = getAnswerFromId(questions, ids.tvKnowWattage) === 'Yes' ? true : false;
 
-        const embodiedCo2 = embodiedCo2PerInch * size;
-        const transportCo2 = transportationCo2PerInch * size;
+        const embodiedCo2 = Math.round(embodiedCo2PerInch * size);
+        const transportCo2 = Math.round(transportationCo2PerInch * size);
         const wattage = knowWattage ? userWattage : wattagePerInch[type] * size;
         const tvLifeHours = tvLife[type];
-        
-        const co2LifeUse = wattage * tvLifeHours / 1000 * utilityEmissionsPerState[this.props.userState];
-        const yearsOfLife = Math.round((tvLifeHours/(watchHours * 365) * 10))/10;
-        const totalCo2 = Math.round(embodiedCo2 + transportCo2 + co2LifeUse);
+        const yearlyUseCo2 = Math.round(wattage * watchHours * 365 / 1000 * utilityEmissionsPerState[this.props.userState]);
+        const lifeUseCo2 = yearlyUseCo2 * yearsOwn;
+        const totalCo2 = Math.round(embodiedCo2 + transportCo2 + lifeUseCo2);
 
-        return { totalCo2, yearsOfLife, embodiedCo2, transportCo2 };
+        return { totalCo2, yearlyUseCo2, embodiedCo2, transportCo2, lifeUseCo2, tvLifeHours };
     }
 
 	render() {
@@ -49,7 +49,7 @@ export default class TvHoc extends React.Component {
             return index !== -1 && !question.hidden; 
         });
 
-        const { totalCo2, yearsOfLife, embodiedCo2, transportCo2 } = this.getCo2(questions);
+        const { totalCo2, yearlyUseCo2, embodiedCo2, transportCo2, lifeUseCo2, tvLifeHours } = this.getCo2(questions);
 
         const knowWattage = getAnswerFromId(questions, ids.tvKnowWattage);
         const removeWattageQuestion = knowWattage === 'Yes' ? false : true
@@ -59,15 +59,16 @@ export default class TvHoc extends React.Component {
             })
         }
         
-        
 		return (
             <Tv
                 dispatch={this.props.dispatch}    
                 questions={questions}
                 totalCo2={totalCo2}
-                yearsOfLife={yearsOfLife}
+                yearlyUseCo2={yearlyUseCo2}
                 embodiedCo2={embodiedCo2}
                 transportCo2={transportCo2}
+                lifeUseCo2={lifeUseCo2}
+                tvLifeHours={tvLifeHours}
              />
 		);
 	}

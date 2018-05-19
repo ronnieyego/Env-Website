@@ -53,6 +53,16 @@ export const tvQuestions = [
         validator: 'hour-question'
     },
     {    
+        id: ids.tvOwnYears,
+        name: 'How many years do you think you\'ll own this TV for?',
+        subtext: 'Most Americans own their TV for about 8 years',
+        value: 8,
+        type: 'int',
+        forms: ['tv'],
+        formType: 'costs',
+        validator: 'int'
+    },
+    {    
         id: ids.tvKnowWattage,
         name: 'Do you know its wattage?',
         "selectOptions": [
@@ -73,5 +83,4 @@ export const tvQuestions = [
         formType: 'costs',
         validator: 'tv-wattage'
     }
-    
 ];
