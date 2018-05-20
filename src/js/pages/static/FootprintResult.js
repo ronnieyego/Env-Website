@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import Header from '../../components/Header';
+import Header from '../../components/header/HeaderHoc';
 
 import ResultsPieChart from '../../components/footprint-calculator/results/ResultsPieChart';
 import ResultOptionButtons from '../../components/footprint-calculator/results/ResultOptionButtons';

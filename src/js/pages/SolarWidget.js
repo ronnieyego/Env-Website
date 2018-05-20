@@ -1,5 +1,5 @@
 import React from "react";
-import Header from '../components/Header';
+import Header from '../components/header/HeaderHoc';
 import Widget from '../components/solar_panel_widget/solar-widget';
 
 export default class WidgetContainer extends React.Component {

@@ -4,7 +4,6 @@ import filter from 'lodash/filter';
 
 import { TableRow, TableRowColumn } from 'material-ui/Table';
 
-import Header from '../../components/Header';
 import Data from './Data';
 import { getFoodApplianceRow } from './get-rows-util';
 import StateDropdown from '../../components/StateDropdown'

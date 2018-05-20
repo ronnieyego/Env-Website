@@ -1,5 +1,5 @@
 import React from "react";
-import Header from '../../components/Header.js';
+import Header from '../../components/header/HeaderHoc';
 
 const email = 'footprintfinder@gmail.com';
 export default class About extends React.Component {

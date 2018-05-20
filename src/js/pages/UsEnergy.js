@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from '../components/Header';
+import Header from '../components/header/HeaderHoc';
 import EnergySourceMapHoc from '../components/us-energy/EnergySourceMapHoc';
 import StateEnergyFooter from '../components/StateEnergyFooter';
 

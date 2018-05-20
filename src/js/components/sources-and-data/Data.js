@@ -11,7 +11,7 @@ import {
     TableRowColumn,
   } from 'material-ui/Table';
 
-import Header from '../Header';
+import Header from '../header/HeaderHoc';
 import StateDropdown from '../StateDropdown'
 
 const questionSetStyle = {textAlign: 'left'};
