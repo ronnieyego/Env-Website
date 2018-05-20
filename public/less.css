@@ -95,6 +95,11 @@
   text-align: center;
   font-size: 18px;
 }
+@media only screen and (max-width: 479px) {
+  .average-american {
+    min-width: 0px;
+  }
+}
 .average-american-flex {
   display: flex;
   justify-content: center;
@@ -117,8 +122,6 @@
   margin-bottom: 10px;
 }
 .average-american-buttons {
-  display: flex;
-  justify-content: space-around;
   margin-bottom: 15px;
   margin-top: 15px;
 }

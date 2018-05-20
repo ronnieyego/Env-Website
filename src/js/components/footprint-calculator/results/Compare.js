@@ -1,8 +1,8 @@
 import React from "react";
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
+import BarChart from '../../bar-chart/BarChartHoc';
 
-import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import StateDropdown from '../../StateDropdown';
 
 import { getAverage } from '../../../utils/footprint/get-average-american-footprint';
@@ -107,23 +107,18 @@ export default class Compare extends React.Component {
                     <p className="average-american-compare">{comparisonText}</p>
                     <p className="average-american-compare-subtext">Use the tool below to compare against different demographics</p>
                     <div className="average-american-flex">
-                        <BarChart width={600} height={300} data={barGraphData}
-                                margin={{top: 5, right: 30, left: 20, bottom: 5}}
-                                className="compare-bar-chart">
-                            <XAxis dataKey="name"/>
-                            <YAxis type="number" domain={[0, domainMax]} label={{ value: units, angle: -90, position: 'insideLeft' }}/>
-                            <CartesianGrid strokeDasharray="3 3"/>
-                            <Tooltip/>
-                            <Legend wrapperStyle={{marginLeft: '0px'}} />
-                            <ReferenceLine y={0} stroke='#000'/>
-                            <Bar dataKey="You" fill="#8884d8" />
-                            <Bar dataKey="Average American" fill="#82ca9d" />
-                        </BarChart>
+                        <BarChart 
+                            graphData={barGraphData}
+                            units={'Pounds of CO2'}
+                            compare={true}
+                            dataKey={'You'}
+                            mobileHeaders={['Category', 'You (LB of CO2)', 'Average American (LB of CO2)']} 
+                        />
                     </div>
                 </div>   
                 
-                <div className="average-american-buttons" id="compare-button-container">
-                    <div>
+                <div className="row average-american-buttons" id="compare-button-container">
+                    <div className="col-12 col-md-4">
                         <b className="average-american-buttons-text">Change State</b>
                         <br />
                         <StateDropdown
@@ -133,7 +128,7 @@ export default class Compare extends React.Component {
                             subText={''}
                         />
                     </div>
-                    <div>
+                    <div className="col-12 col-md-4">
                         <b className="average-american-buttons-text">Change age group</b>
                         <br />
                         <SelectField 
@@ -146,7 +141,7 @@ export default class Compare extends React.Component {
                             {ageSelects}
                         </SelectField>
                     </div>
-                    <div>
+                    <div className="col-12 col-md-4">
                         <b className="average-american-buttons-text">Change gender</b>
                         <br />
                         <SelectField 

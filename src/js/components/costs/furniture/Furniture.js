@@ -59,7 +59,7 @@ export default class Furniture extends React.Component {
                 </div>
                 <br />
                 <div className="centered">
-                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs an Average American"} defaultMax={300} compare={true} dataKey={'You'} mobileHeaders={['Item', 'You (LB of CO2)', 'Average American (LB ofCO2)']} />
+                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs an Average American"} defaultMax={300} compare={true} dataKey={'You'} mobileHeaders={['Item', 'You (LB of CO2)', 'Average American (LB of CO2)']} />
                 </div>
                 <div className="average-american-buttons" id="compare-button-container">
                     <div style={{textAlign: 'center'}}>
