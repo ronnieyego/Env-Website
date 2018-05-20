@@ -12,7 +12,6 @@ import HeaderMobile from './HeaderMobile';
 export default class HeaderHoc extends React.Component {
 
 	render() {
-        console.log('this.props.isMobile', this.props.isMobile );
         const header = this.props.isMobile ? <HeaderMobile /> : <HeaderDesktop />;
 		return (
             <div>

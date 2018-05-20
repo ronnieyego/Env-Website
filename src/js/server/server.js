@@ -14,19 +14,21 @@ import moment from 'moment-timezone';
 import get from 'lodash/get';
 
 import { costPagesMiddleware, co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
-import validStateId from './src/js/utils/check-if-valid-state-id';
-import getStateData from './src/js/utils/apis/get-state-data';
+import validStateId from '../utils/check-if-valid-state-id';
+import getStateData from '../utils/apis/get-state-data';
 
-import { mongoose } from './db/mongoose';
-import { FormAnswers } from './db/models/form-answers';
+import { mongoose } from '../../../db/mongoose';
+import { FormAnswers } from '../../../db/models/form-answers';
 
 const port = process.env.PORT || 3000;
 
 var app = express();
 
 app.use(bodyParser.json());
-app.use('/public', express.static(__dirname + '/public'));
-app.use('/data', express.static(__dirname + '/public/data'));
+
+// Have to use path.join since __dirname is weird
+app.use('/public', express.static(path.join(__dirname, '../../..', 'public')));
+app.use('/data', express.static(path.join(__dirname, '../../..', 'public/data')));
 
 app.use((req, res, next) => {
     var now = new Date().toString();
@@ -43,8 +45,6 @@ app.use((req, res, next) => {
 });
 
 app.get('/', footprintMiddleware);
-
-
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);

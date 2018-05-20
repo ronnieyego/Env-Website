@@ -32,15 +32,16 @@ export default class HeaderMobile extends React.Component {
                             <ListIcon />
                         </IconButton>
                         }
+                        menuStyle={{backgroundColor: '#91e0c0'}}
                     >
-                        <MenuItem  containerElement={<a key="header-link-data-footprint" className="material-ui-nav-item" href="/"/>} primaryText="Footprint" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/costs"/>} primaryText="CO2 of Things" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/how-much-co2"/>} primaryText="How Much CO2" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/energy"/>} primaryText="Energy" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/how-your-footprint-was-calculated"/>} primaryText="Footprint Calculations" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/data"/>} primaryText="Data" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/co2e"/>} primaryText="CO2e" />
-                        <MenuItem  containerElement={<a className="material-ui-nav-item" href="/about"/>} primaryText="About" />
+                        <MenuItem containerElement={<a key="header-link-data-footprint" className="material-ui-nav-item" href="/"/>} primaryText="Footprint" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/costs"/>} primaryText="CO2 of Things" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/how-much-co2"/>} primaryText="How Much CO2" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/energy"/>} primaryText="Energy" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/how-your-footprint-was-calculated"/>} primaryText="Footprint Calculations" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/data"/>} primaryText="Data" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/co2e"/>} primaryText="CO2e" />
+                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/about"/>} primaryText="About" />
                     </IconMenu>
                 </ ToolbarGroup>
             </Toolbar>

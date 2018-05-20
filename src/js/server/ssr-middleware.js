@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from "react-dom/server";
+import ReactDOM from 'react-dom/server';
 import {ServerRouter as Router, Route} from 'react-router-dom';
 import MobileDetect from 'mobile-detect';
 
@@ -8,33 +8,33 @@ import Q from 'q';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Redux
-import reducers from './src/js/redux/reducers/index';
+import reducers from '../redux/reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { baseState } from './src/js/redux/reducers/footprint-form-answers-reducer';
-import updateCostsReducer from './src/js/components/costs/update-reducer-by-page';
+import { baseState } from '../redux/reducers/footprint-form-answers-reducer';
+import updateCostsReducer from '../components/costs/update-reducer-by-page';
 
 // Pages
-import SolarWidget from './src/js/pages/SolarWidget'
-import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
-import UsEnergy from './src/js/pages/UsEnergy';
-import FootprintCalculator from './src/js/pages/FootprintCalculator';
-import StaticPages from './src/js/pages/Static';
-import CostsPages from './src/js/pages/Costs';
-import costPages from './src/js/components/costs/pages-index';
+import SolarWidget from '../pages/SolarWidget'
+import StateEnergyProfile from '../pages/StateEnergyProfile';
+import UsEnergy from '../pages/UsEnergy';
+import FootprintCalculator from '../pages/FootprintCalculator';
+import StaticPages from '../pages/Static';
+import CostsPages from '../pages/Costs';
+import costPages from '../components/costs/pages-index';
 
 // Database
-import { mongoose } from './db/mongoose';
-import { States } from './db/models/states';
-import { FormAnswers } from './db/models/form-answers';
+import { mongoose } from '../../../db/mongoose';
+import { States } from '../../../db/models/states';
+import { FormAnswers } from '../../../db/models/form-answers';
 
 // Utils
-import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
-import validStateId from './src/js/utils/check-if-valid-state-id';
-import getStateData from './src/js/utils/apis/get-state-data';
+import getCo2EmissionsByKwh from '../utils/get-co2-emissions-by-kwh';
+import validStateId from '../utils/check-if-valid-state-id';
+import getStateData from '../utils/apis/get-state-data';
 
 // Data
-import footprintQuestions from './public/data/temp-footprint-questions.json';
+import footprintQuestions from '../../../public/data/temp-footprint-questions.json';
 
 const renderFullPage = (markup, data, page) => {
     let jsLocation;
@@ -60,7 +60,7 @@ const renderFullPage = (markup, data, page) => {
         default:
             jsLocation = '/public/solar.min.js';
     };
-    //widget.css
+
     return `
     <!DOCTYPE html>
         <html>
