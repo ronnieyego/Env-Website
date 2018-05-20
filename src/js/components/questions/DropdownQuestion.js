@@ -39,6 +39,7 @@ export default class DropdownQuestion extends React.Component {
             />
         });
         const marginLeft = question.marginLeft ? question.marginLeft : '10px';
+        const labelStyle = { paddingRight: '0px', fontWeight: 'bold', textAlign: 'center' };
         
         return (
             <div className="question">
@@ -46,8 +47,7 @@ export default class DropdownQuestion extends React.Component {
                 {question.subtext ? <p className="question-subtext">{question.subtext}</p> : ''}
                 <SelectField
                     id={question.id.toString()}
-                    menuItemStyle={{fontWeight: 'bold'}}
-                    menuStyle={{textAlign: 'center'}}
+                    labelStyle={labelStyle}
                     onChange={this.updateQuestion.bind(this, question.id)}
                     value={this.props.value}
                 >

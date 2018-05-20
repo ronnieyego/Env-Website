@@ -13,7 +13,9 @@ import path from "path";
 import moment from 'moment-timezone';
 import get from 'lodash/get';
 
-import { costPagesMiddleware, co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, staticPagesMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import loadCostsPage from '../actions/load-actions/load-costs-page';
+import loadStaticPage from '../actions/load-actions/load-static-page';
+import { co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from '../utils/check-if-valid-state-id';
 import getStateData from '../utils/apis/get-state-data';
 
@@ -44,6 +46,7 @@ app.use((req, res, next) => {
     next(); //Next is needed in order to get past the middleware
 });
 
+
 app.get('/', footprintMiddleware);
 
 app.get('/solar/:state', solarMiddleware);
@@ -56,14 +59,14 @@ app.get('/footprint', footprintMiddleware);
 app.get('/footprint/:id', footprintByIdMiddleware);
 app.get('/footprint/form/:id', footprintByIdMiddleware);
 
-app.get('/co2e', staticPagesMiddleware);
-app.get('/data', staticPagesMiddleware);
-app.get('/how-much-co2', staticPagesMiddleware)
-app.get('/how-your-footprint-was-calculated', staticPagesMiddleware);
-app.get('/about', staticPagesMiddleware);
-app.get('/costs', staticPagesMiddleware);
+app.get('/co2e', loadStaticPage);
+app.get('/data', loadStaticPage);
+app.get('/how-much-co2', loadStaticPage)
+app.get('/how-your-footprint-was-calculated', loadStaticPage);
+app.get('/about', loadStaticPage);
+app.get('/costs', loadStaticPage);
 
-app.get(`/costs/:page`, costPagesMiddleware);    
+app.get(`/costs/:page`, loadCostsPage);    
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');

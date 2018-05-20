@@ -61,7 +61,8 @@ export default class StateDropdown extends React.Component {
         id: PropTypes.string,
         value: PropTypes.string,
         subText: PropTypes.string,
-        updateQuestion: PropTypes.func
+        updateQuestion: PropTypes.func,
+        isMobile: PropTypes.bool
     }
     
 	render() {
@@ -72,12 +73,14 @@ export default class StateDropdown extends React.Component {
                 value={state}  
             />
         });
+        const labelStyle = { paddingRight: '0px', fontWeight: 'bold' };
 
 		return (
             <SelectField
                 floatingLabelText={this.props.subText}
                 id={this.props.id}
                 menuItemStyle={{fontWeight: 'bold'}}
+                labelStyle={labelStyle}
                 menuStyle={{textAlign: 'center'}}
                 onChange={this.props.updateQuestion.bind(this)}
                 value={this.props.value}

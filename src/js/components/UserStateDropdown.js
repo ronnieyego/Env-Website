@@ -6,7 +6,8 @@ import StateDropdown from './StateDropdown';
 
 @connect((store, props) => {
 	return {
-        userState: store.userInfo.userState
+        userState: store.userInfo.userState,
+        isMobile: store.userInfo.isMobile
     };
 })
 export default class UserStateDropdown extends React.Component {
@@ -23,6 +24,7 @@ export default class UserStateDropdown extends React.Component {
                     id="update-user-state"
                     value={this.props.userState}
                     updateQuestion={this.updateUserState.bind(this)}
+                    isMobile={this.props.isMobile}
                 />
             </div>
 		);

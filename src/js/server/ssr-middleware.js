@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import {ServerRouter as Router, Route} from 'react-router-dom';
-import Q from 'q';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Q from 'q';
 
 // Redux
 import reducers from '../redux/reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { baseState } from '../redux/reducers/footprint-form-answers-reducer';
-import updateCostsReducer from '../components/costs/update-reducer-by-page';
+import updateCostsReducer from '../redux/update-reducer-by-page';
 
 // Pages
 import SolarWidget from '../pages/SolarWidget'
@@ -253,45 +254,11 @@ const footprintByIdMiddleware = (req, res) => {
     });
 }
 
-const staticPagesMiddleware = (req, res) => {
-    const store = createStore(reducers);
-    const appMarkup = ReactDOM.renderToString(
-        <Provider store={store}>
-            <MuiThemeProvider>
-                <div />
-            </MuiThemeProvider>
-        </Provider>
-    );
-    res.status(200).send(renderFullPage(appMarkup, null, 'static-pages')); 
-}
-
-const costPagesMiddleware = (req, res) => {
-    const page = req.params.page.toLowerCase();
-    const costPagesKeys = Object.keys(costPages);
-    if(costPagesKeys.indexOf(page) === -1) {
-        return res.status(400).send({ message: 'Page not found :('});
-    }
-    const store = createStore(reducers);
-    let currentState = store.getState();
-    currentState = addMobileToStore(req, currentState);
-    const updatedReducer = updateCostsReducer(currentState, page);
-    updatedReducer.costsPage = page;
-    const appMarkup = ReactDOM.renderToString(
-        <Provider store={store}>
-            <MuiThemeProvider>
-                <CostsPages page={page} />
-            </MuiThemeProvider>
-        </Provider>
-    );
-    res.status(200).send(renderFullPage(appMarkup, updatedReducer, 'cost-pages')); 
-}
-
 module.exports = {
-    costPagesMiddleware,
     footprintMiddleware,
     footprintByIdMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,
-    staticPagesMiddleware,
-    usEnergyMapMiddleware
+    usEnergyMapMiddleware,
+    renderFullPage
 }

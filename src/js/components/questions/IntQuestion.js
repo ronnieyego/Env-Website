@@ -48,7 +48,7 @@ export default class Question extends React.Component {
 	render() {
         const question = this.props.question
         const textWidth = question.textWidth ? question.textWidth : '250px';
-        const inputStyle = this.props.isMobile ? { textAlign: 'center' } : {};
+        const inputStyle = { textAlign: 'center' };
 		return (
             <div className="question">
                 <p className="question-name">{formatName(question.name, this.props.question.formType)}</p>
