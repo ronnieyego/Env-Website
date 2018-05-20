@@ -55,12 +55,12 @@ const co2PerPound = {
 };
 
 const creationBreakdown = [ // Modified from how bad are banannas
-    {source: 'Other', amount: 20.8 },
-    {source: 'Electricity', amount: 10.6},
-    {source: 'Production Equipment', amount: 9.9 },
-    {source: 'Metal processing', amount: 10.5},
-    {source: 'Metal extraction', amount: 35.8},
-    {source: 'Plastics, resins, rubber', amount: 11.4}
+    {name: 'Other', Phase: 20.8 },
+    {name: 'Electricity', Phase: 10.6},
+    {name: 'Production Equipment', Phase: 9.9 },
+    {name: 'Metal processing', Phase: 10.5},
+    {name: 'Metal extraction', Phase: 35.8},
+    {name: 'Plastics, resins, rubber', Phase: 11.4}
 ]
 
 const carQuestions = [

@@ -6,11 +6,10 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import FurnitureTable from './FurnitureTable';
 
 
@@ -26,40 +25,14 @@ export default class Furniture extends React.Component {
 
 	render() {
 
-        const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
-                />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            }
-            
-        });
+        const questions = this.props.questions.map(question => (
+            <Question
+                questionType={question.type}
+                key={question.name}
+                question={question}
+                value={question.value}
+            />
+        ));
 
         const houseTypeSelects = ['Small Apartment', '3 Bedroom House'].map(houseType => <MenuItem key={houseType} primaryText={houseType} value={houseType} />);
 
@@ -86,7 +59,7 @@ export default class Furniture extends React.Component {
                 </div>
                 <br />
                 <div className="centered">
-                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs an Average American"} defaultMax={300} compare={true} dataKey={'You'} />
+                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs an Average American"} defaultMax={300} compare={true} dataKey={'You'} mobileHeaders={['Item', 'You (LB of CO2)', 'Average American (LB ofCO2)']} />
                 </div>
                 <div className="average-american-buttons" id="compare-button-container">
                     <div style={{textAlign: 'center'}}>
@@ -107,13 +80,11 @@ export default class Furniture extends React.Component {
                 <br />
                 <Divider />
                 <br />
-                <ul>
-                    {questions}
-                </ul>
+                {questions}
                 <br />
                 <Divider />
                 <br />
-                <FurnitureTable />
+                <FurnitureTable isMobile={this.props.isMobile} />
                 <br />
                 <Divider />
                 <br />

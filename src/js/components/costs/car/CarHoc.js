@@ -55,12 +55,13 @@ export default class CarHoc extends React.Component {
         const carMileageCo2 = this.calculateDrivingCo2(questions);
         const totalCo2 = carCreationCo2 + carMileageCo2;
         const text = this.getCo2text(questions, carCreationCo2, carMileageCo2);
+        const graphData = creationBreakdown.map(row => ({name: row.name, Phase: Math.round(carCreationCo2 * row.Phase / 100)}));
 
 		return (
             <Car
                 dispatch={this.props.dispatch}    
                 questions={questions}
-                creationBreakdown={creationBreakdown}
+                graphData={graphData}
                 totalCo2={totalCo2}
                 text={text}
              />

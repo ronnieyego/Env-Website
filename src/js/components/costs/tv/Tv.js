@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Divider from 'material-ui/Divider';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCO2 from '../../how-much-co2/HowMuchCo2';
 import ids from '../../../utils/ids/index';
 import UserStateDropdown from '../../UserStateDropdown';
@@ -22,40 +21,17 @@ export default class TV extends React.Component {
 	render() {
 
         const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
-                />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            } else if(question.type === 'user-state') {
+            if(question.type === 'user-state') {
                 return <UserStateDropdown />;
-            }
-            
+            } 
+            return (
+                <Question
+                    questionType={question.type}
+                    key={question.name}
+                    question={question}
+                    value={question.value}
+                />
+            );
         });
 
 		return (
@@ -68,9 +44,7 @@ export default class TV extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">Your TV will emit <b>{this.props.yearlyUseCo2.toLocaleString()}</b> pounds of CO<sub>2</sub> each year from useage (creating the electricity to power the TV).  <b>{this.props.embodiedCo2.toLocaleString()}</b> pounds of CO<sub>2</sub> come from manufacturing.  <b>{this.props.transportCo2.toLocaleString()}</b> pounds of CO<sub>2</sub> come from transporting the TV.</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                     <Divider />
                     <div>
                         <p className="costs-form-sub-header">Sources and Methodolgy</p>

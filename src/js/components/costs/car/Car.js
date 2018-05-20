@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
-import PieChart from '../../PieChart';
+import Question from '../../questions/QuestionHoc';
+import BarChart from '../../bar-chart/BarChartHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
 export default class Car extends React.Component {
@@ -11,45 +10,21 @@ export default class Car extends React.Component {
     static propTypes = {
         questions: PropTypes.array.isRequired,
         totalCo2: PropTypes.number,
+        graphData: PropTypes.array,
         text: PropTypes.string
     }
 
 	render() {
 
-        const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
+        const questions = this.props.questions.map(question => (
+                <Question
+                    questionType={question.type}
+                    key={question.name}
+                    question={question}
+                    value={question.value}
                 />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            }
-            
-        });
+            )
+        );
 
 		return (
             <div className="costs">
@@ -61,15 +36,15 @@ export default class Car extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">{this.props.text}</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
-                <PieChart 
-                    graphData={this.props.creationBreakdown}
+                <BarChart 
+                    graphData={this.props.graphData}
+                    units={'Percent'}
                     title={'Car Creation Emissions'}
                     subtitle={'CO2 cost of making a car'}
-                    key={'Transportation Breakdown'}
+                    dataKey="Phase"
+                    mobileHeaders={['Phase', 'Pounds of CO2']}
                 />
                 <div>
                     <br />

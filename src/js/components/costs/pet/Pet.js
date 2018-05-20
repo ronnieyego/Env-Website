@@ -2,12 +2,11 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Divider from 'material-ui/Divider';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import ids from '../../../utils/ids/index';
 import { resolveArticle } from '../../../utils/article-fixer';
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import UserStateDropdown from '../../UserStateDropdown';
 
 export default class House extends React.Component {
@@ -23,39 +22,17 @@ export default class House extends React.Component {
 	render() {
 
         const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
-                />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            } else if(question.type === 'user-state') {
+            if(question.type === 'user-state') {
                 return <UserStateDropdown />;
-            }
+            } 
+            return (
+                <Question
+                    questionType={question.type}
+                    key={question.name}
+                    question={question}
+                    value={question.value}
+                />
+            );
         });
 
         const exludeHowMuchIds = [ids.petDog, ids.petCat, ids.petTurtle, ids.petHamster, ids.petGecko, ids.petBigDog, ids.petSmallDog];
@@ -73,9 +50,7 @@ export default class House extends React.Component {
                     {this.props.petType === 'Cat' && <p className="costs-form-explainer">Pretty much all of a cat's CO<sub>2</sub> comes from food and cats are carnivores.  A cat's diet should be at least 90% animal protein.  Most cats will eat 0.2 pounds of food a day and live for about 15 years.</p>}
                     {this.props.petType === 'Hamster' && <p className="costs-form-explainer">Hamsters eat very little and have a plant based diet.  Combined with their relative short lifespan (3 years), hamsters are one of the most environmentally friendly pets out there.</p>}
                     {this.props.petType === 'Gecko' && <p className="costs-form-explainer">Geckos eat insects which are very environmentally friendly and since they're cold blooded, require less calories to sustain themselves.  Pretty much all of a gecko's footprint comes from its heating lamp.  On average a gecko will live about 8 years.</p>}
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
 
                     <Divider />
                     <div>

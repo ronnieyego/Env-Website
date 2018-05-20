@@ -1,6 +1,7 @@
 const userReducer = (state = {
     userState: 'US',
-    userGender: ''
+    userGender: '',
+    isMobile: false
 }, action) => {
     switch (action.type) {
         case 'UPDATE_USER_STATE': {

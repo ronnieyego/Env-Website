@@ -6,10 +6,9 @@ import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
-import CompareBarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 
 export default class Clothes extends React.Component {
 
@@ -31,40 +30,14 @@ export default class Clothes extends React.Component {
 
 	render() {
 
-        const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
-                />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            }
-            
-        });
+        const questions = this.props.questions.map(question => (
+            <Question
+                questionType={question.type}
+                key={question.name}
+                question={question}
+                value={question.value}
+            />
+        ));
 
         const genderSelects = ['male', 'female'].map(gender => <MenuItem key={gender} primaryText={this.capitalize(gender)} value={gender} />);
         const sizeSelects = ['X Small', 'Small', 'Medium', 'Large', 'X Large'].map(size => <MenuItem key={size} primaryText={size} value={size} />);
@@ -90,10 +63,10 @@ export default class Clothes extends React.Component {
                     </div>
 
                     <div className="display-flex-around">
-                        <CompareBarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} compare={true} />
+                        <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} compare={true} mobileHeaders={['Item', 'You (LB of CO2)', 'Average American (LB of CO2']} />
                     </div>
-                    <div className="average-american-buttons" id="compare-button-container">
-                        <div>
+                    <div className="row average-american-buttons" id="compare-button-container">
+                        <div className="col-12 col-sm-4 average-american-button">
                             <b className="average-american-buttons-text">Change gender</b>
                             <br />
                             <SelectField 
@@ -108,7 +81,7 @@ export default class Clothes extends React.Component {
                                 {genderSelects}
                             </SelectField>
                         </div>
-                        <div>
+                        <div className="col-12 col-sm-4 average-american-button">
                             <b className="average-american-buttons-text">Change size</b>
                             <br />
                             <SelectField 
@@ -123,7 +96,7 @@ export default class Clothes extends React.Component {
                                 {sizeSelects}
                             </SelectField>
                         </div>
-                        <div>
+                        <div className="col-12 col-sm-4 average-american-button">
                             <b className="average-american-buttons-text">Change shopping habit</b>
                             <br />
                             <SelectField 
@@ -143,9 +116,7 @@ export default class Clothes extends React.Component {
                     <br />
                     <b className="costs-form-large-bold-left">Discover the CO2 cost of your wardrobe.</b>
                     <br />
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <RaisedButton 
                     className="cost-form-button"

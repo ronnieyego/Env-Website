@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import Header from '../components/Header.js';
+import Header from '../components/header/HeaderHoc';
 import FootprintFormHoc from '../components/footprint-calculator/forms/FootprintFormHoc';
 import Results from '../components/footprint-calculator/results/Results.js';
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-import Header from '../../components/Header.js';
+import Header from '../../components/header/HeaderHoc';
 
 export default class HowTheFormWorks extends React.Component {
 	render() {

@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import Divider from 'material-ui/Divider';
 import { resolveArticle } from '../../../utils/article-fixer';
 
@@ -24,20 +24,13 @@ export default class Computer extends React.Component {
 
 	render() {
         const questions = this.props.questions.map(question => (
-                <DropDownQuestion 
-                    name={question.name}
-                    key={question.name}
-                    id={question.name}
-                    selectOptions={question.selectOptions}
-                    question={question}
-                    subtext={question.subtext}
-                    value={question.value}
-                    dispatch={this.props.dispatch}
-                    formType={question.formType}
-                    marginLeft="0px"
-                />
-            )
-        );
+            <Question
+                questionType={question.type}
+                key={question.name}
+                question={question}
+                value={question.value}
+            />
+        ));
 
 		return (
             <div className="costs">
@@ -48,12 +41,10 @@ export default class Computer extends React.Component {
                             This computer will emit <HowMuchCo2 co2={this.props.totalCo2} /> pounds of CO<sub>2</sub> in its lifetime
                         </span>         
                     </div>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
                 <div className="centered">
-                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={`Material Breakdown of ${resolveArticle(this.props.brand)} ${this.props.computerType.toLowerCase()}`} defaultMax={this.props.graphDefaultMax} dataKey={'Phase'} />
+                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={`Material Breakdown of ${resolveArticle(this.props.brand)} ${this.props.computerType.toLowerCase()}`} defaultMax={this.props.graphDefaultMax} dataKey={'Phase'} mobileHeaders={['Phase', 'Pounds of CO2']} />
                 </div>
                 <div>
                     <br />
@@ -98,5 +89,3 @@ export default class Computer extends React.Component {
 		);
 	}
 }
-
-

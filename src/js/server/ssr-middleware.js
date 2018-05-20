@@ -1,39 +1,38 @@
 import React from 'react';
-import ReactDOM from "react-dom/server";
+import ReactDOM from 'react-dom/server';
 import {ServerRouter as Router, Route} from 'react-router-dom';
-
 import Q from 'q';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Redux
-import reducers from './src/js/redux/reducers/index';
+import reducers from '../redux/reducers/index';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { baseState } from './src/js/redux/reducers/footprint-form-answers-reducer';
-import updateCostsReducer from './src/js/components/costs/update-reducer-by-page';
+import { baseState } from '../redux/reducers/footprint-form-answers-reducer';
+import updateCostsReducer from '../components/costs/update-reducer-by-page';
 
 // Pages
-import SolarWidget from './src/js/pages/SolarWidget'
-import StateEnergyProfile from './src/js/pages/StateEnergyProfile';
-import UsEnergy from './src/js/pages/UsEnergy';
-import FootprintCalculator from './src/js/pages/FootprintCalculator';
-import StaticPages from './src/js/pages/Static';
-import CostsPages from './src/js/pages/Costs';
-import costPages from './src/js/components/costs/pages-index';
+import SolarWidget from '../pages/SolarWidget'
+import StateEnergyProfile from '../pages/StateEnergyProfile';
+import UsEnergy from '../pages/UsEnergy';
+import FootprintCalculator from '../pages/FootprintCalculator';
+import StaticPages from '../pages/Static';
+import CostsPages from '../pages/Costs';
+import costPages from '../components/costs/pages-index';
 
 // Database
-import { mongoose } from './db/mongoose';
-import { States } from './db/models/states';
-import { FormAnswers } from './db/models/form-answers';
+import { mongoose } from '../../../db/mongoose';
+import { States } from '../../../db/models/states';
+import { FormAnswers } from '../../../db/models/form-answers';
 
 // Utils
-import getCo2EmissionsByKwh from './src/js/utils/get-co2-emissions-by-kwh';
-import validStateId from './src/js/utils/check-if-valid-state-id';
-import getStateData from './src/js/utils/apis/get-state-data';
+import getCo2EmissionsByKwh from '../utils/get-co2-emissions-by-kwh';
+import validStateId from '../utils/check-if-valid-state-id';
+import getStateData from '../utils/apis/get-state-data';
+import { addMobileToStore } from './utils';
 
 // Data
-import footprintQuestions from './public/data/temp-footprint-questions.json';
+import footprintQuestions from '../../../public/data/temp-footprint-questions.json';
 
 const renderFullPage = (markup, data, page) => {
     let jsLocation;
@@ -59,17 +58,18 @@ const renderFullPage = (markup, data, page) => {
         default:
             jsLocation = '/public/solar.min.js';
     };
-    //widget.css
+
     return `
     <!DOCTYPE html>
         <html>
             <head>
-                <meta charset='utf-8'>
+                <meta charset='utf-8' name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 <title>Footprint Finder</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
                 <link rel="shortcut icon" type="image/png" href="/public/footprint.png">
-                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-                 <link type="text/css" href="/public/less.css" rel="stylesheet"/>
-                 <script>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+                <link type="text/css" href="/public/less.css" rel="stylesheet"/>
+                <script>
                     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -272,7 +272,8 @@ const costPagesMiddleware = (req, res) => {
         return res.status(400).send({ message: 'Page not found :('});
     }
     const store = createStore(reducers);
-    const currentState = store.getState();
+    let currentState = store.getState();
+    currentState = addMobileToStore(req, currentState);
     const updatedReducer = updateCostsReducer(currentState, page);
     updatedReducer.costsPage = page;
     const appMarkup = ReactDOM.renderToString(

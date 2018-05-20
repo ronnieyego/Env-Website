@@ -1,0 +1,43 @@
+.question {
+    margin-top: 10px;
+    padding: 0 40px;
+    font-weight: bold;
+
+    @media @mobile, @tablet {
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    &-name {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    &-subtext {
+        font-size: 16px;
+        font-weight: normal;
+        margin-top: -10px;
+        margin-bottom: 20px;
+        @media @mobile {
+            font-size: 12px;
+        }
+    }
+
+    &-below-text {
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+
+    &-boolean {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 15px;
+
+        @media @mobile, @tablet {
+            text-align: center;
+            padding: 0 10px;
+        }
+    }
+}
