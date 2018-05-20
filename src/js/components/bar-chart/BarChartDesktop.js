@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { roundData } from './utils';
 
-export default class CompareBarChar extends React.Component {
+export default class BarCharDesktop extends React.Component {
 
     static propTypes = {
         graphData: PropTypes.array, // Array of {name: 'Grilling', You: grillCo2 || 0, 'Average American': 55 },

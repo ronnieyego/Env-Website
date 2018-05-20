@@ -64,7 +64,7 @@ export default class FurnitureTable extends React.Component {
                     <TableBody displayRowCheckbox={false} stripedRows={true}>
                         <TableRow>
                             <TableRowColumn style={{...tdHeaderStyle, width: '25%'}}><b>Category</b></TableRowColumn>
-                            <TableRowColumn style={{...tdHeaderStyle, width: '50%'}}><b>Furniture</b></TableRowColumn>
+                            <TableRowColumn style={{...tdHeaderStyle, width: '50%'}}><b>Description</b></TableRowColumn>
                             <TableRowColumn style={tdHeaderStyle}><b>CO<sub>2</sub> (lb)</b></TableRowColumn>
                         </TableRow>
                         {tableRows}

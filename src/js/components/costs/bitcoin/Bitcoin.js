@@ -6,7 +6,7 @@ import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 
 
 export default class Books extends React.Component {

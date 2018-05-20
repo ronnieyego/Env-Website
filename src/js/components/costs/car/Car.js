@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
-import PieChart from '../../PieChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
 export default class Car extends React.Component {
@@ -11,6 +11,7 @@ export default class Car extends React.Component {
     static propTypes = {
         questions: PropTypes.array.isRequired,
         totalCo2: PropTypes.number,
+        graphData: PropTypes.array,
         text: PropTypes.string
     }
 
@@ -63,11 +64,13 @@ export default class Car extends React.Component {
                     <p className="costs-form-explainer">{this.props.text}</p>
                     {questions}
                 </div>
-                <PieChart 
-                    graphData={this.props.creationBreakdown}
+                <BarChart 
+                    graphData={this.props.graphData}
+                    units={'Percent'}
                     title={'Car Creation Emissions'}
                     subtitle={'CO2 cost of making a car'}
-                    key={'Transportation Breakdown'}
+                    dataKey="Phase"
+                    mobileHeaders={['Phase', 'Pounds of CO2']}
                 />
                 <div>
                     <br />

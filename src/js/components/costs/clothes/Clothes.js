@@ -9,7 +9,7 @@ import SelectField from 'material-ui/SelectField';
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
-import CompareBarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 
 export default class Clothes extends React.Component {
 
@@ -90,10 +90,10 @@ export default class Clothes extends React.Component {
                     </div>
 
                     <div className="display-flex-around">
-                        <CompareBarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} compare={true} />
+                        <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"You vs and Average American"} defaultMax={75} compare={true} mobileHeaders={['Item', 'You (LB of CO2)', 'Average American (LB of CO2']} />
                     </div>
-                    <div className="average-american-buttons" id="compare-button-container">
-                        <div>
+                    <div className="row average-american-buttons" id="compare-button-container">
+                        <div className="col-12 col-sm-4 average-american-button">
                             <b className="average-american-buttons-text">Change gender</b>
                             <br />
                             <SelectField 
@@ -108,7 +108,7 @@ export default class Clothes extends React.Component {
                                 {genderSelects}
                             </SelectField>
                         </div>
-                        <div>
+                        <div className="col-12 col-sm-4 average-american-button">
                             <b className="average-american-buttons-text">Change size</b>
                             <br />
                             <SelectField 
@@ -123,7 +123,7 @@ export default class Clothes extends React.Component {
                                 {sizeSelects}
                             </SelectField>
                         </div>
-                        <div>
+                        <div className="col-12 col-sm-4 average-american-button">
                             <b className="average-american-buttons-text">Change shopping habit</b>
                             <br />
                             <SelectField 

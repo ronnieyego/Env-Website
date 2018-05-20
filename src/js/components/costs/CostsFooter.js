@@ -11,7 +11,7 @@ export default class CostsFooter extends React.Component {
         const keys = Object.keys(pages);
         const links = keys.map(key => {
         return (
-                <div className="col-6 col-sm-3 costs-footer-link-wrapper" key={`costs-footer-${key}`}>
+                <div className="col-6 col-sm-4 col-lg-3 col-xl-2 costs-footer-link-wrapper" key={`costs-footer-${key}`}>
                     <a href={key} className="costs-footer-link">{Capitalize(key)}</a>
                 </div>
             );

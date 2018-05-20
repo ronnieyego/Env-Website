@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import Divider from 'material-ui/Divider';
 
 export default class Cup extends React.Component {
@@ -58,13 +58,14 @@ export default class Cup extends React.Component {
                     <p className="costs-form-explainer">{this.props.displayText}</p>
                     {questions}
                     <Divider />
-                    <h3>The following graph shows the number of uses of disposable cups after which it's better to use non-disposable alternatives when washed with <u>{this.props.washType}.</u></h3>
+                    <p className="costs-form-sub-header">The following graph shows the number of uses of disposable cups after which it's better to use non-disposable alternatives when washed with <u>{this.props.washType}.</u></p>
                     <BarChart 
                         graphData={this.props.graphData}
                         units={'Uses'}
                         compare={true}
                         dataKey={'Paper'}
                         dataKeyCompare={'Styrafoam'}
+                        mobileHeaders={['Cup Type', 'Breakeven (Paper)', 'Breakeven (Styrafoam)']}
                     />
                     <p>
                         {negativeStyrafoamReason}

@@ -166,6 +166,9 @@
   font-weight: bold;
   margin-bottom: 5px;
 }
+.average-american-button {
+  text-align: center;
+}
 .results-pie {
   border: 3px solid gray;
 }
@@ -496,7 +499,7 @@ input[type="checkbox"] {
 }
 @media only screen and (max-width: 479px) {
   .bar-chart-title {
-    margin: 10 10px;
+    margin: 10px 10px;
   }
 }
 .static-page {

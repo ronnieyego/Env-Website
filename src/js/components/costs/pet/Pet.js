@@ -7,7 +7,7 @@ import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion'
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import ids from '../../../utils/ids/index';
 import { resolveArticle } from '../../../utils/article-fixer';
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 import UserStateDropdown from '../../UserStateDropdown';
 
 export default class House extends React.Component {

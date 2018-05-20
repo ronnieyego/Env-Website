@@ -6,7 +6,7 @@ import Question from '../../footprint-calculator/forms/Question';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
-import BarChart from '../../CompareBarChart';
+import BarChart from '../../bar-chart/BarChartHoc';
 
 
 export default class Books extends React.Component {
@@ -65,7 +65,7 @@ export default class Books extends React.Component {
                     {questions}
                 </div>
                 <div>
-                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"CO2 of reading methods"} defaultMax={1000} compare={false} dataKey={'Device'} />
+                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"CO2 of reading methods"} defaultMax={1000} compare={false} dataKey={'Device'} mobileHeaders={['Device', 'Pounds of CO2']} />
                     <p className="costs-form-bottom-paragraph">The average book releases almost <b>6 pounds of CO<sub>2</sub></b>!  Surprising?  Its pretty energy intensive to create paper.  First you have to cut down the tree and transport it to the paper mill.  From there you have to mechanically turn that wood into pulp.  It takes a <i>lot</i> of energy to create the pulpy soup from which we can make paper.</p> 
                     <p className="costs-form-bottom-paragraph">After about 65 books, the E-reader and tablet become a more environmentally friendly option than buying paper books.  E-readers and other electronic mediums take a significant amount of energy and CO<sub>2</sub> to create, but have very very low ongoing energy costs (the energy from reading 300 hours on an E-reader equates to about 1 pound of CO<sub>2</sub>).  So if you love to read, consider getting a tablet or E-reader.</p>
                 </div>

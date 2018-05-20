@@ -17,7 +17,9 @@ export default class BarChartHoc extends React.Component {
         dataKey: PropTypes.string, // Data key to look for in data set.
         compare: PropTypes.bool, // If true, looks for average american.  
         units: PropTypes.string, //units on left side
-        title: PropTypes.string 
+        title: PropTypes.string,
+        mobileHeaders: PropTypes.array // For mobile, table headers from left -> right 
+
     }
     render() {
         const barChart = this.props.isMobile ? <BarChartMobile {...this.props} /> : <BarChartDesktop {...this.props} />
