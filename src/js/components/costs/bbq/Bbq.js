@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import Question from '../../questions/QuestionHoc';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
 import BarChart from '../../bar-chart/BarChartHoc';

@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 
 import Divider from 'material-ui/Divider';
 
-import BooleanQuestion from './BooleanQuestion';
-import Question from './Question';
+import Question from '../../questions/QuestionHoc';
 import StateDropDown from '../../StateDropdown';
 
 
@@ -26,30 +25,27 @@ export default class Household extends React.Component {
 
 	render() {
         const allQuestions = this.props.questions;
-        const boolQuestions = this.filterQuestions(allQuestions, 'monthly-own').map(question => {
-            const checked = question.value === 'on' ? true : false;
-            return (<BooleanQuestion 
-                key={question.name} 
-                id={question.name} 
-                question={question} 
-                questionGroup={'boolean'} 
-                checked={checked} 
-                dispatch={this.props.dispatch}/>);
-        });
-        const questions = this.filterQuestions(allQuestions, 'monthly-use').map(question => {
-            const value = question.value;
-            return (<Question
-                errorText={question.errorText || ''}
-                key={question.name} 
-                id={question.name} 
-                question={question} 
-                value={value} 
-                subText={question.subtext} 
-                dispatch={this.props.dispatch}
-                validator={question.validator}
-            />
-            );
-        });
+        const boolQuestions = this.filterQuestions(allQuestions, 'monthly-own')
+            .map(question => {
+                question.checked = question.value === 'on' ? true : false;
+                return (
+                    <Question 
+                        question={question}
+                        value={question.value}
+                        questionType={question.type}
+                    />
+                )
+            }
+        );
+        const questions = this.filterQuestions(allQuestions, 'monthly-use')
+            .map(question => (
+                <Question 
+                    question={question}
+                    value={question.value}
+                    questionType={question.type}
+                />
+            )
+        );
 
 		return (
             <div>
@@ -71,9 +67,7 @@ export default class Household extends React.Component {
                     </div>
                     <p className="footprint-form-sub-header">How many times a month do you use the following?</p>
                     <p className="footprint-form-sub-header-description">Please do not include housemate use </p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                 </div>
             </div>
 		);

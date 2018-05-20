@@ -1,18 +1,16 @@
-.footprint {
-  margin-left: 10%;
-  margin-right: 10%;
-}
 .footprint-main {
   display: initial;
 }
 .footprint-form {
   border: 1px solid gray;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
   width: 500px;
   background-color: #d3f9ea;
+}
+@media only screen and (max-width: 479px) {
+  .footprint-form {
+    width: 100%;
+  }
 }
 .footprint-form-title {
   margin-top: 0px;
@@ -50,43 +48,6 @@
   text-align: left;
   font-size: 18px;
   line-height: 1.5;
-}
-.footprint-form-question {
-  margin-top: 10px;
-  padding: 0 40px;
-  font-weight: bold;
-}
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
-  .footprint-form-question {
-    text-align: center;
-    padding: 0 10px;
-  }
-}
-.footprint-form-question-name {
-  font-size: 18px;
-  font-weight: bold;
-}
-.footprint-form-question-subtext {
-  font-size: 18px;
-  font-weight: normal;
-  margin-top: -10px;
-  margin-bottom: 20px;
-}
-.footprint-form-question-below-text {
-  font-size: 18px;
-  font-weight: normal;
-  margin-bottom: 10px;
-}
-.footprint-form-question-boolean {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 15px;
-}
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
-  .footprint-form-question-boolean {
-    text-align: center;
-    padding: 0 10px;
-  }
 }
 .footprint-form-bottom-buttons {
   display: flex;
@@ -424,7 +385,7 @@ input[type="checkbox"] {
   padding-right: 40px;
   font-size: 18px;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
   .costs-form-explainer {
     padding: 0 10px;
   }
@@ -492,7 +453,7 @@ input[type="checkbox"] {
   padding: 0 40px;
   font-weight: bold;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
   .question {
     text-align: center;
     padding: 0 10px;
@@ -523,7 +484,7 @@ input[type="checkbox"] {
   font-weight: bold;
   margin: 15px;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
   .question-boolean {
     text-align: center;
     padding: 0 10px;

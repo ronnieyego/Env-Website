@@ -3,7 +3,7 @@ import React from "react";
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import Question from './Question';
+import Question from '../../questions/QuestionHoc';
 
 import { updateQuestionSet} from '../../../actions/footprint/form-actions';
 import { getQuestionFromKey } from '../../../utils/footprint/get-question-utils';
@@ -57,17 +57,11 @@ export default class FoodForm extends React.Component {
             }
 
             return (
-                <Question
-                errorText={question.errorText || ''}
-                key={question.name}
-                id={question.name}
-                question={question}
-                value={value}
-                aboveText={question.subtext}
-                dispatch={this.props.dispatch}
-                validator={question.validator}
-                floatingLabelText={question.floatingLabelText}
-            />
+                <Question 
+                    question={question}
+                    value={question.value}
+                    questionType={question.type}
+                />
             );
         });
 
@@ -96,9 +90,7 @@ export default class FoodForm extends React.Component {
                         </SelectField>
                     </div>
                     <p className="footprint-form-sub-header">{calorieDisplay}</p>
-                    <ul>
-                        {questions}
-                    </ul>
+                    {questions}
                     <p className="footprint-form-sub-header">{calorieDisplay}</p>
                 </div>
             </div>

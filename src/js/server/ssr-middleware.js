@@ -207,6 +207,8 @@ const footprintMiddleware = (req, res) => {
         }
     };
     const store = createStore(reducers, storeData);
+    let currentState = store.getState();
+    currentState = addMobileToStore(req, store);
 
     const appMarkup = ReactDOM.renderToString(
     <Provider store={store}>
@@ -214,7 +216,7 @@ const footprintMiddleware = (req, res) => {
             <FootprintCalculator />
         </MuiThemeProvider>
     </Provider>);
-    res.status(200).send(renderFullPage(appMarkup, storeData, 'footprint'));
+    res.status(200).send(renderFullPage(appMarkup, currentState, 'footprint'));
 }
 
 const footprintByIdMiddleware = (req, res) => {

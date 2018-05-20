@@ -34,13 +34,16 @@ export default class QuestionHoc extends React.Component {
                 question = <IntQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'bool':
-                question = <BoolQuestion {...this.props} updateFunction={updateFunction} />;
+                question = <BooleanQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'dropdown':
                 question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             default:
-                console.log('Error.  Bad question type');
+                console.log('Error.  Bad question type', this.props);
+        };
+        if (question.hidden) {
+            question = null;
         }
 		return (
             <div>

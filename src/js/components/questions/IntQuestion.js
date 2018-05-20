@@ -59,7 +59,7 @@ export default class Question extends React.Component {
                         errorText={question.errorText}
                         id={question.id.toString()}
                         name={question.name}
-                        hintText={question.subText}
+                        hintText={question.subText || question.subtext}
                         onChange={this.updateQuestion.bind(this, question.validator)}
                         value={this.props.value}
                         floatingLabelText={question.floatingLabelText}

@@ -13,7 +13,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "heating",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "Standard full house heating system.",
     "": ""
@@ -25,7 +25,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "heating",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "Heat pumps transfer cool underground air from the outside",
     "": ""
@@ -37,7 +37,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "heating",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -49,7 +49,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "AC that's part of a house HVAC system",
     "": ""
@@ -61,7 +61,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "A single unit positioned in a window",
     "": ""
@@ -73,7 +73,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -85,7 +85,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -97,7 +97,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -109,7 +109,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -121,7 +121,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "lighting",
-    "use-bool": "",
+    "type": "int",
     "validator": "<300",
     "subtext": "Total daily lightbulb hours",
     "": ""
@@ -133,7 +133,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "lighting",
-    "use-bool": "",
+    "type": "int",
     "validator": "<300",
     "subtext": "Total daily lightbulb hours",
     "": ""
@@ -145,7 +145,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -157,7 +157,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -169,7 +169,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -181,7 +181,7 @@ module.exports = [
     "use-type": "hour",
     "water": 60,
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -193,7 +193,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -205,7 +205,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -217,7 +217,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -229,7 +229,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -241,7 +241,7 @@ module.exports = [
     "use-type": "monthly-own",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "bool",
+    "type": "bool",
     "validator": "",
     "subtext": "",
     "": ""
@@ -253,7 +253,7 @@ module.exports = [
     "use-type": "monthly-own",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "bool",
+    "type": "bool",
     "validator": "",
     "subtext": "",
     "": ""
@@ -265,7 +265,7 @@ module.exports = [
     "use-type": "monthly-own",
     "water": 3500,
     "sub-grouping": "entertainment",
-    "use-bool": "bool",
+    "type": "bool",
     "validator": "",
     "subtext": "",
     "": ""
@@ -277,7 +277,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": 35,
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
@@ -289,7 +289,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": 35,
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
@@ -301,7 +301,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": "",
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
@@ -313,7 +313,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": 6,
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""

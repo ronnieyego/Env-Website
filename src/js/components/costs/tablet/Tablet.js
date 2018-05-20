@@ -1,8 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import BarChart from '../../bar-chart/BarChartHoc';
 import Divider from 'material-ui/Divider';
@@ -23,17 +22,11 @@ export default class Tablet extends React.Component {
 
         const questions = this.props.questions.map(question => {
             return (
-                <DropDownQuestion 
-                    name={question.name}
+                <Question
+                    questionType={question.type}
                     key={question.name}
-                    id={question.name}
-                    selectOptions={question.selectOptions}
                     question={question}
-                    subtext={question.subtext}
                     value={question.value}
-                    dispatch={this.props.dispatch}
-                    formType={question.formType}
-                    marginLeft="0px"
                 />
             );
         });

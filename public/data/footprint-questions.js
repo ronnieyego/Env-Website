@@ -5,6 +5,7 @@ module.exports = [
     "calories/serving": 100,
     "co2": 0.23,
     "water": 45,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "produce",
     "validator": "standard-int",
@@ -18,6 +19,7 @@ module.exports = [
     "calories/serving": 59,
     "co2": 0.5,
     "water": 43,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "produce",
     "validator": "standard-int",
@@ -31,6 +33,7 @@ module.exports = [
     "calories/serving": 103,
     "co2": 0.52,
     "water": 44.2,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "dairy",
     "validator": "standard-int",
@@ -44,6 +47,7 @@ module.exports = [
     "calories/serving": 95,
     "co2": 0.38,
     "water": 54,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "produce",
     "validator": "standard-int",
@@ -57,6 +61,7 @@ module.exports = [
     "calories/serving": 89,
     "co2": 0.69,
     "water": 52.7,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "dairy",
     "validator": "standard-int",
@@ -70,6 +75,7 @@ module.exports = [
     "calories/serving": 204,
     "co2": 1.01,
     "water": 85.6,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "meat",
     "validator": "standard-int",
@@ -83,6 +89,7 @@ module.exports = [
     "calories/serving": 170,
     "co2": 4,
     "water": 59.6,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "meat",
     "validator": "standard-int",
@@ -96,6 +103,7 @@ module.exports = [
     "calories/serving": 206,
     "co2": 1.14,
     "water": 122.9,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "meat",
     "validator": "standard-int",
@@ -109,6 +117,7 @@ module.exports = [
     "calories/serving": 213,
     "co2": 5.24,
     "water": 375.8,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "meat",
     "validator": "standard-int",
@@ -122,6 +131,7 @@ module.exports = [
     "calories/serving": 200,
     "co2": 0.5,
     "water": 45,
+    "type": "int",
     "use-type": "serving",
     "sub-grouping": "junk-food",
     "validator": "standard-int",
@@ -136,7 +146,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "heating",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "Standard full house heating system.",
     "": ""
@@ -148,7 +158,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "heating",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "Heat pumps transfer cool underground air from the outside",
     "": ""
@@ -160,7 +170,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "heating",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -172,7 +182,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "AC that's part of a house HVAC system",
     "": ""
@@ -184,7 +194,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "A single unit positioned in a window",
     "": ""
@@ -196,7 +206,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -208,7 +218,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooling",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -220,7 +230,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -232,7 +242,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -244,7 +254,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "lighting",
-    "use-bool": "",
+    "type": "int",
     "validator": "<300",
     "subtext": "Total daily lightbulb hours",
     "": ""
@@ -256,7 +266,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "lighting",
-    "use-bool": "",
+    "type": "int",
     "validator": "<300",
     "subtext": "Total daily lightbulb hours",
     "": ""
@@ -268,7 +278,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -280,7 +290,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -292,7 +302,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "entertainment",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -304,7 +314,7 @@ module.exports = [
     "use-type": "hour",
     "water": 60,
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -316,7 +326,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -328,7 +338,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -340,7 +350,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -352,7 +362,7 @@ module.exports = [
     "use-type": "hour",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "hour-question",
     "subtext": "",
     "": ""
@@ -364,7 +374,7 @@ module.exports = [
     "use-type": "monthly-own",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "bool",
+    "type": "bool",
     "validator": "",
     "subtext": "",
     "": ""
@@ -376,7 +386,7 @@ module.exports = [
     "use-type": "monthly-own",
     "water": "",
     "sub-grouping": "cooking",
-    "use-bool": "bool",
+    "type": "bool",
     "validator": "",
     "subtext": "",
     "": ""
@@ -388,7 +398,7 @@ module.exports = [
     "use-type": "monthly-own",
     "water": 3500,
     "sub-grouping": "entertainment",
-    "use-bool": "bool",
+    "type": "bool",
     "validator": "",
     "subtext": "",
     "": ""
@@ -400,7 +410,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": 35,
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
@@ -412,7 +422,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": 35,
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
@@ -424,7 +434,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": "",
     "sub-grouping": "cleanliness",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
@@ -436,7 +446,7 @@ module.exports = [
     "use-type": "monthly-use",
     "water": 6,
     "sub-grouping": "cooking",
-    "use-bool": "",
+    "type": "int",
     "validator": "standard-int",
     "subtext": "",
     "": ""
