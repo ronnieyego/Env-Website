@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Divider from 'material-ui/Divider';
 
-import Question from '../../footprint-calculator/forms/Question';
-import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
+import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import ids from '../../../utils/ids/index';
 import { resolveArticle } from '../../../utils/article-fixer';
@@ -23,39 +22,17 @@ export default class House extends React.Component {
 	render() {
 
         const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
-                />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            } else if(question.type === 'user-state') {
+            if(question.type === 'user-state') {
                 return <UserStateDropdown />;
-            }
+            } 
+            return (
+                <Question
+                    questionType={question.type}
+                    key={question.name}
+                    question={question}
+                    value={question.value}
+                />
+            );
         });
 
         const exludeHowMuchIds = [ids.petDog, ids.petCat, ids.petTurtle, ids.petHamster, ids.petGecko, ids.petBigDog, ids.petSmallDog];

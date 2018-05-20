@@ -37,7 +37,7 @@ export const updateHiddenQuestions = questionSet => {
 
 export const updateQuestion = (allQuestions, id, value) => {
     return allQuestions.map(question => {
-        if (question.name === id) {
+        if (question.id == id) { // I get id from the dom which stringifies it
             question.value = value;
         };
         return question;
@@ -46,7 +46,7 @@ export const updateQuestion = (allQuestions, id, value) => {
 
 export const updateQuestionErrorText = (allQuestions, id, errorText) => {
     return allQuestions.map(question => {
-        if (question.name === id) {
+        if (question.id == id) { // I get id from the dom which stringifies it
             question.errorText = errorText;
         };
         return question;

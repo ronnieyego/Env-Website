@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 import {ServerRouter as Router, Route} from 'react-router-dom';
-import MobileDetect from 'mobile-detect';
-
 import Q from 'q';
-
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Redux
@@ -32,6 +29,7 @@ import { FormAnswers } from '../../../db/models/form-answers';
 import getCo2EmissionsByKwh from '../utils/get-co2-emissions-by-kwh';
 import validStateId from '../utils/check-if-valid-state-id';
 import getStateData from '../utils/apis/get-state-data';
+import { addMobileToStore } from './utils';
 
 // Data
 import footprintQuestions from '../../../public/data/temp-footprint-questions.json';
@@ -268,16 +266,14 @@ const staticPagesMiddleware = (req, res) => {
 }
 
 const costPagesMiddleware = (req, res) => {
-    const md = new MobileDetect(req.headers['user-agent']);
-    const isMobile = md.phone() !== null;
     const page = req.params.page.toLowerCase();
     const costPagesKeys = Object.keys(costPages);
     if(costPagesKeys.indexOf(page) === -1) {
         return res.status(400).send({ message: 'Page not found :('});
     }
     const store = createStore(reducers);
-    const currentState = store.getState();
-    currentState.userInfo.isMobile = isMobile;
+    let currentState = store.getState();
+    currentState = addMobileToStore(req, currentState);
     const updatedReducer = updateCostsReducer(currentState, page);
     updatedReducer.costsPage = page;
     const appMarkup = ReactDOM.renderToString(

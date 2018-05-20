@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import Question from '../../footprint-calculator/forms/Question';
+import Question from '../../questions/QuestionHoc';
 import DropDownQuestion from '../../footprint-calculator/forms/DropDownQuestion';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 
@@ -15,41 +15,14 @@ export default class Bbq extends React.Component {
     }
 
 	render() {
-
-        const questions = this.props.questions.map(question => {
-            if(question.type === 'int') {
-                return (
-                    <Question
-                        errorText={question.errorText || ''}
-                        key={question.name}
-                        id={question.name}
-                        question={question}
-                        value={question.value}
-                        aboveText={question.subtext}
-                        dispatch={this.props.dispatch}
-                        validator={question.validator}
-                        floatingLabelText={question.floatingLabelText}
-                        formType={question.formType}
-                />
-                )
-            } else if(question.type === 'dropdown') {
-                return (
-                    <DropDownQuestion 
-                        name={question.name}
-                        key={question.name}
-                        id={question.name}
-                        selectOptions={question.selectOptions}
-                        question={question}
-                        subtext={question.subtext}
-                        value={question.value}
-                        dispatch={this.props.dispatch}
-                        formType={question.formType}
-                        marginLeft="0px"
-                    />
-                );
-            }
-            
-        });
+        const questions = this.props.questions.map(question => (
+            <Question
+                questionType={question.type}
+                key={question.name}
+                question={question}
+                value={question.value}
+            />
+        ));
 
 		return (
             <div className="costs">

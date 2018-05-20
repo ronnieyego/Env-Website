@@ -487,6 +487,48 @@ input[type="checkbox"] {
   font-weight: bold !important;
   font-size: 22px !important;
 }
+.question {
+  margin-top: 10px;
+  padding: 0 40px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+  .question {
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+.question-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+.question-subtext {
+  font-size: 16px;
+  font-weight: normal;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+@media only screen and (max-width: 479px) {
+  .question-subtext {
+    font-size: 12px;
+  }
+}
+.question-below-text {
+  font-size: 18px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+.question-boolean {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 15px;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 768px) and (max-width: 959px) {
+  .question-boolean {
+    text-align: center;
+    padding: 0 10px;
+  }
+}
 .bar-chart {
   margin: 10px;
   margin-left: auto;
