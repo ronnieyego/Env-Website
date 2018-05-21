@@ -240,15 +240,15 @@ const footprintByIdMiddleware = (req, res) => {
                 questions: answer.formAnswers
             }
         };
-        const store = createStore(reducers, storeData);
+        const appendedStoreData = addMobileToStore(req, storeData);
+        const store = createStore(reducers, appendedStoreData);
         const appMarkup = ReactDOM.renderToString(
             <Provider store={store}>
                 <MuiThemeProvider>
                     <div />
                 </MuiThemeProvider>
             </Provider>);
-        res.status(200).send(renderFullPage(appMarkup, storeData, 'static-pages'));
-
+        res.status(200).send(renderFullPage(appMarkup, appendedStoreData, 'static-pages'));
     })
     .catch(e => {
         console.log('error loading footprint by id ', e);

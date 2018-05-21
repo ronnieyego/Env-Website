@@ -17,6 +17,7 @@ const tdStyle = { whiteSpace: 'normal', wordWrap: 'normal', textOverflow: '', te
 export default class BarChartMobile extends React.Component {
 
     static propTypes = {
+        key: PropTypes.string,
         graphData: PropTypes.array, // Array of {name: 'Grilling', You: grillCo2 || 0, 'Average American': 55 },
         dataKey: PropTypes.string, // Data key to look for in data set.
         compare: PropTypes.bool, // If true, looks for average american.  
@@ -65,9 +66,9 @@ export default class BarChartMobile extends React.Component {
         });
 
         return (
-            <div className="bar-chart-mobile">
+            <div key={`bar-chart-div-${this.props.key}-div`} className="bar-chart-mobile">
                 <p className="bar-chart-title">{title}</p>
-                <Table style={tableStyle}>
+                <Table key={`bar-chart-table-${this.props.key}-div`} style={tableStyle}>
                     <TableBody displayRowCheckbox={false} stripedRows={true}>
                         {tableHeader}
                         {tableRows}

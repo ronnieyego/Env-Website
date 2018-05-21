@@ -1,4 +1,5 @@
 import React from "react";
+import BarChart from '../../bar-chart/BarChartHoc';
 import ResultsPieChart from './ResultsPieChart';
 
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
@@ -47,67 +48,82 @@ export default class PersonalBreakdown extends React.Component {
         }
         // Top level summary
         const categoryBreakDownData = [
-            {source: 'Appliances', amount: parseInt(res.appliance)},
-            {source: 'Food', amount: parseInt(res.food)},
-            {source: 'Transportation', amount: parseInt(res.transportation) || 0}, // Default to 0 for Water
-        ].sort((a,b) => b.amount > a.amount);;
+            {name: 'Appliances', Category: parseInt(res.appliance)},
+            {name: 'Food', Category: parseInt(res.food)},
+            {name: 'Transportation', Category: parseInt(res.transportation) || 0}, // Default to 0 for Water
+        ].sort((a,b) => b.Category > a.Category);
 
         // Transportation Summary
         const transportationBreakdown = this.props.category === 'water' ? null : [
-            {source: 'Daily Use', amount: parseInt(res.transportationSubCategories.monthlyCommute)},
-            {source: 'Roadtrips', amount: parseInt(res.transportationSubCategories.monthlyRoadTrip)},
-            {source: 'Flying', amount: parseInt(res.transportationSubCategories.monthlyFly)},
-            {source: 'Bus', amount: parseInt(res.transportationSubCategories.monthlyBus)},
-            {source: 'Train', amount: parseInt(res.transportationSubCategories.monthlyTrain)}
-        ].sort((a,b) => b.amount > a.amount);
+            {name: 'Daily Use', Method: parseInt(res.transportationSubCategories.monthlyCommute)},
+            {name: 'Roadtrips', Method: parseInt(res.transportationSubCategories.monthlyRoadTrip)},
+            {name: 'Flying', Method: parseInt(res.transportationSubCategories.monthlyFly)},
+            {name: 'Bus', Method: parseInt(res.transportationSubCategories.monthlyBus)},
+            {name: 'Train', Method: parseInt(res.transportationSubCategories.monthlyTrain)}
+        ].sort((a,b) => b.Method > a.Method);
 
         // Appliance Summary
         const appliancekeys = Object.keys(res.applianceSubCategories);
         const applianceBreakdown = appliancekeys.map(key => {
-            return {source: key, amount: res.applianceSubCategories[key]}
-        }).sort((a,b) => b.amount > a.amount);;
+            return {name: key, Appliance: res.applianceSubCategories[key]}
+        }).sort((a,b) => b.Appliance > a.Appliance);;
 
         // Food Summary
         const foodkeys = Object.keys(res.foodSubCategories);
         const foodBreakdown = foodkeys.map(key => {
-            return {source: key, amount: res.foodSubCategories[key]}
-        }).sort((a,b) => b.amount > a.amount);;
+            return {name: key, Food: res.foodSubCategories[key]}
+        }).sort((a,b) => b.Food > a.Food);;
         
 		return (
             <div style={containerStyle}>
                 <div id="top-level-sumamry">
-                    <ResultsPieChart 
-                        graphData={categoryBreakDownData} 
-                        title={`Monthly ${category} Breakdown`} 
+                    <BarChart
+                        graphData={categoryBreakDownData}
+                        units={'Pounds of CO2'}
+                        title={`Monthly ${category} Breakdown`}
+                        key="categoryBreakDownData"
                         subtitle={`${total.toLocaleString()} ${units} used each Month`}
-                        key={`Monthly ${category} Breakdown`} 
-                        category={this.props.category}
-                    /> 
+                        dataKey={'Category'}
+                        mobileHeaders={['Category', 'Pounds of CO2',]} 
+                    />
                 </div>
+                <br />
                 {this.props.category !== 'water' &&
                 <div id="transportation-summary">
-                    <ResultsPieChart 
+                    <BarChart
                         graphData={transportationBreakdown}
-                        title={'Transportation Breakdown'}
-                        key={'Transportation Breakdown'}
-                        category={this.props.category}/> 
+                        key="transportationBreakdownBarChart"
+                        units={'Pounds of CO2'}
+                        title="Transportation Breakdown"
+                        subtitle={`${total.toLocaleString()} ${units} used each Month`}
+                        dataKey={'Method'}
+                        mobileHeaders={['Method', 'Pounds of CO2',]} 
+                    />
+                    <br />
                 </div>
                 }
                 <div id="appliance-summary">
-                    <ResultsPieChart 
+                    <BarChart
                         graphData={applianceBreakdown}
-                        title={'Appliance Breakdown'}
-                        key={'Appliance Breakdown'}
-                        category={this.props.category}
-                    /> 
+                        units={'Pounds of CO2'}
+                        key="applianceBreakdown"
+                        title="Appliance Breakdown"
+                        subtitle={`${total.toLocaleString()} ${units} used each Month`}
+                        dataKey={'Appliance'}
+                        mobileHeaders={['Appliance', 'Pounds of CO2',]} 
+                    />
                 </div>
+                <br />
                 <div id="food-summary">
-                    <ResultsPieChart 
+                    <BarChart
                         graphData={foodBreakdown}
-                        title={'Food Breakdown'}
-                        key={'Food Breakdown'}
-                        category={this.props.category}
-                    /> 
+                        key="foodBreakdown"
+                        units={'Pounds of CO2'}
+                        title="Food Breakdown"
+                        subtitle={`${total.toLocaleString()} ${units} used each Month`}
+                        dataKey={'Food'}
+                        mobileHeaders={['Food', 'Pounds of CO2',]} 
+                    />
                 </div>
             </div>
 		);

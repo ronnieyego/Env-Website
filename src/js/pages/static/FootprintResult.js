@@ -29,6 +29,7 @@ import HowMuchCo2 from '../../components/how-much-co2/HowMuchCo2';
 })
 export default class Results extends React.Component {
 	render() {
+        console.log('this props in results', this.props);
         const res = this.props.results;
         const monthlyEnergyUse = parseInt(res.energy.totalEnergy);
         const monthlyCo2Use = parseInt(res.co2.totalCo2);

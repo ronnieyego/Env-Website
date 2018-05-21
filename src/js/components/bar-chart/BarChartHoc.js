@@ -13,6 +13,7 @@ import BarChartDesktop from './BarChartDesktop';
 export default class BarChartHoc extends React.Component {
 
     static propTypes = {
+        key: PropTypes.string,
         graphData: PropTypes.array, // Array of {name: 'Grilling', You: grillCo2 || 0, 'Average American': 55 },
         dataKey: PropTypes.string, // Data key to look for in data set.
         compare: PropTypes.bool, // If true, looks for average american.  
