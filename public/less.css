@@ -73,7 +73,7 @@
 }
 .results-changer {
   text-align: left;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 .results-changer-row {
   margin-left: 15px;
@@ -162,6 +162,50 @@
 }
 .compare-bar-chart-legend {
   margin-left: 30%;
+}
+.savings-container {
+  margin: 15px auto;
+  text-align: center;
+  border: solid black 3px;
+}
+.savings-column {
+  text-align: center;
+  width: 50%;
+  margin: 15px 15px;
+}
+@media only screen and (max-width: 479px) {
+  .savings-column {
+    margin: 10px 0px;
+  }
+}
+.savings-card {
+  margin-top: 15px;
+  border: 1px solid gray;
+  text-align: center;
+}
+.savings-card-title {
+  font-weight: bold;
+  font-size: 22px;
+  margin: 0 15px;
+  overflow-wrap: break-word;
+}
+@media only screen and (max-width: 479px) {
+  .savings-card-title {
+    margin: 0 5px;
+    font-size: 18px;
+  }
+}
+.savings-card-text {
+  overflow-wrap: break-word;
+}
+.savings-title {
+  font-size: 26px;
+  font-weight: bold;
+}
+@media only screen and (max-width: 479px) {
+  .savings-title {
+    font-size: 18px;
+  }
 }
 .display-flex {
   display: flex;
@@ -511,8 +555,12 @@ input[type="checkbox"] {
 .static-page {
   font-size: 18px;
   text-align: left;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 10% 0;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
+  .static-page {
+    margin: 0px 0px;
+  }
 }
 .static-page h2,
 .static-page h3,
@@ -540,8 +588,12 @@ input[type="checkbox"] {
   margin-top: 15px;
 }
 .share-page {
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 10% 0;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
+  .share-page {
+    margin: 0px 0px;
+  }
 }
 .pie {
   border: 3px solid gray;

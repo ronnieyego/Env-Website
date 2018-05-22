@@ -60,31 +60,18 @@ export default class Compare extends React.Component {
                 category={this.props.category}
             />
         });
-        const containerStyle = {
-            margin: 'auto',
-            textAlign: 'center',
-            border: 'solid black 3px'
-        };
-
-        const columnStyle = {
-            textAlign: 'center',
-            width: '50%',
-            marginLeft: '15px',
-            marginRight: '15px',
-            marginBottom: '15px',
-        }
 
 		return (
-            <div style={containerStyle}>
+            <div className="savings-container">
                 <b style={{fontSize: '300%'}}>Ways to reduce your footprint</b>
                 <div style={{display: 'flex'}}>
-                    <div style={columnStyle}>
-                        <b style={{fontSize: '200%'}}>Large Impact</b>
+                    <div className="savings-column">
+                        <b className="savings-title">Large Impact</b>
                         {useful}
                     </div>
                     <div style={{borderLeft: 'solid black'}} />
-                    <div style={columnStyle}>
-                        <b style={{fontSize: '200%'}}>Small Impact</b>
+                    <div className="savings-column">
+                        <b className="savings-title">Small Impact</b>
                         {notUseful}
                     </div>
                 </div>

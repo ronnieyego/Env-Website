@@ -231,13 +231,13 @@ const footprintByIdMiddleware = (req, res) => {
                 questions: answer.questions,
                 getQuestionsError: false,
                 step: 1,
-                isSubmitReady: true
+                isSubmitReady: true,
+                questions: answer.formAnswers
             },
             footprintFormAnswers: {
                 ...baseState,
                 answerId: id,
-                formResults: answer.results,
-                questions: answer.formAnswers
+                formResults: answer.results
             }
         };
         const appendedStoreData = addMobileToStore(req, storeData);

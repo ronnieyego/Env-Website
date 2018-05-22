@@ -134,6 +134,7 @@ export default class Compare extends React.Component {
                         <SelectField 
                             id="age-bracket"
                             menuItemStyle={{fontWeight: 'bold'}}
+                            labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
                             menuStyle={{textAlign: 'center'}}
                             onChange={this.updateAgeDropdown.bind(this)}
                             value={this.props.age}
@@ -148,6 +149,7 @@ export default class Compare extends React.Component {
                             id="gender"
                             menuItemStyle={{fontWeight: 'bold'}}
                             menuStyle={{textAlign: 'center'}}
+                            labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
                             onChange={this.updateGenderDropdown.bind(this)}
                             value={this.props.gender}
                         >

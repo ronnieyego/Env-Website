@@ -1,8 +1,11 @@
 .static-page {
     font-size: 18px;
     text-align: left;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 10% 0;
+
+    @media @mobile, @tablet {
+        margin: 0px 0px;
+    }
 
     h2, h3, h4 {
         font-weight: bold;
@@ -30,6 +33,9 @@
 }
 
 .share-page {
-    margin-left: 10%;
-    margin-right: 10%;
+    margin: 10% 0;
+    
+    @media @mobile, @tablet {
+        margin: 0px 0px;
+    }
 }

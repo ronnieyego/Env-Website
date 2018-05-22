@@ -11,15 +11,6 @@ export default class Card extends React.Component {
     };
 
 	render() {
-        const style = {
-            marginTop: '15px',
-            border: '1px solid gray',
-            backgroundColor: this.props.color || '',
-            textAlign: 'center'
-        };
-        const textStyle = {
-            overflowWrap: 'break-word',
-        }
         let savings;
         switch(this.props.category) {
             case 'energy':
@@ -38,10 +29,10 @@ export default class Card extends React.Component {
             <a href={this.props.learnMore} target="_blank">Learn More</a>
             ) : '';
 		return (
-            <div style={style}>
-                <h2 style={{fontWeight: 400, marginLeft: '15px', marginRight: '15px'}}>{this.props.display}</h2>
+            <div className="savings-card" style={{ backgroundColor: this.props.color || ''}}>
+                <p className="savings-card-title" >{this.props.display}</p>
                 {savings}
-                <p style={textStyle}>{this.props.subtext}</p>
+                <p className="savings-card-text">{this.props.subtext}</p>
                 {learnMore}
             </div>
 		);

@@ -24,6 +24,7 @@ export default class Clothes extends React.Component {
         size: PropTypes.number,
         gender: PropTypes.number
     }
+    
     capitalize(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }

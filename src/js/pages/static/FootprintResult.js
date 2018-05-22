@@ -29,7 +29,6 @@ import HowMuchCo2 from '../../components/how-much-co2/HowMuchCo2';
 })
 export default class Results extends React.Component {
 	render() {
-        console.log('this props in results', this.props);
         const res = this.props.results;
         const monthlyEnergyUse = parseInt(res.energy.totalEnergy);
         const monthlyCo2Use = parseInt(res.co2.totalCo2);
@@ -124,28 +123,30 @@ export default class Results extends React.Component {
         }
 
 		return (
-            <div className="container-fluid text-center">
-				<Header />
-                <div className="share-page">
-                    <h1 ><b>What's my environmental footprint?</b></h1>
-                    <span className="results-title">
-                        This person <b><HowMuchCo2 co2={monthlyCo2Use} /></b> pounds of CO<sub>2</sub> and uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> of energy each month.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.
-                    </span>
-                    <div>
-                        <div id="top-of-results" />
-                            <br />
-                            {shownResults}
-                            <ResultOptionButtons 
-                                answerId={this.props.answerId}
-                                dispatch={this.props.dispatch} 
-                                resultsShown={this.props.resultsShown}
-                                resultsUnit={this.props.resultsUnit}
-                                shareResults={false}
-                            />
-                        </div>
-                    <br />
-                    
-                    <Facts />
+            <div>
+                <Header />
+                <div className="container-fluid text-center">
+                    <div className="share-page">
+                        <h1 ><b>What's my environmental footprint?</b></h1>
+                        <span className="results-title">
+                            This person <b><HowMuchCo2 co2={monthlyCo2Use} /></b> pounds of CO<sub>2</sub> and uses <b>{monthlyEnergyUse.toLocaleString()} kwhs</b> of energy each month.  <b>{monthlyWaterUse.toLocaleString()}</b> gallons of water are used to support this lifestyle.
+                        </span>
+                        <div>
+                            <div id="top-of-results" />
+                                <br />
+                                {shownResults}
+                                <ResultOptionButtons 
+                                    answerId={this.props.answerId}
+                                    dispatch={this.props.dispatch} 
+                                    resultsShown={this.props.resultsShown}
+                                    resultsUnit={this.props.resultsUnit}
+                                    shareResults={false}
+                                />
+                            </div>
+                        <br />
+                        
+                        <Facts />
+                    </div>
                 </div>
             </div>
 		);

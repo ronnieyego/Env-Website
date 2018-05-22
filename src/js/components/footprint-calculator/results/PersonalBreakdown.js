@@ -1,22 +1,18 @@
 import React from "react";
+import { string, object, array, number} from 'prop-types';
 import BarChart from '../../bar-chart/BarChartHoc';
 import ResultsPieChart from './ResultsPieChart';
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#ff598f', '#01dddd', '#00bfaf','#01dddd', '#e0e300'];
-
-const RADIAN = Math.PI / 180;                    
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
-  const radius = outerRadius * 1.25;
-  const x  = cx + radius * Math.cos(-midAngle * RADIAN);
-  const y = cy  + radius * Math.sin(-midAngle * RADIAN);
-  return (
-    <text x={x} y={y} fill="black" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central">
-        {`${(percent * 100).toFixed(0)}%`}
-    </text>
-  );
-};
-
 export default class PersonalBreakdown extends React.Component {
+
+    static propTypes = {
+        results: object.isRequired,
+        category: string.isRequired,
+    }
+
+    capitalize(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
 	render() {
         const containerStyle = {
@@ -65,13 +61,13 @@ export default class PersonalBreakdown extends React.Component {
         // Appliance Summary
         const appliancekeys = Object.keys(res.applianceSubCategories);
         const applianceBreakdown = appliancekeys.map(key => {
-            return {name: key, Appliance: res.applianceSubCategories[key]}
+            return {name: this.capitalize(key), Appliance: res.applianceSubCategories[key]}
         }).sort((a,b) => b.Appliance > a.Appliance);;
 
         // Food Summary
         const foodkeys = Object.keys(res.foodSubCategories);
         const foodBreakdown = foodkeys.map(key => {
-            return {name: key, Food: res.foodSubCategories[key]}
+            return {name: this.capitalize(key), Food: res.foodSubCategories[key]}
         }).sort((a,b) => b.Food > a.Food);;
         
 		return (
