@@ -25,6 +25,16 @@ export default class BarChartMobile extends React.Component {
         title: PropTypes.string,
         mobileHeaders: PropTypes.array // For mobile, table headers from left -> right 
     }
+
+    isSmallColumn(data) {
+        let smallColumn = true
+        data.forEach(row => {
+            if (row.name.length > 40) {
+                smallColumn = false;
+            }
+        });
+        return smallColumn;
+    }
         
     
     render() {
@@ -34,16 +44,20 @@ export default class BarChartMobile extends React.Component {
         const dataKey = this.props.dataKey || 'You';
         const dataKeyCompare = this.props.dataKeyCompare || 'Average American';
 
+        // When the first column doesn't have much text, its looks weird.
+        const compareWidths = this.isSmallColumn(tableData) ? ['30%', '30%', '40%'] : ['40%', '25%', '35%'];
+        const dataWidths = this.isSmallColumn(tableData) ? ['50%', '50%'] : ['75%', '25%'];
+
         const tableHeader = this.props.compare === true ? (
             <TableRow >
-                <TableRowColumn style={{...tdStyle, width: '40%'}}><b>{this.props.mobileHeaders[0]}</b></TableRowColumn>
-                <TableRowColumn style={{...tdStyle, width: '25%'}}><b>{this.props.mobileHeaders[1]}</b></TableRowColumn>
-                <TableRowColumn style={{...tdStyle, width: '35%'}}><b>{this.props.mobileHeaders[2]}</b></TableRowColumn>
+                <TableRowColumn style={{...tdStyle, width: compareWidths[0]}}><b>{this.props.mobileHeaders[0]}</b></TableRowColumn>
+                <TableRowColumn style={{...tdStyle, width: compareWidths[1]}}><b>{this.props.mobileHeaders[1]}</b></TableRowColumn>
+                <TableRowColumn style={{...tdStyle, width: compareWidths[2]}}><b>{this.props.mobileHeaders[2]}</b></TableRowColumn>
             </TableRow>
         ) : (
             <TableRow>
-                <TableRowColumn style={{...tdStyle, width: '75%'}}><b>{this.props.mobileHeaders[0]}</b></TableRowColumn>
-                <TableRowColumn style={{...tdStyle, width: '25%'}}><b>{this.props.mobileHeaders[1]}</b></TableRowColumn>
+                <TableRowColumn style={{...tdStyle, width: dataWidths[0]}}><b>{this.props.mobileHeaders[0]}</b></TableRowColumn>
+                <TableRowColumn style={{...tdStyle, width: dataWidths[1]}}><b>{this.props.mobileHeaders[1]}</b></TableRowColumn>
             </TableRow>
         );
 
@@ -57,6 +71,7 @@ export default class BarChartMobile extends React.Component {
                     </TableRow>
                 );
             }
+            
             return (
                 <TableRow key={`compare-table-${row.name}`}>
                     <TableRowColumn style={tdStyle}>{row.name}</TableRowColumn>
