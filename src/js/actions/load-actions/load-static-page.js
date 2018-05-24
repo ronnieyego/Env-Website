@@ -12,18 +12,32 @@ import { Provider } from 'react-redux';
 import reducers from '../../redux/reducers/index';
 
 // Pages
-import StaticPages from '../../pages/Static';
+import staticPages from '../../pages/static/pages-index';
+import Static from '../../pages/Static';
 
 export default (req, res) => {
-    const store = createStore(reducers);
-    let currentState = store.getState();
-    currentState = addMobileToStore(req, store);
+    const page = req.params.page.toLowerCase().replace(/-/g, '');
+    const staticPagesKeys = Object.keys(staticPages);
+    if(staticPagesKeys.indexOf(page) === -1) {
+        return res.status(400).send({ message: 'Page not found :('});
+    };
+
+    const dataSeed = {
+        userInfo: {
+            userState: 'US'
+        }
+    };
+    const initStore = addMobileToStore(req, dataSeed);
+    const store = createStore(reducers, initStore);
+    const dataPayload = store.getState();
+    dataPayload.page = page;
+
     const appMarkup = ReactDOM.renderToString(
-        <Provider store={currentState}>
+        <Provider store={store}>
             <MuiThemeProvider>
-                <div />
+                <Static page={page}/>
             </MuiThemeProvider>
         </Provider>
     );
-    res.status(200).send(renderFullPage(appMarkup, null, 'static-pages')); 
+    res.status(200).send(renderFullPage(appMarkup, dataPayload, 'static-pages')); 
 }

@@ -30,12 +30,12 @@ export default class HeaderDesktop extends React.Component {
                         <MenuItem className="material-ui-nav-dropdown" value={"CO2 Costs"} primaryText="CO2 Costs" disabled={true} />
                         {costPages}
                     </DropDownMenu>
-                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/how-much-co2"/>} primaryText="How Much CO2" />
-                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/energy"/>} primaryText="Energy" />
-                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/how-your-footprint-was-calculated"/>} primaryText="Footprint Calculations" />
-                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/data"/>} primaryText="Data" />
-                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/co2e"/>} primaryText="CO2e" />
-                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/about"/>} primaryText="About" />
+                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/how-much-co2"/>} primaryText="How Much CO2" />
+                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/energy"/>} primaryText="Energy" />
+                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/how-the-form-works"/>} primaryText="Footprint Calculations" />
+                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/data"/>} primaryText="Data" />
+                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/co2e"/>} primaryText="CO2e" />
+                    <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/about"/>} primaryText="About" />
                 </ ToolbarGroup>
             </Toolbar>
 		);

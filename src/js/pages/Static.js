@@ -1,32 +1,22 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { browserHistory, BrowserRouter as Router, Route} from 'react-router-dom';
+import { string } from 'prop-types';
 
-import CO2e from './static/Co2e'
-import Data from './static/Data';
-import HowTheFormWorks from './static/How-the-form-works';
-import FootprintResult from './static/FootprintResult';
-import About from './static/About';
-import HowMuchCO2 from './static/HowMuchCo2';
-import CostsSearch from '../components/costs/search/Search';
+import staticPages from './static/pages-index';
+import Header from '../components/header/HeaderHoc';
 
+export default class Static extends React.Component {
 
-
-export default class StateEnergyProfile extends React.Component {
+    static propTypes = {
+        page: string.isRequired
+    }
 
 	render() {
+        const page = staticPages[this.props.page];
 		return (
-            <Router history={browserHistory} >
-                <div>
-                    <Route path="/footprint" component={FootprintResult} />
-                    <Route exact={true} path="/CO2e" component={CO2e} />
-                    <Route exact={true} path="/costs" component={CostsSearch} />
-                    <Route exact={true} path="/data" component={Data} />
-                    <Route exact={true} path="/how-much-co2" component={HowMuchCO2} />
-                    <Route exact={true} path="/how-your-footprint-was-calculated" component={HowTheFormWorks} />
-                    <Route exact={true} path="/about" component={About} />
-                </div>
-            </Router>
+            <div className="container-fluid">
+                <Header />
+                {page}
+            </div>
 		);
 	}
 }

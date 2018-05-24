@@ -59,12 +59,7 @@ app.get('/footprint', footprintMiddleware);
 app.get('/footprint/:id', footprintByIdMiddleware);
 app.get('/footprint/form/:id', footprintByIdMiddleware);
 
-app.get('/co2e', loadStaticPage);
-app.get('/data', loadStaticPage);
-app.get('/how-much-co2', loadStaticPage)
-app.get('/how-your-footprint-was-calculated', loadStaticPage);
-app.get('/about', loadStaticPage);
-app.get('/costs', loadStaticPage);
+app.get('/static/:page', loadStaticPage);
 
 app.get(`/costs/:page`, loadCostsPage);    
 

@@ -553,14 +553,9 @@ input[type="checkbox"] {
   }
 }
 .static-page {
+  margin: 20px 0;
   font-size: 18px;
   text-align: left;
-  margin: 10% 0;
-}
-@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
-  .static-page {
-    margin: 0px 0px;
-  }
 }
 .static-page h2,
 .static-page h3,
@@ -586,14 +581,6 @@ input[type="checkbox"] {
   font-weight: bold;
   text-align: center;
   margin-top: 15px;
-}
-.share-page {
-  margin: 10% 0;
-}
-@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
-  .share-page {
-    margin: 0px 0px;
-  }
 }
 .pie {
   border: 3px solid gray;

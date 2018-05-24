@@ -23,9 +23,10 @@ export default (req, res) => {
     if(costPagesKeys.indexOf(page) === -1) {
         return res.status(400).send({ message: 'Page not found :('});
     }
-    const store = createStore(reducers);
+
+    const initStore = addMobileToStore(req, {});
+    const store = createStore(reducers, initStore);
     let currentState = store.getState();
-    currentState = addMobileToStore(req, currentState);
     const updatedReducer = updateCostsReducer(currentState, page);
     updatedReducer.costsPage = page;
     const appMarkup = ReactDOM.renderToString(
