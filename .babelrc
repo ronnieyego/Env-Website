@@ -1,4 +1,4 @@
 {
   "presets": ["es2017", "env", "react"],
-  "plugins": ["transform-object-rest-spread", "transform-decorators-legacy", "transform-class-properties"]
+  "plugins": ["transform-object-rest-spread", "transform-decorators-legacy", "transform-class-properties", "syntax-async-functions","transform-regenerator"]
 }
