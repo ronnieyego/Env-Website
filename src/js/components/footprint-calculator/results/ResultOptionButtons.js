@@ -57,7 +57,7 @@ export default class ResultOptionButtons extends React.Component {
 
                 {/* Moar Buttons!! */}
                 <div className="results-changer-row">
-                <a href="/how-your-footprint-was-calculated" target="_blank"><RaisedButton label="See the calculations" primary={true} /></a>
+                <a href="/static/how-the-form-works" target="_blank"><RaisedButton label="See the calculations" primary={true} /></a>
                     <p className="results-changer-row-explainer">A brief guide to how we constructed this footprint.</p>
                 </div>
                 {!this.props.shareResults && <div className="results-changer-row">

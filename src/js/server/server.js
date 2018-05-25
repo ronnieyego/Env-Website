@@ -13,6 +13,7 @@ import path from "path";
 import moment from 'moment-timezone';
 import get from 'lodash/get';
 
+import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
 import { co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
@@ -56,7 +57,7 @@ app.get('/energy/:state', stateEnergyMiddleware);
 app.get('/energy', usEnergyMapMiddleware);
 
 app.get('/footprint', footprintMiddleware);
-app.get('/footprint/:id', footprintByIdMiddleware);
+app.get('/footprint/:id', loadFootprintResultsPage);
 app.get('/footprint/form/:id', footprintByIdMiddleware);
 
 app.get('/static/:page', loadStaticPage);

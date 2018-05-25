@@ -12,6 +12,7 @@ export default {
     costs: <CostsSearch />,
     co2e: <Co2e />,
     data: <Data />,
+    footprintresult: <FootprintResult />,
     howtheformworks: <HowTheFormWorks />,
     howmuchco2: <HowMuchCo2 />
 }
