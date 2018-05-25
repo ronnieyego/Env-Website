@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import IntQuestion from './IntQuestion';
 import DropdownQuestion from './DropdownQuestion';
 import BooleanQuestion from './BooleanQuestion';
+import UserStateDropdown from '../UserStateDropdown';
 
 
 import { setQuestionError, updateQuestions} from '../../actions/footprint/form-actions';
@@ -38,6 +39,9 @@ export default class QuestionHoc extends React.Component {
                 break;
             case 'dropdown':
                 question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
+                break;
+            case 'user-state':
+                question = <UserStateDropdown />
                 break;
             default:
                 console.log('Error.  Bad question type', this.props);
