@@ -79,7 +79,7 @@ export default class FootprintForm extends React.Component {
         <RaisedButton 
             className="right-btn"
             href={submitJump}
-            label="Calculate My Footprint"
+            label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
             onClick={this.submitCalculator.bind(this, formError)}
             primary={true}
         />) : (

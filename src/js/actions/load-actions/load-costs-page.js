@@ -24,11 +24,16 @@ export default (req, res) => {
         return res.status(400).send({ message: 'Page not found :('});
     }
 
-    const initStore = addMobileToStore(req, {});
+    const dataSeed = {
+        userInfo: {
+            userState: 'US'
+        }
+    };
+    const initStore = addMobileToStore(req, dataSeed);
     const store = createStore(reducers, initStore);
     let currentState = store.getState();
     const updatedReducer = updateCostsReducer(currentState, page);
-    updatedReducer.costsPage = page;
+    updatedReducer.page = page;
     const appMarkup = ReactDOM.renderToString(
         <Provider store={store}>
             <MuiThemeProvider>

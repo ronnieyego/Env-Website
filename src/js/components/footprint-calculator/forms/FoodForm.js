@@ -76,7 +76,9 @@ export default class FoodForm extends React.Component {
                 <div>
                     <p className="footprint-form-sub-header">How many servings of each food do you eat each day?</p>
                     <br />
-                    <p className="footprint-form-sub-header">Need help? Pre-populate with an average American</p>
+                    <ul>
+                        <li><p className="footprint-form-need-help">Not sure how much you eat? Pre-populate with an average American</p></li>
+                    </ul>
                     <div className="display-flex-around">
                         <SelectField 
                             id="gender"

@@ -10,7 +10,8 @@ import filter from 'lodash/filter';
 		questions: store.footprintForm.questions,
         step: store.footprintForm.step,
         isSubmitReady: store.footprintForm.isSubmitReady,
-        userGender: store.userInfo.userGender
+        userGender: store.userInfo.userGender,
+        isMobile: store.userInfo.isMobile,
 	};
 })
 export default class FootprintFormHoc extends React.Component {
@@ -39,6 +40,7 @@ export default class FootprintFormHoc extends React.Component {
                 transportation={transportation}
                 isSubmitReady={this.props.isSubmitReady}
                 userGender={this.props.userGender}
+                isMobile={this.props.isMobile}
             />
         )
 	}

@@ -64,9 +64,7 @@ export default class Question extends React.Component {
                         value={this.props.value}
                         floatingLabelText={question.floatingLabelText}
                         inputStyle={inputStyle}
-                        // type="number" Should add for mobile, but then you can do stuff like .343.3423.43
-                        // Need to learn how to turn off html5s validation
-
+                        type={this.props.isMobile ? 'number' : ''}  // Need to learn how to turn off html5s validation so its only on mobile.
                     />
                 </div>
                 {question.belowText && <p className="question-below-text">{question.belowText}</p>}

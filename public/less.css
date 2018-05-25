@@ -62,6 +62,9 @@
   font-size: 20px;
   font-weight: bold;
 }
+.footprint-form-need-help {
+  margin: 5px auto;
+}
 .form-divider {
   margin-top: 25px;
   margin-bottom: 25px;
