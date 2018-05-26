@@ -2,7 +2,7 @@ import React from "react";
 
 import Header from '../components/header/HeaderHoc';
 import EnergySourceMapHoc from '../components/us-energy/EnergySourceMapHoc';
-import StateEnergyFooter from '../components/StateEnergyFooter';
+import StateEnergyFooter from '../components/us-energy/StateEnergyFooter';
 
 export default class UsEnergy extends React.Component {
 	

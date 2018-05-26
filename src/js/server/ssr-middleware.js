@@ -31,9 +31,6 @@ import validStateId from '../utils/check-if-valid-state-id';
 import getStateData from '../utils/apis/get-state-data';
 import { addMobileToStore } from './utils';
 
-// Data
-import footprintQuestions from '../../../public/data/temp-footprint-questions.json';
-
 const renderFullPage = (markup, data, page) => {
     let jsLocation;
     switch (page) {
@@ -140,88 +137,7 @@ const solarMiddleware =  (req, res) => {
     }
 };
 
-
-
-const stateEnergyMiddleware =  (req, res) => {
-    let state = (req.params.state).toUpperCase();
-    if(validStateId(state)) {
-        getStateData(state)
-        .then(stateData => {
-            return appendUSAverages(stateData);
-        })
-        .then(allData => {
-            let comparisons = allData.US.stateComparisons;
-            delete allData.US;
-            allData['stateComparisons'] = comparisons;
-
-            // Create a new Redux store instance
-            const store = createStore(reducers, {stateEnergy: {...allData}});
-            
-            const appMarkup = ReactDOM.renderToString(
-                <Provider store={store}>
-                    <MuiThemeProvider>
-                        <StateEnergyProfile {...allData} />
-                    </MuiThemeProvider>
-                </Provider>
-                );
-
-            res.status(200).send(renderFullPage(appMarkup, allData, 'state-energy-profile'));
-        })
-        .catch(e => {
-            console.log(e, 'Error appending US data');
-            res.status(500).send("There was a problem appending US data");
-        });
-    } else {
-        console.log('inproper query param');
-        res.status(400).send("inproper query param");
-    }
-};
-
-const usEnergyMapMiddleware = (req, res) => {
-     // Create a new Redux store instance
-     const store = createStore(reducers);
-     
-    // Grab the initial state from our Redux store
-    const preloadedState = store.getState();
-
-    const appMarkup = ReactDOM.renderToString(
-    <Provider store={store}>
-        <MuiThemeProvider>
-            <UsEnergy />
-        </MuiThemeProvider>
-    </Provider>);
-    res.status(200).send(renderFullPage(appMarkup, {}, 'us-energy'));
-}
-
-const footprintMiddleware = (req, res) => {
-    const questions = footprintQuestions.questions;
-    // need to default the entire form and not just questions
-    // otherwise reducer will think it has state and not do defaults
-    const storeData = {
-        footprintForm: {
-            questions,
-            getQuestionsError: false,
-            step: 1,
-            isSubmitReady: true
-        }
-    };
-    const store = createStore(reducers, storeData);
-    let currentState = store.getState();
-    currentState = addMobileToStore(req, store);
-
-    const appMarkup = ReactDOM.renderToString(
-    <Provider store={store}>
-        <MuiThemeProvider>
-            <FootprintCalculator />
-        </MuiThemeProvider>
-    </Provider>);
-    res.status(200).send(renderFullPage(appMarkup, currentState, 'footprint'));
-}
-
 module.exports = {
-    footprintMiddleware,
     solarMiddleware,
-    stateEnergyMiddleware,
-    usEnergyMapMiddleware,
     renderFullPage
 }

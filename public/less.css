@@ -226,14 +226,11 @@
   text-align: center;
 }
 .state-energy-footer {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  margin: 10 auto;
+  padding: 0px 10px;
 }
 .state-energy-footer-link {
-  text-align: center;
-  margin: 10px;
+  margin: 5px auto;
+  line-height: 1;
 }
 .state-energy-footer-text {
   vertical-align: center;
@@ -337,9 +334,12 @@ input[type="checkbox"] {
   width: 100px;
 }
 .us-energy-header {
-  margin-left: 75px;
-  margin-right: 75px;
-  margin-top: 25px;
+  margin: 25px 75px;
+}
+@media only screen and (max-width: 479px) {
+  .us-energy-header {
+    margin: 15px 0;
+  }
 }
 .us-energy-paragraph {
   text-align: left;

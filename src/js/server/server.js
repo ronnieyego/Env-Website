@@ -13,6 +13,8 @@ import path from "path";
 import moment from 'moment-timezone';
 import get from 'lodash/get';
 
+import loadUsEnergyPage from '../actions/load-actions/load-us-energy-page';
+import loadStateEnergyPage from '../actions/load-actions/load-state-energy-page';
 import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-page';
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
@@ -54,8 +56,8 @@ app.get('/', loadFootprintFormPage);
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);
 
-app.get('/energy/:state', stateEnergyMiddleware);
-app.get('/energy', usEnergyMapMiddleware);
+app.get('/energy/:state', loadStateEnergyPage);
+app.get('/energy', loadUsEnergyPage);
 
 app.get('/footprint', loadFootprintFormPage);
 app.get('/footprint/:id', loadFootprintResultsPage);

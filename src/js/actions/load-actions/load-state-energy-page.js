@@ -1,36 +1,49 @@
-import Q from 'q';
+import React from 'react';
+import ReactDOM from 'react-dom/server';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import getStateData from '../../utils/apis/get-state-data';
+// Server
+import { renderFullPage } from '../../server/ssr-middleware';
+import { addMobileToStore } from '../../server/utils';
+
+// Database
 import { States } from '../../../../db/models/states';
 
-const appendUSAverages = stateData => {
-    const appendUSAveragesDeferred = Q.defer();
-    States.find({ stateId: 'US'})
-    .then( usData => {
-        if(!usData) {
-            appendUSAveragesDeferred.reject('Couldn\'t find state data');
-        } else {
-            let res = JSON.parse(JSON.stringify(usData[0]));
-            stateData['US'] = res;
-            appendUSAveragesDeferred.resolve(stateData);
-        }
-    });
-    return appendUSAveragesDeferred.promise
-};
+// Redux
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from '../../redux/reducers/index';
+import updateCostsReducer from '../../redux/update-reducer-by-page';
 
+// Page
+import StateEnergyProfile from '../../pages/StateEnergyProfile';
 
-export const getStateAndUsData = state => {
-    return getStateData(state)
-    .then(stateData => {
-        return appendUSAverages(stateData);
-    })
-    .then(allData => {
-        let comparisons = allData.US.stateComparisons;
-        delete allData.US;
-        allData['stateComparisons'] = comparisons;
-        return allData;
-    })
-    .catch(err => {
-        console.log('ERRORED OUT OH NO!');
-    });
-};
+// Utils
+import validStateId from '../../utils/check-if-valid-state-id';
+import getCo2EmissionsByKwh from '../../utils/get-co2-emissions-by-kwh';
+import { getStateAndUsData } from './load-state-data';
+
+export default async (req, res) => {
+    let state = (req.params.state).toUpperCase();
+    if(!validStateId(state)) {
+        console.log('inproper query param');
+        res.status(400).send("inproper query param");
+    }
+    const allData = await getStateAndUsData(state);
+    if(allData.error) {
+        res.status(500).send(allData.message);
+    }
+    const formattedData = { stateEnergy: allData.completeStateData };
+    const initStore = addMobileToStore(req, formattedData);
+    const store = createStore(reducers, formattedData);
+    
+    const appMarkup = ReactDOM.renderToString(
+        <Provider store={store}>
+            <MuiThemeProvider>
+                <StateEnergyProfile {...formattedData} />
+            </MuiThemeProvider>
+        </Provider>
+        );
+
+    res.status(200).send(renderFullPage(appMarkup, formattedData, 'state-energy-profile'));
+}
