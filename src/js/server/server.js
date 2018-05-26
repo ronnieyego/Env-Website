@@ -13,10 +13,11 @@ import path from "path";
 import moment from 'moment-timezone';
 import get from 'lodash/get';
 
+import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-page';
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
-import { co2eMiddleware, footprintMiddleware, footprintByIdMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
+import { co2eMiddleware, solarMiddleware, stateEnergyMiddleware, usEnergyMapMiddleware }  from './ssr-middleware';
 import validStateId from '../utils/check-if-valid-state-id';
 import getStateData from '../utils/apis/get-state-data';
 
@@ -48,7 +49,7 @@ app.use((req, res, next) => {
 });
 
 
-app.get('/', footprintMiddleware);
+app.get('/', loadFootprintFormPage);
 
 app.get('/solar/:state', solarMiddleware);
 app.get('/solar', solarMiddleware);
@@ -56,9 +57,9 @@ app.get('/solar', solarMiddleware);
 app.get('/energy/:state', stateEnergyMiddleware);
 app.get('/energy', usEnergyMapMiddleware);
 
-app.get('/footprint', footprintMiddleware);
+app.get('/footprint', loadFootprintFormPage);
 app.get('/footprint/:id', loadFootprintResultsPage);
-app.get('/footprint/form/:id', footprintByIdMiddleware);
+app.get('/footprint/form/:id', loadFootprintResultsPage);
 
 app.get('/static/:page', loadStaticPage);
 

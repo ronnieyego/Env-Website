@@ -218,46 +218,8 @@ const footprintMiddleware = (req, res) => {
     res.status(200).send(renderFullPage(appMarkup, currentState, 'footprint'));
 }
 
-const footprintByIdMiddleware = (req, res) => {
-    const id = req.params.id;
-    FormAnswers.find({_id: id}).then(answers => {
-        const answer = answers[0];
-        if(!answer) {
-            res.send(404);
-        }
-        const storeData = {
-            footprintForm: {
-                questions: answer.questions,
-                getQuestionsError: false,
-                step: 1,
-                isSubmitReady: true,
-                questions: answer.formAnswers
-            },
-            footprintFormAnswers: {
-                ...baseState,
-                answerId: id,
-                formResults: answer.results
-            }
-        };
-        const appendedStoreData = addMobileToStore(req, storeData);
-        const store = createStore(reducers, appendedStoreData);
-        const appMarkup = ReactDOM.renderToString(
-            <Provider store={store}>
-                <MuiThemeProvider>
-                    <div />
-                </MuiThemeProvider>
-            </Provider>);
-        res.status(200).send(renderFullPage(appMarkup, appendedStoreData, 'static-pages'));
-    })
-    .catch(e => {
-        console.log('error loading footprint by id ', e);
-        res.send(500);
-    });
-}
-
 module.exports = {
     footprintMiddleware,
-    footprintByIdMiddleware,
     solarMiddleware,
     stateEnergyMiddleware,
     usEnergyMapMiddleware,
