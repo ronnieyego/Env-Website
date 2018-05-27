@@ -225,6 +225,9 @@
   font-weight: bold;
   text-align: center;
 }
+.state-energy-bar-chart-attribution {
+  margin: 10px auto;
+}
 .state-energy-footer {
   padding: 0px 10px;
 }

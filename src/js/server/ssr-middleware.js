@@ -99,45 +99,7 @@ const renderFullPage = (markup, data, page) => {
     `
 };
 
-const appendUSAverages = stateData => {
-    const appendUSAveragesDeferred = Q.defer();
-    States.find({ stateId: 'US'})
-    .then( usData => {
-        if(!usData) {
-            appendUSAveragesDeferred.reject('Couldn\'t find state data');
-        } else {
-            let res = JSON.parse(JSON.stringify(usData[0]));
-            stateData['US'] = res;
-            appendUSAveragesDeferred.resolve(stateData);
-        }
-    });
-    return appendUSAveragesDeferred.promise
-};
-
-const solarMiddleware =  (req, res) => {
-    console.log('req is ', req.params);
-    let state = req.params.state ? req.params.state.toUpperCase() : 'US';
-    if(validStateId(state)) {
-        getStateData(state)
-        .then(stateData => {
-            // Check to see if I have install price data for states.  If not, add it!
-            return appendUSAverages(stateData);
-        })
-        .then(stateData => {
-            const appMarkup = ReactDOM.renderToString(<SolarWidget {...stateData}/>);
-            res.status(200).send(renderFullPage(appMarkup, stateData, 'solar-widget'));
-        })
-        .catch(e => {
-            console.log('error in getting solar data', e);
-            res.status(500).send("Something went wrong while fetching the data :(");
-        });
-    } else {
-        console.log('inproper query param');
-        res.status(400).send("inproper query param");
-    }
-};
 
 module.exports = {
-    solarMiddleware,
     renderFullPage
 }
