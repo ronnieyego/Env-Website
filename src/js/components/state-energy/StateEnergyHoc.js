@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import StateEnergyText from './StateEnergyText';
 import StateEnergyRadarChart from './StateEnergyRadarChart';
 import StateEnergyPieChart from './StateEnergyPieChart';
+import BarChart from '../bar-chart/BarChartHoc';
 
 import { utilityEmissionsPerState } from '../../utils/utils-data/state-energy-and-emissions';
 
@@ -13,7 +14,8 @@ import { utilityEmissionsPerState } from '../../utils/utils-data/state-energy-an
         energyProduction: store.stateEnergy.energyProduction,
         misc: store.stateEnergy.misc,
         stateComparisons: store.stateEnergy.stateComparisons,
-        stateId: store.stateEnergy.stateId || store.stateEnergy.stateName
+        stateId: store.stateEnergy.stateId || store.stateEnergy.stateName,
+        isMobile: store.userInfo.isMobile
 	};
 })
 export default class StateEnergyHoc extends React.Component {
@@ -33,28 +35,26 @@ export default class StateEnergyHoc extends React.Component {
 		});
 		let final = unsorted.map(el => { return <li className="state-energy-text" key={el}>{`${el[0]}: ${el[1].toLocaleString()} MWhs.`}</li> });
 		return final;
-	}
+    }
+    
+    // Copied from barChart
+    getDomainMax(barGraphData) {
+        let max = 0;
+        barGraphData.forEach(ob => {
+            let keys = Object.keys(ob);
+            keys.forEach(key => {
+                let val = ob[key];
+                if(typeof val === 'number' && val > max) {
+                    max = val;
+                }
+            })
+        });
+        return max;
+    }
 
     render() {
-    // const {    
-    //     biofuels,
-    //     coal,
-    //     fossilFuelTotal,
-    //     geothermal,
-    //     hydroElectric,
-    //     naturalGas,
-    //     nuclear,
-    //     petroleum,
-    //     renewablePercent,
-    //     renewableTotal,
-    //     solar,
-    //     totalEnergyConsumption,
-    //     wind,
-    // } = this.props.energyConsumption;
-
         const {
             //averageCO2PerKwh, Not as up to date as the utils-data one
-            biomass,
             coal,
             geothermal,
             hydroelectric,
@@ -62,7 +62,6 @@ export default class StateEnergyHoc extends React.Component {
             nuclear,
             other,
             othergases,
-            pBiomass,
             pCoal,
             pGeothermal,
             pHydroelectric,
@@ -99,12 +98,28 @@ export default class StateEnergyHoc extends React.Component {
         const stateComparisons = this.props.stateComparisons;
 
         const CO2PerKwh = utilityEmissionsPerState[this.props.stateId];
-        const radarGraphData = [
-            { source: 'Coal', amount: pCoal },
-            { source: 'Renewables', amount: pSolar + pHydroelectric + pWind + pGeothermal},
-            { source: 'Natural Gas', amount: pNaturalGas },
-            { source: 'Nuclear', amount: pNuclear}
-        ];
+        let barChartGraphData = [
+            { name: 'Coal', amount: coal },
+            { name: 'Hydro', amount: hydroelectric },
+            { name: 'Solar', amount: solar },
+            { name: 'Wind', amount: wind },
+            { name: 'Geothermal', amount: geothermal },
+            { name: 'Gas', amount: naturalGas },
+            { name: 'Nuclear', amount: nuclear}
+        ].map(row => ({name: row.name, amount: Math.round(parseInt(row.amount))}))
+         .sort((a,b) => b.amount > a.amount);
+
+         let barChartUnits = 'MWHs';
+         const barChartMax = this.getDomainMax(barChartGraphData);
+         if(barChartMax > 5000 && barChartMax < 5000000) {
+            barChartUnits = 'GWHs';
+            barChartGraphData = barChartGraphData.map(row => ({name: row.name, amount: row.amount/1000 }));
+         }
+         if(barChartMax > 5000000) {
+            barChartUnits = 'TWHs';
+            barChartGraphData = barChartGraphData.map(row => ({name: row.name, amount: row.amount/1000000 }));
+         }
+
 
         const pieChartData = [
             { source: 'Coal', amount: coal},
@@ -118,23 +133,49 @@ export default class StateEnergyHoc extends React.Component {
         const stateRankCo2 = stateComparisons[this.props.stateId].emissionsByKwhRank
         const stateRankEnergyProduced = stateComparisons[this.props.stateId].totalEnergyProducedRank
 
+        const radarChartWidth = this.props.isMobile ? 300 : 500;
+        const radarChartHeight = this.props.isMobile ? 300 : 500;
         const sortedEnergy = this.sortEnergy(coal, geothermal, hydroelectric, naturalGas, nuclear, solar, wind);
         return (
-            <div className="row content" style={{marginLeft: '50px'}}>
-                <div className="col-sm-8 text-left" display="inline-block">
-                    <StateEnergyText 
-                        stateName={stateFullName}
-                        CO2PerKwh={CO2PerKwh}
-                        stateRankCo2={stateRankCo2}
-                        stateRankEnergyProduced={stateRankEnergyProduced}
-                        totalEnergyProduced={total}
-                    />
-                    <StateEnergyRadarChart stateId={this.props.stateId} graphData={radarGraphData} />
-                    <p className="state-energy-text">This is a breakdown of state produced energy</p>
-                    <ul>{sortedEnergy}</ul>
-                    <StateEnergyPieChart graphData={pieChartData}/>
-                </div>
+            <div>
+                <StateEnergyText 
+                    stateName={stateFullName}
+                    CO2PerKwh={CO2PerKwh}
+                    stateRankCo2={stateRankCo2}
+                    stateRankEnergyProduced={stateRankEnergyProduced}
+                    totalEnergyProduced={total}
+                />
+                <BarChart 
+                    title={`Energy production breakdown for ${this.props.stateId}`}
+                    stateId={this.props.stateId} 
+                    graphData={barChartGraphData}
+                    units={barChartUnits}
+                    dataKey="amount"
+                    compare={false}
+                    mobileHeaders={['Energy', barChartUnits]}
+                />
+                <p className="state-energy-text">Data for this chart comes from the <a href="https://www.eia.gov/electricity/data/state/" target="_blank">EIA</a></p>
+                <br />
+                <p className="state-energy-text">This is a breakdown of state produced energy</p>
+                <ul>{sortedEnergy}</ul>
+                <StateEnergyPieChart graphData={pieChartData}/>
             </div>
 		);
 	}
 }
+
+ // const {    
+    //     biofuels,
+    //     coal,
+    //     fossilFuelTotal,
+    //     geothermal,
+    //     hydroElectric,
+    //     naturalGas,
+    //     nuclear,
+    //     petroleum,
+    //     renewablePercent,
+    //     renewableTotal,
+    //     solar,
+    //     totalEnergyConsumption,
+    //     wind,
+    // } = this.props.energyConsumption;

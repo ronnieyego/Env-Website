@@ -33,7 +33,15 @@ export default class Bbq extends React.Component {
                         </span>         
                     </div>
                     <p className="costs-form-explainer">Only {Math.round(this.props.grillCo2/this.props.totalCo2 * 100)}% of the emissions come from the actual grilling.  Most of the emissions come from cooking the meat.</p>
-                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={"CO2 breakdown of a BBQ"} defaultMax={20} compare={false} dataKey={'BBQ'} mobileHeaders={['Food', 'Pounds of CO2']} />
+                    <BarChart
+                        graphData={this.props.graphData}
+                        units={'Pounds of CO2'}
+                        title={"CO2 breakdown of a BBQ"}
+                        defaultMax={20}
+                        compare={false}
+                        dataKey={'BBQ'}
+                        mobileHeaders={['Food', 'Pounds of CO2']}
+                    />
                     {questions}
                 </div>
             </div>

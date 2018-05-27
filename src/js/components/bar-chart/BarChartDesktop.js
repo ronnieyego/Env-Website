@@ -49,7 +49,7 @@ export default class BarCharDesktop extends React.Component {
                     <YAxis type="number" domain={[0, max]} label={{ value: units, angle: -90, position: 'left' }}/>
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
-                    <Legend wrapperStyle={{marginLeft: '0px'}} />
+                    <Legend wrapperStyle={{marginLeft: '0px', marginTop: '30px'}} />
                     <ReferenceLine y={0} stroke='#000'/>
                     <Bar dataKey={dataKey} fill="#8884d8" />
                     {this.props.compare && <Bar dataKey={dataKeyCompare} fill="#82ca9d" />}

@@ -19,7 +19,7 @@ delete window.__PRELOADED_STATE__;
 
 // Create Redux store with initial state
 const middleware = applyMiddleware(thunk, logger);
-const store = createStore(reducers, {stateEnergy: {...preloadedState}}, middleware);
+const store = createStore(reducers, preloadedState, middleware);
 
 const app = document.getElementById('app');
 ReactDOM.render(
