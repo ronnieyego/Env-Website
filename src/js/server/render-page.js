@@ -1,37 +1,4 @@
-import React from 'react';
-import ReactDOM from 'react-dom/server';
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import Q from 'q';
-
-// Redux
-import reducers from '../redux/reducers/index';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import { baseState } from '../redux/reducers/footprint-form-answers-reducer';
-import updateCostsReducer from '../redux/update-reducer-by-page';
-
-// Pages
-import SolarWidget from '../pages/SolarWidget'
-import StateEnergyProfile from '../pages/StateEnergyProfile';
-import UsEnergy from '../pages/UsEnergy';
-import FootprintCalculator from '../pages/FootprintCalculator';
-import StaticPages from '../pages/Static';
-import CostsPages from '../pages/Costs';
-import costPages from '../components/costs/pages-index';
-
-// Database
-import { mongoose } from '../../../db/mongoose';
-import { States } from '../../../db/models/states';
-import { FormAnswers } from '../../../db/models/form-answers';
-
-// Utils
-import getCo2EmissionsByKwh from '../utils/get-co2-emissions-by-kwh';
-import validStateId from '../utils/check-if-valid-state-id';
-import getStateData from '../utils/apis/get-state-data';
-import { addMobileToStore } from './utils';
-
-const renderFullPage = (markup, data, page) => {
+export default (markup, data, page) => {
     let jsLocation;
     switch (page) {
         case 'solar-widget':
@@ -98,8 +65,3 @@ const renderFullPage = (markup, data, page) => {
         </html>
     `
 };
-
-
-module.exports = {
-    renderFullPage
-}

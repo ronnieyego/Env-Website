@@ -20,7 +20,6 @@ import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-p
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
-import { co2eMiddleware }  from './ssr-middleware';
 import validStateId from '../utils/check-if-valid-state-id';
 import getStateData from '../utils/apis/get-state-data';
 

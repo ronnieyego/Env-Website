@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/server';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Server
-import { renderFullPage } from '../../server/ssr-middleware';
+import renderFullPage  from '../../server/render-page';
 import { addMobileToStore } from '../../server/utils';
 
 // Redux
