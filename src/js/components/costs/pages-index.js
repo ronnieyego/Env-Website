@@ -9,6 +9,7 @@ import ComputerHoc from './computer/ComputerHoc';
 import CupHoc from './cup/CupHoc';
 import FurnitureHoc from './furniture/FurnitureHoc';
 import HomeHoc from './home/HomeHoc';
+import PackageHoc from './package/PackageHoc';
 import PetHoc from './pet/PetHoc';
 import TabletHoc from './tablet/TabletHoc';
 import TvHoc from './tv/TvHoc';
@@ -31,6 +32,7 @@ export default {
     iphone: <ComputerHoc />,
     furniture: <FurnitureHoc />,
     laptop: <ComputerHoc />,
+    package: <PackageHoc />,
     pet: <PetHoc />,
     tablet: <ComputerHoc />,
     tv: <TvHoc />,

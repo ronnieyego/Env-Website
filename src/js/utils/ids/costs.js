@@ -1,4 +1,4 @@
-// 1053 currenet max
+// 1056 currenet max
 
 export default {
 
@@ -17,8 +17,6 @@ export default {
 
 // Books
     numberBooks: 1026,
-
-
 
 // Clothes
     shirtsOwn: 1008,
@@ -63,6 +61,19 @@ export default {
     numDrawers: 1031,
     numBookcases: 1032,
 
+// Package
+    packageWeight: 1054,
+    packageMade: 1055,
+    packageShipping: 1056,
+
+// Pet
+    petType: 1040,
+    petWeight: 1041,
+    petFood: 1042,
+    catFoodType: 1043,
+    turtleTankSize: 1044,
+    petHeatingLamp: 1045,
+
 // Tablets
     tabletType: 1036,
 
@@ -73,14 +84,6 @@ export default {
     tvWattage: 1051,
     tvWatchHours: 1052,
     tvOwnYears: 1053,
-
-// Pet
-    petType: 1040,
-    petWeight: 1041,
-    petFood: 1042,
-    catFoodType: 1043,
-    turtleTankSize: 1044,
-    petHeatingLamp: 1045,
 
 // User State
     userState: 1046,
