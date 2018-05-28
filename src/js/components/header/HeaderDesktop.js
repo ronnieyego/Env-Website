@@ -16,7 +16,14 @@ export default class HeaderDesktop extends React.Component {
 	render() {
         const costsKeys = Object.keys(costPagesIndex);
         const costPages = costsKeys.map(key => {
-            return <MenuItem key={`header-menu-item-${key}`} containerElement={<a key={`header-link-${key}`} href={`/costs/${key}`}/>} primaryText={Capitalize(key)} />
+            return  (
+                <MenuItem
+                    key={`header-menu-item-${key}`}
+                    containerElement={<a key={`header-link-${key}`}
+                    href={`/costs/${key}`}/>}
+                    primaryText={Capitalize(key)}
+                />
+            );
         });
 
 		return (
@@ -26,8 +33,8 @@ export default class HeaderDesktop extends React.Component {
                 </ToolbarGroup>
                 <ToolbarGroup className="material-ui-nav-item">
                     <MenuItem  containerElement={<a key="header-link-data-footprint" className="material-ui-nav-item" href="/"/>} primaryText="Footprint" />
-                    <DropDownMenu className="material-ui-nav-dropdown" value={"CO2 Costs"} >
-                        <MenuItem className="material-ui-nav-dropdown" value={"CO2 Costs"} primaryText="CO2 Costs" disabled={true} />
+                    <DropDownMenu menuStyle={{backgroundColor: '#91e0c0'}} className="material-ui-nav-dropdown" value={"CO2 Costs"} >
+                        <MenuItem value={"CO2 Costs"} primaryText="CO2 Costs" disabled={true} />
                         {costPages}
                     </DropDownMenu>
                     <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/how-much-co2"/>} primaryText="How Much CO2" />

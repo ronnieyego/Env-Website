@@ -574,6 +574,9 @@ input[type="checkbox"] {
 .static-page-section {
   text-align: left;
 }
+.static-page-section-center {
+  text-align: center;
+}
 .static-page-subsection {
   margin-left: 15px;
 }

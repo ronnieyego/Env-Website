@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import ReactTooltip from 'react-tooltip';
 import data from './how-much-co2-data';
 
-
 const spanStyle = { display: 'inline-flex'};
 const iconSize = {
     fontSize: '14px',

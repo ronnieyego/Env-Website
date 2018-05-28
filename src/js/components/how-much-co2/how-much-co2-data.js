@@ -4,8 +4,8 @@ export default [
     {
         id: ids.watchTvOneHour,
         name: 'Watching TV for an hour',
-        description: 'Most TVs use about 0.48 kWs.  The US emits 1.456 pounds of CO2 per kWh on average.',
-        amount: 0.0672
+        description: 'Most TVs use about 0.2 kWs.  The US emits 1.456 pounds of CO2 per kWh on average.',
+        amount: 0.029
     },
     {
         id: ids.chargeIpad,
