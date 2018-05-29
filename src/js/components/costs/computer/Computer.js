@@ -44,7 +44,14 @@ export default class Computer extends React.Component {
                     {questions}
                 </div>
                 <div className="centered">
-                    <BarChart graphData={this.props.graphData} units={'Pounds of CO2'} title={`Material Breakdown of ${resolveArticle(this.props.brand)} ${this.props.computerType.toLowerCase()}`} defaultMax={this.props.graphDefaultMax} dataKey={'Phase'} mobileHeaders={['Phase', 'Pounds of CO2']} />
+                    <BarChart
+                        graphData={this.props.graphData}
+                        units={'Pounds of CO2'}
+                        title={`Material Breakdown of ${resolveArticle(this.props.brand)} ${this.props.computerType.toLowerCase()}`}
+                        defaultMax={this.props.graphDefaultMax}
+                        dataKey={'Phase'}
+                        mobileHeaders={['Phase', 'Pounds of CO2']}
+                    />
                 </div>
                 <div>
                     <br />

@@ -83,41 +83,55 @@ const getFromStatesToDestination = (start, destination, rush, weight) => {
     const usDistance = getDistance(start, destination);
     if (usDistance < truckTrainCutoffDistance ) { // Rush doesnt matter if its so close
         const usDistanceCo2 = usDistance * weight * transitCO2.truck;
-        return { usDistance, usDistanceCo2 };
+        const totalCo2 = usDistanceCo2;
+        return { totalCo2, usDistance, usDistanceCo2, local: true };
     } else if (rush) { // Rush use plane
         const planeCo2 = usDistance * weight * transitCO2.plane;
         const usTruckCo2 = fromStateToHouse * weight * transitCO2.truck;
-        return { usDistance, planeCo2, usTruckCo2 };
+        const totalCo2 = usTruckCo2 + planeCo2;
+        return { totalCo2, usDistance, planeCo2, usTruckCo2, airDistance: usDistance };
     } else { // No Rush.  Take rail
         const usRailCo2 = usDistance * weight * transitCO2.rail;
         const usTruckCo2 = fromStateToHouse * weight * transitCO2.truck;
-        return { usDistance, usRailCo2, usTruckCo2 };
+        const totalCo2 = usTruckCo2 + usRailCo2;
+        return { totalCo2, usDistance, usRailCo2, usTruckCo2 };
     };
 };
 
 
 const getFromOverseas = (continent, destination, rush, weight) => {
-    const railDistance = continent === 'china' ? chinaToPortDistance : europeToPortDistance;
-    const fromPortName = continent === 'china' ? 'chinaDistance' : 'europeDistance';
+    const overseasRailDistance = continent === 'China' ? chinaToPortDistance : europeToPortDistance;
+    const startCity = continent === 'China' ? latLongs.shanghai : latLongs.europe;
+    const fromPortName = continent === 'China' ? 'chinaDistance' : 'europeDistance';
+    const overseasRailCo2 = overseasRailDistance * transitCO2.rail * weight;
     if (rush) { // Rush:  use plane
-        const airDistance = getDistance(latLongs.shanghai, destination);
-        const airCo2 = weight * transitCO2.plane * airDistance;
-        const roadCo2 = fromStateToHouse * weight * transitCO2.truck;
-        return { airDistance, airCo2, roadCo2 };
+        const airDistance = getDistance(startCity, destination);
+        const planeCo2 = weight * transitCO2.plane * airDistance;
+        const usRoadCo2 = fromStateToHouse * weight * transitCO2.truck;
+        const totalCo2 = planeCo2 + usRoadCo2 + overseasRailCo2;
+        return { totalCo2, airDistance, overseasRailDistance, overseasRailCo2, planeCo2, usRoadCo2, fromOverseas: continent };
     } // No rush
-    const overseasRailCo2 = railDistance * transitCO2.rail * weight;
     const shipPort = getCity(destination, true);
-    console.log('ship port is ', shipPort);
     const overseasShipDistance = shipPort[fromPortName];
     const overseasShipCo2 = overseasShipDistance * transitCO2.ship * weight;
     const afterUs = getFromStatesToDestination(shipPort, destination, rush, weight);
-    return { overseasRailCo2, overseasShipCo2, overseasShipDistance, ...afterUs };
+    const totalCo2 = afterUs.totalUsCo2 + overseasRailCo2 + overseasShipCo2;
+    return { totalCo2,
+        overseasRailCo2,
+        overseasRailDistance,
+        overseasShipCo2,
+        overseasShipDistance,
+        ...afterUs,
+        fromOverseas: continent,
+        shipPort
+    };
 };
 
 const getFromAcrossAmerica = (destination, rush, weight) => {
     const madeCity = getCity(destination, false);
     console.log('Lets assume this package was made in ', madeCity.name);
-    return getFromStatesToDestination(madeCity, destination, rush, weight);
+    const results = getFromStatesToDestination(madeCity, destination, rush, weight);
+    return { totalCo2: results.totalUsCo2, ...results, producedIn: madeCity.name };
 };
 
 // Aiming for a state close to X miles away
@@ -136,8 +150,8 @@ const getXDistance = (range, destination, rush, weight) => {
     });
     // { state: madeState, distance: madeStateDistance };
     const results = getFromStatesToDestination(statesLatLong[madeState], destination, rush, weight);
-    return {...results, producedIn: madeState };
-
+    const totalCo2 = results.totalUsCo2;
+    return { totalCo2, ...results, producedIn: madeState };
 }
 
 // Trains take 2 days to cross half of the US
@@ -147,7 +161,7 @@ const getXDistance = (range, destination, rush, weight) => {
 const packageQuestions = [
     {    
         id: ids.packageWeight,
-        name: 'How much does your package weigh?',
+        name: 'How many pounds does your package weigh?',
         value: 5,
         type: 'int',
         forms: ['package'],
@@ -191,5 +205,6 @@ module.exports = {
     getFromOverseas,
     getFromStatesToDestination,
     getXDistance,
-    getFromAcrossAmerica
+    getFromAcrossAmerica,
+    fromStateToHouse
 }

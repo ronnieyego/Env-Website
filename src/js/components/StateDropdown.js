@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import { string, bool, func } from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 
-const stateIds = [
+let stateIds = [
 'US',
 'AL',
 'AK',
@@ -59,14 +59,19 @@ const stateIds = [
 
 export default class StateDropdown extends React.Component {
     static propTypes = {
-        id: PropTypes.string,
-        value: PropTypes.string,
-        subText: PropTypes.string,
-        updateQuestion: PropTypes.func,
-        isMobile: PropTypes.bool
+        id: string,
+        value: string,
+        subText: string,
+        updateQuestion: func,
+        isMobile: bool,
+        omitUs: bool
     }
     
 	render() {
+        if(this.props.omitUs) {
+            stateIds = stateIds.filter(e => e !== 'US')
+        }
+
         const dropDownOptions = stateIds.map(state => {
             return <MenuItem 
                 key={state}

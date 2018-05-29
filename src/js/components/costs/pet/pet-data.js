@@ -196,6 +196,7 @@ export const petQuestions = [
     {
         id: ids.userState,
         type: 'user-state',
-        forms: ['pet', 'tv', 'package']
+        forms: ['pet', 'tv', 'package'],
+        omitUs: true
     }
 ];

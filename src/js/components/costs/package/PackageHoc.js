@@ -23,20 +23,46 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 export default class PackageHoc extends React.Component {
 
    
+    roundResults(results) {
+        Object.keys(results).forEach(key => {
+            if (typeof results[key] === 'number') {
+                results[key] = Math.round(results[key] * 10)/10;
+            }
+        });
+        return results;
+    }
+
+    getGraphData(results) {
+        const totalAir = results.planeCo2 || 0;
+        const totalRail = (results.overseasRailCo2 || 0) + (results.usRailCo2 || 0);
+        const totalTruck = results.usTruckCo2 || 0;
+        const totalShip = results.overseasShipCo2 || 0;
+
+        return [
+            {name: 'Air', Method: totalAir},
+            {name: 'Rail', Method: totalRail},
+            {name: 'Truck', Method: totalTruck},
+            {name: 'Ship', Method: totalShip}
+        ];
+    }
+
     getCo2(questions) {
         const packageWeight = getAnswerFromId(questions, ids.packageWeight);
         const packageMade = getAnswerFromId(questions, ids.packageMade);
         const packageShipping = getAnswerFromId(questions, ids.packageShipping);
         const destination = statesLatLong[this.props.userState];
 
-        const rush = ['Overnight', '2 Day'].indexOf(packageShipping) === -1 ? false : true;
+        let rush = ['Overnight', '2 Day'].indexOf(packageShipping) === -1 ? false : true;
+        if( packageShipping === 'Within a week' && ( packageMade === 'China' || packageMade === 'Europe')) {
+            rush = true;
+        }
 
         // just so I have something
         let results = { message: 'Whoops its a miss' };
         if(packageMade === 'China') {
-            results = getFromOverseas('china', destination, rush, packageWeight);
+            results = getFromOverseas('China', destination, rush, packageWeight);
         } else if (packageMade === 'Europe') {
-            results = getFromOverseas('europe', destination, rush, packageWeight);
+            results = getFromOverseas('Europe', destination, rush, packageWeight);
         } else if (packageMade === 'Across America') {
             results = getFromAcrossAmerica(destination, rush, packageWeight)
         } else if (packageMade === 'Semi-local (~1000 miles)') {
@@ -46,11 +72,16 @@ export default class PackageHoc extends React.Component {
         } else if (packageMade === 'Unknown. Probably in America') {
             results = getXDistance(2000, destination, rush, packageWeight)
         } else if (packageMade === 'No idea') {
-            console.log('No idea?  Lets assume china!');
-            results = getFromOverseas('china', destination, rush, packageWeight);
+            results = getFromOverseas('China', destination, rush, packageWeight);
+            results.noIdea = true;
         }
-        
-        return results;
+        results.rush = rush;
+        const totalCo2 = results.totalCo2;
+        const graphData = this.getGraphData(results);
+        const roundedResults = this.roundResults(results);
+        const showResults = totalCo2 === 2.637 ? false : true;  //Hack thats the default load total CO2
+
+        return { graphData, totalCo2, roundedResults, showResults };
     }
 
 	render() {
@@ -60,14 +91,18 @@ export default class PackageHoc extends React.Component {
             return index !== -1 && !question.hidden; 
         });
         
-        const results = this.getCo2(questions);
-        console.log('hoc results', results);
+        const { graphData, totalCo2, roundedResults, showResults} = this.getCo2(questions);
+        console.log('hoc results', roundedResults);
 
 		return (
             <Package
                 dispatch={this.props.dispatch}    
                 questions={questions}
-                totalCo2={500}
+                userState={this.props.userState}
+                totalCo2={totalCo2}
+                results={roundedResults}
+                graphData={graphData}
+                showResults={showResults}
              />
 		);
 	}

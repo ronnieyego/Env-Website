@@ -41,7 +41,7 @@ export default class QuestionHoc extends React.Component {
                 question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'user-state':
-                question = <UserStateDropdown />
+                question = <UserStateDropdown omitUs={this.props.question.omitUs} />
                 break;
             default:
                 console.log('Error.  Bad question type', this.props);

@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import { bool } from 'prop-types';
 import { connect } from 'react-redux';
 
 import StateDropdown from './StateDropdown';
@@ -11,6 +11,10 @@ import StateDropdown from './StateDropdown';
     };
 })
 export default class UserStateDropdown extends React.Component {
+
+    static propTypes = {
+        omitUs: bool
+    }
 
     updateUserState(event, index, value) {
         this.props.dispatch({type: 'UPDATE_USER_STATE', payload: value});
@@ -25,6 +29,7 @@ export default class UserStateDropdown extends React.Component {
                     value={this.props.userState}
                     updateQuestion={this.updateUserState.bind(this)}
                     isMobile={this.props.isMobile}
+                    omitUs={this.props.omitUs}
                 />
             </div>
 		);
