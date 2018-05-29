@@ -59,7 +59,7 @@ export default class House extends React.Component {
 
 		return (
             <div className="costs">
-                <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of ordering a package?</h3>
+                <h3 className="costs-form-header">What's the CO<sub>2</sub> cost of shipping a package?</h3>
                 <div>
                     <div className="costs-form-sub-header">
                         {!this.props.showResults && <p>Please fill out the form below to see the CO<sub>2</sub> cost of shpping a package.</p>}
@@ -69,7 +69,7 @@ export default class House extends React.Component {
                     {this.props.showResults && <BarChart
                         graphData={this.props.graphData}
                         units={'Pounds of CO2'}
-                        title={`Shipping CO2 by method`}
+                        title={`CO2 by shipping method`}
                         dataKey={'Method'}
                         mobileHeaders={['Method', 'Pounds of CO2']}
                     />}
