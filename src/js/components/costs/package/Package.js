@@ -2,13 +2,20 @@ import React from "react";
 import {array, bool, number, string, object } from 'prop-types';
 import Divider from 'material-ui/Divider';
 
-import { fromStateToHouse } from'./package-data';
+import { fromStateToHouse, transitCO2 } from'./package-data';
 import Question from '../../questions/QuestionHoc';
 import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 import ids from '../../../utils/ids/index';
 import { resolveArticle } from '../../../utils/article-fixer';
 import BarChart from '../../bar-chart/BarChartHoc';
-import { getFullStateName } from '../../../utils/state-mappings'
+import { getFullStateName } from '../../../utils/state-mappings';
+
+const shippingMethodCo2Data = [
+    {name: 'Air', Method: 0.986},
+    {name: 'Rail', Method: 0.238},
+    {name: 'Truck', Method: 0.3},
+    {name: 'Ship', Method: 0.01}
+];
 
 export default class House extends React.Component {
 
@@ -74,12 +81,40 @@ export default class House extends React.Component {
                         mobileHeaders={['Method', 'Pounds of CO2']}
                     />}
                     {questions}
+                    <br />
+                    <Divider />
+                    <br />
+                    <div>
+                        <p className="costs-form-sub-header">Key Findings and Questions</p>
+                        <ul>
+                            <li>Container ship is the lowest CO<sub>2</sub> intensive option.  It takes less CO<sub>2</sub> to transport something from China to the coast than it takes to cross half of America.</li>
+                            <li>Rush delivery takes 5-10 times more CO<sub>2</sub> than non rush delivery.</li>
+                            <li>How much does grouping orders save?
+                                <p className="costs-form-indented-paragraph">The short answer is not much.  If you live in IL and order an item from CA and another from NY, the shipping company will probably group them close to your house.  Each item still had the same journey.  In the case where you order 2 packages from NY and NJ and they get grouped in NY before going out, its still likely that the total CO<sub>2</sub> will be similar.  Each item is still roughly doing the same distance as it did before.  In effect, your second item simply displaced someone else's order on that truck/train and it had to be put on the next one.  Grouping your orders will have an effect if the truck would otherwise run empty.  E.g. if a truck drove 200 miles with only your second order, it'd be a huge waste of CO<sub>2</sub>.  While this doesn't really happen on the package level, grouping can help companies run their trucks at a higher capacity and thus reduce the total number of trips.</p>
+                            </li>
+                            <li>How many distribution center are there?  Do packages ever go the wrong direction?
+                                <p className="costs-form-indented-paragraph">A lot.  Amazon generally has 3-6 in each state!  There is usually a distribution center close to every metropolitan area and while packages can and sometimes do go in the wrong direction, its in the companies best interest to reduce waste and inefficiency.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <br />
+
+                    <BarChart
+                        graphData={shippingMethodCo2Data}
+                        units={'Grams of CO2'}
+                        title={`CO2 per km-kg by shipping method`}
+                        dataKey={'Method'}
+                        defaultMax={1}
+                        mobileHeaders={['Method', 'gCO2 per kg-km']}
+                    />
                     <Divider />
                     <div>
                         <p className="costs-form-sub-header">Methodoloy</p>
-                        <p className="costs-form-bottom-paragraph">Since most pets only generate CO<sub>2</sub> indirectly from the food they eat, most of the research went into what goes into pet food.  This turned into quite the adventure.  Pet food varies widley.  Some vegetarian animals like hamsters and iguanas eat a lot of vegetables and are easy.  Things get more complicated as animals become more carnivorous.  Meat has a significantly higher footprint than veggies.  This gets doubley complicated when the same pet can have different diets.</p>
-                        <p className="costs-form-bottom-paragraph">Dogs are the most complicated pet because dog food ranges from ~20% meat to ~95% meat.  <a href="https://www.dogfoodadvisor.com/dog-food-reviews/dry/" target="_blank">This site</a> does a pretty good job breaking down meat content by brand.  I used this to get estimates of meat content by how "premium" the food is.  The next big question is "how much CO<sub>2</sub> is in meat?".  Many providers of pet food simply grind the unused parts of animals and take in any animal they can get.  Cows have ~5x the impact as pigs and chickens and its difficult to know the breakdown for each brand of dog food.  Ultimately I found data on how much poultry, swine, and beef the US produces and assumed all dog food has the same proportion.  This comes out to about 7.16 pounds of CO<sub>2</sub> per pound of meat mix.  Its about 1.23 pounds of CO<sub>2</sub> per pound of grain.  The CO<sub>2</sub> per any pound of dog food multiplies the ratio of meat/grain and the CO<sub>2</sub> per ound of each. Cats went through a very similar methodology as the above, with the caveat that their diet is almost 100% meat based.</p>  
-                        <p className="costs-form-bottom-paragraph">There are a few buckets of CO<sub>2</sub> that I am ignoring either because I think its insignificant or I'm not sure how to get data.  The first is excrement.  I don't think this will have a significant impact on total CO<sub>2</sub>.  The second is surgeries.  Generally surgeries are very CO<sub>2</sub> intensive (there's a lot of infrastructure and operational costs that get distributed over very few surgeries).  Unfortunately, I'm not at a point where I can accurately estimate how much surgeries cost (my best innacurate guess is between 500-5,000 pounds of CO<sub>2</sub> for a pet surgery).</p>
+                        <p className="costs-form-bottom-paragraph">At its core, calculating the CO<sub>2</sub> cost of a package is simple.  For each leg of the package's journey, find out what mode of transportation its using and calculate its CO<sub>2</sub> contribution.  Most research uses the unit gCO<sub>2</sub>/km-kg.  This translates to grams of CO<sub>2</sub>e for every unit of weight-distance.  It makes sense as heavier objects require more energy to move and obviously longer distances take more energy as well.  The biggest assumption with this unit is that a doubling of weight has the same effect as a doubling of distance.  Conceptually this makes sense.  It should be noted that this unit ignores spacial constraints.  A really large but light item leaves less room for other items.</p>
+                        <p className="costs-form-bottom-paragraph">Determining the gCO<sub>2</sub>/km-kg was pretty easy.  There's a decent amount of research on the subject and the range of values is pretty small (range was about the average +/- 50%; surprisingly low compared to other areas).  <a href="http://www.winnipeg.ca/finance/findata/matmgt/documents/2012/682-2012/682-2012_Appendix_H-WSTP_South_End_Plant_Process_Selection_Report/Appendix%207.pdf" target="_blank">This table</a> has a pretty good summary if you're curious.  The real struggle came with routing and what mode of transportation each leg entailed.</p>
+                        <p className="costs-form-bottom-paragraph">Shipping within America is somewhat simple.  Generally, we load the item on a frieght train and transport it to a major distribution center.  From there it might get transferred to a closer distribution center.  Finally it gets trucked to your house. I assume that there's a direct freight line that takes the package close to your house.  Since most rail tracks aren't perfectly straight, I am underestimating the total CO<sub>2</sub> (rail CO<sub>2</sub> could be up to %20 higher).  Once it arrives at a hub near you, I am assuming that it travels 100 miles by truck to get to your house.  This is probably high if you live close to a city, but probably low if you live rurally.  At a certain distance, its more economical to transport the package via truck and ignore rail.  I used the cutoff of 200 miles, though I'm sure its different for each company.</p>
+                        <p className="costs-form-bottom-paragraph">Overseas shipping is pretty simple.  The package needs to get to a port, travel to a US port, and then get to your door.  Bulk goods tend to get to a port via rail and a lot of industry purposely build factories with easy access to rail freight.  For China, most of their industrial hubs are located within 100 miles of the coast. I assumed they all took 100 miles of rail freight to get to a port (Europe is similar).  Since container shipping is the cheapest transit method, I assume that it'll be shipped to the closest major port near you (there are reasons to ship to a different port, but I believe most items bought are distributed across America and that shipping companies are pretty efficient). <a href="https://www.shiplilly.com/blog/ocean-shipping-from-china-to-miami-carrier-review-and-routes/#manhattan-bridge" target="_blank">This map</a> shows common shipping routes.  The distances are a little bit off since I don't know the exact routes and starting port.  The distances take the Panama Canal into account, but assume straight lines between destinations (this undercuts shipping accuracy by less than 1 pound).  Once in the states, it follows the same pattern as above starting with the port city.</p>
+                        <p className="costs-form-bottom-paragraph">Rush shipping is the easiest calculation.  The package is transported to an airport first and then flown to the nearest hub.  I am assuming its then close enough to truck to its final detination.</p>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@ const getDistance = (start, destination) => {
     return Math.round(meters * METERS_TO_MILES);
 } 
 
-export const transitCO2 = {
+const transitCO2 = {
     // LB CO2e/ LB-MI
     plane:	0.00297,
     truck:	0.00072,
@@ -206,5 +206,6 @@ module.exports = {
     getFromStatesToDestination,
     getXDistance,
     getFromAcrossAmerica,
-    fromStateToHouse
+    fromStateToHouse,
+    transitCO2
 }

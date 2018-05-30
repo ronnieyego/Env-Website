@@ -443,6 +443,14 @@ input[type="checkbox"] {
     padding: 0 10px;
   }
 }
+.costs-form-indented-paragraph {
+  padding-left: 40px;
+}
+@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
+  .costs-form-indented-paragraph {
+    padding-left: 10px;
+  }
+}
 .costs-form-list {
   list-style-type: none;
 }
