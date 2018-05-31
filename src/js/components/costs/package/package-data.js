@@ -88,7 +88,7 @@ const getFromStatesToDestination = (start, destination, rush, weight) => {
     } else if (usDistance < truckTrainCutoffDistance ) { // Rush doesnt matter if its so close
         const usDistanceCo2 = usDistance * weight * transitCO2.truck;
         const totalCo2 = usDistanceCo2;
-        return { totalCo2, usDistance, usDistanceCo2, local: true };
+        return { totalCo2, usDistance, usDistanceCo2, usTruckCo2: totalCo2, local: true };
     } else if (rush) { // Rush use plane
         const planeCo2 = usDistance * weight * transitCO2.plane;
         const usTruckCo2 = fromStateToHouse * weight * transitCO2.truck;
@@ -178,6 +178,7 @@ const packageQuestions = [
     {    
         id: ids.packageWeight,
         name: 'How many pounds does your package weigh?',
+        subtext: 'Include packaging weight',
         value: 5,
         type: 'int',
         forms: ['package'],
