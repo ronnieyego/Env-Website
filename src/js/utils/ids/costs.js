@@ -1,4 +1,4 @@
-// 1056 currenet max
+// 1058 currenet max
 
 export default {
 
@@ -65,6 +65,8 @@ export default {
     packageWeight: 1054,
     packageMade: 1055,
     packageShipping: 1056,
+    orderOrMail: 1057,
+    mailToState: 1058,
 
 // Pet
     petType: 1040,

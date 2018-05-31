@@ -3,6 +3,7 @@
 import ids from '../../../utils/ids/index';
 import { statesLatLong } from '../../../utils/utils-data/lat-longs';
 import geolib from 'geolib';
+import { stateIds } from '../../../utils/utils-data/state-energy-and-emissions';
 
 const METERS_TO_MILES = 0.000621371;
 
@@ -81,7 +82,10 @@ const getCity = (destination, port) => {
 // Could be an arbitrary location or a port
 const getFromStatesToDestination = (start, destination, rush, weight) => {
     const usDistance = getDistance(start, destination);
-    if (usDistance < truckTrainCutoffDistance ) { // Rush doesnt matter if its so close
+    if(usDistance === 0) { // Same state transit
+        const totalCo2 = weight * transitCO2.truck * fromStateToHouse;
+        return { totalCo2, usTruckCo2: totalCo2 };
+    } else if (usDistance < truckTrainCutoffDistance ) { // Rush doesnt matter if its so close
         const usDistanceCo2 = usDistance * weight * transitCO2.truck;
         const totalCo2 = usDistanceCo2;
         return { totalCo2, usDistance, usDistanceCo2, local: true };
@@ -148,11 +152,11 @@ const getXDistance = (range, destination, rush, weight) => {
             madeStateDistance = distanceToRange;
         }
     });
-    // { state: madeState, distance: madeStateDistance };
     const results = getFromStatesToDestination(statesLatLong[madeState], destination, rush, weight);
     const totalCo2 = results.totalUsCo2;
     return { totalCo2, ...results, producedIn: madeState };
-}
+};
+
 
 // Trains take 2 days to cross half of the US
 // 4 days for the whole country
@@ -160,12 +164,33 @@ const getXDistance = (range, destination, rush, weight) => {
 
 const packageQuestions = [
     {    
+        id: ids.orderOrMail,
+        name: 'Are you ordering a package or mailing one?',
+        "selectOptions": [
+            'Ordering',
+            'Mailing'
+        ],
+        value: "Ordering",
+        type: 'dropdown',
+        forms: ['package'],
+        formType: 'costs'
+    },
+    {    
         id: ids.packageWeight,
         name: 'How many pounds does your package weigh?',
         value: 5,
         type: 'int',
         forms: ['package'],
         formType: 'costs',
+    },
+    {    
+        id: ids.mailToState,
+        name: 'Where are you mailing the package?',
+        "selectOptions": [ ...stateIds],
+        value: "TX",
+        type: 'dropdown',
+        forms: ['package'],
+        formType: 'costs'
     },
     {    
         id: ids.packageMade,
@@ -209,3 +234,4 @@ module.exports = {
     fromStateToHouse,
     transitCO2
 }
+

@@ -74,7 +74,7 @@ export default class HowMuchCo2 extends React.Component {
         const display = facts.map(fact => this.renderFact(fact))
 		return (
             <span>
-                <span style={spanStyle} data-tip data-for='howMuchCo2'>{co2.toLocaleString()} <i className="material-icons" style={iconSize}>help</i> </span>
+                <div style={spanStyle} data-tip data-for='howMuchCo2'>{co2.toLocaleString()} <i className="material-icons" style={iconSize}>help</i> </div>
                 <ReactTooltip place="bottom" id='howMuchCo2' type='dark' effect='solid'>
                     <div key={`howMuchCO2-${co2}`}>
                         <p key={`howMuchCO2-header${co2}`} className="how-much-co2-fact-name">This footprint is close to. . .</p>

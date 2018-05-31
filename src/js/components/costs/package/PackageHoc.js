@@ -47,10 +47,19 @@ export default class PackageHoc extends React.Component {
     }
 
     getCo2(questions) {
+        const questionsToFilter = [];
+        const orderOrMail = getAnswerFromId(questions, ids.orderOrMail);
+        const mailToState = getAnswerFromId(questions, ids.mailToState);
         const packageWeight = getAnswerFromId(questions, ids.packageWeight);
         const packageMade = getAnswerFromId(questions, ids.packageMade);
         const packageShipping = getAnswerFromId(questions, ids.packageShipping);
         const destination = statesLatLong[this.props.userState];
+
+        if (orderOrMail === 'Mailing') {
+            questionsToFilter.push(ids.packageMade);
+        } else if(orderOrMail === 'Ordering') {
+            questionsToFilter.push(ids.mailToState);
+        }
 
         let rush = ['Overnight', '2 Day'].indexOf(packageShipping) === -1 ? false : true;
         if( packageShipping === 'Within a week' && ( packageMade === 'China' || packageMade === 'Europe')) {
@@ -59,40 +68,51 @@ export default class PackageHoc extends React.Component {
 
         // just so I have something
         let results = { message: 'Whoops its a miss' };
-        if(packageMade === 'China') {
-            results = getFromOverseas('China', destination, rush, packageWeight);
-        } else if (packageMade === 'Europe') {
-            results = getFromOverseas('Europe', destination, rush, packageWeight);
-        } else if (packageMade === 'Across America') {
-            results = getFromAcrossAmerica(destination, rush, packageWeight)
-        } else if (packageMade === 'Semi-local (~1000 miles)') {
-            results = getXDistance(1000, destination, rush, packageWeight)
-        } else if (packageMade === 'Local (~200 miles)') {
-            results = getXDistance(200, destination, rush, packageWeight)
-        } else if (packageMade === 'Unknown. Probably in America') {
-            results = getXDistance(2000, destination, rush, packageWeight)
-        } else if (packageMade === 'No idea') {
-            results = getFromOverseas('China', destination, rush, packageWeight);
-            results.noIdea = true;
+        
+        if (orderOrMail === 'Ordering') {
+            if(packageMade === 'China') {
+                results = getFromOverseas('China', destination, rush, packageWeight);
+            } else if (packageMade === 'Europe') {
+                results = getFromOverseas('Europe', destination, rush, packageWeight);
+            } else if (packageMade === 'Across America') {
+                results = getFromAcrossAmerica(destination, rush, packageWeight)
+            } else if (packageMade === 'Semi-local (~1000 miles)') {
+                results = getXDistance(1000, destination, rush, packageWeight)
+            } else if (packageMade === 'Local (~200 miles)') {
+                results = getXDistance(200, destination, rush, packageWeight)
+            } else if (packageMade === 'Unknown. Probably in America') {
+                results = getXDistance(2000, destination, rush, packageWeight)
+            } else if (packageMade === 'No idea') {
+                results = getFromOverseas('China', destination, rush, packageWeight);
+                results.noIdea = true;
+            }
+        } else if (orderOrMail === 'Mailing') {
+            const start = statesLatLong[mailToState];
+            results = getFromStatesToDestination(destination, start, rush, packageWeight);
+            results.destinationState = mailToState;
+            results.mailing = true;
+            if (mailToState === this.props.userState) {
+                results.sameState = true;
+            }
         }
         results.rush = rush;
         const totalCo2 = results.totalCo2;
         const graphData = this.getGraphData(results);
         const roundedResults = this.roundResults(results);
-        const showResults = totalCo2 === 2.637 ? false : true;  //Hack thats the default load total CO2
+        const showResults = this.props.userState === 'US' ? false : true;  // If its US, they haven't chosen anything since I removed US as an option
 
-        return { graphData, totalCo2, roundedResults, showResults };
+        return { graphData, totalCo2, roundedResults, showResults, questionsToFilter };
     }
 
 	render() {
-        const questions = this.props.questions.filter(question => { 
+        let questions = this.props.questions.filter(question => { 
             const forms = question['forms'];
             const index = forms.indexOf('package');
             return index !== -1 && !question.hidden; 
         });
         
-        const { graphData, totalCo2, roundedResults, showResults} = this.getCo2(questions);
-        console.log('hoc results', roundedResults);
+        const { graphData, totalCo2, roundedResults, showResults, questionsToFilter} = this.getCo2(questions);
+        questions = questions.filter( question => questionsToFilter.indexOf(question.id) === -1);
 
 		return (
             <Package
