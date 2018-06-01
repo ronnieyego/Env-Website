@@ -1,4 +1,4 @@
-// 1058 currenet max
+// 1059 currenet max
 
 export default {
 
@@ -67,6 +67,7 @@ export default {
     packageShipping: 1056,
     orderOrMail: 1057,
     mailToState: 1058,
+    americanLocations: 1059,
 
 // Pet
     petType: 1040,

@@ -52,6 +52,7 @@ export default class PackageHoc extends React.Component {
         const mailToState = getAnswerFromId(questions, ids.mailToState);
         const packageWeight = getAnswerFromId(questions, ids.packageWeight);
         const packageMade = getAnswerFromId(questions, ids.packageMade);
+        const americanLocation = getAnswerFromId(questions, ids.americanLocations);
         const packageShipping = getAnswerFromId(questions, ids.packageShipping);
         const destination = statesLatLong[this.props.userState];
 
@@ -59,6 +60,9 @@ export default class PackageHoc extends React.Component {
             questionsToFilter.push(ids.packageMade);
         } else if(orderOrMail === 'Ordering') {
             questionsToFilter.push(ids.mailToState);
+            if(packageMade !== 'America') {
+                questionsToFilter.push(ids.americanLocations); 
+            }
         }
 
         let rush = ['Overnight', '2 Day'].indexOf(packageShipping) === -1 ? false : true;
@@ -70,31 +74,59 @@ export default class PackageHoc extends React.Component {
         let results = { message: 'Whoops its a miss' };
         
         if (orderOrMail === 'Ordering') {
+            if(packageMade === 'America') {
+                if (americanLocation === 'Across America') {
+                    results = getFromAcrossAmerica(destination, rush, packageWeight);
+                    const antiRushRes = getFromAcrossAmerica(destination, !rush, packageWeight);
+                    results.reverseRush = antiRushRes.totalCo2;
+                } else if (americanLocation === 'Semi-local (~1000 miles)') {
+                    results = getXDistance(1000, destination, rush, packageWeight);
+                    const antiRushRes = getXDistance(1000, destination, !rush, packageWeight);
+                    results.reverseRush = antiRushRes.totalCo2;
+                } else if (americanLocation === 'Local (~200 miles)') {
+                    results = getXDistance(200, destination, rush, packageWeight);
+                    const antiRushRes = getXDistance(200, destination, !rush, packageWeight);
+                    results.reverseRush = antiRushRes.totalCo2;
+                } else if (americanLocation === 'No idea') {
+                    results = getXDistance(1500, destination, rush, packageWeight);
+                    const antiRushRes = getXDistance(1500, destination, !rush, packageWeight);
+                    results.reverseRush = antiRushRes.totalCo2;
+                    results.noIdea = true;
+                } else {
+                    const start = statesLatLong[mailToState];
+                    results = getFromStatesToDestination(destination, start, rush, packageWeight);
+                    const antiRushRes = getFromStatesToDestination(destination, start, !rush, packageWeight);
+                    results.reverseRush = antiRushRes.totalCo2;
+                    results.knowWhereMadeInAmerica = americanLocation;
+                }
+                results.madeInAmerica = true;
+            }
             if(packageMade === 'China') {
                 results = getFromOverseas('China', destination, rush, packageWeight);
+                const antiRushRes = getFromOverseas('China', destination, !rush, packageWeight);
+                results.reverseRush = antiRushRes.totalCo2;
             } else if (packageMade === 'Europe') {
                 results = getFromOverseas('Europe', destination, rush, packageWeight);
-            } else if (packageMade === 'Across America') {
-                results = getFromAcrossAmerica(destination, rush, packageWeight)
-            } else if (packageMade === 'Semi-local (~1000 miles)') {
-                results = getXDistance(1000, destination, rush, packageWeight)
-            } else if (packageMade === 'Local (~200 miles)') {
-                results = getXDistance(200, destination, rush, packageWeight)
-            } else if (packageMade === 'Unknown. Probably in America') {
-                results = getXDistance(2000, destination, rush, packageWeight)
+                const antiRushRes = getFromOverseas('Europe', destination, !rush, packageWeight);
+                results.reverseRush = antiRushRes.totalCo2;
             } else if (packageMade === 'No idea') {
                 results = getFromOverseas('China', destination, rush, packageWeight);
+                const antiRushRes = getFromOverseas('China', destination, !rush, packageWeight);
+                results.reverseRush = antiRushRes.totalCo2;
                 results.noIdea = true;
             }
         } else if (orderOrMail === 'Mailing') {
             const start = statesLatLong[mailToState];
             results = getFromStatesToDestination(destination, start, rush, packageWeight);
+            const antiRushRes = getFromStatesToDestination(destination, start, !rush, packageWeight);
+            results.reverseRush = antiRushRes.totalCo2;
             results.destinationState = mailToState;
             results.mailing = true;
             if (mailToState === this.props.userState) {
                 results.sameState = true;
             }
         }
+        console.log(results);
         results.rush = rush;
         const totalCo2 = results.totalCo2;
         const graphData = this.getGraphData(results);

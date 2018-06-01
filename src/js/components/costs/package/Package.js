@@ -31,22 +31,24 @@ export default class House extends React.Component {
 
     getDisplayTextFromResults(results) {
         let text = 'Error.  Something went wrong.';
-        if(results.fromOverseas) {
+        if (results.fromOverseas) {
             const startText = results.noIdea ? `Let's assume y` : 'Y';
             if (results.rush) {
                 text = `${startText}our package started in ${results.fromOverseas}.  Since you needed this package asap, it quickly travelled ${results.overseasRailDistance.toLocaleString()} miles to the nearest airport, loaded into a cargo plane and travelled ${results.airDistance.toLocaleString()} miles to the closest hub in ${getFullStateName(this.props.userState)}. The package was then loaded into a truck and travelled ~${fromStateToHouse} miles to your front door.`;
             } else {
                 text = `${startText}our package started in ${results.fromOverseas} and travelled about ${results.overseasRailDistance.toLocaleString()} miles by rail to reach a port.  From there it got loaded on a container ship and sailed ${results.overseasShipDistance.toLocaleString()} miles to ${results.shipPort.name} (or a nearby port).  Next, your package was once again loaded on a train and travelled about ${results.usDistance.toLocaleString()} miles to a major hub in ${getFullStateName(this.props.userState)}.  Finally, the package was loaded into a truck and travelled ~${fromStateToHouse} miles to your front door.`;
             }
-        } else if (results.producedIn) {
-            const producedIn = results.producedIn.length > 2 ? results.producedIn : getFullStateName(results.producedIn)
+        } else if (results.madeInAmerica) {
+            const producedIn = results.knowWhereMadeInAmerica ? `Your order starts in ${getFullStateName(results.knowWhereMadeInAmerica)}.` : false;
+            const assumedProducedIn = results.producedIn && results.producedIn.length > 2 ? results.producedIn : getFullStateName(results.producedIn)
+            const startText = producedIn ? producedIn : `Let's assume your order was produced in ${assumedProducedIn}.`;
             if(results.local) {
-                text = `Let's assume your order was produced in ${producedIn}.  Since this is somewhat close (under 200 miles) to your house, it was probably faster and cheaper to ship the package by truck instead of plane or rail.  It travelled about ${results.usDistance.toLocaleString()} miles to a major hub in ${getFullStateName(this.props.userState)} and processed at a distribution center.  Finally, the package was loaded into a different truck and travelled ~${fromStateToHouse} miles to your front door.`;
+                text = `${startText}  Since this is somewhat close (under 200 miles) to your house, it was probably faster and cheaper to ship the package by truck instead of plane or rail.  It travelled about ${results.usDistance.toLocaleString()} miles to a major hub in ${getFullStateName(this.props.userState)} and processed at a distribution center.  Finally, the package was loaded into a different truck and travelled ~${fromStateToHouse} miles to your front door.`;
             } else if (results.rush) {
-                text = `Let's assume your order was produced in ${producedIn}.  Since you needed this package quickly, it had to be rushed over. This means it travelled ${results.airDistance.toLocaleString()} miles by air and landed in the closest hub in ${getFullStateName(this.props.userState)}. The package was then loaded into a truck and travelled ~${fromStateToHouse} miles to your front door.`;
+                text = `${startText}  Since you needed this package quickly, it had to be rushed over. This means it travelled ${results.airDistance.toLocaleString()} miles by air and landed in the closest hub in ${getFullStateName(this.props.userState)}. The package was then loaded into a truck and travelled ~${fromStateToHouse} miles to your front door.`;
             } 
             else {
-                text = `Let's assume your order was produced in ${producedIn}.  Factories tend to have easy access to freight so we'll assume its instantly loaded onto a train.  From there it travelled about ${results.usDistance.toLocaleString()} miles to a major hub in ${getFullStateName(this.props.userState)}.  Finally, the package was loaded into a truck and travelled ~${fromStateToHouse} miles to your front door.`;
+                text = `${startText}  Factories tend to have easy access to freight so we'll assume its instantly loaded onto a train.  From there it travelled about ${results.usDistance.toLocaleString()} miles to a major hub in ${getFullStateName(this.props.userState)}.  Finally, the package was loaded into a truck and travelled ~${fromStateToHouse} miles to your front door.`;
             }
         } else if (results.mailing) {
             if(results.sameState) {
@@ -63,6 +65,14 @@ export default class House extends React.Component {
         return <p className="costs-form-sub-text">{text}</p>;
     }
 
+    getReverseRushText(results) {
+        const differenceOfRush = Math.round(Math.abs(this.props.results.totalCo2 - this.props.results.reverseRush));
+        return results.rush ? 
+            <p className="costs-form-sub-text">You could save {differenceOfRush.toLocaleString()} pounds of CO<sub>2</sub> by choosing a no rush delivery date.</p>
+            :
+            <p className="costs-form-sub-text">You saved {differenceOfRush.toLocaleString()} pounds of CO<sub>2</sub> by avoiding rush delivery.</p>;
+    }
+
 	render() {
         const questions = this.props.questions.map(question => (
                 <Question
@@ -74,6 +84,7 @@ export default class House extends React.Component {
             )
         );
         const exludeHowMuchIds = [];
+        
 
 		return (
             <div className="costs">
@@ -83,6 +94,7 @@ export default class House extends React.Component {
                         {!this.props.showResults && <p>Please fill out the form below to see the CO<sub>2</sub> cost of shpping a package.</p>}
                         {this.props.showResults && <span>Your package will emit <HowMuchCo2 co2={this.props.totalCo2} exclude={exludeHowMuchIds} /> pounds of CO<sub>2</sub>.</span>}
                         {this.props.showResults && this.getDisplayTextFromResults(this.props.results)}       
+                        {this.props.showResults && this.getReverseRushText(this.props.results)}       
                     </div>
                     {this.props.showResults && <BarChart
                         graphData={this.props.graphData}

@@ -119,13 +119,14 @@ const getFromOverseas = (continent, destination, rush, weight) => {
     const overseasShipDistance = shipPort[fromPortName];
     const overseasShipCo2 = overseasShipDistance * transitCO2.ship * weight;
     const afterUs = getFromStatesToDestination(shipPort, destination, rush, weight);
-    const totalCo2 = afterUs.totalUsCo2 + overseasRailCo2 + overseasShipCo2;
-    return { totalCo2,
+    const totalCo2 = afterUs.totalCo2 + overseasRailCo2 + overseasShipCo2;
+    return { 
+        ...afterUs,
+        totalCo2,
         overseasRailCo2,
         overseasRailDistance,
         overseasShipCo2,
         overseasShipDistance,
-        ...afterUs,
         fromOverseas: continent,
         shipPort
     };
@@ -154,7 +155,7 @@ const getXDistance = (range, destination, rush, weight) => {
     });
     const results = getFromStatesToDestination(statesLatLong[madeState], destination, rush, weight);
     const totalCo2 = results.totalUsCo2;
-    return { totalCo2, ...results, producedIn: madeState };
+    return { ...results, totalCo2, producedIn: madeState };
 };
 
 
@@ -197,15 +198,27 @@ const packageQuestions = [
         id: ids.packageMade,
         name: 'Where was the package made?',
         "selectOptions": [
+            'America',
+            'China',
+            'Europe',
+            'No idea (probably China)',
+        ],
+        value: "China",
+        type: 'dropdown',
+        forms: ['package'],
+        formType: 'costs'
+    },
+    {    
+        id: ids.americanLocations,
+        name: 'Where in American was the package made?',
+        "selectOptions": [
+            'No idea',
             'Local (~200 miles)',
             'Semi-local (~1000 miles)',
             'Across America',
-            'Unknown. Probably in America',
-            'China',
-            'Europe',
-            'No idea',
+            ...stateIds
         ],
-        value: "China",
+        value: "No idea",
         type: 'dropdown',
         forms: ['package'],
         formType: 'costs'
