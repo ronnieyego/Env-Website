@@ -11,6 +11,7 @@ import { furnitureQuestions } from './furniture/furniture-data';
 import { homeQuestions } from './home/home-data';
 import { packageQuestions } from './package/package-data';
 import { petQuestions } from './pet/pet-data';
+import { steakQuestions } from './steak/steak-data';
 import { tabletQuestions } from './tablet/tablet-data';
 import { tvQuestions } from './tv/tv-data';
 
@@ -27,6 +28,7 @@ export default [
     ...homeQuestions,
     ...packageQuestions,
     ...petQuestions,
+    ...steakQuestions,
     ...tabletQuestions,
     ...tvQuestions,
 ];

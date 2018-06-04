@@ -11,6 +11,7 @@ import FurnitureHoc from './furniture/FurnitureHoc';
 import HomeHoc from './home/HomeHoc';
 import PackageHoc from './package/PackageHoc';
 import PetHoc from './pet/PetHoc';
+import SteakHoc from './steak/SteakHoc';
 import TabletHoc from './tablet/TabletHoc';
 import TvHoc from './tv/TvHoc';
 
@@ -34,6 +35,7 @@ export default {
     laptop: <ComputerHoc />,
     package: <PackageHoc />,
     pet: <PetHoc />,
+    steak: <SteakHoc />,
     tablet: <ComputerHoc />,
     tv: <TvHoc />,
 };

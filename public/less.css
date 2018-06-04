@@ -541,14 +541,21 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 .question-boolean {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin: 15px;
+  margin-left: 40%;
 }
-@media only screen and (max-width: 479px), only screen and (min-width: 479px) and (max-width: 959px) {
+@media only screen and (max-width: 479px) {
   .question-boolean {
-    text-align: center;
     padding: 0 10px;
+    margin-left: 20%;
+  }
+}
+@media only screen and (min-width: 479px) and (max-width: 959px) {
+  .question-boolean {
+    padding: 0 10px;
+    margin-left: 30%;
   }
 }
 .bar-chart {

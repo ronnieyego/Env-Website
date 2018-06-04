@@ -39,6 +39,7 @@ export const updateQuestion = (allQuestions, id, value) => {
     return allQuestions.map(question => {
         if (question.id == id) { // I get id from the dom which stringifies it
             question.value = value;
+            question.checked = value === 'on' ? true : false; // Only for bool questions
         };
         return question;
     });
