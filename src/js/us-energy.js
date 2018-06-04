@@ -13,6 +13,7 @@ import UsEnergy from './pages/UsEnergy';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
+preloadedState.metadata = { isServerSide: false };
 
 // Allow the passed state to be garbage-collected
 delete window.__PRELOADED_STATE__;

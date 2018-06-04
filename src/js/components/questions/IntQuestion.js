@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField';
-
+import ReactTooltip from 'react-tooltip';
 
 import { formatName } from './utils';
 import { setQuestionError} from '../../actions/footprint/form-actions';
@@ -47,11 +47,20 @@ export default class Question extends React.Component {
 
 	render() {
         const question = this.props.question
-        const textWidth = question.textWidth ? question.textWidth : '250px';
-        const inputStyle = { textAlign: 'center' };
 		return (
             <div className="question">
-                <p className="question-name">{formatName(question.name, this.props.question.formType)}</p>
+                <span className="question-name-container">
+                    <div className="question-name">{formatName(question.name, this.props.question.formType)}</div>
+                    {question.hoverText && 
+                        <span>
+                            <div className="question-help" data-tip data-for={`int-question-hover-${question.id}`}>
+                                <i className="material-icons question-icon">help</i> </div>
+                                <ReactTooltip place="top" id={`int-question-hover-${question.id}`} type='dark' effect='solid'>
+                                    <p className="int-question-hover">{question.hoverText}</p>
+                                </ReactTooltip>
+                        </span>
+                    }
+                </span>
                 {question.aboveText && <p className="question-subtext">{question.aboveText}</p>}
                 {question.aboveText2 && <p className="question-subtext">{question.aboveText2}</p>}
                 <div>
@@ -63,7 +72,7 @@ export default class Question extends React.Component {
                         onChange={this.updateQuestion.bind(this, question.validator)}
                         value={this.props.value}
                         floatingLabelText={question.floatingLabelText}
-                        inputStyle={inputStyle}
+                        inputStyle={{ textAlign: 'center' }}
                         type={this.props.isMobile ? 'number' : ''}  // Need to learn how to turn off html5s validation so its only on mobile.
                     />
                 </div>

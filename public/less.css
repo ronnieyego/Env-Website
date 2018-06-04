@@ -524,6 +524,9 @@ input[type="checkbox"] {
   font-size: 18px;
   font-weight: bold;
 }
+.question-name-container {
+  display: inline-flex;
+}
 .question-subtext {
   font-size: 16px;
   font-weight: normal;
@@ -539,6 +542,15 @@ input[type="checkbox"] {
   font-size: 18px;
   font-weight: normal;
   margin-bottom: 10px;
+}
+.question-help {
+  display: inline-flex;
+}
+.question-icon {
+  font-size: 14px;
+  margin-top: 5px;
+  margin-left: 10px;
+  color: mediumpurple;
 }
 .question-boolean {
   font-size: 18px;

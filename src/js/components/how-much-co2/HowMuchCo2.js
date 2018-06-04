@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-import ReactTooltip from 'react-tooltip';
+import ReactTooltip from '../tooltip/Tooltip';
 import data from './how-much-co2-data';
 
 const spanStyle = { display: 'inline-flex'};
@@ -75,7 +75,7 @@ export default class HowMuchCo2 extends React.Component {
 		return (
             <span>
                 <div style={spanStyle} data-tip data-for='howMuchCo2'>{co2.toLocaleString()} <i className="material-icons" style={iconSize}>help</i> </div>
-                <ReactTooltip place="bottom" id='howMuchCo2' type='dark' effect='solid'>
+                <ReactTooltip place="bottom" id='howMuchCo2'>
                     <div key={`howMuchCO2-${co2}`}>
                         <p key={`howMuchCO2-header${co2}`} className="how-much-co2-fact-name">This footprint is close to. . .</p>
                         {display}

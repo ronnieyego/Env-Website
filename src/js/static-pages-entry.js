@@ -17,8 +17,9 @@ import Static from './pages/Static'
 
 
 const preloadedState = window.__PRELOADED_STATE__ || {};
-
+preloadedState.metadata = { isServerSide: false };
 const page = preloadedState.page;
+
 // Allow the passed state to be garbage-collected
 
 delete window.__PRELOADED_STATE__;

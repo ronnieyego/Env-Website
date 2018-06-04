@@ -18,6 +18,7 @@ const page = window.__PRELOADED_STATE__.page;
 delete window.__PRELOADED_STATE__.costsPage;
 
 const preloadedState = window.__PRELOADED_STATE__ || {};
+preloadedState.metadata = { isServerSide: false };
 
 // Allow the passed state to be garbage-collected
 delete window.__PRELOADED_STATE__;
