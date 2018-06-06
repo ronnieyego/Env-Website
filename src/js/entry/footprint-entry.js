@@ -7,9 +7,9 @@ import thunk from 'redux-thunk';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import reducers from './redux/reducers/index';
+import reducers from '../redux/reducers/index';
 
-import StateEnergyProfile from './pages/StateEnergyProfile.js'
+import FootprintCalcPage from '../pages/FootprintCalculator';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
@@ -20,14 +20,14 @@ delete window.__PRELOADED_STATE__;
 
 // Create Redux store with initial state
 const middleware = applyMiddleware(thunk, logger);
+
 const store = createStore(reducers, preloadedState, middleware);
 
 const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
         <MuiThemeProvider>
-            <StateEnergyProfile />
+            <FootprintCalcPage />
         </MuiThemeProvider>
     </Provider>
 , app);
-

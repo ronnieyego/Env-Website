@@ -7,9 +7,9 @@ import thunk from 'redux-thunk';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import reducers from './redux/reducers/index';
+import reducers from '../redux/reducers/index';
 
-import SolarWidget from './pages/SolarWidget';
+import UsEnergy from '../pages/UsEnergy';
 
 // Grab the state from a global variable injected into the server-generated HTML
 const preloadedState = window.__PRELOADED_STATE__;
@@ -26,7 +26,7 @@ const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
         <MuiThemeProvider>
-            <SolarWidget />
+            <UsEnergy />
         </MuiThemeProvider>
     </Provider>
 , app);

@@ -8,35 +8,35 @@ let entry;
 let filename;
 switch(process.env.page) {
   case 'solar':
-    entry = './js/solar-entry.js';
+    entry = './js/entry/solar-entry.js';
     filename = 'solar.min.js';
     break;
   case 'static':
-    entry = './js/static-pages-entry.js';
+    entry = './js/entry/static-pages-entry.js';
     filename = 'static-pages.min.js';
     break;
   case 'usenergy':
-    entry = './js/us-energy.js';
+    entry = './js/entry/us-energy.js';
     filename = 'us-energy.min.js';
     break;
   case 'stateenergy':
-    entry = './js/state-energy-profile.js';
+    entry = './js/entry/state-energy-profile.js';
     filename = 'state-energy.min.js';
     break;
   case 'footprint':
-    entry = './js/footprint-entry.js';
+    entry = './js/entry/footprint-entry.js';
     filename = 'footprint.min.js';
     break;
   case 'pages':
-    entry = './js/static-pages-entry.js';
+    entry = './js/entry/static-pages-entry.js';
     filename = 'static-pages.min.js';
     break;
   case 'costs':
-    entry = './js/costs-pages-entry.js';
+    entry = './js/entry/costs-pages-entry.js';
     filename = 'costs-pages.min.js';
     break;
   default: //defaults to solar
-    entry = './js/solar-entry.js';
+    entry = './js/entry/solar-entry.js';
     filename = 'solar.min.js';
 }
 
@@ -49,7 +49,7 @@ module.exports = {
     },
     extensions: ['', '.js']
   },
-  entry: entry, //"./js/state-energy-profile.js", // ./js/client.js for widget  //./js/homepage-entry.js for homepage  // ./js/state-energy-profile.js for state energy profile
+  entry: entry,
   module: {
     rules: [
       {

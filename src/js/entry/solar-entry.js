@@ -7,24 +7,18 @@ import thunk from 'redux-thunk';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import reducers from './redux/reducers/index';
+import reducers from '../redux/reducers/index';
 
-import Costs from './pages/Costs'
+import SolarWidget from '../pages/SolarWidget';
 
 // Grab the state from a global variable injected into the server-generated HTML
-const page = window.__PRELOADED_STATE__.page;
-
-// No real need to do this, but i get a console warning saying there's an unknown item when i try to make my store.
-delete window.__PRELOADED_STATE__.costsPage;
-
-const preloadedState = window.__PRELOADED_STATE__ || {};
+const preloadedState = window.__PRELOADED_STATE__;
 preloadedState.metadata = { isServerSide: false };
 
 // Allow the passed state to be garbage-collected
 delete window.__PRELOADED_STATE__;
 
 // Create Redux store with initial state
-// Note:  I added a store here but don't know if ill use it.
 const middleware = applyMiddleware(thunk, logger);
 const store = createStore(reducers, preloadedState, middleware);
 
@@ -32,7 +26,7 @@ const app = document.getElementById('app');
 ReactDOM.render(
     <Provider store={store}>
         <MuiThemeProvider>
-            <Costs page={page}/>
+            <SolarWidget />
         </MuiThemeProvider>
     </Provider>
 , app);
