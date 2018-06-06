@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField';
 import ReactTooltip from 'react-tooltip';
 
+import HoverText from './HoverText';
 import { formatName } from './utils';
 import { setQuestionError} from '../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
@@ -12,8 +13,8 @@ export default class Question extends React.Component {
 
     static proptypes = {
         isMobile: PropTypes.bool,
-        updateQuestion: PropTypes.func, 
-        question: PropTypes.object,
+        updateQuestion: PropTypes.func.isRequired, 
+        question: PropTypes.object.isRequired,
 
         /* Everything in Question object
         // Core
@@ -49,18 +50,12 @@ export default class Question extends React.Component {
         const question = this.props.question
 		return (
             <div className="question">
-                <span className="question-name-container">
-                    <div className="question-name">{formatName(question.name, this.props.question.formType)}</div>
-                    {question.hoverText && 
-                        <span>
-                            <div className="question-help" data-tip data-for={`int-question-hover-${question.id}`}>
-                                <i className="material-icons question-icon">help</i> </div>
-                                <ReactTooltip place="top" id={`int-question-hover-${question.id}`} type='dark' effect='solid'>
-                                    <p className="int-question-hover">{question.hoverText}</p>
-                                </ReactTooltip>
-                        </span>
-                    }
-                </span>
+                <div>
+                    <span className="question-name-container">
+                        <div className="question-name">{formatName(question.name, this.props.question.formType)}</div>
+                        <HoverText id={this.props.question.id} text={this.props.question.hoverText} />
+                    </span>
+                </div>
                 {question.aboveText && <p className="question-subtext">{question.aboveText}</p>}
                 {question.aboveText2 && <p className="question-subtext">{question.aboveText2}</p>}
                 <div>

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField'
+import HoverText from './HoverText';
 
 import { formatName } from './utils';
 import { updateQuestions} from '../../actions/footprint/form-actions';
@@ -43,7 +44,12 @@ export default class DropdownQuestion extends React.Component {
         
         return (
             <div className="question">
-                <p className="question-name" style={{marginLeft}}>{formatName(question.name, this.props.question.formType)}</p>
+                <div>
+                    <span className="question-name-container">
+                        <div className="question-name" style={{marginLeft}}>{formatName(question.name, this.props.question.formType)}</div>
+                        <HoverText id={this.props.question.id} text={this.props.question.hoverText} />
+                    </span>
+                </div>
                 {question.subtext ? <p className="question-subtext">{question.subtext}</p> : ''}
                 <SelectField
                     id={question.id.toString()}

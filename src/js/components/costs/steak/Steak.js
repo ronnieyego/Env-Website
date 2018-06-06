@@ -55,7 +55,7 @@ export default class Steak extends React.Component {
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            This steak will emit <HowMuchCO2 co2={this.props.totalCo2} exclude={[ids.poundOfBeef]} /> pounds of CO<sub>2</sub>.
+                            This steak will emit <HowMuchCO2 co2={this.props.totalCo2} exclude={[ids.poundOfBeef, ids.kobeBeefSteak, ids.twelveOzSteak]} /> pounds of CO<sub>2</sub>.
                         </span>         
                     </div>
                     {this.getDisplayText(this.props.type)}

@@ -34,6 +34,13 @@ export default [
         amount: 20
     },
     {
+        id: ids.twelveOzSteak,
+        name: 'A 12 oz steak',
+        description: 'This is a mostly due to cow flatulence.',
+        source: '/costs/steak',
+        amount: 20
+    },
+    {
         id: ids.poundOfBeef ,
         name: 'One pound of beef',
         description: 'This is a mostly due to cow flatulence.',
@@ -59,6 +66,13 @@ export default [
         description: 'Each tea candle is 50g and is about 1in radius and 1in tall.',
         source: 'http://www.michaelsmithnews.com/2014/03/the-chemistry-of-earth-hour-1-candle-x-1-hour-8-x-the-co2-from-1-lightbulb-x-1-hour.html',
         amount: 69
+    },
+    {
+        id: ids.kobeBeefSteak,
+        name: 'An 8 oz kobe beef steak',
+        description: 'One of the finest steaks in the world.',
+        source: '/costs/steak',
+        amount: 74
     },
     {
         id: ids.smallBbq ,

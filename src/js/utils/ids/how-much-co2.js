@@ -37,6 +37,8 @@ export default {
     petBigDog: 1533,
     petSmallDog: 1534,
     poundOfPork: 1535,
-    bigScreenTV: 1536
+    bigScreenTV: 1536,
+    kobeBeefSteak: 1537,
+    twelveOzSteak: 1538
 
 };

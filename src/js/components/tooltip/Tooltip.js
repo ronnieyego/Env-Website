@@ -4,13 +4,8 @@ import { string, bool, arrayOf, node, oneOfType} from 'prop-types';
 import { connect } from 'react-redux';
 import ReactTooltip from 'react-tooltip';
 
-@connect((store, props) => {
-	return {
-        isMobile: store.userInfo.isMobile,
-        isServerSide: store.metadata.isServerSide,
-        store: store
-	};
-})
+import ClientOnlyRenderHoc from '../ClientOnlyRenderHoc';
+
 export default class Tooltip extends React.Component {
     static propTypes = {
         place: string,
@@ -23,14 +18,13 @@ export default class Tooltip extends React.Component {
 
     render() {
         return (
-            <div>
-                {!this.props.isServerSide && 
+            <ClientOnlyRenderHoc
+                component={(
                     <ReactTooltip place="bottom" id={this.props.id} type='dark' effect='solid'>
                         {this.props.children}
                     </ReactTooltip>
-                }
-            </div>
-        )
+                )} 
+            />
+        );
     }
-   
 }
