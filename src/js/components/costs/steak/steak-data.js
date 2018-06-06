@@ -23,7 +23,6 @@ export const steakQuestions = [
         value: 16,
         type: 'int',
         forms: ['steak'],
-        hoverText: 'Hello world',
         formType: 'costs'
     },
     {    
@@ -36,7 +35,6 @@ export const steakQuestions = [
             'Real Kobe beef'
         ],
         value: "Corn fed",
-        hoverText: 'Hello world2',
         type: 'dropdown',
         forms: ['steak'],
         formType: 'costs'
