@@ -80,7 +80,7 @@ const carQuestions = [
             'Large truck'],
         value: "Midsize car",
         type: 'dropdown',
-        forms: ['car'],
+        forms: ['car', 'transportation'],
         formType: 'costs'
     },
     {    
@@ -90,7 +90,7 @@ const carQuestions = [
         subtext: 'This question helps estimate the composition of your vehicle.  Rugged cars tend to use more metals and less plastic which makes them more CO2 intensive to create',
         value: "Standard",
         type: 'dropdown',
-        forms: ['car'],
+        forms: ['car', 'transportation'],
         formType: 'costs'
     },
     {    
@@ -98,7 +98,7 @@ const carQuestions = [
         name: 'What\'s the MPG of your vehicle?',
         value: 25,
         type: 'int',
-        forms: ['car'],
+        forms: ['car', 'transportation'],
         formType: 'costs'
     },
     {    

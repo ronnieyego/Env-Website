@@ -1,5 +1,6 @@
 import index from './pages-index';
 
+import commonQuestions from './questions-common';
 import { bbqQuestions } from './bbq/bbq-data';
 import { bitcoinQuestions } from './bitcoin/bitcoin-data';
 import { booksQuestions } from './books/books-data';
@@ -17,6 +18,7 @@ import { tvQuestions } from './tv/tv-data';
 
 
 export default [
+    ...commonQuestions,
     ...bitcoinQuestions,
     ...bbqQuestions,
     ...booksQuestions,

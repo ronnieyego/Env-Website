@@ -22,12 +22,16 @@ const footprintFormReducer = (state = {
             state = {...state, questions: action.payload}
             break;
         }
+        case 'SET_STEP': {
+            state = {...state, step: action.payload}
+            break;
+        }
         case 'INCREASE_STEP': {
-            state = {...state, step: state['step'] + 1}
+            state = {...state, step: state.step + 1}
             break;
         }
         case 'DECREASE_STEP': {
-            state = {...state, step: state['step'] - 1}
+            state = {...state, step: state.step - 1}
             break;
         }
         case 'SUBMIT_READY': {

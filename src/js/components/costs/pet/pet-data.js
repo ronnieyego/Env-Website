@@ -192,11 +192,5 @@ export const petQuestions = [
         type: 'dropdown',
         forms: ['pet'],
         formType: 'costs'
-    },
-    {
-        id: ids.userState,
-        type: 'user-state',
-        forms: ['pet', 'tv', 'package'],
-        omitUs: true
     }
 ];

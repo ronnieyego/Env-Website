@@ -8,7 +8,7 @@ import BooleanQuestion from './BooleanQuestion';
 import UserStateDropdown from '../UserStateDropdown';
 
 
-import { setQuestionError, updateQuestions} from '../../actions/footprint/form-actions';
+import { setQuestionError, updateQuestions, updateQuestionsV2} from '../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
 import { getErrorText } from '../../utils/footprint/question-validators';
 
@@ -28,7 +28,7 @@ export default class QuestionHoc extends React.Component {
     }
 
 	render() {
-        const updateFunction = this.props.question.formType && this.props.question.formType === 'costs' ? updateCostsQuestions.bind(this) : updateQuestions.bind(this);
+        const updateFunction = updateQuestionsV2;//this.props.question.formType && this.props.question.formType === 'costs' ? updateCostsQuestions.bind(this) : updateQuestions.bind(this);
         let question;
         switch(this.props.questionType) {
             case 'int':

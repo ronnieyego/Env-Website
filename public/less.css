@@ -4,7 +4,6 @@
 .footprint-form {
   border: 1px solid gray;
   margin: 10px auto;
-  width: 500px;
   background-color: #d3f9ea;
 }
 @media only screen and (max-width: 479px) {
@@ -523,6 +522,7 @@ input[type="checkbox"] {
 .question-name {
   font-size: 18px;
   font-weight: bold;
+  margin-bottom: 10px;
 }
 .question-name-container {
   display: inline-flex;

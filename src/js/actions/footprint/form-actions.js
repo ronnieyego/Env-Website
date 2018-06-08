@@ -104,6 +104,15 @@ export const updateQuestions = questionInfo => {
     }
 };
 
+export const updateQuestionsV2 = questionInfo => {
+    return (dispatch, getState) => {
+        const state = getState();
+        const allQuestions = state.questions.questions.slice();
+        const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
+        dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
+    }
+};
+
 export const setQuestionError = (id, errorText) => {
     return (dispatch, getState) => {
         const state = getState();
