@@ -3,13 +3,20 @@ import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
 
+import { STEPS } from './utils';
 import FormTabs from './FormTabs';
-import HouseholdForm from './HouseholdForm';
+import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
 
 import { submitForm } from '../../../actions/footprint/form-actions';
 
-const MAX_STEPS = 5
+const MAX_STEPS = 5;
+const TOP_TABS = [
+  {step: 1, label: 'Household'},
+  {step: 3, label: 'Transportation'},
+  {step: 4, label: 'Utilities'},
+  {step: 5, label: 'Stuff'}
+]
 
 @connect((store, props) => {
 	return {
@@ -54,6 +61,8 @@ export default class FormContainer extends React.Component {
           Please fill out all answers correctly.
         </div>
       ) : null;
+
+      const formError = null;
       
       const leftButton = this.props.step === 1 ? <div /> : (
           <RaisedButton 
@@ -83,14 +92,14 @@ export default class FormContainer extends React.Component {
 
       let form;
       switch(this.props.step) {
-        case 1: 
-          form = (<HouseholdForm questions={this.props.questions} />);
+        case STEPS.home: 
+          form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
           break;
-        case 2: 
-          form = (<TransportationForm questions={this.props.questions} />);
+        case STEPS.transportation: 
+          form = (<TransportationForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
           break;
         default:
-        form = (<HouseholdForm questions={this.props.questions} />);
+        form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
       };
 
 		return (
@@ -101,7 +110,7 @@ export default class FormContainer extends React.Component {
         </div>
         <div className="footprint-form">
           <h2 id="footprint-form-title" className="footprint-form-title"> Calculate your environmental footprint</h2>
-          <FormTabs dispatch={this.props.dispatch} />
+          <FormTabs dispatch={this.props.dispatch} step={this.props.step} tabs={TOP_TABS} />
             {form}
             {submitError}
             <div className="footprint-form-bottom-buttons">

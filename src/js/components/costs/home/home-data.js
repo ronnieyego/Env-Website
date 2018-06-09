@@ -56,7 +56,7 @@ const homeQuestions = [
         value: "House",
         type: 'dropdown',
         hoverText: 'This makes an impact on things like heat leakage, utility efficiency, and building materials.',
-        forms: ['house', 'household'],
+        forms: ['house', 'household-home'],
         formType: 'costs'
     },
     {    
@@ -69,7 +69,7 @@ const homeQuestions = [
         ],
         value: "Wood",
         type: 'dropdown',
-        forms: ['house', 'household'],
+        forms: ['house', 'household-home'],
         formType: 'costs'
     },
     {    
@@ -78,7 +78,7 @@ const homeQuestions = [
         subtext: 'A "standard" house is about 2,500 sqft while a 2-bedroom apartment is about 1,000 sqft.',
         value: 2500,
         type: 'int',
-        forms: ['house', 'household'],
+        forms: ['house', 'household-home'],
         formType: 'costs'
     },
 ];

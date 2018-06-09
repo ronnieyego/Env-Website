@@ -1,4 +1,4 @@
-// 1069 currenet max
+// 1083 currenet max
 
 export default {
 
@@ -52,6 +52,24 @@ export default {
     homeMaterial: 1033,
     homeType: 1034,
     homeSqft: 1035,
+    liveWith: 1070,
+    hoursAtHome: 1071,
+    homeAge: 1077,
+
+// House activities
+    doesCook: 1072,
+    showEveryday: 1073,
+    laundryMonth: 1074,
+    playMusicHome: 1075,
+    hoursComputer: 1076,
+    
+// House Heating and Cooling
+    summerTemp: 1078,
+    winterTemp: 1079,
+    heatingSystem: 1080,
+    coolingSystem: 1081,
+    usesPortableHeater: 1082,
+    usesFan: 1083,
 
 // Furniture
     numTables: 1027,

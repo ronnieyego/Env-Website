@@ -1,5 +1,8 @@
 import userQuestions from './user-questions';
 import transportationQuestions from './transportation-questions';
+import householdQuestions from './household-questions';
+
+// Costs questions
 import { bbqQuestions } from '../../components/costs/bbq/bbq-data';
 import { bitcoinQuestions } from '../../components/costs/bitcoin/bitcoin-data';
 import { booksQuestions } from '../../components/costs/books/books-data';
@@ -19,6 +22,7 @@ import { tvQuestions } from '../../components/costs/tv/tv-data';
 export default [
     ...transportationQuestions,
     ...userQuestions,
+    ...householdQuestions,
     ...bitcoinQuestions,
     ...bbqQuestions,
     ...booksQuestions,

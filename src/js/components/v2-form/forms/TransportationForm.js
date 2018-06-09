@@ -24,7 +24,6 @@ export default class Transportation extends React.Component {
         questions: array.isRequired
     }
 	render() {
-        console.log(this.props.questions);
         const questions = sortAndFilterQuestions('transportation', QUESTION_ORDER, this.props.questions);
 
         const questionComponents = questions.map( question => (
@@ -40,7 +39,7 @@ export default class Transportation extends React.Component {
             <div>
             <h3 className="footprint-form-header">Transportation</h3>
                 <div>
-                    <p className="footprint-form-sub-header">GIVE ME YOUR DATA</p>
+                    <p className="footprint-form-sub-header">Transportation usually accounts of a third of a person's footprint.</p>
                     { questionComponents }
                 </div>
             </div>
