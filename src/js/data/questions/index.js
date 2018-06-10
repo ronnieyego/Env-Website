@@ -1,6 +1,7 @@
 import userQuestions from './user-questions';
 import transportationQuestions from './transportation-questions';
 import householdQuestions from './household-questions';
+import stuffQuestions from './stuff-questions';
 
 // Costs questions
 import { bbqQuestions } from '../../components/costs/bbq/bbq-data';
@@ -23,6 +24,9 @@ export default [
     ...transportationQuestions,
     ...userQuestions,
     ...householdQuestions,
+    ...stuffQuestions,
+
+    // Costs
     ...bitcoinQuestions,
     ...bbqQuestions,
     ...booksQuestions,

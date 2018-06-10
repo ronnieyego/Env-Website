@@ -10,7 +10,7 @@ export default class FormTabs extends React.Component {
         dispatch: func.isRequired,
         step: number.isRequired,
         subLevel: bool,
-        tabs: array.isRequired //[ { value, label, step }]
+        tabs: array.isRequired // [ { value, label, step }]
     }
 
     updateStep(step) {
@@ -27,8 +27,10 @@ export default class FormTabs extends React.Component {
                 return 'Heating and Cooling';
             case STEPS.transportation:
                 return 'Transportation';
-            case STEPS.stuff:
-                return 'Stuff';
+            case STEPS.stuffHouse:
+                return 'Stuff you own';
+            case STEPS.stuffActivities:
+                return 'Stuff you do';
             default:
                 throw new Error('ERROR: In Form Tab.  No tab for step: ', step);
         }

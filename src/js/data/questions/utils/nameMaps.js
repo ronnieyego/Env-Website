@@ -1,0 +1,46 @@
+// This is a name mapping util
+
+const sourceMap = {
+    coal: 'Coal',
+    hydroelectric: 'HydroElectric',
+    wind: 'Wind',
+    naturalGas: 'Natural Gas',
+    petroleum: 'Oil',
+    solar: 'Solar',
+    nuclear: 'Nuclear'
+};
+
+const cssMap = {
+    coal: 'circle-red',
+    hydroelectric: 'circle-blue',
+    wind: 'circle-green',
+    naturalGas: 'circle-lightblue',
+    petroleum: 'circle-black',
+    solar: 'circle-yellow',
+    nuclear: 'circle-orange'
+};
+
+const producerMap = {
+    'all': 'All',
+    'IPP CHP': 'Private Co-generation',
+    'IPP Non-CHP': 'Private non Co-generation',
+    'Electric Utility': 'Electric Utility'
+}
+
+const getSourceDisplayname = source => {
+    return sourceMap[source];
+}
+
+const getSourceCssName = source => {
+    return cssMap[source];
+}
+
+const getProducerDisplayname = source => {
+    return producerMap[source];
+}
+
+module.exports = {
+    getSourceCssName,
+    getProducerDisplayname,
+    getSourceDisplayname
+}

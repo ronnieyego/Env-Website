@@ -8,9 +8,9 @@ import HouseholdFormActivities from './HouseholdFormActivites';
 import HouseholdFormTemperature from './HouseholdFormTemperature';
 
 const SUB_TABs = [
-    {step: 1, label: 'Home'},
-    {step: 2, label: 'Household Activities'},
-    {step: 3, label: 'Heating and Cooling'},
+    {step: STEPS.home, label: 'Home'},
+    {step: STEPS.HouseholdFormActivities, label: 'Household Activities'},
+    {step: STEPS.heatingCooling, label: 'Heating and Cooling'},
 ]
 
 export default class Household extends React.Component {

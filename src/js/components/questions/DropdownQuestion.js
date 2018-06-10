@@ -23,10 +23,12 @@ export default class DropdownQuestion extends React.Component {
         // selectOptions: Proptypes.string,
         // subtext: Proptypes.string,
         // formType: Proptypes.string
+        // index: PropTypes.int  This is what index of answer is slected
+        // answerText:  PropTypes.string  explains what the answer means
     }
 
     updateQuestion(id, event, index, value) {
-        this.props.dispatch(this.props.updateFunction({id, value}));
+        this.props.dispatch(this.props.updateFunction({id, value, index}));
     }
 
 	render() {
@@ -59,6 +61,7 @@ export default class DropdownQuestion extends React.Component {
                 >
                     {dropDownOptions}
                 </SelectField>
+                {question.answerText && question.answerText[question.index] && <p className="question-below-text">{question.answerText[question.index]}</p>}
             </div>
 		);
 	}

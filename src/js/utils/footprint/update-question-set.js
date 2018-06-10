@@ -35,11 +35,12 @@ export const updateHiddenQuestions = questionSet => {
     return updatedQuestionSet;
 }
 
-export const updateQuestion = (allQuestions, id, value) => {
+export const updateQuestion = (allQuestions, id, value, index) => {
     return allQuestions.map(question => {
         if (question.id == id) { // I get id from the dom which stringifies it
             question.value = value;
             question.checked = value === 'on' ? true : false; // Only for bool questions
+            question.index = index; // Only for Dropdown quesions
         };
         return question;
     });
@@ -55,8 +56,8 @@ export const updateQuestionErrorText = (allQuestions, id, errorText) => {
 };
 
 export const updateQuestionSet = (allQuestions, questionInfo) => {
-    const {id, errorText, value} = questionInfo;
-    const updatedValues = updateQuestion(allQuestions, id, value);
+    const { id, errorText, value, index } = questionInfo; // Index is only for Dropdown questions
+    const updatedValues = updateQuestion(allQuestions, id, value, index);
     const updatedErrors = updateQuestionErrorText(updatedValues, id, errorText);
     const updatedHidden = updateHiddenQuestions(updatedErrors);
     return updatedHidden;

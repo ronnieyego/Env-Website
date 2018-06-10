@@ -1,4 +1,4 @@
-// 1083 currenet max
+// 1085 currenet max
 
 export default {
 
@@ -30,8 +30,9 @@ export default {
     socksOwn: 1015,
     accessoriesOwn: 1016,
     clothesSize: 1007,
-
     yourGender: 1017,
+
+    totalWardrobe: 1085, // For footprint form not clothes form.
     
 // Car
     carSize: 1003,
@@ -78,6 +79,7 @@ export default {
     numCouches: 1030,
     numDrawers: 1031,
     numBookcases: 1032,
+    totalHouseFurniture: 1084,
 
 // Package
     packageWeight: 1054,

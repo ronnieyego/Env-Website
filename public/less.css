@@ -550,9 +550,11 @@ input[type="checkbox"] {
   }
 }
 .question-below-text {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: normal;
-  margin-bottom: 10px;
+  margin: 0 20%;
+  margin-bottom: 20px;
+  margin-top: -10px;
 }
 .question-help {
   display: inline-flex;

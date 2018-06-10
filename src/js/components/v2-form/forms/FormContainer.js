@@ -7,15 +7,15 @@ import { STEPS } from './utils';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
+import StuffFormContainer from './StuffFormContainer';
 
 import { submitForm } from '../../../actions/footprint/form-actions';
 
 const MAX_STEPS = 5;
 const TOP_TABS = [
-  {step: 1, label: 'Household'},
-  {step: 3, label: 'Transportation'},
-  {step: 4, label: 'Utilities'},
-  {step: 5, label: 'Stuff'}
+  {step: STEPS.home, label: 'Household'},
+  {step: STEPS.transportation, label: 'Transportation'},
+  {step: STEPS.stuffHouse, label: 'Stuff'}
 ]
 
 @connect((store, props) => {
@@ -76,7 +76,7 @@ export default class FormContainer extends React.Component {
       const rightButton = this.props.step === MAX_STEPS ? (
         <RaisedButton 
             className="right-btn"
-            href={submitJump}
+            href={'#'}
             label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
             onClick={this.submitCalculator.bind(this, formError)}
             primary={true}
@@ -92,11 +92,14 @@ export default class FormContainer extends React.Component {
 
       let form;
       switch(this.props.step) {
-        case STEPS.home: 
+        case STEPS.home || STEPS.homeActivities || STEPS.heatingCooling: 
           form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
           break;
         case STEPS.transportation: 
           form = (<TransportationForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+          break;
+        case STEPS.stuffHouse || STEPS.stuffActivities:
+          form = (<StuffFormContainer questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
           break;
         default:
         form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
