@@ -41,4 +41,12 @@ export default [
         forms: ['stuff-home'],
         id: ids.totalWardrobe
     },
+    {
+        name: 'Please add any pets you have',
+        type: 'multiple',
+        childQuestionName: 'Pet #',
+        questions: [ids.petType],
+        forms: ['stuff-home'],
+        id: ids.allPets
+    }
 ]

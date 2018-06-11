@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import IntQuestion from './IntQuestion';
 import DropdownQuestion from './DropdownQuestion';
 import BooleanQuestion from './BooleanQuestion';
+import MultipleQuestion from './MultipleQuestion';
 import UserStateDropdown from '../UserStateDropdown';
 
 
@@ -39,6 +40,9 @@ export default class QuestionHoc extends React.Component {
                 break;
             case 'dropdown':
                 question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
+                break;
+            case 'multiple':
+                question = <MultipleQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'user-state':
                 question = <UserStateDropdown omitUs={this.props.question.omitUs} />

@@ -1,4 +1,4 @@
-// 1085 currenet max
+// 1086 currenet max
 
 export default {
 
@@ -96,6 +96,8 @@ export default {
     catFoodType: 1043,
     turtleTankSize: 1044,
     petHeatingLamp: 1045,
+
+    allPets: 1086,
 
 // Steak
     steakFeed: 1060,

@@ -36,7 +36,7 @@ export default class DropdownQuestion extends React.Component {
 		const options = question.selectOptions;
         const dropDownOptions = options.map(option => {
             return <MenuItem 
-                key={option}
+                key={`${option}-${question.id}`}
                 primaryText={formatName(option, this.props.question.formType)}
                 value={formatName(option, this.props.question.formType)}  
             />
@@ -54,6 +54,7 @@ export default class DropdownQuestion extends React.Component {
                 </div>
                 {question.subtext ? <p className="question-subtext">{question.subtext}</p> : ''}
                 <SelectField
+                    key={question.id.toString()}
                     id={question.id.toString()}
                     labelStyle={labelStyle}
                     onChange={this.updateQuestion.bind(this, question.id)}

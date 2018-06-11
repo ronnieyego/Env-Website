@@ -30,7 +30,7 @@ export const sortAndFilterAndCreateQuestions = (formName, idOrder, questions) =>
     const createdQuestions = sorted.map(question => (
         <Question
                 questionType={question.type}
-                key={question.name}
+                key={`${question.name}-${question.id}`}
                 question={question}
                 value={question.value}
             />
