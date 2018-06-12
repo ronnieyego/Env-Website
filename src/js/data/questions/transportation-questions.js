@@ -39,6 +39,7 @@ export default [
             'Always',
         ],
         type: 'dropdown',
+        value: 'Never',
         forms: ['transportation'],
         id: ids.carpoolFrequency
     },

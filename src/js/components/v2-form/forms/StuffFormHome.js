@@ -8,7 +8,9 @@ import ids from '../../../utils/ids/index';
 
 const QUESTION_ORDER = [
     ids.totalHouseFurniture,
-    ids.totalWardrobe
+    ids.totalWardrobe,
+    ids.allPets,
+    ids.houseClutter
 ];
 
 export default class StuffFormHome extends React.Component {

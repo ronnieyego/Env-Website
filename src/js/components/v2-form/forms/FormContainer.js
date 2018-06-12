@@ -67,7 +67,7 @@ export default class FormContainer extends React.Component {
       const leftButton = this.props.step === 1 ? <div /> : (
           <RaisedButton 
             className="left-btn"
-            href={'#'}
+            href={'#footprint-form-title'}
             label="Back"
             onClick={() => this.decreaseStep(formError)}
             secondary={true}
@@ -76,14 +76,14 @@ export default class FormContainer extends React.Component {
       const rightButton = this.props.step === MAX_STEPS ? (
         <RaisedButton 
             className="right-btn"
-            href={'#'}
+            href={'#footprint-form-title'}
             label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
             onClick={this.submitCalculator.bind(this, formError)}
             primary={true}
         />) : (
           <RaisedButton 
             className="right-btn"
-            href={'#'}
+            href={'#footprint-form-title'}
             label="Next"
             onClick={() => this.increaseStep(formError)}
             primary={true}

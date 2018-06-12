@@ -91,10 +91,10 @@ export default class DropdownQuestion extends React.Component {
 
                 <div className="multiple-question-icon-container" >
                     <IconButton onClick={() => this.createQuestion(ids, forms)}>
-                        <AddIcon />
+                        <AddIcon fillColor="red" size="32" />
                     </IconButton>
                     <IconButton onClick={() => this.removeQuestion(this.state.questionIds.pop())}>
-                        <RemoveIcon />
+                        <RemoveIcon fillColor="dodgerblue" size="32" />
                     </IconButton>
                 </div>
             </div>

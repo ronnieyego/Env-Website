@@ -48,5 +48,27 @@ export default [
         questions: [ids.petType],
         forms: ['stuff-home'],
         id: ids.allPets
-    }
+    },
+    {
+        name: 'How cluttered is your home?',
+        subtext: 'This includes things like speakers, vacuums, trinkets, books, and other stuff you buy',
+        type: 'dropdown',
+        selectOptions: [
+            'Practically empty',
+            'Quite uncluttered',
+            'Reasonably full',
+            'Extremely full',
+            'There\'s no more room',
+        ],
+        answerText: [
+            'Your shelves are empty and you generally engage in a minimalistic lifestyle.',
+            'You don\'t buy stuff you don\'t need, but acquire things every now and then.  Your closets and shelves are about half capacity.',
+            'Your shelves are full, but theres still space for more things in the back of the closet.',
+            'You have trouble finding homes for new things and donate/dump a few boxes of stuff a few times a year.',
+            'You can\'t find room in your home for anything so you buy extra storage space.  Even then things keep piling up.'
+        ],
+        value: 'Reasonably full',
+        forms: ['stuff-home'],
+        id: ids.houseClutter
+    },
 ]

@@ -78,15 +78,17 @@ export default [
     {
         name: 'What temperature do you keep your home in the winter (use Fahrenheit)?',
         type: 'int',
-        value: '0',
+        value: '70',
         forms: ['household-temperature'],
+        validator: 'home-temp',
         id: ids.winterTemp
     },
     {
         name: 'What temperature do you keep your home in the summer (use Fahrenheit)?',
         type: 'int',
-        value: '0',
+        value: '80',
         forms: ['household-temperature'],
+        validator: 'home-temp',
         id: ids.summerTemp
     },
     {
@@ -108,7 +110,7 @@ export default [
         selectOptions: [
             'Central AC',
             'Window Mount AC',
-            'System of fans'
+            'Lots of Fans'
         ],
         value: 'Window Mount AC',
         forms: ['household-temperature'],

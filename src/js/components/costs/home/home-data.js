@@ -75,7 +75,7 @@ const homeQuestions = [
     {    
         id: ids.homeSqft,
         name: 'How many square feet is your home?',
-        subtext: 'A "standard" house is about 2,500 sqft while a 2-bedroom apartment is about 1,000 sqft.',
+        hoverText: 'A "standard" house is about 2,500 sqft while a 2-bedroom apartment is about 1,000 sqft.',
         value: 2500,
         type: 'int',
         forms: ['house', 'household-home'],

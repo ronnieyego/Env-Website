@@ -1,4 +1,4 @@
-// 1086 currenet max
+// 1087 currenet max
 
 export default {
 
@@ -56,6 +56,7 @@ export default {
     liveWith: 1070,
     hoursAtHome: 1071,
     homeAge: 1077,
+    houseClutter: 1087,
 
 // House activities
     doesCook: 1072,

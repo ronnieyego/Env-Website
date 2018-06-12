@@ -108,6 +108,20 @@ const tvWattageValidator = value => {
     return errorText;
 }
 
+const homeTemp = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = 'Please enter a positive number';
+    } else if (value < 32 ) {
+        errorText = 'Do you live in a house made of ice?';
+    } else if (value > 130) {
+        errorText = 'Your house is hot enough to cook an egg';
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
+        errorText = "Please enter a valid number";
+    }
+    return errorText;
+}
+
 export const getErrorText = (value, type) => {
     if (!type) {
         return standardIntQuestion(value);
@@ -129,6 +143,8 @@ export const getErrorText = (value, type) => {
             return tvSizeValidator(value);
         case 'tv-wattage':
             return tvWattageValidator(value);
+        case 'home-temp':
+            return homeTemp(value);
         default:
             return standardIntQuestion(value);
     };
