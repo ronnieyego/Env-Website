@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
 import FootprintFormHoc from '../components/footprint-calculator/forms/FootprintFormHoc';
+import FootprintFormV2 from '../components/v2-form/forms/FormContainer';
 import Results from '../components/footprint-calculator/results/Results.js';
 
 @connect((store, props) => {
@@ -16,7 +17,7 @@ export default class FootprintCalcPage extends React.Component {
 		let formOrResults = this.props.displayAnswers ? 
 			<Results /> 
 			: 
-			<FootprintFormHoc />;
+			<FootprintFormV2 />;
 		return (
 			<div className="container-fluid text-center">
 				<Header />

@@ -56,14 +56,14 @@ export default class Question extends React.Component {
                         <HoverText id={this.props.question.id} text={this.props.question.hoverText} />
                     </span>
                 </div>
-                {question.aboveText && <p className="question-subtext">{question.aboveText}</p>}
-                {question.aboveText2 && <p className="question-subtext">{question.aboveText2}</p>}
+                {question.subtext && <p className="question-subtext">{question.subtext}</p>}
+                {question.subtext2 && <p className="question-subtext">{question.subtext2}</p>}
                 <div>
                     <TextField
                         errorText={question.errorText}
                         id={question.id.toString()}
                         name={question.name}
-                        hintText={question.subText || question.subtext}
+                        hintText={question.hintText}
                         onChange={this.updateQuestion.bind(this, question.validator)}
                         value={this.props.value}
                         floatingLabelText={question.floatingLabelText}

@@ -1,0 +1,92 @@
+@border: 1px solid gray;
+
+.footprint {
+    &-main {
+        display: initial;
+    }
+
+    &-form {
+        border: @border;
+        margin: 10px auto;
+        // width: 500px;
+        background-color: #d3f9ea;
+
+        @media @mobile {
+            width: 100%;
+        }
+
+        &-title {
+            margin: 0px 0px;
+            font-weight: bold;
+            border: @border;
+            text-align: center;
+            background-color: white;
+        }
+        &-header {
+            margin-top: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        &-subtext {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            font-size: 18px;
+            text-align: left;
+        }
+
+        &-sub-header {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: left;
+
+            &-description {
+                font-style: italic;
+                font-size: 18px;
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+        }
+
+        &-paragraphs {
+            text-align: left;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        &-bottom-buttons {
+          display: flex;
+          justify-content: space-between;
+          font-size: 16px;
+          margin-top: 50px;
+        }
+
+        &-submit-invalid {
+            margin: 15px 0;
+            text-align: center;
+            color: red;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        &-need-help {
+            margin: 5px auto;
+        }
+
+        &-tab {
+            background-color: @green !important;
+            &-sublevel {
+                background-color: @medium-green !important;
+            }
+        }
+    }
+}
+
+.form-divider {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

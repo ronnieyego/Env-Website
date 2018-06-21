@@ -77,7 +77,7 @@ const mpgValidator = value => {
     } else if(value > 1000) {
         errorText = 'Congratulations on having the world\'s most fuel efficient car!';
     } else if (value == 0 ) { // want to match "0"
-        errorText = 'A 0 MPG car is called a cart!';
+        errorText = 'A 0 MPG car is called a cart!  Yabadabadoo!';
     } else if (value < 0 ) {
         errorText = 'How does this work?  Does your car reduce other people\'s mpg?';
     } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
@@ -108,6 +108,20 @@ const tvWattageValidator = value => {
     return errorText;
 }
 
+const homeTemp = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = 'Please enter a positive number';
+    } else if (value < 32 ) {
+        errorText = 'Do you live in a house made of ice?';
+    } else if (value > 130) {
+        errorText = 'Your house is hot enough to cook an egg';
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
+        errorText = "Please enter a valid number";
+    }
+    return errorText;
+}
+
 export const getErrorText = (value, type) => {
     if (!type) {
         return standardIntQuestion(value);
@@ -129,6 +143,8 @@ export const getErrorText = (value, type) => {
             return tvSizeValidator(value);
         case 'tv-wattage':
             return tvWattageValidator(value);
+        case 'home-temp':
+            return homeTemp(value);
         default:
             return standardIntQuestion(value);
     };

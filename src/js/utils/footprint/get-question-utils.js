@@ -28,6 +28,9 @@ export const getQuestionFromId = (questionSet, id) => {
             return;
         }
     });
+    if(!foundQuestion) {
+        console.log('Warning:  could not find question for id: ', id);
+    }
     return foundQuestion;
 }
 
