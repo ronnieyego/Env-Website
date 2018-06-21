@@ -1,7 +1,7 @@
 import React from "react";
 import { array } from 'prop-types';
 
-import { sortAndFilterQuestions } from '../../../utils/question-utils';
+import { sortAndFilterAndCreateQuestions } from '../../../utils/question-utils';
 import Question from '../../questions/QuestionHoc';
 import ids from '../../../utils/ids/index';
 
@@ -19,22 +19,13 @@ export default class HouseholdFormTemperature extends React.Component {
         questions: array.isRequired
     }
 	render() {
-        const questions = sortAndFilterQuestions('household-temperature', QUESTION_ORDER, this.props.questions);
-
-        const questionComponents = questions.map( question => (
-            <Question
-                questionType={question.type}
-                key={question.name}
-                question={question}
-                value={question.value}
-            />
-        ));
+        const questions = sortAndFilterAndCreateQuestions('household-temperature', QUESTION_ORDER, this.props.questions);
 
 		return (
             <div>
                 <div>
                     <p className="footprint-form-sub-header">The following questions will help caluclate your utility CO<sub>2</sub>.</p>
-                    { questionComponents }
+                    { questions }
                 </div>
             </div>
 		);

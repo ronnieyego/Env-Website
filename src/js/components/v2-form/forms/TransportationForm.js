@@ -1,7 +1,7 @@
 import React from "react";
 import { array } from 'prop-types';
 
-import { sortAndFilterQuestions } from '../../../utils/question-utils';
+import { sortAndFilterAndCreateQuestions } from '../../../utils/question-utils';
 import Question from '../../questions/QuestionHoc';
 import ids from '../../../utils/ids/index';
 
@@ -24,23 +24,14 @@ export default class Transportation extends React.Component {
         questions: array.isRequired
     }
 	render() {
-        const questions = sortAndFilterQuestions('transportation', QUESTION_ORDER, this.props.questions);
-
-        const questionComponents = questions.map( question => (
-            <Question
-                questionType={question.type}
-                key={question.name}
-                question={question}
-                value={question.value}
-            />
-        ));
+        const questions = sortAndFilterAndCreateQuestions('transportation', QUESTION_ORDER, this.props.questions);
 
 		return (
             <div>
             <h3 className="footprint-form-header">Transportation</h3>
                 <div>
                     <p className="footprint-form-sub-header">Transportation usually accounts of a third of a person's footprint.</p>
-                    { questionComponents }
+                    { questions }
                 </div>
             </div>
 		);

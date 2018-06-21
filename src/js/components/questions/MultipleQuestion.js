@@ -25,7 +25,7 @@ import { getQuestionFromId } from '../../utils/footprint/get-question-utils';
 		questions: store.questions.questions,
 	};
 })
-export default class DropdownQuestion extends React.Component {
+export default class MultipleQuestion extends React.Component {
 
     static propType = {
         isMobile: bool,
@@ -91,10 +91,10 @@ export default class DropdownQuestion extends React.Component {
 
                 <div className="multiple-question-icon-container" >
                     <IconButton onClick={() => this.createQuestion(ids, forms)}>
-                        <AddIcon fillColor="red" size="32" />
+                        <AddIcon fillColor="red" size={32} />
                     </IconButton>
                     <IconButton onClick={() => this.removeQuestion(this.state.questionIds.pop())}>
-                        <RemoveIcon fillColor="dodgerblue" size="32" />
+                        <RemoveIcon fillColor="dodgerblue" size={32} />
                     </IconButton>
                 </div>
             </div>
