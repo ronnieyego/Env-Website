@@ -19,7 +19,7 @@ export default [
             'Before 1930',
         ],
         hoverText: 'This question will help determine the materials used to build this house and how well it retains heat.',
-        value: '0',
+        value: '1930-1970',
         forms: ['household-home'],
         id: ids.homeAge
     },

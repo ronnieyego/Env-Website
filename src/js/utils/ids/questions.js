@@ -49,6 +49,20 @@ export default {
     cupType: 1000,
     cupClean: 1002,
 
+// Food
+    isVegan: 1088,
+    isVegetarian: 1089,
+    beefFrequency: 1090,
+    chickenFrequency: 1091,
+    porkFrequency: 1092,
+    dairyFrequency: 1093,
+    cheeseFrequency: 1094,
+    vegetablesFrequency: 1095,
+    fruitsFrequency: 1096,
+    grainsFrequency: 1097,
+    junkFoodFrequency: 1098,
+
+
 // House
     homeMaterial: 1033,
     homeType: 1034,

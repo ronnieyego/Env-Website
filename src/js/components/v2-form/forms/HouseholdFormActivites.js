@@ -7,6 +7,7 @@ import Question from '../../questions/QuestionHoc';
 import ids from '../../../utils/ids/index';
 
 const QUESTION_ORDER = [
+    ids.hoursAtHome,
     ids.tvWatchHours,
     ids.hoursComputer,
     ids.doesCook,

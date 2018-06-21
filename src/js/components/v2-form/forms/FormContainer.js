@@ -7,14 +7,16 @@ import { STEPS } from './utils';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
+import FoodForm from './FoodForm';
 import StuffFormContainer from './StuffFormContainer';
 
 import { submitForm } from '../../../actions/footprint/form-actions';
 
-const MAX_STEPS = 5;
+const MAX_STEPS = 7;
 const TOP_TABS = [
   {step: STEPS.home, label: 'Household'},
   {step: STEPS.transportation, label: 'Transportation'},
+  {step: STEPS.food, label: 'Food'},
   {step: STEPS.stuffHouse, label: 'Stuff'}
 ]
 
@@ -97,6 +99,9 @@ export default class FormContainer extends React.Component {
           break;
         case STEPS.transportation: 
           form = (<TransportationForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+          break;
+        case STEPS.food: 
+          form = (<FoodForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
           break;
         case STEPS.stuffHouse || STEPS.stuffActivities:
           form = (<StuffFormContainer questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);

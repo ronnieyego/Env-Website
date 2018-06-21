@@ -27,6 +27,8 @@ export default class FormTabs extends React.Component {
                 return 'Heating and Cooling';
             case STEPS.transportation:
                 return 'Transportation';
+            case STEPS.food:
+                return 'Food';
             case STEPS.stuffHouse:
                 return 'Stuff you own';
             case STEPS.stuffActivities:

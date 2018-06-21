@@ -1,5 +1,6 @@
 import userQuestions from './user-questions';
 import transportationQuestions from './transportation-questions';
+import foodQuestions from './food-questions';
 import householdQuestions from './household-questions';
 import stuffQuestions from './stuff-questions';
 
@@ -21,9 +22,10 @@ import { tvQuestions } from '../../components/costs/tv/tv-data';
 
 
 export default [
-    ...transportationQuestions,
     ...userQuestions,
     ...householdQuestions,
+    ...foodQuestions,
+    ...transportationQuestions,
     ...stuffQuestions,
 
     // Costs

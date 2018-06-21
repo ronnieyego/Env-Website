@@ -3,6 +3,7 @@ export const STEPS = {
     homeActivities: 2,
     heatingCooling: 3,
     transportation: 4,
-    stuffHouse: 5,
-    stuffActivities: 6,
+    food: 5,
+    stuffHouse: 6,
+    stuffActivities: 7,
 }

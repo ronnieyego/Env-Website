@@ -12,7 +12,6 @@ const QUESTION_ORDER = [
     ids.homeSqft,
     ids.homeMaterial,
     ids.liveWith,
-    ids.hoursAtHome,
     ids.homeAge
 ];
 
