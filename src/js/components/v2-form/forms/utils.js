@@ -7,3 +7,7 @@ export const STEPS = {
     stuffHouse: 6,
     stuffActivities: 7,
 }
+
+export const filterQuestions = (questions, filterArray) => {
+    return questions.filter(question => filterArray.indexOf(question.id) === -1);
+}
