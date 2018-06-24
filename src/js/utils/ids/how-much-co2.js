@@ -1,3 +1,5 @@
+// 1541 MAX
+
 export default {
     chargeIpad: 1500,
     watchTvOneHour: 1501,
@@ -16,10 +18,10 @@ export default {
     driveTenThousandMiles: 1514,
     powerTwitterOneHour: 1515,
     cementDriveway: 1516,
-    raiseOneCow: 1517,
-    oneAcreForestSequester: 1517,
+    raiseOneCow: 1539,
+    oneAcreForestSequester: 1540,
     twoBedroomApartment: 1518,
-    burnHouse: 1518,
+    burnHouse: 1541,
     showerEveryDay: 1519,
     acreOfForest: 1520,
     powerGoogleOneHour: 1521,
