@@ -6,7 +6,7 @@ import ListIcon from 'material-ui/svg-icons/navigation/menu';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 
-import { Capitalize } from '../../utils/capitalize';
+import { capitalize } from '../../utils/capitalize';
 import costPagesIndex from '../costs/pages-index';
 
 
@@ -17,7 +17,7 @@ export default class HeaderMobile extends React.Component {
 	render() {
         const costsKeys = Object.keys(costPagesIndex);
         const costPages = costsKeys.map(key => {
-            return <MenuItem key={`header-menu-item-${key}`} containerElement={<a key={`header-link-${key}`} href={`/costs/${key}`}/>} primaryText={Capitalize(key)} />
+            return <MenuItem key={`header-menu-item-${key}`} containerElement={<a key={`header-link-${key}`} href={`/costs/${key}`}/>} primaryText={capitalize(key)} />
         });
 
 		return (

@@ -4,7 +4,7 @@ import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 
-import { Capitalize } from '../../utils/capitalize';
+import { capitalize } from '../../utils/capitalize';
 import costPagesIndex from '../costs/pages-index';
 
 
@@ -21,7 +21,7 @@ export default class HeaderDesktop extends React.Component {
                     key={`header-menu-item-${key}`}
                     containerElement={<a key={`header-link-${key}`}
                     href={`/costs/${key}`}/>}
-                    primaryText={Capitalize(key)}
+                    primaryText={capitalize(key)}
                 />
             );
         });

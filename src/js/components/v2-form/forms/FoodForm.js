@@ -8,6 +8,7 @@ import Question from '../../questions/QuestionHoc';
 import ids from '../../../utils/ids/index';
 import { getAnswerFromId, getAnswerIndex, getQuestionFromId } from '../../questions/utils';
 import BarChart from '../../bar-chart/BarChartHoc';
+import { capitalize } from '../../../utils/capitalize';
 import getFoodResults from '../calculations/food';
 
 
@@ -65,9 +66,21 @@ export default class HouseholdFormActivities extends React.Component {
         return getFoodResults({calories, beef, chicken, pork, seafood, grain, fruit, vegetables, dairy, cheese, junkFood });
     }
 
+    formatBarGraph(foodRes) {
+        const keys = Object.keys(foodRes.servings);
+        return keys.map(key => {
+            if(key === 'junkFood') {
+                key = 'junk Food';
+            }
+            key = capitalize(key);
+            return { name: key, Food: foodRes.servings[key] };  
+        });
+    }
+
 	render() {
         let questions = sortAndFilterQuestions('food', QUESTION_ORDER, this.props.questions);
-        this.getServings(questions);
+        const foodRes = this.getServings(questions);
+        const graphData = this.formatBarGraph(foodRes);
         const filterIds = this.getFilterIds(questions);
         questions = filterQuestions(questions, filterIds);
 
@@ -78,6 +91,15 @@ export default class HouseholdFormActivities extends React.Component {
                 <div>
                     <p className="footprint-form-sub-header">Food usually accounts for a third of a person's CO<sub>2</sub>.</p>
                     { questionComponents }
+                    <BarChart
+                        graphData={graphData}
+                        units={'Servings'}
+                        title={"Your Diet"}
+                        defaultMax={8}
+                        compare={false}
+                        dataKey={'Food'}
+                        mobileHeaders={['Food', 'Servings']}
+                    />
                 </div>
             </div>
 		);
