@@ -11,6 +11,11 @@
     width: 100%;
   }
 }
+.footprint-form-header {
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: center;
+}
 .footprint-form-title {
   margin: 0px 0px;
   font-weight: bold;
@@ -18,17 +23,15 @@
   text-align: center;
   background-color: white;
 }
-.footprint-form-header {
-  margin-top: 5px;
-  font-weight: bold;
-  text-align: center;
-}
 .footprint-form-subtext {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin: 10px 10p;
   font-size: 18px;
   text-align: left;
+}
+.footprint-form-subtext-center {
+  margin: 10px 10p;
+  font-size: 18px;
+  text-align: center;
 }
 .footprint-form-sub-header {
   margin-top: 10px;

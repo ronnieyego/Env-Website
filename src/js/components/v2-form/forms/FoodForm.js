@@ -11,6 +11,8 @@ import BarChart from '../../bar-chart/BarChartHoc';
 import { capitalize } from '../../../utils/capitalize';
 import getFoodResults from '../calculations/food';
 
+import Divider from 'material-ui/Divider';
+
 
 const QUESTION_ORDER = [
     ids.calories,
@@ -69,11 +71,12 @@ export default class HouseholdFormActivities extends React.Component {
     formatBarGraph(foodRes) {
         const keys = Object.keys(foodRes.servings);
         return keys.map(key => {
+            let formattedKey = key;
             if(key === 'junkFood') {
-                key = 'junk Food';
+                formattedKey = 'junk Food';
             }
-            key = capitalize(key);
-            return { name: key, Food: foodRes.servings[key] };  
+            formattedKey = capitalize(key);
+            return { name: formattedKey, Food: foodRes.servings[key] };  
         });
     }
 
@@ -91,14 +94,18 @@ export default class HouseholdFormActivities extends React.Component {
                 <div>
                     <p className="footprint-form-sub-header">Food usually accounts for a third of a person's CO<sub>2</sub>.</p>
                     { questionComponents }
+                    <br />
+                    <Divider />
+                    <br />
+                    <p className="footprint-form-subtext-center">Based on your answers, here's what I think your diet looks like.</p>
                     <BarChart
                         graphData={graphData}
-                        units={'Servings'}
-                        title={"Your Diet"}
+                        units={'Servings per day'}
+                        title={"Your Estimated Diet"}
                         defaultMax={8}
                         compare={false}
                         dataKey={'Food'}
-                        mobileHeaders={['Food', 'Servings']}
+                        mobileHeaders={['Food', 'Servings per day']}
                     />
                 </div>
             </div>
