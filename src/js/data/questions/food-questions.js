@@ -2,11 +2,21 @@ import ids from '../../utils/ids/index';
 
 export default [
     {
+        name: 'About how many calories do you eat each day?',
+        type: 'int',
+        value: 2000,
+        subtext: 'On average, women consume around 1,800 calories each day while men consume about 2,400 calories.',
+        forms: ['food'],
+        validator: 'calories',
+        id: ids.calories
+    },
+    {
         name: 'Are you a vegan?',
         type: 'bool',
         value: 'off',
         checked: false,
         forms: ['food'],
+        trigger: 'is-vegan',
         id: ids.isVegan
     },
     {
@@ -15,6 +25,7 @@ export default [
         value: 'off',
         checked: false,
         forms: ['food'],
+        trigger: 'is-vegetarian',
         id: ids.isVegetarian
     },
     {
@@ -79,6 +90,27 @@ export default [
         ],
         forms: ['food'],
         id: ids.porkFrequency
+    },
+    {
+        name: 'How often do you eat seafood?',
+        type: 'dropdown',
+        selectOptions: [
+            'Never',
+            'A few times per month',
+            'Once a week',
+            '2-3 times per week',
+            'Everyday',
+        ],
+        value: 'Once a week',
+        answerText: [
+            '',
+            'This means a few fish dinners each month',
+            'This means a fish dinner once a week',
+            'This means a crab dinner on Monday, fish n cips on Thursday, and some lox and bagels for Sunday breakfast.',
+            'This means you usually have a seafood based meal every day, sometimes two.'
+        ],
+        forms: ['food'],
+        id: ids.seafoodFrequency
     },
     {
         name: 'How often do you eat grain?',

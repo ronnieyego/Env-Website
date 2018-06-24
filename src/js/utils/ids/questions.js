@@ -1,4 +1,4 @@
-// 1087 currenet max
+// 1100 currenet max
 
 export default {
 
@@ -50,12 +50,14 @@ export default {
     cupClean: 1002,
 
 // Food
+    calories: 1099,
     isVegan: 1088,
     isVegetarian: 1089,
     beefFrequency: 1090,
     chickenFrequency: 1091,
     porkFrequency: 1092,
     dairyFrequency: 1093,
+    seafoodFrequency: 1100,
     cheeseFrequency: 1094,
     vegetablesFrequency: 1095,
     fruitsFrequency: 1096,

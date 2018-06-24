@@ -122,6 +122,20 @@ const homeTemp = value => {
     return errorText;
 }
 
+const calories = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = 'Please enter a positive number';
+    } else if (value < 800 ) {
+        errorText = 'Please stop filling out this form and fill your belly!';
+    } else if (value > 19000) {
+        errorText = 'You eat more than a winner will eat in a hot dog eating competition!';
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
+        errorText = "Please enter a valid number";
+    }
+    return errorText;
+}
+
 export const getErrorText = (value, type) => {
     if (!type) {
         return standardIntQuestion(value);
@@ -141,6 +155,8 @@ export const getErrorText = (value, type) => {
             return mpgValidator(value);
         case 'tv-size':
             return tvSizeValidator(value);
+        case 'calories':
+            return calories(value);
         case 'tv-wattage':
             return tvWattageValidator(value);
         case 'home-temp':
