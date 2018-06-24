@@ -26,7 +26,7 @@ export const getAnswerFromId = (questionSet, id) => {
 export const getQuestionFromId = (questionSet, id) => {
     let foundQuestion = null;
     questionSet.forEach(question => {
-        if(question.id === id) {
+        if(question.id == id) { // Sometimes itll come as a string
             foundQuestion = question;
             return;
         }

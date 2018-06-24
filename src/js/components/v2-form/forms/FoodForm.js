@@ -39,7 +39,7 @@ export default class HouseholdFormActivities extends React.Component {
         const isVegetarian = getAnswerFromId(questions, ids.isVegetarian);
 
         if( isVegan || isVegetarian ) {
-            filterIds.push(ids.beefFrequency, ids.chickenFrequency, ids.porkFrequency);
+            filterIds.push(ids.beefFrequency, ids.chickenFrequency, ids.porkFrequency, ids.seafoodFrequency);
             if( isVegan ) {
                 filterIds.push(ids.dairyFrequency, ids.cheeseFrequency, ids.isVegetarian);
             }
