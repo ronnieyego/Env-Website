@@ -12,7 +12,7 @@ const graphData = [
 ];
 
  describe('Bar Chart', () => {
-    it.only('render the biaxial chart', done => {
+    it('render the biaxial chart', done => {
         shallow(<BarChartBiaxialDesktop
                 graphData={graphData}
                 biaxial={true}
