@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types';
+import { array, bool, string } from 'prop-types';
 
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { roundData } from './utils';
@@ -7,11 +7,12 @@ import { roundData } from './utils';
 export default class BarCharDesktop extends React.Component {
 
     static propTypes = {
-        graphData: PropTypes.array, // Array of {name: 'Grilling', You: grillCo2 || 0, 'Average American': 55 },
-        dataKey: PropTypes.string, // Data key to look for in data set.
-        compare: PropTypes.bool, // If true, looks for average american.  
-        units: PropTypes.string, //units on left side
-        title: PropTypes.string 
+        graphData: array.isRequired, // Array of {name: 'Grilling', You: grillCo2 || 0, 'Average American': 55 },
+        dataKey: string.isRequired, // Data key to look for in data set.
+        compare: bool, // If true, looks for average american.  
+        dataKeyCompare: string,
+        units: string, //units on left side
+        title: string
     }
         
     getDomainMax(barGraphData) {
@@ -46,12 +47,12 @@ export default class BarCharDesktop extends React.Component {
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}
                         className="bar-chart">
                     <XAxis dataKey="name"/>
-                    <YAxis type="number" domain={[0, max]} label={{ value: units, angle: -90, position: 'left' }}/>
+                    <YAxis yAxisId="left" type="number" domain={[0, max]} label={{ value: units, angle: -90, position: 'left' }} />
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     <Legend wrapperStyle={{marginLeft: '0px', marginTop: '30px'}} />
                     <ReferenceLine y={0} stroke='#000'/>
-                    <Bar dataKey={dataKey} fill="#8884d8" />
+                    <Bar yAxisId="left" dataKey={dataKey} fill="#8884d8" />
                     {this.props.compare && <Bar dataKey={dataKeyCompare} fill="#82ca9d" />}
                 </BarChart>
             </div>

@@ -9,7 +9,7 @@ import HouseholdFormTemperature from './HouseholdFormTemperature';
 
 const SUB_TABs = [
     {step: STEPS.home, label: 'Home'},
-    {step: STEPS.HouseholdFormActivities, label: 'Household Activities'},
+    {step: STEPS.homeActivities, label: 'Household Activities'},
     {step: STEPS.heatingCooling, label: 'Heating and Cooling'},
 ]
 

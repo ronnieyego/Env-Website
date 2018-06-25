@@ -76,7 +76,7 @@ export default class HouseholdFormActivities extends React.Component {
                 formattedKey = 'junk Food';
             }
             formattedKey = capitalize(key);
-            return { name: formattedKey, Food: foodRes.servings[key] };  
+            return { name: formattedKey, Servings: foodRes.servings[key], Calories: foodRes.calories[key] };  
         });
     }
 
@@ -101,11 +101,14 @@ export default class HouseholdFormActivities extends React.Component {
                     <BarChart
                         graphData={graphData}
                         units={'Servings per day'}
+                        rightUnits={'Calories per day'}
                         title={"Your Estimated Diet"}
                         defaultMax={8}
-                        compare={false}
-                        dataKey={'Food'}
-                        mobileHeaders={['Food', 'Servings per day']}
+                        rightDefaultMax={500}
+                        dataKey={'Servings'}
+                        biaxial={true}
+                        rightDataKey="Calories"
+                        mobileHeaders={['Food', 'Servings per day', 'Calories per day']}
                     />
                 </div>
             </div>

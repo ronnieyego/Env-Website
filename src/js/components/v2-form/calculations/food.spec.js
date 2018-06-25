@@ -1,7 +1,7 @@
 import getFoodResults from './food';
 import { expect } from 'chai';
 
- describe.only('Food Calculations', () => {
+ describe('Food Calculations', () => {
     it('should calculate food servings and clories', done => {
         const data = {
             calories: 2200,
