@@ -16,7 +16,6 @@ const kwhPerGallon = 0.1;  // https://www.buildinggreen.com/primer/embodied-ener
 // ROugh guess at 9 oz per dish.  
 const gallonsPerWashedDish = 0.07; //https://www.treehugger.com/kitchen-design/built-in-dishwashers-vs-hand-washing-which-is-greener.html
 
-
 module.exports = {
     busMpgPerPerson,
     co2PerGallonOfGas,

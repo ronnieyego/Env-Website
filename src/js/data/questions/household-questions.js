@@ -113,6 +113,11 @@ export default [
             'Lots of Fans'
         ],
         value: 'Window Mount AC',
+        answerText: [
+            'This is one large AC unit connected to your HVAC.  It cools the entire house at once',
+            'This assumes that you have a few smaller AC units that are on while you\'re home',
+            'This assumes you have a fan for most rooms in your home.'
+        ],
         forms: ['household-temperature'],
         id: ids.coolingSystem
     },

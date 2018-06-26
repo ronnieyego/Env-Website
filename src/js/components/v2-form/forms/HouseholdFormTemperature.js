@@ -7,10 +7,10 @@ import ids from '../../../utils/ids/index';
 
 const QUESTION_ORDER = [
     ids.summerTemp,
-    ids.heatingSystem,
+    ids.coolingSystem,
     ids.usesFan,
     ids.winterTemp,
-    ids.coolingSystem,
+    ids.heatingSystem,
     ids.usesPortableHeater
 ];
 
