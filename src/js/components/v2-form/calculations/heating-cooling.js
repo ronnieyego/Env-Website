@@ -23,13 +23,15 @@ const getTimeOn = (hoursHome, coolingOnWhileSleeping) => {
 
 const getAcEnergy = (acType, tempDiff, rooms, timeOn) => {
     const unitWattage = acWattage[acType];
+    if (!unitWattage) {
+        console.log('ERROR -- could not find acWattage for ', unitWattage);
+    }
     const multiplier = tempDiff > acPenaltyTempDiff ? (tempDiff - acPenaltyTempDiff) * acWattageTemperature : 1;
     const adjustedUnitWattage = unitWattage * multiplier;
     const unitKwhPerDay = adjustedUnitWattage * timeOn / 1000;
     const acUnits = acType === 'Central AC' ? 1 : Math.round(rooms / ROOMS_PER_AC_UNIT);
     const kwhPerDay = unitKwhPerDay * acUnits;
-
-    console.log('GOT AC PER DAY', kwhPerDay);
+    console.log('units and wattage: ', acUnits, unitWattage);
     return kwhPerDay;
 };
 
@@ -43,6 +45,9 @@ const convertKwhToCo2 = (state, kwh) => {
 }
 
 export default ({ state, coolingType, summerTemp, winterTemp, hoursHome, coolingWhileSleeping, houseSqft }) => {
+    if( coolingType === 'None') {
+        return 0;
+    }
     const tempDiff = getDifferenceInTemp(state, summerTemp, winterTemp);
     const timeOn = getTimeOn(hoursHome, coolingWhileSleeping);
     const numRooms = getNumberOfRooms(houseSqft);

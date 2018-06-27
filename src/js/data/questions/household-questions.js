@@ -110,7 +110,8 @@ export default [
         selectOptions: [
             'Central AC',
             'Window Mount AC',
-            'Lots of Fans'
+            'Lots of Fans',
+            'None'
         ],
         value: 'Window Mount AC',
         answerText: [

@@ -3,9 +3,9 @@
 // https://www.comfort-pro.com/2015/10/how-much-energy-does-an-air-conditioner-ac-use-infographic/
 export const acWattage = {
     small: 560, // 6000 btus
-    medium: 900, // Around 10000 btus
+    'Window Mount AC': 900, // Aka medium
     large: 1440,
-    central: 3400 // Central Air Conditioning does it for the whole house.
+    'Central AC': 3400 // Central Air Conditioning does it for the whole house.
 }
 const wattsPerBtuWindowAc = .085; // Based on the above, how many watts per btu
 
