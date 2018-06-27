@@ -76,6 +76,25 @@ export default [
 
 // Heating cooling
     {
+        name: 'How insulated is your home?',
+        type: 'dropdown',
+        selectOptions: [
+            'Extremely Insulated',
+            'Reasonably Insulated',
+            'Somewhat Insulated',
+            'Poorly Insulated'
+        ],
+        value: 'Reasonably Insulated',
+        answerText: [
+            'There are no cracks in the envelope of your home.  Your windows are double payne and doors have a weather strip.  If you have an attic/crawlspace,  there is insulation.',
+            'Your home was likely built after 1950.  Your windows are single payne and doors have a small gap to the outside.',
+            'Your home has small cracks to the outside in places.  Your windows might rattle a bit and you can see a gap beneath your door.',
+            'You can sometimes feel a draft through your house.  Your windows rattle a bit and a lot of light/air seeps in through your door.'
+        ],
+        forms: ['household-temperature'],
+        id: ids.homeInsulation
+    },
+    {
         name: 'What temperature do you keep your home in the winter (use Fahrenheit)?',
         type: 'int',
         value: '70',
@@ -97,10 +116,10 @@ export default [
         selectOptions: [
             'Radiant floors',
             'Heat pump',
-            'Central gas HVAC',
+            'Natural Gas',
             'Electric radiator'
         ],
-        value: 'Central gas HVAC',
+        value: 'Natural Gas',
         forms: ['household-temperature'],
         id: ids.heatingSystem
     },

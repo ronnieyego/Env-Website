@@ -1,4 +1,4 @@
-import getHeatingCooling from './heating-cooling';
+import getHeatingCooling from './cooling';
 import { expect } from 'chai';
 
 const FIXTURE_DATA = {

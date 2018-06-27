@@ -1,4 +1,4 @@
-// 1100 currenet max
+// 1101 currenet max
 
 export default {
 
@@ -88,6 +88,7 @@ export default {
     coolingSystem: 1081,
     usesPortableHeater: 1082,
     usesFan: 1083,
+    homeInsulation: 1101,
 
 // Furniture
     numTables: 1027,

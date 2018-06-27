@@ -1,4 +1,19 @@
+// Heating
+export const naturalGasCo2 = 0.117; // Per cubic foot
+export const btusLostPerSqft = 8;  // {Per hour}
+export const btusToHeat = 0.6; // Btus to heat 1 sqft 1 degree
+export const btusPerNaturalGas = 1030; // Btus per cubic foot of natural gas
+export const btusLostByInsulation = {
+    // Percent increase in heat loss
+    'Extremely Insulated': 0.66,
+    'Reasonably Insulated': 1,
+    'Somewhat Insulated': 1.33,
+    'Poorly Insulated': 1.66
+};
 
+
+
+// Cooling
 
 // https://www.comfort-pro.com/2015/10/how-much-energy-does-an-air-conditioner-ac-use-infographic/
 export const acWattage = {
@@ -14,7 +29,6 @@ export const acWattageTemperature = .03;
 // For every degree hotter it is, your AC uses about 3% more energy
 // In reality it uses the same amount of energy, but is on more
 // Im assuming this penalty kicks in after 10 DEGREES DIFFERENCE
-
 
 const btusPerSqft = 20; // Rule of thumb, it takes 20 BTUS to cool each additional sqft of space.
 
