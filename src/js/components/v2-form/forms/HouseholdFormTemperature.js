@@ -8,9 +8,11 @@ import ids from '../../../utils/ids/index';
 const QUESTION_ORDER = [
     ids.summerTemp,
     ids.coolingSystem,
+    ids.coolWholeHome,
     ids.usesFan,
     ids.winterTemp,
     ids.heatingSystem,
+    ids.heatWholeHome,
     ids.usesPortableHeater
 ];
 

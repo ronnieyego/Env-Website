@@ -10,6 +10,9 @@ export const btusLostByInsulation = {
     'Somewhat Insulated': 1.33,
     'Poorly Insulated': 1.66
 };
+// http://cadetheat.com/blog/right-wattage-heater/
+export const radiatorWattageBySqft = 8.5;
+export const radiantFloorWattageBySqft = 12;
 
 
 

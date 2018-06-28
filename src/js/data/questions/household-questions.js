@@ -103,6 +103,43 @@ export default [
         id: ids.winterTemp
     },
     {
+        name: 'Do you heat your entire home or just a part of it?',
+        type: 'dropdown',
+        selectOptions: [
+            'Entire home',
+            'Some rooms',
+            'Just my current room'
+        ],
+        value: 'Entire home',
+        forms: ['household-temperature'],
+        id: ids.heatWholeHouse
+    },
+    {
+        name: 'How much of your home is covered by radiant flooring?',
+        type: 'dropdown',
+        selectOptions: [
+            'Entire home',
+            'Most rooms',
+            'Half of rooms',
+            'Quarted of rooms',
+        ],
+        value: 'Entire home',
+        forms: ['household-temperature'],
+        id: ids.heatWholeHouseRadiantFlooring
+    },
+    {
+        name: 'Do you cool your entire home or just a part of it?',
+        type: 'dropdown',
+        selectOptions: [
+            'Entire home',
+            'Some rooms',
+            'Just my current room'
+        ],
+        value: 'Entire home',
+        forms: ['household-temperature'],
+        id: ids.coolWholeHouse
+    },
+    {
         name: 'What temperature do you keep your home in the summer (use Fahrenheit)?',
         type: 'int',
         value: '80',
@@ -116,8 +153,8 @@ export default [
         selectOptions: [
             'Radiant floors',
             'Heat pump',
-            'Natural Gas',
-            'Electric radiator'
+            'Gas Vents',
+            'Radiator'
         ],
         value: 'Natural Gas',
         forms: ['household-temperature'],
