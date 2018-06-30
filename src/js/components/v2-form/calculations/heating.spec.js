@@ -10,7 +10,8 @@ const FIXTURE_DATA = {
     houseSqft: 1500,
     hoursHome: 6,
     heatingOnWhileSleeping: false,
-    heatWholeHome: 'Entire home'
+    heatWholeHome: 'Entire home',
+    usesPersonalHeater: false
 }
 
  describe('Heating Calculations', () => {
@@ -44,6 +45,12 @@ const FIXTURE_DATA = {
         expect(res).to.equal(31);
         done();
     });
+    it('should calculate Gas Vents with a personal heater', done => {
+        const updatedFixtures = {...FIXTURE_DATA, usesPersonalHeater: true};
+        const res = getHeatingCo2(updatedFixtures);
+        expect(res).to.equal(24.4);
+        done();
+    });
     it('should calculate Radiator', done => {
         const updatedFixtures = {...FIXTURE_DATA, heatType: 'Radiator'};
         const res = getHeatingCo2(updatedFixtures);
@@ -72,6 +79,24 @@ const FIXTURE_DATA = {
         const updatedFixtures = {...FIXTURE_DATA, heatType: 'Radiant Flooring'};
         const res = getHeatingCo2(updatedFixtures);
         expect(res).to.equal(31);
+        done();
+    });
+    it('should calculate Heat Pump', done => {
+        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat Pump'};
+        const res = getHeatingCo2(updatedFixtures);
+        expect(res).to.equal(54.3);
+        done();
+    });
+    it('should calculate Heat Pump in a big house', done => {
+        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat Pump', houseSqft: 3000};
+        const res = getHeatingCo2(updatedFixtures);
+        expect(res).to.equal(108.6);
+        done();
+    });
+    it('should calculate None for heating type', done => {
+        const updatedFixtures = {...FIXTURE_DATA, heatType: 'None'};
+        const res = getHeatingCo2(updatedFixtures);
+        expect(res).to.equal(0);
         done();
     });
 });

@@ -8,7 +8,8 @@ const FIXTURE_DATA = {
     winterTemp: 32,
     hoursHome: 6,
     coolingWhileSleeping: false,
-    houseSqft: 1500
+    houseSqft: 1500,
+    usesPersonalFan: false
 }
 
  describe('Heating and Cooling Calculations', () => {
@@ -57,6 +58,12 @@ const FIXTURE_DATA = {
         const updatedFixtures = {...FIXTURE_DATA, coolingType: 'None' };
         const res = getHeatingCooling(updatedFixtures);
         expect(res).to.equal(0);
+        done();
+    });
+    it('should calculate with personal fan on', done => {
+        const updatedFixtures = {...FIXTURE_DATA, usesPersonalFan: true };
+        const res = getHeatingCooling(updatedFixtures);
+        expect(res).to.equal(3.4);
         done();
     });
 });

@@ -13,7 +13,8 @@ export const btusLostByInsulation = {
 // http://cadetheat.com/blog/right-wattage-heater/
 export const radiatorWattageBySqft = 8.5;
 export const radiantFloorWattageBySqft = 12;
-
+export const btusPerKwhHeatPump = 1100
+export const personalHeaterWattage = 250;
 
 
 // Cooling

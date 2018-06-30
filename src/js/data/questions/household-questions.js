@@ -92,6 +92,7 @@ export default [
             'You can sometimes feel a draft through your house.  Your windows rattle a bit and a lot of light/air seeps in through your door.'
         ],
         forms: ['household-temperature'],
+        hintText: 'This helps calculate how much additionaly heating/cooling your home needs.',
         id: ids.homeInsulation
     },
     {
@@ -154,9 +155,10 @@ export default [
             'Radiant floors',
             'Heat pump',
             'Gas Vents',
-            'Radiator'
+            'Radiator',
+            'None'
         ],
-        value: 'Natural Gas',
+        value: 'Gas Vents',
         forms: ['household-temperature'],
         id: ids.heatingSystem
     },

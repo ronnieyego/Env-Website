@@ -69,9 +69,6 @@ export default ({
     const cheeseServingsAdjusted = Math.round(cheeseServings * ratioError * multiplier * 10)/10;
     const junkFoodServingsAdjusted = Math.round(junkFoodServings * ratioError * multiplier * 10)/10;
 
-    console.log('Total CALORIES before and adjusted:', totalCalories, totalCaloriesAdjusted);
-    console.log('Ratio Error:', ratioError);
-
     return {
         servings: {
             beef: beefServingsAdjusted,

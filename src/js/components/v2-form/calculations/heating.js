@@ -5,7 +5,9 @@ import {
     btusPerNaturalGas,
     btusLostByInsulation,
     radiatorWattageBySqft,
-    radiantFloorWattageBySqft
+    radiantFloorWattageBySqft,
+    btusPerKwhHeatPump,
+    personalHeaterWattage
 } from '../data/heating-cooling';
 import stateTemps from '../data/average-temp-by-state';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
@@ -91,6 +93,10 @@ const getRadiantFlooringKwh = (hoursOn, heatingSize) => {
     const radiantFlooringWattage = heatingSize * radiantFloorWattageBySqft;
     const kwh = hoursOn * radiantFlooringWattage / 1000;
     return kwh;
+};
+
+const getPersonalHeaterKwh = hoursHome => {
+    return hoursHome * personalHeaterWattage / 1000;
 }
 
 export default ({
@@ -102,26 +108,39 @@ export default ({
     winterTemp,
     hoursHome,
     heatingOnWhileSleeping,
-    heatWholeHome
+    heatWholeHome,
+    usesPersonalHeater
 }) => {
+    if(heatType === 'None') {
+        return 0;
+    }
+    let totalCo2 = 0;
+
     const tempDiff = getDifferenceInTemp(state, summerTemp, winterTemp);
     // Ignoring summer
     const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, tempDiff.winter, insulationType);
-
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);
-    
+    const personalHeaterKwh = usesPersonalHeater ? getPersonalHeaterKwh(hoursHome) : 0;
+    const personalHeaterCo2 = convertKwhToCo2(state, personalHeaterKwh);
+
+    totalCo2 += personalHeaterCo2;
     if(heatType === 'Gas Vents') {
-        return getNaturalGasCo2(heatingRequirementBtus);
-    } else if(heatType === 'Radiator') {
+        totalCo2 += getNaturalGasCo2(heatingRequirementBtus);
+    } else if(heatType === 'Heat Pump') {
+        const heatingPumpKwh =  heatingRequirementBtus / btusPerKwhHeatPump;
+        totalCo2 += convertKwhToCo2(state, heatingPumpKwh);
+    }else if(heatType === 'Radiator') {
         const heatingSize = getSizeFromHeatWholeHome(heatWholeHome, houseSqft);
         const radiatorKwh = getRadiatorKwh(timeOn, heatingSize);
-        return convertKwhToCo2(state, radiatorKwh);
+        totalCo2 += convertKwhToCo2(state, radiatorKwh);
     } else if(heatType === 'Radiant Flooring') {
         const heatingSize = getSizeFromHeatWholeHome(heatWholeHome, houseSqft);
         const radiantFlooringKwh = getRadiantFlooringKwh(timeOn, heatingSize);
-        return convertKwhToCo2(state, radiantFlooringKwh);
+        totalCo2 += convertKwhToCo2(state, radiantFlooringKwh);
+    } else {
+        console.log('Need to add heating type: ', heatType);
     }
-    console.log('Need to add heating type: ', heatType);
+    return totalCo2;
 }
 
 

@@ -31,7 +31,6 @@ const getAcEnergy = (acType, tempDiff, rooms, timeOn) => {
     const unitKwhPerDay = adjustedUnitWattage * timeOn / 1000;
     const acUnits = acType === 'Central AC' ? 1 : Math.round(rooms / ROOMS_PER_AC_UNIT);
     const kwhPerDay = unitKwhPerDay * acUnits;
-    console.log('units and wattage: ', acUnits, unitWattage);
     return kwhPerDay;
 };
 
@@ -44,10 +43,20 @@ const convertKwhToCo2 = (state, kwh) => {
     return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
 }
 
-export default ({ state, coolingType, summerTemp, winterTemp, hoursHome, coolingWhileSleeping, houseSqft }) => {
+export default ({ 
+    state,
+    coolingType,
+    summerTemp,
+    winterTemp,
+    hoursHome,
+    coolingWhileSleeping,
+    houseSqft,
+    usesPersonalFan
+}) => {
     if( coolingType === 'None') {
         return 0;
     }
+    let totalCo2 = 0;
     const tempDiff = getDifferenceInTemp(state, summerTemp, winterTemp);
     const timeOn = getTimeOn(hoursHome, coolingWhileSleeping);
     const numRooms = getNumberOfRooms(houseSqft);
@@ -60,5 +69,8 @@ export default ({ state, coolingType, summerTemp, winterTemp, hoursHome, cooling
             kwhPerDay += getAcEnergy(coolingType, tempDiff.winter, numRooms, timeOn);
         }
     }
+    const personalFanKwh = usesPersonalFan ? getFanEnergy(1, hoursHome) : 0; // 1 fan not used while sleeping
+    kwhPerDay += personalFanKwh;
+
     return convertKwhToCo2(state, kwhPerDay);
 };
