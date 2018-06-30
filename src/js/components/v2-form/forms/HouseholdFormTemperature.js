@@ -39,6 +39,8 @@ export default class HouseholdFormTemperature extends React.Component {
         }
         if(coolingType === 'None') {
             filterIds.push(ids.coolWholeHouse);
+        } else if (coolingType === 'Lots of Fans') {
+            filterIds.push(ids.usesFan);
         }
 
         return filterIds

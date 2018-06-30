@@ -17,7 +17,6 @@ const FIXTURE_DATA = {
  describe('Heating Calculations', () => {
     it('should calculate Gas Vents', done => {
         const res = getHeatingCo2(FIXTURE_DATA);
-        console.log('res is', res);
         expect(res).to.equal(24);
         done();
     });

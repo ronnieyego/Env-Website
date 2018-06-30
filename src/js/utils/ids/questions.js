@@ -1,4 +1,4 @@
-// 1104 currenet max
+// 1105 currenet max
 
 export default {
 
@@ -10,7 +10,7 @@ export default {
     numberBurners: 1023,
     numberChimneys: 1024,
     hoursGrilling: 1025,
-    poundsChicken: 1018,
+    poundsChicken: 1105,
     poundsBeef: 1019,
     poundsPork: 1020,
     poundsVegetables: 1021,
@@ -147,5 +147,4 @@ export default {
 
 // User State
     userState: 1046,
-
 }
