@@ -4,7 +4,8 @@ import { expect } from 'chai';
 const FIXTURE_DATA = {
     homeMaterial: 'Wood',
     homeType: 'Apartment',
-    homeSqft: 2500
+    homeSqft: 2500,
+    numHousemates: 0
 }
 
  describe('Home building', () => {
@@ -35,6 +36,12 @@ const FIXTURE_DATA = {
         const updatedFixtures = {...FIXTURE_DATA, homeSqft: 1500};
         const { totalCo2 } = getHomeCo2(updatedFixtures);
         expect(totalCo2).to.equal(235200);
+        done();
+    });
+    it('should calculate the CO2 of a wood apartment with a housemate', done => {
+        const updatedFixtures = {...FIXTURE_DATA, numHousemates: 1};
+        const { totalCo2 } = getHomeCo2(updatedFixtures);
+        expect(totalCo2).to.equal(196000);
         done();
     });
 });

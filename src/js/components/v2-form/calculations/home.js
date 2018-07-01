@@ -3,12 +3,13 @@ import { homeTypeAdjuster, co2PerSqFt, co2Breakdown, homeQuestions } from '../..
 export default ({
     homeMaterial,
     homeType,
-    homeSqft
+    homeSqft,
+    numHousemates
 }) => {
     const adjuster = homeTypeAdjuster[homeType];
     const materialCo2PerSqft = co2PerSqFt[homeMaterial];
-
-    const totalCo2 = Math.round(homeSqft *  materialCo2PerSqft * adjuster);
+    const homeCo2 = homeSqft *  materialCo2PerSqft * adjuster;
+    const totalCo2 = Math.round(homeCo2/(numHousemates + 1));
     return { totalCo2, homeType, homeMaterial };
 }
 

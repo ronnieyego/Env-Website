@@ -6,6 +6,7 @@ export default [
         type: 'int',
         hoverText: 'There\'s significant efficiencies on heating, cooking, and utilities by living with others.',
         value: '0',
+        validator: 'housemates',
         forms: ['household-home'],
         id: ids.liveWith
     },

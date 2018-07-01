@@ -122,6 +122,18 @@ const homeTemp = value => {
     return errorText;
 }
 
+const housematesValidator = value => {
+    let errorText = '';
+    if(value === '') {
+        errorText = 'Please enter a positive number';
+    } else if (value > 15 ) {
+        errorText = 'That\'s a lot of housemates and probably violates building code standards.';
+    } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
+        errorText = "Please enter a valid number";
+    }
+    return errorText;
+}
+
 const calories = value => {
     let errorText = '';
     if(value === '') {
@@ -151,6 +163,8 @@ export const getErrorText = (value, type) => {
             return underTwentyQuestion(value);
         case '<300':
             return underThreeHundredQuestion(value);
+        case 'housemates':
+            return housematesValidator(value);
         case 'mpg':
             return mpgValidator(value);
         case 'tv-size':
