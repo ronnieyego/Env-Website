@@ -5,7 +5,7 @@ const FIXTURE_DATA = {
     homeSqft: 1500,
     furnitureAmount: 'I have all of the essentials'
 }
-describe.only('Furniture Calculation', () => {
+describe('Furniture Calculation', () => {
     it('should calculate furniture of a small home', done => {
         const res = getFurnitureCo2(FIXTURE_DATA);
         expect(res).to.equal(4781);
