@@ -10,7 +10,7 @@ const QUESTION_ORDER = [
     ids.hoursAtHome,
     ids.tvWatchHours,
     ids.hoursComputer,
-    ids.doesCook,
+    ids.cookingFrequency,
     ids.showEveryday,
     ids.playMusicHome,
     ids.laundryMonth,

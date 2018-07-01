@@ -75,7 +75,7 @@ export default {
     houseClutter: 1087,
 
 // House activities
-    doesCook: 1072,
+    cookingFrequency: 1072,
     showEveryday: 1073,
     laundryMonth: 1074,
     playMusicHome: 1075,

@@ -1,7 +1,6 @@
 import stateTemps from '../data/average-temp-by-state';
-import { averageRoomSize } from '../data/home';
 import { acPenaltyTempDiff, acWattage, acWattageTemperature, fanWattage } from '../data/heating-cooling';
-import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
+import { convertKwhToCo2, getNumberOfRooms } from './utils';
 
 
 const ROOMS_PER_AC_UNIT = 3;
@@ -11,10 +10,6 @@ const getDifferenceInTemp = (state, summerTemp, winterTemp) => {
     const summer = Math.abs(summerTemp - stateTemp);
     const winter = Math.abs(winterTemp - stateTemp);
     return { summer, winter };
-};
-
-const getNumberOfRooms = houseSqft => {
-    return Math.round(houseSqft/averageRoomSize);
 };
 
 const getTimeOn = (hoursHome, coolingOnWhileSleeping) => {
@@ -38,10 +33,6 @@ const getFanEnergy = (rooms, timeOn) => {
     // Assume 1 fan per room.
     return fanWattage * rooms * timeOn / 1000;
 };
-
-const convertKwhToCo2 = (state, kwh) => {
-    return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
-}
 
 export default ({ 
     state,

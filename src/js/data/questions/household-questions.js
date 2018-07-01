@@ -34,12 +34,17 @@ export default [
         value: 6
     },
     {
-        name: 'Do you cook most nights?',
-        type: 'bool',
-        value: 'off',
-        checked: false,
+        name: 'How often do you cook at home?',
+        type: 'dropdown',
+        selectOptions: [
+            'Most nights',
+            '2-3 times per week',
+            'Once a week',
+            'Less than once a week'
+        ],
+        value: '2-3 times per week',
         forms: ['household-activities'],
-        id: ids.doesCook
+        id: ids.cookingFrequency
     },
     {
         name: 'Do you shower every day?',

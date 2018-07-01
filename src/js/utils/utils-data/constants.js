@@ -1,3 +1,5 @@
+// Most of this moved to form data;
+
 const daysInMonth = 30;
 
 const co2PerGallonOfGas = 19.6;
