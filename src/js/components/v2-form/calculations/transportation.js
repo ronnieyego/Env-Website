@@ -6,6 +6,7 @@ import {
     planeMpgPerPerson,
     trainMpgPerPerson } from '../data/transportation';
 import { convertKwhToCo2 } from './utils';
+import { classData, co2PerPound, creationBreakdown } from '../../costs/car/car-data';
 
 const getGasVehicleCo2 = (miles, mpg) => {
     return Math.round(miles / mpg * co2PerGallonOfGas);
@@ -27,8 +28,28 @@ const getCarpoolMultiplier = carpoolFrequency => {
     }
 };
 
+const getCarClassFromMpg = mpg => {
+    if(mpg > 25) {
+        return 'Compact car';
+    } else if(mpg > 20) {
+        return 'Large car';
+    } else if(mpg > 15) {
+        return 'Midsize truck';
+    } else if(mpg < 15) {
+        return 'Large SUV';
+    }
+}
+const getCarBuildCo2 = (carMpg, carBuildType) => {
+    const carClass = getCarClassFromMpg(carMpg);
+    const carWeight = classData[carClass].weight;
+    const carCo2PerPound = co2PerPound[carBuildType];
+    const carCreationCo2 = Math.round(carWeight * carCo2PerPound);
+    return carCreationCo2;
+}
+
 const getCarCo2 = ({
-    carType,
+    carFuelType,
+    carBuildType,
     carMpg,
     carpoolFrequency,
     carMilesMonth,
@@ -36,11 +57,15 @@ const getCarCo2 = ({
 }) => {
     const carpoolMilageMultiplier = getCarpoolMultiplier(carpoolFrequency);
     const totalMiles = carMilesMonth * carpoolMilageMultiplier;
-    if(['Gasoline', 'Diesel'].indexOf(carType) !== -1) {
-        return getGasVehicleCo2(totalMiles, carMpg);
-    } else if (carType === 'Electric') {
+    if(['Gasoline', 'Diesel'].indexOf(carFuelType) !== -1) {
+        const carCo2 = getGasVehicleCo2(totalMiles, carMpg);
+        const carBuildCo2 = getCarBuildCo2(carMpg, carBuildType);
+        return { carCo2, carBuildCo2 };
+    } else if (carFuelType === 'Electric') {
         const kwh = totalMiles * kwhPer100MilesElectricCar/100;
-        return Math.round(convertKwhToCo2(state, kwh));
+        const carCo2 = Math.round(convertKwhToCo2(state, kwh));
+        const carBuildCo2 = getCarBuildCo2(25, carBuildType); // SInce no MPG, hardcode it to be car;
+        return { carCo2, carBuildCo2 };
     } else {
         console.log('Error -- Invalid car type answer');
         return 0;
@@ -48,7 +73,8 @@ const getCarCo2 = ({
 }
 export default ({
     doesDrive,
-    carType,
+    carBuildType,
+    carFuelType,
     carMpg,
     carpoolFrequency,
     carMilesMonth,
@@ -57,7 +83,7 @@ export default ({
     flyMiles,
     state
 }) => {
-    const carCo2 = doesDrive ? getCarCo2({ carType, carMpg, carpoolFrequency, carMilesMonth, state}) : 0;
+    const { carCo2, carBuildCo2 } = doesDrive ? getCarCo2({ carFuelType, carMpg, carpoolFrequency, carMilesMonth, state, carBuildType}) : { carCo2: 0, carBuildCo2: 0 };
     const busCo2 = getGasVehicleCo2(busMiles, busMpgPerPerson);
     const trainCo2 = getGasVehicleCo2(trainMiles, trainMpgPerPerson);
     // Changed plane MPG Var name
@@ -65,6 +91,7 @@ export default ({
     const totalCo2 = carCo2 + busCo2 + trainCo2 + planeCo2;
     return {
         car: carCo2,
+        carBuild: carBuildCo2,
         bus: busCo2,
         train: trainCo2,
         plane: planeCo2,
