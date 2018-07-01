@@ -20,3 +20,8 @@ export default petsArray => {
         return getPetCo2(pet) + acc;
     }, 0);
 };
+
+// To form the pets array, I'll need to search for all question names beginning with
+// The parent quesiton's child question name.  In this case pet#
+
+// Should make this a question util
