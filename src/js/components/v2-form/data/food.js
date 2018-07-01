@@ -53,7 +53,7 @@ export const foodAnswerServings = {
         'Few times per day': 3,
         'As much as possible': 6
     },
-    fruits: {
+    fruit: {
         'Never': 0,
         'Rarely': .25,
         'Once a day': 1,
@@ -102,7 +102,7 @@ export const servingFacts = {
         calories: 59,
         co2: 0.5
     },
-    fruits: {
+    fruit: {
         calories: 95,
         co2: 0.38
     },

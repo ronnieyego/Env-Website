@@ -23,7 +23,7 @@ export default ({
     const porkServings = foodAnswerServings.pork[pork];
     const seafoodServings = foodAnswerServings.seafood[seafood];
     const grainServings = foodAnswerServings.grain[grain];
-    const fruitServings = foodAnswerServings.fruits[fruit];
+    const fruitServings = foodAnswerServings.fruit[fruit];
     const vegetableServings = foodAnswerServings.vegetables[vegetables];
     const dairyServings = foodAnswerServings.dairy[dairy];
     const cheeseServings = foodAnswerServings.cheese[cheese];
@@ -34,7 +34,7 @@ export default ({
     const porkCalories = servingFacts.pork.calories * porkServings;
     const seafoodCalories = servingFacts.seafood.calories * seafoodServings;
     const grainCalories = servingFacts.grain.calories * grainServings;
-    const fruitCalories = servingFacts.fruits.calories * fruitServings;
+    const fruitCalories = servingFacts.fruit.calories * fruitServings;
     const vegetableCalories = servingFacts.vegetables.calories * vegetableServings;
     const dairyCalories = servingFacts.dairy.calories * dairyServings;
     const cheeseCalories = servingFacts.cheese.calories * cheeseServings;
@@ -56,7 +56,7 @@ export default ({
     const cheeseCaloriesAdjusted = Math.round(cheeseCalories * ratioError * multiplier);
     const junkFoodCaloriesAdjusted = Math.round(junkFoodCalories * ratioError * multiplier);
 
-    const totalCaloriesAdjusted = beefCaloriesAdjusted + chickenCaloriesAdjusted + porkCaloriesAdjusted + seafoodCaloriesAdjusted + grainCaloriesAdjusted + fruitCaloriesAdjusted + vegetablesCaloriesAdjusted + dairyCaloriesAdjusted + cheeseCaloriesAdjusted + junkFoodCaloriesAdjusted;
+    const totalCaloriesAdjusted = Math.round(beefCaloriesAdjusted + chickenCaloriesAdjusted + porkCaloriesAdjusted + seafoodCaloriesAdjusted + grainCaloriesAdjusted + fruitCaloriesAdjusted + vegetablesCaloriesAdjusted + dairyCaloriesAdjusted + cheeseCaloriesAdjusted + junkFoodCaloriesAdjusted);
 
     const beefServingsAdjusted = Math.round(beefServings * ratioError * multiplier * 10)/10;
     const chickenServingsAdjusted = Math.round(chickenServings * ratioError * multiplier * 10)/10;
@@ -68,6 +68,18 @@ export default ({
     const dairyServingsAdjusted = Math.round(dairyServings * ratioError * multiplier * 10)/10;
     const cheeseServingsAdjusted = Math.round(cheeseServings * ratioError * multiplier * 10)/10;
     const junkFoodServingsAdjusted = Math.round(junkFoodServings * ratioError * multiplier * 10)/10;
+
+    const beefCo2 = Math.round(beefServingsAdjusted * servingFacts.beef.co2 * 10)/10;
+    const chickenCo2 = Math.round(chickenServingsAdjusted * servingFacts.chicken.co2 * 10)/10;
+    const porkCo2 = Math.round(porkServingsAdjusted * servingFacts.pork.co2 * 10)/10;
+    const seafoodCo2 = Math.round(seafoodServingsAdjusted * servingFacts.seafood.co2 * 10)/10;
+    const grainCo2 = Math.round(grainServingsAdjusted * servingFacts.grain.co2 * 10)/10;
+    const fruitCo2 = Math.round(fruitServingsAdjusted * servingFacts.fruit.co2 * 10)/10;
+    const vegetablesCo2 = Math.round(vegetablesServingsAdjusted * servingFacts.vegetables.co2 * 10)/10;
+    const dairyCo2 = Math.round(dairyServingsAdjusted * servingFacts.dairy.co2 * 10)/10;
+    const cheeseCo2 = Math.round(cheeseServingsAdjusted * servingFacts.cheese.co2 * 10)/10;
+    const junkFoodCo2 = Math.round(junkFoodServingsAdjusted * servingFacts.junkFood.co2 * 10)/10;
+    const totalCo2 = Math.round(beefCo2 + chickenCo2 + porkCo2 + seafoodCo2 + grainCo2 + fruitCo2 + vegetablesCo2 + dairyCo2 + cheeseCo2 + junkFoodCo2);
 
     return {
         servings: {
@@ -94,6 +106,20 @@ export default ({
             dairy: dairyCaloriesAdjusted,
             cheese: cheeseCaloriesAdjusted,
             junkFood: junkFoodCaloriesAdjusted,
+        },
+        totalCo2,
+        co2: {
+            total: totalCo2,
+            beef: beefCo2,
+            chicken: chickenCo2,
+            pork: porkCo2,
+            seafood: seafoodCo2,
+            grain: grainCo2,
+            fruit: fruitCo2,
+            vegetables: vegetablesCo2,
+            dairy: dairyCo2,
+            cheese: cheeseCo2,
+            junkFood: junkFoodCo2,
         },
         ratioError,
         multiplier

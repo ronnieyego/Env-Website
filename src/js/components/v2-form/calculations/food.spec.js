@@ -43,8 +43,22 @@ import { expect } from 'chai';
               cheese: 373,
               junkFood: 439 
             },
-           ratioError: 1.33,
-           multiplier: 1.1 
+            co2: {
+                beef: 4.7,
+                cheese: 2.9,
+                chicken: 0.9,
+                dairy: 1.1,
+                fruit: 0.6,
+                grain: 0.5,
+                junkFood: 1.1,
+                pork: 1,
+                seafood: 1,
+                total: 15,
+                vegetables: 1.1,
+            },
+            totalCo2: 15,
+            ratioError: 1.33,
+            multiplier: 1.1 
         };
 
         const res = getFoodResults(data);

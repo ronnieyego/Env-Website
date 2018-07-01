@@ -29,12 +29,10 @@ export default class FormTabs extends React.Component {
                 return 'Transportation';
             case STEPS.food:
                 return 'Food';
-            case STEPS.stuffHouse:
-                return 'Stuff you own';
-            case STEPS.stuffActivities:
-                return 'Stuff you do';
+            case STEPS.stuff:
+                return 'Stuff';
             default:
-                throw new Error('ERROR: In Form Tab.  No tab for step: ', step);
+                throw new Error(`ERROR: In Form Tab.  No tab for step: ${step}`);
         }
     }
 

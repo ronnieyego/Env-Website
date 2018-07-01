@@ -8,8 +8,7 @@ export const STEPS = {
     heatingCooling: 3,
     transportation: 4,
     food: 5,
-    stuffHouse: 6,
-    stuffActivities: 7,
+    stuff: 6
 }
 
 export const filterQuestions = (questions, filterArray) => {
