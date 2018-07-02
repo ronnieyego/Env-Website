@@ -26,6 +26,20 @@ export const getQuestionFromId = (questionSet, id) => {
     return foundQuestion;
 }
 
+export const getQuestionsThatMatchId = (questionSet, id) => {
+    const foundQuestions = [];
+    questionSet.forEach(question => {
+        const stringId = question.id.toString();
+        if(stringId.includes(id)) {
+            foundQuestions.push(question);
+        }
+    });
+    if(!foundQuestions) {
+        console.log('Warning:  could not find any questions for id: ', id);
+    }
+    return foundQuestions;
+}
+
 export const formatName = (name, formType) => {
     name = name.charAt(0).toUpperCase() + name.slice(1);
     return name;

@@ -112,7 +112,7 @@ export default ({
     usesPersonalHeater
 }) => {
     if(heatType === 'None') {
-        return 0;
+        return { totalCo2: 0 };
     }
     let totalCo2 = 0;
 
@@ -140,7 +140,7 @@ export default ({
     } else {
         console.log('Need to add heating type: ', heatType);
     }
-    return totalCo2;
+    return { totalCo2 };
 }
 
 

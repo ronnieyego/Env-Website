@@ -48,7 +48,7 @@ export default class MultipleQuestion extends React.Component {
     createQuestion(questionIds, forms) {
         const questions = questionIds.map(id => {
             const question = getQuestionFromId(this.props.questions, id);
-            const newId = Math.random();
+            const newId = `${this.props.question.childQuestionName}-${Math.random()}`;
             const newQuestionName = `${this.props.question.childQuestionName}${this.state.questionIds.length + 1}`;
             const newQuestion = { ...question, name: newQuestionName, id: newId, forms: [`${this.props.question.id}`] };
             const allQuestionIds = [...this.state.questionIds];

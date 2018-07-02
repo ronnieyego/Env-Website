@@ -16,9 +16,10 @@ const getPetCo2 = pet => {
 }
 
 export default petsArray => {
-    return petsArray.reduce((acc, pet) => {
+    const totalCo2 = petsArray.reduce((acc, pet) => {
         return getPetCo2(pet) + acc;
     }, 0);
+    return { totalCo2 };
 };
 
 // To form the pets array, I'll need to search for all question names beginning with

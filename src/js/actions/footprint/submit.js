@@ -4,9 +4,10 @@ import getHomeActivitiesResults from '../../components/v2-form/calculations/home
 import getHomeHeatingResults from '../../components/v2-form/calculations/heating';
 import getHomeCoolingResults from '../../components/v2-form/calculations/cooling';
 import getTransportationResults from '../../components/v2-form/calculations/transportation';
+import getPetsResults from '../../components/v2-form/calculations/pets';
 
 import ids from '../../utils/ids/index';
-import { getAnswerFromId, getQuestionFromId } from '../../components/questions/utils';
+import { getAnswerFromId, getQuestionFromId, getQuestionsThatMatchId } from '../../components/questions/utils';
 
 
 const getFood = questions => {
@@ -146,23 +147,61 @@ const getTransportation = (questions, { userState }) => {
         flyMiles,
         state
     });
-}
+};
 
+const getPet = (questions, { userState }) => {
+    const petQuestion = getQuestionFromId(questions, ids.allPets);
+    const petQuestions = getQuestionsThatMatchId(questions, petQuestion.childQuestionName);
+    const petQuestionValues = petQuestions.map(question => {
+        return question.value;
+    });
+    return getPetsResults(petQuestionValues);
+};
+
+export const getResults = (questions, { userState }) => {
+    const results = {};
+    results.food = getFood(questions);
+    results.home = getHome(questions);
+    results.homeActivities = getHomeActivities(questions, { userState });
+    const { heating, cooling } = getHomeTemperature(questions, { userState });
+    results.heating = heating;
+    results.cooling = cooling;
+    results.transportation = getTransportation(questions, { userState });
+    results.pets = getPet(questions, { userState });
+    console.log(results);
+    return results;
+};
 
 export default questionPayload => {
     return (dispatch, getState) => {
         const store = getState();
         const questions = store.questions.questions;
         const userState = store.userInfo.userState;
-        const results = {};
-        results.food = getFood(questions);
-        results.home = getHome(questions);
-        results.homeActivities = getHomeActivities(questions, { userState });
-        const { heating, cooling } = getHomeTemperature(questions, { userState });
-        results.heating = heating;
-        results.cooling = cooling;
-        results.transportation = getTransportation(questions, { userState });
-        console.log(results);
-        return results;
+        const results = getResults(questions, { userState });
+        const answerId = store.footprintFormAnswers.answerId;
+        if( answerId ) {
+            console.log('TODO:  Do an update not a post');
+        } else {
+            fetch('/api/footprint-form/answer', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    formName: 'footprint-finder-v2',
+                    formAnswers: questions,
+                    results: results
+                })
+            })
+            .then(res => res.json())
+            .then(res => {
+                dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
+                window.location.href = '/footprint/5b01fe67387e61807639db89';  
+            });
+            // dispatch({type: 'SUBMIT_READY', payload: true})
+            // dispatch({type: 'SUBMIT_FORM_RESULTS', payload: results});
+            // dispatch({type: 'DISPLAY_ANSWERS', payload: true});
+        };
     }
 }

@@ -18,7 +18,7 @@ const FIXTURE_DATA = {
 
 const EXPECTED_OBJECT_KEYS = ['totalCo2', 'car', 'bus', 'plane', 'train', 'carBuild'];
 
- describe.only('Transportation', () => {
+ describe('Transportation', () => {
     it('should calculate CO2', done => {
         const expected = { car: 88, carBuild: 47210, bus: 62, train: 39, plane: 289, totalCo2: 478 };
         const res = getTransportationCo2(FIXTURE_DATA);
