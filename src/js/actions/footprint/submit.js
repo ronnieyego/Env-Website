@@ -1,3 +1,5 @@
+import assert from 'assert';
+
 import getFoodResults from '../../components/v2-form/calculations/food';
 import getHomeResults from '../../components/v2-form/calculations/home';
 import getHomeActivitiesResults from '../../components/v2-form/calculations/home-activities';
@@ -158,6 +160,19 @@ const getPet = (questions, { userState }) => {
     return getPetsResults(petQuestionValues);
 };
 
+const sumMonthlyCo2 = res => {
+    let monthlyCo2 = 0;
+    monthlyCo2 += res.food.monthlyCo2;
+    monthlyCo2 += res.home.monthlyCo2;
+    monthlyCo2 += res.homeActivities.monthlyCo2;
+    monthlyCo2 += res.heating.monthlyCo2;
+    monthlyCo2 += res.cooling.monthlyCo2;
+    monthlyCo2 += res.transportation.totalCo2;
+    monthlyCo2 += res.transportation.carMonthlyBuild;
+    monthlyCo2 += res.pets.monthlyCo2;
+    return monthlyCo2;
+}
+
 export const getResults = (questions, { userState }) => {
     const results = {};
     results.food = getFood(questions);
@@ -168,6 +183,7 @@ export const getResults = (questions, { userState }) => {
     results.cooling = cooling;
     results.transportation = getTransportation(questions, { userState });
     results.pets = getPet(questions, { userState });
+    results.monthlyCo2 = sumMonthlyCo2(results);
     console.log(results);
     return results;
 };
@@ -197,7 +213,7 @@ export default questionPayload => {
             .then(res => res.json())
             .then(res => {
                 dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
-                window.location.href = '/footprint/5b01fe67387e61807639db89';  
+                // window.location.href = '/footprint/5b01fe67387e61807639db89';  
             });
             // dispatch({type: 'SUBMIT_READY', payload: true})
             // dispatch({type: 'SUBMIT_FORM_RESULTS', payload: results});

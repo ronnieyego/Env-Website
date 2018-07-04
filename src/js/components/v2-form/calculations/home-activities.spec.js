@@ -25,13 +25,14 @@ const HIGH_VALUE_FIXTURE_DATA = {
     homeSqft: 2500
 };
 
-const EXPECTED_OBJECT_KEYS = ['entertainment', 'cooking', 'cleanliness', 'background', 'totalCo2'];
+const EXPECTED_OBJECT_KEYS = ['entertainment', 'cooking', 'cleanliness', 'background', 'totalCo2', 'monthlyCo2'];
 
 
- describe('Home Hctivities', () => {
+ describe('Home Activities', () => {
     it('should calculate home activities', done => {
-        const { totalCo2} = getHomeActivitiesCo2(FIXTURE_DATA);
+        const { totalCo2, monthlyCo2} = getHomeActivitiesCo2(FIXTURE_DATA);
         expect(totalCo2).to.equal(5);
+        expect(monthlyCo2).to.equal(150);
         done();
     });
     it('should calculate home activities with higer values', done => {

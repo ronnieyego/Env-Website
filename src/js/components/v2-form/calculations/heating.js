@@ -112,8 +112,13 @@ export default ({
     heatWholeHome,
     usesPersonalHeater
 }) => {
+    const personalHeaterKwh = usesPersonalHeater ? getPersonalHeaterKwh(hoursHome) : 0;
+    const personalHeaterCo2 = convertKwhToCo2(state, personalHeaterKwh);
+    
     if(heatType === 'None') {
-        return { totalCo2: 0 };
+        const totalCo2 = personalHeaterCo2;
+        const monthlyCo2 = convertDailyToMonthly(totalCo2);
+        return { totalCo2, monthlyCo2 };
     }
     let totalCo2 = 0;
 
@@ -121,8 +126,6 @@ export default ({
     // Ignoring summer
     const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, tempDiff.winter, insulationType);
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);
-    const personalHeaterKwh = usesPersonalHeater ? getPersonalHeaterKwh(hoursHome) : 0;
-    const personalHeaterCo2 = convertKwhToCo2(state, personalHeaterKwh);
 
     totalCo2 += personalHeaterCo2;
     if(heatType === 'Gas Vents') {
@@ -141,6 +144,7 @@ export default ({
     } else {
         console.log('Need to add heating type: ', heatType);
     }
+    totalCo2 = Math.round(totalCo2 / 2); // Since you only heat for half of the year.
     const monthlyCo2 = convertDailyToMonthly(totalCo2);
     return { totalCo2, monthlyCo2 };
 }

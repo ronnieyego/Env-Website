@@ -44,8 +44,12 @@ export default ({
     houseSqft,
     usesPersonalFan
 }) => {
+    const personalFanKwh = usesPersonalFan ? getFanEnergy(1, hoursHome) : 0; // 1 fan not used while sleeping
+
     if( coolingType === 'None') {
-        return { totalCo2: 0 };
+        const totalCo2 = convertKwhToCo2(state, personalFanKwh);
+        const monthlyCo2 = convertDailyToMonthly(totalCo2);
+        return { totalCo2, monthlyCo2 };
     }
     const tempDiff = getDifferenceInTemp(state, summerTemp, winterTemp);
     const timeOn = getTimeOn(hoursHome, coolingWhileSleeping);
@@ -59,9 +63,11 @@ export default ({
             kwhPerDay += getAcEnergy(coolingType, tempDiff.winter, numRooms, timeOn);
         }
     }
-    const personalFanKwh = usesPersonalFan ? getFanEnergy(1, hoursHome) : 0; // 1 fan not used while sleeping
+    
     kwhPerDay += personalFanKwh;
 
+
+    kwhPerDay = kwhPerDay / 2;  // Since you're only cooling for half of the year.
     const totalCo2 = convertKwhToCo2(state, kwhPerDay);
     const monthlyCo2 = convertDailyToMonthly(totalCo2);
     return { totalCo2, monthlyCo2 };

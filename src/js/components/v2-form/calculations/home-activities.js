@@ -4,7 +4,7 @@ import {
     applianceKwhPerUse,
 } from '../data/home';
 
-import { convertKwhToCo2, getNumberOfRooms } from './utils';
+import { convertKwhToCo2, convertDailyToMonthly,  getNumberOfRooms } from './utils';
 
 const getNightsCooking = cookAtHomeFrequency => {
     if(cookAtHomeFrequency === 'Most nights') {
@@ -70,7 +70,9 @@ export default ({
     res.background += Math.round(lightsCo2 + fridgeCo2);
 
     const totalCo2 = Object.keys(res).reduce((accumulator, value) => accumulator + res[value], 0);
+    const monthlyCo2 = convertDailyToMonthly(totalCo2);
     res.totalCo2 = totalCo2;
+    res.monthlyCo2 = monthlyCo2;
 
     return res;
 }
