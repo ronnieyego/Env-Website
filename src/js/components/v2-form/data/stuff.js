@@ -6,3 +6,7 @@ export const poundsPerBookcase = 70;
 
 // Shot in the dark with this one
 export const fullBookcasesPerRoom = 2.5;
+
+
+// TOtal Guess on how long your stuff lasts.
+export const stuffLife = 30;

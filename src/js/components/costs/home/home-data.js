@@ -19,6 +19,15 @@ const homeTypeAdjuster = {
     Apartment: .98
 };
 
+
+
+
+// https://www.linkedin.com/pulse/how-long-does-modern-concrete-building-last-amit-enterprises-housing/
+const homeLife = {
+    House: 100, // A house will last for ~100 years
+    Apartment: 80  // An apartment will last for ~80 years
+};
+
 // All in percent
 const co2Breakdown = {
     Brick : {
@@ -84,6 +93,7 @@ const homeQuestions = [
 ];
 
 module.exports = {
+    homeLife,
     co2PerSqFt,
     co2Breakdown,
     homeTypeAdjuster,

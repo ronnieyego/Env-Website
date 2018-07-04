@@ -1,5 +1,6 @@
 
 import { foodAnswerServings, servingFacts } from '../data/food';
+import { convertDailyToMonthly } from './utils';
 
 const AVERAGE_CALORIES = 2000;
 
@@ -80,6 +81,7 @@ export default ({
     const cheeseCo2 = Math.round(cheeseServingsAdjusted * servingFacts.cheese.co2 * 10)/10;
     const junkFoodCo2 = Math.round(junkFoodServingsAdjusted * servingFacts.junkFood.co2 * 10)/10;
     const totalCo2 = Math.round(beefCo2 + chickenCo2 + porkCo2 + seafoodCo2 + grainCo2 + fruitCo2 + vegetablesCo2 + dairyCo2 + cheeseCo2 + junkFoodCo2);
+    const monthlyCo2 = convertDailyToMonthly(totalCo2);
 
     return {
         servings: {
@@ -108,6 +110,7 @@ export default ({
             junkFood: junkFoodCaloriesAdjusted,
         },
         totalCo2,
+        monthlyCo2,
         co2: {
             total: totalCo2,
             beef: beefCo2,

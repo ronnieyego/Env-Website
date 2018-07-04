@@ -6,7 +6,8 @@ import {
     weightOfClothes,
     womenWeightDiff 
 } from '../../costs/clothes/clothes-data';
-import { profiles } from '../data/clothes';
+import { clothesLife, profiles } from '../data/clothes';
+import { convertLifetimeToMonthly } from './utils';
 
 const getShirtCo2 = (shirts, shirtMaterial) => {
     const shirtWeight = weightOfClothes.shirt;
@@ -121,5 +122,7 @@ export default ({
     clothingProfile
 }) => {
     const profileData = getDataFromProfile(clothingProfile);
-    return getTotalCo2(profileData);
+    const { totalArticles, totalCo2, shirtsCo2, jacketsCo2, pantsCo2, shortsCo2, socksUndiesCo2, accessoriesCo2, shoesCo2 } = getTotalCo2(profileData);
+    const monthlyCo2 = convertLifetimeToMonthly(totalCo2, clothesLife);
+    return { totalArticles, monthlyCo2, totalCo2, shirtsCo2, jacketsCo2, pantsCo2, shortsCo2, socksUndiesCo2, accessoriesCo2, shoesCo2 };
 }

@@ -1,5 +1,5 @@
-import { co2PerPoundOfStuff, fullBookcasesPerRoom, poundsPerBookcase } from '../data/stuff';
-import { getNumberOfRooms } from './utils';
+import { co2PerPoundOfStuff, fullBookcasesPerRoom, poundsPerBookcase, stuffLife } from '../data/stuff';
+import { getNumberOfRooms, convertLifetimeToMonthly } from './utils';
 
 const getMultiplierByAmount = stuffAmount => {
     if(stuffAmount === 'Practically empty') {
@@ -22,5 +22,7 @@ export default ({homeSqft, stuffAmount}) => {
     const rooms = getNumberOfRooms(homeSqft);
     const multiplier = getMultiplierByAmount(stuffAmount);
     const co2PerRoom = co2PerPoundOfStuff * fullBookcasesPerRoom * poundsPerBookcase * multiplier;
-    return Math.round(rooms * co2PerRoom);
+    const totalCo2 = Math.round(rooms * co2PerRoom);
+    const monthlyCo2 = convertLifetimeToMonthly(totalCo2, stuffLife);
+    return { totalCo2, monthlyCo2 };
 }

@@ -70,4 +70,7 @@ export const profiles = {
         socksUndies: 100,
         accessories: 200
     }
-}
+};
+
+//http://www.presstoasia.com.my/blog/long-clothes-actually-last/
+export const clothesLife = 2;

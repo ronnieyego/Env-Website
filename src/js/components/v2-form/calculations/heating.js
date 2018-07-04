@@ -11,6 +11,7 @@ import {
 } from '../data/heating-cooling';
 import stateTemps from '../data/average-temp-by-state';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
+import { convertDailyToMonthly } from './utils';
 
 /*
     Assumptions
@@ -140,7 +141,8 @@ export default ({
     } else {
         console.log('Need to add heating type: ', heatType);
     }
-    return { totalCo2 };
+    const monthlyCo2 = convertDailyToMonthly(totalCo2);
+    return { totalCo2, monthlyCo2 };
 }
 
 

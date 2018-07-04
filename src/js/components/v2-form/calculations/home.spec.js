@@ -44,4 +44,16 @@ const FIXTURE_DATA = {
         expect(totalCo2).to.equal(196000);
         done();
     });
+    it('should calculate the monthly Co2 of an apartment', done => {
+        const updatedFixtures = {...FIXTURE_DATA};
+        const { monthlyCo2 } = getHomeCo2(updatedFixtures);
+        expect(monthlyCo2).to.equal(408);
+        done();
+    });
+    it('should calculate the monthly Co2 of a house', done => {
+        const updatedFixtures = {...FIXTURE_DATA, homeType: 'House'};
+        const { monthlyCo2 } = getHomeCo2(updatedFixtures);
+        expect(monthlyCo2).to.equal(333);
+        done();
+    });
 });

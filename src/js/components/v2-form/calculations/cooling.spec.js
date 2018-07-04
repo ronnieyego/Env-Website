@@ -66,4 +66,9 @@ const FIXTURE_DATA = {
         expect(totalCo2).to.equal(3.4);
         done();
     });
+    it('should calculate Monthly Co2 for Central AC', done => {
+        const { monthlyCo2 } = getHeatingCooling(FIXTURE_DATA);
+        expect(monthlyCo2).to.equal(99);
+        done();
+    });
 });

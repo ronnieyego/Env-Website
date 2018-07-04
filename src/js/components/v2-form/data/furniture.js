@@ -32,3 +32,7 @@ export const furnitureWeightPerRoom = 415;
 // From google sheet furniture
 export const co2PerFurniturePound = 1.44;
 
+// based on couch
+// http://www.startribune.com/sofas-how-old-is-too-old/177662441/
+export const furnitureLife = 8;
+

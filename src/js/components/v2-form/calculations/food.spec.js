@@ -57,6 +57,7 @@ import { expect } from 'chai';
                 vegetables: 1.1,
             },
             totalCo2: 15,
+            monthlyCo2: 450,
             ratioError: 1.33,
             multiplier: 1.1 
         };

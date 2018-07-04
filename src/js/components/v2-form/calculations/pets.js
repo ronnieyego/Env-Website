@@ -1,28 +1,39 @@
+import { lifeExpectancy } from '../../costs/pet/pet-data';
+import { MONTHS_IN_YEAR } from '../../../utils/utils-data/constants';
 
 const getPetCo2 = pet => {
     if(pet === 'Dog') {
-        return 7840;
+        const totalCo2 = 7840;
+        const monthlyCo2 = Math.round(totalCo2 / lifeExpectancy[pet]['25-50 pounds'] / MONTHS_IN_YEAR);
+        return { totalCo2 , monthlyCo2 };
     } else if(pet === 'Cat') {
-        return 9264;
+        const totalCo2 = 9264;
+        const monthlyCo2 = Math.round(totalCo2 / lifeExpectancy[pet] / MONTHS_IN_YEAR);
+        return { totalCo2 , monthlyCo2 };
     } else if(pet === 'Turtle') {
-        return 14812;
+        const totalCo2 = 14812;
+        const monthlyCo2 = Math.round(totalCo2 / lifeExpectancy[pet] / MONTHS_IN_YEAR);
+        return { totalCo2 , monthlyCo2 };
     } else if(pet === 'Hamster') {
-        return 42;
+        const totalCo2 = 42;
+        const monthlyCo2 = Math.round(totalCo2 / lifeExpectancy[pet] / MONTHS_IN_YEAR);
+        return { totalCo2 , monthlyCo2 };
     } else if(pet === 'Gecko') {
-        return 1277;
+        const totalCo2 = 1277;
+        const monthlyCo2 = Math.round(totalCo2 / lifeExpectancy[pet] / MONTHS_IN_YEAR);
+        return { totalCo2 , monthlyCo2 };
     } else {
         console.log('Error -- Pet answer not found');
     }
 }
 
 export default petsArray => {
-    const totalCo2 = petsArray.reduce((acc, pet) => {
-        return getPetCo2(pet) + acc;
-    }, 0);
-    return { totalCo2 };
+    let combinedTotalCo2 = 0;
+    let combinedMonthlyCo2 = 0;
+    petsArray.forEach(pet => {
+        const {totalCo2, monthlyCo2 } =  getPetCo2(pet);
+        combinedTotalCo2 += totalCo2;
+        combinedMonthlyCo2 += monthlyCo2;
+    });
+    return { totalCo2: combinedTotalCo2, monthlyCo2: combinedMonthlyCo2 };
 };
-
-// To form the pets array, I'll need to search for all question names beginning with
-// The parent quesiton's child question name.  In this case pet#
-
-// Should make this a question util

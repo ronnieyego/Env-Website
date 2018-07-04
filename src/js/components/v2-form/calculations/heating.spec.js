@@ -98,4 +98,9 @@ const FIXTURE_DATA = {
         expect(totalCo2).to.equal(0);
         done();
     });
+    it('should calculate monthly Gas Vents', done => {
+        const { monthlyCo2 } = getHeatingCo2(FIXTURE_DATA);
+        expect(monthlyCo2).to.equal(720);
+        done();
+    });
 });

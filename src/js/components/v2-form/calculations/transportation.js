@@ -1,12 +1,14 @@
 import { 
     busMpgPerPerson,
+    carLife,
     co2PerGallonOfGas,
     co2PerGallonOfJetFuel,
     kwhPer100MilesElectricCar,
     planeMpgPerPerson,
     trainMpgPerPerson } from '../data/transportation';
-import { convertKwhToCo2 } from './utils';
+import { convertKwhToCo2, convertLifetimeToMonthly } from './utils';
 import { classData, co2PerPound, creationBreakdown } from '../../costs/car/car-data';
+import { MONTHS_IN_YEAR } from '../../../utils/utils-data/constants';
 
 const getGasVehicleCo2 = (miles, mpg) => {
     return Math.round(miles / mpg * co2PerGallonOfGas);
@@ -49,12 +51,14 @@ const getCarCo2 = ({
     if(['Gasoline', 'Diesel'].indexOf(carFuelType) !== -1) {
         const carCo2 = getGasVehicleCo2(totalMiles, carMpg);
         const carBuildCo2 = getCarBuildCo2(carBuildType, carClass);
-        return { carCo2, carBuildCo2 };
+        const carMonthlyBuildCo2 = convertLifetimeToMonthly(carBuildCo2, carLife);
+        return { carCo2, carBuildCo2, carMonthlyBuildCo2 };
     } else if (carFuelType === 'Electric') {
         const kwh = totalMiles * kwhPer100MilesElectricCar/100;
         const carCo2 = Math.round(convertKwhToCo2(state, kwh));
         const carBuildCo2 = getCarBuildCo2(carBuildType, carClass); // SInce no MPG, hardcode it to be car;
-        return { carCo2, carBuildCo2 };
+        const carMonthlyBuildCo2 = convertLifetimeToMonthly(carBuildCo2, carLife);
+        return { carCo2, carBuildCo2, carMonthlyBuildCo2 };
     } else {
         console.log('Error -- Invalid car type answer');
         return 0;
@@ -74,7 +78,7 @@ export default ({
     doesPublicTransit,
     state
 }) => {
-    const { carCo2, carBuildCo2 } = doesDrive ? getCarCo2({ carFuelType, carMpg, carpoolFrequency, carClass, carMilesMonth, state, carBuildType}) : { carCo2: 0, carBuildCo2: 0 };
+    const { carCo2, carBuildCo2, carMonthlyBuildCo2 } = doesDrive ? getCarCo2({ carFuelType, carMpg, carpoolFrequency, carClass, carMilesMonth, state, carBuildType}) : { carCo2: 0, carBuildCo2: 0 };
     const busCo2 = doesPublicTransit ? getGasVehicleCo2(busMiles, busMpgPerPerson) : 0;
     const trainCo2 = doesPublicTransit ? getGasVehicleCo2(trainMiles, trainMpgPerPerson) : 0;
     const planeCo2 = Math.round(getGasVehicleCo2(flyMiles, planeMpgPerPerson) / 12); // Plane is asked per year instead of per month 
@@ -82,6 +86,7 @@ export default ({
     return {
         car: carCo2,
         carBuild: carBuildCo2,
+        carMonthlyBuild: carMonthlyBuildCo2,
         bus: busCo2,
         train: trainCo2,
         plane: planeCo2,

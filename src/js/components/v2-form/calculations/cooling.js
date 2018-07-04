@@ -1,6 +1,6 @@
 import stateTemps from '../data/average-temp-by-state';
 import { acPenaltyTempDiff, acWattage, acWattageTemperature, fanWattage } from '../data/heating-cooling';
-import { convertKwhToCo2, getNumberOfRooms } from './utils';
+import { convertKwhToCo2, getNumberOfRooms, convertDailyToMonthly } from './utils';
 
 
 const ROOMS_PER_AC_UNIT = 3;
@@ -63,6 +63,6 @@ export default ({
     kwhPerDay += personalFanKwh;
 
     const totalCo2 = convertKwhToCo2(state, kwhPerDay);
-
-    return { totalCo2 };
+    const monthlyCo2 = convertDailyToMonthly(totalCo2);
+    return { totalCo2, monthlyCo2 };
 };
