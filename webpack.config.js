@@ -27,6 +27,10 @@ switch(process.env.page) {
     entry = './js/entry/footprint-entry.js';
     filename = 'footprint.min.js';
     break;
+  case 'results':
+    entry = './js/entry/footprint-results-entry.js';
+    filename = 'footprint-results.min.js';
+    break;
   case 'pages':
     entry = './js/entry/static-pages-entry.js';
     filename = 'static-pages.min.js';

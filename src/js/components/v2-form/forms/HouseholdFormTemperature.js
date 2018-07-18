@@ -32,8 +32,8 @@ export default class HouseholdFormTemperature extends React.Component {
 
         if(heatingType === 'Radiant floors') {
             filterIds = [ids.heatWholeHouse];
-        } else if( heatingType !== 'None' ) {
-            filterIds.push(ids.heatWholeHouse);
+        } else if( heatingType === 'None' ) {
+            filterIds.push(ids.heatWholeHouse, ids.heatWholeHouseRadiantFlooring);
         } else if( heatingType !== 'Radiant floors' ) {
             filterIds.push(ids.heatWholeHouseRadiantFlooring);
         }

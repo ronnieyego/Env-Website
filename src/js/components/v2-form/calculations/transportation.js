@@ -78,7 +78,7 @@ export default ({
     doesPublicTransit,
     state
 }) => {
-    const { carCo2, carBuildCo2, carMonthlyBuildCo2 } = doesDrive ? getCarCo2({ carFuelType, carMpg, carpoolFrequency, carClass, carMilesMonth, state, carBuildType}) : { carCo2: 0, carBuildCo2: 0 };
+    const { carCo2, carBuildCo2, carMonthlyBuildCo2 } = doesDrive ? getCarCo2({ carFuelType, carMpg, carpoolFrequency, carClass, carMilesMonth, state, carBuildType}) : { carCo2: 0, carBuildCo2: 0, carMonthlyBuildCo2: 0 };
     const busCo2 = doesPublicTransit ? getGasVehicleCo2(busMiles, busMpgPerPerson) : 0;
     const trainCo2 = doesPublicTransit ? getGasVehicleCo2(trainMiles, trainMpgPerPerson) : 0;
     const planeCo2 = Math.round(getGasVehicleCo2(flyMiles, planeMpgPerPerson) / 12); // Plane is asked per year instead of per month 

@@ -42,8 +42,7 @@ const footprintFormAnswers = (state = baseState, action) => {
         case 'UPDATE_RESULTS_SHOWN': {
             state = { 
                 ...state,
-                resultsShown: action.payload.resultsShown, 
-                resultsUnit: action.payload.resultsUnit
+                resultsShown: action.payload, 
             };
             break;
         }

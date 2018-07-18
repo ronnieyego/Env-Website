@@ -13,6 +13,9 @@ export default (markup, data, page) => {
         case 'footprint':
             jsLocation = '/public/footprint.min.js';
             break;
+        case 'results':
+            jsLocation = '/public/footprint-results.min.js';
+            break;
         case 'static-pages':
             jsLocation = '/public/static-pages.min.js';
             break;

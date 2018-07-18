@@ -32,8 +32,10 @@ export default class BarCharDesktop extends React.Component {
     render() {
     
         const barGraphData = roundData(this.props.graphData);
+        console.log('Bar graph data is', barGraphData);
         const defaultMax = this.props.defaultMax || 0;
         const domainMax = this.getDomainMax(barGraphData);
+        console.log('Domain max', domainMax);
         const max = domainMax > defaultMax ? domainMax : defaultMax;
         const units = this.props.units;
         const title = this.props.title || '';

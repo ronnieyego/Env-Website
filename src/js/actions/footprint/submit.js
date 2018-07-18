@@ -1,4 +1,4 @@
-import assert from 'assert';
+// TODO ADD STUFF
 
 import getFoodResults from '../../components/v2-form/calculations/food';
 import getHomeResults from '../../components/v2-form/calculations/home';
@@ -7,6 +7,7 @@ import getHomeHeatingResults from '../../components/v2-form/calculations/heating
 import getHomeCoolingResults from '../../components/v2-form/calculations/cooling';
 import getTransportationResults from '../../components/v2-form/calculations/transportation';
 import getPetsResults from '../../components/v2-form/calculations/pets';
+import getStuffResults from '../../components/v2-form/calculations/stuff';
 
 import ids from '../../utils/ids/index';
 import { getAnswerFromId, getQuestionFromId, getQuestionsThatMatchId } from '../../components/questions/utils';
@@ -160,6 +161,17 @@ const getPet = (questions, { userState }) => {
     return getPetsResults(petQuestionValues);
 };
 
+const getStuff = questions => {
+    // const homeSqft = getAnswerFromId(questions, ids.homeSqft);
+    // const stuffAmount = getAnswerFromId(questions, ids.stuffAmount);
+
+    // return getStuffResults({homeSqft, stuffAmount});
+    return { monthlyCo2: 500, totaCo2: 8999 };
+};
+
+
+
+
 const sumMonthlyCo2 = res => {
     let monthlyCo2 = 0;
     monthlyCo2 += res.food.monthlyCo2;
@@ -170,6 +182,7 @@ const sumMonthlyCo2 = res => {
     monthlyCo2 += res.transportation.totalCo2;
     monthlyCo2 += res.transportation.carMonthlyBuild;
     monthlyCo2 += res.pets.monthlyCo2;
+    monthlyCo2 += res.stuff.monthlyCo2;
     return monthlyCo2;
 }
 
@@ -183,6 +196,7 @@ export const getResults = (questions, { userState }) => {
     results.cooling = cooling;
     results.transportation = getTransportation(questions, { userState });
     results.pets = getPet(questions, { userState });
+    results.stuff = getStuff(questions);
     results.monthlyCo2 = sumMonthlyCo2(results);
     console.log(results);
     return results;
@@ -215,9 +229,8 @@ export default questionPayload => {
                 dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
                 // window.location.href = '/footprint/5b01fe67387e61807639db89';  
             });
-            // dispatch({type: 'SUBMIT_READY', payload: true})
-            // dispatch({type: 'SUBMIT_FORM_RESULTS', payload: results});
-            // dispatch({type: 'DISPLAY_ANSWERS', payload: true});
         };
     }
 }
+
+//5b4fb2cd924dc80a2be722e1

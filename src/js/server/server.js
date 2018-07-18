@@ -20,6 +20,7 @@ import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-p
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
+import loadFootprintResultsPageBeta from '../actions/load-actions/load-footprint-results-page';
 import validStateId from '../utils/check-if-valid-state-id';
 
 import { mongoose } from '../../../db/mongoose';
@@ -64,7 +65,9 @@ app.get('/footprint/form/:id', loadFootprintResultsPage);
 
 app.get('/static/:page', loadStaticPage);
 
-app.get(`/costs/:page`, loadCostsPage);    
+app.get(`/costs/:page`, loadCostsPage); 
+
+app.get(`/beta/:id`, loadFootprintResultsPageBeta); 
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');

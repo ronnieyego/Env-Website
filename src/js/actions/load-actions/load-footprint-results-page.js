@@ -15,7 +15,6 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from '../../redux/reducers/index';
 import { baseState } from '../../redux/reducers/footprint-form-answers-reducer';
-import updateCostsReducer from '../../redux/update-reducer-by-page';
 
 // Pages
 
@@ -27,29 +26,23 @@ export default async (req, res) => {
         console.log('Invalid Id: ', req.params.id,  e);
         res.status(500).send(`Invalid Id: ${req.params.id}`);
     }
-    
+
     const answers = await FormAnswers.find({_id: id});
-    if(!answers[0]) {
+    if(!answers || !answers[0]) {
         console.log(`Could not find Id: ${req.params.id}`);
         res.status(404).send(`Could not find Id: ${req.params.id}`);
     }
     const answer = answers[0];
     const storeData = {
-        footprintForm: {
-            questions: answer.questions,
-            getQuestionsError: false,
-            step: 1,
-            isSubmitReady: true,
-            questions: answer.formAnswers
-        },
         footprintFormAnswers: {
             ...baseState,
             answerId: id,
-            formResults: answer.results
+            formResults: answer.results,
+            questions: answer.formAnswers
         }
+        
     };
     const appendedStoreData = addMobileToStore(req, storeData);
-    appendedStoreData.page = 'footprintresult';
     const store = createStore(reducers, appendedStoreData);
     const appMarkup = ReactDOM.renderToString(
         <Provider store={store}>
@@ -57,5 +50,5 @@ export default async (req, res) => {
                 <div />
             </MuiThemeProvider>
         </Provider>);
-    res.status(200).send(renderFullPage(appMarkup, appendedStoreData, 'static-pages'));
+    res.status(200).send(renderFullPage(appMarkup, appendedStoreData, 'results'));
 };

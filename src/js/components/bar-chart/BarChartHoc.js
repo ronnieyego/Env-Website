@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { array, bool, string} from 'prop-types';
+import { array, bool, number, string} from 'prop-types';
 
 import BarChartMobile from './BarChartMobile';
 import BarChartDesktop from './BarChartDesktop';
@@ -20,6 +20,7 @@ export default class BarChartHoc extends React.Component {
         compare: bool, // If true, looks for average american.  
         units: string, //units on left side
         title: string,
+        defaultMax: number,
         mobileHeaders: array, // For mobile, table headers from left -> right 
         biAxial: bool,
         rightDataKey: string,
