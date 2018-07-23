@@ -38,10 +38,9 @@ const electricCar = (res, questions) => {
 };
 
 const moveToWa = res => {
-    console.log('Calucating move to WA');
     const currentApplianceCo2 = res.homeActivities.monthlyCo2;
     const percentReduction = utilityEmissionsPerState['WA'] / utilityEmissionsPerState[res.userState];
-    const waApplianceCo2 = res.homeActivities.monthlyCo2 * percentReduction;
+    const waApplianceCo2 = currentApplianceCo2 * percentReduction;
     return Math.round(currentApplianceCo2 - waApplianceCo2);
 };
 

@@ -8,6 +8,8 @@ import getHomeCoolingResults from '../../components/v2-form/calculations/cooling
 import getTransportationResults from '../../components/v2-form/calculations/transportation';
 import getPetsResults from '../../components/v2-form/calculations/pets';
 import getStuffResults from '../../components/v2-form/calculations/stuff';
+import getClothesResults from '../../components/v2-form/calculations/clothes';
+import getFurnitureResults from '../../components/v2-form/calculations/furniture';
 
 import ids from '../../utils/ids/index';
 import { getAnswerFromId, getQuestionFromId, getQuestionsThatMatchId } from '../../components/questions/utils';
@@ -162,14 +164,25 @@ const getPet = (questions, { userState }) => {
 };
 
 const getStuff = questions => {
-    // const homeSqft = getAnswerFromId(questions, ids.homeSqft);
-    // const stuffAmount = getAnswerFromId(questions, ids.stuffAmount);
+    const homeSqft = getAnswerFromId(questions, ids.homeSqft);
+    const stuffAmount = getAnswerFromId(questions, ids.houseClutter);
+    const furnitureAmount = getAnswerFromId(questions, ids.totalHouseFurniture);
+    const clothingProfile = getAnswerFromId(questions, ids.totalWardrobe);
 
-    // return getStuffResults({homeSqft, stuffAmount});
-    return { monthlyCo2: 500, totaCo2: 8999 };
+    const furniture = getFurnitureResults({homeSqft, furnitureAmount});
+    const stuff = getStuffResults({homeSqft, stuffAmount});
+    const clothes = getClothesResults({clothingProfile});
+
+    const totalCo2 = furniture.totalCo2 + stuff.totalCo2 + clothes.totalCo2;
+    const monthlyCo2 = furniture.monthlyCo2 + stuff.monthlyCo2 + clothes.monthlyCo2;
+    return { 
+        monthlyCo2,
+        totalCo2,
+        clothes,
+        furniture,
+        stuff
+     };
 };
-
-
 
 
 const sumMonthlyCo2 = res => {
@@ -183,6 +196,7 @@ const sumMonthlyCo2 = res => {
     monthlyCo2 += res.transportation.carMonthlyBuild;
     monthlyCo2 += res.pets.monthlyCo2;
     monthlyCo2 += res.stuff.monthlyCo2;
+
     return monthlyCo2;
 }
 
@@ -202,7 +216,7 @@ export const getResults = (questions, { userState }) => {
     return results;
 };
 
-export default questionPayload => {
+export default () => {
     return (dispatch, getState) => {
         const store = getState();
         const questions = store.questions.questions;
@@ -221,7 +235,8 @@ export default questionPayload => {
                 body: JSON.stringify({
                     formName: 'footprint-finder-v2',
                     formAnswers: questions,
-                    results: results
+                    results: results,
+                    userState
                 })
             })
             .then(res => res.json())
@@ -233,4 +248,4 @@ export default questionPayload => {
     }
 }
 
-//5b4fb2cd924dc80a2be722e1
+//5b551aa4058c4c33e8460d8d

@@ -103,6 +103,9 @@ const getAverage = (state, age, gender) => {
     }
 }
 
+const AVERAGE_AMERICAN = getAverage('US', '20-34', 'MALE');
+
 module.exports = {
+    AVERAGE_AMERICAN,
     getAverage
 }

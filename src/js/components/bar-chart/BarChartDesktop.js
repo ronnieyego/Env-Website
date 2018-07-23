@@ -32,10 +32,8 @@ export default class BarCharDesktop extends React.Component {
     render() {
     
         const barGraphData = roundData(this.props.graphData);
-        console.log('Bar graph data is', barGraphData);
         const defaultMax = this.props.defaultMax || 0;
         const domainMax = this.getDomainMax(barGraphData);
-        console.log('Domain max', domainMax);
         const max = domainMax > defaultMax ? domainMax : defaultMax;
         const units = this.props.units;
         const title = this.props.title || '';
@@ -49,12 +47,12 @@ export default class BarCharDesktop extends React.Component {
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}
                         className="bar-chart">
                     <XAxis dataKey="name"/>
-                    <YAxis yAxisId="left" type="number" domain={[0, max]} label={{ value: units, angle: -90, position: 'left' }} />
+                    <YAxis type="number" domain={[0, max]} label={{ value: units, angle: -90, position: 'left' }} />
                     <CartesianGrid strokeDasharray="3 3"/>
                     <Tooltip/>
                     <Legend wrapperStyle={{marginLeft: '0px', marginTop: '30px'}} />
                     <ReferenceLine y={0} stroke='#000'/>
-                    <Bar yAxisId="left" dataKey={dataKey} fill="#8884d8" />
+                    <Bar dataKey={dataKey} fill="#8884d8" />
                     {this.props.compare && <Bar dataKey={dataKeyCompare} fill="#82ca9d" />}
                 </BarChart>
             </div>

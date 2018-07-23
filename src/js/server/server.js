@@ -86,6 +86,7 @@ app.post('/api/footprint-form/answer', (req, res) => {
         formName: req.body.formName,
         formAnswers: req.body.formAnswers,
         results: req.body.results,
+        userState: req.body.userState,
         dateSubmitted: myDatetimeString
     });
 

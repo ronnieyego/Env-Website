@@ -6,7 +6,6 @@ import {
     weightOfClothes,
     womenWeightDiff 
 } from './clothes-data';
-import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
 
 const getShirtCo2 = (shirts, shirtMaterial) => {
     const shirtWeight = weightOfClothes.shirt;
@@ -63,7 +62,6 @@ const getAccessoriesCo2 = accessories => {
 
 // This is size and gender
 const getMultiplier = (gender, size) => {
-    
     const genderMultiplier = gender === 'Male' ? 1 : womenWeightDiff;
     const sizeMultiplier = sizeDifference[size];
     const multiplier = genderMultiplier * sizeMultiplier;

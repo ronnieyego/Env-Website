@@ -1,15 +1,16 @@
 import React from "react";
-import { object, string } from 'prop-types';
+import { array, object, string } from 'prop-types';
 
 import SavingsCard from './SavingsCard';
 import getCo2Savings from './calculations/savings';
 
 
-const impactLevel = 0;
+const impactLevel = 100;
 
 export default class Compare extends React.Component {
     static propTypes = {
         results: object,
+        questions: array,
         userState: string
     }
 

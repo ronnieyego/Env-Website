@@ -10,7 +10,7 @@ export default class SavingsCard extends React.Component {
     };
 
 	render() {
-        const savings= (<p>Co<sub>2</sub> Saved: <b>{this.props.amount.toLocaleString()} lb/Co<sub>2</sub>e</b></p>);
+        const savings= (<p>CO<sub>2</sub> Saved: <b>{this.props.amount.toLocaleString()} lb/CO<sub>2</sub>e</b></p>);
 
         const learnMore = this.props.learnMore ? (
             <a href={this.props.learnMore} target="_blank">Learn More</a>

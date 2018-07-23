@@ -2,6 +2,7 @@
 
 import React from "react";
 import { object, number } from 'prop-types';
+import { connect } from 'react-redux';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import BarChart from '../bar-chart/BarChartHoc';
@@ -10,10 +11,19 @@ import StateDropdown from '../StateDropdown';
 
 import { getAverage } from '../../utils/footprint/get-average-american-footprint';
 
+@connect((store, props) => {
+	return {
+        results: store.footprintFormAnswers.formResults,
+        averageAmerican: store.footprintFormAnswers.averageAmerican,
+        averageAmericanState: store.footprintFormAnswers.averageAmericanState,
+        averageAmericanAge: store.footprintFormAnswers.averageAmericanAge,
+        averageAmericanGender: store.footprintFormAnswers.averageAmericanGender,
+	};
+})
 export default class Compare extends React.Component {
     static propTypes = {
         results: object,
-        totalMonthlyCo2: number
+        monthlyCo2: number
     }
 
     capitalize(string) {
@@ -36,39 +46,36 @@ export default class Compare extends React.Component {
     }
 
     updateAverageAmerican(stateOrNull, ageOrNull, genderOrNull) {
-        const state = stateOrNull || this.props.averageAmericanstate;
-        const age = ageOrNull || this.props.age;
-        const gender = genderOrNull || this.props.gender;
+        const state = stateOrNull || this.props.averageAmericanState;
+        const age = ageOrNull || this.props.averageAmericanAge;
+        const gender = genderOrNull || this.props.averageAmericanGender;
         const average = getAverage(state, age, gender);
         this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
     }
     
 	render() {
         const res = this.props.results;
+        const { monthlyCo2 } = res;
         const averageGraphData = this.props.averageAmerican.co2;
-        const averageTotal = parseInt(averageGraphData.total);
-        const title = 'CO2';
-        const units = 'pounds of co2';
-        const subtitle = `Total CO2: ${averageTotal.toLocaleString()} lb/CO2 per month`;
+        const averageTotal = parseInt(averageGraphData.total) || 999;
         const unitText = 'CO2';
-        const totalMonthlyCo2 = this.props.totalMonthlyCo2;
 
-        const diff = averageTotal - totalMonthlyCo2;
+        const diff = averageTotal - monthlyCo2;
         const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
         const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You use ${percentDiff * -1}% more ${unitText} than this average American`;
         
         const barGraphData = [
-            {name: 'Total', You: totalMonthlyCo2, 'Average American': averageTotal},
+            {name: 'Total', You: monthlyCo2, 'Average American': averageTotal},
             {name: 'Home', You: parseInt(res.home.monthlyCo2) || 0, 'Average American': 333},
             {name: 'Appliance', You: parseInt(res.homeActivities.monthlyCo2) || 0, 'Average American': parseInt(averageGraphData.appliance)},
             {name: 'Cooling', You: parseInt(res.cooling.monthlyCo2) || 0, 'Average American': 111},
             {name: 'Heating', You: parseInt(res.heating.monthlyCo2) || 0, 'Average American': 222},
-            {name: 'Food', You: parseInt(res.food.monthlyCo2) || 0, 'Average American': parseInt(averageGraphData.food)},
-            {name: 'Transportation', You: parseInt(res.transportation.totalCo2) || 0, 'Average American': parseInt(averageGraphData.transportation) || 0},
+            {name: 'Food', You: parseInt(res.food.monthlyCo2) || 0, 'Average American': parseInt(averageGraphData.food) || 50},
+            {name: 'Transportation', You: parseInt(res.transportation.totalCo2) || 0, 'Average American': parseInt(averageGraphData.transportation) || 50},
             {name: 'Stuff', You: parseInt(res.stuff.monthlyCo2) || 0, 'Average American': 777}
         ];
 
-        const domainMax = Math.max(5000, totalMonthlyCo2, averageTotal);
+        const domainMax = Math.max(5000, monthlyCo2, averageTotal);
         
         const genderSelects = ['male', 'female'].map(gender => <MenuItem key={gender} primaryText={this.capitalize(gender)} value={gender} />);
         const ageRanges = ['American Average', '16-19', '20-34', '35-54', '55-64', '65+'];
@@ -99,7 +106,7 @@ export default class Compare extends React.Component {
                         <StateDropdown
                             id="compare-state-dropdown"
                             updateQuestion={this.updateStateDropdown.bind(this)}
-                            value={this.props.averageAmericanstate} 
+                            value={this.props.averageAmericanState} 
                             subText={''}
                         />
                     </div>
@@ -112,7 +119,7 @@ export default class Compare extends React.Component {
                             labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
                             menuStyle={{textAlign: 'center'}}
                             onChange={this.updateAgeDropdown.bind(this)}
-                            value={this.props.age}
+                            value={this.props.averageAmericanAge}
                         >
                             {ageSelects}
                         </SelectField>
@@ -126,7 +133,7 @@ export default class Compare extends React.Component {
                             menuStyle={{textAlign: 'center'}}
                             labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
                             onChange={this.updateGenderDropdown.bind(this)}
-                            value={this.props.gender}
+                            value={this.props.averageAmericanGender}
                         >
                             {genderSelects}
                         </SelectField>
