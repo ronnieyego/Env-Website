@@ -45,9 +45,17 @@ const checkIfAllFieldsPresent = ({ state, coolingType, summerTemp, winterTemp, h
     isThere(usesPersonalFan, 'usesPersonalFan required');
 }
 
-export default answers => {
-    checkIfAllFieldsPresent(answers);
-    const { state, coolingType, summerTemp, winterTemp, hoursHome, coolingWhileSleeping, houseSqft, usesPersonalFan } = answers;
+export default ({
+    state,
+    coolingType,
+    summerTemp,
+    winterTemp,
+    hoursHome,
+    coolingWhileSleeping = true,
+    houseSqft,
+    usesPersonalFan
+}) => {
+    checkIfAllFieldsPresent({ state, coolingType, summerTemp, winterTemp, hoursHome, coolingWhileSleeping, houseSqft, usesPersonalFan });
     const personalFanKwh = usesPersonalFan ? getFanEnergy(1, hoursHome) : 0; // 1 fan not used while sleeping
 
     if( coolingType === 'None') {

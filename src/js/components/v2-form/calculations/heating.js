@@ -122,7 +122,7 @@ export default ({
     summerTemp,
     winterTemp,
     hoursHome,
-    heatingOnWhileSleeping,
+    heatingOnWhileSleeping = false,
     heatWholeHome,
     usesPersonalHeater 
 }) => {
