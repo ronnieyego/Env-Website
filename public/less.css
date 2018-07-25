@@ -85,7 +85,7 @@
 }
 .results-changer {
   text-align: left;
-  margin: 20px 0;
+  margin: 20px;
 }
 .results-changer-row {
   margin-left: 15px;
@@ -100,6 +100,11 @@
   margin: 20px 0;
   text-align: center;
   font-size: 33px;
+}
+.results-subtitle {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 26px;
 }
 .average-american {
   min-width: 650px;
@@ -144,28 +149,6 @@
 .average-american-button {
   text-align: center;
 }
-.results-pie {
-  border: 3px solid gray;
-}
-.results-pie-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-.results-pie-breakdown {
-  margin-top: 150px;
-  margin-left: -100px;
-  text-align: left;
-}
-.results-pie-breakdown-list {
-  margin-right: 15px;
-}
-.recharts-wrapper {
-  margin-left: -12%;
-}
-.recharts-legend-wrapper {
-  margin-left: 30%;
-}
 .compare-bar-chart {
   margin-left: 0;
   align-self: center;
@@ -173,6 +156,19 @@
 }
 .compare-bar-chart-legend {
   margin-left: 30%;
+}
+.personal-breakdown {
+  margin: auto;
+  text-align: center;
+}
+.personal-breakdown-section-title {
+  font-weight: bold;
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.personal-breakdown-section-text {
+  font-size: 18px;
+  margin: 10px 20px;
 }
 .savings-container {
   margin: 15px auto;

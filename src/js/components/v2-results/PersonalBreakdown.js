@@ -14,9 +14,9 @@ export default class PersonalBreakdown extends React.Component {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    makeMonthly(breakdown) {
+    makeMonthly(breakdown, key) {
         return breakdown.map(daily => {
-            return { name: daily.name, Method: (daily.Method * DAYS_IN_MONTH) };
+            return { name: daily.name, [key]: (daily[key] * DAYS_IN_MONTH) };
         });
     }
 
@@ -24,28 +24,28 @@ export default class PersonalBreakdown extends React.Component {
     getStuffBreakdown(res) {
         const { home, transportation, stuff } = res;
         return [
-            {name: 'Home', Method: parseInt(home.monthlyCo2)},
-            {name: 'Clothes', Method: parseInt(stuff.clothes.monthlyCo2)},
-            {name: 'Furniture', Method: parseInt(stuff.furniture.monthlyCo2)},
-            {name: 'Stuff', Method: parseInt(stuff.stuff.monthlyCo2)},
-            {name: 'Car', Method: parseInt(transportation.carMonthlyBuild)}
-        ].sort((a,b) => b.Method > a.Method);
+            {name: 'Home', Stuff: parseInt(home.monthlyCo2)},
+            {name: 'Clothes', Stuff: parseInt(stuff.clothes.monthlyCo2)},
+            {name: 'Furniture', Stuff: parseInt(stuff.furniture.monthlyCo2)},
+            {name: 'Stuff', Stuff: parseInt(stuff.stuff.monthlyCo2)},
+            {name: 'Car', Stuff: parseInt(transportation.carMonthlyBuild)}
+        ].sort((a,b) => b.Stuff > a.Stuff);
     }
 
     getHomeBreakdown(res) {
         const { homeActivities, cooling, heating } = res;
         const daily = [
-            {name: 'Lighting', Method: parseInt(homeActivities.background)},
-            {name: 'Cleanliness', Method: parseInt(homeActivities.cleanliness)},
-            {name: 'Cooking', Method: parseInt(homeActivities.cooking)},
-            {name: 'Entertainment', Method: parseInt(homeActivities.entertainment)}
-        ].sort((a,b) => b.Method > a.Method);
-        const monthly = this.makeMonthly(daily);
+            {name: 'Lighting', Activity: parseInt(homeActivities.background)},
+            {name: 'Cleanliness', Activity: parseInt(homeActivities.cleanliness)},
+            {name: 'Cooking', Activity: parseInt(homeActivities.cooking)},
+            {name: 'Entertainment', Activity: parseInt(homeActivities.entertainment)}
+        ].sort((a,b) => b.Activity > a.Activity);
+        const monthly = this.makeMonthly(daily, 'Activity');
 
         // Heating and cooling come in monthly while home activities are daily
         monthly.push(
-            {name: 'Heating', Method: parseInt(heating.monthlyCo2)},
-            {name: 'Cooling', Method: parseInt(cooling.monthlyCo2)}
+            {name: 'Heating', Activity: parseInt(heating.monthlyCo2)},
+            {name: 'Cooling', Activity: parseInt(cooling.monthlyCo2)}
         );
         return monthly;
     }
@@ -63,34 +63,29 @@ export default class PersonalBreakdown extends React.Component {
     getFoodBreakdown(res) {
         const { co2 } = res.food;
         const daily = [
-            {name: 'Cheese', Method: co2.cheese},
-            {name: 'Chicken', Method: co2.chicken},
-            {name: 'Dairy', Method: co2.dairy},
-            {name: 'Fruit', Method: co2.fruit},
-            {name: 'Grain', Method: co2.grain},
-            {name: 'Junk Food', Method: co2.junkFood},
-            {name: 'Pork', Method: co2.pork},
-            {name: 'Seafood', Method: co2.seafood},
-            {name: 'Vegetables', Method: co2.vegetables},
-            {name: 'Beef', Method: co2.beef},
-        ].sort((a,b) => b.Method > a.Method);
-        return this.makeMonthly(daily);
+            {name: 'Cheese', Food: co2.cheese},
+            {name: 'Chicken', Food: co2.chicken},
+            {name: 'Dairy', Food: co2.dairy},
+            {name: 'Fruit', Food: co2.fruit},
+            {name: 'Grain', Food: co2.grain},
+            {name: 'Junk Food', Food: co2.junkFood},
+            {name: 'Pork', Food: co2.pork},
+            {name: 'Seafood', Food: co2.seafood},
+            {name: 'Vegetables', Food: co2.vegetables},
+            {name: 'Beef', Food: co2.beef},
+        ].sort((a,b) => b.Food > a.Food);
+        return this.makeMonthly(daily, 'Food');
     }
 
-    sumBreakdown(breakdown) {
+    sumBreakdown(breakdown, sumKey) {
         const keys = Object.keys(breakdown);
         return keys.reduce((acc, key) => {
-            return acc + breakdown[key].Method;
+            return acc + breakdown[key][sumKey];
         }, 0);
     }
 
 	render() {
-        const containerStyle = {
-            margin: 'auto',
-            textAlign: 'center'
-        };
         const res = this.props.results;
-        const { monthlyCo2 } = res;
 
         const homeTotal = res.homeActivities.monthlyCo2 + res.heating.monthlyCo2 + res.cooling.monthlyCo2;
         const stuffTotal = res.stuff.monthlyCo2 + res.home.monthlyCo2;
@@ -107,77 +102,76 @@ export default class PersonalBreakdown extends React.Component {
 
         // Transportation Summary
         const transportationBreakdown = this.getTransportBreakdown(res);
-        const transportationSum = this.sumBreakdown(transportationBreakdown);
+        const transportationSum = this.sumBreakdown(transportationBreakdown, 'Method');
 
         // Appliance Summary
         const homeBreakdown = this.getHomeBreakdown(res);
-        const homeSum = this.sumBreakdown(homeBreakdown);
+        const homeSum = this.sumBreakdown(homeBreakdown, 'Activity');
 
         // Food Summary
         const foodBreakdown = this.getFoodBreakdown(res);
-        const foodSum = this.sumBreakdown(foodBreakdown);
+        const foodSum = this.sumBreakdown(foodBreakdown, 'Food');
 
         // Stuff Summary
         const stuffBreakdown = this.getStuffBreakdown(res);
-        const stuffSum = this.sumBreakdown(stuffBreakdown);
+        const stuffSum = this.sumBreakdown(stuffBreakdown, 'Stuff');
         
 		return (
-            <div style={containerStyle}>
+            <div className="personal-breakdown">
                 <div id="top-level-sumamry">
+                    <p className="personal-breakdown-section-title">Overview</p>
+                    <p className="personal-breakdown-section-text">Here's how your footprint breaks down at a high level.</p>
                     <BarChart
                         graphData={categoryBreakDownData}
                         units={'Pounds of CO2'}
-                        title={`Monthly CO2 Breakdown`}
                         key="categoryBreakDownData"
-                        subtitle={`${monthlyCo2.toLocaleString()} pounds used each Month`}
                         dataKey={'Category'}
                         mobileHeaders={['Category', 'Pounds of CO2',]} 
                     />
                 </div>
                 <br />
                 <div id="home-summary">
+                    <p className="personal-breakdown-section-title">Home Breakdown</p>
+                    <p className="personal-breakdown-section-text">Your home's breakdown includes the CO<sub>2</sub> to build your home (converted to monthly emissions), heating/cooling, appliances, and other electricity use.</p>
                     <BarChart
                         graphData={homeBreakdown}
                         units={'Pounds of CO2'}
                         key="homeBreakdown"
-                        title="Home Breakdown"
-                        subtitle={`${homeSum.toLocaleString()} pounds used each Month`}
-                        dataKey={'Method'}
+                        dataKey={'Activity'}
                         mobileHeaders={['Home', 'Pounds of CO2',]} 
                     />
                 </div>
                 <br />
                 <div id="stuff-summary">
+                    <p className="personal-breakdown-section-title">Stuff Breakdown</p>
+                    <p className="personal-breakdown-section-text">Your stuff is converted into monthly emissions by taking its lifetime CO<sub>2</sub> value and dividing it by the number of months it'll exist for.  E.g. A chair might take 120 pounds of CO<sub>2</sub> to make and be thrown away after 2 years.  It's monthly CO<sub>2</sub> emissions would be 5 pounds of CO<sub>2</sub> per month.</p>
                     <BarChart
                         graphData={stuffBreakdown}
                         units={'Pounds of CO2'}
                         key="stuffBreakdown"
-                        title="Stuff Breakdown"
-                        subtitle={`${stuffSum.toLocaleString()} pounds used each Month.  Values are lifetime CO2 over number of months each thing will last.`}
-                        dataKey={'Method'}
+                        dataKey={'Stuff'}
                         mobileHeaders={['Stuff', 'Pounds of CO2',]} 
                     />
                 </div>
                 <br />
                 <div id="food-summary">
+                    <p className="personal-breakdown-section-title">Food Breakdown</p>
+                    <p className="personal-breakdown-section-text">Food can be carbon intensive and not all foods are created equal.</p>
                     <BarChart
                         graphData={foodBreakdown}
                         key="foodBreakdown"
                         units={'Pounds of CO2'}
-                        title="Food Breakdown"
-                        subtitle={`${foodSum.toLocaleString()} pounds used each Month`}
-                        dataKey={'Method'}
+                        dataKey={'Food'}
                         mobileHeaders={['Food', 'Pounds of CO2',]} 
                     />
                 </div>
                 <br />
                 <div id="transportation-summary">
+                    <p className="personal-breakdown-section-title">Transportation Breakdown</p>
                     <BarChart
                         graphData={transportationBreakdown}
                         key="transportationBreakdownBarChart"
                         units={'Pounds of CO2'}
-                        title="Transportation Breakdown"
-                        subtitle={`${transportationSum.toLocaleString()} pounds used each Month`}
                         dataKey={'Method'}
                         mobileHeaders={['Method', 'Pounds of CO2',]} 
                     />

@@ -62,14 +62,13 @@ export default class Compare extends React.Component {
 
         const diff = averageTotal - monthlyCo2;
         const percentDiff = ((diff/averageTotal) * 100).toFixed(0);
-        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You use ${percentDiff * -1}% more ${unitText} than this average American`;
+        const comparisonText = percentDiff > 0 ? `Congratulations you use ${percentDiff}% less ${unitText} than this average American!` : `You emit ${percentDiff * -1}% more ${unitText} than this average American`;
         
+        const homeSum = parseInt(res.home.monthlyCo2 + res.cooling.monthlyCo2 + res.heating.monthlyCo2 + res.homeActivities.monthlyCo2);
+
         const barGraphData = [
             {name: 'Total', You: monthlyCo2, 'Average American': averageTotal},
-            {name: 'Home', You: parseInt(res.home.monthlyCo2) || 0, 'Average American': 333},
-            {name: 'Appliance', You: parseInt(res.homeActivities.monthlyCo2) || 0, 'Average American': parseInt(averageGraphData.appliance)},
-            {name: 'Cooling', You: parseInt(res.cooling.monthlyCo2) || 0, 'Average American': 111},
-            {name: 'Heating', You: parseInt(res.heating.monthlyCo2) || 0, 'Average American': 222},
+            {name: 'Home', You: homeSum, 'Average American': 333},
             {name: 'Food', You: parseInt(res.food.monthlyCo2) || 0, 'Average American': parseInt(averageGraphData.food) || 50},
             {name: 'Transportation', You: parseInt(res.transportation.totalCo2) || 0, 'Average American': parseInt(averageGraphData.transportation) || 50},
             {name: 'Stuff', You: parseInt(res.stuff.monthlyCo2) || 0, 'Average American': 777}
@@ -84,7 +83,7 @@ export default class Compare extends React.Component {
 		return (
             <div className="average-american">
                 <div>
-                    <h1>You vs an average American</h1>
+                    <h2>You vs an average American</h2>
                     <p className="average-american-compare">{comparisonText}</p>
                     <p className="average-american-compare-subtext">Use the tool below to compare against different demographics</p>
                     <div className="average-american-flex">

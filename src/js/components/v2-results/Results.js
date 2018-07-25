@@ -46,7 +46,8 @@ export default class Results extends React.Component {
 		return (
             <div className="results">
                 <div className="results-title">
-                    You release <b><HowMuchCo2 co2={monthlyCo2} /></b> pounds of CO<sub>2</sub> each month.
+                    <span>You release <b><HowMuchCo2 co2={monthlyCo2} /></b> pounds of CO<sub>2</sub> each month.</span>
+					<p className="results-subtitle" >Use the tools below to compare your footprint, investigate what constitutes your footprint, and ultimately reduce your footprint.</p>
                 </div>
 
 				<div id="top-of-results">
