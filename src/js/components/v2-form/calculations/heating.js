@@ -12,6 +12,7 @@ import {
 import stateTemps from '../data/average-temp-by-state';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
 import { convertDailyToMonthly } from './utils';
+import isThere from '../../../utils/is-there';
 
 /*
     Assumptions
@@ -100,7 +101,20 @@ const getPersonalHeaterKwh = hoursHome => {
     return hoursHome * personalHeaterWattage / 1000;
 }
 
-export default ({
+const checkIfAllFieldsPresent = ({ state, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater }) => {
+    isThere(state, 'state required');
+    isThere(heatType, 'heatType required');
+    isThere(insulationType, 'insulationType required');
+    isThere(houseSqft, 'houseSqft required');
+    isThere(summerTemp, 'summerTemp required');
+    isThere(winterTemp, 'winterTemp required');
+    isThere(hoursHome, 'hoursHome required');
+    isThere(heatingOnWhileSleeping, 'heatingOnWhileSleeping required');
+    isThere(heatWholeHome, 'heatWholeHome required');
+    isThere(usesPersonalHeater, 'usesPersonalHeater required');
+}
+
+export default ({ 
     state,
     heatType,
     insulationType,
@@ -110,8 +124,9 @@ export default ({
     hoursHome,
     heatingOnWhileSleeping,
     heatWholeHome,
-    usesPersonalHeater
+    usesPersonalHeater 
 }) => {
+    checkIfAllFieldsPresent({ state, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater });
     const personalHeaterKwh = usesPersonalHeater ? getPersonalHeaterKwh(hoursHome) : 0;
     const personalHeaterCo2 = convertKwhToCo2(state, personalHeaterKwh);
     

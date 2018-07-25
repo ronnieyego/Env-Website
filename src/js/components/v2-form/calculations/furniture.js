@@ -1,5 +1,6 @@
 import { co2PerFurniturePound, furnitureLife, furnitureWeightPerRoom } from '../data/furniture';
 import { getNumberOfRooms, convertLifetimeToMonthly } from './utils';
+import isThere from '../../../utils/is-there';
 
 const getMultiplierByAmount = furnitureAmount => {
     if(furnitureAmount === 'I have almost no furniture') {
@@ -17,6 +18,8 @@ const getMultiplierByAmount = furnitureAmount => {
 }
 
 export default ({homeSqft, furnitureAmount}) => {
+    isThere(homeSqft, 'homeSqft required');
+    isThere(furnitureAmount, 'furnitureAmount required');
     const rooms = getNumberOfRooms(homeSqft);
     const co2PerRoom = co2PerFurniturePound * furnitureWeightPerRoom * getMultiplierByAmount(furnitureAmount);
     const totalCo2 = Math.round(rooms * co2PerRoom);

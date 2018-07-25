@@ -8,6 +8,7 @@ import {
 } from '../../costs/clothes/clothes-data';
 import { clothesLife, profiles } from '../data/clothes';
 import { convertLifetimeToMonthly } from './utils';
+import isThere from '../../../utils/is-there';
 
 const getShirtCo2 = (shirts, shirtMaterial) => {
     const shirtWeight = weightOfClothes.shirt;
@@ -70,23 +71,26 @@ const getMultiplier = (gender, size) => {
     return multiplier;
 }
 
+const checkIfAllFieldsPresent = ({ gender, size, shirts, jackets, shirtMaterial, pants, shorts, pantsMaterial, shoes, shoeType, socksUndies, accessories }) => {
+    isThere(gender, 'gender, is required');
+    isThere(size, 'size is required');
+    isThere(shirts, 'shirts is required');
+    isThere(jackets, 'jackets is required');
+    isThere(shirtMaterial, 'shirtMaterial is required');
+    isThere(pants, 'pants is required');
+    isThere(shorts, 'shorts is required');
+    isThere(pantsMaterial, 'pantsMaterial is required');
+    isThere(shoes, 'shoes is required');
+    isThere(shoeType, 'shoeType is required');
+    isThere(socksUndies, 'socksUndies is required');
+    isThere(accessories, 'accessories is required');
+}
 
 // Copied from /costs/clothes/calculations.
 // TODO have that file reference this one.
-const getTotalCo2 = ({
-    gender,
-    size,
-    shirts,
-    jackets,
-    shirtMaterial,
-    pants,
-    shorts,
-    pantsMaterial,
-    shoes,
-    shoeType,
-    socksUndies,
-    accessories
-}) => {
+const getTotalCo2 = (answers) => {
+    checkIfAllFieldsPresent(answers);
+    const { gender, size, shirts, jackets, shirtMaterial, pants, shorts, pantsMaterial, shoes, shoeType, socksUndies, accessories } = answers;
     const multiplier = getMultiplier(gender,size);
     const shirtsCo2 = Math.round(getShirtCo2(shirts, shirtMaterial) * multiplier);
     const jacketsCo2 = Math.round(getJacketCo2(jackets, shirtMaterial) * multiplier);

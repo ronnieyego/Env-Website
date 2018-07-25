@@ -4,6 +4,7 @@ import {
     applianceKwhPerUse,
 } from '../data/home';
 
+import isThere from '../../../utils/is-there';
 import { convertKwhToCo2, convertDailyToMonthly,  getNumberOfRooms } from './utils';
 
 const getNightsCooking = cookAtHomeFrequency => {
@@ -26,6 +27,18 @@ const getCookingKwh = cookAtHomeFrequency => {
     return ((applianceKwhPerHour.oven + applianceKwhPerHour.stoveTop) * cookingFreq);
 };
 
+const checkIfAllFieldsPresent = ({ state, hoursHome, hoursTv, hoursComputer, cookAtHomeFrequency, doesShowerDaily, doesMusicAtHome, laundryLoads, homeSqft }) => {
+    isThere(state, 'state required');
+    isThere(hoursHome, 'hoursHome required');
+    isThere(hoursTv, 'hoursTv required');
+    isThere(hoursComputer, 'hoursComputer required');
+    isThere(cookAtHomeFrequency, 'cookAtHomeFrequency required');
+    isThere(doesShowerDaily, 'doesShowerDaily required');
+    isThere(doesMusicAtHome, 'doesMusicAtHome required');
+    isThere(laundryLoads, 'laundryLoads required');
+    isThere(homeSqft, 'homeSqft required');
+}
+
 // Calculates everything on a daily basis
 export default ({
     state,
@@ -38,6 +51,7 @@ export default ({
     laundryLoads,
     homeSqft
 }) => {
+    checkIfAllFieldsPresent({ state, hoursHome, hoursTv, hoursComputer, cookAtHomeFrequency, doesShowerDaily, doesMusicAtHome, laundryLoads, homeSqft });
     const res = {
         entertainment: 0,
         cooking: 0,

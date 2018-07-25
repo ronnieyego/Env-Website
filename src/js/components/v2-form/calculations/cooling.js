@@ -1,7 +1,7 @@
 import stateTemps from '../data/average-temp-by-state';
 import { acPenaltyTempDiff, acWattage, acWattageTemperature, fanWattage } from '../data/heating-cooling';
 import { convertKwhToCo2, getNumberOfRooms, convertDailyToMonthly } from './utils';
-
+import isThere from '../../../utils/is-there';
 
 const ROOMS_PER_AC_UNIT = 3;
 
@@ -34,16 +34,20 @@ const getFanEnergy = (rooms, timeOn) => {
     return fanWattage * rooms * timeOn / 1000;
 };
 
-export default ({ 
-    state,
-    coolingType,
-    summerTemp,
-    winterTemp,
-    hoursHome,
-    coolingWhileSleeping,
-    houseSqft,
-    usesPersonalFan
-}) => {
+const checkIfAllFieldsPresent = ({ state, coolingType, summerTemp, winterTemp, hoursHome, coolingWhileSleeping, houseSqft, usesPersonalFan }) => {
+    isThere(state, 'state required');
+    isThere(coolingType, 'coolingType required');
+    isThere(summerTemp, 'summerTemp required');
+    isThere(winterTemp, 'winterTemp required');
+    isThere(hoursHome, 'hoursHome required');
+    isThere(coolingWhileSleeping, 'coolingWhileSleeping required');
+    isThere(houseSqft, 'houseSqft required');
+    isThere(usesPersonalFan, 'usesPersonalFan required');
+}
+
+export default answers => {
+    checkIfAllFieldsPresent(answers);
+    const { state, coolingType, summerTemp, winterTemp, hoursHome, coolingWhileSleeping, houseSqft, usesPersonalFan } = answers;
     const personalFanKwh = usesPersonalFan ? getFanEnergy(1, hoursHome) : 0; // 1 fan not used while sleeping
 
     if( coolingType === 'None') {

@@ -1,7 +1,9 @@
 import getPetsCo2 from './pets';
 import { expect } from 'chai';
 
-const FIXTURE_DATA = ['Dog', 'Cat', 'Hamster', 'Gecko', 'Turtle'];
+const FIXTURE_DATA = {
+    pets: ['Dog', 'Cat', 'Hamster', 'Gecko', 'Turtle']
+};
 
 describe('Pets Calculation', () => {
     it('should calculate the total co2 of pets', done => {
@@ -15,7 +17,7 @@ describe('Pets Calculation', () => {
         done();
     });
     it('should calculate the co2 of no pets', done => {
-        const { totalCo2 } = getPetsCo2([]);
+        const { totalCo2 } = getPetsCo2({ pets: [] });
         expect(totalCo2).to.equal(0);
         done();
     });

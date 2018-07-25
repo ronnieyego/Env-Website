@@ -1,5 +1,6 @@
 import { lifeExpectancy } from '../../costs/pet/pet-data';
 import { MONTHS_IN_YEAR } from '../../../utils/utils-data/constants';
+import isThere from '../../../utils/is-there';
 
 const getPetCo2 = pet => {
     if(pet === 'Dog') {
@@ -28,6 +29,7 @@ const getPetCo2 = pet => {
 }
 
 export default ({ pets }) => {
+    isThere(pets, 'pets must be an array');
     let combinedTotalCo2 = 0;
     let combinedMonthlyCo2 = 0;
     pets.forEach(pet => {

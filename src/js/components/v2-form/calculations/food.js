@@ -1,10 +1,25 @@
 
 import { foodAnswerServings, servingFacts } from '../data/food';
 import { convertDailyToMonthly } from './utils';
+import isThere from '../../../utils/is-there';
 
 const AVERAGE_CALORIES = 2000;
 
-export default ({
+const checkIfAllFieldsPresent = ({ calories, beef, chicken, pork, seafood, grain, fruit, vegetables, dairy, cheese, junkFood }) => {
+    isThere(calories, 'calories required');
+    isThere(beef, 'beef required');
+    isThere(chicken, 'chicken required');
+    isThere(pork, 'pork required');
+    isThere(seafood, 'seafood required');
+    isThere(grain, 'grain required');
+    isThere(fruit, 'fruit required');
+    isThere(vegetables, 'vegetables required');
+    isThere(dairy, 'dairy required');
+    isThere(cheese, 'cheese required');
+    isThere(junkFood, 'junkFood required');
+}
+
+export default ({ 
     calories,
     beef,
     chicken,
@@ -16,7 +31,8 @@ export default ({
     dairy,
     cheese,
     junkFood
-}) => {
+})  => {
+    checkIfAllFieldsPresent({ calories, beef, chicken, pork, seafood, grain, fruit, vegetables, dairy, cheese, junkFood });
     const multiplier = Math.round(calories/AVERAGE_CALORIES * 10)/10;
 
     const beefServings = foodAnswerServings.beef[beef];

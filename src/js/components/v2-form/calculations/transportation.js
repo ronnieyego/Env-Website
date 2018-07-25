@@ -9,6 +9,8 @@ import {
 import { convertKwhToCo2, convertLifetimeToMonthly } from './utils';
 import { classData, co2PerPound, creationBreakdown } from '../../costs/car/car-data';
 import { MONTHS_IN_YEAR } from '../../../utils/utils-data/constants';
+import isThere from '../../../utils/is-there';
+
 
 const getGasVehicleCo2 = (miles, mpg) => {
     return Math.round(miles / mpg * co2PerGallonOfGas);
@@ -64,6 +66,23 @@ const getCarCo2 = ({
         return 0;
     }
 }
+
+const checkIfFieldsArePresent = ({ doesDrive, carBuildType, carFuelType, carClass, carMpg, carpoolFrequency, carMilesMonth, busMiles, trainMiles, flyMiles, doesPublicTransit, state }) => {
+    isThere(doesDrive, 'doesDrive is required');
+    isThere(carBuildType, 'carBuildType is required');
+    isThere(carFuelType, 'carFuelType is required');
+    isThere(carClass, 'carClass is required');
+    isThere(carMpg, 'carMpg is required');
+    isThere(carpoolFrequency, 'carpoolFrequency is required');
+    isThere(carMilesMonth, 'carMilesMonth is required');
+    isThere(busMiles, 'busMiles is required');
+    isThere(trainMiles, 'trainMiles is required');
+    isThere(flyMiles, 'flyMiles is required');
+    isThere(doesPublicTransit, 'doesPublicTransit is required');
+    isThere(state, 'state is required');
+} 
+
+
 export default ({
     doesDrive,
     carBuildType,
@@ -76,8 +95,9 @@ export default ({
     trainMiles,
     flyMiles,
     doesPublicTransit,
-    state
+    state,
 }) => {
+    checkIfFieldsArePresent({ doesDrive, carBuildType, carFuelType, carClass, carMpg, carpoolFrequency, carMilesMonth, busMiles, trainMiles, flyMiles, doesPublicTransit, state });
     const { carCo2, carBuildCo2, carMonthlyBuildCo2 } = doesDrive ? getCarCo2({ carFuelType, carMpg, carpoolFrequency, carClass, carMilesMonth, state, carBuildType}) : { carCo2: 0, carBuildCo2: 0, carMonthlyBuildCo2: 0 };
     const busCo2 = doesPublicTransit ? getGasVehicleCo2(busMiles, busMpgPerPerson) : 0;
     const trainCo2 = doesPublicTransit ? getGasVehicleCo2(trainMiles, trainMpgPerPerson) : 0;

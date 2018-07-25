@@ -1,5 +1,6 @@
 import { co2PerPoundOfStuff, fullBookcasesPerRoom, poundsPerBookcase, stuffLife } from '../data/stuff';
 import { getNumberOfRooms, convertLifetimeToMonthly } from './utils';
+import isThere from '../../../utils/is-there';
 
 const getMultiplierByAmount = stuffAmount => {
     if(stuffAmount === 'Practically empty') {
@@ -19,6 +20,9 @@ const getMultiplierByAmount = stuffAmount => {
 }
 
 export default ({homeSqft, stuffAmount}) => {
+    isThere(homeSqft, 'homeSqft is required');
+    isThere(stuffAmount, 'stuffAmount is required');
+
     const rooms = getNumberOfRooms(homeSqft);
     const multiplier = getMultiplierByAmount(stuffAmount);
     const co2PerRoom = co2PerPoundOfStuff * fullBookcasesPerRoom * poundsPerBookcase * multiplier;
