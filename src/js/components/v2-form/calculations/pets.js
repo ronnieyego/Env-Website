@@ -27,11 +27,11 @@ const getPetCo2 = pet => {
     }
 }
 
-export default petsArray => {
+export default ({ pets }) => {
     let combinedTotalCo2 = 0;
     let combinedMonthlyCo2 = 0;
-    petsArray.forEach(pet => {
-        const {totalCo2, monthlyCo2 } =  getPetCo2(pet);
+    pets.forEach(pet => {
+        const {totalCo2, monthlyCo2 } = getPetCo2(pet);
         combinedTotalCo2 += totalCo2;
         combinedMonthlyCo2 += monthlyCo2;
     });
