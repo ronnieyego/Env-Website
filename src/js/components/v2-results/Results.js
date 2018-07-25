@@ -21,9 +21,7 @@ import Savings from './Savings';
 })
 export default class Results extends React.Component {
 	render() {
-
 		const { monthlyCo2 } = this.props.results;
-
 		console.log('Results.props', this.props);
 
 		let results;
@@ -47,9 +45,9 @@ export default class Results extends React.Component {
 
 		return (
             <div className="results">
-                <span className="results-title">
+                <div className="results-title">
                     You release <b><HowMuchCo2 co2={monthlyCo2} /></b> pounds of CO<sub>2</sub> each month.
-                </span>
+                </div>
 
 				<div id="top-of-results">
 					{results}		
