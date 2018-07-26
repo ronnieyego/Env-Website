@@ -1,4 +1,6 @@
-import getResults from '../../actions/footprint/submit-with-all-fields';
+import { americanCarMiles, demographicCalories } from './average-american-data';
+
+import getResults from '../../actions/footprint/submit-with-all-answers';
 import stateTemps from '../../components/v2-form/data/average-temp-by-state';
 
 
@@ -10,27 +12,7 @@ const exampleProfile = {
 }
 
 // Home
-const getHomeSqft = income => {
-    switch(income) {
-        case '$30k-$60k':
-            return 1500;
-    }
-};
-
 const getHomeMaterial = () => 'Wood';
-const getHomeType = income => {
-    switch(income) {
-        case '$30k-$60k':
-            return 'House';
-    }
-};
-
-const getNumHousemates = age => {
-    switch(age) {
-        case '20-34':
-            return 1;
-    }
-};
 
 // Home Activity
 const getHoursTv = () => 3;
@@ -71,36 +53,21 @@ const getWinterTemp = state => {
 
 
 // Transportation
-
 const getDoesDrive = () => true;
-const getCarClass = (income) => {
-    switch(income) {
-    case '$30k-$60k':
-        return 'Midsize car';
-    }
-};
-const getCarBuildType = (income) => {
-    switch(income) {
-    case '$30k-$60k':
-        return 'Luxurious';
-    }
-};
 const getCarFuelType = () => 'Gasoline';
 const getCarMpg = () => 25;
 const getCarpoolFrequency = () => 'Just to and from work';
-const getCarMilesMonth = () => 1000;
+const getCarMilesMonth = (age, gender) => {
+    return Math.round(americanCarMiles[age][gender] / 12);
+};
 const getDoesPublicTransit = () => true;
 const getBusMiles = () => 50;
 const getTrainMiles = () => 50;
-const getFlyMiles = (income) => {
-    switch(income) {
-    case '$30k-$60k':
-        return 1000;
-    }
-};
 
 // Food
-const getCalories = (gender) => gender === 'Male' ? 2200 : 1800;
+const getCalories = (age, gender) => {
+    return demographicCalories[age][gender];
+}
 const getBeef = () => 'Once a week';
 const getChicken = () => 'Once a week';
 const getPork = () => 'Once a week';
@@ -112,38 +79,104 @@ const getDairy = () => 'Once a day';
 const getCheese = () => 'Once a day';
 const getJunkFood = () => 'Once a day';
 
-// Stuff
-const getFurnitureAmount = (income) => {
-    switch(income) {
-        case '$30k-$60k':
-            return 'I have all of the essentials';
-        }
-};
-const getStuffAmount = (income) => {
-    switch(income) {
-        case '$30k-$60k':
-            return 'Reasonably full';
-        } 
-};
-const getClothingProfile = (income) => {
-    switch(income) {
-        case '$30k-$60k':
-            return 'A good amount';
-        }
-};
-
 const getPets = () => ['Dog', 'Cat'];
 
-const getAnswers = averageAmericanprofile => {
-    const { state, age, gender, income } = averageAmericanprofile
-    return {
-        state,
 
+const getAnswersOnIncome = income => {
+    let furnitureAmount,
+        stuffAmount, 
+        clothingProfile,
+        flyMiles,
+        carClass,
+        carBuildType,
+        homeSqft,
+        homeType;
+
+    switch(income) {
+        case 'Under $30k':
+            furnitureAmount = 'I have almost no furniture';
+            stuffAmount = 'Practically empty'; 
+            clothingProfile = 'Just the essentials';
+            flyMiles = 1000;
+            carClass = 'Compact car';
+            carBuildType = 'Standard';
+            homeSqft = 1000;
+            homeType = 'Apartment';
+            break;
+        case '$30k-$60k':
+            furnitureAmount = 'My rooms are sparesly furnished';
+            stuffAmount = 'Reasonably full'; 
+            clothingProfile = 'A good amount';
+            flyMiles = '';
+            carClass = 'Midsize car';
+            carBuildType = 'Standard';
+            homeSqft = 1500;
+            homeType = 'Apartment';
+            break;
+        case '$60k-$100k':
+            furnitureAmount = 'I have all of the essentials';
+            stuffAmount = 'Extremely full'; 
+            clothingProfile = 'My closet it packed';
+            flyMiles = '';
+            carClass = 'Midsize SUV';
+            carBuildType = 'Luxurious';
+            homeSqft = 2500;
+            homeType = 'House';
+            break;
+        case 'Over $100k':
+            furnitureAmount = 'My home is cramped';
+            stuffAmount = 'There\'s no more room'; 
+            clothingProfile = 'Way too many';
+            flyMiles = '';
+            carClass = 'Large SUV';
+            carBuildType = 'Luxurious';
+            homeSqft = 3500;
+            homeType = 'House';
+            break;
+        default:
+            console.log('Error in getting AA fields by income.', income, ' did not match any values');
+    }
+    return { furnitureAmount, stuffAmount, clothingProfile, flyMiles, carClass, carBuildType, homeSqft, homeType };
+};
+
+const getAnswersOnAge = age => {
+    let numHousemates;
+    switch(age) {
+    case '16-19':
+        numHousemates = 1;
+        break;
+    case '20-34':
+        numHousemates = 1;
+        break;
+    case '35-54':
+        numHousemates = 2;
+        break;
+    case '55-64':
+        numHousemates = 2;
+        break;
+    case '65+':
+        numHousemates = 1;
+        break;
+    case 'American Average':
+        numHousemates = 2;
+        break;
+    default:
+        console.log('Error in getting AA fields by age.', age, ' did not match any values');
+    }
+    return { numHousemates };
+};
+
+export const getAverageAmericanResultsFromProfile = averageAmericanprofile => {
+    const { state, age, gender, income } = averageAmericanprofile;
+    const { furnitureAmount, stuffAmount, clothingProfile, flyMiles, carClass, carBuildType, homeSqft, homeType } = getAnswersOnIncome(income);
+    const { numHousemates } = getAnswersOnAge(age);
+    const answers = {
+        state,
         // Home
         homeMaterial: getHomeMaterial(),
-        homeType: getHomeType(income),
-        homeSqft: getHomeSqft(income),
-        numHousemates: getNumHousemates(age),
+        homeType,
+        homeSqft,
+        numHousemates, // Age
 
         // Home Activities
         hoursTv: getHoursTv(),
@@ -156,7 +189,7 @@ const getAnswers = averageAmericanprofile => {
         // Heating Cooling
         heatType: getHeatType(),
         insulationType: getInsulationType(),
-        houseSqft: getHomeSqft(income), // Dupe cause everywhere uses home.  Fix at some point
+        houseSqft: homeSqft, // Dupe cause everywhere uses home.  Fix at some point
         summerTemp: getSummerTemp(state),
         winterTemp: getWinterTemp(state),
         hoursHome: getHoursHome(),
@@ -169,19 +202,19 @@ const getAnswers = averageAmericanprofile => {
 
         // Transportation
         doesDrive: getDoesDrive(),
-        carClass: getCarClass(income),
-        carBuildType: getCarBuildType(income),
+        carClass, // Income
+        carBuildType, //Income
         carFuelType: getCarFuelType(),
         carMpg: getCarMpg(),
         carpoolFrequency: getCarpoolFrequency(),
-        carMilesMonth: getCarMilesMonth(),
+        carMilesMonth: getCarMilesMonth(age,gender),
         doesPublicTransit: getDoesPublicTransit(),
         busMiles: getBusMiles(),
         trainMiles: getTrainMiles(),
-        flyMiles: getFlyMiles(income),
+        flyMiles, // Income
 
         // Food
-        calories: getCalories(gender),
+        calories: getCalories(age, gender),
         beef: getBeef(),
         chicken: getChicken(),
         pork: getPork(),
@@ -194,15 +227,11 @@ const getAnswers = averageAmericanprofile => {
         junkFood: getJunkFood(),
 
         // Stuff
-        furnitureAmount: getFurnitureAmount(income),
-        stuffAmount: getStuffAmount(income),
-        clothingProfile: getClothingProfile(income),
+        furnitureAmount, // Income
+        stuffAmount, // Income
+        clothingProfile, // Income
         pets: getPets()
-    }
+    };
+
+    return getResults(answers);
 };
-
-console.log(getAnswers(exampleProfile));
-
-const answers = getAnswers(exampleProfile);
-const results = getResults(answers);
-console.log(results);
