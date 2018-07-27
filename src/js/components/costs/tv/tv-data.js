@@ -48,7 +48,7 @@ export const tvQuestions = [
         name: 'About how many hours a day do you watch TV?',
         value: 4,
         type: 'int',
-        forms: ['tv'],
+        forms: ['tv', 'household-activities'],
         formType: 'costs',
         validator: 'hour-question'
     },

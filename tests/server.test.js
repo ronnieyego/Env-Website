@@ -3,7 +3,7 @@ const expect = require('expect');
 const request = require('supertest');
 const {ObjectID} = require('mongodb');
 
-const {app} = require('./../server'); // maybe ../server.js?
+const { app } = require('../src/js/server/server');
 
 describe('GET /solar', () => {
    it('should get solar/wa', (done) => {      

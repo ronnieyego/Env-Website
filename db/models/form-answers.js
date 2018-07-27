@@ -6,6 +6,7 @@ var FormAnswers = mongoose.model('form-answers',
         formName: String,
         formAnswers: Object,
         results: Object,
+        userState: String,
         dateSubmitted: Date
     })
 );

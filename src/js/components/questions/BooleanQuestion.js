@@ -26,12 +26,13 @@ export default class BooleanQuestion extends React.Component {
 
 	render() {
         const question = this.props.question;
+        const checked = question.checked;
         const style = this.props.styles || {}; // Allow for custom styles
         return (
             <div className="question-boolean" style={style}>
-                <span className="question-name-container">
+                <span className="question-name-container-boolean">
                     <Checkbox
-                        checked={question.checked}
+                        checked={checked}
                         id={question.id}
                         label={formatName(this.props.question.name)}
                         onCheck={this.updateQuestion.bind(this)}

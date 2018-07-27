@@ -19,6 +19,15 @@ const homeTypeAdjuster = {
     Apartment: .98
 };
 
+
+
+
+// https://www.linkedin.com/pulse/how-long-does-modern-concrete-building-last-amit-enterprises-housing/
+const homeLife = {
+    House: 100, // A house will last for ~100 years
+    Apartment: 80  // An apartment will last for ~80 years
+};
+
 // All in percent
 const co2Breakdown = {
     Brick : {
@@ -50,8 +59,18 @@ const co2Breakdown = {
 
 const homeQuestions = [
     {    
+        id: ids.homeType,
+        name: 'Do you live in a house or an apartment?',
+        "selectOptions": ['House', 'Apartment'],
+        value: "House",
+        type: 'dropdown',
+        hoverText: 'This makes an impact on things like heat leakage, utility efficiency, and building materials.',
+        forms: ['house', 'household-home'],
+        formType: 'costs'
+    },
+    {    
         id: ids.homeMaterial,
-        name: 'What is the primary building material of the house?',
+        name: 'What is the primary building material of the home?',
         "selectOptions": [
             'Brick',
             'Wood',
@@ -59,30 +78,22 @@ const homeQuestions = [
         ],
         value: "Wood",
         type: 'dropdown',
-        forms: ['house'],
-        formType: 'costs'
-    },
-    {    
-        id: ids.homeType,
-        name: 'Do you live in a house or apartment?',
-        "selectOptions": ['House', 'Apartment'],
-        value: "House",
-        type: 'dropdown',
-        forms: ['house'],
+        forms: ['house', 'household-home'],
         formType: 'costs'
     },
     {    
         id: ids.homeSqft,
         name: 'How many square feet is your home?',
-        subtext: 'A "standard" house is about 2,500 sqft while a 2-bedroom apartment is about 1,000 sqft.',
+        hoverText: 'A "standard" house is about 2,500 sqft while a 2-bedroom apartment is about 1,000 sqft.',
         value: 2500,
         type: 'int',
-        forms: ['house'],
+        forms: ['house', 'household-home'],
         formType: 'costs'
     },
 ];
 
 module.exports = {
+    homeLife,
     co2PerSqFt,
     co2Breakdown,
     homeTypeAdjuster,

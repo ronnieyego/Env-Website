@@ -1,6 +1,7 @@
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
-import { isValidateAnswer, getAnswerFromKey, getQuestionFromKey } from '../../utils/footprint/get-question-utils';
+import { isValidateAnswer, getAnswerFromKey, getQuestionFromKey, getQuestionFromId } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';
+import triggers from './triggers/trigger-router';
 
 // Utils. . . maybe make own file eventually?
 
@@ -99,6 +100,19 @@ export const updateQuestions = questionInfo => {
     return (dispatch, getState) => {
         const state = getState();
         const allQuestions = state.footprintForm.questions.slice();
+        const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
+        dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
+    }
+};
+
+export const updateQuestionsV2 = questionInfo => {
+    return (dispatch, getState) => {
+        const state = getState();
+        let allQuestions = state.questions.questions.slice();
+        const question = getQuestionFromId(allQuestions, questionInfo.id);
+        if(questionInfo.value === 'on' && question.trigger) { // Right now triggers just modify other questions.  ONLY for boolean questions
+            allQuestions = triggers(allQuestions, question.trigger);
+        }
         const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
         dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
     }

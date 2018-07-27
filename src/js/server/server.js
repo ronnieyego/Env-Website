@@ -20,8 +20,8 @@ import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-p
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
+import loadFootprintResultsPageBeta from '../actions/load-actions/load-footprint-results-page';
 import validStateId from '../utils/check-if-valid-state-id';
-import getStateData from '../utils/apis/get-state-data';
 
 import { mongoose } from '../../../db/mongoose';
 import { FormAnswers } from '../../../db/models/form-answers';
@@ -60,12 +60,14 @@ app.get('/energy/:state', loadStateEnergyPage);
 app.get('/energy', loadUsEnergyPage);
 
 app.get('/footprint', loadFootprintFormPage);
-app.get('/footprint/:id', loadFootprintResultsPage);
+app.get('/footprint/:id', loadFootprintResultsPageBeta);
 app.get('/footprint/form/:id', loadFootprintResultsPage);
 
 app.get('/static/:page', loadStaticPage);
 
-app.get(`/costs/:page`, loadCostsPage);    
+app.get(`/costs/:page`, loadCostsPage); 
+
+app.get(`/beta/:id`, loadFootprintResultsPageBeta); 
 
 app.get('/test', (req, res) => {
     res.send('Reach the test page');
@@ -84,6 +86,7 @@ app.post('/api/footprint-form/answer', (req, res) => {
         formName: req.body.formName,
         formAnswers: req.body.formAnswers,
         results: req.body.results,
+        userState: req.body.userState,
         dateSubmitted: myDatetimeString
     });
 
@@ -149,27 +152,6 @@ app.get('/api/footprint-form/summary', (req,res) => {
     }, (e) => {
         res.status(400).send(e);
     });
-});
-
-app.get('/api/get-energy-intensity-by-state/:state', (req, res) => {
-    console.log('started to fetch data');
-    let state = (req.params.state).toUpperCase();
-    if(validStateId(state)) {
-        return getStateData(state)
-        .then(stateData => {
-            if (!stateData) {
-                throw Error `Could not find state data for ${state}.`;
-            }
-            res.status(200).send(stateData);
-        })
-        .catch(e => {
-            console.log(`Could not find averageCo2/Kwh for ${state}. -- ${e}`);
-            res.status(500).send(100000);
-        })
-    } else {
-        console.log('inproper query param');
-        res.status(400).send(100000);
-    }
 });
 
 app.get('/api/delete-form-result-by-id/:id', (req, res) => {

@@ -26,6 +26,7 @@ describe('Utils', () => {
     ids.forEach((id, i) => {
       if (ids[i + 1] === id) {
         unique = false;
+        console.log('BAD ID: ', id);
       }
     });
     expect(unique).toBe(true);

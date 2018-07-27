@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 import IntQuestion from './IntQuestion';
 import DropdownQuestion from './DropdownQuestion';
 import BooleanQuestion from './BooleanQuestion';
+import MultipleQuestion from './MultipleQuestion';
 import UserStateDropdown from '../UserStateDropdown';
 
 
-import { setQuestionError, updateQuestions} from '../../actions/footprint/form-actions';
+import { setQuestionError, updateQuestions, updateQuestionsV2} from '../../actions/footprint/form-actions';
 import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
 import { getErrorText } from '../../utils/footprint/question-validators';
 
@@ -28,7 +29,7 @@ export default class QuestionHoc extends React.Component {
     }
 
 	render() {
-        const updateFunction = this.props.question.formType && this.props.question.formType === 'costs' ? updateCostsQuestions.bind(this) : updateQuestions.bind(this);
+        const updateFunction = updateQuestionsV2;//this.props.question.formType && this.props.question.formType === 'costs' ? updateCostsQuestions.bind(this) : updateQuestions.bind(this);
         let question;
         switch(this.props.questionType) {
             case 'int':
@@ -39,6 +40,9 @@ export default class QuestionHoc extends React.Component {
                 break;
             case 'dropdown':
                 question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
+                break;
+            case 'multiple':
+                question = <MultipleQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'user-state':
                 question = <UserStateDropdown omitUs={this.props.question.omitUs} />

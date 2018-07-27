@@ -1,3 +1,4 @@
+import { getAverageAmericanResultsFromProfile } from '../../data/average-american/average-american-profile';
 import { getAverage } from '../../utils/footprint/get-average-american-footprint';
 const baseState = {
     answerId: '',
@@ -5,13 +6,19 @@ const baseState = {
     questions: [],
     formResults: {},
     errorGettingFormResults: false,
-    resultsUnit: 'co2',
+    resultsUnit: 'co2', // I think I can delete this
     resultsShown: 'compare',
     userState: 'US',
-    averageAmerican: getAverage('US', 'American Average', 'male'),
+    averageAmerican: getAverageAmericanResultsFromProfile({
+        state:'US', 
+        age: 'American Average',
+        gender: 'male',
+        income: '$30k-$60k'
+    }),
     averageAmericanState: 'US',
     averageAmericanAge: 'American Average',
     averageAmericanGender: 'male',
+    averageAmericanIncome: '$30k-$60k',
     averageAmericanShoppingHabit: 'normal',
     averageAmericanSize: 'Medium',
     averageAmericanHouseType: 'Small Apartment'
@@ -42,8 +49,7 @@ const footprintFormAnswers = (state = baseState, action) => {
         case 'UPDATE_RESULTS_SHOWN': {
             state = { 
                 ...state,
-                resultsShown: action.payload.resultsShown, 
-                resultsUnit: action.payload.resultsUnit
+                resultsShown: action.payload, 
             };
             break;
         }
@@ -51,6 +57,8 @@ const footprintFormAnswers = (state = baseState, action) => {
             state = { ...state, userState: action.payload, averageAmericanState: action.payload};
             break;
         }
+
+        // v For Compare
         case 'UPDATE_AVERAGE_AMERICAN': {
             state = { ...state, averageAmerican: action.payload};
             break;
@@ -63,6 +71,12 @@ const footprintFormAnswers = (state = baseState, action) => {
             state = { ...state, averageAmericanAge: action.payload};
             break;
         }
+        case 'UPDATE_AVERAGE_AMERICAN_INCOME': {
+            state = { ...state, averageAmericanIncome: action.payload};
+            break;
+        }
+        // ^ For Compare
+
         case 'UPDATE_AVERAGE_AMERICAN_GENDER': {
             state = { ...state, averageAmericanGender: action.payload};
             break;

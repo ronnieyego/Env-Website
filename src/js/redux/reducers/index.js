@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import questions from './questions-reducer';
 import costsForms from './costs-forms-reducer';
 import footprintForm from './footprint-form-reducer';
 import { footprintFormAnswers } from './footprint-form-answers-reducer';
@@ -13,6 +14,7 @@ export default combineReducers({
     footprintForm,
     footprintFormAnswers,
     metadata,
+    questions,
     stateEnergy,
     usEnergyMap,
     userInfo
