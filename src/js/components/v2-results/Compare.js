@@ -15,11 +15,11 @@ import { getAverageAmericanResultsFromProfile } from '../../data/average-america
 @connect(store => {
 	return {
         results: store.footprintFormAnswers.formResults,
-        averageAmerican: store.footprintFormAnswers.averageAmerican,
-        averageAmericanState: store.footprintFormAnswers.averageAmericanState,
-        averageAmericanAge: store.footprintFormAnswers.averageAmericanAge,
-        averageAmericanGender: store.footprintFormAnswers.averageAmericanGender,
-        averageAmericanIncome: store.footprintFormAnswers.averageAmericanIncome,
+        averageAmerican: store.averageAmerican.averageAmerican,
+        averageAmericanState: store.averageAmerican.averageAmericanState,
+        averageAmericanAge: store.averageAmerican.averageAmericanAge,
+        averageAmericanGender: store.averageAmerican.averageAmericanGender,
+        averageAmericanIncome: store.averageAmerican.averageAmericanIncome,
 	};
 })
 export default class Compare extends React.Component {

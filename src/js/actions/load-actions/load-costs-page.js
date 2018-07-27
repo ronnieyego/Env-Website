@@ -10,7 +10,6 @@ import { addMobileToStore } from '../../server/utils';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import reducers from '../../redux/reducers/index';
-import { baseState } from '../../redux/reducers/footprint-form-answers-reducer';
 import updateCostsReducer from '../../redux/update-reducer-by-page';
 
 // Pages

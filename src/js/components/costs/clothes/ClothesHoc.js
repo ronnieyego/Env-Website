@@ -21,9 +21,9 @@ import { americanClothing } from '../../../utils/utils-data/american-averages';
 @connect((store, props) => {
 	return {
         questions: store.questions.questions,
-        averageAmericanGender: store.footprintFormAnswers.averageAmericanGender,
-        averageAmericanShoppingHabit: store.footprintFormAnswers.averageAmericanShoppingHabit,
-        averageAmericanSize: store.footprintFormAnswers.averageAmericanSize
+        averageAmericanGender: store.averageAmerican.averageAmericanGender,
+        averageAmericanShoppingHabit: store.averageAmerican.averageAmericanShoppingHabit,
+        averageAmericanSize: store.averageAmerican.averageAmericanSize
     };
 })
 export default class ClothesHoc extends React.Component {

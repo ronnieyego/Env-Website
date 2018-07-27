@@ -19,10 +19,10 @@ import HowMuchCo2 from '../../how-much-co2/HowMuchCo2';
 		results: store.footprintFormAnswers.formResults,
         resultsShown: store.footprintFormAnswers.resultsShown,
         resultsUnit: store.footprintFormAnswers.resultsUnit,
-		averageAmerican: store.footprintFormAnswers.averageAmerican,
-		averageAmericanState: store.footprintFormAnswers.averageAmericanState,
-		averageAmericanAge: store.footprintFormAnswers.averageAmericanAge,
-        averageAmericanGender: store.footprintFormAnswers.averageAmericanGender
+		averageAmerican: store.averageAmerican.averageAmerican,
+		averageAmericanState: store.averageAmerican.averageAmericanState,
+		averageAmericanAge: store.averageAmerican.averageAmericanAge,
+        averageAmericanGender: store.averageAmerican.averageAmericanGender
 	};
 })
 export default class Results extends React.Component {

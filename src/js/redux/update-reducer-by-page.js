@@ -2,7 +2,7 @@ import ids from '../utils/ids/index';
 import { getAnswerFromId, getQuestionFromId } from '../utils/footprint/get-question-utils';
 
 export default (storeData, page) => {
-    const questions = storeData.costsForms.questions;
+    const questions = storeData.questions.questions;
     if(page === 'galaxy') {
         const tabletQ = getQuestionFromId(questions, ids.tabletType);
         tabletQ.value = 'Samsung Galaxy';

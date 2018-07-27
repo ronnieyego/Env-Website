@@ -14,8 +14,6 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 @connect((store, props) => {
 	return {
         questions: store.questions.questions,
-        cupCo2: store.costsForms.cupCo2,
-        cupWashCo2: store.costsForms.cupWashCo2
     };
 })
 export default class CupHoc extends React.Component {

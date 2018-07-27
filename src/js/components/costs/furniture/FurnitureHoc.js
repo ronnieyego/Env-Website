@@ -13,7 +13,7 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 @connect((store, props) => {
 	return {
         questions: store.questions.questions,
-        aaHouseType: store.footprintFormAnswers.averageAmericanHouseType,
+        aaHouseType: store.averageAmerican.averageAmericanHouseType,
         isMobile: store.userInfo.isMobile,
     };
 })
