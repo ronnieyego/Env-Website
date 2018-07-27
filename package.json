@@ -11,8 +11,8 @@
     "webstart": "export NODE_ENV=dev && webpack && lessc src/js/entry/css-entry.less public/less.css && node index.js",
     "start": "node index.js",
     "questions": "node db/db-scripts/data/format-scripts/footprint/compile-questions.js",
-    "compile": "export page=footprint && webpack && export page=static && webpack && export page=usenergy && webpack && export page=stateenergy && webpack && export page=solar && webpack",
-    "deploy": "export NODE_ENV=production && export page=footprint && webpack -p && export page=static && webpack -p && export page=usenergy && webpack -p && export page=stateenergy && webpack -p && export page=solar && webpack -p && git add . && git commit -m 'deploying to Heroku' && git push origin master && git push heroku master && export NODE_ENV=dev"
+    "compile": "export page=footprint && webpack && export page=static && webpack && export page=usenergy && webpack && export page=stateenergy && webpack && export page=solar && webpack && export page=costs && webpack",
+    "deploy": "export NODE_ENV=production && export page=footprint && webpack -p && export page=static && webpack -p && export page=usenergy && webpack -p && export page=stateenergy && webpack -p && export page=solar && webpack -p && export page=solar && webpack -p && git add . && git commit -m 'deploying to Heroku' && git push origin master && git push heroku master && export NODE_ENV=dev"
   },
   "engines": {
     "node": "8.11.2"
