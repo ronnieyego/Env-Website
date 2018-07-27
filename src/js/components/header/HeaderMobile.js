@@ -38,7 +38,7 @@ export default class HeaderMobile extends React.Component {
                         <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/costs"/>} primaryText="CO2 of Things" />
                         <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/how-much-co2"/>} primaryText="How Much CO2" />
                         <MenuItem containerElement={<a className="material-ui-nav-item" href="/energy"/>} primaryText="Energy" />
-                        <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/how-the-form-works"/>} primaryText="Footprint Calculations" />
+                        {/* <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/how-the-form-works"/>} primaryText="Footprint Calculations" /> */}
                         <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/data"/>} primaryText="Data" />
                         <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/co2e"/>} primaryText="CO2e" />
                         <MenuItem containerElement={<a className="material-ui-nav-item" href="/static/about"/>} primaryText="About" />

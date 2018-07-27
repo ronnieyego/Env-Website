@@ -60,7 +60,7 @@ app.get('/energy/:state', loadStateEnergyPage);
 app.get('/energy', loadUsEnergyPage);
 
 app.get('/footprint', loadFootprintFormPage);
-app.get('/footprint/:id', loadFootprintResultsPage);
+app.get('/footprint/:id', loadFootprintResultsPageBeta);
 app.get('/footprint/form/:id', loadFootprintResultsPage);
 
 app.get('/static/:page', loadStaticPage);

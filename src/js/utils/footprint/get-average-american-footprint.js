@@ -1,3 +1,5 @@
+// DEPRECATED
+
 const { americanCarMiles, americanDietCalories, americanFood, demographicCalories, kwhPerMonthAppliance } = require('../utils-data/american-averages');
 const { utilityEmissionsPerState, utilityUse, waterUsePerKwhPerState } = require('../utils-data/state-energy-and-emissions');
 const {

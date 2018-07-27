@@ -22,9 +22,8 @@ export default class PersonalBreakdown extends React.Component {
 
     // TODO ADD STUFF
     getStuffBreakdown(res) {
-        const { home, transportation, stuff } = res;
+        const { transportation, stuff } = res;
         return [
-            {name: 'Home', Stuff: parseInt(home.monthlyCo2)},
             {name: 'Clothes', Stuff: parseInt(stuff.clothes.monthlyCo2)},
             {name: 'Furniture', Stuff: parseInt(stuff.furniture.monthlyCo2)},
             {name: 'Stuff', Stuff: parseInt(stuff.stuff.monthlyCo2)},
@@ -33,21 +32,22 @@ export default class PersonalBreakdown extends React.Component {
     }
 
     getHomeBreakdown(res) {
-        const { homeActivities, cooling, heating } = res;
+        const { homeActivities, cooling, heating, home } = res;
         const daily = [
             {name: 'Lighting', Activity: parseInt(homeActivities.background)},
             {name: 'Cleanliness', Activity: parseInt(homeActivities.cleanliness)},
             {name: 'Cooking', Activity: parseInt(homeActivities.cooking)},
             {name: 'Entertainment', Activity: parseInt(homeActivities.entertainment)}
-        ].sort((a,b) => b.Activity > a.Activity);
+        ];
         const monthly = this.makeMonthly(daily, 'Activity');
 
-        // Heating and cooling come in monthly while home activities are daily
+        // Heating, cooling, creaton come in monthly while home activities are daily
         monthly.push(
+            {name: 'Creation', Activity: parseInt(home.monthlyCo2)},
             {name: 'Heating', Activity: parseInt(heating.monthlyCo2)},
             {name: 'Cooling', Activity: parseInt(cooling.monthlyCo2)}
         );
-        return monthly;
+        return monthly.sort((a,b) => b.Activity > a.Activity);
     }
 
     getTransportBreakdown(res) {
