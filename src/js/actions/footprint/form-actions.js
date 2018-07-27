@@ -192,9 +192,3 @@ export const submitForm = questionPayload => {
         }
     }
 };
-
-const updateAverageAmerican = averageAmerican => {
-    dispatch => {
-        dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: averageAmerican})
-    }
-};
