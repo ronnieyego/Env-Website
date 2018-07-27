@@ -8,10 +8,7 @@ import BooleanQuestion from './BooleanQuestion';
 import MultipleQuestion from './MultipleQuestion';
 import UserStateDropdown from '../UserStateDropdown';
 
-
-import { setQuestionError, updateQuestions, updateQuestionsV2} from '../../actions/footprint/form-actions';
-import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
-import { getErrorText } from '../../utils/footprint/question-validators';
+import { updateQuestionsV2} from '../../actions/footprint/form-actions';
 
 
 @connect((store, props) => {

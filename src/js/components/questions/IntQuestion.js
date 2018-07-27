@@ -1,12 +1,9 @@
 import React from "react";
 import PropTypes from 'prop-types'
 import TextField from 'material-ui/TextField';
-import ReactTooltip from 'react-tooltip';
 
 import HoverText from './HoverText';
 import { formatName } from './utils';
-import { setQuestionError} from '../../actions/footprint/form-actions';
-import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
 import { getErrorText } from '../../utils/footprint/question-validators';
 
 export default class Question extends React.Component {

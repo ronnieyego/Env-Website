@@ -8,15 +8,12 @@ import React from "react";
 import { bool, func, object } from 'prop-types';
 import { connect } from 'react-redux';
 
-import Question from './QuestionHoc';
 import HoverText from './HoverText';
 import IconButton from 'material-ui/IconButton';
 import { AddIcon, RemoveIcon } from '../../assets/icons/index';
 
 import { sortAndFilterAndCreateQuestions } from '../../utils/question-utils';
 import { formatName } from './utils';
-import { updateQuestions} from '../../actions/footprint/form-actions';
-import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
 import { getQuestionFromId } from '../../utils/footprint/get-question-utils';
 
 

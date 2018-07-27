@@ -2,11 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import Checkbox from 'material-ui/Checkbox';
 import HoverText from './HoverText';
-
 import { formatName } from './utils';
-import { updateQuestions} from '../../actions/footprint/form-actions';
-import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
-
 
 export default class BooleanQuestion extends React.Component {
 

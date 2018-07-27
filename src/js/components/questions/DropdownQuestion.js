@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField'
 import HoverText from './HoverText';
-
 import { formatName } from './utils';
-import { updateQuestions} from '../../actions/footprint/form-actions';
-import { updateCostsQuestions} from '../../actions/cost-forms/costs-actions';
 
 export default class DropdownQuestion extends React.Component {
 
