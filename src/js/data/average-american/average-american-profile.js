@@ -1,7 +1,7 @@
 import { americanCarMiles, demographicCalories } from './average-american-data';
 
 import getResults from '../../actions/footprint/submit-with-all-answers';
-import stateTemps from '../../components/v2-form/data/average-temp-by-state';
+import stateTemps from '../../components/footprint-form/data/average-temp-by-state';
 
 
 const exampleProfile = {

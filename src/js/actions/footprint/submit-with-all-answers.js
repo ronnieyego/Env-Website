@@ -1,13 +1,13 @@
-import getFoodResults from '../../components/v2-form/calculations/food';
-import getHomeResults from '../../components/v2-form/calculations/home';
-import getHomeActivitiesResults from '../../components/v2-form/calculations/home-activities';
-import getHomeHeatingResults from '../../components/v2-form/calculations/heating';
-import getHomeCoolingResults from '../../components/v2-form/calculations/cooling';
-import getTransportationResults from '../../components/v2-form/calculations/transportation';
-import getPetsResults from '../../components/v2-form/calculations/pets';
-import getStuffResults from '../../components/v2-form/calculations/stuff';
-import getClothesResults from '../../components/v2-form/calculations/clothes';
-import getFurnitureResults from '../../components/v2-form/calculations/furniture';
+import getFoodResults from '../../components/footprint-form/calculations/food';
+import getHomeResults from '../../components/footprint-form/calculations/home';
+import getHomeActivitiesResults from '../../components/footprint-form/calculations/home-activities';
+import getHomeHeatingResults from '../../components/footprint-form/calculations/heating';
+import getHomeCoolingResults from '../../components/footprint-form/calculations/cooling';
+import getTransportationResults from '../../components/footprint-form/calculations/transportation';
+import getPetsResults from '../../components/footprint-form/calculations/pets';
+import getStuffResults from '../../components/footprint-form/calculations/stuff';
+import getClothesResults from '../../components/footprint-form/calculations/clothes';
+import getFurnitureResults from '../../components/footprint-form/calculations/furniture';
 
 const getFood = answers => getFoodResults(answers);
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
-import FootprintForm from '../components/v2-form/forms/FormContainer';
+import FootprintForm from '../components/footprint-form/forms/FormContainer';
 
 @connect(store => {
 	return {

@@ -2,7 +2,7 @@ import ids from '../../../utils/ids/index';
 
 import { getAnswerFromId } from '../../../components/questions/utils';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
-import { co2PerGallonOfGas, kwhPer100MilesElectricCar } from '../../v2-form/data/transportation';
+import { co2PerGallonOfGas, kwhPer100MilesElectricCar } from '../../footprint-form/data/transportation';
 
 const betterDriving = res => {
     const monthlyCar = res.transportation.car;
