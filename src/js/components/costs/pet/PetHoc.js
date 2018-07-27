@@ -1,17 +1,16 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
-import { getLbFoodFromWeight, foodPerDayByAnimal, petFoodCo2, petQuestions, lifeExpectancy, turtleTank } from './pet-data';
+import { getLbFoodFromWeight, foodPerDayByAnimal, petFoodCo2, lifeExpectancy, turtleTank } from './pet-data';
 import Pet from './Pet';
 
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
-import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
+import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {
-        questions: store.costsForms.questions,
+        questions: store.questions.questions,
         userState: store.userInfo.userState
     };
 })
@@ -54,7 +53,6 @@ export default class PetHoc extends React.Component {
         const foodPerDay = foodPerDayByAnimal['Gecko'];
         const lifeTimeFoodCo2 = foodPerDay * co2PerPoundOfFood * petLifeExpectancy * 365;
         const heatingLamp = getAnswerFromId(questions, ids.petHeatingLamp);
-        const hasHeatingLamp = heatingLamp === 'Yes' ? true : false;
         const geckoHeatingWattage = heatingLamp === 'Yes' ? turtleTank['10 Gallons']['heating'] : 0;
         const kwhPerDay = geckoHeatingWattage * 24 / 1000;
         const dailyElectricity = kwhPerDay * utilityEmissionsPerState[this.props.userState];

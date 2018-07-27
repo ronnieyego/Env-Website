@@ -29,7 +29,7 @@ export default class QuestionHoc extends React.Component {
     }
 
 	render() {
-        const updateFunction = updateQuestionsV2;//this.props.question.formType && this.props.question.formType === 'costs' ? updateCostsQuestions.bind(this) : updateQuestions.bind(this);
+        const updateFunction = updateQuestionsV2;
         let question;
         switch(this.props.questionType) {
             case 'int':

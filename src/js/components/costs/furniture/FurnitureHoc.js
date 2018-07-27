@@ -12,7 +12,7 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 
 @connect((store, props) => {
 	return {
-        questions: store.costsForms.questions,
+        questions: store.questions.questions,
         aaHouseType: store.footprintFormAnswers.averageAmericanHouseType,
         isMobile: store.userInfo.isMobile,
     };

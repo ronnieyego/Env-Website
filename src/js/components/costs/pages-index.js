@@ -12,7 +12,7 @@ import HomeHoc from './home/HomeHoc';
 import PackageHoc from './package/PackageHoc';
 import PetHoc from './pet/PetHoc';
 import SteakHoc from './steak/SteakHoc';
-import TabletHoc from './tablet/TabletHoc';
+import TabletHoc from './tablet/TabletHoc'; // Replaced by COmputerHoc
 import TvHoc from './tv/TvHoc';
 
 

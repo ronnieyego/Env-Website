@@ -15,7 +15,7 @@ import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {
-        questions: store.costsForms.questions,
+        questions: store.questions.questions,
         userState: store.userInfo.userState
     };
 })

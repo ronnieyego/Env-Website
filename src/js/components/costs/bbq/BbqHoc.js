@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
@@ -7,11 +6,11 @@ import { co2PerBurnerHour, co2PerChimney, foodCo2 } from './bbq-data';
 import Bbq from './Bbq';
 
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
-import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
+import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
 
 @connect((store, props) => {
 	return {
-        questions: store.costsForms.questions,
+        questions: store.questions.questions,
         userState: store.userInfo.userState
     };
 })

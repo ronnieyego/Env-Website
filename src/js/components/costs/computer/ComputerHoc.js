@@ -10,7 +10,7 @@ import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get
 
 @connect((store, props) => {
 	return {
-        questions: store.costsForms.questions
+        questions: store.questions.questions
     };
 })
 export default class ComputerHoc extends React.Component {
@@ -42,7 +42,7 @@ export default class ComputerHoc extends React.Component {
             resultData = phoneData[loweredBrand] || phoneData.average;
         }
          else {
-            console.log('data not found');
+            console.log('Error -- data not found for computer type', computerType);
         }
         const { total, use, production, transportation, recycling } =  resultData;
         return { total, use, production, transportation, recycling, brand, graphDefaultMax };
