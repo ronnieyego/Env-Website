@@ -16,7 +16,7 @@ import Savings from './Savings';
 		questions: store.footprintFormAnswers.questions,
 		answerId: store.footprintFormAnswers.answerId,
         userState: store.footprintFormAnswers.userState,
-        resultsShown: store.footprintFormAnswers.resultsShown,
+        resultsShown: store.footprintFormAnswers.resultsShown
 	};
 })
 export default class Results extends React.Component {
@@ -33,11 +33,7 @@ export default class Results extends React.Component {
 				results = (<PersonalBreakdown  results={this.props.results} />);
 				break;
 			case 'savings':
-				results = (<Savings 
-					results={this.props.results}
-					questions={this.props.questions}
-					userState={this.props.userState}
-				/>);
+				results = (<Savings />);
 				break;
 			default:
 				console.log('ERROR -- Invalid results shown: ', this.props.resultsShown);

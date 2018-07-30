@@ -35,7 +35,7 @@ const getUsesPersonalFan = () => true;
 
 const getSummerTemp = state => {
     // Assumes 75 degree house or outside temp.
-    const summerTemp = stateTemps[state];
+    const summerTemp = stateTemps[state].summer;
     if(summerTemp > 75) {
         return 75;
     }
@@ -44,7 +44,7 @@ const getSummerTemp = state => {
 
 const getWinterTemp = state => {
     // Assumes 70 degree house or outside temp.
-    const winterTemp = stateTemps[state];
+    const winterTemp = stateTemps[state].winter;
     if(winterTemp < 70) {
         return 70;
     }
@@ -65,9 +65,7 @@ const getBusMiles = () => 50;
 const getTrainMiles = () => 50;
 
 // Food
-const getCalories = (age, gender) => {
-    return demographicCalories[age][gender];
-}
+const getCalories = (age, gender) =>  (demographicCalories[age][gender]);
 const getBeef = () => 'Once a week';
 const getChicken = () => 'Once a week';
 const getPork = () => 'Once a week';
@@ -167,6 +165,7 @@ const getAnswersOnAge = age => {
 };
 
 export const getAverageAmericanResultsFromProfile = averageAmericanprofile => {
+    console.log(averageAmericanprofile);
     const { state, age, gender, income } = averageAmericanprofile;
     const { furnitureAmount, stuffAmount, clothingProfile, flyMiles, carClass, carBuildType, homeSqft, homeType } = getAnswersOnIncome(income);
     const { numHousemates } = getAnswersOnAge(age);

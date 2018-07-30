@@ -48,5 +48,6 @@ export default {
     WA: { average: 48.3, summer: 63.8, winter: 33 },
     WV: { average: 51.8, summer: 70.2, winter: 32.8 },
     WI: { average: 43.1, summer: 66.8, winter: 17.2 },
-    WY: { average: 42, summer: 63.5, winter: 21.2 }
+    WY: { average: 42, summer: 63.5, winter: 21.2 },
+    US: { average: 51.9,summer: 71.2, winter: 32.2 }
 };
