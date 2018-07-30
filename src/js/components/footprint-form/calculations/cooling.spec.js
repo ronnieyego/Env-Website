@@ -15,37 +15,37 @@ const FIXTURE_DATA = {
  describe('Heating and Cooling Calculations', () => {
     it('should calculate Central AC', done => {
         const { totalCo2 } = getHeatingCooling(FIXTURE_DATA);
-        expect(totalCo2).to.equal(1.6);
+        expect(totalCo2).to.equal(2.9);
         done();
     });
     it('should calculate Central AC with winter', done => {
         const updatedFixtures = {...FIXTURE_DATA, winterTemp: 77 };
         const { totalCo2 } = getHeatingCooling(updatedFixtures);
-        expect(totalCo2).to.equal(3.3);
+        expect(totalCo2).to.equal(2.9);
         done();
     });
     it('should calculate Window Mount AC', done => {
         const updatedFixtures = {...FIXTURE_DATA, coolingType: 'Window Mount AC' };
         const { totalCo2 } = getHeatingCooling(updatedFixtures);
-        expect(totalCo2).to.equal(1.3);
+        expect(totalCo2).to.equal(2.3);
         done();
     });
     it('should calculate Window Mount AC with winter ', done => {
         const updatedFixtures = {...FIXTURE_DATA, coolingType: 'Window Mount AC', winterTemp: 77 };
         const { totalCo2 } = getHeatingCooling(updatedFixtures);
-        expect(totalCo2).to.equal(2.6);
+        expect(totalCo2).to.equal(2.3);
         done();
     });
     it('should calculate Window Mount AC with a big house ', done => {
         const updatedFixtures = {...FIXTURE_DATA, coolingType: 'Window Mount AC', houseSqft: 2500 };
         const { totalCo2 } = getHeatingCooling(updatedFixtures);
-        expect(totalCo2).to.equal(1.7);
+        expect(totalCo2).to.equal(3.1);
         done();
     });
     it('should calculate Window Mount AC with ac on at night ', done => {
         const updatedFixtures = {...FIXTURE_DATA, coolingType: 'Window Mount AC', coolingWhileSleeping: true };
         const { totalCo2 } = getHeatingCooling(updatedFixtures);
-        expect(totalCo2).to.equal(3);
+        expect(totalCo2).to.equal(5.4);
         done();
     });
     it('should calculate Lots of Fans', done => {
@@ -69,12 +69,12 @@ const FIXTURE_DATA = {
     it('should calculate with personal fan on', done => {
         const updatedFixtures = {...FIXTURE_DATA, usesPersonalFan: true };
         const { totalCo2 } = getHeatingCooling(updatedFixtures);
-        expect(totalCo2).to.equal(1.7);
+        expect(totalCo2).to.equal(3);
         done();
     });
     it('should calculate Monthly Co2 for Central AC', done => {
         const { monthlyCo2 } = getHeatingCooling(FIXTURE_DATA);
-        expect(monthlyCo2).to.equal(48);
+        expect(monthlyCo2).to.equal(87);
         done();
     });
 });

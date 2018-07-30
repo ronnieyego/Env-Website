@@ -1,8 +1,17 @@
-import ids from '../../../utils/ids/index';
+import getAnswers from '../../../actions/footprint/submit-get-all-answers';
 
-import { getAnswerFromId } from '../../../components/questions/utils';
+import getFoodResults from '../../footprint-form/calculations/food';
+import getHomeResults from '../../footprint-form/calculations/home';
+import getHomeActivitiesResults from '../../footprint-form/calculations/home-activities';
+import getHomeHeatingResults from '../../footprint-form/calculations/heating';
+import getHomeCoolingResults from '../../footprint-form/calculations/cooling';
+import getTransportationResults from '../../footprint-form/calculations/transportation';
+import getPetsResults from '../../footprint-form/calculations/pets';
+import getStuffResults from '../../footprint-form/calculations/stuff';
+import getClothesResults from '../../footprint-form/calculations/clothes';
+import getFurnitureResults from '../../footprint-form/calculations/furniture';
+
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
-import { co2PerGallonOfGas, kwhPer100MilesElectricCar } from '../../footprint-form/data/transportation';
 
 const betterDriving = res => {
     const monthlyCar = res.transportation.car;
@@ -10,21 +19,10 @@ const betterDriving = res => {
     return  ((monthlyCar * percentImprovement) - monthlyCar).toFixed(1);
 };
 
-const electricCar = (res, questions) => {
-    const carType = getAnswerFromId(questions, ids.carType);
-    const totalMiles = getAnswerFromId(questions, ids.milesDrivenMonth);
-    const mpg = getAnswerFromId(questions, ids.carMpg);
-    const userState = res.userState;
-    const stateCo2 = utilityEmissionsPerState[userState];
-    if(carType === 'Electric') {
-        return 0;
-    }
-
-    const gallonsUsed = totalMiles/mpg;
-    const gasCo2 = gallonsUsed * co2PerGallonOfGas; // Current co2 used
-    const electricEnergy = kwhPer100MilesElectricCar * totalMiles / 100; // kwhs for electric car
-    const co2FromElectric = electricEnergy * stateCo2;
-    const diff = parseInt(gasCo2 - co2FromElectric);
+const electricCar = (res, answers) => {
+    const newAnswers = {...answers, carFuelType: 'Electric'};
+    const newRes = getTransportationResults(newAnswers);
+    const diff  = res.transportation.totalCo2 - newRes.totalCo2;
     if(diff < 0) {
         return {
             amount: diff,
@@ -33,7 +31,28 @@ const electricCar = (res, questions) => {
     }
     return {
         amount: diff,
-        subtext: 'An electric car releases less than 1/100th Co2 than a combustible engine.'
+        subtext: 'Utilities are more efficient at producing energy than car engines.'
+    };
+};
+
+const oneDegreeWarmer = (res, answers) => {
+    const summerTemp = parseInt(answers.summerTemp) + 1;  // answers is a string trlolololol
+    const newAnswers = { ...answers, summerTemp };
+    const newRes = getHomeCoolingResults(newAnswers);
+    const diff = newRes.monthlyCo2 - res.cooling.monthlyCo2;
+    return Math.round(diff);
+};
+
+const oneDegreeCooler = (res, answers) => {
+    const winterTemp = parseInt(answers.winterTemp) - 1;  // answers is a string trlolololol
+    const newAnswers = { ...answers, winterTemp };
+    const newRes = getHomeHeatingResults(newAnswers);
+    const diff = newRes.monthlyCo2 - res.heating.monthlyCo2;
+    const subtext = diff ? '' : 'Gas vents are surprisingly environmentally friendly';
+    return {
+        display: 'Keep your home 1 degree cooler in winter',
+        amount: diff,
+        subtext
     };
 };
 
@@ -58,6 +77,9 @@ const getVeganSavings = res => {
 };
 
 export default (res, questions) => {
+    const answers = getAnswers(questions);
+    answers.state = res.userState;
+    const oneDegreeCoolerResults = oneDegreeCooler(res, answers)
     const results = [
         {
             display: 'Drive more efficiently',
@@ -69,8 +91,15 @@ export default (res, questions) => {
         {
             display: 'Switch to an electric car',
             card: true,
-            amount: electricCar(res, questions).amount,
-            subtext: electricCar(res, questions).subtext
+            amount: electricCar(res, answers).amount,
+            subtext: electricCar(res, answers).subtext
+        },
+        {
+            display: 'Keep your home 1 degree warmer in summer',
+            amount: oneDegreeWarmer(res, answers),
+        },
+        {
+            ...oneDegreeCoolerResults
         },
         {
             display: 'Go vegan',

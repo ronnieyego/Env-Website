@@ -31,9 +31,10 @@ const convertKwhToCo2 = (state, kwh) => {
 }
 
 const getDifferenceInTemp = (state, summerTemp, winterTemp) => {
-    const stateTemp = stateTemps[state];
-    const summer = stateTemp > summerTemp ? 0 : Math.round(Math.abs(summerTemp - stateTemp));
-    const winter = stateTemp > winterTemp ? 0 : Math.round(Math.abs(winterTemp - stateTemp));
+    const stateTempWinter = stateTemps[state].winter;
+    const stateTempSummer = stateTemps[state].summer;
+    const summer = stateTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - stateTempSummer));
+    const winter = stateTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - stateTempWinter));
     return { summer, winter };
 };
 

@@ -2,7 +2,7 @@ import {
     busMpgPerPerson,
     carLife,
     co2PerGallonOfGas,
-    co2PerGallonOfJetFuel,
+    co2PerGallonOfJetFuel, // Plane is close enough to car?
     kwhPer100MilesElectricCar,
     planeMpgPerPerson,
     trainMpgPerPerson } from '../data/transportation';

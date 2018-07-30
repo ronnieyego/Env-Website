@@ -17,37 +17,37 @@ const FIXTURE_DATA = {
  describe('Heating Calculations', () => {
     it('should calculate Gas Vents', done => {
         const { totalCo2 } = getHeatingCo2(FIXTURE_DATA);
-        expect(totalCo2).to.equal(12);
+        expect(totalCo2).to.equal(13);
         done();
     });
     it('should calculate Gas Vents in a big house', done => {
         const updatedFixtures = {...FIXTURE_DATA, houseSqft: 3000};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(24);
+        expect(totalCo2).to.equal(25);
         done();
     });
     it('should calculate Gas Vents in a warmer winter state', done => {
         const updatedFixtures = {...FIXTURE_DATA, state: 'TX'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(1);
+        expect(totalCo2).to.equal(12);
         done();
     });
     it('should calculate Gas Vents with a higher winter temp', done => {
         const updatedFixtures = {...FIXTURE_DATA, winterTemp: 90};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(13);
+        expect(totalCo2).to.equal(14);
         done();
     });
     it('should calculate Gas Vents with worse insulation', done => {
         const updatedFixtures = {...FIXTURE_DATA, insulationType: 'Poorly Insulated'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(16);
+        expect(totalCo2).to.equal(20);
         done();
     });
     it('should calculate Gas Vents with a personal heater', done => {
         const updatedFixtures = {...FIXTURE_DATA, usesPersonalHeater: true};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(12);
+        expect(totalCo2).to.equal(13);
         done();
     });
     it('should calculate Radiator', done => {
@@ -83,13 +83,13 @@ const FIXTURE_DATA = {
     it('should calculate Heat Pump', done => {
         const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat Pump'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(27);
+        expect(totalCo2).to.equal(29);
         done();
     });
     it('should calculate Heat Pump in a big house', done => {
         const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat Pump', houseSqft: 3000};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(54);
+        expect(totalCo2).to.equal(58);
         done();
     });
     it('should calculate None for heating type', done => {
@@ -106,7 +106,7 @@ const FIXTURE_DATA = {
     });
     it('should calculate monthly Gas Vents', done => {
         const { monthlyCo2 } = getHeatingCo2(FIXTURE_DATA);
-        expect(monthlyCo2).to.equal(360);
+        expect(monthlyCo2).to.equal(390);
         done();
     });
 });

@@ -19,7 +19,7 @@ export default class Compare extends React.Component {
         results.userState = this.props.userState;
         const savingSet = getCo2Savings(results, this.props.questions);
         const savings = savingSet.filter(saving => {
-            return saving.card === true;
+            return true;//saving.amount !== 0;
         });
 
         let useful = savings.filter(card => {
