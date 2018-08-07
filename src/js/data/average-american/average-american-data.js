@@ -1,27 +1,29 @@
+import ids from '../../utils/ids/index';
+
 // Car miles driven by age and gender
 // Source:  https://www.fhwa.dot.gov/ohim/onh00/bar8.htm
 const americanCarMiles = { 
-    '16-19': {
+    [ids.sixteenNineteen]: {
         male: 8206,
         female: 6873,
     },
-    '20-34': {
+    [ids.twentyThirtyFour]: {
         male: 17976,
         female: 12004,
     },
-    '35-54': {
+    [ids.thirtyFiveFiftyFour]: {
         male: 18858,
         female: 11464,
     },
-    '55-64': {
+    [ids.fiftyFiveSixtyFour]: {
         male: 15859,
         female: 7780,
     },
-    '65+': {
+    [ids.sixtyFivePlus]: {
         male: 10304,
         female: 4785,
     },
-    'American Average': {
+    [ids.americanAverage]: {
         male: 16550,
         female: 10142,
     }
@@ -106,27 +108,27 @@ const americanFood = {
 
 
 const demographicCalories ={
-    '16-19': {
+    [ids.sixteenNineteen]: {
         male: 2600,
         female: 1950,
     },
-    '20-34': {
+    [ids.twentyThirtyFour]: {
         male: 2750,
         female: 2000,
     },
-    '35-54': {
+    [ids.thirtyFiveFiftyFour]: {
         male: 2450,
         female: 1750,
     },
-    '55-64': {
+    [ids.fiftyFiveSixtyFour]: {
         male: 2100,
         female: 1750,
     },
-    '65+': {
+    [ids.sixtyFivePlus]: {
         male: 2100,
         female: 1650,
     },
-    'American Average': {
+    [ids.americanAverage]: {
         male: 2450,
         female: 1800,
     }

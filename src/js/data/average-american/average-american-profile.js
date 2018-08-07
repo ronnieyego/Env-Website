@@ -2,6 +2,7 @@ import { americanCarMiles, demographicCalories } from './average-american-data';
 
 import getResults from '../../actions/footprint/submit-with-all-answers';
 import stateTemps from '../../components/footprint-form/data/average-temp-by-state';
+import ids from '../../utils/ids/index';
 
 
 const exampleProfile = {
@@ -12,29 +13,29 @@ const exampleProfile = {
 }
 
 // Home
-const getHomeMaterial = () => 'Wood';
+const getHomeMaterial = () => ids.wood;
 
 // Home Activity
 const getHoursTv = () => 3;
 const getHoursComputer = () => 4;
-const getCookAtHomeFrequency = () => '2-3 times per week';
+const getCookAtHomeFrequency = () => ids.twoThreeTimesPerWeek;
 const getDoesShowerDaily = () => true;
 const getDoesMusicAtHome = () => true;
 const getLaundryLoads = () => 4;
 
 // Heating Cooling
-const getHeatType = () => ('Gas Vents');
-const getInsulationType = () => ('Reasonably Insulated');
+const getHeatType = () => ids.gasVents;
+const getInsulationType = () => ids.reasonableInsulated;
 const getHoursHome = () => (6);
 const getHeatingOnWhileSleeping = () => (false);
 const getHeatWholeHome = () => true;
 const getUsesPersonalHeater = () => true;
-const getCoolingType = () => 'Central AC';
+const getCoolingType = () => ids.centralAc;
 const getCoolingWhileSleeping = () => true;
 const getUsesPersonalFan = () => true;
 
 const getSummerTemp = state => {
-    // Assumes 75 degree house or outside temp.
+    // Assumes 75 degreeids.house or outside temp.
     const summerTemp = stateTemps[state].summer;
     if(summerTemp > 75) {
         return 75;
@@ -43,7 +44,7 @@ const getSummerTemp = state => {
 }
 
 const getWinterTemp = state => {
-    // Assumes 70 degree house or outside temp.
+    // Assumes 70 degreeids.house or outside temp.
     const winterTemp = stateTemps[state].winter;
     if(winterTemp < 70) {
         return 70;
@@ -54,9 +55,9 @@ const getWinterTemp = state => {
 
 // Transportation
 const getDoesDrive = () => true;
-const getCarFuelType = () => 'Gasoline';
+const getCarFuelType = () => ids.gasoline;
 const getCarMpg = () => 25;
-const getCarpoolFrequency = () => 'Just to and from work';
+const getCarpoolFrequency = () => ids.justToAndFromWork;
 const getCarMilesMonth = (age, gender) => {
     return Math.round(americanCarMiles[age][gender] / 12);
 };
@@ -66,18 +67,18 @@ const getTrainMiles = () => 50;
 
 // Food
 const getCalories = (age, gender) =>  (demographicCalories[age][gender]);
-const getBeef = () => 'Once a week';
-const getChicken = () => 'Once a week';
-const getPork = () => 'Once a week';
-const getSeafood = () => 'Once a week';
-const getGrain = () => 'Once a day';
-const getFruit = () => 'Once a day';
-const getVegetables = () => 'Once a day';
-const getDairy = () => 'Once a day';
-const getCheese = () => 'Once a day';
-const getJunkFood = () => 'Once a day';
+const getBeef = () => ids.onceAWeek;
+const getChicken = () => ids.onceAWeek;
+const getPork = () => ids.onceAWeek;
+const getSeafood = () => ids.onceAWeek;
+const getGrain = () => ids.onceADay;
+const getFruit = () => ids.onceADay;
+const getVegetables = () => ids.onceADay;
+const getDairy = () => ids.onceADay;
+const getCheese = () => ids.onceADay;
+const getJunkFood = () => ids.onceADay;
 
-const getPets = () => ['Dog', 'Cat'];
+const getPets = () => [ids.dog, ids.cat];
 
 
 const getAnswersOnIncome = income => {
@@ -91,45 +92,45 @@ const getAnswersOnIncome = income => {
         homeType;
 
     switch(income) {
-        case 'Under $30k':
-            furnitureAmount = 'I have almost no furniture';
-            stuffAmount = 'Practically empty'; 
-            clothingProfile = 'Just the essentials';
+        case ids.underThirtyK:
+            furnitureAmount = ids.veryLittleFurniture;
+            stuffAmount = ids.practicallyEmpty; 
+            clothingProfile = ids.justTheEssentials;
             flyMiles = 1000;
-            carClass = 'Compact car';
-            carBuildType = 'Standard';
+            carClass = ids.compactCar;
+            carBuildType = ids.standard;
             homeSqft = 1000;
-            homeType = 'Apartment';
+            homeType = ids.apartment;
             break;
-        case '$30k-$60k':
-            furnitureAmount = 'My rooms are sparesly furnished';
-            stuffAmount = 'Reasonably full'; 
-            clothingProfile = 'A good amount';
-            flyMiles = '';
-            carClass = 'Midsize car';
-            carBuildType = 'Standard';
+        case ids.thirtySixtyK:
+            furnitureAmount = ids.spareslyFurnished;
+            stuffAmount = ids.reasonablyFull; 
+            clothingProfile = ids.aGoodAmount;
+            flyMiles = 5000;
+            carClass = ids.midsizeCar;
+            carBuildType = ids.standard;
             homeSqft = 1500;
-            homeType = 'Apartment';
+            homeType = ids.apartment;
             break;
-        case '$60k-$100k':
-            furnitureAmount = 'I have all of the essentials';
-            stuffAmount = 'Extremely full'; 
-            clothingProfile = 'My closet it packed';
-            flyMiles = '';
-            carClass = 'Midsize SUV';
-            carBuildType = 'Luxurious';
+        case ids.sixtyOneHundredK:
+            furnitureAmount = ids.allTheEssentials;
+            stuffAmount = ids.extremelyFull; 
+            clothingProfile = ids.packedCloset;
+            flyMiles = 10000;
+            carClass = ids.midsizeSuv;
+            carBuildType = ids.luxurious;
             homeSqft = 2500;
-            homeType = 'House';
+            homeType = ids.house;
             break;
-        case 'Over $100k':
-            furnitureAmount = 'My home is cramped';
-            stuffAmount = 'There\'s no more room'; 
-            clothingProfile = 'Way too many';
-            flyMiles = '';
-            carClass = 'Large SUV';
-            carBuildType = 'Luxurious';
+        case ids.overOneHundredK:
+            furnitureAmount = ids.crampedHome;
+            stuffAmount = ids.noRoom; 
+            clothingProfile = ids.wayTooMany;
+            flyMiles = 20000;
+            carClass = ids.largeSuv;
+            carBuildType = ids.luxurious;
             homeSqft = 3500;
-            homeType = 'House';
+            homeType = ids.house;
             break;
         default:
             console.log('Error in getting AA fields by income.', income, ' did not match any values');
@@ -140,22 +141,22 @@ const getAnswersOnIncome = income => {
 const getAnswersOnAge = age => {
     let numHousemates;
     switch(age) {
-    case '16-19':
+    case ids.sixteenNineteen:
         numHousemates = 1;
         break;
-    case '20-34':
+    case ids.twentyThirtyFour:
         numHousemates = 1;
         break;
-    case '35-54':
+    case ids.thirtyFiveFiftyFour:
         numHousemates = 2;
         break;
-    case '55-64':
+    case ids.fiftyFiveSixtyFour:
         numHousemates = 2;
         break;
-    case '65+':
+    case ids.sixtyFivePlus:
         numHousemates = 1;
         break;
-    case 'American Average':
+    case ids.americanAverage:
         numHousemates = 2;
         break;
     default:
