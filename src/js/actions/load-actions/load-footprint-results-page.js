@@ -32,7 +32,6 @@ export default async (req, res) => {
         console.log(`Could not find Id: ${req.params.id}`);
         res.status(404).send(`Could not find Id: ${req.params.id}`);
     }
-    console.log('answer is ', answer);
     const answer = answers[0];
     const storeData = {
         footprintFormAnswers: {

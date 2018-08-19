@@ -8,7 +8,6 @@ import  submitForm from '../../src/js/utils/footprint/calculate-footprint-submit
 describe('Cost Calculator', () => {
     it('should calculate kwhs used', done => {
         let result = submitForm(CALC_PAYLOAD);
-        console.log(result);
 
         expect(result.appliance).toEqual(18);
         expect(result.food).toEqual(280);

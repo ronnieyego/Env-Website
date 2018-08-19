@@ -126,7 +126,6 @@ export default class PackageHoc extends React.Component {
                 results.sameState = true;
             }
         }
-        console.log(results);
         results.rush = rush;
         const totalCo2 = results.totalCo2;
         const graphData = this.getGraphData(results);

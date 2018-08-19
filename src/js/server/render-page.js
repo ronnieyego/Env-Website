@@ -4,6 +4,9 @@ export default (markup, data, page) => {
         case 'solar-widget':
             jsLocation = '/public/solar.min.js';
             break;
+        case 'test':
+            jsLocation = '/public/test.min.js';
+            break;
         case 'us-energy':
             jsLocation = '/public/us-energy.min.js';
             break;

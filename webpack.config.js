@@ -7,6 +7,10 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 let entry;
 let filename;
 switch(process.env.page) {
+  case 'test':
+    entry = './js/entry/test-entry.js';
+    filename = 'test.min.js';
+    break;
   case 'solar':
     entry = './js/entry/solar-entry.js';
     filename = 'solar.min.js';

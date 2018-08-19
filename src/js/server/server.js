@@ -21,9 +21,8 @@ import loadFootprintResultsPage from '../actions/load-actions/load-footprint-res
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
 import loadFootprintResultsPageBeta from '../actions/load-actions/load-footprint-results-page';
-import validStateId from '../utils/check-if-valid-state-id';
+import loadTestPage from '../actions/load-actions/load-test-page';
 
-import { mongoose } from '../../../db/mongoose';
 import { FormAnswers } from '../../../db/models/form-answers';
 
 const port = process.env.PORT || 3000;
@@ -67,11 +66,8 @@ app.get('/static/:page', loadStaticPage);
 
 app.get(`/costs/:page`, loadCostsPage); 
 
-app.get(`/beta/:id`, loadFootprintResultsPageBeta); 
+app.get(`/test`, loadTestPage); 
 
-app.get('/test', (req, res) => {
-    res.send('Reach the test page');
-});
 
 // APIs
 
