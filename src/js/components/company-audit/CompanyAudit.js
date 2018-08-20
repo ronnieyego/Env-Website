@@ -23,7 +23,7 @@ export default class CompanyAudit extends React.Component {
         if( value === 'Moved to Canton') {
             data = moveToAtlanta;
             selected = 'Moved to Canton';
-        } else if (data === 'Carpool Program') {
+        } else if (value === 'Carpool Program') {
             data = carpoolProgram;
             selected = 'Carpool Program';
         } else {
@@ -86,7 +86,7 @@ export default class CompanyAudit extends React.Component {
                 </div>
 
                 <br />
-                
+
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
