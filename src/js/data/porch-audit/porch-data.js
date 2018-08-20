@@ -1,4 +1,4 @@
-// From Porch 2018.
+// From PORCH 2018.
 
 import { 
     busMpgPerPerson,
@@ -11,43 +11,7 @@ import { servingFacts } from '../../components/footprint-form/data/food';
 const DAYS_IN_MONTH = 30;
 const MONTHS_OF_LIFE_FOR_STUFF = 48;
 
-export const porch = {
-    stuff: {
-        monitors: 407,
-        laptops: 392,
-        chairs: 350,
-        desks: 225,
-        tables: 20,
-        whiteboards: 30,
-        sofas: 5,
-        // my guess realm
-        cabinets: 15,
-        printers: 2
-    },
-    transport: {
-        parkingSpots: 60,
-        orcaSubsidies: 68,
-        flexSubsidies: 77,
-        total: 207
-    },
-    electricity: {
-        cost: '3k/month',  // 0.0946 Dollars per kwh from seattle WA
-        kwh: 31712.5,
-        state: 'WA'
-    },
-    building: {
-        sqft: 23839, // http://www.mapdevelopers.com/area_finder.php
-        monthsInBuilding: 30
-    },
-    food: {
-        // Monthly values.  GOt a receit which I assume is every 2 weeks
-        beef: 8,
-        dairy: 20, // Unknown
-        cheese: 20, // Unknown
-        junkFood: 200,
-        fruit: 32
-    }
-};
+
 
 // Item	Pounds of food
 // crackers	16
@@ -98,16 +62,14 @@ const getStuffCo2 = stuff => {
 };
 
 const getTransportCo2 = transport => {
-    const commuteDistance = 30; // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
-    const commuteTime = 54.2; // Minutes  from https://www.geekwire.com/2017/bad-time-stress-seattles-daily-commute-growing-city-ranks-among-worst-u-s/
     const idleGph = .16;  // Gallons used per hour idling.  https://www.energy.gov/eere/vehicles/fact-861-february-23-2015-idle-fuel-consumption-selected-gasoline-and-diesel-vehicles
     const percentIdle = .5; // Half of your commute
     const mpg = 25;
     const divers = transport.parkingSpots + transport.flexSubsidies;
     const publicTransit = transport.orcaSubsidies;
-    const driverGallonsPerDay = (commuteDistance / mpg ) + (commuteTime * percentIdle / 60 * idleGph);
+    const driverGallonsPerDay = (transport.commuteDistance / mpg ) + (transport.commuteTime * percentIdle / 60 * idleGph);
     const driverCo2 = Math.round(divers * driverGallonsPerDay * co2PerGallonOfGas);
-    const publicTransitGallonsPerDay = commuteDistance / ((busMpgPerPerson + trainMpgPerPerson) / 2);
+    const publicTransitGallonsPerDay = transport.commuteDistance / ((busMpgPerPerson + trainMpgPerPerson) / 2);
     const publicTransitCo2 = Math.round(publicTransit * publicTransitGallonsPerDay * co2PerGallonOfGas);
     const monthlyDriveCo2 = driverCo2 * DAYS_IN_MONTH;
     const monthlyPublicTransitCo2 = publicTransitCo2 * DAYS_IN_MONTH;
@@ -150,7 +112,7 @@ const getFoodCo2 = food => {
     return res;
 };
 
-export default data => {
+const getCompanyCo2 = data => {
     const res = {};
     res.stuff = getStuffCo2(data.stuff);
     res.transport = getTransportCo2(data.transport);
@@ -162,3 +124,68 @@ export default data => {
     
     return res;
 }
+
+export const porchData = {
+    stuff: {
+        monitors: 407,
+        laptops: 392,
+        chairs: 350,
+        desks: 225,
+        tables: 20,
+        whiteboards: 30,
+        sofas: 5,
+        // my guess realm
+        cabinets: 15,
+        printers: 2
+    },
+    transport: {
+        parkingSpots: 60,
+        orcaSubsidies: 68,
+        flexSubsidies: 77,
+        total: 207,
+        commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+        commuteTime: 54.2 // Minutes  from https://www.geekwire.com/2017/bad-time-stress-seattles-daily-commute-growing-city-ranks-among-worst-u-s/
+    },
+    electricity: {
+        cost: '3k/month',  // 0.0946 Dollars per kwh from seattle WA
+        kwh: 31712.5,
+        state: 'WA'
+    },
+    building: {
+        sqft: 23839, // http://www.mapdevelopers.com/area_finder.php
+        monthsInBuilding: 30
+    },
+    food: {
+        // Monthly values.  GOt a receit which I assume is every 2 weeks
+        beef: 8,
+        dairy: 20, // Unknown
+        cheese: 20, // Unknown
+        junkFood: 200,
+        fruit: 32
+    }
+};
+
+const atlantaCommute = { 
+    parkingSpots: 128,
+    orcaSubsidies: 10,
+    flexSubsidies: 67,
+    total: 207,
+    commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+    commuteTime: 30  
+};
+const atlantaElectricity = { ...porchData.electricity, state: 'AL' }
+
+
+// 25% of people carpool to work.
+const carpoolCommute = {
+    parkingSpots: 60,
+    orcaSubsidies: 43,
+    flexSubsidies: 50,
+    total: 207,
+    commuteDistance: 35, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+    commuteTime: 54.2 
+};
+
+export const PORCH = getCompanyCo2(porchData);
+export const carpoolProgram = getCompanyCo2({ ...porchData, transport: carpoolCommute });
+export const moveToAtlanta = getCompanyCo2({ ...porchData, transport: atlantaCommute, electricity: atlantaElectricity });

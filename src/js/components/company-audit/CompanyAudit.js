@@ -1,11 +1,38 @@
 import React from "react";
-
+import MenuItem from 'material-ui/MenuItem';
+import SelectField from 'material-ui/SelectField';
 import HowMuchCo2 from '../how-much-co2/HowMuchCo2';
-import getCompanyCo2, { porch } from '../../data/porch-audit/porch-data';
+import{ PORCH, moveToAtlanta, carpoolProgram } from '../../data/porch-audit/porch-data';
 
 import BarChart from '../bar-chart/BarChartHoc';
 
+
+// TODO:  If this ever becomes a thing, make a HOC and reducer for this.
 export default class CompanyAudit extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            data: PORCH,
+            dataKey: 'Current Porch'
+        }
+    }
+
+    updateWhatIfDropdown(event, index, value) {
+        let data;
+        let selected;
+        if( value === 'Moved to Canton') {
+            data = moveToAtlanta;
+            selected = 'Moved to Canton';
+        } else if (data === 'Carpool Program') {
+            data = carpoolProgram;
+            selected = 'Carpool Program';
+        } else {
+            data = PORCH;
+            selected = 'Current Porch';
+        }
+
+        this.setState({ data, dataKey: selected });
+    }
 
     formatData(data) {
         return Object.keys(data)
@@ -17,13 +44,10 @@ export default class CompanyAudit extends React.Component {
     }
 
 	render() {
-        console.log('ABOUT TO RENDER PAGE');
-        console.log('PORCH IS', porch);
-
-        const res = getCompanyCo2(porch);
-        console.log(res);
+        const res = this.state.data;
         const formattedFood = this.formatData(res.food);
         const formattedStuff = this.formatData(res.stuff);
+        
 
         const monthlyHighLevel = [
             { name: 'Food', Amount: res.food.total },
@@ -36,17 +60,40 @@ export default class CompanyAudit extends React.Component {
         const transportation = [
             { name: 'Drive', Amount: res.transport.driverCo2 },
             { name: 'Transit', Amount: res.transport.publicTransitCo2 },
-        ]
+        ];
+
+        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
 
         return (
             <div className="costs">
                 <h3 className="costs-form-header">What's the CO<sub>2</sub> of Porch??</h3>
+                <br />
+                <div style={{display: 'flex', justifyContent: 'space-around'}}>
+                    <div>
+                        <b className="average-american-buttons-text">What if we ...</b>
+                        <br />
+                        <SelectField 
+                            id="company-audit-what-if"
+                            menuItemStyle={{fontWeight: 'bold'}}
+                            menuStyle={{textAlign: 'center'}}
+                            labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
+                            onChange={this.updateWhatIfDropdown.bind(this)}
+                            value={this.state.dataKey}
+                        >
+                            {whatIfSelects}
+                        </SelectField>
+                    </div>
+                </div>
+
+                <br />
+                
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            Porch emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal} in equiptment.
+                            Porch emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal.toLocaleString()} pounds in equiptment.
                         </span>         
                     </div>
+                    
                     <BarChart
                         graphData={monthlyHighLevel}
                         units={'Pounds of CO2'}
@@ -89,6 +136,7 @@ export default class CompanyAudit extends React.Component {
 
                     
                 </div>
+
             </div>
 		);
 	}

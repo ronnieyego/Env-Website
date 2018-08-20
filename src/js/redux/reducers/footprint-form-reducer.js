@@ -4,7 +4,6 @@ const footprintFormReducer = (state = {
     step: 1,
     isSubmitReady: true
 }, action) => {
-    const newState = {...state}
     switch (action.type) {
         case 'GET_QUESTIONS': {
             state = { ...state, questions: action.payload};
