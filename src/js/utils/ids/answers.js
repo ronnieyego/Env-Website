@@ -42,7 +42,10 @@ export default {
     justToAndFromWork: 'Just to and from work',
     centralAc: 'Central AC',
     dog: 'Dog',
-    cat: 'Cat'
-
+    cat: 'Cat',
+    noIdea: 'No Idea',
+    under100Miles: 'Under 100 miles',
+    oneHundredTwoHundredMiles: '100-200 miles',
+    over200Miles: 'Over 200 miles'
 
 }

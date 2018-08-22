@@ -16,7 +16,7 @@ export default () => {
         if( answerId ) {
             console.log('TODO:  Do an update not a post');
         } else {
-            fetch('/api/footprint-form/answer', {
+            return fetch('/api/footprint-form/answer', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -33,6 +33,9 @@ export default () => {
             .then(res => {
                 dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
                 window.location.href = `/footprint/${res['_id']}`;  
+            })
+            .catch(e => {
+                console.log('Oh noes something went wrong on submit', e);
             });
         };
     }

@@ -67,6 +67,5 @@ export default answers => {
     results.pets = getPet(answers);
     results.stuff = getStuff(answers);
     results.monthlyCo2 = sumMonthlyCo2(results);
-    console.log(results);
     return results;
 }

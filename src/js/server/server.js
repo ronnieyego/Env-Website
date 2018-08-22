@@ -12,6 +12,7 @@ import fs from 'fs';
 import path from "path";
 import moment from 'moment-timezone';
 import get from 'lodash/get';
+import { mongoose } from '../../../db/mongoose'; // Needed to set the connection.
 
 import loadSolarPage from '../actions/load-actions/load-solar-page';
 import loadUsEnergyPage from '../actions/load-actions/load-us-energy-page';
@@ -93,7 +94,7 @@ app.post('/api/footprint-form/answer', (req, res) => {
     });
 });
 
-app.get('/api/footprint-form/answers', (req,res) => {
+app.get('/api/footprint-form/answers', (req, res) => {
     FormAnswers.find()
         .sort({dateSubmitted: -1})
         .limit(10)

@@ -1,4 +1,4 @@
-// 1105 currenet max
+// 1108 currenet max
 
 export default {
 
@@ -64,6 +64,10 @@ export default {
     grainsFrequency: 1097,
     junkFoodFrequency: 1098,
 
+// Garbage
+    poundsOfGarbage: 1106,
+    distanceToLandfill: 1107,
+    landfillMethaneCapture: 1108,
 
 // House
     homeMaterial: 1033,
