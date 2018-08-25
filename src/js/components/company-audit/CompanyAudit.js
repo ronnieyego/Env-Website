@@ -2,7 +2,7 @@ import React from "react";
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import HowMuchCo2 from '../how-much-co2/HowMuchCo2';
-import{ PORCH, moveToAtlanta, carpoolProgram } from '../../data/porch-audit/porch-data';
+import{ PORCH, moveToAtlanta, carpoolProgram, bothellOffice, westSeattle } from '../../data/porch-audit/porch-data';
 
 import BarChart from '../bar-chart/BarChartHoc';
 
@@ -26,6 +26,12 @@ export default class CompanyAudit extends React.Component {
         } else if (value === 'Carpool Program') {
             data = carpoolProgram;
             selected = 'Carpool Program';
+        } else if (value === 'West Seattle') {
+            data = westSeattle;
+            selected = 'West Seattle';
+        } else if (value === 'Bothell Office') {
+            data = bothellOffice;
+            selected = 'Bothell Office';
         } else {
             data = PORCH;
             selected = 'Current Porch';
@@ -62,7 +68,7 @@ export default class CompanyAudit extends React.Component {
             { name: 'Transit', Amount: res.transport.publicTransitCo2 },
         ];
 
-        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
+        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
 
         return (
             <div className="costs">

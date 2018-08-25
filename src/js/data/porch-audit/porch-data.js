@@ -158,8 +158,8 @@ export const porchData = {
     food: {
         // Monthly values.  GOt a receit which I assume is every 2 weeks
         beef: 8,
-        dairy: 20, // Unknown
-        cheese: 20, // Unknown
+        dairy: 50, // Guess
+        cheese: 50, // guess
         junkFood: 200,
         fruit: 32
     }
@@ -186,6 +186,27 @@ const carpoolCommute = {
     commuteTime: 54.2 
 };
 
+const bothellOfficeCommute = {
+    parkingSpots: 90,
+    orcaSubsidies: 53,
+    flexSubsidies: 62,
+    total: 207,
+    commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+    commuteTime: 20 
+};
+
+// Lot of carpooling
+const westSeattleCommute = {
+    parkingSpots: 30,
+    orcaSubsidies: 68,
+    flexSubsidies: 77,
+    total: 207,
+    commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+    commuteTime: 10 
+};
+
 export const PORCH = getCompanyCo2(porchData);
 export const carpoolProgram = getCompanyCo2({ ...porchData, transport: carpoolCommute });
 export const moveToAtlanta = getCompanyCo2({ ...porchData, transport: atlantaCommute, electricity: atlantaElectricity });
+export const bothellOffice = getCompanyCo2({ ...porchData, transport: bothellOfficeCommute });
+export const westSeattle = getCompanyCo2({ ...porchData, transport: westSeattleCommute });

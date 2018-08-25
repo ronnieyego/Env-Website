@@ -12,15 +12,16 @@ const GARBAGE_FACTS = {
     
 };
 
-const kwhPerPound = 0.029; // KWH generated per pound of waste
 const transportCo2 = 0.0007233003012; // LB CO2 per LB/Mile
+const co2Landfill = 0.51; // Lb Co2 per Lb trash.  Mostly from CO2 and methane
+const kwhPerPound = 0.058;  // kwh per lb trash if methane capture.
 
 
 const garbageQuestions = [
     {    
         id: ids.poundsOfGarbage,
         name: 'How much garbage do you generate every week?',
-        subtext: 'The average person produces about 30 pounds per week.',
+        subtext: 'This is whatever gets put in the garbage bin.  It excludes recycling and compost.  The average person produces about 30 pounds per week.',
         value: "30",
         type: 'int',
         forms: ['garbage'],
@@ -35,7 +36,7 @@ const garbageQuestions = [
             ids.oneHundredTwoHundredMiles,
             ids.over200Miles
             ],
-        value: "No idea",
+        value: ids.noIdea,
         answerText: [
             'No worries.  Most people don\'t know where their trash goes.  We\'re going to guess about 200 miles.',
             '',
@@ -49,15 +50,16 @@ const garbageQuestions = [
     {    
         id: ids.landfillMethaneCapture,
         name: 'Does the landfill capture methane?',
-        hoverText: 'Some landfills capture escaping methane and burn it to produce energy.',
+        hoverText: 'Most (75%) landfills capture escaping methane and burn it to produce energy.',
         type: 'bool',
-        value: 'off',
-        checked: false,
-        forms: ['food'],
+        value: 'on',
+        checked: true,
+        forms: ['garbage'],
     }
 ];
 
 module.exports= {
+    co2Landfill,
     GARBAGE_FACTS,
     garbageQuestions,
     kwhPerPound,

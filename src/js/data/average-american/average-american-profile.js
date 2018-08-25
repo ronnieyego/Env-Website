@@ -166,7 +166,6 @@ const getAnswersOnAge = age => {
 };
 
 export const getAverageAmericanResultsFromProfile = averageAmericanprofile => {
-    console.log(averageAmericanprofile);
     const { state, age, gender, income } = averageAmericanprofile;
     const { furnitureAmount, stuffAmount, clothingProfile, flyMiles, carClass, carBuildType, homeSqft, homeType } = getAnswersOnIncome(income);
     const { numHousemates } = getAnswersOnAge(age);

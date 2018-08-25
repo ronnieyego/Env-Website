@@ -8,6 +8,7 @@ import ClothesHoc from './clothes/ClothesHoc';
 import ComputerHoc from './computer/ComputerHoc';
 import CupHoc from './cup/CupHoc';
 import FurnitureHoc from './furniture/FurnitureHoc';
+import GarbageHoc from './garbage/GarbageHoc';
 import HomeHoc from './home/HomeHoc';
 import PackageHoc from './package/PackageHoc';
 import PetHoc from './pet/PetHoc';
@@ -28,6 +29,7 @@ export default {
     desktop: <ComputerHoc />,
     computer: <ComputerHoc />,
     cup: <CupHoc />,
+    garbage: <GarbageHoc />,
     home: <HomeHoc />,
     hamster: <PetHoc />,
     iphone: <ComputerHoc />,
