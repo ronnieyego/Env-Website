@@ -15,6 +15,7 @@ const GARBAGE_FACTS = {
 const transportCo2 = 0.0007233003012; // LB CO2 per LB/Mile
 const co2Landfill = 0.51; // Lb Co2 per Lb trash.  Mostly from CO2 and methane
 const kwhPerPound = 0.058;  // kwh per lb trash if methane capture.
+const averageCo2PerPoundGarbage = 0.6; // TODO: Estimated.  Need to fix
 
 
 const garbageQuestions = [
@@ -59,6 +60,7 @@ const garbageQuestions = [
 ];
 
 module.exports= {
+    averageCo2PerPoundGarbage,
     co2Landfill,
     GARBAGE_FACTS,
     garbageQuestions,

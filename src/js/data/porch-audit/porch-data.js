@@ -7,6 +7,7 @@ import {
 } from '../../components/footprint-form/data/transportation';
 import { convertKwhToCo2 } from '../../components/footprint-form/calculations/utils';
 import { servingFacts } from '../../components/footprint-form/data/food';
+import { averageCo2PerPoundGarbage } from '../../components/costs/garbage/garbage-data';
 
 const DAYS_IN_MONTH = 30;
 const MONTHS_OF_LIFE_FOR_STUFF = 48;
@@ -86,6 +87,11 @@ const getElectricityCo2 = electricity => {
     return convertKwhToCo2(electricity.state, electricity.kwh);
 };
 
+const getGarbageCo2 = garbage => {
+    const monthly = Math.round(garbage.trash * averageCo2PerPoundGarbage * DAYS_IN_MONTH);
+    return { monthly };
+};
+
 const getBuildingCo2 = building => {
     const total = building.sqft * 100 * .33; // CO2 per sqft for brick.  .33 is a GUESS adjuster based on floors and emptyness of building
     const monthly = total / 100 / 12; // Brick buildings live for 100 years
@@ -119,7 +125,8 @@ const getCompanyCo2 = data => {
     res.electricity = getElectricityCo2(data.electricity);
     res.building = getBuildingCo2(data.building);
     res.food = getFoodCo2(data.food);
-    res.monthlyTotal = Math.round(res.transport.total + res.food.total + res.electricity);
+    res.garbage = getGarbageCo2(data.garbage);
+    res.monthlyTotal = Math.round(res.transport.total + res.food.total + res.electricity + res.garbage.monthly);
     res.stuffTotal = Math.round(res.stuff.total + res.building.ourShare);
     
     return res;
@@ -162,6 +169,9 @@ export const porchData = {
         cheese: 50, // guess
         junkFood: 200,
         fruit: 32
+    },
+    garbage: {
+        trash: 20 // Pounds per day
     }
 };
 

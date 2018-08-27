@@ -22,12 +22,13 @@ export default class PersonalBreakdown extends React.Component {
 
     // TODO ADD STUFF
     getStuffBreakdown(res) {
-        const { transportation, stuff } = res;
+        const { pets, transportation, stuff } = res;
         return [
             {name: 'Clothes', Stuff: parseInt(stuff.clothes.monthlyCo2)},
             {name: 'Furniture', Stuff: parseInt(stuff.furniture.monthlyCo2)},
             {name: 'Stuff', Stuff: parseInt(stuff.stuff.monthlyCo2)},
-            {name: 'Car', Stuff: parseInt(transportation.carMonthlyBuild)}
+            {name: 'Car', Stuff: parseInt(transportation.carMonthlyBuild)},
+            {name: 'Pets', Stuff: parseInt(pets.monthlyCo2)},
         ].sort((a,b) => b.Stuff > a.Stuff);
     }
 

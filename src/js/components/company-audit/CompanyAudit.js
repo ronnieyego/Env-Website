@@ -60,7 +60,8 @@ export default class CompanyAudit extends React.Component {
             { name: 'Electricity', Amount: res.electricity },
             { name: 'Transportation', Amount: res.transport.total },
             { name: 'Building', Amount: res.building.monthly },
-            { name: 'Stuff', Amount: res.stuff.monthly }
+            { name: 'Stuff', Amount: res.stuff.monthly },
+            { name: 'Trash', Amount: res.garbage.monthly },
         ];
 
         const transportation = [
