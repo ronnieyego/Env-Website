@@ -129,7 +129,7 @@ export default [
     {
         id: ids.petSmallDog ,
         name: 'Small dog',
-        description: 'This comes from a dog\'s food.',
+        description: 'This is the lifetime CO2 of a small dog.  Most of it comes from a dog\'s food.',
         source: '/costs/dog',
         amount: 3482
     },
@@ -143,7 +143,7 @@ export default [
     {
         id: ids.petDog ,
         name: 'A dog',
-        description: 'This comes from a dog\'s food.',
+        description: 'This is the lifetime CO2 of a mid-sized dog.  Most of it comes from a dog\'s food.',
         source: '/costs/dog',
         amount: 7840
     },
@@ -156,7 +156,7 @@ export default [
     {
         id: ids.petCat ,
         name: 'A cat',
-        description: 'This comes from a cat\'s food which is 95% meat.',
+        description: 'This is the lifetime CO2 of a cat.  Most of it comes from a cat\'s food which is 95% meat.',
         source: '/costs/cat',
         amount: 9264
     },
@@ -184,7 +184,7 @@ export default [
     {
         id: ids.petBigDog ,
         name: 'Big dog',
-        description: 'This comes from a dog\'s food.',
+        description: 'This is the lifetime CO2 of a large dog.  Most of it comes from a dog\'s food.',
         source: '/costs/dog',
         amount: 17620
     },

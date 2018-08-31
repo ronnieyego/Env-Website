@@ -20,13 +20,12 @@ export default class PersonalBreakdown extends React.Component {
         });
     }
 
-    // TODO ADD STUFF
     getStuffBreakdown(res) {
         const { pets, transportation, stuff } = res;
         return [
             {name: 'Clothes', Stuff: parseInt(stuff.clothes.monthlyCo2)},
             {name: 'Furniture', Stuff: parseInt(stuff.furniture.monthlyCo2)},
-            {name: 'Stuff', Stuff: parseInt(stuff.stuff.monthlyCo2)},
+            {name: 'Etc', Stuff: parseInt(stuff.stuff.monthlyCo2)},
             {name: 'Car', Stuff: parseInt(transportation.carMonthlyBuild)},
             {name: 'Pets', Stuff: parseInt(pets.monthlyCo2)},
         ].sort((a,b) => b.Stuff > a.Stuff);
@@ -44,7 +43,7 @@ export default class PersonalBreakdown extends React.Component {
 
         // Heating, cooling, creaton come in monthly while home activities are daily
         monthly.push(
-            {name: 'Creation', Activity: parseInt(home.monthlyCo2)},
+            {name: 'Construction', Activity: parseInt(home.monthlyCo2)},
             {name: 'Heating', Activity: parseInt(heating.monthlyCo2)},
             {name: 'Cooling', Activity: parseInt(cooling.monthlyCo2)}
         );
@@ -98,7 +97,7 @@ export default class PersonalBreakdown extends React.Component {
             {name: 'Home', Category: homeTotal},
             {name: 'Food', Category: foodTotal},
             {name: 'Transportation', Category: transportationTotal},
-            {name: 'Stuff', Category: stuffTotal },
+            {name: 'Possessions', Category: stuffTotal },
         ].sort((a,b) => b.Category > a.Category);
 
         // Transportation Summary
@@ -144,14 +143,14 @@ export default class PersonalBreakdown extends React.Component {
                 </div>
                 <br />
                 <div id="stuff-summary">
-                    <p className="personal-breakdown-section-title">Stuff Breakdown</p>
-                    <p className="personal-breakdown-section-text">Your stuff is converted into monthly emissions by taking its lifetime CO<sub>2</sub> value and dividing it by the number of months it'll exist for.  E.g. A chair might take 120 pounds of CO<sub>2</sub> to make and be thrown away after 2 years.  It's monthly CO<sub>2</sub> emissions would be 5 pounds of CO<sub>2</sub> per month.</p>
+                    <p className="personal-breakdown-section-title">Possessions Breakdown</p>
+                    <p className="personal-breakdown-section-text">Your possessions are converted into monthly emissions by taking their lifetime CO<sub>2</sub> value and dividing it by their lifespan (months).  E.g. A chair might take 120 pounds of CO<sub>2</sub> to make and be thrown away after 2 years.  It's monthly CO<sub>2</sub> emissions would be 5 pounds of CO<sub>2</sub> per month.</p>
                     <BarChart
                         graphData={stuffBreakdown}
                         units={'Pounds of CO2'}
                         key="stuffBreakdown"
                         dataKey={'Stuff'}
-                        mobileHeaders={['Stuff', 'Pounds of CO2',]} 
+                        mobileHeaders={['Possessions', 'Pounds of CO2',]} 
                     />
                 </div>
                 <br />
