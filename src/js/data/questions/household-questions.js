@@ -10,20 +10,21 @@ export default [
         forms: ['household-home'],
         id: ids.liveWith
     },
-    {
-        name: 'When was your home built?',
-        type: 'dropdown',
-        selectOptions: [
-            'After 2000',
-            '1970-2000',
-            '1930-1970',
-            'Before 1930',
-        ],
-        hoverText: 'This question will help determine the materials used to build this house and how well it retains heat.',
-        value: '1930-1970',
-        forms: ['household-home'],
-        id: ids.homeAge
-    },
+    // Currently not used
+    // {
+    //     name: 'When was your home built?',
+    //     type: 'dropdown',
+    //     selectOptions: [
+    //         'After 2000',
+    //         '1970-2000',
+    //         '1930-1970',
+    //         'Before 1930',
+    //     ],
+    //     hoverText: 'This question will help determine the materials used to build this house and how well it retains heat.',
+    //     value: '1930-1970',
+    //     forms: ['household-home'],
+    //     id: ids.homeAge
+    // },
 
     // Activities question
     {

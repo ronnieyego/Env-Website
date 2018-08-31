@@ -10,7 +10,6 @@ import TransportationForm from './TransportationForm';
 import FoodForm from './FoodForm';
 import StuffForm from './StuffForm';
 
-import { submitForm } from '../../../actions/footprint/form-actions';
 import submitV2 from '../../../actions/footprint/submit';
 
 const MAX_STEPS = 6;
@@ -33,6 +32,7 @@ const TOP_TABS = [
 export default class FormContainer extends React.Component {
 
     // For some reason, I can't do these in form actions.  No idea why
+    // Probably because I need to pass through dispatch
     decreaseStep(formError) {
        if(!formError) {
           this.props.dispatch({type: 'SUBMIT_READY', payload: true})

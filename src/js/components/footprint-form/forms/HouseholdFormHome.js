@@ -1,9 +1,7 @@
 import React from "react";
 import { array } from 'prop-types';
-import { connect } from 'react-redux';
 
 import { sortAndFilterAndCreateQuestions } from '../../../utils/question-utils';
-import Question from '../../questions/QuestionHoc';
 import ids from '../../../utils/ids/index';
 
 const QUESTION_ORDER = [
@@ -11,8 +9,8 @@ const QUESTION_ORDER = [
     ids.homeType,
     ids.homeSqft,
     ids.homeMaterial,
-    ids.liveWith,
-    ids.homeAge
+    ids.liveWith
+    //ids.homeAge Currently not used
 ];
 
 export default class Household extends React.Component {
