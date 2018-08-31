@@ -202,6 +202,20 @@ export default [
         amount: 30000
     },
     {
+        id: ids.midsizeCarCreation ,
+        name: 'Building a midsized car',
+        description: 'This comes from extracting the materials and assembling them in a factory. ',
+        source: '/costs/car',
+        amount: 32000
+    },
+    {
+        id: ids.largeTruckCreation ,
+        name: 'Building a large truck',
+        description: 'This comes from extracting the materials and assembling them in a factory. ',
+        source: '/costs/car',
+        amount: 50000
+    },
+    {
         id: ids.twoBedroomApartment ,
         name: '2 Bedroom apartment',
         description: 'This is the building cost for a 1,000 square foot apartment.',

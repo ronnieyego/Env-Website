@@ -1,4 +1,4 @@
-// 1541 MAX
+// 1543 MAX
 
 export default {
     chargeIpad: 1500,
@@ -41,6 +41,8 @@ export default {
     poundOfPork: 1535,
     bigScreenTV: 1536,
     kobeBeefSteak: 1537,
-    twelveOzSteak: 1538
+    twelveOzSteak: 1538,
+    midsizeCarCreation: 1542,
+    largeTruckCreation: 1543,
 
 };
