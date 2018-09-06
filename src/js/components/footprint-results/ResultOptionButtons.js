@@ -36,10 +36,14 @@ export default class ResultOptionButtons extends React.Component {
                 </div>}
 
                 {/* Moar Buttons!! */}
-                <div className="results-changer-row">
+                {/* <div className="results-changer-row">
                 <a href="/static/how-the-form-works" target="_blank"><RaisedButton label="See the calculations" primary={true} /></a>
                     <p className="results-changer-row-explainer">A brief guide to how we constructed this footprint.</p>
-                </div>
+                </div> */}
+                <div className="results-changer-row">
+                <a href="/static/how-much-co2" target="_blank"><RaisedButton label="How Much CO2 is this" primary={true} /></a>
+                    <p className="results-changer-row-explainer">A listing of the CO<sub>2</sub> cost of things.</p>
+                </div> 
                 {!this.props.shareResults && <div className="results-changer-row">
                     <a href="/" target="_blank"><RaisedButton label="Calculate my footprint" secondary={true} /></a>
                     <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
@@ -48,9 +52,9 @@ export default class ResultOptionButtons extends React.Component {
                     <FacebookShare id={this.props.answerId} displayText="Share on Facebook" />
                     <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
                 </div>}
-                {this.props.shareResults && <div className="results-changer-row">
+                {/* {this.props.shareResults && <div className="results-changer-row">
                 <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.props.dispatch({ type: 'DISPLAY_ANSWERS', action: false})} label="Return to Form" primary={true}/>
-                </div>}
+                </div>} */}
             </div>
 		);
 	}

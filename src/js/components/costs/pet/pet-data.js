@@ -78,7 +78,27 @@ export const foodPerDayByAnimal = {
     Hamster: .03125,
     Gecko: .05,
     Turtle: .062
-}
+};
+
+// Averaged from chicken and pig
+export const co2PerPoundOfPoop = 3.1;
+
+// 1oz per pound from google
+export const getPoopWeightFromWeight = petWeight => {
+    // Returns pounds of poop. . . lol
+    if(petWeight === '0-10 pounds')
+        return .31;
+    else if (petWeight === '10-25 pounds')
+        return 1.01;
+    else if (petWeight === '25-50 pounds')
+        return 2.3;
+    else if (petWeight === '50-75 pounds')
+        return 4.2;
+    else if (petWeight === 'Over 75 pounds')
+        return 5;
+    else
+        console.log('Error in getDogPoopWeightFromWeight().  Could not get how much a doggo poops');
+};
 
 export const getLbFoodFromWeight = petWeight => {
     // Returns pounds of food
