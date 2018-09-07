@@ -162,7 +162,6 @@ export default class PetHoc extends React.Component {
             <Pet
                 dispatch={this.props.dispatch}    
                 questions={questions}
-                totalCo2={co2PerLife}
                 co2Breakdown={co2Breakdown}
                 petType={petType}
              />
