@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-
 import { STEPS } from './utils';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
@@ -12,12 +11,19 @@ import StuffForm from './StuffForm';
 
 import submitV2 from '../../../actions/footprint/submit';
 
+import { 
+  StuffIcon,
+  ForkKnifeIcon,
+  HouseIcon,
+  TransportationIcon
+} from '../../../assets/icons';
+
 const MAX_STEPS = 6;
 const TOP_TABS = [
-  {step: STEPS.home, label: 'Household'},
-  {step: STEPS.transportation, label: 'Transportation'},
-  {step: STEPS.food, label: 'Food'},
-  {step: STEPS.stuff, label: 'Stuff'}
+  {step: STEPS.home, label: 'Household', icon: <HouseIcon size={'32px'} />},
+  {step: STEPS.transportation, label: 'Transportation', icon: <TransportationIcon size={'32px'} />},
+  {step: STEPS.food, label: 'Food', icon: <ForkKnifeIcon size={'32px'} /> },
+  {step: STEPS.stuff, label: 'Stuff', icon: <StuffIcon size={'32px'} /> }
 ]
 
 @connect((store, props) => {

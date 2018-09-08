@@ -1,10 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { array, bool, number, func } from 'prop-types';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import cx from 'classnames';
 
 import { STEPS } from './utils';
 
+@connect((store, props) => {
+	return {
+        isMobile: store.userInfo.isMobile
+	};
+})
 export default class FormTabs extends React.Component {
     static propTypes = {
         dispatch: func.isRequired,
@@ -43,7 +49,8 @@ export default class FormTabs extends React.Component {
                 className={cx('footprint-form-tab', {'footprint-form-tab-sublevel': this.props.subLevel})}
                 key={`tab-step-${tab.step}`}
                 value={tab.label}
-                label={tab.label}
+                label={this.props.isMobile ? '' : tab.label}
+                icon={tab.icon}
                 onActive={() => this.updateStep(tab.step)}/>
             )
         );
