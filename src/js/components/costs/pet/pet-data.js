@@ -83,9 +83,9 @@ export const foodPerDayByAnimal = {
 // Averaged from chicken and pig
 export const co2PerPoundOfPoop = 3.1;
 
-// 1oz per pound from google
-export const getPoopWeightFromWeight = petWeight => {
+const getPoopWeightFromWeight = petWeight => {
     // Returns pounds of poop. . . lol
+    // 1oz per pound from google
     if(petWeight === '0-10 pounds')
         return .31;
     else if (petWeight === '10-25 pounds')
@@ -99,6 +99,14 @@ export const getPoopWeightFromWeight = petWeight => {
     else
         console.log('Error in getDogPoopWeightFromWeight().  Could not get how much a doggo poops');
 };
+
+export const petPoopWeight = {
+    dog: getPoopWeightFromWeight,
+    cat: getPoopWeightFromWeight,
+    hamster: 0.15,
+    gecko: 0.15,
+    turtle: 0.15
+}
 
 export const getLbFoodFromWeight = petWeight => {
     // Returns pounds of food

@@ -535,7 +535,6 @@ input[type="checkbox"] {
 }
 .question-name-container-boolean {
   display: inline-flex;
-  width: 400px;
 }
 .question-subtext {
   font-size: 16px;

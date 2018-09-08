@@ -68,7 +68,7 @@ export default class House extends React.Component {
                     )}
                     {this.props.petType === 'Cat' && (
                         <div>
-                            <p className="costs-form-explainer">A cat's footprint comes from two major sources, its food ({percentFood}%) and poop ({percentPoop}%). Cats are carnivores.  A cat's diet should be at least 90% animal protein.  Most cats will eat 6 oz of food a day and live for about 15 years.</p>}
+                            <p className="costs-form-explainer">A cat's footprint comes from two major sources, its food ({percentFood}%) and poop ({percentPoop}%). Cats are carnivores.  A cat's diet should be at least 90% animal protein.  Most cats will eat 6 oz of food a day and live for about 15 years.</p>
                             {poopText}
                         </div>
                     )} 

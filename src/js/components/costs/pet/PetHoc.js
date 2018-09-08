@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import ids from '../../../utils/ids/index';
-import { co2PerPoundOfPoop, getPoopWeightFromWeight, getLbFoodFromWeight, foodPerDayByAnimal, petFoodCo2, lifeExpectancy, turtleTank } from './pet-data';
+import { co2PerPoundOfPoop, petPoopWeight, getLbFoodFromWeight, foodPerDayByAnimal, petFoodCo2, lifeExpectancy, turtleTank } from './pet-data';
 import Pet from './Pet';
 
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
@@ -26,7 +26,7 @@ export default class PetHoc extends React.Component {
         const co2FoodPerDay = foodPerDay * co2PerPoundOfFood;
         const co2FoodPerLife = Math.round(co2FoodPerDay * petLifeExpectancy * 365);
         
-        const dogPoopWeight = getPoopWeightFromWeight(petWeight);
+        const dogPoopWeight = petPoopWeight.dog(petWeight);
         const dogPoopCo2PerDay = dogPoopWeight * co2PerPoundOfPoop;
         const poopCo2PerLife = Math.round(dogPoopCo2PerDay * petLifeExpectancy * 365);
 
@@ -42,7 +42,7 @@ export default class PetHoc extends React.Component {
         const foodPerDay = foodPerDayByAnimal['Cat'];
         const co2FoodPerLife = Math.round(foodPerDay * co2PerPoundOfFood * petLifeExpectancy * 365);
 
-        const poopWeight = getPoopWeightFromWeight('0-10 pounds');
+        const poopWeight = petPoopWeight.cat('0-10 pounds');
         const poopCo2PerDay = poopWeight * co2PerPoundOfPoop;
         const poopCo2PerLife = Math.round(poopCo2PerDay * petLifeExpectancy * 365);
 
@@ -57,7 +57,7 @@ export default class PetHoc extends React.Component {
         const foodPerDay = foodPerDayByAnimal['Hamster'];
         const co2FoodPerLife = Math.round(foodPerDay * co2PerPoundOfFood * petLifeExpectancy * 365);
 
-        const poopWeight = getPoopWeightFromWeight('0-10 pounds');
+        const poopWeight = petPoopWeight.hamster;
         const poopCo2PerDay = poopWeight * co2PerPoundOfPoop;
         const poopCo2PerLife = Math.round(poopCo2PerDay * petLifeExpectancy * 365);
 
@@ -77,7 +77,7 @@ export default class PetHoc extends React.Component {
         const dailyElectricity = kwhPerDay * utilityEmissionsPerState[this.props.userState];
         const lifetimeElectricityCo2 = Math.round(dailyElectricity * petLifeExpectancy * 365);
 
-        const poopWeight = getPoopWeightFromWeight('0-10 pounds');
+        const poopWeight = petPoopWeight.gecko;
         const poopCo2PerDay = poopWeight * co2PerPoundOfPoop;
         const poopCo2PerLife = Math.round(poopCo2PerDay * petLifeExpectancy * 365);
 
@@ -101,7 +101,7 @@ export default class PetHoc extends React.Component {
         const co2FoodPerLife = Math.round(foodPerDay * co2PerPoundOfFood * daysAlive);
         const lifetimeElectricityCo2 = Math.round(dailyElectricity * daysAlive);
 
-        const poopWeight = getPoopWeightFromWeight('0-10 pounds');
+        const poopWeight = petPoopWeight.turtle;
         const poopCo2PerDay = poopWeight * co2PerPoundOfPoop;
         const poopCo2PerLife = Math.round(poopCo2PerDay * petLifeExpectancy * 365);
 

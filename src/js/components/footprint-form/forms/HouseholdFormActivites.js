@@ -26,7 +26,7 @@ export default class HouseholdFormActivities extends React.Component {
 		return (
             <div>
                 <div>
-                    <p className="footprint-form-sub-header">The following questions will help caluclate your utility CO<sub>2</sub>.</p>
+                    <p className="footprint-form-sub-header">The following questions will help calculate your utility CO<sub>2</sub>.</p>
                     { questions }
                 </div>
             </div>
