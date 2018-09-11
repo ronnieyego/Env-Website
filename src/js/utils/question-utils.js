@@ -29,11 +29,13 @@ export const sortAndFilterAndCreateQuestions = (formName, idOrder, questions) =>
     const sorted = sortQuestionsByIds(idOrder, filtered);
     const createdQuestions = sorted.map(question => (
         <Question
-                questionType={question.type}
-                key={`${question.name}-${question.id}`}
-                question={question}
-                value={question.value}
-            />
+            questionType={question.type}
+            key={`${question.name}-${question.id}`}
+            question={question}
+            value={question.value}
+            errorText={question.errorText} // Added so you can update it and have React render it.
+                                           // If its nested in the question object and changes, React doesn't realize anything has changed and wnt re-render
+        />
     ));
     return createdQuestions;
 }

@@ -25,9 +25,9 @@ export default [
         type: 'dropdown',
         selectOptions: [
             'Hardly any',
-            'Just the essentials',
-            'A good amount',
-            'My closet it packed',
+            ids.justTheEssentials,
+            ids.aGoodAmount,
+            ids.packedCloset,
             'Way too many',
         ],
         answerText: [
@@ -37,7 +37,7 @@ export default [
             'You have ~100 shirts, constantly find identical pants, have plenty of jacket options, and have a ton of accesories.  Your closet is full.',
             'You rarely wear the same outfit more than once a year.  Not only is your closet full, but you struggle to find storage for your clothes.'
         ],
-        value: 'Just the essentials',
+        value: ids.justTheEssentials,
         forms: ['stuff-home'],
         id: ids.totalWardrobe
     },

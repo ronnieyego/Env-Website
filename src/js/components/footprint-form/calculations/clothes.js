@@ -9,6 +9,7 @@ import {
 import { clothesLife, profiles } from '../data/clothes';
 import { convertLifetimeToMonthly } from './utils';
 import isThere from '../../../utils/is-there';
+import ids from '../../../utils/ids/index';
 
 const getShirtCo2 = (shirts, shirtMaterial) => {
     const shirtWeight = weightOfClothes.shirt;
@@ -111,9 +112,9 @@ const getDataFromProfile = profile => {
         return profiles.lightest;
     } else if(profile === 'Just the essentials') {
         return profiles.light;
-    } else if(profile === 'A good amount') {
+    } else if(profile === ids.aGoodAmount) {
         return profiles.medium;
-    } else if(profile === 'My closet it packed') {
+    } else if(profile === ids.packedCloset) {
         return profiles.heavy;
     } else if(profile === 'Way too many') {
         return profiles.heaviest;

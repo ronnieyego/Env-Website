@@ -1,26 +1,9 @@
 const footprintFormReducer = (state = {
-    questions: [],
-    getQuestionsError: false,
     step: 1,
-    isSubmitReady: true
+    isSubmitReady: true,
+    errorQuestions: []
 }, action) => {
     switch (action.type) {
-        case 'GET_QUESTIONS': {
-            state = { ...state, questions: action.payload};
-            break;
-        }
-        case 'ERROR_LOADING_QUESTIONS': {
-            state = {...state, getQuestionsError: true}
-            break;
-        }
-        case 'REMOVE_QUESTIONS': {
-            state = { ...state, questions: []};
-            break;
-        }
-        case 'UPDATE_QUESTIONS': {
-            state = {...state, questions: action.payload}
-            break;
-        }
         case 'SET_STEP': {
             state = {...state, step: action.payload}
             break;
@@ -35,6 +18,10 @@ const footprintFormReducer = (state = {
         }
         case 'SUBMIT_READY': {
             state = {...state, isSubmitReady: action.payload }
+            break;
+        }
+        case 'SET_ERROR_QUESTIONS': {
+            state = {...state, errorQuestions: action.payload }
             break;
         }
     }

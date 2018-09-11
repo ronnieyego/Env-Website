@@ -61,8 +61,8 @@ const homeQuestions = [
     {    
         id: ids.homeType,
         name: 'Do you live in a house or an apartment?',
-        "selectOptions": ['House', 'Apartment'],
-        value: "House",
+        "selectOptions": [ids.house, ids.apartment],
+        value: ids.house,
         type: 'dropdown',
         hoverText: 'This makes an impact on things like heat leakage, utility efficiency, and building materials.',
         forms: ['house', 'household-home'],
@@ -72,11 +72,11 @@ const homeQuestions = [
         id: ids.homeMaterial,
         name: 'What is the primary building material of the home?',
         "selectOptions": [
-            'Brick',
-            'Wood',
-            'Concrete'
+            ids.brick,
+            ids.wood,
+            ids.concrete
         ],
-        value: "Wood",
+        value: ids.wood,
         type: 'dropdown',
         forms: ['house', 'household-home'],
         formType: 'costs'

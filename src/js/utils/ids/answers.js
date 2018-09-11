@@ -20,7 +20,7 @@ export default {
     aGoodAmount: 'A good amount',
     allTheEssentials: 'I have all of the essentials',
     extremelyFull: 'Extremely full',
-    packedCloset: 'My closet it packed',
+    packedCloset: 'My closet is packed',
     midsizeSuv: 'Midsize SUV',
     luxurious: 'Luxurious',
     house: 'House',
@@ -46,6 +46,11 @@ export default {
     noIdea: 'No Idea',
     under100Miles: 'Under 100 miles',
     oneHundredTwoHundredMiles: '100-200 miles',
-    over200Miles: 'Over 200 miles'
+    over200Miles: 'Over 200 miles',
+    house: 'House',
+    apartment: 'Apartment',
+    brick: 'Brick',
+    wood: 'Wood',
+    concrete: 'Concrete'
 
 }

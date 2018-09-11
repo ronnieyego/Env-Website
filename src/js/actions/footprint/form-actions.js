@@ -79,21 +79,6 @@ const validateForm = questions => {
 //
 //
 // Actions
-export const getQuestionData = () => {
-    return dispatch => {
-        fetch('/data/temp-footprint-questions.json')
-        .then(response => {
-            return response.json();
-        })
-        .then(response => {
-            const questions = response.questions;
-            dispatch({type: 'GET_QUESTIONS', payload: questions});
-        })
-        .catch(err => {
-            dispatch({type: 'ERROR_LOADING_QUESTIONS', payload: true});
-        });
-    }
-};
 
 // For footprint form
 export const updateQuestions = questionInfo => {
@@ -118,35 +103,6 @@ export const updateQuestionsV2 = questionInfo => {
     }
 };
 
-export const setQuestionError = (id, errorText) => {
-    return (dispatch, getState) => {
-        const state = getState();
-        const allQuestions = state.footprintForm.questions.slice();
-        dispatch({type: 'UPDATE_QUESTIONS', payload: allQuestions});
-    }
-}
-
-export const increaseStep = (formError) => {
-    return dispatch => {
-        if(!formError) {
-            dispatch({type: 'SUBMIT_READY', payload: true})
-            dispatch({type: 'INCREASE_STEP'});
-        } else {
-            dispatch({type: 'SUBMIT_READY', payload: false})
-        }
-    }
-};
-
-export const decreaseStep = (formError) => {
-    return dispatch => {
-        if(!formError) {
-            dispatch({type: 'SUBMIT_READY', payload: true})
-            dispatch({type: 'DECREASE_STEP', payload: {}});
-        } else {
-            dispatch({type: 'SUBMIT_READY', payload: false})
-        }
-    }
-};
 
 export const submitForm = questionPayload => {
     return (dispatch, getState) => {

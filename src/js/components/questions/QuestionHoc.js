@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import { object, string } from 'prop-types'
 import { connect } from 'react-redux';
 
 import IntQuestion from './IntQuestion';
@@ -18,15 +18,16 @@ import { updateQuestionsV2} from '../../actions/footprint/form-actions';
 })
 export default class QuestionHoc extends React.Component {
     static proptypes = {
-        
         // Routing
-        questionType: PropTypes.string.isRequired, 
-        question: PropTypes.object.isRequired,
-        value: PropTypes.string
+        questionType: string.isRequired, 
+        question: object.isRequired,
+        errorText: string,
+        value: string
     }
 
 	render() {
         const updateFunction = updateQuestionsV2;
+        const id = this.props.question.id;
         let question;
         switch(this.props.questionType) {
             case 'int':
@@ -42,7 +43,7 @@ export default class QuestionHoc extends React.Component {
                 question = <MultipleQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'user-state':
-                question = <UserStateDropdown omitUs={this.props.question.omitUs} />
+                question = <UserStateDropdown {...this.props} omitUs={this.props.question.omitUs} updateFunction={updateFunction} />
                 break;
             default:
                 console.log('Error.  Bad question type', this.props);
@@ -51,7 +52,7 @@ export default class QuestionHoc extends React.Component {
             question = null;
         }
 		return (
-            <div>
+            <div id={`question-${id}`}>
                 { question }
             </div>
         );

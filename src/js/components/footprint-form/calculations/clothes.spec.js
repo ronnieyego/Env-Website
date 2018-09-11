@@ -16,7 +16,7 @@ const EXPECTED_OBJECT_KEYS = ['totalArticles', 'totalCo2', 'monthlyCo2', 'shirts
     });
     it('should calculate the CO2 of a large wardrobe', done => {
         const expected = { totalArticles: 237, totalCo2: 763, monthlyCo2: 32, shirtsCo2: 74, jacketsCo2: 64, pantsCo2: 75, shortsCo2: 79, socksUndiesCo2: 14, accessoriesCo2: 14, shoesCo2: 443 };
-        const updatedFixtures = {...FIXTURE_DATA, clothingProfile: 'My closet it packed'};
+        const updatedFixtures = {...FIXTURE_DATA, clothingProfile: 'My closet is packed'};
         const res = getClothesCo2(updatedFixtures);
         expect(res).to.deep.equal(expected);
         done();
