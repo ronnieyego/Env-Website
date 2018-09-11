@@ -4,6 +4,8 @@ export default {
     onceADay: 'Once a day',
     onceAWeek: 'Once a week',
     onceAMonth: 'Once a month',
+    mostNights: 'Most nights',
+    underOnceAWeek: 'Less than once a week',
     twoThreeTimesPerWeek: '2-3 times per week',
     midsizeCar: 'Midsize car',
     wood: 'Wood',

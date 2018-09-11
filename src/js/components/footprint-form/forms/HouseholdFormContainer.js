@@ -9,26 +9,13 @@ import HouseholdFormActivities from './HouseholdFormActivites';
 import HouseholdFormTemperature from './HouseholdFormTemperature';
 
 import GenericForm from './GenericForm';
-import HomeFormValidator from '../../../actions/footprint/validators/validate-home-form';
+import FORMS from './generic-form-data';
+
 import { 
     CoolingIcon,
     LightbulbIcon,
     HouseIcon,
   } from '../../../assets/icons';
-
-const homeForm = {
-    questionOrder: [
-        ids.userState,
-        ids.homeType,
-        ids.homeSqft,
-        ids.homeMaterial,
-        ids.liveWith
-    ],
-    questionFormName: 'household-home',
-    headerText: 'Your home is one of the largest carbon costs in your life.  Answering the following questions will let you discover exactly how much.',
-    step: 1,
-    validator: HomeFormValidator
-}
 
 
 const SUB_TABs = [
@@ -49,11 +36,11 @@ export default class Household extends React.Component {
         let title;
         switch(this.props.step) {
             case STEPS.home: 
-              form = (<GenericForm {...homeForm} />);
+              form = (<GenericForm {...FORMS.HOME_FORM} />);
               title = 'Home';
               break;
             case STEPS.homeActivities: 
-              form = (<HouseholdFormActivities questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+            form = (<GenericForm {...FORMS.HOME_ACTIVITY_FORM} />);
               title = 'Household Activities';
               break;
             case STEPS.heatingCooling: 
