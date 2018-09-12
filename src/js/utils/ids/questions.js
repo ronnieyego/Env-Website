@@ -95,7 +95,6 @@ export default {
     homeInsulation: 1101,
     coolWholeHouse: 1102,
     heatWholeHouse: 1103,
-    heatWholeHouseRadiantFlooring: 1104,
 
 // Furniture
     numTables: 1027,

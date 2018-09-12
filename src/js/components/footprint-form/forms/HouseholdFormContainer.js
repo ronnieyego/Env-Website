@@ -40,11 +40,11 @@ export default class Household extends React.Component {
               title = 'Home';
               break;
             case STEPS.homeActivities: 
-            form = (<GenericForm {...FORMS.HOME_ACTIVITY_FORM} />);
+              form = (<GenericForm {...FORMS.HOME_ACTIVITY_FORM} />);
               title = 'Household Activities';
               break;
             case STEPS.heatingCooling: 
-              form = (<HouseholdFormTemperature questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+            form = (<GenericForm {...FORMS.HOME_TEMPERATURE_FORM} />);
               title = 'Heating and Cooling';
               break;
             default:

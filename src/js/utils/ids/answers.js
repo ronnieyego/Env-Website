@@ -10,7 +10,13 @@ export default {
     midsizeCar: 'Midsize car',
     wood: 'Wood',
     gasVents: 'Gas Vents',
+    radiantFloors: 'Radiant floors',
+    heatPump: 'Heat pump',
+    radiator: 'Radiator',
     reasonableInsulated: 'Reasonably Insulated',
+    extremelyInsulated: 'Extremely Insulated',
+    somewhatInsulated: 'Somewhat Insulated',
+    poorlyInsulated: 'Poorly Insulated',
     compactCar: 'Compact car',
     standard: 'Standard',
     apartment: 'Apartment',
@@ -43,6 +49,9 @@ export default {
     gasoline: 'Gasoline',
     justToAndFromWork: 'Just to and from work',
     centralAc: 'Central AC',
+    windowMountAc: 'Window Mount AC',
+    lotsOfFans: 'Lots of Fans',
+    none: 'None',
     dog: 'Dog',
     cat: 'Cat',
     noIdea: 'No Idea',
@@ -53,6 +62,12 @@ export default {
     apartment: 'Apartment',
     brick: 'Brick',
     wood: 'Wood',
-    concrete: 'Concrete'
+    concrete: 'Concrete',
+    entireHome: 'Entire home',
+    someRooms: 'Some rooms',
+    justCurrentRoom: 'Just my current room',
+    mostRooms: 'Most rooms',
+    halfOfRooms: 'Half of rooms',
+    quarterOfRooms: 'Quarter of rooms'
 
 }

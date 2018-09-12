@@ -16,7 +16,6 @@ const QUESTION_ORDER = [
     ids.winterTemp,
     ids.heatingSystem,
     ids.heatWholeHouse,
-    ids.heatWholeHouseRadiantFlooring,
     ids.usesPortableHeater
 ];
 
@@ -30,13 +29,9 @@ export default class HouseholdFormTemperature extends React.Component {
         const heatingType = getAnswerFromId(questions, ids.heatingSystem);
         const coolingType = getAnswerFromId(questions, ids.coolingSystem);
 
-        if(heatingType === 'Radiant floors') {
-            filterIds = [ids.heatWholeHouse];
-        } else if( heatingType === 'None' ) {
-            filterIds.push(ids.heatWholeHouse, ids.heatWholeHouseRadiantFlooring);
-        } else if( heatingType !== 'Radiant floors' ) {
-            filterIds.push(ids.heatWholeHouseRadiantFlooring);
-        }
+        if( heatingType === 'None' ) {
+            filterIds.push(ids.heatWholeHouse);
+        } 
         if(coolingType === 'None') {
             filterIds.push(ids.coolWholeHouse);
         } else if (coolingType === 'Lots of Fans') {
@@ -55,7 +50,7 @@ export default class HouseholdFormTemperature extends React.Component {
 		return (
             <div>
                 <div>
-                    <p className="footprint-form-sub-header">The following questions will help caluclate your utility CO<sub>2</sub>.</p>
+                    <p className="footprint-form-sub-header">Heating and cooling usually compromise the majority of household CO<sub>2</sub>.  This form will determine how much.</p>
                     { questionComponents }
                 </div>
             </div>

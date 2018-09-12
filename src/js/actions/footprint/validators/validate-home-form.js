@@ -1,4 +1,5 @@
-import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
+import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
+import { isNaturalNumber, isGreaterThanZero,  isInArray } from './validators';
 import ids from '../../../utils/ids/index';
 
 export default () => {
@@ -18,19 +19,19 @@ export default () => {
                 errorQuestions.push(ids.userState);
             }
 
-            if ([ids.house, ids.apartment].indexOf(homeType) === -1) {
+            if (!isInArray(homeType, [ids.house, ids.apartment])) {
                 errorQuestions.push(ids.homeType);
             }
 
-            if ([ids.brick, ids.wood, ids.concrete].indexOf(homeMaterial) === -1) {
+            if (!isInArray(homeMaterial, [ids.brick, ids.wood, ids.concrete])) {
                 errorQuestions.push(ids.homeMaterial);
             }
 
-            if (parseInt(homeSqft) < 0 ) {
+            if (!isGreaterThanZero(homeSqft)) {
                 errorQuestions.push(ids.homeType);
             }
 
-            if (parseInt(liveWith) < 0 || parseInt(liveWith) % 1 !== 0) {
+            if (!isNaturalNumber(liveWith)) {
                 errorQuestions.push(ids.liveWith);
             }
 

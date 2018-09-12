@@ -36,7 +36,6 @@ export default questions => {
     answers.winterTemp = getAnswerFromId(questions, ids.winterTemp);
     answers.heatType = getAnswerFromId(questions, ids.heatingSystem);
     answers.heatWholeHome = getAnswerFromId(questions, ids.heatWholeHouse);
-    answers.heatWholeHouseRadiantFlooring = getAnswerFromId(questions, ids.heatWholeHouseRadiantFlooring);
     answers.usesPersonalHeater = getAnswerFromId(questions, ids.usesPortableHeater);
     
     answers.houseSqft = getAnswerFromId(questions, ids.homeSqft);

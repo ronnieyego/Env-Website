@@ -86,10 +86,10 @@ export default [
         name: 'How insulated is your home?',
         type: 'dropdown',
         selectOptions: [
-            'Extremely Insulated',
-            'Reasonably Insulated',
-            'Somewhat Insulated',
-            'Poorly Insulated'
+            ids.extremelyInsulated,
+            ids.reasonableInsulated,
+            ids.somewhatInsulated,
+            ids.poorlyInsulated
         ],
         value: 'Reasonably Insulated',
         answerText: [
@@ -123,27 +123,14 @@ export default [
         id: ids.heatWholeHouse
     },
     {
-        name: 'How much of your home is covered by radiant flooring?',
-        type: 'dropdown',
-        selectOptions: [
-            'Entire home',
-            'Most rooms',
-            'Half of rooms',
-            'Quarted of rooms',
-        ],
-        value: 'Entire home',
-        forms: ['household-temperature'],
-        id: ids.heatWholeHouseRadiantFlooring
-    },
-    {
         name: 'Do you cool your entire home or just a part of it?',
         type: 'dropdown',
         selectOptions: [
-            'Entire home',
-            'Some rooms',
-            'Just my current room'
+            ids.entireHome,
+            ids.someRooms,
+            ids.justCurrentRoom
         ],
-        value: 'Entire home',
+        value: ids.entireHome,
         forms: ['household-temperature'],
         id: ids.coolWholeHouse
     },
@@ -159,11 +146,11 @@ export default [
         name: 'What type of heating system do you have?',
         type: 'dropdown',
         selectOptions: [
-            'Radiant floors',
-            'Heat pump',
-            'Gas Vents',
-            'Radiator',
-            'None'
+            ids.gasVents,
+            ids.radiantFloors,
+            ids.heatPump,
+            ids.radiator,
+            ids.none
         ],
         value: 'Gas Vents',
         forms: ['household-temperature'],
@@ -173,10 +160,10 @@ export default [
         name: 'What type of cooling system do you have?',
         type: 'dropdown',
         selectOptions: [
-            'Central AC',
-            'Window Mount AC',
-            'Lots of Fans',
-            'None'
+            ids.centralAc,
+            ids.windowMountAc,
+            ids.lotsOfFans,
+            ids.none
         ],
         value: 'Window Mount AC',
         answerText: [

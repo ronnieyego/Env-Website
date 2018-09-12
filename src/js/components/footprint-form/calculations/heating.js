@@ -13,6 +13,7 @@ import stateTemps from '../data/average-temp-by-state';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
 import { convertDailyToMonthly } from './utils';
 import isThere from '../../../utils/is-there';
+import ids from '../../../utils/ids/index';
 
 /*
     Assumptions
@@ -68,17 +69,17 @@ const getNaturalGasCo2 = btus => {
 const getSizeFromHeatWholeHome = (heatWholeHome, houseSqft) => {
     // Overloaded with heat whole home questions and radiant floor heat whole home
     let heatingSize;
-    if( heatWholeHome === 'Entire home') {
+    if( heatWholeHome === ids.entireHome) {
         heatingSize = houseSqft;
-    } else if( heatWholeHome === 'Most rooms') {
+    } else if( heatWholeHome === ids.mostRooms) {
         heatingSize = houseSqft * .75; //
-    } else if( heatWholeHome === 'Half of rooms') {
+    } else if( heatWholeHome === ids.halfOfRooms) {
         heatingSize = houseSqft * .5; 
-    } else if( heatWholeHome === 'Some rooms') {
+    } else if( heatWholeHome === ids.someRooms) {
         heatingSize = houseSqft * .33;
-    } else if( heatWholeHome === 'Quarter of rooms') {
+    } else if( heatWholeHome === ids.quarterOfRooms) {
         heatingSize = houseSqft * .25; 
-    } else if ( heatWholeHome === 'Just my current room') {
+    } else if ( heatWholeHome === ids.justCurrentRoom) {
         heatingSize = 250; // average room size
     } else {
         console.log('ERROR -- bad value for Heat Whole Home')
@@ -144,16 +145,16 @@ export default ({
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);
 
     totalCo2 += personalHeaterCo2;
-    if(heatType === 'Gas Vents') {
+    if(heatType === ids.gasVents) {
         totalCo2 += getNaturalGasCo2(heatingRequirementBtus);
-    } else if(heatType === 'Heat Pump') {
+    } else if(heatType === ids.heatPump) {
         const heatingPumpKwh =  heatingRequirementBtus / btusPerKwhHeatPump;
         totalCo2 += convertKwhToCo2(state, heatingPumpKwh);
-    }else if(heatType === 'Radiator') {
+    }else if(heatType === ids.radiator) {
         const heatingSize = getSizeFromHeatWholeHome(heatWholeHome, houseSqft);
         const radiatorKwh = getRadiatorKwh(timeOn, heatingSize);
         totalCo2 += convertKwhToCo2(state, radiatorKwh);
-    } else if(heatType === 'Radiant Flooring') {
+    } else if(heatType === ids.radiantFloors) {
         const heatingSize = getSizeFromHeatWholeHome(heatWholeHome, houseSqft);
         const radiantFlooringKwh = getRadiantFlooringKwh(timeOn, heatingSize);
         totalCo2 += convertKwhToCo2(state, radiantFlooringKwh);

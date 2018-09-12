@@ -1,6 +1,5 @@
-// TODO THE VALIDATION SUCKS AND DOESNT WORK!
-
-import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
+import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
+import { isNaturalNumber,  isInArray } from './validators';
 import ids from '../../../utils/ids/index';
 
 export default () => {
@@ -18,31 +17,31 @@ export default () => {
             const playMusicHome = getAnswerFromId(questions, ids.playMusicHome);
             const laundryMonth = getAnswerFromId(questions, ids.laundryMonth);
 
-            if (typeof parseInt(hoursComputer) !== 'number' || !parseInt(hoursAtHome) < 0) {
+            if (!isNaturalNumber(hoursAtHome)) {
                 errorQuestions.push(ids.hoursAtHome);
             }
 
-            if (typeof parseInt(hoursComputer) !== 'number' || !parseInt(tvWatchHours) < 0) {
+            if (!isNaturalNumber(tvWatchHours)) {
                 errorQuestions.push(ids.tvWatchHours);
             }
 
-            if (typeof parseInt(hoursComputer) !== 'number' || !parseInt(hoursComputer) < 0) {
+            if (!isNaturalNumber(hoursComputer)) {
                 errorQuestions.push(ids.hoursComputer);
             }
 
-            if ([ids.onceAWeek, ids.mostNights, ids.twoThreeTimesPerWeek, ids.underOnceAWeek].indexOf(cookingFrequency) === -1) {
+            if (!isInArray(cookingFrequency, [ids.onceAWeek, ids.mostNights, ids.twoThreeTimesPerWeek, ids.underOnceAWeek])) {
                 errorQuestions.push(ids.cookingFrequency);
             }
 
-            if([true, false].indexOf(showEveryday) === -1 ) {
+            if(!isInArray(showEveryday, [true, false])) {
                 errorQuestions.push(ids.showerEveryDay)
             }
 
-            if([true, false].indexOf(playMusicHome) === -1 ) {
+            if(!isInArray(playMusicHome, [true, false])) {
                 errorQuestions.push(ids.playMusicHome)
             }
 
-            if (typeof parseInt(hoursComputer) !== 'number' || !parseInt(laundryMonth) < 0) {
+            if(!isNaturalNumber(laundryMonth)) {
                 errorQuestions.push(ids.laundryMonth);
             }
 
