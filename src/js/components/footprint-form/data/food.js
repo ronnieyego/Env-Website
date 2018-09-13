@@ -4,75 +4,75 @@ const bacon = 'lol'
 
 export const foodAnswerServings = {
     beef: {
-        'Never': 0,
-        'A few times per month': 0.1,
-        'Once a week': 0.6,
-        '2-3 times per week': 1.5,
-        'Everyday': 4,
+        [ids.never]: 0,
+        [ids.fewTimesPerMonth]: 0.1,
+        [ids.onceAWeek]: 0.6,
+        [ids.twoThreeTimesPerWeek]: 1.5,
+        [ids.everyday]: 4,
     },
     chicken: {
-        'Never': 0,
-        'A few times per month': 0.1,
-        'Once a week': 0.6,
-        '2-3 times per week': 1.5,
-        'Everyday': 4,
+        [ids.never]: 0,
+        [ids.fewTimesPerMonth]: 0.1,
+        [ids.onceAWeek]: 0.6,
+        [ids.twoThreeTimesPerWeek]: 1.5,
+        [ids.everyday]: 4,
     },
     pork: {
-        'Never': 0,
-        'A few times per month': 0.1,
-        'Once a week': 0.6,
-        '2-3 times per week': 1.5,
-        'Everyday': 4,
+        [ids.never]: 0,
+        [ids.fewTimesPerMonth]: 0.1,
+        [ids.onceAWeek]: 0.6,
+        [ids.twoThreeTimesPerWeek]: 1.5,
+        [ids.everyday]: 4,
     },
     seafood: {
-        'Never': 0,
-        'A few times per month': 0.1,
-        'Once a week': 0.6,
-        '2-3 times per week': 1.5,
-        'Everyday': 4,
+        [ids.never]: 0,
+        [ids.fewTimesPerMonth]: 0.1,
+        [ids.onceAWeek]: 0.6,
+        [ids.twoThreeTimesPerWeek]: 1.5,
+        [ids.everyday]: 4,
     },
     dairy: {
-        'Never': 0,
-        'Rarely': .5,
-        'Once a day': 1.5,
-        'Few times per day': 3,
-        'As much as possible': 6 
+        [ids.never]: 0,
+        [ids.rarely]: .5,
+        [ids.onceADay]: 1.5,
+        [ids.fewTimesPerDay]: 3,
+        [ids.asMuchAsPossible]: 6 
     },
     cheese: {
-        'Never': 0,
-        'Rarely': .5,
-        'Once a day': 1.5,
-        'Few times per day': 3,
-        'As much as possible': 6 
+        [ids.never]: 0,
+        [ids.rarely]: .5,
+        [ids.onceADay]: 1.5,
+        [ids.fewTimesPerDay]: 3,
+        [ids.asMuchAsPossible]: 6 
     },
 
     grain: {
-        'Never': 0,
-        'Rarely': .25,
-        'Once a day': 1.5,
-        'Few times per day': 3,
-        'As much as possible': 6
+        [ids.never]: 0,
+        [ids.rarely]: .25,
+        [ids.onceADay]: 1.5,
+        [ids.fewTimesPerDay]: 3,
+        [ids.asMuchAsPossible]: 6
     },
     fruit: {
-        'Never': 0,
-        'Rarely': .25,
-        'Once a day': 1,
-        'Few times per day': 2,
-        'As much as possible': 6
+        [ids.never]: 0,
+        [ids.rarely]: .25,
+        [ids.onceADay]: 1,
+        [ids.fewTimesPerDay]: 2,
+        [ids.asMuchAsPossible]: 6
     },
     vegetables: {
-        'Never': 0,
-        'Rarely': .25,
-        'Once a day': 1.5,
-        'Few times per day': 3,
-        'As much as possible': 6 
+        [ids.never]: 0,
+        [ids.rarely]: .25,
+        [ids.onceADay]: 1.5,
+        [ids.fewTimesPerDay]: 3,
+        [ids.asMuchAsPossible]: 6 
     },
     junkFood: {
-        'Never': 0,
-        'Rarely': .25,
-        'Once a day': 1.5,
-        'Few times per day': 3,
-        'As much as possible': 6
+        [ids.never]: 0,
+        [ids.rarely]: .25,
+        [ids.onceADay]: 1.5,
+        [ids.fewTimesPerDay]: 3,
+        [ids.asMuchAsPossible]: 6
     }
 };
 

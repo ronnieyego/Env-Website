@@ -12,8 +12,7 @@ export default [
     {
         name: 'About how many miles do you drive each month?',
         type: 'int',
-        subtext: 'This should include your commute, errands, and road trips.',
-        hoverText: 'The average American drives around 1,000 miles each month.  Women drive about 30% les than men.',
+        subtext: 'This should include your commute, errands, and road trips. The average American drives around 1,000 miles each month.  Women drive about 30% les than men.',
         forms: ['transportation'],
         id: ids.milesDrivenMonth,
         value: 1000
@@ -21,11 +20,11 @@ export default [
     {
         name: 'What\'s the fuel for your car?',
         selectOptions: [
-            'Gasoline',
-            'Diesel',
-            'Electricity'
+            ids.gasoline,
+            ids.diesel,
+            ids.electricity
         ],
-        value: 'Gasoline',
+        value: ids.gasoline,
         type: 'dropdown',
         forms: ['transportation'],
         id: ids.carFuel
@@ -33,13 +32,13 @@ export default [
     {
         name: 'How often do you carpool?',
         selectOptions: [
-            'Never',
-            'Just to and from work',
-            'Most of the time',
-            'Always',
+            ids.never,
+            ids.justToAndFromWork,
+            ids.mostOfTheTime,
+            ids.always
         ],
         type: 'dropdown',
-        value: 'Never',
+        value: ids.never,
         forms: ['transportation'],
         id: ids.carpoolFrequency
     },

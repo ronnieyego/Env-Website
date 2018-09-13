@@ -1,5 +1,16 @@
 import React from "react";
 import Question from '../../questions/QuestionHoc';
+import { 
+    HomeFormValidator,
+    HomeUtilitiesValidator,
+    HomeTemperatureValidator,
+    TransportationValidator,
+    FoodValidator,
+    StuffValidator
+} from '../../../actions/footprint/validators/index';
+
+
+
 
 
 export const STEPS = {
@@ -9,7 +20,26 @@ export const STEPS = {
     transportation: 4,
     food: 5,
     stuff: 6
-}
+};
+
+export const getValidatorFromStep = step => {
+    switch(step) {
+        case STEPS.home:
+            return HomeFormValidator;
+        case STEPS.homeActivities:
+            return HomeUtilitiesValidator;
+        case STEPS.heatingCooling:
+            return HomeTemperatureValidator;
+        case STEPS.transportation:
+            return TransportationValidator;
+        case STEPS.food:
+            return FoodValidator;
+        case STEPS.stuff:
+            return StuffValidator;
+        default:
+            console.log('ERROR - no validator for step: ', step);
+    }
+};
 
 export const filterQuestions = (questions, filterArray) => {
     return questions.filter(question => filterArray.indexOf(question.id) === -1);

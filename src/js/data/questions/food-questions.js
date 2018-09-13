@@ -32,13 +32,13 @@ export default [
         name: 'How often do you eat beef?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'A few times per month',
-            'Once a week',
-            '2-3 times per week',
-            'Everyday',
+            ids.never,
+            ids.fewTimesPerMonth,
+            ids.onceAWeek,
+            ids.twoThreeTimesPerWeek,
+            ids.everyday
         ],
-        value: 'Once a week',
+        value: ids.onceAWeek,
         answerText: [
             '',
             'This means a few steak dinners each month',
@@ -53,13 +53,13 @@ export default [
         name: 'How often do you eat chicken?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'A few times per month',
-            'Once a week',
-            '2-3 times per week',
-            'Everyday',
+            ids.never,
+            ids.fewTimesPerMonth,
+            ids.onceAWeek,
+            ids.twoThreeTimesPerWeek,
+            ids.everyday
         ],
-        value: 'Once a week',
+        value: ids.onceAWeek,
         answerText: [
             '',
             'This means a few chicken dinners each month',
@@ -74,13 +74,13 @@ export default [
         name: 'How often do you eat pork?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'A few times per month',
-            'Once a week',
-            '2-3 times per week',
-            'Everyday',
+            ids.never,
+            ids.fewTimesPerMonth,
+            ids.onceAWeek,
+            ids.twoThreeTimesPerWeek,
+            ids.everyday
         ],
-        value: 'Once a week',
+        value: ids.onceAWeek,
         answerText: [
             '',
             'This means a few pork dinners each month',
@@ -95,13 +95,13 @@ export default [
         name: 'How often do you eat seafood?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'A few times per month',
-            'Once a week',
-            '2-3 times per week',
-            'Everyday',
+            ids.never,
+            ids.fewTimesPerMonth,
+            ids.onceAWeek,
+            ids.twoThreeTimesPerWeek,
+            ids.everyday
         ],
-        value: 'Once a week',
+        value: ids.onceAWeek,
         answerText: [
             '',
             'This means a few fish dinners each month',
@@ -116,13 +116,13 @@ export default [
         name: 'How often do you eat grain?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'Rarely',
-            'Once a day',
-            'Few times per day',
-            'As much as possible',
+            ids.never,
+            ids.rarely,
+            ids.onceADay,
+            ids.fewTimesPerDay,
+            ids.asMuchAsPossible
         ],
-        value: 'Few times per day',
+        value: ids.fewTimesPerDay,
         answerText: [
             '',
             'This means a biscut maybe once a week.',
@@ -137,13 +137,13 @@ export default [
         name: 'How often do you eat cheese?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'Rarely',
-            'Once a day',
-            'Few times per day',
-            'As much as possible',
+            ids.never,
+            ids.rarely,
+            ids.onceADay,
+            ids.fewTimesPerDay,
+            ids.asMuchAsPossible
         ],
-        value: 'Once a day',
+        value: ids.onceADay,
         answerText: [
             '',
             'This means you never seek out cheese but will eat it if its on a burger or salad',
@@ -158,13 +158,13 @@ export default [
         name: 'How often do you eat dairy (except cheese)?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'Rarely',
-            'Once a day',
-            'Few times per day',
-            'As much as possible',
+            ids.never,
+            ids.rarely,
+            ids.onceADay,
+            ids.fewTimesPerDay,
+            ids.asMuchAsPossible
         ],
-        value: 'Once a day',
+        value: ids.onceADay,
         answerText: [
             '',
             'This means you never seek out dairy but will have it once a week',
@@ -179,13 +179,13 @@ export default [
         name: 'How often do you eat fruits?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'Rarely',
-            'Once a day',
-            'Few times per day',
-            'As much as possible',
+            ids.never,
+            ids.rarely,
+            ids.onceADay,
+            ids.fewTimesPerDay,
+            ids.asMuchAsPossible
         ],
-        value: 'Once a day',
+        value: ids.onceADay,
         answerText: [
             'This means you\'re probably close to getting scurvy.',
             'This means an apple once a week.',
@@ -200,13 +200,13 @@ export default [
         name: 'How often do you eat vegetables?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'Rarely',
-            'Once a day',
-            'Few times per day',
-            'As much as possible',
+            ids.never,
+            ids.rarely,
+            ids.onceADay,
+            ids.fewTimesPerDay,
+            ids.asMuchAsPossible
         ],
-        value: 'Once a day',
+        value: ids.onceADay,
         answerText: [
             '',
             'This means a side salad once a week.',
@@ -221,13 +221,13 @@ export default [
         name: 'How often do you eat junk food?',
         type: 'dropdown',
         selectOptions: [
-            'Never',
-            'Rarely',
-            'Once a day',
-            'Few times per day',
-            'As much as possible',
+            ids.never,
+            ids.rarely,
+            ids.onceADay,
+            ids.fewTimesPerDay,
+            ids.asMuchAsPossible
         ],
-        value: 'Once a day',
+        value: ids.onceADay,
         answerText: [
             '',
             'This means a brownie once a week and some pie on occasions.',

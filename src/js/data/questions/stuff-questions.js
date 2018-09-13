@@ -5,10 +5,10 @@ export default [
         name: 'Do you have a lot of furniture?',
         type: 'dropdown',
         selectOptions: [
-            'I have almost no furniture',
-            'My rooms are sparesly furnished',
-            'I have all of the essentials',
-            'My home is cramped',
+            ids.veryLittleFurniture,
+            ids.spareslyFurnished,
+            ids.allTheEssentials,
+            ids.crampedHome
         ],
         value: 'I have all of the essentials',
         forms: ['stuff-home'],
@@ -24,11 +24,11 @@ export default [
         name: 'How many clothes do you own',
         type: 'dropdown',
         selectOptions: [
-            'Hardly any',
+            ids.hardlyAny,
             ids.justTheEssentials,
             ids.aGoodAmount,
             ids.packedCloset,
-            'Way too many',
+            ids.wayTooMany
         ],
         answerText: [
             'You barely have enough clothes to last the week.',
@@ -54,11 +54,11 @@ export default [
         subtext: 'This includes things like speakers, vacuums, trinkets, books, and other stuff you buy',
         type: 'dropdown',
         selectOptions: [
-            'Practically empty',
-            'Quite uncluttered',
-            'Reasonably full',
-            'Extremely full',
-            'There\'s no more room',
+            ids.practicallyEmpty,
+            ids.quiteUncluttered,
+            ids.reasonablyFull,
+            ids.extremelyFull,
+            ids.noRoom
         ],
         answerText: [
             'Your shelves are empty and you generally engage in a minimalistic lifestyle.',
@@ -67,7 +67,7 @@ export default [
             'You have trouble finding homes for new things and donate/dump a few boxes of stuff a few times a year.',
             'You can\'t find room in your home for anything so you buy extra storage space.  Even then things keep piling up.'
         ],
-        value: 'Reasonably full',
+        value: ids.reasonablyFull,
         forms: ['stuff-home'],
         id: ids.houseClutter
     },

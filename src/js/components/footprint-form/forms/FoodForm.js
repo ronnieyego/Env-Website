@@ -4,9 +4,8 @@ import { connect } from 'react-redux';
 
 import { sortAndFilterQuestions } from '../../../utils/question-utils';
 import { renderQuestions, filterQuestions } from './utils';
-import Question from '../../questions/QuestionHoc';
 import ids from '../../../utils/ids/index';
-import { getAnswerFromId, getAnswerIndex, getQuestionFromId } from '../../questions/utils';
+import { getAnswerFromId } from '../../questions/utils';
 import BarChart from '../../bar-chart/BarChartHoc';
 import { capitalize } from '../../../utils/capitalize';
 import getFoodResults from '../calculations/food';

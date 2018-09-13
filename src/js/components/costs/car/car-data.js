@@ -5,53 +5,53 @@ import ids from '../../../utils/ids/index';
 
 
 const classData = {
-    'Smart car': { 
+    [ids.smartCar]: { 
         weight: 1800,
          mpg: 38
     },
-    'Compact car': { 
+    [ids.compactCar]: { 
         weight: 2979,
         mpg: 26
     },
-    'Midsize car': { 
+    [ids.midsizeCar]: { 
         weight: 3497,
         mpg: 25.8
     },
-    'Large car': { 
+    [ids.largeCar]: { 
         weight: 4366,
         mpg: 20.9
     },
-    'Compact SUV': { 
+    [ids.compactSuv]: { 
         weight: 3470,
         mpg: 24
     },
-    'Midsize SUV': { 
+    [ids.midsizeSuv]: { 
         weight: 4259,
         mpg: 18.5
     },
-    'Large SUV': { 
+    [ids.largeSuv]: { 
         weight: 5411,
         mpg: 13
     },
-    'Compact truck': { 
+    [ids.compactTruck]: { 
         weight: 3470,
         mpg: 20
     },
-    'Midsize truck': { 
+    [ids.midsizeTruck]: { 
         weight: 4259,
         mpg: 18.3
     },
-    'Large truck': { 
+    [ids.largeTruck]: { 
         weight: 5411,
         mpg: 15
     }
 };
 
 const co2PerPound = {
-    'Lightweight': 7.3,
-    'Standard': 9.1,
-    'Luxurious': 13.5,
-    'Rugged' :15.7
+    [ids.leightweight]: 7.3,
+    [ids.standard]: 9.1,
+    [ids.luxurious]: 13.5,
+    [ids.rugged]: 15.7
 };
 
 const creationBreakdown = [ // Modified from how bad are banannas
@@ -68,17 +68,17 @@ const carQuestions = [
         id: ids.carSize,
         name: 'What class of car do you drive?',
         "selectOptions": [
-            'Smart car',
-            'Compact car',
-            'Midsize car',
-            'Large car',
-            'Compact SUV',
-            'Midsize SUV',
-            'Large SUV',
-            'Compact truck',
-            'Midsize truck',
-            'Large truck'],
-        value: "Midsize car",
+            ids.smartCar,
+            ids.compactCar,
+            ids.midsizeCar,
+            ids.largeCar,
+            ids.compactSuv,
+            ids.midsizeSuv,
+            ids.largeSuv,
+            ids.compactTruck,
+            ids.midsizeTruck,
+            ids.largeTruck],
+        value: ids.midsizeCar,
         type: 'dropdown',
         forms: ['car', 'transportation'],
         formType: 'costs'
@@ -86,7 +86,7 @@ const carQuestions = [
     {    
         id: ids.carRuggedness,
         name: 'Which of the following best describes your vehicle?',
-        "selectOptions": ['Lightweight', 'Standard', 'Luxurious', 'Rugged' ],
+        "selectOptions": [ids.lightweight, ids.standard, ids.luxurious, ids.rugged ],
         subtext: 'This question helps estimate the composition of your vehicle.  Rugged cars tend to use more metals and less plastic which makes them more CO2 intensive to create',
         value: "Standard",
         type: 'dropdown',

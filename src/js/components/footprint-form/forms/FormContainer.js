@@ -2,12 +2,14 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import { STEPS } from './utils';
+import { getValidatorFromStep, STEPS } from './utils';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
 import FoodForm from './FoodForm';
 import StuffForm from './StuffForm';
+import { getQuestionFromId } from '../../questions/utils';
+import { updateQuestionsV2 } from '../../../actions/footprint/form-actions';
 
 import submitV2 from '../../../actions/footprint/submit';
 
@@ -24,7 +26,8 @@ const TOP_TABS = [
   {step: STEPS.transportation, label: 'Transportation', icon: <TransportationIcon size={'32px'} />},
   {step: STEPS.food, label: 'Food', icon: <ForkKnifeIcon size={'32px'} /> },
   {step: STEPS.stuff, label: 'Stuff', icon: <StuffIcon size={'32px'} /> }
-]
+];
+
 
 @connect((store, props) => {
 	return {
@@ -37,25 +40,41 @@ const TOP_TABS = [
 })
 export default class FormContainer extends React.Component {
 
-    // For some reason, I can't do these in form actions.  No idea why
-    // Probably because I need to pass through dispatch
-    decreaseStep(formError) {
-       if(!formError) {
-          this.props.dispatch({type: 'SUBMIT_READY', payload: true})
-          this.props.dispatch({type: 'DECREASE_STEP'});
-        } else {
-          this.props.dispatch({type: 'SUBMIT_READY', payload: false})
-        }
-    }
+    decreaseStep() {
+      const validator = getValidatorFromStep(this.props.step);
+      const validation = this.props.dispatch(validator());
+      this.props.dispatch({type: 'SET_ERROR_QUESTIONS', payload: validation.errorQuestions})
+      if(!validation.valid) {
+      } else {
+         this.props.dispatch({type: 'DECREASE_STEP'});
+         location.href = '#'; // Solves a bug in safari or something
+         location.href = '#footprint-form-title';
+      }
+   }
 
-    increaseStep(formError) {
-      if(!formError) {
-          this.props.dispatch({type: 'SUBMIT_READY', payload: true})
-          this.props.dispatch({type: 'INCREASE_STEP'});
-        } else {
-          this.props.dispatch({type: 'SUBMIT_READY', payload: false})
-        }
-    }
+    increaseStep() {
+      const validator = getValidatorFromStep(this.props.step);
+      const validation = this.props.dispatch(validator());
+      this.props.dispatch({type: 'SET_ERROR_QUESTIONS', payload: validation.errorQuestions})
+      if(!validation.valid) {
+          this.updateErrorQuestions(validation.errorQuestions);
+      } else {
+         this.props.dispatch({type: 'INCREASE_STEP'});
+         location.href = '#';
+         location.href = '#footprint-form-title';
+      }
+   }
+
+   updateErrorQuestions(ids) {
+    ids.forEach(id => {
+        const question = getQuestionFromId(this.props.questions, id);
+        question.errorText = question.errorText ? question.errorText : 'Please answer the question correctly';
+        this.props.dispatch(updateQuestionsV2(question));
+    });
+    const topId = ids[0];
+    location.href = "#";
+    location.href = `#question-${topId}`;
+ }
 
     submitCalculator(formError) {
       if(!formError) {
