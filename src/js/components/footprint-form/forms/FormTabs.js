@@ -20,10 +20,6 @@ export default class FormTabs extends React.Component {
         tabs: array.isRequired // [ { value, label, step }]
     }
 
-    updateStep(step) {
-        this.props.dispatch({type: 'SET_STEP', payload: step})
-    }
-
     getTabFromStep(step) {
         switch(step) {
             case STEPS.home:

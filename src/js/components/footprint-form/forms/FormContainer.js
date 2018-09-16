@@ -20,11 +20,12 @@ import {
 } from '../../../assets/icons';
 
 const MAX_STEPS = 6;
+const TAB_ICON_SIZE = '32px';
 const TOP_TABS = [
-  {step: STEPS.home, label: 'Household', icon: <HouseIcon size={'32px'} />},
-  {step: STEPS.transportation, label: 'Transportation', icon: <TransportationIcon size={'32px'} />},
-  {step: STEPS.food, label: 'Food', icon: <ForkKnifeIcon size={'32px'} /> },
-  {step: STEPS.stuff, label: 'Stuff', icon: <StuffIcon size={'32px'} /> }
+  {step: STEPS.home, label: 'Household', icon: <HouseIcon size={TAB_ICON_SIZE} />},
+  {step: STEPS.transportation, label: 'Transportation', icon: <TransportationIcon size={TAB_ICON_SIZE} />},
+  {step: STEPS.food, label: 'Food', icon: <ForkKnifeIcon size={TAB_ICON_SIZE} /> },
+  {step: STEPS.stuff, label: 'Stuff', icon: <StuffIcon size={TAB_ICON_SIZE} /> }
 ];
 
 
@@ -32,72 +33,58 @@ const TOP_TABS = [
 	return {
         questions: store.questions.questions,
         step: store.footprintForm.step,
-        isSubmitReady: store.footprintForm.isSubmitReady,
         userGender: store.userInfo.userGender,
         isMobile: store.userInfo.isMobile,
 	};
 })
 export default class FormContainer extends React.Component {
 
-    submitCalculator(formError) {
-      if(!formError) {
-        this.props.dispatch(submitV2());
-      }
-    }
-
 	render() {
-        
-      const submitError = !this.props.isSubmitReady ? (
-        <div className="footprint-form-submit-invalid">
-          Please fill out all answers correctly.
-        </div>
-      ) : null;
 
-      const formError = null;
-      
-      const leftButton = this.props.step === 1 ? <div /> : (
-          <RaisedButton 
-            className="left-btn"
-            href={'#footprint-form-title'}
-            label="Back"
-            onClick={() => this.props.dispatch(changeStep(this.props.step, this.props.step + 1))}
-            secondary={true}
-          />
-      );
-      const rightButton = this.props.step === MAX_STEPS ? (
+    const step = this.props.step;
+    const leftButton = this.props.step === 1 ? <div /> : (
         <RaisedButton 
-            className="right-btn"
-            href={'#footprint-form-title'}
-            label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
-            onClick={this.submitCalculator.bind(this, formError)}
-            primary={true}
-        />) : (
+          className="left-btn"
+          href={'#footprint-form-title'}
+          label="Back"
+          onClick={() => this.props.dispatch(changeStep(step, step - 1))}
+          secondary={true}
+        />
+    );
+
+    const rightButton = this.props.step === MAX_STEPS ? (
+      <RaisedButton 
+          className="right-btn"
+          href={'#footprint-form-title'}
+          label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
+          onClick={() => this.props.dispatch(submitV2())}
+          primary={true}
+      />) : (
           <RaisedButton 
             className="right-btn"
-            href={'#footprint-form-title'}
             label="Next"
             onClick={() => this.props.dispatch(changeStep(this.props.step, this.props.step + 1))}
             primary={true}
         />
-      );
+    );
 
-      let form;
-      switch(this.props.step) {
-        case STEPS.home || STEPS.homeActivities || STEPS.heatingCooling: 
-          form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
-          break;
-        case STEPS.transportation: 
-          form = (<TransportationForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
-          break;
-        case STEPS.food: 
-          form = (<FoodForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
-          break;
-        case STEPS.stuff:
-          form = (<StuffForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
-          break;
-        default:
+    let form;
+    switch(this.props.step) {
+      case STEPS.home || STEPS.homeActivities || STEPS.heatingCooling: 
         form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
-      };
+        break;
+      case STEPS.transportation: 
+        form = (<TransportationForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+        break;
+      case STEPS.food: 
+        form = (<FoodForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+        break;
+      case STEPS.stuff:
+        form = (<StuffForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+        break;
+      default:
+      form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+    };
 
 		return (
       <div className="footprint-main">
@@ -109,7 +96,6 @@ export default class FormContainer extends React.Component {
           <h2 id="footprint-form-title" className="footprint-form-title"> Calculate your environmental footprint</h2>
           <FormTabs dispatch={this.props.dispatch} step={this.props.step} tabs={TOP_TABS} />
             {form}
-            {submitError}
             <div className="footprint-form-bottom-buttons">
               {leftButton}
               Step {this.props.step} of {MAX_STEPS}
