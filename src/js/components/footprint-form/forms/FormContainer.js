@@ -2,14 +2,13 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import { getValidatorFromStep, STEPS } from './utils';
+import { STEPS } from './utils';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
 import FoodForm from './FoodForm';
 import StuffForm from './StuffForm';
-import { getQuestionFromId } from '../../questions/utils';
-import { updateQuestionsV2 } from '../../../actions/footprint/form-actions';
+import { changeStep } from '../../../actions/footprint/form-actions';
 
 import submitV2 from '../../../actions/footprint/submit';
 
@@ -40,42 +39,6 @@ const TOP_TABS = [
 })
 export default class FormContainer extends React.Component {
 
-    decreaseStep() {
-      const validator = getValidatorFromStep(this.props.step);
-      const validation = this.props.dispatch(validator());
-      this.props.dispatch({type: 'SET_ERROR_QUESTIONS', payload: validation.errorQuestions})
-      if(!validation.valid) {
-      } else {
-         this.props.dispatch({type: 'DECREASE_STEP'});
-         location.href = '#'; // Solves a bug in safari or something
-         location.href = '#footprint-form-title';
-      }
-   }
-
-    increaseStep() {
-      const validator = getValidatorFromStep(this.props.step);
-      const validation = this.props.dispatch(validator());
-      this.props.dispatch({type: 'SET_ERROR_QUESTIONS', payload: validation.errorQuestions})
-      if(!validation.valid) {
-          this.updateErrorQuestions(validation.errorQuestions);
-      } else {
-         this.props.dispatch({type: 'INCREASE_STEP'});
-         location.href = '#';
-         location.href = '#footprint-form-title';
-      }
-   }
-
-   updateErrorQuestions(ids) {
-    ids.forEach(id => {
-        const question = getQuestionFromId(this.props.questions, id);
-        question.errorText = question.errorText ? question.errorText : 'Please answer the question correctly';
-        this.props.dispatch(updateQuestionsV2(question));
-    });
-    const topId = ids[0];
-    location.href = "#";
-    location.href = `#question-${topId}`;
- }
-
     submitCalculator(formError) {
       if(!formError) {
         this.props.dispatch(submitV2());
@@ -97,7 +60,7 @@ export default class FormContainer extends React.Component {
             className="left-btn"
             href={'#footprint-form-title'}
             label="Back"
-            onClick={() => this.decreaseStep(formError)}
+            onClick={() => this.props.dispatch(changeStep(this.props.step, this.props.step + 1))}
             secondary={true}
           />
       );
@@ -113,7 +76,7 @@ export default class FormContainer extends React.Component {
             className="right-btn"
             href={'#footprint-form-title'}
             label="Next"
-            onClick={() => this.increaseStep(formError)}
+            onClick={() => this.props.dispatch(changeStep(this.props.step, this.props.step + 1))}
             primary={true}
         />
       );

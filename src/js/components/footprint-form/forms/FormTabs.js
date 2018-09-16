@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { array, bool, number, func } from 'prop-types';
 import {Tabs, Tab} from 'material-ui/Tabs';
 import cx from 'classnames';
+import { changeStep } from '../../../actions/footprint/form-actions';
 
 import { STEPS } from './utils';
 
@@ -51,7 +52,7 @@ export default class FormTabs extends React.Component {
                 value={tab.label}
                 label={this.props.isMobile ? '' : tab.label}
                 icon={tab.icon}
-                onActive={() => this.updateStep(tab.step)}/>
+                onActive={() => this.props.dispatch(changeStep(this.props.step, tab.step))}/>
             )
         );
 

@@ -2,10 +2,11 @@ import React from "react";
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
 import HowMuchCo2 from '../how-much-co2/HowMuchCo2';
-import{ PORCH, moveToAtlanta, carpoolProgram, bothellOffice, westSeattle } from '../../data/porch-audit/porch-data';
+import{ PORCH, moveToAtlanta, carpoolProgram, bothellOffice, westSeattle } from '../../data/company-audit/porch-data';
+import{ SPECTRALUX } from '../../data/company-audit/spectralux';
+import{ OMNIDIAN } from '../../data/company-audit/omnidian';
 
 import BarChart from '../bar-chart/BarChartHoc';
-
 
 // TODO:  If this ever becomes a thing, make a HOC and reducer for this.
 export default class CompanyAudit extends React.Component {
@@ -32,6 +33,12 @@ export default class CompanyAudit extends React.Component {
         } else if (value === 'Bothell Office') {
             data = bothellOffice;
             selected = 'Bothell Office';
+        }  else if (value === 'Spectralux') {
+            data = SPECTRALUX;
+            selected = 'Spectralux';
+        }  else if (value === 'Omnidian') {
+            data = OMNIDIAN;
+            selected = 'Omnidian';
         } else {
             data = PORCH;
             selected = 'Current Porch';
@@ -53,7 +60,6 @@ export default class CompanyAudit extends React.Component {
         const res = this.state.data;
         const formattedFood = this.formatData(res.food);
         const formattedStuff = this.formatData(res.stuff);
-        
 
         const monthlyHighLevel = [
             { name: 'Food', Amount: res.food.total },
@@ -69,11 +75,11 @@ export default class CompanyAudit extends React.Component {
             { name: 'Transit', Amount: res.transport.publicTransitCo2 },
         ];
 
-        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
+        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office', 'Spectralux', 'Omnidian'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
 
         return (
             <div className="costs">
-                <h3 className="costs-form-header">What's the CO<sub>2</sub> of Porch??</h3>
+                <h3 className="costs-form-header">What's the CO<sub>2</sub> of {res.name}?</h3>
                 <br />
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <div>
@@ -97,14 +103,14 @@ export default class CompanyAudit extends React.Component {
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            Porch emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal.toLocaleString()} pounds in equiptment.
+                            {res.name} emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal.toLocaleString()} pounds in equiptment.
                         </span>         
                     </div>
                     
                     <BarChart
                         graphData={monthlyHighLevel}
                         units={'Pounds of CO2'}
-                        title={"CO2 breakdown of a Porch's Ongoing CO2"}
+                        title={`CO2 breakdown of a ${res.name}'s Ongoing CO2`}
                         defaultMax={20}
                         compare={false}
                         dataKey={'Amount'}
@@ -114,7 +120,7 @@ export default class CompanyAudit extends React.Component {
                     <BarChart
                         graphData={formattedStuff}
                         units={'Pounds of CO2'}
-                        title={"CO2 breakdown of a Porch's Stuff"}
+                        title={`CO2 breakdown of a ${res.name}'s Stuff`}
                         defaultMax={20}
                         compare={false}
                         dataKey={'Amount'}
@@ -124,7 +130,7 @@ export default class CompanyAudit extends React.Component {
                     <BarChart
                         graphData={formattedFood}
                         units={'Pounds of CO2'}
-                        title={"CO2 breakdown of a Porch's Food"}
+                        title={`CO2 breakdown of a ${res.name}'s Food`}
                         defaultMax={20}
                         compare={false}
                         dataKey={'Amount'}
@@ -134,13 +140,12 @@ export default class CompanyAudit extends React.Component {
                     <BarChart
                         graphData={transportation}
                         units={'Pounds of CO2'}
-                        title={"CO2 breakdown of a Porch's Commuters"}
+                        title={`CO2 breakdown of a ${res.name}'s Commuters`}
                         defaultMax={20}
                         compare={false}
                         dataKey={'Amount'}
                         mobileHeaders={['Commute Method', 'Pounds of CO2']}
                     />
-
                     
                 </div>
 

@@ -1,86 +1,40 @@
 import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
-import { isValidateAnswer, getAnswerFromKey, getQuestionFromKey, getQuestionFromId } from '../../utils/footprint/get-question-utils';
+import { getQuestionFromId } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';
+import { getValidatorFromStep } from '../../components/footprint-form/forms/utils';
 import triggers from './triggers/trigger-router';
 
-// Utils. . . maybe make own file eventually?
-
-const validateForm = questions => {
-    let valid = true;
-    const missingQuestions = [];
-
-    const fuel = isValidateAnswer(questions, "What's the fuel for your car?", 'not null');
-    const mpg = isValidateAnswer(questions, "What\'s the MPG of your car?", '>0');
-    const commute = isValidateAnswer(questions, "On average, how many miles do you drive for work, school, and errands each day?", 'not null');
-    const roadTripTimes = isValidateAnswer(questions, 'Within the last year, how many times did you take a roadtrip or drive for an extended distance?', 'not null');
-    const roadTripDistance = isValidateAnswer(questions, 'How far is your average roadtrip?', '>0');
-    const busMiles = isValidateAnswer(questions, 'How many miles do you bus each month?', 'not null');
-    const trainMiles = isValidateAnswer(questions, 'How many miles do you ride on the train each month?', 'not null');
-    const fly = isValidateAnswer(questions, 'Within the last year, how many miles did you fly?', 'not null');
-    let question;
-    if(!fuel) {
-        question = getQuestionFromKey(questions, "What's the fuel for your car?");
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!mpg) {
-        question = getQuestionFromKey(questions, "What\'s the MPG of your car?");
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!commute) {
-        question = getQuestionFromKey(questions, "On average, how many miles do you drive for work, school, and errands each day?");
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!roadTripTimes) {
-        question = getQuestionFromKey(questions, "Within the last year, how many times did you take a roadtrip or drive for an extended distance?");
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!roadTripDistance) {
-        question = getQuestionFromKey(questions, "How far is your average roadtrip?");
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!fly) {
-        question = getQuestionFromKey(questions, "Within the last year, how many miles did you fly?");
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!busMiles) {
-        question = getQuestionFromKey(questions, 'How many miles do you bus each month?');
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-    if(!trainMiles) {
-        question = getQuestionFromKey(questions, 'How many miles do you ride on the train each month?');
-        question.errorText = 'Please submit an answer.';
-        missingQuestions.push(question);
-        valid = false;
-    }
-
-    if(!valid) {
-        console.log('missing questions', missingQuestions);
-        return { valid: false, questions};
-    }
-    return { valid: true};
-};
-
-
-//
-//
-//
 // Actions
 
-// For footprint form
+export const changeStep = (current, toStep) => {
+    return dispatch => {
+        const validator = getValidatorFromStep(current);
+        const validation = dispatch(validator());
+        dispatch({type: 'SET_ERROR_QUESTIONS', payload: validation.errorQuestions})
+        if(!validation.valid) {
+            dispatch(updateErrorQuestions(validation.errorQuestions));
+        } else {
+            dispatch({type: 'SET_STEP', payload: toStep});
+            location.href = '#'; // Solves a bug in safari or something
+            location.href = '#footprint-form-title';
+        }
+    }
+ }
+
+ export const updateErrorQuestions = ids => {
+    return (dispatch, getState) => {
+        const questions = getState().questions.questions;
+        ids.forEach(id => {
+            const question = getQuestionFromId(questions, id);
+            question.errorText = question.errorText ? question.errorText : 'Please answer the question correctly';
+            dispatch(updateQuestionsV2(question));
+        });
+        const topId = ids[0];
+        location.href = "#";
+        location.href = `#question-${topId}`;
+    }
+ }
+
 export const updateQuestions = questionInfo => {
     return (dispatch, getState) => {
         const state = getState();
