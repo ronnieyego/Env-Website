@@ -24,8 +24,6 @@ export default class House extends React.Component {
     }
 
 	render() {
-
-        console.log(this.props);
         const questions = this.props.questions.map(question => {
             if(question.type === 'user-state') {
                 return <UserStateDropdown />;

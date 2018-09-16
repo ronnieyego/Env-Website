@@ -51,5 +51,4 @@ export const omnidianData = {
     }
 };
 
-console.log('OMNIDIAN IS', getCompanyCo2(omnidianData));
 export const OMNIDIAN = getCompanyCo2(omnidianData);

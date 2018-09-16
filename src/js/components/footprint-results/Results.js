@@ -22,7 +22,6 @@ import Savings from './Savings';
 export default class Results extends React.Component {
 	render() {
 		const { monthlyCo2 } = this.props.results;
-		console.log('Results.props', this.props);
 
 		let results;
 		switch(this.props.resultsShown) {

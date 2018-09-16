@@ -1,4 +1,3 @@
-import calculateFootprintSubmit from '../../utils/footprint/calculate-footprint-submit';
 import { getQuestionFromId } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';
 import { getValidatorFromStep } from '../../components/footprint-form/forms/utils';
@@ -55,41 +54,4 @@ export const updateQuestionsV2 = questionInfo => {
         const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
         dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
     }
-};
-
-
-export const submitForm = questionPayload => {
-    return (dispatch, getState) => {
-        const store = getState();
-        const state = store.footprintFormAnswers.userState;
-        const answerId = store.footprintFormAnswers.answerId;
-
-        const payload = {
-            questions: questionPayload,
-            state
-        };
-        const footprintResults = calculateFootprintSubmit(payload);
-        if(answerId) {
-            console.log('i will do an update not a post');
-        } else {
-            fetch('/api/footprint-form/answer', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    formName: 'footprint-finder',
-                    formAnswers: questionPayload,
-                    results: footprintResults
-                })
-            })
-            .then(res => res.json())
-            .then(res => {
-                dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']});   
-            });
-        }
-        dispatch({type: 'SUBMIT_FORM_RESULTS', payload: footprintResults});
-        dispatch({type: 'DISPLAY_ANSWERS', payload: true});
-    };
 };
