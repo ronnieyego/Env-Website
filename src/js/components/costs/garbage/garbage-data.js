@@ -44,6 +44,7 @@ const garbageQuestions = [
             '',
             ''
         ],
+        index: 0,
         type: 'dropdown',
         forms: ['garbage'],
         formType: 'costs'

@@ -3,7 +3,8 @@ import { STEPS } from './utils';
 import { 
     HomeFormValidator,
     HomeUtilitiesValidator,
-    HomeTemperatureValidator
+    HomeTemperatureValidator,
+    StuffValidator
 } from '../../../actions/footprint/validators/index';
 
 export default {
@@ -51,5 +52,17 @@ export default {
         headerText: 'Heating and cooling usually compromise the majority of household CO2.  This form will determine how much.',
         step: STEPS.heatingCooling,
         validator: HomeTemperatureValidator
-    }
+    },
+    STUFF_FORM: {
+        questionOrder: [
+            ids.totalHouseFurniture,
+    ids.totalWardrobe,
+    ids.allPets,
+    ids.houseClutter
+        ],
+        questionFormName: 'stuff-home',
+        headerText: 'Everything produces CO2.  This form will estimate the major buckets of stuff that you have.',
+        step: STEPS.stuff,
+        validator: StuffValidator
+    },
 };

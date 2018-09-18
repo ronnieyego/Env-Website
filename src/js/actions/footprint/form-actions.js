@@ -48,6 +48,7 @@ export const updateQuestionsV2 = questionInfo => {
         const state = getState();
         let allQuestions = state.questions.questions.slice();
         const question = getQuestionFromId(allQuestions, questionInfo.id);
+        // Trigger logic should probably be in the form and not here.
         if(questionInfo.value === 'on' && question.trigger) { // Right now triggers just modify other questions.  ONLY for boolean questions
             allQuestions = triggers(allQuestions, question.trigger);
         }

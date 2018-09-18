@@ -73,6 +73,7 @@ export default class CompanyAudit extends React.Component {
         const transportation = [
             { name: 'Drive', Amount: res.transport.driverCo2 },
             { name: 'Transit', Amount: res.transport.publicTransitCo2 },
+            { name: 'Plane', Amount: res.transport.planeCo2 },
         ];
 
         const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office', 'Spectralux', 'Omnidian'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
@@ -104,7 +105,8 @@ export default class CompanyAudit extends React.Component {
                     <div className="costs-form-sub-header">
                         <span>
                             {res.name} emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal.toLocaleString()} pounds in equiptment.
-                        </span>         
+                        </span>
+                        <p className="costs-form-sub-header">This breaks down to about {res.employee} pounds of CO<sub>2</sub> per employee each month.</p>
                     </div>
                     
                     <BarChart

@@ -46,6 +46,7 @@ export default [
             'This means a steak dinner on Monday, beef stir fry on Thursday, and a cheesesteak for Sunday lunch.',
             'This means you usually have a beef based meal every day, sometimes two.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.beefFrequency
     },
@@ -67,6 +68,7 @@ export default [
             'This means a chicken dinner on Monday, fried chicken on Thursday, and a turkey sandwich for Sunday lunch.',
             'This means you usually have a chicken based meal every day, sometimes two.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.chickenFrequency
     },
@@ -88,6 +90,7 @@ export default [
             'This means a pork dinner on Monday, 2 hot dogs/sausages on Thursday, and some bacon for Sunday breakfast.',
             'This means you usually have a pork based meal every day, sometimes two.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.porkFrequency
     },
@@ -109,6 +112,7 @@ export default [
             'This means a crab dinner on Monday, fish n cips on Thursday, and some lox and bagels for Sunday breakfast.',
             'This means you usually have a seafood based meal every day, sometimes two.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.seafoodFrequency
     },
@@ -130,6 +134,7 @@ export default [
             'This means toast/cereal for breakfast, a sandwich for lunch, and a meat dinner with a side of rice.',
             'This means that every meal centers around grain (like pad thai) or has a significant amount of grain (like a burger).  Generally you snack on crackers or bread/cheese.'
         ],
+        index: 3,
         forms: ['food'],
         id: ids.grainsFrequency
     },
@@ -151,6 +156,7 @@ export default [
             'This means incorporate cheese into your routine (like avocado and cheese toast for breakfast) and like cheese based meals like caesar salads and mac and cheese.',
             'This means you aim to add cheese to every meal.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.cheeseFrequency
     },
@@ -172,6 +178,7 @@ export default [
             'This means a glass of milk in the morning and yogurt as a side for lunch.',
             'This means a glass of milk in the morning, yogurt for lunch, and a butter based dish for dinner.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.dairyFrequency
     },
@@ -193,6 +200,7 @@ export default [
             'This means a side of fruit for breakfast and a banana with lunch.  Some nights will have a frit based dessert (like peach cobbler).',
             'This means a side of fruit for breakfast and a banana with lunch.  You might have a peach for a 3pm snack.  You try to add fruit to dinner (like apples on pork chops or grapes in salad).  Some nights will have a frit based dessert (like peach cobbler).'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.fruitsFrequency
     },
@@ -214,6 +222,7 @@ export default [
             'This means you generally try to incorporate veggies to your meals.  You get "the works" for sandwiches, add peas to mac and cheese, and try to have a side of veggies with dinner.',
             'This means you always try to add veggies to your meals.  Salad goes with everything.  Eggplant can be the main entree for dinner.  Potatoes subsitute grains.'
         ],
+        index: 2,
         forms: ['food'],
         id: ids.vegetablesFrequency
     },
@@ -227,6 +236,7 @@ export default [
             ids.fewTimesPerDay,
             ids.asMuchAsPossible
         ],
+        index: 2,
         value: ids.onceADay,
         answerText: [
             '',

@@ -3,8 +3,6 @@ import { array, func, number, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { sortAndFilterAndCreateQuestions } from '../../../utils/question-utils';
 
-
-
 @connect(store => {
 	return {
         questions: store.questions.questions

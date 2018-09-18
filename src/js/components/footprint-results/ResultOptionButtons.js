@@ -20,7 +20,7 @@ export default class ResultOptionButtons extends React.Component {
         const unit = 'CO2';
 		return (
             <div className="results-changer">
-                <h1><b>I want to . . .</b></h1>
+                <h1><b>There's more to explore!</b></h1>
                 {/* {Results shown buttons} */}
                 {this.props.resultsShown !== 'compare' && <div className="results-changer-row">
                     <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({resultsShown: 'compare'})} label="Compare" primary={true}/>

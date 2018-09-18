@@ -4,7 +4,6 @@
 // Wood https://www.youtube.com/watch?v=SQbqthgn15w
 
 import ids from '../../../utils/ids/index';
-import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 
 const co2PerSqFt = {
     Brick: 100,

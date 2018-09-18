@@ -7,6 +7,7 @@ import { getCompanyCo2 } from './calculations';
 
 export const omnidianData = {
     name: 'Omnidian',
+    employees: 27,
     stuff: {
         monitors: 27,
         laptops: 27,
@@ -21,9 +22,7 @@ export const omnidianData = {
     transport: {
         driveSolo: 5,
         carpool: 0,
-        orcaSubsidies: 21,
-        flexSubsidies: 0,
-        total: 27,
+        publicTransit: 21,
         commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
         commuteTime: 54.2 // Minutes  from https://www.geekwire.com/2017/bad-time-stress-seattles-daily-commute-growing-city-ranks-among-worst-u-s/
     },

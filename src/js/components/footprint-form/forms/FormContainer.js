@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import { STEPS } from './utils';
+import FORMS from './generic-form-data';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
 import FoodForm from './FoodForm';
+import GenericForm from './GenericForm';
 import StuffForm from './StuffForm';
 import { changeStep } from '../../../actions/footprint/form-actions';
 
@@ -80,7 +82,7 @@ export default class FormContainer extends React.Component {
         form = (<FoodForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
         break;
       case STEPS.stuff:
-        form = (<StuffForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
+        form = (<GenericForm {...FORMS.STUFF_FORM} />);
         break;
       default:
       form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);

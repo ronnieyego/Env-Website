@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from 'prop-types';
+import React from 'react';
+import { bool, func, number, shape, string } from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField'
 import HoverText from './HoverText';
@@ -8,20 +8,19 @@ import { formatName } from './utils';
 export default class DropdownQuestion extends React.Component {
 
     static propType = {
-        isMobile: PropTypes.bool,
-        updateQuestion: PropTypes.func, 
-        question: PropTypes.object,
-
-    // Everything in Question object
-        // id: Proptypes.string,
-        // name: Proptypes.string,
-        // marginLeft: Proptypes.string,
-        // value: Proptypes.string,
-        // selectOptions: Proptypes.string,
-        // subtext: Proptypes.string,
-        // formType: Proptypes.string
-        // index: PropTypes.int  This is what index of answer is slected
-        // answerText:  PropTypes.string  explains what the answer means
+        isMobile: bool,
+        updateQuestion: func.isRequired, 
+        question: shape({
+            id: string,
+            name: string,
+            marginLeft: string,
+            value: string,
+            selectOptions: string,
+            subtext: string,
+            formType: string,
+            answerText: string, // explains what the answer means
+            index: number  // This is what index of answer is slected
+        }).isRequired
     }
 
     updateQuestion(id, event, index, value) {

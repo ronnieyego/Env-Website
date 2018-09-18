@@ -10,7 +10,7 @@ export default [
             ids.allTheEssentials,
             ids.crampedHome
         ],
-        value: 'I have all of the essentials',
+        value: ids.allTheEssentials,
         forms: ['stuff-home'],
         answerText: [
             'You\'re living room has a chair instead of a couch, which also acts as the kitchen table.  You have a bed, but no desk and there\'s not much in any room.',
@@ -18,6 +18,7 @@ export default [
             'You have a complete dining room set and living room set.  Your bedroom has a bed, desk, and chair.  Other rooms have enough seating and storage.',
             'Everyone in your house has a place to sit and a place to put something on.  You have plenty of cabinets and bookcases to store stuff.  Each room is full.'
         ],
+        index: 2,
         id: ids.totalHouseFurniture
     },
     {
@@ -37,7 +38,8 @@ export default [
             'You have ~100 shirts, constantly find identical pants, have plenty of jacket options, and have a ton of accesories.  Your closet is full.',
             'You rarely wear the same outfit more than once a year.  Not only is your closet full, but you struggle to find storage for your clothes.'
         ],
-        value: ids.justTheEssentials,
+        index: 2,
+        value: ids.aGoodAmount,
         forms: ['stuff-home'],
         id: ids.totalWardrobe
     },
@@ -67,6 +69,7 @@ export default [
             'You have trouble finding homes for new things and donate/dump a few boxes of stuff a few times a year.',
             'You can\'t find room in your home for anything so you buy extra storage space.  Even then things keep piling up.'
         ],
+        index: 2,
         value: ids.reasonablyFull,
         forms: ['stuff-home'],
         id: ids.houseClutter

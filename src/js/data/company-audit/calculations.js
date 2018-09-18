@@ -1,11 +1,14 @@
 import { 
     busMpgPerPerson,
     co2PerGallonOfGas,
-    trainMpgPerPerson 
+    co2PerGallonOfJetFuel,
+    trainMpgPerPerson,
+    planeMpgPerPerson 
 } from '../../components/footprint-form/data/transportation';
 import { convertKwhToCo2 } from '../../components/footprint-form/calculations/utils';
 import { servingFacts } from '../../components/footprint-form/data/food';
 import { averageCo2PerPoundGarbage } from '../../components/costs/garbage/garbage-data';
+
 
 const DAYS_IN_MONTH = 30;
 const MONTHS_OF_LIFE_FOR_STUFF = 48;
@@ -34,8 +37,12 @@ export const getTransportCo2 = transport => {
     const idleGph = .16;  // Gallons used per hour idling.  https://www.energy.gov/eere/vehicles/fact-861-february-23-2015-idle-fuel-consumption-selected-gasoline-and-diesel-vehicles
     const percentIdle = .5; // Half of your commute
     const mpg = 25;
-    const divers = transport.driveSolo + transport.flexSubsidies;
-    const publicTransit = transport.orcaSubsidies;
+    const divers = transport.driveSolo;
+    const publicTransit = transport.publicTransit;
+    const planeMiles = transport.planeMiles || 0;
+    const planeGallonsPerMonth = planeMiles / planeMpgPerPerson;
+    const monthlyPlaneCo2 = Math.round(planeGallonsPerMonth * co2PerGallonOfJetFuel);
+
     const driverGallonsPerDay = (transport.commuteDistance / mpg ) + (transport.commuteTime * percentIdle / 60 * idleGph);
     const driverCo2 = Math.round(divers * driverGallonsPerDay * co2PerGallonOfGas);
     const publicTransitGallonsPerDay = transport.commuteDistance / ((busMpgPerPerson + trainMpgPerPerson) / 2);
@@ -47,7 +54,8 @@ export const getTransportCo2 = transport => {
         driverCo2: monthlyDriveCo2,
         publicTransitGallonsPerDay,
         publicTransitCo2: monthlyPublicTransitCo2,
-        total: monthlyDriveCo2 + monthlyPublicTransitCo2
+        planeCo2: monthlyPlaneCo2,
+        total: monthlyDriveCo2 + monthlyPublicTransitCo2 + monthlyPlaneCo2
     }
 };
 
@@ -97,6 +105,7 @@ export const getCompanyCo2 = data => {
     res.garbage = getGarbageCo2(data.garbage);
     res.monthlyTotal = Math.round(res.transport.total + res.food.total + res.electricity + res.garbage.monthly);
     res.stuffTotal = Math.round(res.stuff.total + res.building.ourShare);
+    res.employee = Math.round(res.monthlyTotal / data.employees);
     
     return res;
 }

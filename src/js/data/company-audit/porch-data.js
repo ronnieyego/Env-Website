@@ -31,6 +31,7 @@ import { getCompanyCo2 } from './calculations';
 
 export const porchData = {
     name: 'Porch',
+    employees: 207,
     stuff: {
         monitors: 407,
         laptops: 392,
@@ -44,11 +45,10 @@ export const porchData = {
         printers: 2
     },
     transport: {
-        driveSolo: 60,
+        driveSolo: 137,
         carpool: 0,
-        orcaSubsidies: 68,
-        flexSubsidies: 77,
-        total: 207,
+        publicTransit: 68,
+        planeMiles: 4000 * 20, // 4000 miles to dallas.  20 flights a month
         commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
         commuteTime: 54.2 // Minutes  from https://www.geekwire.com/2017/bad-time-stress-seattles-daily-commute-growing-city-ranks-among-worst-u-s/
     },
@@ -75,11 +75,9 @@ export const porchData = {
 };
 
 const atlantaCommute = { 
-    driveSolo: 128,
+    driveSolo: 195,
     carpool: 0,
-    orcaSubsidies: 10,
-    flexSubsidies: 67,
-    total: 207,
+    publicTransit: 10,
     commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
     commuteTime: 30  
 };
@@ -88,32 +86,26 @@ const atlantaElectricity = { ...porchData.electricity, state: 'AL' }
 
 // 25% of people carpool to work.
 const carpoolCommute = {
-    driveSolo: 60,
-    carpool: 0,
-    orcaSubsidies: 43,
-    flexSubsidies: 50,
-    total: 207,
+    driveSolo: 100,
+    carpool: 50,
+    publicTransit: 43,
     commuteDistance: 35, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
     commuteTime: 54.2 
 };
 
 const bothellOfficeCommute = {
-    driveSolo: 90,
+    driveSolo: 152,
     carpool: 0,
-    orcaSubsidies: 53,
-    flexSubsidies: 62,
-    total: 207,
+    publicTransit: 53,
     commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
     commuteTime: 20 
 };
 
 // Lot of carpooling
 const westSeattleCommute = {
-    driveSolo: 30,
+    driveSolo: 107,
     carpool: 0,
-    orcaSubsidies: 68,
-    flexSubsidies: 77,
-    total: 207,
+    publicTransit: 68,
     commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
     commuteTime: 10 
 };
