@@ -24,6 +24,9 @@ export const changeStep = (current, toStep) => {
     return (dispatch, getState) => {
         const questions = getState().questions.questions;
         ids.forEach(id => {
+            if(id === -1) {
+                return;
+            }
             const question = getQuestionFromId(questions, id);
             question.errorText = question.errorText ? question.errorText : 'Please answer the question correctly';
             dispatch(updateQuestionsV2(question));

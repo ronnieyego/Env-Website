@@ -9,17 +9,17 @@ export default () => {
             const questions = store.questions.questions;
             const errorQuestions = [];
 
-            const doesDrive = getAnswerFromId(ids.doesDrive);
-            const carSize = getAnswerFromId(ids.carSize);
-            const carRuggedness = getAnswerFromId(ids.carRuggedness);
-            const carMpg = getAnswerFromId(ids.carMpg);
-            const milesDrivenMonth = getAnswerFromId(ids.milesDrivenMonth);
-            const carFuel = getAnswerFromId(ids.carFuel);
-            const carpoolFrequency = getAnswerFromId(ids.carpoolFrequency);
-            const doesPublicTransit = getAnswerFromId(ids.doesPublicTransit);
-            const milesBusMonth = getAnswerFromId(ids.milesBusMonth);
-            const milesTrainMonth = getAnswerFromId(ids.milesTrainMonth);
-            const milesFlyYear = getAnswerFromId(ids.milesFlyYear);
+            const doesDrive = getAnswerFromId(questions, ids.doesDrive);
+            const carSize = getAnswerFromId(questions, ids.carSize);
+            const carRuggedness = getAnswerFromId(questions, ids.carRuggedness);
+            const carMpg = getAnswerFromId(questions, ids.carMpg);
+            const milesDrivenMonth = getAnswerFromId(questions, ids.milesDrivenMonth);
+            const carFuel = getAnswerFromId(questions, ids.carFuel);
+            const carpoolFrequency = getAnswerFromId(questions, ids.carpoolFrequency);
+            const doesPublicTransit = getAnswerFromId(questions, ids.doesPublicTransit);
+            const milesBusMonth = getAnswerFromId(questions, ids.milesBusMonth);
+            const milesTrainMonth = getAnswerFromId(questions, ids.milesTrainMonth);
+            const milesFlyYear = getAnswerFromId(questions, ids.milesFlyYear);
 
             if (!isBoolean(doesDrive)) {
                 errorQuestions.push(ids.doesDrive);
@@ -84,7 +84,7 @@ export default () => {
             }
         } catch(e) {
             return {
-                valid: true,
+                valid: false,
                 errorQuestions: [-1]
             }
         }

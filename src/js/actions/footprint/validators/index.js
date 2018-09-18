@@ -4,3 +4,4 @@ export { default as HomeTemperatureValidator } from './validate-home-temperature
 export { default as TransportationValidator } from './validate-transportation-form';
 export { default as FoodValidator } from './validate-food-form';
 export { default as StuffValidator } from './validate-stuff-form';
+export { default as NoOpValidator } from './no-op-validator'; // Used for interface.  Returns valid

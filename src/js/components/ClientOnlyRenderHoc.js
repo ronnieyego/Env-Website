@@ -13,7 +13,7 @@ export default class ClientRenderOnlyHoc extends React.Component {
         }
     }
 
-    componentDidMount(event, index, value) {
+    componentDidMount() {
         this.setState({isClientSide: true});
     };
 

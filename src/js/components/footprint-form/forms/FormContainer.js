@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import { STEPS } from './utils';
 import FORMS from './generic-form-data';
+import IntroStep from './IntroStep';
 import FormTabs from './FormTabs';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
 import FoodForm from './FoodForm';
 import GenericForm from './GenericForm';
-import StuffForm from './StuffForm';
 import { changeStep } from '../../../actions/footprint/form-actions';
 
 import submitV2 from '../../../actions/footprint/submit';
@@ -21,7 +21,7 @@ import {
   TransportationIcon
 } from '../../../assets/icons';
 
-const MAX_STEPS = 6;
+const MAX_STEPS = 7;
 const TAB_ICON_SIZE = '32px';
 const TOP_TABS = [
   {step: STEPS.home, label: 'Household', icon: <HouseIcon size={TAB_ICON_SIZE} />},
@@ -72,6 +72,9 @@ export default class FormContainer extends React.Component {
 
     let form;
     switch(this.props.step) {
+      case STEPS.intro: 
+        form = (<IntroStep />);
+        break;
       case STEPS.home || STEPS.homeActivities || STEPS.heatingCooling: 
         form = (<HouseholdForm questions={this.props.questions} step={this.props.step} dispatch={this.props.dispatch} />);
         break;

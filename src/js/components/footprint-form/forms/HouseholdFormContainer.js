@@ -1,27 +1,22 @@
 import React from "react";
 import { array, number, func } from 'prop-types';
-import ids from '../../../utils/ids/index';
 
 import { STEPS } from './utils';
 import FormTabs from './FormTabs';
-import HouseholdFormHome from './HouseholdFormHome';
-import HouseholdFormActivities from './HouseholdFormActivites';
-import HouseholdFormTemperature from './HouseholdFormTemperature';
-
 import GenericForm from './GenericForm';
 import FORMS from './generic-form-data';
-
 import { 
     CoolingIcon,
     LightbulbIcon,
     HouseIcon,
   } from '../../../assets/icons';
 
+const ICON_SIZE = '24px';
 
 const SUB_TABs = [
-    {step: STEPS.home, label: 'Home', icon: <HouseIcon size={'24px'} /> },
-    {step: STEPS.homeActivities, label: 'Household Activities', icon: <LightbulbIcon size={'24px'} /> },
-    {step: STEPS.heatingCooling, label: 'Heating and Cooling', icon: <CoolingIcon size={'24px'} /> },
+    {step: STEPS.home, label: 'Home', icon: <HouseIcon size={ICON_SIZE} /> },
+    {step: STEPS.homeActivities, label: 'Household Activities', icon: <LightbulbIcon size={ICON_SIZE} /> },
+    {step: STEPS.heatingCooling, label: 'Heating and Cooling', icon: <CoolingIcon size={ICON_SIZE} /> },
 ];
 
 export default class Household extends React.Component {

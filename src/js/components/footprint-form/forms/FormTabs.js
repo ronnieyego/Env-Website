@@ -22,6 +22,8 @@ export default class FormTabs extends React.Component {
 
     getTabFromStep(step) {
         switch(step) {
+            case STEPS.intro:
+                return '';
             case STEPS.home:
                 return 'Home';
             case STEPS.homeActivities:

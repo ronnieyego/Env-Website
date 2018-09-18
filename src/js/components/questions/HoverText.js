@@ -16,8 +16,8 @@ export default class BooleanQuestion extends React.Component {
                 <div className="question-help" data-tip data-for={`question-hover-${this.props.id}`}>
                     <i className="material-icons question-icon">help</i> 
                 </div>
-                <ReactTooltip id={`question-hover-${this.props.id}`} >
-                    <p className="question-hover">{this.props.text}</p>
+                <ReactTooltip id={`question-hover-${this.props.id || id}`} >
+                    <span className="question-hover">{this.props.text}</span>
                 </ReactTooltip>
             </span>
 		) : (

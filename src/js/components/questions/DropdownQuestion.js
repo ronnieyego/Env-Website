@@ -42,12 +42,14 @@ export default class DropdownQuestion extends React.Component {
         
         return (
             <div className="question">
-                <div>
-                    <span className="question-name-container">
-                        <div className="question-name" style={{marginLeft}}>{formatName(question.name, this.props.question.formType)}</div>
-                        <HoverText id={this.props.question.id} text={this.props.question.hoverText} />
-                    </span>
-                </div>
+                {!this.props.isMobile && (
+                    <div>
+                        <span className="question-name-container">
+                            <div className="question-name" style={{marginLeft}}>{formatName(question.name, this.props.question.formType)}</div>
+                            <HoverText id={this.props.question.id} text={this.props.question.hoverText} />
+                        </span>
+                    </div>
+                )}
                 {question.subtext ? <p className="question-subtext">{question.subtext}</p> : ''}
                 <SelectField
                     key={question.id.toString()}

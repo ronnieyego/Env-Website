@@ -24,7 +24,7 @@
   background-color: white;
 }
 .footprint-form-subtext {
-  margin: 10px 10p;
+  margin: 10px 10px;
   font-size: 18px;
   text-align: left;
 }
@@ -570,6 +570,8 @@ input[type="checkbox"] {
   color: mediumpurple;
 }
 .question-hover-container {
+  display: inline-flex;
+  margin-right: 8px;
   z-index: 3;
 }
 .question-boolean {

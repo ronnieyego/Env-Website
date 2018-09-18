@@ -1,6 +1,7 @@
 import React from "react";
 import Question from '../../questions/QuestionHoc';
-import { 
+import {
+    NoOpValidator,
     HomeFormValidator,
     HomeUtilitiesValidator,
     HomeTemperatureValidator,
@@ -9,21 +10,20 @@ import {
     StuffValidator
 } from '../../../actions/footprint/validators/index';
 
-
-
-
-
 export const STEPS = {
-    home: 1,
-    homeActivities: 2,
-    heatingCooling: 3,
-    transportation: 4,
-    food: 5,
-    stuff: 6
+    intro: 1,
+    home: 2,
+    homeActivities: 3,
+    heatingCooling: 4,
+    transportation: 5,
+    food: 6,
+    stuff: 7
 };
 
 export const getValidatorFromStep = step => {
     switch(step) {
+        case STEPS.intro:
+            return NoOpValidator;
         case STEPS.home:
             return HomeFormValidator;
         case STEPS.homeActivities:

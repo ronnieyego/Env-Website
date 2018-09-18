@@ -19,8 +19,6 @@ const homeTypeAdjuster = {
 };
 
 
-
-
 // https://www.linkedin.com/pulse/how-long-does-modern-concrete-building-last-amit-enterprises-housing/
 const homeLife = {
     House: 100, // A house will last for ~100 years

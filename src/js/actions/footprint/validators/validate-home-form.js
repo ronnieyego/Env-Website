@@ -43,7 +43,7 @@ export default () => {
             }
         } catch(e) {
             return {
-                valid: true,
+                valid: false,
                 errorQuestions: [-1]
             }
         }

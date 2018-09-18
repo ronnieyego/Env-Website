@@ -1,14 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
 import FootprintForm from '../components/footprint-form/forms/FormContainer';
 
-@connect(store => {
-	return {
-		displayAnswers: store.footprintFormAnswers.displayAnswers,
-	};
-})
 export default class FootprintCalcPage extends React.Component {
 	render() {
 		return (
@@ -17,7 +11,7 @@ export default class FootprintCalcPage extends React.Component {
 				<div className="footprint">
 					<h1 id="footprint-finder-page-title"><b>What's my footprint?</b></h1>
 					<div style={{textAlign: 'left'}}>
-						<FootprintForm />;
+						<FootprintForm />
 					</div>
 				</div>
 			</div>
