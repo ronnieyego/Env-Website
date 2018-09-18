@@ -73,7 +73,7 @@ export default class HowMuchCo2 extends React.Component {
         const facts = this.getLikelyFacts(co2, excludeArray);
         const display = facts.map(fact => this.renderFact(fact))
 		return (
-            <span>
+            <span className="how-much-co2-container">
                 <div style={spanStyle} data-tip data-for='howMuchCo2'>{co2.toLocaleString()} <i className="material-icons" style={iconSize}>help</i> </div>
                 <ReactTooltip place="bottom" id='howMuchCo2'>
                     <div key={`howMuchCO2-${co2}`}>

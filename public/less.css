@@ -656,6 +656,9 @@ input[type="checkbox"] {
   justify-content: center;
   margin-bottom: 10px;
 }
+.how-much-co2-container {
+  display: inline-flex;
+}
 .how-much-co2-fact {
   max-width: 450px;
 }
