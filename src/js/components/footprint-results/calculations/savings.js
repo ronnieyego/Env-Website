@@ -11,7 +11,15 @@ import getStuffResults from '../../footprint-form/calculations/stuff';
 import getClothesResults from '../../footprint-form/calculations/clothes';
 import getFurnitureResults from '../../footprint-form/calculations/furniture';
 
+import { servingFacts } from '../../footprint-form/data/food';
+
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
+
+// TODO.  
+  // 1.  Add get a roomate.
+  // 2.  Improve insulation
+  // 3.  Double payne windows?
+
 
 const betterDriving = res => {
     const monthlyCar = res.transportation.car;
@@ -63,18 +71,40 @@ const moveToWa = res => {
     return Math.round(currentApplianceCo2 - waApplianceCo2);
 };
 
-// Update these 2 to up calories of veggies (and dairy/cheese)
 const getVegetarianSavings = res => {
-    const foodCo2 = res.food.co2;
-    const {total, vegetables, dairy, cheese } = foodCo2;
-    return total - vegetables - dairy - cheese;
+    // get total meat calories. 
+    // get calories back from grain
+    const { beef, pork, chicken, seafood } = res.food.calories;
+    const meatCalories = beef + pork + chicken + seafood;
+    const totalSavings = (res.food.co2.beef + res.food.co2.pork + res.food.co2.chicken + res.food.co2.seafood);
+    const extraGrainServings = servingFacts['grain']['calories'] / meatCalories;
+    const co2FromMoreGrain = servingFacts['grain']['co2'] * extraGrainServings;
+    return Math.round((totalSavings - co2FromMoreGrain) * 30);
 };
 
 const getVeganSavings = res => {
-    const foodCo2 = res.food.co2;
-    const {total, vegetables } = foodCo2;
-    return total - vegetables;
+    // get total meat + dairy calories. 
+    // get calories back from grain
+    const { beef, pork, chicken, seafood, cheese, dairy } = res.food.calories;
+    const meatDairyCalories = beef + pork + chicken + seafood + cheese + dairy;
+    const totalSavings = (res.food.co2.beef + res.food.co2.pork + res.food.co2.chicken + res.food.co2.seafood +  res.food.co2.dairy +  res.food.co2.cheese);
+    const extraGrainServings = servingFacts['grain']['calories'] / meatDairyCalories;
+    const co2FromMoreGrain = servingFacts['grain']['co2'] * extraGrainServings;
+    return Math.round((totalSavings - co2FromMoreGrain) * 30);
 };
+
+const meatlessMondaySavings = res => {
+    // get total meat calories.  Divide meat CO2 by 1/7
+    // get calories back from grain
+    const { beef, pork, chicken, seafood } = res.food.calories;
+    const meatCalories = beef + pork + chicken + seafood;
+    const totalSavings = (res.food.co2.beef + res.food.co2.pork + res.food.co2.chicken + res.food.co2.seafood) / 7;
+    const extraGrainServings = servingFacts['grain']['calories'] / meatCalories;
+    const co2FromMoreGrain = servingFacts['grain']['co2'] * extraGrainServings;
+    return Math.round((totalSavings - co2FromMoreGrain) * 30);
+};
+
+
 
 export default (res, questions) => {
     const answers = getAnswers(questions);
@@ -83,14 +113,12 @@ export default (res, questions) => {
     const results = [
         {
             display: 'Drive more efficiently',
-            card: true,
             amount: betterDriving(res),
             subtext: 'This can be done by not staying under 65 mph, slowly accelerating, and making sure you have fully inflated tires.',
             learnMore: 'https://www.fueleconomy.gov/feg/driveHabits.jsp'
         },
         {
             display: 'Switch to an electric car',
-            card: true,
             amount: electricCar(res, answers).amount,
             subtext: electricCar(res, answers).subtext
         },
@@ -103,18 +131,19 @@ export default (res, questions) => {
         },
         {
             display: 'Go vegan',
-            card: true,
             amount: getVeganSavings(res)
         },
         {
             display: 'Go vegetarian',
-            card: true,
             amount: getVegetarianSavings(res)
+        },
+        {
+            display: 'Do meatless Monday',
+            amount: meatlessMondaySavings(res)
         },
         {
             display: 'Move to Washington',
             subtext: 'WA produces most of its electricity from hydroelectric',
-            card: true,
             amount: moveToWa(res)
         }
     ];

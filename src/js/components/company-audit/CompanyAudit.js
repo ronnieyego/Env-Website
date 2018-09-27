@@ -5,8 +5,10 @@ import HowMuchCo2 from '../how-much-co2/HowMuchCo2';
 import{ PORCH, moveToAtlanta, carpoolProgram, bothellOffice, westSeattle } from '../../data/company-audit/porch-data';
 import{ SPECTRALUX } from '../../data/company-audit/spectralux';
 import{ OMNIDIAN } from '../../data/company-audit/omnidian';
+import { HINES_AMAZON } from "../../data/company-audit/hines-amazon";
 
 import BarChart from '../bar-chart/BarChartHoc';
+
 
 // TODO:  If this ever becomes a thing, make a HOC and reducer for this.
 export default class CompanyAudit extends React.Component {
@@ -39,6 +41,9 @@ export default class CompanyAudit extends React.Component {
         }  else if (value === 'Omnidian') {
             data = OMNIDIAN;
             selected = 'Omnidian';
+        } else if (value === 'Hines') {
+            data = HINES_AMAZON;
+            selected = 'Hines';
         } else {
             data = PORCH;
             selected = 'Current Porch';
@@ -76,7 +81,7 @@ export default class CompanyAudit extends React.Component {
             { name: 'Plane', Amount: res.transport.planeCo2 },
         ];
 
-        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office', 'Spectralux', 'Omnidian'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
+        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office', 'Spectralux', 'Omnidian', 'Hines'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
 
         return (
             <div className="costs">

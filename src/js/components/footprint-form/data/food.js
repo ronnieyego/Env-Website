@@ -1,7 +1,5 @@
 import ids from '../../../utils/ids/index';
 
-const bacon = 'lol'
-
 export const foodAnswerServings = {
     beef: {
         [ids.never]: 0,

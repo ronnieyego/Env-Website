@@ -1,4 +1,10 @@
 import ids from '../../utils/ids/index';
+import amounts from '../../data/how-much-co2/index';
+
+// If its a simple value then its listed here.
+// I am trying to move things that take calculations to the data folder.  The id is the mapping
+// This way if I update any of the costs, I get it for free here.
+// This is a WIP.  Most things are hardcoded here.
 
 export default [
     {
@@ -47,11 +53,11 @@ export default [
         amount: 28
     },
     {
-        id: ids.petHamster ,
+        id: ids.petHamster,
         name: 'A hamster',
         description: 'A vegetarian hamster will live for 3 years.',
         source: '/costs/hamster',
-        amount: 42
+        amount: amounts[ids.petHamster]
     },
     {
         id: ids.treeSequester,
@@ -131,7 +137,7 @@ export default [
         name: 'Small dog',
         description: 'This is the lifetime CO2 of a small dog.  Most of it comes from a dog\'s food.',
         source: '/costs/dog',
-        amount: 3482
+        amount: amounts[ids.petSmallDog]
     },
     {
         id: ids.bigScreenTV ,
@@ -145,7 +151,7 @@ export default [
         name: 'A dog',
         description: 'This is the lifetime CO2 of a mid-sized dog.  Most of it comes from a dog\'s food.',
         source: '/costs/dog',
-        amount: 7840
+        amount: amounts[ids.petDog]
     },
     {
         id: ids.driveTenThousandMiles ,
@@ -158,7 +164,7 @@ export default [
         name: 'A cat',
         description: 'This is the lifetime CO2 of a cat.  Most of it comes from a cat\'s food which is 95% meat.',
         source: '/costs/cat',
-        amount: 9264
+        amount: amounts[ids.petCat]
     },
     {
         id: ids.powerTwitterOneHour ,
@@ -172,7 +178,7 @@ export default [
         name: 'A turtle',
         description: 'Pet turtles live for ~40 years.  Most of the CO2 comes from electricity for its tank.',
         source: '/costs/turtle',
-        amount: 14812
+        amount: amounts[ids.petTurtle]
     },
     {
         id: ids.cementDriveway ,
@@ -186,7 +192,7 @@ export default [
         name: 'Big dog',
         description: 'This is the lifetime CO2 of a large dog.  Most of it comes from a dog\'s food.',
         source: '/costs/dog',
-        amount: 17620
+        amount: amounts[ids.petBigDog]
     },
     {
         id: ids.raiseOneCow ,

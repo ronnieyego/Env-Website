@@ -94,25 +94,39 @@ const carpoolCommute = {
 };
 
 const bothellOfficeCommute = {
-    driveSolo: 152,
-    carpool: 0,
-    publicTransit: 53,
-    commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
-    commuteTime: 20 
+    transport: {
+        driveSolo: 152,
+        carpool: 0,
+        publicTransit: 53,
+        commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+        commuteTime: 20 
+    },
+    building: {
+        sqft: porchData.building.sqft * 2,
+        monthsInBuilding: 30
+    }
+
+    
 };
 
 // Lot of carpooling
 const westSeattleCommute = {
-    driveSolo: 107,
-    carpool: 0,
-    publicTransit: 68,
-    commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
-    commuteTime: 10 
+    transport: {
+        driveSolo: 107,
+        carpool: 0,
+        publicTransit: 68,
+        commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+        commuteTime: 10
+    },
+    building: {
+        sqft: porchData.building.sqft * 2,
+        monthsInBuilding: 30
+    }
 };
 
 export const PORCH = getCompanyCo2(porchData);
 export const carpoolProgram = getCompanyCo2({ ...porchData, transport: carpoolCommute });
 export const moveToAtlanta = getCompanyCo2({ ...porchData, transport: atlantaCommute, electricity: atlantaElectricity });
-export const bothellOffice = getCompanyCo2({ ...porchData, transport: bothellOfficeCommute });
-export const westSeattle = getCompanyCo2({ ...porchData, transport: westSeattleCommute });
+export const bothellOffice = getCompanyCo2({ ...porchData, transport: bothellOfficeCommute.transport, building: bothellOfficeCommute.building });
+export const westSeattle = getCompanyCo2({ ...porchData, transport: westSeattleCommute.transport, building: westSeattleCommute.building });
 

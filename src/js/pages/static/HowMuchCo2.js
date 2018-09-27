@@ -12,13 +12,10 @@ import {
   } from 'material-ui/Table';
 import Divider from 'material-ui/Divider'
 
-import Header from '../../components/header/HeaderHoc';
 import howMuchCo2Data from '../../components/how-much-co2/how-much-co2-data';
 import CostsFooter from '../../components/costs/CostsFooter';
 
 const autoCompleteData = howMuchCo2Data.map(data => data.name);
-
-
 
 
 @connect((store, props) => {

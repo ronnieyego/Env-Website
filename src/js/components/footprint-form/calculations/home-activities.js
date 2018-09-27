@@ -39,6 +39,7 @@ const checkIfAllFieldsPresent = ({ state, hoursHome, hoursTv, hoursComputer, coo
     isThere(homeSqft, 'homeSqft required');
 }
 
+// TODO:  Add housemates. Should reduce some number based on housemates
 // Calculates everything on a daily basis
 export default ({
     state,

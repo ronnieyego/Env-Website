@@ -24,7 +24,7 @@ import ids from '../../../utils/ids/index';
 
 */
 
-
+// TODO:  Add housemates. Should reduce some number based on housemates
 const HOURS_OF_HEATING = 16; // I assume you're gone 8 hours a day and leave the heat off.
 
 const convertKwhToCo2 = (state, kwh) => {
