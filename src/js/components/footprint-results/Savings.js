@@ -14,6 +14,21 @@ const impactLevel = 100;
 	};
 })
 export default class Compare extends React.Component {
+
+    makeCard(saving, color) {
+       return (
+        <SavingsCard 
+                color={color}
+                amount={saving.amount}
+                display={saving.display}
+                subtext={saving.subtext}
+                learnMore={saving.learnMore}
+                key={saving.display}
+                category={this.props.category}
+            />
+        );
+    }
+
 	render() {
         const results = this.props.results;
         results.userState = this.props.userState;
@@ -22,36 +37,14 @@ export default class Compare extends React.Component {
             return true;//saving.amount !== 0; // Add filter logic here maybe based on index later?
         });
 
-        let useful = savings.filter(card => {
-            return card.amount >= impactLevel;
-        });
-        let notUseful = savings.filter(card => {
-            return card.amount < impactLevel;
-        });
-
-        useful = useful.map(saving => {
-            return <SavingsCard 
-                color={'lightgreen'}
-                amount={saving.amount}
-                display={saving.display}
-                subtext={saving.subtext}
-                learnMore={saving.learnMore}
-                key={saving.display}
-                category={this.props.category}
-            />
-        });
-
-        notUseful = notUseful.map(saving => {
-            return <SavingsCard 
-                color={'lightpink'}
-                amount={saving.amount} 
-                display={saving.display} 
-                subtext={saving.subtext} 
-                learnMore={saving.learnMore}
-                key={saving.display}
-                category={this.props.category}
-            />
-        });
+        const useful = savings
+            .filter(card => card.amount >= impactLevel)
+            .sort((a,b) => a.amount < b.amount)
+            .map(saving => this.makeCard(saving, 'lightgreen'));
+        const notUseful = savings
+            .filter(card => card.amount < impactLevel)
+            .sort((a,b) => a.amount < b.amount)
+            .map(saving => this.makeCard(saving, 'lightyellow'));
 
 		return (
             <div className="savings-container">
@@ -74,7 +67,6 @@ export default class Compare extends React.Component {
                             <div>Mobile</div>
                         )
                     }
-                    
             </div>
 		);
 	}

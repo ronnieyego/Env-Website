@@ -1,3 +1,4 @@
+import ids from '../../../utils/ids/index';
 // Heating
 export const naturalGasCo2 = 0.117; // Per cubic foot
 export const btusLostPerSqft = 8;  // {Per hour}
@@ -5,10 +6,10 @@ export const btusToHeat = 0.6; // Btus to heat 1 sqft 1 degree
 export const btusPerNaturalGas = 1030; // Btus per cubic foot of natural gas
 export const btusLostByInsulation = {
     // Percent increase in heat loss
-    'Extremely Insulated': 0.66,
-    'Reasonably Insulated': 1,
-    'Somewhat Insulated': 1.33,
-    'Poorly Insulated': 1.66
+    [ids.extremelyInsulated]: 0.66,
+    [ids.reasonableInsulated]: 1,
+    [ids.somewhatInsulated]: 1.33,
+    [ids.poorlyInsulated]: 1.66
 };
 // http://cadetheat.com/blog/right-wattage-heater/
 export const radiatorWattageBySqft = 8.5;

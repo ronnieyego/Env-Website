@@ -75,19 +75,19 @@ const FIXTURE_DATA = {
         done();
     });
     it('should calculate Radiant Flooring ', done => {
-        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Radiant Flooring'};
+        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Radiant floors'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
         expect(totalCo2).to.equal(16);
         done();
     });
     it('should calculate Heat Pump', done => {
-        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat Pump'};
+        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat pump'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
         expect(totalCo2).to.equal(29);
         done();
     });
     it('should calculate Heat Pump in a big house', done => {
-        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat Pump', houseSqft: 3000};
+        const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat pump', houseSqft: 3000};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
         expect(totalCo2).to.equal(58);
         done();

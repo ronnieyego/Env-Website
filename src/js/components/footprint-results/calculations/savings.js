@@ -1,4 +1,7 @@
+import ids from '../../../utils/ids/index';
 import getAnswers from '../../../actions/footprint/submit-get-all-answers';
+import getResults from '../../../actions/footprint/submit-with-all-answers';
+import { getAnswerFromId } from '../../questions/utils';
 
 import getFoodResults from '../../footprint-form/calculations/food';
 import getHomeResults from '../../footprint-form/calculations/home';
@@ -17,14 +20,72 @@ import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy
 
 // TODO.  
   // 1.  Add get a roomate.
-  // 2.  Improve insulation
   // 3.  Double payne windows?
+  // 4.  Buy clothes second hand
+  // 5.  Move to a smaller apartment
 
 
 const betterDriving = res => {
     const monthlyCar = res.transportation.car;
     const percentImprovement =  1.15;
     return  ((monthlyCar * percentImprovement) - monthlyCar).toFixed(1);
+};
+
+const smallerHome = (res, answers) => {
+    const updatedSqft = answers.homeSqft * .75;
+    // gotta do homeSqft and houseSqft cause I failed to name them the same for home vs heating/cooling calcs ><
+    const updatedAnswers = { ...answers, homeSqft: updatedSqft, houseSqft: updatedSqft };
+    const newRes = getResults(updatedAnswers);
+    const savings = res.monthlyCo2 - newRes.monthlyCo2;
+    return {
+        display: 'Move to a smaller home',
+        amount: savings,
+        subtext: 'Downsize to a home that\'s 25% smaller.  The savings come mostly from reduced heating and cooling.'
+    };
+}
+
+const improvedInsulation = (res, questions, answers) => {
+    const insulation = getAnswerFromId(questions, ids.homeInsulation);
+    if(insulation === ids.extremelyInsulated) {
+        return {
+            display: 'Improve insulation',
+            amount: 0,
+            subtext: 'You already have great insulation'
+        }
+    }
+    let improvedInsulation;
+    if(insulation === ids.reasonableInsulated) {
+        improvedInsulation = ids.extremelyInsulated;
+    } else if(insulation === ids.somewhatInsulated) {
+        improvedInsulation = ids.reasonableInsulated;
+    } else if(insulation === ids.poorlyInsulated) {
+        improvedInsulation = ids.somewhatInsulated;
+    };
+
+    const updatedAnswers = { ...answers, insulationType: improvedInsulation };
+    const updatedHeating = getHomeHeatingResults(updatedAnswers);
+    const updatedCooling = getHomeCoolingResults(updatedAnswers);
+    const heatingSavings = res.heating.monthlyCo2 - updatedHeating.monthlyCo2;
+    const coolingSavings = res.cooling.monthlyCo2 - updatedCooling.monthlyCo2;
+    const totalSavings = heatingSavings + coolingSavings;
+    const totalCostSavings = Math.round(totalSavings / (res.cooling.monthlyCo2 + res.heating.monthlyCo2) * 100);
+    
+    return {
+        display: 'Improve insulation around your home.',
+        amount: totalSavings,
+        subtext: `By reducing heat loss by 33%, you'll reduce heating CO2 and save up to ${totalCostSavings}% on your utilities bill!`
+    };
+};
+
+const bikeToWorkOneDay = res => {
+    const monthlyCommute = res.transportation.car + res.transportation.bus +res.transportation.car;
+    const percentDailyCommute = 0.114;
+    const savings = monthlyCommute * percentDailyCommute;
+    return {
+        display: 'Bike to work 1 day a week',
+        amount: savings,
+        subtext: 'The assumes your commute is ~80% of your total driving.'
+    };
 };
 
 const electricCar = (res, answers) => {
@@ -128,6 +189,15 @@ export default (res, questions) => {
         },
         {
             ...oneDegreeCoolerResults
+        },
+        {
+            ...bikeToWorkOneDay(res)
+        },
+        {
+            ...improvedInsulation(res, questions, answers)
+        },
+        {
+            ...smallerHome(res, answers)
         },
         {
             display: 'Go vegan',
