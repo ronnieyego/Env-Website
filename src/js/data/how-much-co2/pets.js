@@ -74,12 +74,20 @@ const getTurtleCo2 = () => {
     return Math.round(co2FoodPerLife + poopCo2PerLife + lifetimeElectricityCo2);
 }
 
+const smallDog = getDogLife('0-10 pounds')
+const petDog = getDogLife('10-25 pounds');
+const petBigDog = getDogLife('50-75 pounds');
+const petCat = getCatLife();
+const petHamster = getHamsterLife();
+const petGecko = getGeckoLife();
+const petTurtle = getTurtleCo2();
+
 module.exports = {
-    [ids.petSmallDog]: getDogLife('0-10 pounds'),
-    [ids.petDog]: getDogLife('10-25 pounds'),
-    [ids.petBigDog]: getDogLife('50-75 pounds'),
-    [ids.petCat]: getCatLife(),
-    [ids.petHamster]: getHamsterLife(),
-    [ids.petGecko]: getGeckoLife(),
-    [ids.petTurtle]: getTurtleCo2()
+    [ids.petSmallDog]: smallDog,
+    [ids.petDog]: petDog,
+    [ids.petBigDog]: petBigDog,
+    [ids.petCat]: petCat,
+    [ids.petHamster]: petHamster,
+    [ids.petGecko]: petGecko,
+    [ids.petTurtle]: petTurtle
 };

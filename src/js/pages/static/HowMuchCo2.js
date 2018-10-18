@@ -83,7 +83,8 @@ export default class HowMuchCO2Page extends React.Component {
         };
         // Not too happy with pasing in styles as an object but its the only way to give the 
         // method access to these objects.
-        const tableRows = this.getTableRows(howMuchCo2Data, styles);
+        const sortedData = howMuchCo2Data.sort((a, b) => a.amount - b.amount);
+        const tableRows = this.getTableRows(sortedData, styles);
 
 		return (
             <div className="static-page">

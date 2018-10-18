@@ -1,4 +1,4 @@
-// 1543 MAX
+// 1546 MAX
 
 export default {
     chargeIpad: 1500,
@@ -44,5 +44,8 @@ export default {
     twelveOzSteak: 1538,
     midsizeCarCreation: 1542,
     largeTruckCreation: 1543,
+    oneMileRoad: 1544,
+    allUsRoads: 1545,
+    oneMileHighway: 1546,
 
 };

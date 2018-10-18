@@ -276,6 +276,27 @@ export default [
         amount: 3172213
     },
     {
+        id: ids.oneMileRoad ,
+        name: 'One mile of road',
+        description: 'This come from the concrete and asphalt used to pave a standard 2 lane road (24\' wide).',
+        source: '',
+        amount: amounts[ids.oneMileRoad]
+    },
+    {
+        id: ids.allUsRoads ,
+        name: 'All paved roads in the US',
+        description: 'The US has about 3 million miles of paved road (1 million unpaved).',
+        source: '',
+        amount: amounts[ids.allUsRoads]
+    },
+    {
+        id: ids.oneMileHighway ,
+        name: 'One mile of highway',
+        description: 'The US has about 45,000 miles of highway.  Each is about 78 feet wide.',
+        source: '',
+        amount: amounts[ids.oneMileHighway]
+    },
+    {
         id: ids.hpFootprintYear,
         name: 'Running Hewlett Packard\'s (HP) in 2016',
         description: '45% came from creating products, 53% is from using and disposing products, and 2% comes from operations',
