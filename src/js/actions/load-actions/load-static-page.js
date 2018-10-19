@@ -16,7 +16,9 @@ import staticPages from '../../pages/static/pages-index';
 import Static from '../../pages/Static';
 
 export default (req, res) => {
-    const page = req.params.page.toLowerCase().replace(/-/g, '');
+    console.log('REQ IS', req.originalUrl.replace('/', ''));
+    // Get from path param or from page url
+    const page = req.params.page ? req.params.page.toLowerCase().replace(/-/g, '') : req.originalUrl.replace('/', '');
     const staticPagesKeys = Object.keys(staticPages);
     if(staticPagesKeys.indexOf(page) === -1) {
         return res.status(400).send({ message: 'Page not found :('});

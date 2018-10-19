@@ -65,6 +65,7 @@ app.get('/footprint/form/:id', loadFootprintResultsPage);
 
 app.get('/static/:page', loadStaticPage);
 
+app.get(`/costs`, loadStaticPage); 
 app.get(`/costs/:page`, loadCostsPage); 
 
 app.get(`/test`, loadTestPage); 

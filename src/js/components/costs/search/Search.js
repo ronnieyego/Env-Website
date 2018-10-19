@@ -16,7 +16,6 @@ const onNewRequest = (chosenRequest, index) => {
 
 export default class CostsSearch extends React.Component {
 
-
 	render() {
 		return (
             <div className="costs">
