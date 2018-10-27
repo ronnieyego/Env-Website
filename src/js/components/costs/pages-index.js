@@ -1,5 +1,8 @@
 import React from 'react';
 
+import GenericCostsPage from './GenericCostsPage';
+import steel from './steel/steel-json';
+
 import BbqHoc from './bbq/BbqHoc';
 import BitcoinHoc from './bitcoin/BitcoinHoc';
 import BooksHoc from './books/BooksHoc';
@@ -38,6 +41,7 @@ export default {
     package: <PackageHoc />,
     pet: <PetHoc />,
     steak: <SteakHoc />,
+    steel: <GenericCostsPage {...steel} />,
     tablet: <ComputerHoc />,
     tv: <TvHoc />,
 };

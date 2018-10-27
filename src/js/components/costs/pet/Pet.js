@@ -8,7 +8,7 @@ import ids from '../../../utils/ids/index';
 import { resolveArticle } from '../../../utils/article-fixer';
 import UserStateDropdown from '../../UserStateDropdown';
 
-export default class House extends React.Component {
+export default class Pet extends React.Component {
 
     static propTypes = {
         questions: array.isRequired,
