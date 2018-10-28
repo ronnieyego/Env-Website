@@ -79,7 +79,7 @@ export default class Compare extends React.Component {
             {name: 'Home', You: homeSum, 'Average American': aaHomeSum},
             {name: 'Food', You: parseInt(res.food.monthlyCo2), 'Average American': parseInt(aa.food.monthlyCo2)},
             {name: 'Transportation', You: parseInt(res.transportation.totalCo2), 'Average American': parseInt(aa.transportation.totalCo2)},
-            {name: 'Possessions', You: parseInt(res.stuff.monthlyCo2), 'Average American': parseInt(aa.stuff.monthlyCo2)}
+            {name: 'Stuff', You: parseInt(res.stuff.monthlyCo2), 'Average American': parseInt(aa.stuff.monthlyCo2)}
         ];
 
         const domainMax = Math.max(5000, monthlyCo2, aaMonthlyCo2);

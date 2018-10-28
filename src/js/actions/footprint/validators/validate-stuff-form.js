@@ -11,7 +11,7 @@ export default () => {
 
             const totalHouseFurniture  = getAnswerFromId(questions, ids.totalHouseFurniture);
             const totalWardrobe  = getAnswerFromId(questions, ids.totalWardrobe);
-            const allPets  = getAnswerFromId(questions, ids.allPets);
+            // const allPets  = getAnswerFromId(questions, ids.allPets);
             const houseClutter  = getAnswerFromId(questions, ids.houseClutter);
 
             if (!isInArray(totalHouseFurniture, [ids.veryLittleFurniture, ids.spareslyFurnished, ids.allTheEssentials, ids.crampedHome])) {
@@ -22,9 +22,9 @@ export default () => {
                 errorQuestions.push(ids.totalWardrobe);
             }
 
-            if (!allPets) { // Not sure how to handle this one.  I guess if the question exists?  Maybe I should check if there are questions that they have the correct answer??
-                errorQuestions.push(ids.allPets);
-            }
+            // if (!allPets) { // Not sure how to handle this one.  I guess if the question exists?  Maybe I should check if there are questions that they have the correct answer??
+            //     errorQuestions.push(ids.allPets);
+            // }
 
             if (!isInArray(houseClutter, [ids.practicallyEmpty, ids.quiteUncluttered, ids.reasonablyFull, ids.extremelyFull, ids.noRoom])) {
                 errorQuestions.push(ids.houseClutter);
