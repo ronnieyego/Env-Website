@@ -11,21 +11,21 @@ import { convertLifetimeToMonthly } from './utils';
 import isThere from '../../../utils/is-there';
 import ids from '../../../utils/ids/index';
 
-const getShirtCo2 = (shirts, shirtMaterial) => {
+export const getShirtCo2 = (shirts, shirtMaterial) => {
     const shirtWeight = weightOfClothes.shirt;
     const co2PerShirt = co2PerPoundOfFabric[shirtMaterial] * shirtWeight;
     const totalCo2 = co2PerShirt * shirts;
     return totalCo2;
 }
 
-const getJacketCo2 = (jackets, jacketMaterial) => {
+export const getJacketCo2 = (jackets, jacketMaterial) => {
     const jacketWeight = weightOfClothes.jacket;
     const co2PerJacket = co2PerPoundOfFabric[jacketMaterial] * jacketWeight;
     const totalCo2 = co2PerJacket * jackets;
     return totalCo2;
 }
 
-const getPantsCo2 = (pants, pantMaterial) => {
+export const getPantsCo2 = (pants, pantMaterial) => {
     const pantsWeight = pantsMaterial[pantMaterial].weight;
     const pantsCo2 = pantsMaterial[pantMaterial].co2;
     const co2PerPant = pantsCo2 * pantsWeight;
@@ -33,14 +33,14 @@ const getPantsCo2 = (pants, pantMaterial) => {
     return totalPantCo2;
 }
 
-const getShortsCo2 = (shorts, pantMaterial) => {
+export const getShortsCo2 = (shorts, pantMaterial) => {
     const shortWeight = weightOfClothes.shorts;
     const co2PerShort = pantsMaterial[pantMaterial].co2 * shortWeight;
     const totalShortCo2 = co2PerShort * shorts;
     return totalShortCo2;
 }
 
-const getShoeCo2 = (shoes, shoeType) => {
+export const getShoeCo2 = (shoes, shoeType) => {
     const shoeWeight = weightOfClothes[shoeType];
     const leatherWeight = (shoeWeight * (1-percentShoeIsRubber));
     const rubberWeight = (shoeWeight * percentShoeIsRubber);
@@ -49,7 +49,7 @@ const getShoeCo2 = (shoes, shoeType) => {
     return totalCo2;
 }
 
-const getSocksUnderwearCo2 = socksUndies => {
+export const getSocksUnderwearCo2 = socksUndies => {
     // They have the same weight
     const socksUndiesWeight = weightOfClothes.socks;
     const co2PerSockUndie = socksUndiesWeight * co2PerPoundOfFabric.Cotton;
@@ -57,7 +57,7 @@ const getSocksUnderwearCo2 = socksUndies => {
     return totalCo2;
 }
 
-const getAccessoriesCo2 = accessories => {
+export const getAccessoriesCo2 = accessories => {
     const accessoriesWeight = weightOfClothes.scarf //just guessing here.  Is pretty middle of the road
     const co2PerAccessory = accessoriesWeight * co2PerPoundOfFabric.Cotton;
     const totalCo2 = co2PerAccessory * accessories;

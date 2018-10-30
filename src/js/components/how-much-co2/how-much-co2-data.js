@@ -21,6 +21,55 @@ export default [
         amount: 0.09
     },
     {
+        id: ids.poundOfSteel,
+        name: 'One pound of steel',
+        description: 'Most of this comes from melting iron ore in a blast furnace (over 1000 C).',
+        source: '/costs/steel',
+        amount: amounts[ids.poundOfSteel]
+    },
+    {
+        id: ids.oneShirt,
+        name: 'One cotton shirt',
+        description: 'This assumes the cotton is grown conventionally in the US and is not dyed.',
+        source: '/costs/clothes',
+        amount: amounts[ids.oneShirt]
+    },
+    {
+        id: ids.oneJacket,
+        name: 'One leather jacket',
+        description: 'Emissions can vary widely by material.  Cows are carbon intesive.',
+        source: '/costs/clothes',
+        amount: amounts[ids.oneJacket]
+    },
+    {
+        id: ids.oneJean,
+        name: 'One pair of demin jeans',
+        description: 'Demin is one of the most carbon intensive fabrics, but a very sturdy one.',
+        source: '/costs/clothes',
+        amount: amounts[ids.oneJean]
+    },
+    {
+        id: ids.oneShort,
+        name: 'One pair of shorts',
+        description: '',
+        source: '/costs/clothes',
+        amount: amounts[ids.oneShort]
+    },
+    {
+        id: ids.onePairOfBoots,
+        name: 'One pair of leather boots',
+        description: 'Leather is one of the most carbon intensive fabrics.',
+        source: '/costs/clothes',
+        amount: amounts[ids.onePairOfBoots]
+    },
+    {
+        id: ids.onePairOfSneakers,
+        name: 'One pair of sneakers.',
+        description: 'Sneakers mix rubber with fabric.  The material\'s cost is low though they are labor intensive to make.',
+        source: '/costs/clothes',
+        amount: amounts[ids.onePairOfSneakers]
+    },
+    {
         id: ids.poundOfChicken,
         name: 'One pound of chicken',
         description: 'This is a combination of feed, manure, and processing.',
@@ -31,6 +80,13 @@ export default [
         name: 'One pound of pork',
         description: 'This is a combination of feed, manure, and processing.',
         amount: 6.1
+    },
+    {
+        id: ids.poundOfAluminum,
+        name: 'One pound of aluminum',
+        description: 'Making aluminum is very energy intensive at about 6 kWh per pound.  Emissions vary widely by energy source used.',
+        source: '/costs/aluminum',
+        amount: amounts[ids.poundOfAluminum]
     },
     {
         id: ids.largeCampfire,

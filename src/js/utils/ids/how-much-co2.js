@@ -1,4 +1,4 @@
-// 1549 MAX
+// 1555 MAX
 
 export default {
     chargeIpad: 1500,
@@ -49,5 +49,11 @@ export default {
     oneMileHighway: 1546,
     poundOfSteel: 1547,
     poundOfBrick: 1548,
-    poundOfAluminum: 1549
+    poundOfAluminum: 1549,
+    oneShirt: 1550,
+    oneJacket: 1551,
+    oneJean: 1552,
+    oneShort: 1553,
+    onePairOfSneakers: 1554,
+    onePairOfBoots: 1555, 
 };

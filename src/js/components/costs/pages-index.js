@@ -2,6 +2,7 @@ import React from 'react';
 
 import GenericCostsPage from './GenericCostsPage';
 import steel from './steel/steel-json';
+import aluminum from './aluminum/aluminum-json';
 
 import BbqHoc from './bbq/BbqHoc';
 import BitcoinHoc from './bitcoin/BitcoinHoc';
@@ -21,6 +22,7 @@ import TvHoc from './tv/TvHoc';
 
 
 export default {
+    aluminum: <GenericCostsPage {...aluminum} />,
     apartment: <HomeHoc />,
     bbq: <BbqHoc />,
     bitcoin: <BitcoinHoc />,

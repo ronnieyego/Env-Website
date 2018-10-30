@@ -18,6 +18,14 @@ export default class GenericCostsPage extends React.Component {
                 title: string.isRequired,
                 paragraphs: arrayOf(string).isRequired
             })
+        ),
+        sources: arrayOf(
+            shape({
+                url: string.isRequired,
+                linkedWord: string.isRequired, // Starting word
+                description: string,
+
+            })
         )
     }
 
@@ -25,8 +33,22 @@ export default class GenericCostsPage extends React.Component {
         return (
             <div key={Math.random()}>
                 <Divider />
+                <br />
                 <p className="costs-form-sub-header">{section.title}</p>
                 {section.paragraphs.map((paragrah, index) => (<p className="costs-form-bottom-paragraph" key={index}>{paragrah}</p>))}
+            </div>
+        )
+    }
+
+    renderSources(sources) {
+        return (
+            <div key={Math.random()}>
+                <Divider />
+                <br />
+                <p className="costs-form-sub-header">Sources</p>
+                <ul className="no-bullet-list">
+                    {sources.map(source => <li><a href={source.url} target="_blank">{source.linkedWord}</a>{source.description}</li>)}
+                </ul>
             </div>
         )
     }
@@ -43,6 +65,7 @@ export default class GenericCostsPage extends React.Component {
                     </div>
                     <br />
                     {this.props.sections.map(section => this.renderSection(section))}
+                    {this.props.sources && this.renderSources(this.props.sources)}
                 </div>
             </div>
 		);
