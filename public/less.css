@@ -1,6 +1,57 @@
 .footprint-main {
   display: initial;
 }
+.footprint-hero {
+  height: 300px;
+  width: 100%;
+  background-color: lightgray;
+}
+.footprint-hero-text {
+  text-align: center;
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+  padding-top: 5rem;
+}
+.footprint-hero-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+.footprint-value-prop-container {
+  margin: 3rem 2rem;
+}
+.footprint-value-prop-image {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
+.footprint-value-prop-text {
+  text-align: left;
+  font-size: 1.2rem;
+  margin: 2rem 0rem;
+}
+.footprint-how-it-works {
+  width: 100%;
+  background-color: green;
+}
+.footprint-how-it-works-cta-text {
+  margin: auto;
+  color: white;
+  font-size: 2rem;
+}
+.footprint-how-it-works-box {
+  background-color: white;
+  margin: 2rem;
+}
+.footprint-how-it-works-box-title {
+  text-align: center;
+  font-size: 1.5rem;
+}
+.footprint-how-it-works-box-text {
+  text-align: left;
+  font-size: 1.2rem;
+  margin: 1rem;
+}
 .footprint-form {
   border: 1px solid gray;
   margin: 10px auto;

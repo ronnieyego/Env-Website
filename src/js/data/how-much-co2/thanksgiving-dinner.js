@@ -18,11 +18,3 @@ const total = Object.keys(weights).reduce((acc, val) => {
 export default {
     [ids.thanksgivingDinner]: total
 }
-
-// Seattle -> Prescott 1k miles
-// SJ -> Prescot 560
-// LA -> Prescot 350
-// Austin -> Prescot 900
-
-// Fly miles: 7k
-// Drive Miles: 910
