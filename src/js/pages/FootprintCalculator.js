@@ -1,10 +1,21 @@
 import React from 'react';
+import { bool } from 'prop-types';
+import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
 import FootprintForm from '../components/footprint-form/forms/FormContainer';
 import RaisedButton from 'material-ui/RaisedButton';
 
+@connect(store => {
+	return {
+		isMobile: store.userInfo.isMobile,
+	};
+})
 export default class FootprintCalcPage extends React.Component {
+	static proptypes = {
+		isMobile: bool
+	}
+
 	render() {
 		return (
 			<div className="container-fluid text-center">
@@ -29,19 +40,20 @@ export default class FootprintCalcPage extends React.Component {
 				</div>
 
 				<div className="footprint-value-prop-container row">
-					<img className="footprint-value-prop-image col-md-6" src="/public/images/savings-card.png" />
+					{!this.props.isMobile && <img className="footprint-value-prop-image col-md-6" src="/public/images/savings-card.png" /> }
 					<div className="footprint-value-prop col-md-6">
 						<hr />
 						<p className="footprint-value-prop-text">The calculator below will give you detailed insights into your carbon footprint.</p>
 						<p className="footprint-value-prop-text">The goal is to give you the information to make your own informed choices.</p>
 						<hr />
 					</div>
+					{this.props.isMobile && <img className="footprint-value-prop-image col-md-6" src="/public/images/savings-card.png" /> }
 				</div>
 
 				<div className="footprint-how-it-works row" >
-					<p className="footprint-how-it-works-cta-text col-md-5">Calculate your environmental footprint</p>
+					{!this.props.isMobile && <p className="footprint-how-it-works-cta-text col-md-5">Calculate your environmental footprint</p> }
 					<div className="col-md-7">
-						<div className="footprint-how-it-works-box">
+						<div className={this.props.isMobile ? "footprint-how-it-works-box-mobile" : "footprint-how-it-works-box"}>
 						<br />
 						<p className="footprint-how-it-works-box-title">How this works</p>
 						<p className="footprint-how-it-works-box-text">This form takes about 5 minutes to fill out and asks about 50 questions. Most of these are pretty quick and easy to answer, however there are a few difficult questions to answer (e.g how many miles do you fly).</p>

@@ -43,6 +43,10 @@
   background-color: white;
   margin: 2rem;
 }
+.footprint-how-it-works-box-mobile {
+  background-color: white;
+  margin: 2rem .5rem;
+}
 .footprint-how-it-works-box-title {
   text-align: center;
   font-size: 1.5rem;
