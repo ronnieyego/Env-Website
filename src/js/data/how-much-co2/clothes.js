@@ -14,6 +14,6 @@ export default  {
     [ids.oneShirt]: round(getShirtCo2(1, 'Cotton')),
     [ids.oneJean]: round(getPantsCo2(1, 'Mostly demin')),
     [ids.oneShort]: round(getShortsCo2(1, 'Mostly synthetic')),
-    [ids.onePairOfBoots]: round(getShoeCo2('Boots')),
-    [ids.onePairOfSneakers]: round(getShoeCo2('Sneakers'))
+    [ids.onePairOfBoots]: round(getShoeCo2(1, 'Boots')),
+    [ids.onePairOfSneakers]: round(getShoeCo2(1, 'Sneakers'))
 };

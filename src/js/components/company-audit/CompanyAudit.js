@@ -109,7 +109,7 @@ export default class CompanyAudit extends React.Component {
                 <div>
                     <div className="costs-form-sub-header">
                         <span>
-                            {res.name} emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal.toLocaleString()} pounds in equiptment.
+                            {res.name} emits <HowMuchCo2 co2={res.monthlyTotal} /> pounds of CO<sub>2</sub> each month and {res.stuffTotal.toLocaleString()} pounds in equipment.
                         </span>
                         <p className="costs-form-sub-header">This breaks down to about {res.employee} pounds of CO<sub>2</sub> per employee each month.</p>
                     </div>

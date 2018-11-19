@@ -96,6 +96,12 @@ export default [
         amount: 20
     },
     {
+        id: ids.thanksgivingDinner,
+        name: 'Thanksgiving dinner for 10',
+        description: 'This includes a 15 pound turkey, plenty of sides, and a hearty dessert.',
+        amount: amounts[ids.thanksgivingDinner]
+    },
+    {
         id: ids.twelveOzSteak,
         name: 'A 12 oz steak',
         description: 'This is a mostly due to cow flatulence.',
