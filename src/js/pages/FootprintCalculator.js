@@ -20,15 +20,16 @@ export default class FootprintCalcPage extends React.Component {
 		return (
 			<div className="container-fluid text-center">
 				<Header />
-				<div className="footprint-hero">
+				<div className={this.props.isMobile ? "footprint-hero-mobile" : "footprint-hero"}>
 					<p className="footprint-hero-text">What's my footprint?</p>
 					<RaisedButton className="footprint-hero-button"
+						backgroundColor="#72DCDB"
 						label="Calculate now"
-						href="#footprint-form-title"
+						href="#footprint-how-it-works-box-title"
 					/>
 				</div>
-
-				<div className="footprint-value-prop-container row">
+				
+				<div className={this.props.isMobile ? "footprint-value-prop-container-mobile row" : "footprint-value-prop-container row"}>
 					<div className="footprint-value-prop col-md-6">
 						<hr />
 						<p className="footprint-value-prop-text">Discover your personalized carbon footprint across transportation, utilities, food, and possesions.</p>
@@ -39,7 +40,7 @@ export default class FootprintCalcPage extends React.Component {
 					<img className="footprint-value-prop-image col-md-6" src="/public/images/homepage-compare.png" />
 				</div>
 
-				<div className="footprint-value-prop-container row">
+				<div className={this.props.isMobile ? "footprint-value-prop-container-mobile row" : "footprint-value-prop-container row"}>
 					{!this.props.isMobile && <img className="footprint-value-prop-image col-md-6" src="/public/images/savings-card.png" /> }
 					<div className="footprint-value-prop col-md-6">
 						<hr />
@@ -55,12 +56,13 @@ export default class FootprintCalcPage extends React.Component {
 					<div className="col-md-7">
 						<div className={this.props.isMobile ? "footprint-how-it-works-box-mobile" : "footprint-how-it-works-box"}>
 						<br />
-						<p className="footprint-how-it-works-box-title">How this works</p>
+						<p className="footprint-how-it-works-box-title" id="footprint-how-it-works-box-title">How this works</p>
 						<p className="footprint-how-it-works-box-text">This form takes about 5 minutes to fill out and asks about 50 questions. Most of these are pretty quick and easy to answer, however there are a few difficult questions to answer (e.g how many miles do you fly).</p>
 						<p className="footprint-how-it-works-box-text">In cases where you don't know, give your best estimate. The form generally defaults to the American average.</p>
 						<p className="footprint-how-it-works-box-text">The results page will tell you how you rank vs others, a personalized breakdown of your CO2 emissions, and ways to reduce your footprint!</p>
 						<br />
 						<RaisedButton className="footprint-how-it-works-button"
+							backgroundColor="#40C6579"
 							label="Let's start!"
 							onClick={() => console.log('STARTED!!')}
 						/>
@@ -70,12 +72,12 @@ export default class FootprintCalcPage extends React.Component {
 				
 				</div>
 
-				<div className="footprint">
+				{/* <div className="footprint">
 					<h1 id="footprint-finder-page-title"><b>What's my footprint?</b></h1>
 					<div style={{textAlign: 'left'}}>
 						<FootprintForm />
 					</div>
-				</div>
+				</div> */}
 			</div>
 		);
 	}
