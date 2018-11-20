@@ -23,9 +23,11 @@ export default class FootprintCalcPage extends React.Component {
 				<div className={this.props.isMobile ? "footprint-hero-mobile" : "footprint-hero"}>
 					<p className="footprint-hero-text">What's my footprint?</p>
 					<RaisedButton className="footprint-hero-button"
-						backgroundColor="#72DCDB"
+						buttonStyle={{ borderRadius: '10px', background: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
+						labelColor="white"
 						label="Calculate now"
 						href="#footprint-how-it-works-box-title"
+						style={{ borderRadius: '10px', background: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
 					/>
 				</div>
 				
@@ -62,8 +64,10 @@ export default class FootprintCalcPage extends React.Component {
 						<p className="footprint-how-it-works-box-text">The results page will tell you how you rank vs others, a personalized breakdown of your CO2 emissions, and ways to reduce your footprint!</p>
 						<br />
 						<RaisedButton className="footprint-how-it-works-button"
-							backgroundColor="#40C6579"
+							buttonStyle={{ borderRadius: '10px', background: 'linear-gradient(#40C657 30%, #184920 90%)' }}
+							style={{ borderRadius: '10px', background: 'linear-gradient(#40C657 30%, #184920 90%)' }}
 							label="Let's start!"
+							labelColor="white"
 							onClick={() => console.log('STARTED!!')}
 						/>
 						<br /><br />

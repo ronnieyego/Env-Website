@@ -49,12 +49,14 @@
   font-size: 2rem;
 }
 .footprint-how-it-works-box {
+  border-radius: 1rem;
   background-color: white;
   margin: 2rem;
 }
 .footprint-how-it-works-box-mobile {
   background-color: white;
   margin: 1rem 0rem;
+  border-radius: 1rem;
 }
 .footprint-how-it-works-box-title {
   text-align: center;
