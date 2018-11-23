@@ -60,7 +60,7 @@ let stateIds = [
 const style = {
     border: "1px solid black",
     borderRadius: "1rem",
-    backgroundColor: 'white'
+    backgroundColor: '#ffffff'
 }
 const underlineStyle = {
     opacity: 0

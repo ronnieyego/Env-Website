@@ -175,6 +175,9 @@
   font-size: 1.4rem;
   text-align: left;
 }
+.form-question {
+  text-align: center;
+}
 .form-question-container {
   margin: 2rem 1rem;
 }
@@ -544,7 +547,7 @@ input[type="checkbox"] {
 }
 .costs {
   text-align: left;
-  background-color: #d3f9ea;
+  background-image: linear-gradient(#E7EAE0 30%, #85A774 90%);
   margin-bottom: 15px;
 }
 .costs-page {

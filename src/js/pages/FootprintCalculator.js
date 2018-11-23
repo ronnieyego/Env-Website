@@ -3,7 +3,7 @@ import { bool } from 'prop-types';
 import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
-import FootprintForm from '../components/footprint-form/forms/FormContainer';
+// import FootprintForm from '../components/footprint-form/forms/FormContainer';
 import FormV2 from '../components/footprint-form/formV2/FormContainer';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -25,12 +25,12 @@ export default class FootprintCalcPage extends React.Component {
 				<div className={this.props.isMobile ? "footprint-hero-mobile" : "footprint-hero"}>
 					<p className="footprint-hero-text">What's my footprint?</p>
 					<RaisedButton className="footprint-hero-button"
-						buttonStyle={{ borderRadius: '10px', background: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
+						buttonStyle={{ borderRadius: '10px', backgroundImage: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
 						labelColor="#ffffff"
 						label="Calculate now"
 						// href="#footprint-how-it-works-box-title"
 						onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}  // Currently opesn form, but could make you go to the bottom.
-						style={{ borderRadius: '10px', background: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
+						style={{ borderRadius: '10px', backgroundImage: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
 					/>
 				</div>
 				
@@ -70,7 +70,7 @@ export default class FootprintCalcPage extends React.Component {
 								buttonStyle={{ borderRadius: '10px', background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' }}
 								style={{ borderRadius: '10px', background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' }}
 								label="Let's start!"
-								labelColor="white"
+								labelColor="#ffffff"
 								onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}
 							/>
 						</div>

@@ -14,9 +14,6 @@ export const getAnswerFromId = (questionSet, id) => {
     questionSet.forEach(question => {
         if(question.id === id) {
             answer = question.value;
-            if( question.type === 'bool') {
-                answer = question.checked;  // Return bool for boolean questions
-            }
             return;
         }
     });

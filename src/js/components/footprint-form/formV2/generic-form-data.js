@@ -17,7 +17,7 @@ export default {
             ids.liveWith
         ],
         questionFormName: 'household-home',
-        headerText: 'Your home is one of the largest carbon costs in your life.  Answering the following questions will let you discover exactly how much.',
+        headerText: 'Your home is one of the largest carbon costs in your life.  It takes significant CO2 to build and operate your home.',
         step: STEPS.home,
         validator: HomeFormValidator
     },

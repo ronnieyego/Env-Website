@@ -5,7 +5,7 @@ export default [
         name: 'Do you drive?',
         type: 'bool',
         forms: ['transportation'],
-        value: 'on',
+        value: true,
         checked: true,
         id: ids.doesDrive
     },
@@ -47,7 +47,7 @@ export default [
         type: 'bool',
         forms: ['transportation'],
         checked: false,
-        value: 'off',
+        value: false,
         id: ids.doesPublicTransit
     },
     {
