@@ -50,7 +50,7 @@ export default class Transportation extends React.Component {
 
 		return (
             <div>
-            <h3 className="footprint-form-header">Transportation</h3>
+            <h3 id="form-header" className="form-header">Transportation</h3>
                 <div>
                     <p className="footprint-form-sub-header">Transportation usually accounts of a third of a person's footprint.</p>
                     { questionComponents }

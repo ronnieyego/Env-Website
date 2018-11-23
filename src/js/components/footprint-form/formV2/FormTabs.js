@@ -55,7 +55,7 @@ export default class FormTabs extends React.Component {
         );
 
 		return (
-			<Tabs value ={value}>
+			<Tabs id="form-tabs" value ={value}>
                 {tabs}
             </Tabs>
 		);

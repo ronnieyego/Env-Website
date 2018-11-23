@@ -10,6 +10,7 @@ import { sortAndFilterAndCreateQuestions } from '../../../utils/question-utils';
 })
 export default class GenericForm extends React.Component {
     static propTypes = {
+        title: string,
         headerText: string,
         questionFormName: string,
         questionOrder: array,
@@ -22,7 +23,8 @@ export default class GenericForm extends React.Component {
 
 		return (
             <div>
-                <p className="form-sub-header">{this.props.headerText}</p>
+                <h3 id="form-header" className="form-header">{this.props.title}</h3>
+                <p className="form-sub-header" id="form-sub-header">{this.props.headerText}</p>
                 { questions }
             </div>
 		);

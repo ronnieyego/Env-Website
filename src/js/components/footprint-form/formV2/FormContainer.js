@@ -47,7 +47,7 @@ export default class FormContainer extends React.Component {
         const leftButton = this.props.step === 1 ? <div /> : (
             <FlatButton 
                 className="form-bottom-buttons-left"
-                href={'#footprint-form-header'}
+                href={'#form-tabs'}
                 label="Back"
                 onClick={() => this.props.dispatch(changeStep(step, step - 1))}
             />
@@ -56,7 +56,7 @@ export default class FormContainer extends React.Component {
         const rightButton = this.props.step === MAX_STEPS ? (
             <FlatButton 
                 className="form-bottom-buttons-right"
-                href={'#footprint-form-header'}
+                href={'#form-tabs'}
                 label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
                 onClick={() => this.props.dispatch(submitV2())}
             /> )  : (

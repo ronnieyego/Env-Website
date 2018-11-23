@@ -89,7 +89,8 @@ export default class HouseholdFormActivities extends React.Component {
 		return (
             <div>
                 <div>
-                    <p className="footprint-form-sub-header">Food usually accounts for a third of a person's CO<sub>2</sub>.</p>
+                    <h3 id="form-header" className="form-header">Food</h3>
+                    <p id="form-header" className="footprint-form-sub-header">Food usually accounts for a third of a person's CO<sub>2</sub>.</p>
                     { questionComponents }
                     <br />
                     <Divider />

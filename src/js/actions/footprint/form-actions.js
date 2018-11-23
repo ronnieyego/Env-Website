@@ -15,7 +15,7 @@ export const changeStep = (current, toStep) => {
         } else {
             dispatch({type: 'SET_STEP', payload: toStep});
             location.href = '#'; // Solves a bug in safari or something
-            location.href = '#footprint-form-title';
+            location.href = '#form-tabs';
         }
     }
  }

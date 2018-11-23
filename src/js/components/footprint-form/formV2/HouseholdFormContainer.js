@@ -48,7 +48,6 @@ export default class Household extends React.Component {
 		return (
             <div>
                 <FormTabs dispatch={this.props.dispatch} step={this.props.step} tabs={SUB_TABs} subLevel={true} />
-                <h3 className="footprint-form-header">{title}</h3>
                 {form}
             </div>
 		);

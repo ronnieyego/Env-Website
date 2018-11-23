@@ -9,6 +9,7 @@ import {
 
 export default {
     HOME_FORM: {
+        title: 'Home',
         questionOrder: [
             ids.userState,
             ids.homeType,
@@ -22,6 +23,7 @@ export default {
         validator: HomeFormValidator
     },
     HOME_ACTIVITY_FORM: {
+        title: 'Home Activites',
         questionOrder: [
             ids.hoursAtHome,
             ids.tvWatchHours,
@@ -37,6 +39,7 @@ export default {
         validator: HomeUtilitiesValidator
     },
     HOME_TEMPERATURE_FORM: {
+        title: 'Heating and Cooling',
         questionOrder: [
             ids.homeInsulation,
             ids.summerTemp,
@@ -54,6 +57,7 @@ export default {
         validator: HomeTemperatureValidator
     },
     STUFF_FORM: {
+        title: 'Possesions',
         questionOrder: [
             ids.totalHouseFurniture,
     ids.totalWardrobe,
