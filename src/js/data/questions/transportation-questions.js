@@ -68,8 +68,7 @@ export default [
     },
     {
         name: 'Within the last year, how many miles did you fly?',
-        belowText: 'The US is about 3,000 miles wide and 1,000 miles long.',
-        belowText2: 'Its about 5,500 miles from LA to Tokyo and 3,500 from New York to Paris',
+        subtext: 'The US is about 3,000 miles wide and 1,000 miles long. Its about 5,500 miles from LA to Tokyo and 3,500 from New York to Paris',
         hoverText: 'A full Boeing 737 gets about 90 mpg per person!',
         type: 'int',
         forms: ['transportation'],

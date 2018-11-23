@@ -1,6 +1,7 @@
 import React from "react";
 import { func, number, shape, string } from 'prop-types'
-import RaisedButton from 'material-ui/RaisedButton'
+import RaisedButton from 'material-ui/RaisedButton';
+import { GREEN_GRADIENT } from '../../../utils/shared-styles/colors';
 
 
 export default class DropDownQuestionMobile extends React.Component {
@@ -21,7 +22,7 @@ export default class DropDownQuestionMobile extends React.Component {
         const question = this.props.question;
         const optionButtons = question.selectOptions.map((option, index) => {
             const selected = option === this.props.value;
-            const buttonStyle = selected ? {background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' } : { background: '#ffffff'};
+            const buttonStyle = selected ? {background: GREEN_GRADIENT } : { background: '#ffffff'};
             return (
                 <div className="form-question-buttons-mobile" key={`${option}-${question.id}`} >
                     <RaisedButton 

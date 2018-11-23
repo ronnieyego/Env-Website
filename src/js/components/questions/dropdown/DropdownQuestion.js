@@ -2,22 +2,7 @@ import React from "react";
 import { func, number, shape, string } from 'prop-types'
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField'
-
-// import { updateQuestionsV2} from '../../actions/footprint/form-actions';
-
-
-const style = {
-    border: "1px solid black",
-    borderRadius: "1rem",
-    backgroundColor: '#ffffff'
-}
-const underlineStyle = {
-    opacity: 0
-};
-
-const iconStyle = {
-    right: '24px'
-}
+import { DROPDOWN_STYLE, UNDERLINE_STYLE, ICON_STYLE } from '../../../utils/shared-styles/dropdown-style';
 
 export default class DropDownQuestion extends React.Component {
     static proptypes = {
@@ -53,9 +38,9 @@ export default class DropDownQuestion extends React.Component {
             id={question.name}
             onChange={this.updateQuestion.bind(this, question.id)}
             value={this.props.value}
-            style={style}
-            iconStyle={iconStyle}
-            underlineStyle={underlineStyle}
+            style={DROPDOWN_STYLE}
+            iconStyle={ICON_STYLE}
+            underlineStyle={UNDERLINE_STYLE}
         >
             {menuItems}
         </SelectField>;

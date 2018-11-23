@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Header from '../components/header/HeaderHoc';
 import FormV2 from '../components/footprint-form/forms/FormContainer';
 import RaisedButton from 'material-ui/RaisedButton';
+import { BLUE_GRADIENT, GREEN_GRADIENT } from '../utils/shared-styles/colors';
 
 @connect(store => {
 	return {
@@ -24,12 +25,12 @@ export default class FootprintCalcPage extends React.Component {
 				<div className={this.props.isMobile ? "footprint-hero-mobile" : "footprint-hero"}>
 					<p className="footprint-hero-text">What's my footprint?</p>
 					<RaisedButton className="footprint-hero-button"
-						buttonStyle={{ borderRadius: '10px', backgroundImage: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
+						buttonStyle={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
 						labelColor="#ffffff"
 						label="Calculate now"
-						// href="#footprint-how-it-works-box-title"
+						href="#form-tabs"
 						onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}  // Currently opesn form, but could make you go to the bottom.
-						style={{ borderRadius: '10px', backgroundImage: 'linear-gradient(#72DCDB 30%, #2E5A58 90%)' }}
+						style={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
 					/>
 				</div>
 				
@@ -66,9 +67,10 @@ export default class FootprintCalcPage extends React.Component {
 							<p className="footprint-how-it-works-box-text">The results page will tell you how you rank vs others, a personalized breakdown of your CO2 emissions, and ways to reduce your footprint!</p>
 							<br />
 							<RaisedButton className="footprint-how-it-works-button"
-								buttonStyle={{ borderRadius: '10px', background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' }}
-								style={{ borderRadius: '10px', background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' }}
+								buttonStyle={{ borderRadius: '10px', background: GREEN_GRADIENT }}
+								style={{ borderRadius: '10px', background: GREEN_GRADIENT }}
 								label="Let's start!"
+								href="#form-tabs"
 								labelColor="#ffffff"
 								onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}
 							/>

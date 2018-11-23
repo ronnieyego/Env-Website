@@ -4,6 +4,7 @@ import RaisedButton from 'material-ui/RaisedButton'
 // import Checkbox from 'material-ui/Checkbox';
 import HoverText from '../HoverText';
 // import { formatName } from './utils';
+import { GREEN_GRADIENT } from '../../../utils/shared-styles/colors';
 
 export default class BooleanQuestion extends React.Component {
 
@@ -31,7 +32,7 @@ export default class BooleanQuestion extends React.Component {
                 <p className={nameClass}>{question.name}</p>
                 <div className="form-question col-md-6" >
                     <RaisedButton 
-                        buttonStyle={checked ? { background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' } : { background: '#ffffff'}}
+                        buttonStyle={checked ? { background: GREEN_GRADIENT } : { background: '#ffffff'}}
                         key={`Yes-${question.name}`}
                         label="Yes"
                         labelColor={checked ? '#ffffff' : '#000000'}
@@ -40,7 +41,7 @@ export default class BooleanQuestion extends React.Component {
                         value={'on'}  
                     />
                     <RaisedButton 
-                        buttonStyle={!checked ? {background: 'linear-gradient(#E7EAE0 30%, #85A774 90%)' } : { background: '#ffffff' }}
+                        buttonStyle={!checked ? {background: GREEN_GRADIENT } : { background: '#ffffff' }}
                         key={`No-${question.name}`}
                         label="No"
                         labelColor={!checked ? '#ffffff' : '#000000'}

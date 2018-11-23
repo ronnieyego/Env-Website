@@ -1,7 +1,8 @@
 import React from "react";
-import { string, bool, func } from 'prop-types';
+import { string, bool, func, object } from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
+import { DROPDOWN_STYLE, UNDERLINE_STYLE, ICON_STYLE } from '../utils/shared-styles/dropdown-style';
 
 let stateIds = [
 'US',
@@ -78,7 +79,8 @@ export default class StateDropdown extends React.Component {
         subText: string,
         updateQuestion: func,
         isMobile: bool,
-        omitUs: bool
+        omitUs: bool,
+        style: object
     }
     
 	render() {
@@ -93,6 +95,7 @@ export default class StateDropdown extends React.Component {
                 value={state}  
             />
         });
+        const combinedSyle = { ...DROPDOWN_STYLE, ...this.props.style};
 
 		return (
             <SelectField
@@ -105,9 +108,9 @@ export default class StateDropdown extends React.Component {
                 value={this.props.value}
                 errorStyle={{ marginTop: '5px', fontSize: '1rem' }}
                 hintStyle={{ fontWeight: 'bold', paddingLeft: '5px'}}
-                style={style}
-                iconStyle={iconStyle}
-                underlineStyle={underlineStyle}
+                style={combinedSyle}
+                iconStyle={ICON_STYLE}
+                underlineStyle={UNDERLINE_STYLE}
             >
                 {dropDownOptions}
             </SelectField>
