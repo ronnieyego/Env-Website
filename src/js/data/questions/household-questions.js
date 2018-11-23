@@ -33,7 +33,8 @@ export default [
         subtext: 'The goal of this question is to measure how much electricity you use at home.',
         forms: ['household-activities'],
         id: ids.hoursAtHome,
-        value: 6
+        value: 6,
+        validation: 'hourQuestion'
     },
     {
         name: 'How often do you cook at home?',

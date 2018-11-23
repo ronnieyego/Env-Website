@@ -50,12 +50,14 @@ export default class FormTabs extends React.Component {
                 value={tab.label}
                 label={this.props.isMobile ? '' : tab.label}
                 icon={tab.icon}
-                onActive={() => this.props.dispatch(changeStep(this.props.step, tab.step))}/>
+                onActive={() => this.props.dispatch(changeStep(this.props.step, tab.step))}
+                
+            />
             )
         );
 
 		return (
-			<Tabs value ={value}>
+			<Tabs value={value} >
                 {tabs}
             </Tabs>
 		);

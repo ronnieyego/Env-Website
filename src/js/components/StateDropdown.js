@@ -57,6 +57,19 @@ let stateIds = [
 'WY'
 ];
 
+const style = {
+    border: "1px solid black",
+    borderRadius: "1rem",
+    backgroundColor: 'white'
+}
+const underlineStyle = {
+    opacity: 0
+};
+
+const iconStyle = {
+    right: '24px'
+}
+
 export default class StateDropdown extends React.Component {
     static propTypes = {
         id: string,
@@ -80,18 +93,21 @@ export default class StateDropdown extends React.Component {
                 value={state}  
             />
         });
-        const labelStyle = { paddingRight: '0px', fontWeight: 'bold' };
 
 		return (
             <SelectField
                 errorText={this.props.errorText}
-                hintText={'Please select your state'}
+                hintText={'Select your state'}
                 id={this.props.id}
                 menuItemStyle={{fontWeight: 'bold'}}
-                labelStyle={labelStyle}
                 menuStyle={{textAlign: 'center'}}
                 onChange={this.props.updateQuestion.bind(this)}
                 value={this.props.value}
+                errorStyle={{ marginTop: '5px', fontSize: '1rem' }}
+                hintStyle={{ fontWeight: 'bold', paddingLeft: '5px'}}
+                style={style}
+                iconStyle={iconStyle}
+                underlineStyle={underlineStyle}
             >
                 {dropDownOptions}
             </SelectField>

@@ -1,6 +1,6 @@
 import { getQuestionFromId } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';
-import { getValidatorFromStep } from '../../components/footprint-form/forms/utils';
+import { getValidatorFromStep } from '../../components/footprint-form/formV2/utils';
 import triggers from './triggers/trigger-router';
 
 // Actions
@@ -57,5 +57,8 @@ export const updateQuestionsV2 = questionInfo => {
         }
         const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
         dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
+        if(questionInfo.id === 1046) {
+            dispatch({type: 'UPDATE_USER_STATE', payload: questionInfo.value});
+        }
     }
 };

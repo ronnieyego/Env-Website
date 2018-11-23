@@ -1,0 +1,115 @@
+@import '../../LessVariables.less';
+
+.form {
+    width: 75%;
+    margin: 0rem auto;
+    background-color: white;
+    border-radius: 1rem;
+    @media @tablet {
+        width: 90%;
+    }
+    @media @mobile {
+        width: 100%;
+        margin: 0rem;
+        border-radius: 0rem;
+    }
+    &-background {
+        background-image: @green-gradient;
+        @media @mobile {
+            background-color: 'white';
+        }
+    }
+
+    &-sub-header {
+        margin: 1rem;
+        font-size: 1.4rem;
+        text-align: left;
+    }
+
+    &-question {
+        &-container {
+            margin: 2rem 1rem;
+        }
+        &-name {
+            text-align: left;
+            font-weight: bold;
+            @media @mobile {
+                text-align: center;
+            }
+        }
+
+        &-subtext {
+            text-align: left;
+            font-size: .8rem;
+            &-mobile {
+                font-size: .8rem;
+                margin: 1rem auto;
+                color: @color-light-blue;
+            }
+        }
+        &-buttons {
+            &-mobile {
+                margin-top: .2rem;
+            }
+        }
+        
+    }
+    &-bottom-buttons {
+        display: flex;
+        justify-content: space-between;
+        &-left {
+            margin-bottom: 1rem !important;
+            margin-left: 1rem !important;
+            background-color: white !important;
+            border-radius: 1rem !important;
+            border: @border !important;
+          }
+          
+        &-right {
+            background-color: @color-light-blue !important;
+            border-radius: 1rem !important;
+            margin-bottom: 1rem !important;
+            margin-right: 1rem !important;
+            border: @border !important;
+          }
+    }
+
+    &-header {
+        margin-top: 5px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &-title {
+        margin: 0px 0px;
+        font-weight: bold;
+        border: @border;
+        text-align: center;
+        background-color: white;
+    }
+
+    &-subtext {
+        margin: 10px 10px;
+        font-size: 18px;
+        text-align: left;
+
+        &-center {
+            margin: 10px 10p;
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+
+    &-tab {
+        background-color: @color-darker-green !important;
+        &-sublevel {
+            background-color: @color-light-green !important;
+        }
+    }
+}
+
+.footprint {
+    &-how-it-works-button {
+        margin-bottom: 2rem !important;
+    }
+}

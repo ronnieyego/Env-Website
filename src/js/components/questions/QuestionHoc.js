@@ -2,16 +2,20 @@ import React from "react";
 import { object, string } from 'prop-types'
 import { connect } from 'react-redux';
 
-import IntQuestion from './IntQuestion';
-import DropdownQuestion from './DropdownQuestion';
-import BooleanQuestion from './BooleanQuestion';
+// import IntQuestion from './IntQuestion';
+import IntQuestion from './int/IntQuestion';
+// import DropdownQuestion from './DropdownQuestion';
+import DropdownQuestion from './dropdown/DropdownQuestion';
+import DropdownQuestionMobile from './dropdown/DropdownQuestionMobile';
+//import BooleanQuestion from './BooleanQuestion';
+import BooleanQuestion from './boolean/BooleanQuestion';
 import MultipleQuestion from './MultipleQuestion';
 import UserStateDropdown from '../UserStateDropdown';
 
-import { updateQuestionsV2} from '../../actions/footprint/form-actions';
+import { updateQuestionsV2 } from '../../actions/footprint/form-actions';
 
 
-@connect((store, props) => {
+@connect(store => {
 	return {
 		isMobile: store.userInfo.isMobile,
 	};
@@ -37,7 +41,11 @@ export default class QuestionHoc extends React.Component {
                 question = <BooleanQuestion {...this.props} updateFunction={updateFunction} />;
                 break;
             case 'dropdown':
-                question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
+                if(this.props.isMobile) {
+                    question = <DropdownQuestionMobile {...this.props} updateFunction={updateFunction} />;
+                } else {
+                    question = <DropdownQuestion {...this.props} updateFunction={updateFunction} />;
+                }
                 break;
             case 'multiple':
                 question = <MultipleQuestion {...this.props} updateFunction={updateFunction} />;

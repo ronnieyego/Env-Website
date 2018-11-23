@@ -144,6 +144,110 @@
   margin-top: 25px;
   margin-bottom: 25px;
 }
+.form {
+  width: 75%;
+  margin: 0rem auto;
+  background-color: white;
+  border-radius: 1rem;
+}
+@media only screen and (min-width: 479px) and (max-width: 959px) {
+  .form {
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .form {
+    width: 100%;
+    margin: 0rem;
+    border-radius: 0rem;
+  }
+}
+.form-background {
+  background-image: linear-gradient(#E7EAE0 30%, #85A774 90%);
+}
+@media only screen and (max-width: 479px) {
+  .form-background {
+    background-color: 'white';
+  }
+}
+.form-sub-header {
+  margin: 1rem;
+  font-size: 1.4rem;
+  text-align: left;
+}
+.form-question-container {
+  margin: 2rem 1rem;
+}
+.form-question-name {
+  text-align: left;
+  font-weight: bold;
+}
+@media only screen and (max-width: 479px) {
+  .form-question-name {
+    text-align: center;
+  }
+}
+.form-question-subtext {
+  text-align: left;
+  font-size: .8rem;
+}
+.form-question-subtext-mobile {
+  font-size: .8rem;
+  margin: 1rem auto;
+  color: #72DCDB;
+}
+.form-question-buttons-mobile {
+  margin-top: .2rem;
+}
+.form-bottom-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+.form-bottom-buttons-left {
+  margin-bottom: 1rem !important;
+  margin-left: 1rem !important;
+  background-color: white !important;
+  border-radius: 1rem !important;
+  border: 1px solid gray !important;
+}
+.form-bottom-buttons-right {
+  background-color: #72DCDB !important;
+  border-radius: 1rem !important;
+  margin-bottom: 1rem !important;
+  margin-right: 1rem !important;
+  border: 1px solid gray !important;
+}
+.form-header {
+  margin-top: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+.form-title {
+  margin: 0px 0px;
+  font-weight: bold;
+  border: 1px solid gray;
+  text-align: center;
+  background-color: white;
+}
+.form-subtext {
+  margin: 10px 10px;
+  font-size: 18px;
+  text-align: left;
+}
+.form-subtext-center {
+  margin: 10px 10p;
+  font-size: 18px;
+  text-align: center;
+}
+.form-tab {
+  background-color: #85A774 !important;
+}
+.form-tab-sublevel {
+  background-color: #E7EAE0 !important;
+}
+.footprint-how-it-works-button {
+  margin-bottom: 2rem !important;
+}
 .results {
   display: inline;
   text-align: center;
@@ -385,14 +489,6 @@
   display: 'inline-flex';
   margin: 10px;
   justify-content: flex-start;
-}
-.left-btn {
-  left: 100%;
-  background-color: lightblue;
-}
-.right-btn {
-  right: 100%;
-  background-color: lightgoldenrodyellow;
 }
 input[type="checkbox"] {
   transform: scale(1.5, 1.5);
