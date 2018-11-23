@@ -1,6 +1,6 @@
 import { getQuestionFromId } from '../../utils/footprint/get-question-utils';
 import { updateQuestionSet } from '../../utils/footprint/update-question-set';
-import { getValidatorFromStep } from '../../components/footprint-form/formV2/utils';
+import { getValidatorFromStep } from '../../components/footprint-form/forms/utils';
 import triggers from './triggers/trigger-router';
 
 // Actions

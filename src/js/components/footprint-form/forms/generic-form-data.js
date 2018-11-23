@@ -9,6 +9,7 @@ import {
 
 export default {
     HOME_FORM: {
+        title: 'Home',
         questionOrder: [
             ids.userState,
             ids.homeType,
@@ -17,11 +18,12 @@ export default {
             ids.liveWith
         ],
         questionFormName: 'household-home',
-        headerText: 'Your home is one of the largest carbon costs in your life.  Answering the following questions will let you discover exactly how much.',
+        headerText: 'Your home is one of the largest carbon costs in your life.  It takes significant CO2 to build and operate your home.',
         step: STEPS.home,
         validator: HomeFormValidator
     },
     HOME_ACTIVITY_FORM: {
+        title: 'Home Activites',
         questionOrder: [
             ids.hoursAtHome,
             ids.tvWatchHours,
@@ -32,11 +34,12 @@ export default {
             ids.laundryMonth,
         ],
         questionFormName: 'household-activities',
-        headerText: 'The following questions will help determine how much you use.',
+        headerText: 'These questions will help determine your electricity useage.',
         step: STEPS.homeActivities,
         validator: HomeUtilitiesValidator
     },
     HOME_TEMPERATURE_FORM: {
+        title: 'Heating and Cooling',
         questionOrder: [
             ids.homeInsulation,
             ids.summerTemp,
@@ -49,11 +52,12 @@ export default {
             ids.usesPortableHeater
         ],
         questionFormName: 'household-temperature',
-        headerText: 'Heating and cooling usually compromise the majority of household CO2.  This form will determine how much.',
+        headerText: 'Heating and cooling usually compromise the majority of household CO2.',
         step: STEPS.heatingCooling,
         validator: HomeTemperatureValidator
     },
     STUFF_FORM: {
+        title: 'Possessions',
         questionOrder: [
             ids.totalHouseFurniture,
     ids.totalWardrobe,

@@ -3,8 +3,7 @@ import { bool } from 'prop-types';
 import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
-// import FootprintForm from '../components/footprint-form/forms/FormContainer';
-import FormV2 from '../components/footprint-form/formV2/FormContainer';
+import FormV2 from '../components/footprint-form/forms/FormContainer';
 import RaisedButton from 'material-ui/RaisedButton';
 
 @connect(store => {
