@@ -45,7 +45,7 @@ export default class FormTabs extends React.Component {
         const value = this.getTabFromStep(this.props.step);
         const tabs = this.props.tabs.map(tab => (
             <Tab 
-                className={cx('footprint-form-tab', {'footprint-form-tab-sublevel': this.props.subLevel})}
+                className={cx('form-tab', {'form-tab-sublevel': this.props.subLevel})}
                 key={`tab-step-${tab.step}`}
                 value={tab.label}
                 label={this.props.isMobile ? '' : tab.label}
@@ -55,7 +55,7 @@ export default class FormTabs extends React.Component {
         );
 
 		return (
-			<Tabs value ={value}>
+			<Tabs id="form-tabs" value ={value}>
                 {tabs}
             </Tabs>
 		);

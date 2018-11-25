@@ -117,3 +117,13 @@ export const servingFacts = {
         co2: 0.5
     }
 };
+
+export const co2PerPound = {
+    chicken: 5.4,
+    grains: 1.2,
+    pork: 6.1,
+    beef: 28,
+    vegetables: 2.5,
+    fruits: 2,
+    cheese: 7
+}

@@ -34,16 +34,16 @@ export default class Compare extends React.Component {
         results.userState = this.props.userState;
         const savingSet = getCo2Savings(results, this.props.questions);
         const savings = savingSet.filter(saving => {
-            return true;//saving.amount !== 0; // Add filter logic here maybe based on index later?
+            return saving.amount !== 0; // Add filter logic here maybe based on index later?
         });
 
         const useful = savings
             .filter(card => card.amount >= impactLevel)
-            .sort((a,b) => a.amount < b.amount)
+            .sort((a,b) => b.amount - a.amount)
             .map(saving => this.makeCard(saving, 'lightgreen'));
         const notUseful = savings
             .filter(card => card.amount < impactLevel)
-            .sort((a,b) => a.amount < b.amount)
+            .sort((a,b) => b.amount - a.amount)
             .map(saving => this.makeCard(saving, 'lightyellow'));
 
 		return (

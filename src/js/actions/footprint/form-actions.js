@@ -15,7 +15,7 @@ export const changeStep = (current, toStep) => {
         } else {
             dispatch({type: 'SET_STEP', payload: toStep});
             location.href = '#'; // Solves a bug in safari or something
-            location.href = '#footprint-form-title';
+            location.href = '#form-tabs';
         }
     }
  }
@@ -57,5 +57,8 @@ export const updateQuestionsV2 = questionInfo => {
         }
         const updatedQuestionSet = updateQuestionSet(allQuestions, questionInfo);
         dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestionSet});
+        if(questionInfo.id === 1046) {
+            dispatch({type: 'UPDATE_USER_STATE', payload: questionInfo.value});
+        }
     }
 };

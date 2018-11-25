@@ -9,6 +9,7 @@ import BarChart from '../bar-chart/BarChartHoc';
 
 import StateDropdown from '../StateDropdown';
 import { getAverageAmericanResultsFromProfile } from '../../data/average-american/average-american-profile';
+import { DROPDOWN_STYLE, UNDERLINE_STYLE, ICON_STYLE } from '../../utils/shared-styles/dropdown-style';
 
 // import { getAverage } from '../../utils/footprint/get-average-american-footprint';
 
@@ -116,6 +117,7 @@ export default class Compare extends React.Component {
                             updateQuestion={this.updateStateDropdown.bind(this)}
                             value={this.props.averageAmericanState} 
                             subText={''}
+                            style={{ width: '100%' }}
                         />
                     </div>
                     <div className="col-12 col-md-3">
@@ -126,6 +128,9 @@ export default class Compare extends React.Component {
                             menuItemStyle={{fontWeight: 'bold'}}
                             labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
                             menuStyle={{textAlign: 'center'}}
+                            style={{ ...DROPDOWN_STYLE, width: '100%' }}
+                            underlineStyle={UNDERLINE_STYLE}
+                            iconStyle={ICON_STYLE}
                             onChange={this.updateAgeDropdown.bind(this)}
                             value={this.props.averageAmericanAge}
                         >
@@ -140,6 +145,9 @@ export default class Compare extends React.Component {
                             menuItemStyle={{fontWeight: 'bold'}}
                             menuStyle={{textAlign: 'center'}}
                             labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
+                            style={{ ...DROPDOWN_STYLE, width: '100%' }}
+                            underlineStyle={UNDERLINE_STYLE}
+                            iconStyle={ICON_STYLE}
                             onChange={this.updateGenderDropdown.bind(this)}
                             value={this.props.averageAmericanGender}
                         >
@@ -154,6 +162,9 @@ export default class Compare extends React.Component {
                             menuItemStyle={{fontWeight: 'bold'}}
                             menuStyle={{textAlign: 'center'}}
                             labelStyle={{ paddingRight: '0px', fontWeight: 'bold' }}
+                            style={{ ...DROPDOWN_STYLE, width: '100%' }}
+                            underlineStyle={UNDERLINE_STYLE}
+                            iconStyle={ICON_STYLE}
                             onChange={this.updateIncomeDropdown.bind(this)}
                             value={this.props.averageAmericanIncome}
                         >

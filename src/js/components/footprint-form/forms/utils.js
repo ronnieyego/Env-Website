@@ -11,13 +11,13 @@ import {
 } from '../../../actions/footprint/validators/index';
 
 export const STEPS = {
-    intro: 1,
-    home: 2,
-    homeActivities: 3,
-    heatingCooling: 4,
-    transportation: 5,
-    food: 6,
-    stuff: 7
+    // intro: 1,
+    home: 1,
+    homeActivities: 2,
+    heatingCooling: 3,
+    transportation: 4,
+    food: 5,
+    stuff: 6
 };
 
 export const getValidatorFromStep = step => {

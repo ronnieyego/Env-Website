@@ -1,4 +1,4 @@
-// 1555 MAX
+// 1556 MAX
 
 export default {
     chargeIpad: 1500,
@@ -56,4 +56,5 @@ export default {
     oneShort: 1553,
     onePairOfSneakers: 1554,
     onePairOfBoots: 1555, 
+    thanksgivingDinner: 1556
 };

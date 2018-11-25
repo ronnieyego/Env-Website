@@ -1,0 +1,77 @@
+.footprint {
+    &-main {
+        display: initial;
+    }
+
+    &-hero {
+        height: 300px;
+        width: 100%;
+        background-image: url("/public/images/homepage-city-hero.jpg");
+        background-position: center;
+        &-mobile {
+            height: 400px;
+            width: 100%;
+            background-image: url("/public/images/homepage-city-hero.jpg");
+            background-position: center;
+        }
+        &-text {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            font-weight: bold;
+            padding-top: 5rem;
+        }
+        &-button {
+            text-align: center;
+            margin-top: 2rem;
+        }
+    }
+
+    &-value-prop {
+        &-container {
+            margin: 3rem 2rem;
+            &-mobile {
+                margin: 1rem 0rem;
+            }
+        }
+        &-image {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+        }
+        &-text {
+            text-align: left;
+            font-size: 1.2rem;
+            margin: 2rem 0rem;
+        }
+    }
+
+    &-how-it-works {
+        background-image: url("/public/images/green-gradient.png");
+        &-cta-text {
+            margin: auto;
+            color: white;
+            font-size: 2rem;
+            
+        }
+        &-box {
+            border-radius: 1rem;
+            background-color: white;
+            margin: 2rem;
+            &-mobile {
+                background-color: white;
+                margin: 1rem 0rem;
+                border-radius: 1rem;
+            }
+            &-title {
+                text-align: center;
+                font-size: 1.5rem;
+            }
+            &-text {
+                text-align: left;
+                font-size: 1.2rem;
+                margin: 1rem;
+            }
+        }
+    }
+}

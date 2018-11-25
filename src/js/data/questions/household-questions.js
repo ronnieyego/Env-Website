@@ -33,7 +33,8 @@ export default [
         subtext: 'The goal of this question is to measure how much electricity you use at home.',
         forms: ['household-activities'],
         id: ids.hoursAtHome,
-        value: 6
+        value: 6,
+        validation: 'hourQuestion'
     },
     {
         name: 'How often do you cook at home?',
@@ -51,7 +52,7 @@ export default [
     {
         name: 'Do you shower every day?',
         type: 'bool',
-        value: 'off',
+        value: false,
         checked: false,
         forms: ['household-activities'],
         id: ids.showEveryday
@@ -67,7 +68,7 @@ export default [
     {
         name: 'Do you usually play music at home?',
         type: 'bool',
-        value: 'off',
+        value: false,
         checked: false,
         forms: ['household-activities'],
         id: ids.playMusicHome
@@ -179,7 +180,7 @@ export default [
     {
         name: 'Do you use a portable heater in the winter?',
         type: 'bool',
-        value: 'off',
+        value: false,
         checked: false,
         forms: ['household-temperature'],
         id: ids.usesPortableHeater
@@ -187,7 +188,7 @@ export default [
     {
         name: 'Do you use a personal fan in the summer?',
         type: 'bool',
-        value: 'off',
+        value: false,
         checked: false,
         forms: ['household-temperature'],
         id: ids.usesFan

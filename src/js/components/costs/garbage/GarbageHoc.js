@@ -35,7 +35,8 @@ export default class GarbageHoc extends React.Component {
 
         let total = (poundsOfGarbage * distance * transportCo2) + (poundsOfGarbage * co2Landfill);
         if (methaneCapture) {
-            total -= poundsOfGarbage * kwhPerPound * utilityEmissionsPerState.US;
+            const methaneDifference = poundsOfGarbage * kwhPerPound * utilityEmissionsPerState.US;
+            total -= methaneDifference;
         }
 
 

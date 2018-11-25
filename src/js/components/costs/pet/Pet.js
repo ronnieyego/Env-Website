@@ -19,8 +19,7 @@ export default class Pet extends React.Component {
             electricty: number
         }).isRequired,
         petType: string.isRequired,
-        userState: string.isRequired,
-        updateUserState: func.isRequired,
+        userState: string.isRequired
     }
 
 	render() {

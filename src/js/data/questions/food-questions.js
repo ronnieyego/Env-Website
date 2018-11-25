@@ -13,7 +13,7 @@ export default [
     {
         name: 'Are you a vegan?',
         type: 'bool',
-        value: 'off',
+        value: false,
         checked: false,
         forms: ['food'],
         trigger: 'is-vegan',
@@ -22,7 +22,7 @@ export default [
     {
         name: 'Are you a vegetarian',
         type: 'bool',
-        value: 'off',
+        value: false,
         checked: false,
         forms: ['food'],
         trigger: 'is-vegetarian',

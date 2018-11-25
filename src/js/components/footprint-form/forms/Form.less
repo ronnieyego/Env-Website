@@ -1,97 +1,116 @@
-@border: 1px solid gray;
+@import '../../../utils/shared-styles/LessVariables.less';
 
-.footprint {
-    &-main {
-        display: initial;
+.form {
+    width: 75%;
+    margin: 0rem auto;
+    background-color: white;
+    border-radius: 1rem;
+    @media @tablet {
+        width: 90%;
+    }
+    @media @mobile {
+        width: 100%;
+        margin: 0rem;
+        border-radius: 0rem;
+    }
+    &-background {
+        background-image: @green-gradient;
+        @media @mobile {
+            background-color: 'white';
+        }
     }
 
-    &-form {
-        border: @border;
-        margin: 10px auto;
-        // width: 500px;
-        background-color: #d3f9ea;
+    &-header {
+        font-size: 1.6rem;
+        margin: 1rem auto;
+        font-weight: bold;
+    }
 
-        @media @mobile {
-            width: 100%;
+    &-sub-header {
+        margin: 1rem;
+        font-size: 1.4rem;
+        text-align: left;
+    }
+
+    &-question {
+        text-align: center;
+        &-container {
+            margin: 2rem 1rem;
         }
-
-        &-header {
-            margin-top: 5px;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        &-title {
-            margin: 0px 0px;
-            font-weight: bold;
-            border: @border;
-            text-align: center;
-            background-color: white;
-        }
-
-        &-subtext {
-            margin: 10px 10px;
-            font-size: 18px;
+        &-name {
             text-align: left;
-
-            &-center {
-                margin: 10px 10p;
-                font-size: 18px;
+            font-weight: bold;
+            @media @mobile {
                 text-align: center;
             }
         }
 
-        &-sub-header {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            margin-left: 10px;
-            font-size: 20px;
-            font-weight: bold;
+        &-subtext {
             text-align: left;
-
-            &-description {
-                font-style: italic;
-                font-size: 18px;
-                margin-bottom: 10px;
-                margin-left: 10px;
+            font-size: .8rem;
+            &-mobile {
+                font-size: .8rem;
+                margin: 1rem auto;
+                color: @color-light-blue;
             }
         }
-
-        &-paragraphs {
-            text-align: left;
-            font-size: 18px;
-            line-height: 1.5;
-        }
-
-        &-bottom-buttons {
-          display: flex;
-          justify-content: space-between;
-          font-size: 16px;
-          margin-top: 50px;
-        }
-
-        &-submit-invalid {
-            margin: 15px 0;
-            text-align: center;
-            color: red;
-            font-size: 20px;
-            font-weight: bold;
+        &-buttons {
+            &-mobile {
+                margin-top: .2rem;
+            }
         }
         
-        &-need-help {
-            margin: 5px auto;
-        }
+    }
+    &-bottom-buttons {
+        display: flex;
+        justify-content: space-between;
+        &-left {
+            margin-bottom: 1rem !important;
+            margin-left: 1rem !important;
+            background-color: white !important;
+            border-radius: 1rem !important;
+            border: @border !important;
+          }
+          
+        &-right {
+            background-color: @color-light-blue !important;
+            border-radius: 1rem !important;
+            margin-bottom: 1rem !important;
+            margin-right: 1rem !important;
+            border: @border !important;
+          }
+    }
 
-        &-tab {
-            background-color: @green !important;
-            &-sublevel {
-                background-color: @medium-green !important;
-            }
+    &-title {
+        margin: 0px 0px;
+        font-weight: bold;
+        border: @border;
+        text-align: center;
+        background-color: white;
+    }
+
+    &-subtext {
+        margin: 10px 10px;
+        font-size: 18px;
+        text-align: left;
+
+        &-center {
+            margin: 10px 10p;
+            font-size: 18px;
+            text-align: center;
+        }
+    }
+
+    &-tab {
+        background-color: @color-darker-green !important;
+        &-sublevel {
+            background-color: @color-light-green !important;
         }
     }
 }
 
-.form-divider {
-    margin-top: 25px;
-    margin-bottom: 25px;
+.footprint {
+    &-how-it-works-button {
+        margin-bottom: 2rem !important;
+    }
 }

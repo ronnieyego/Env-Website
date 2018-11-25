@@ -1,7 +1,8 @@
 import React from "react";
-import { string, bool, func } from 'prop-types';
+import { string, bool, func, object } from 'prop-types';
 import MenuItem from 'material-ui/MenuItem';
 import SelectField from 'material-ui/SelectField';
+import { DROPDOWN_STYLE, UNDERLINE_STYLE, ICON_STYLE } from '../utils/shared-styles/dropdown-style';
 
 let stateIds = [
 'US',
@@ -57,6 +58,19 @@ let stateIds = [
 'WY'
 ];
 
+const style = {
+    border: "1px solid black",
+    borderRadius: "1rem",
+    backgroundColor: '#ffffff'
+}
+const underlineStyle = {
+    opacity: 0
+};
+
+const iconStyle = {
+    right: '24px'
+}
+
 export default class StateDropdown extends React.Component {
     static propTypes = {
         id: string,
@@ -65,7 +79,8 @@ export default class StateDropdown extends React.Component {
         subText: string,
         updateQuestion: func,
         isMobile: bool,
-        omitUs: bool
+        omitUs: bool,
+        style: object
     }
     
 	render() {
@@ -80,18 +95,22 @@ export default class StateDropdown extends React.Component {
                 value={state}  
             />
         });
-        const labelStyle = { paddingRight: '0px', fontWeight: 'bold' };
+        const combinedSyle = { ...DROPDOWN_STYLE, ...this.props.style};
 
 		return (
             <SelectField
                 errorText={this.props.errorText}
-                hintText={'Please select your state'}
+                hintText={'Select your state'}
                 id={this.props.id}
                 menuItemStyle={{fontWeight: 'bold'}}
-                labelStyle={labelStyle}
                 menuStyle={{textAlign: 'center'}}
                 onChange={this.props.updateQuestion.bind(this)}
                 value={this.props.value}
+                errorStyle={{ marginTop: '5px', fontSize: '1rem' }}
+                hintStyle={{ fontWeight: 'bold', paddingLeft: '5px'}}
+                style={combinedSyle}
+                iconStyle={ICON_STYLE}
+                underlineStyle={UNDERLINE_STYLE}
             >
                 {dropDownOptions}
             </SelectField>

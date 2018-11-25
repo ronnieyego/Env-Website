@@ -1,5 +1,5 @@
 const userReducer = (state = {
-    userState: 'US',
+    userState: 'CA',
     userGender: '',
     isMobile: false
 }, action) => {
