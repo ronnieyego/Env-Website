@@ -17,7 +17,7 @@
   }
 }
 .form-background {
-  background-image: linear-gradient(#E7EAE0 30%, #85A774 90%);
+  background-image: linear-gradient(#E7EAE0 30%, #85a774 90%);
 }
 @media only screen and (max-width: 479px) {
   .form-background {
@@ -97,7 +97,7 @@
   text-align: center;
 }
 .form-tab {
-  background-color: #85A774 !important;
+  background-color: #85a774 !important;
 }
 .form-tab-sublevel {
   background-color: #E7EAE0 !important;
@@ -180,14 +180,30 @@
   font-weight: normal;
 }
 .results-changer {
-  text-align: left;
-  margin: 20px;
+  text-align: center;
 }
-.results-changer-row {
-  margin-left: 15px;
+.results-changer-column {
+  text-align: center;
 }
-.results-changer-row-explainer {
-  margin-left: 15px;
+.results-changer-button {
+  margin: 1rem auto;
+}
+.results-changer-line {
+  margin: 2rem auto;
+  width: 75%;
+}
+.results-changer-facebook {
+  margin: 1rem auto;
+  text-align: center;
+}
+.results-changer-facebook-button {
+  margin-top: .2rem;
+  margin-left: .5rem;
+  display: inline-flex;
+}
+.results-changer-facebook-text {
+  margin-left: 1rem;
+  color: white;
 }
 .results-text {
   text-align: left;
@@ -470,7 +486,7 @@ input[type="checkbox"] {
 }
 .costs {
   text-align: left;
-  background-image: linear-gradient(#E7EAE0 30%, #85A774 90%);
+  background-image: linear-gradient(#E7EAE0 30%, #85a774 90%);
   margin-bottom: 15px;
 }
 .costs-page {

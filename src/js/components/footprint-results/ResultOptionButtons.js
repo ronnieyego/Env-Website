@@ -1,7 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import FacebookShare from './FacebookShare';
+import { LIGHT_GREEN, MEDIUM_GREEN, LIGHT_PURPLE, LIGHT_BLUE } from "../../utils/shared-styles/colors";
 
 export default class ResultOptionButtons extends React.Component {
 
@@ -16,45 +17,68 @@ export default class ResultOptionButtons extends React.Component {
         this.props.dispatch({type: 'UPDATE_RESULTS_SHOWN', payload: resultsShown });
     }
 
+    renderButton(resultsShown, label, color) {
+        return (
+            <div className="results-changer-button">
+                <FlatButton
+                    href="#top-of-results"
+                    onClick={() => this.switchResult({ resultsShown })}
+                    label={label}
+                    backgroundColor={color}
+                    style={{ borderRadius: '1rem' }}
+                />
+            </div>
+        )
+    }
+
 	render() {
         const unit = 'CO2';
 		return (
             <div className="results-changer">
-                <h1><b>There's more to explore!</b></h1>
-                {/* {Results shown buttons} */}
-                {this.props.resultsShown !== 'compare' && <div className="results-changer-row">
-                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({resultsShown: 'compare'})} label="Compare" primary={true}/>
-                    <p className="results-changer-row-explainer">Compare your footprint against different demographics.</p>
-                </div>}
-                {this.props.resultsShown !== 'personalBreakdown' && <div className="results-changer-row">
-                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({resultsShown: 'personalBreakdown'})} label="Dive Deeper" primary={true}/>
-                    <p className="results-changer-row-explainer">Explore a detailed view into what makes up your {unit} use.</p>
-                </div>}
-                {this.props.resultsShown !== 'savings' && <div className="results-changer-row">
-                    <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.switchResult({resultsShown: 'savings'})} label={`Reduce my ${unit} use`} primary={true}/>
-                    <p className="results-changer-row-explainer">Discover some surprising ways to reduce {unit} use.</p>
-                </div>}
+                <hr className="results-changer-line" />
+                <h2><b>There's more to explore!</b></h2>
 
-                {/* Moar Buttons!! */}
-                {/* <div className="results-changer-row">
-                <a href="/static/how-the-form-works" target="_blank"><RaisedButton label="See the calculations" primary={true} /></a>
-                    <p className="results-changer-row-explainer">A brief guide to how we constructed this footprint.</p>
-                </div> */}
-                <div className="results-changer-row">
-                <a href="/static/how-much-co2" target="_blank"><RaisedButton label="How Much CO2 is this" primary={true} /></a>
-                    <p className="results-changer-row-explainer">A listing of the CO<sub>2</sub> cost of things.</p>
+                {/* {Results shown buttons} */}
+                <div className="results-changer-row row">
+                    {this.props.resultsShown !== 'compare' && (
+                        <div className="results-changer-column col-xs-12 col-md-4">
+                            <p className="results-changer-row-explainer">Compare your footprint against different demographics.</p>
+                            {this.renderButton('compare', 'Compare', LIGHT_GREEN)}
+                        </div>
+                    )}
+                    {this.props.resultsShown !== 'personalBreakdown' && (
+                        <div className="results-changer-column col-xs-12 col-md-4">
+                            <p className="results-changer-row-explainer">Explore a detailed view on your {unit} use.</p>
+                            {this.renderButton('personalBreakdown', 'Dive Deeper', LIGHT_BLUE)}
+                        </div>
+                    )}
+                    {this.props.resultsShown !== 'savings' && (
+                        <div className="results-changer-column col-xs-12 col-md-4">
+                            <p className="results-changer-row-explainer">Discover ways to reduce {unit} use.</p>
+                            {this.renderButton('savings', 'Reduce My CO2 Use', MEDIUM_GREEN)}
+                        </div>
+                    )}
+                    <div className="results-changer-column col-xs-12 col-md-4">
+                        <p className="results-changer-row-explainer">A listing of the CO<sub>2</sub> cost of things.</p>
+                        <a href="/static/how-much-co2" target="_blank">
+                            <FlatButton
+                                label="How Much CO2 is this"
+                                backgroundColor={LIGHT_PURPLE}
+                                style={{ borderRadius: '1rem' }}
+                            />
+                        </a>
+                    </div>
                 </div> 
-                {!this.props.shareResults && <div className="results-changer-row">
-                    <a href="/" target="_blank"><RaisedButton label="Calculate my footprint" secondary={true} /></a>
-                    <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
-                </div>}
-                {this.props.shareResults && <div className="results-changer-row">
-                    <FacebookShare id={this.props.answerId} displayText="Share on Facebook" />
-                    <p className="results-changer-row-explainer">See if your footprint is smaller than your friend's.</p>
-                </div>}
-                {/* {this.props.shareResults && <div className="results-changer-row">
-                <RaisedButton className="results-button" href="#top-of-results" onClick={() => this.props.dispatch({ type: 'DISPLAY_ANSWERS', action: false})} label="Return to Form" primary={true}/>
-                </div>} */}
+
+                {/* Facebook button */}
+                <div className="results-changer-row">
+                    <hr className="results-changer-line" />
+                    {this.props.shareResults && (
+                        <div className="results-changer-facebook">
+                            <FacebookShare id={this.props.answerId} displayText="Share on Facebook" />
+                        </div>
+                    )}
+                </div>
             </div>
 		);
 	}

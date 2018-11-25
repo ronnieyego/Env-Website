@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-// import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { STEPS } from './utils';
 import HouseholdForm from './HouseholdFormContainer';

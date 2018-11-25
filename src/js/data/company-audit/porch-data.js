@@ -45,8 +45,8 @@ export const porchData = {
         printers: 2
     },
     transport: {
-        driveSolo: 137,
-        carpool: 0,
+        driveSolo: 135,
+        carpool: 2,
         publicTransit: 68,
         planeMiles: 4000 * 20, // 4000 miles to dallas.  20 flights a month
         commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
@@ -78,6 +78,7 @@ const atlantaCommute = {
     driveSolo: 195,
     carpool: 0,
     publicTransit: 10,
+    planeMiles: 4000 * 20,
     commuteDistance: 30, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
     commuteTime: 30  
 };
@@ -89,6 +90,7 @@ const carpoolCommute = {
     driveSolo: 100,
     carpool: 50,
     publicTransit: 43,
+    planeMiles: 4000 * 20,
     commuteDistance: 35, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
     commuteTime: 54.2 
 };
@@ -98,6 +100,7 @@ const bothellOfficeCommute = {
         driveSolo: 152,
         carpool: 0,
         publicTransit: 53,
+        planeMiles: 4000 * 20,
         commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
         commuteTime: 20 
     },
@@ -109,13 +112,13 @@ const bothellOfficeCommute = {
     
 };
 
-// Lot of carpooling
 const westSeattleCommute = {
     transport: {
-        driveSolo: 107,
+        driveSolo: 152,
         carpool: 0,
-        publicTransit: 68,
-        commuteDistance: 10, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
+        publicTransit: 53,
+        planeMiles: 4000 * 20,
+        commuteDistance: 14, // Miles.  Estimated from google maps and https://www.thestranger.com/slog/archives/2013/03/11/seattle-ranked-10th-in-nation-for-horrible-commute-times
         commuteTime: 10
     },
     building: {
