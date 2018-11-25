@@ -51,15 +51,17 @@ export default class HouseholdFormActivities extends React.Component {
 
     getServings(questions) {
         const calories = getAnswerFromId(questions, ids.calories);
-        const beef = getAnswerFromId(questions, ids.beefFrequency);
-        const chicken = getAnswerFromId(questions, ids.chickenFrequency);
-        const pork = getAnswerFromId(questions, ids.porkFrequency);
-        const seafood = getAnswerFromId(questions, ids.seafoodFrequency);
+        const isVegan = getAnswerFromId(questions, ids.isVegan);
+        const isVegetarian = getAnswerFromId(questions, ids.isVegetarian);
+        const beef = isVegan || isVegetarian ? ids.never : getAnswerFromId(questions, ids.beefFrequency);
+        const chicken = isVegan || isVegetarian ? ids.never : getAnswerFromId(questions, ids.chickenFrequency);
+        const pork = isVegan || isVegetarian ? ids.never : getAnswerFromId(questions, ids.porkFrequency);
+        const seafood = isVegan || isVegetarian ? ids.never : getAnswerFromId(questions, ids.seafoodFrequency);
         const grain = getAnswerFromId(questions, ids.grainsFrequency);
         const fruit = getAnswerFromId(questions, ids.fruitsFrequency);
         const vegetables = getAnswerFromId(questions, ids.vegetablesFrequency);
-        const dairy = getAnswerFromId(questions, ids.dairyFrequency);
-        const cheese = getAnswerFromId(questions, ids.cheeseFrequency);
+        const dairy = isVegan ? ids.never : getAnswerFromId(questions, ids.dairyFrequency);
+        const cheese = isVegan ? ids.never : getAnswerFromId(questions, ids.cheeseFrequency);
         const junkFood = getAnswerFromId(questions, ids.junkFoodFrequency);
 
         return getFoodResults({calories, beef, chicken, pork, seafood, grain, fruit, vegetables, dairy, cheese, junkFood });
