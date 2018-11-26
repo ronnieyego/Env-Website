@@ -62,7 +62,9 @@ export const getTransportCo2 = transport => {
 };
 
 export const getElectricityCo2 = electricity => {
-    return convertKwhToCo2(electricity.state, electricity.kwh);
+    const useage = convertKwhToCo2(electricity.state, electricity.kwh);
+    const servers = electricity.servers ? electricity.servers : 0;
+    return useage + servers;
 };
 
 export const getGarbageCo2 = garbage => {

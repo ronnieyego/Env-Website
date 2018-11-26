@@ -55,7 +55,8 @@ export const porchData = {
     electricity: {
         cost: '3k/month',  // 0.0946 Dollars per kwh from seattle WA
         kwh: 31712.5,
-        state: 'WA'
+        state: 'WA',
+        servers: 30*24*30*.528 // 500 pods -> 30 servers.  1kw/server.  30*24*30kwh electricity/month * 0.528 oregon Co2/ kwh
     },
     building: {
         sqft: 23839, // http://www.mapdevelopers.com/area_finder.php
