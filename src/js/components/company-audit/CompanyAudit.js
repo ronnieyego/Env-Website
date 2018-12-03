@@ -6,6 +6,7 @@ import{ PORCH, moveToAtlanta, carpoolProgram, bothellOffice, westSeattle } from 
 import{ SPECTRALUX } from '../../data/company-audit/spectralux';
 import{ OMNIDIAN } from '../../data/company-audit/omnidian';
 import { HINES_AMAZON } from "../../data/company-audit/hines-amazon";
+import PorchBlurbs from '../../data/company-audit/porch-blurbs';
 
 import BarChart from '../bar-chart/BarChartHoc';
 
@@ -35,15 +36,15 @@ export default class CompanyAudit extends React.Component {
         } else if (value === 'Bothell Office') {
             data = bothellOffice;
             selected = 'Bothell Office';
-        }  else if (value === 'Spectralux') {
-            data = SPECTRALUX;
-            selected = 'Spectralux';
-        }  else if (value === 'Omnidian') {
-            data = OMNIDIAN;
-            selected = 'Omnidian';
-        } else if (value === 'Hines') {
-            data = HINES_AMAZON;
-            selected = 'Hines';
+        // }  else if (value === 'Spectralux') {
+        //     data = SPECTRALUX;
+        //     selected = 'Spectralux';
+        // }  else if (value === 'Omnidian') {
+        //     data = OMNIDIAN;
+        //     selected = 'Omnidian';
+        // } else if (value === 'Hines') {
+        //     data = HINES_AMAZON;
+        //     selected = 'Hines';
         } else {
             data = PORCH;
             selected = 'Current Porch';
@@ -81,7 +82,8 @@ export default class CompanyAudit extends React.Component {
             { name: 'Plane', Amount: res.transport.planeCo2 },
         ];
 
-        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office', 'Spectralux', 'Omnidian', 'Hines'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
+        // /, 'Spectralux', 'Omnidian', 'Hines'
+        const whatIfSelects = ['Current Porch', 'Moved to Canton', 'Carpool Program', 'West Seattle', 'Bothell Office'].map(whatIf => <MenuItem key={whatIf} primaryText={whatIf} value={whatIf} />);;
 
         return (
             <div className="costs">
@@ -113,7 +115,10 @@ export default class CompanyAudit extends React.Component {
                         </span>
                         <p className="costs-form-sub-header">This breaks down to about {res.employee} pounds of CO<sub>2</sub> per employee each month.</p>
                     </div>
+
+                    <p style={{marginLeft: '3rem', fontSize:'18px'}}>{PorchBlurbs[this.state.dataKey] && PorchBlurbs[this.state.dataKey]}</p>
                     
+                    <br />
                     <BarChart
                         graphData={monthlyHighLevel}
                         units={'Pounds of CO2'}
@@ -124,6 +129,8 @@ export default class CompanyAudit extends React.Component {
                         mobileHeaders={['Category', 'Pounds of CO2']}
                     />
 
+                    <br />
+                    <br />
                     <BarChart
                         graphData={formattedStuff}
                         units={'Pounds of CO2'}
@@ -134,6 +141,8 @@ export default class CompanyAudit extends React.Component {
                         mobileHeaders={['Item', 'Pounds of CO2']}
                     />
 
+                    <br />
+                    <br />
                     <BarChart
                         graphData={formattedFood}
                         units={'Pounds of CO2'}
@@ -144,6 +153,8 @@ export default class CompanyAudit extends React.Component {
                         mobileHeaders={['Food', 'Pounds of CO2']}
                     />
 
+                    <br />
+                    <br />
                     <BarChart
                         graphData={transportation}
                         units={'Pounds of CO2'}
