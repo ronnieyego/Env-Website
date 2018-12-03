@@ -69,6 +69,7 @@ app.get(`/costs`, loadStaticPage);
 app.get(`/costs/:page`, loadCostsPage); 
 
 app.get(`/test`, loadTestPage); 
+app.get(`/brownbag`, loadTestPage); 
 
 
 // APIs
