@@ -1,10 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 
-import HowMuchCo2 from '../how-much-co2/HowMuchCo2';
 import ResultOptionButtons from './ResultOptionButtons';
-
-
 import PersonalBreakdown from './PersonalBreakdown';
 import Compare from './Compare';
 import Savings from './Savings';
@@ -21,8 +18,6 @@ import Savings from './Savings';
 })
 export default class Results extends React.Component {
 	render() {
-		const { monthlyCo2 } = this.props.results;
-
 		let results;
 		switch(this.props.resultsShown) {
 			case 'compare': 
@@ -40,11 +35,6 @@ export default class Results extends React.Component {
 
 		return (
             <div className="results">
-                <div className="results-title">
-                    <span>You release <b><HowMuchCo2 co2={monthlyCo2} /></b> pounds of CO<sub>2</sub> each month.</span>
-					<p className="results-subtitle" >Use the tools below to compare your footprint, investigate what constitutes your footprint, and ultimately reduce your footprint.</p>
-                </div>
-
 				<div id="top-of-results">
 					{results}		
 				</div>

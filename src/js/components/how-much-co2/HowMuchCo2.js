@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 
 import ReactTooltip from '../tooltip/Tooltip';
-import data from './how-much-co2-data';
+import getLikelyFacts from './get-display-facts';
 
 const spanStyle = { display: 'inline-flex'};
 const iconSize = {
@@ -11,13 +11,7 @@ const iconSize = {
     color: 'mediumpurple'
 };
 
-const upperLimit = {
-    name: 'This footprint is huge',
-    description: 'Wow this is a lot!  I don\'t even have anything to compare this against.  In any case, you should probably change something or else say "my bad" when people talk about climate change.',
-    amount: 4000000
-};
-const range = .3; // 30% range for amounts
-const FACTS_TO_DISPLAY = 3
+const FACTS_TO_DISPLAY = 3;
 
 
 export default class HowMuchCo2 extends React.Component {
@@ -25,33 +19,6 @@ export default class HowMuchCo2 extends React.Component {
         co2: PropTypes.number,
         fontSize: PropTypes.number,
         exclude: PropTypes.array // Ids of those to avoid.
-    }
-
-    sortFacts(co2, facts) {
-        if(facts.length < FACTS_TO_DISPLAY) {
-            return facts;
-        }
-        const sorted = facts.sort((a,b) => {
-            return Math.abs(a.co2 - co2) > Math.abs(b.co2 - co2);
-        });
-        const reduced = sorted.slice(0,FACTS_TO_DISPLAY);
-        return reduced.sort((a,b) => {
-            return a.co2 > b.co2;
-        })
-    }
-
-    getLikelyFacts(co2, excludeArray) {
-        if( co2 > upperLimit.amount) {
-            return [upperLimit]
-        }
-        const facts = data.filter(fact => {
-            return (
-                fact.amount > (co2 * (1 - range))) 
-                && (fact.amount < (co2 * (1+range))
-                && excludeArray.indexOf(fact.id) === -1
-            )
-        });
-        return this.sortFacts(co2, facts);
     }
 
     renderFact(fact) {
@@ -70,7 +37,7 @@ export default class HowMuchCo2 extends React.Component {
 	render() {
         const co2 = this.props.co2;
         const excludeArray = this.props.exclude || [];
-        const facts = this.getLikelyFacts(co2, excludeArray);
+        const facts = getLikelyFacts(co2, excludeArray, FACTS_TO_DISPLAY);
         const display = facts.map(fact => this.renderFact(fact))
 		return (
             <span className="how-much-co2-container">

@@ -1,7 +1,111 @@
+@import '../../utils/shared-styles/LessVariables.less';
+
 .results {
     display: inline;
     text-align: center;
     font-weight: normal;
+
+    &-hero {
+        height: 350px;
+        width: 100%;
+        background-image: url("/public/images/blue-sea-gradient-background.jpg");
+        background-position: 100% 50%;
+        background-size: cover;
+        margin-bottom: 2rem;
+        &-mobile {
+            height: 500px;
+            width: 100%;
+            background-image: url("/public/images/blue-sea-gradient-background.jpg");
+            background-position: center;
+            background-size: cover;
+            margin-bottom: 2rem;
+        }
+
+        &-amount {
+            position: relative;
+            left: 3rem;
+            top: 3rem;
+            width: 220px;
+
+            @media @mobile {
+                margin: 0rem auto;
+                left: 0rem;
+                top: 4rem;
+            }
+            
+            &-text {
+                position: relative;
+                color: white;
+                font-size: 2rem;
+                z-index: 2;
+                @media @mobile {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+
+        &-facts {
+            position: relative;
+            text-align: left;
+            left: 55%;
+            top: -10rem;
+            width: 350px;
+            color: white;
+
+            @media @mobile {
+                margin: 0rem auto;
+                margin-top: 15rem;
+                width: 100%;
+                left: 0rem;
+                top: 0rem;
+            }
+            
+
+            &-background {
+                position: absolute;
+                background-image: @darker-green-gradient;
+                border-radius: 1rem;
+                opacity: .5;
+                width: 100%;
+                height: 100%;
+            }
+
+            &-title {
+                position: relative;
+                z-index: 2;
+                font-size: 1.6rem;
+                margin: 1rem 1rem;
+
+                @media @mobile {
+                    font-size: 1.2rem;
+                }
+                
+            }
+        }
+
+        &-fact {
+            &-title {
+                position: relative;
+                z-index: 2;
+                font-size: 1.2rem;
+                margin: 1rem 1rem;
+                @media @mobile {
+                    font-size: 1rem;
+                }
+            }
+
+            &-description {
+                position: relative;
+                z-index: 2;
+                font-size: 1rem;
+                margin: 1rem 1rem;
+
+                @media @mobile {
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
 
     &-changer {
         text-align: center;
