@@ -1,10 +1,12 @@
 import React from "react";
-import { array, bool, string } from 'prop-types';
+import { array, bool, number, string } from 'prop-types';
 
 import { BarChart, Bar, ReferenceLine, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { roundData } from './utils';
 
 const INDEX_LIMIT_FOR_LOWER_RENDER = 5;
+const BASE_WIDTH = 600;
+const BASE_HEIGHT = 300;
 
 const renderOffsetTicks = (props) => {
     const { x, y, payload } = props;
@@ -35,7 +37,9 @@ export default class BarCharDesktop extends React.Component {
         compare: bool, // If true, looks for average american.  
         dataKeyCompare: string,
         units: string, //units on left side
-        title: string
+        title: string,
+        width: number,
+        height: number,
     }
 
     getDomainMax(barGraphData) {
@@ -76,7 +80,7 @@ export default class BarCharDesktop extends React.Component {
         return (
             <div className="bar-chart">
                 <p className="bar-chart-title">{title}</p>
-                <BarChart width={600} height={300} data={barGraphData}
+                <BarChart width={this.props.width || BASE_WIDTH} height={this.props.height || BASE_HEIGHT} data={barGraphData}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}
                         className="bar-chart">
                     <XAxis dataKey="name" interval={0} tickSize={tickSize} tick={renderTicks} />

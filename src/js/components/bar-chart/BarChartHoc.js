@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { array, bool, number, string} from 'prop-types';
 
 import BarChartMobile from './BarChartMobile';
+// import BarChartReactCharts from './BarChart-ReactCharts';
 import BarChartDesktop from './BarChartDesktop';
 import BarCharrtBiaxialDesktop from  './BarChartBiaxialDesktop';
 
-@connect((store, props) => {
+@connect(store => {
 	return {
 		isMobile: store.userInfo.isMobile,
 	};
@@ -32,7 +33,7 @@ export default class BarChartHoc extends React.Component {
     render() {
         let barChart;
         if(this.props.isMobile) {
-            barChart = (<BarChartMobile {...this.props} />);
+            barChart = (<BarChartMobile {...this.props} width={300} height={250} />);
         } else if (this.props.biaxial) {
             barChart = (<BarCharrtBiaxialDesktop {...this.props} />);
         } else {
