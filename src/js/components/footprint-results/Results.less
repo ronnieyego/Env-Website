@@ -13,10 +13,10 @@
         background-size: cover;
         margin-bottom: 2rem;
         &-mobile {
-            height: 500px;
+            height: 400px;
             width: 100%;
             background-image: url("/public/images/blue-sea-gradient-background.jpg");
-            background-position: center;
+            background-position: right;
             background-size: cover;
             margin-bottom: 2rem;
         }
@@ -30,7 +30,7 @@
             @media @mobile {
                 margin: 0rem auto;
                 left: 0rem;
-                top: 4rem;
+                top: 2rem;
             }
             
             &-text {
@@ -54,7 +54,7 @@
 
             @media @mobile {
                 margin: 0rem auto;
-                margin-top: 15rem;
+                margin-top: 6rem;
                 width: 100%;
                 left: 0rem;
                 top: 0rem;
@@ -233,27 +233,36 @@
 
 .savings {
     &-container {
-        margin: 15px auto;
+        margin: 1rem auto;
         text-align: center;
-        border: solid black 3px;
+    }
+    &-title {
+        font-weight: bold;
+        font-size: 3rem;
+        line-height: 1;
     }
     &-column {
         text-align: center;
         width: 50%;
         margin: 15px 15px;
-
-        @media @mobile {
-            margin: 10px 0px;
+        &-title {
+            font-size: 2rem;
         }
     }
+    &-see-more {
+        color: blue !important;
+        text-decoration: underline !important;
+    }
     &-card {
-        margin-top: 15px;
+        margin-top: 2rem;
         border: 1px solid gray;
         text-align: center;
+        box-shadow: .2rem .25rem;
+        border-radius: 1rem;
 
         &-title {
             font-weight: bold;
-            font-size: 22px;
+            font-size: 2rem;
             margin: 0 15px;
             overflow-wrap: break-word;
 
@@ -265,13 +274,8 @@
         &-text {
             overflow-wrap: break-word;
         }
-    }
-
-    &-title {
-        font-size: 26px;
-        font-weight: bold;
-        @media @mobile {
-            font-size: 18px;
+        &-learn-more {
+            margin-bottom: .8rem;
         }
     }
 }

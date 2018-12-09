@@ -4,7 +4,8 @@ export const baseState = {
     questions: [],
     formResults: {},
     errorGettingFormResults: false,
-    resultsUnit: 'co2', // I think I can delete this
+    savingsCardDisplayCountLargeImpact: 5,
+    savingsCardDisplayCountSmallImpact: 5,
     resultsShown: 'compare',
     userState: 'US',
 };
@@ -40,6 +41,14 @@ export const footprintFormAnswers = (state = baseState, action) => {
         }
         case 'UPDATE_USER_STATE': {
             state = { ...state, userState: action.payload, averageAmericanState: action.payload};
+            break;
+        }
+        case 'SET_LARGE_IMPACT_SAVINGS_CARD_DISPLAY_COUNT': {
+            state = { ...state, savingsCardDisplayCountLargeImpact: action.payload};
+            break;
+        }
+        case 'SET_SMALL_IMPACT_SAVINGS_CARD_DISPLAY_COUNT': {
+            state = { ...state, savingsCardDisplayCountSmallImpact: action.payload};
             break;
         }
       }
