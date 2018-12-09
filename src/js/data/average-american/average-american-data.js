@@ -2,7 +2,7 @@ import ids from '../../utils/ids/index';
 
 // Car miles driven by age and gender
 // Source:  https://www.fhwa.dot.gov/ohim/onh00/bar8.htm
-const americanCarMiles = { 
+export const americanCarMiles = { 
     [ids.sixteenNineteen]: {
         male: 8206,
         female: 6873,
@@ -31,7 +31,7 @@ const americanCarMiles = {
 
 // Average kwh each month according to utility bills
 // source:  EIA  https://www.eia.gov/tools/faqs/faq.php?id=97&t=3
-const kwhPerMonthAppliance = 901;
+export const kwhPerMonthAppliance = 901;
 
 
 // DEPRECATED SINCE I USE A DIFFERENT SYSTEM
@@ -42,8 +42,8 @@ const kwhPerMonthAppliance = 901;
 // Added eggs from https://askkaren.custhelp.com/app/answers/detail/a_id/1410/~/how-many-eggs-do-americans-eat-each-year%3F
 
 // This diet is 3890 calories a day.  Im just taking the ratio of food from here
-const americanDietCalories = 3500;
-const americanFood = {
+export const americanDietCalories = 3500;
+export const americanFood = {
     dairy: {
         yearServings: 2293,
         energyPerServing: 0.75,
@@ -107,7 +107,7 @@ const americanFood = {
 };
 
 
-const demographicCalories ={
+export const demographicCalories ={
     [ids.sixteenNineteen]: {
         male: 2600,
         female: 1950,
@@ -134,7 +134,7 @@ const demographicCalories ={
     }
 };
 
-const americanClothing = {
+export const americanClothing = {
     shopper: { // https://recoveringshopaholic.com/2013/02/12/what-is-a-normal-sized-wardrobe/
         male : {
             shirts: 112,
@@ -180,7 +180,7 @@ const americanClothing = {
     }
 };
 
-const americanFurniture = {
+export const americanFurniture = {
     house: {
         chairs: 16,
         tables: 6,
@@ -197,15 +197,5 @@ const americanFurniture = {
         bookcases: 2,
         beds: 1
     }
-}
-
-module.exports = {
-    americanClothing,
-    americanCarMiles,
-    americanDietCalories,
-    americanFood, 
-    americanFurniture,
-    demographicCalories,
-    kwhPerMonthAppliance
 }
  

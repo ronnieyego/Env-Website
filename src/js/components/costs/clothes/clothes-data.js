@@ -1,6 +1,6 @@
 import ids from '../../../utils/ids/index';
 
-const co2PerPoundOfFabric = { // Mishmash of sources see google sheet
+export const co2PerPoundOfFabric = { // Mishmash of sources see google sheet
     'Cotton':	1.848,
     'Organic Cotton':	1.18,
     'Local Organic Cotton':	0.74,
@@ -10,7 +10,7 @@ const co2PerPoundOfFabric = { // Mishmash of sources see google sheet
     'Rubber':	3.1
 };
 
-const weightOfClothes = { // In pounds
+export const weightOfClothes = { // In pounds
     'shirt':	0.4,
     'jeans':	1.75,
     'dress':	0.625,
@@ -30,7 +30,7 @@ const weightOfClothes = { // In pounds
     'Its a mix of shoes': (1.25 + 2.25 + 4 + 1.875 + 1.75)/5 // All other shoes averaged
 };
 
-const sizeDifference = { 
+export const sizeDifference = { 
     'X Small':	0.86,
     'Small':	0.93,
     'Medium':	1.00,
@@ -38,7 +38,7 @@ const sizeDifference = {
     'X Large':	1.17,
 };
 
-const pantsMaterial = {
+export const pantsMaterial = {
     'Mostly demin': {
         weight: weightOfClothes.jeans,
         co2: co2PerPoundOfFabric.Demin
@@ -58,12 +58,12 @@ const pantsMaterial = {
 }
 
 // Womens clothing weighs 69% as much as mens clothing on average.
-const womenWeightDiff = 0.69;
+export const womenWeightDiff = 0.69;
 
 // A shoe is roughly 8% rubber by weight
-const percentShoeIsRubber = .08
+export const percentShoeIsRubber = .08
 
-const clothesQuestions = [
+export const clothesQuestions = [
     {    
         id: ids.shirtsOwn,
         name: 'How many shirts do you own?',
@@ -196,14 +196,3 @@ const clothesQuestions = [
         formType: 'costs'
     },
 ];
-
-
-module.exports = {
-    clothesQuestions,
-    co2PerPoundOfFabric,
-    pantsMaterial,
-    percentShoeIsRubber,
-    sizeDifference,
-    weightOfClothes,
-    womenWeightDiff
-}

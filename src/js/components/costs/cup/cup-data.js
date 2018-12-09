@@ -2,7 +2,7 @@
 // Main source:  http://www.dunand.northwestern.edu/courses/Case%20study/Scott%20Cronin%20-%20Coffee%20Cup%20Comparison.pdf
 import ids from '../../../utils/ids/index';
 
-const cupData = [
+export const cupData = [
     {
         name: 'Ceramic Mug',
         co2: 1.9,
@@ -35,9 +35,9 @@ const cupData = [
     },
 ];
 
-const usesPerWash = 40;
+export const usesPerWash = 40;
 
-const cupQuestions = [
+export const cupQuestions = [
     {    
         id: ids.cupType,
         name: 'What type of cup are you interested in?',
@@ -58,10 +58,4 @@ const cupQuestions = [
         formType: 'costs'
     }
     
-]
-
-module.exports = {
-    cupData,
-    usesPerWash,
-    cupQuestions
-};
+];

@@ -23,4 +23,4 @@ const footprintFormReducer = (state = {
 };
 
 
-module.exports = footprintFormReducer;
+export default footprintFormReducer;

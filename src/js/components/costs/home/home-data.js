@@ -5,7 +5,7 @@
 
 import ids from '../../../utils/ids/index';
 
-const co2PerSqFt = {
+export const co2PerSqFt = {
     Brick: 100,
     Wood: 160,
     Concrete: 94
@@ -13,20 +13,20 @@ const co2PerSqFt = {
 
 // Derived from concrete example.  This is all non material CO2.
 // In practice, the real value will be smaller since this has non-transportation energy
-const homeTypeAdjuster = {
+export const homeTypeAdjuster = {
     House: 1,
     Apartment: .98
 };
 
 
 // https://www.linkedin.com/pulse/how-long-does-modern-concrete-building-last-amit-enterprises-housing/
-const homeLife = {
+export const homeLife = {
     House: 100, // A house will last for ~100 years
     Apartment: 80  // An apartment will last for ~80 years
 };
 
 // All in percent
-const co2Breakdown = {
+export const co2Breakdown = {
     Brick : {
         Foundation: 0.10,
         Brick: 0.65,
@@ -54,7 +54,7 @@ const co2Breakdown = {
     }
 }
 
-const homeQuestions = [
+export const homeQuestions = [
     {    
         id: ids.homeType,
         name: 'Do you live in a house or an apartment?',
@@ -88,11 +88,3 @@ const homeQuestions = [
         formType: 'costs'
     },
 ];
-
-module.exports = {
-    homeLife,
-    co2PerSqFt,
-    co2Breakdown,
-    homeTypeAdjuster,
-    homeQuestions
-}

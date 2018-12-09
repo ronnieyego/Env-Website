@@ -7,6 +7,7 @@ import Hero from '../components/footprint-results/Hero';
 
 
 @connect((store, props) => {
+	console.log(store);
 	return {
 		results: store.footprintFormAnswers.formResults,
 		questions: store.footprintFormAnswers.questions,

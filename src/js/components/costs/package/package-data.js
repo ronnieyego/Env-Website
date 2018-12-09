@@ -13,7 +13,7 @@ const getDistance = (start, destination) => {
     return Math.round(meters * METERS_TO_MILES);
 } 
 
-const transitCO2 = {
+export const transitCO2 = {
     // LB CO2e/ LB-MI
     plane:	0.00297,
     truck:	0.00072,
@@ -22,7 +22,7 @@ const transitCO2 = {
 }
 
 // Wild guess of road frieght distance from the state to your house.
-const fromStateToHouse = 100;
+export const fromStateToHouse = 100;
 // Wild guess that under 200 miles, it'll be truck vs train.
 const truckTrainCutoffDistance = 200;
 
@@ -80,7 +80,7 @@ const getCity = (destination, port) => {
 };
 
 // Could be an arbitrary location or a port
-const getFromStatesToDestination = (start, destination, rush, weight) => {
+export const getFromStatesToDestination = (start, destination, rush, weight) => {
     const usDistance = getDistance(start, destination);
     if(usDistance === 0) { // Same state transit
         const totalCo2 = weight * transitCO2.truck * fromStateToHouse;
@@ -103,7 +103,7 @@ const getFromStatesToDestination = (start, destination, rush, weight) => {
 };
 
 
-const getFromOverseas = (continent, destination, rush, weight) => {
+export const getFromOverseas = (continent, destination, rush, weight) => {
     const overseasRailDistance = continent === 'China' ? chinaToPortDistance : europeToPortDistance;
     const startCity = continent === 'China' ? latLongs.shanghai : latLongs.europe;
     const fromPortName = continent === 'China' ? 'chinaDistance' : 'europeDistance';
@@ -132,7 +132,7 @@ const getFromOverseas = (continent, destination, rush, weight) => {
     };
 };
 
-const getFromAcrossAmerica = (destination, rush, weight) => {
+export const getFromAcrossAmerica = (destination, rush, weight) => {
     const madeCity = getCity(destination, false);
     console.log('Lets assume this package was made in ', madeCity.name);
     const results = getFromStatesToDestination(madeCity, destination, rush, weight);
@@ -140,7 +140,7 @@ const getFromAcrossAmerica = (destination, rush, weight) => {
 };
 
 // Aiming for a state close to X miles away
-const getXDistance = (range, destination, rush, weight) => {
+export const getXDistance = (range, destination, rush, weight) => {
     const states = Object.keys(statesLatLong);
     let madeStateDistance = 1000;
     let madeState;
@@ -163,7 +163,7 @@ const getXDistance = (range, destination, rush, weight) => {
 // 4 days for the whole country
 
 
-const packageQuestions = [
+export const packageQuestions = [
     {    
         id: ids.orderOrMail,
         name: 'Are you ordering a package or mailing one?',
@@ -238,14 +238,3 @@ const packageQuestions = [
         formType: 'costs'
     }
 ];
-
-module.exports = {
-    packageQuestions,
-    getFromOverseas,
-    getFromStatesToDestination,
-    getXDistance,
-    getFromAcrossAmerica,
-    fromStateToHouse,
-    transitCO2
-}
-

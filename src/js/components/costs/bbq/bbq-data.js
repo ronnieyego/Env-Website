@@ -2,18 +2,18 @@
 import ids from '../../../utils/ids/index';
 import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 
-const co2PerChimney = 15.2;
-const co2PerBurnerHour = 1.99;
+export const co2PerChimney = 15.2;
+export const co2PerBurnerHour = 1.99;
 
 // This is per pound.  5.333 servings per pound
-const foodCo2 = {
+export const foodCo2 = {
     chicken: 5.4,
     pork: 5.0,
     beef: 27.8,
     vegetables: 2.65
 }
 
-const bbqQuestions = [
+export const bbqQuestions = [
     {    
         id: ids.grillType,
         name: 'What kind of BBQ do you own?',
@@ -86,12 +86,3 @@ const bbqQuestions = [
         formType: 'costs'
     },
 ];
-
-
-
-module.exports = {
-    bbqQuestions,
-    co2PerBurnerHour,
-    co2PerChimney,
-    foodCo2
-}

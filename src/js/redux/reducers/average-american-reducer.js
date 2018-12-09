@@ -58,4 +58,4 @@ const averageAmerican =  (state = baseState, action) => {
     
 };
 
-module.exports = averageAmerican;
+export default averageAmerican;

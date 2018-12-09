@@ -2,7 +2,7 @@ import ids from '../../../utils/ids/index';
 
 // https://www3.epa.gov/ttnecas1/regdata/EIAs/LandfillsNSPSProposalEIA.pdf	
 
-const GARBAGE_FACTS = {
+export const GARBAGE_FACTS = {
     // All Million Tons
     total: 250,
     landfill: 136,
@@ -12,13 +12,13 @@ const GARBAGE_FACTS = {
     
 };
 
-const transportCo2 = 0.0007233003012; // LB CO2 per LB/Mile
-const co2Landfill = 0.51; // Lb Co2 per Lb trash.  Mostly from CO2 and methane
-const kwhPerPound = 0.058;  // kwh per lb trash if methane capture.
-const averageCo2PerPoundGarbage = 0.6; // TODO: Estimated.  Need to fix
+export const transportCo2 = 0.0007233003012; // LB CO2 per LB/Mile
+export const co2Landfill = 0.51; // Lb Co2 per Lb trash.  Mostly from CO2 and methane
+export const kwhPerPound = 0.058;  // kwh per lb trash if methane capture.
+export const averageCo2PerPoundGarbage = 0.6; // TODO: Estimated.  Need to fix
 
 
-const garbageQuestions = [
+export const garbageQuestions = [
     {    
         id: ids.poundsOfGarbage,
         name: 'How much garbage do you generate every week?',
@@ -59,12 +59,3 @@ const garbageQuestions = [
         forms: ['garbage'],
     }
 ];
-
-module.exports= {
-    averageCo2PerPoundGarbage,
-    co2Landfill,
-    GARBAGE_FACTS,
-    garbageQuestions,
-    kwhPerPound,
-    transportCo2
-}

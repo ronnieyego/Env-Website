@@ -82,7 +82,7 @@ const petHamster = getHamsterLife();
 const petGecko = getGeckoLife();
 const petTurtle = getTurtleCo2();
 
-module.exports = {
+export default {
     [ids.petSmallDog]: smallDog,
     [ids.petDog]: petDog,
     [ids.petBigDog]: petBigDog,
