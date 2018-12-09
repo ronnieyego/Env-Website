@@ -15,4 +15,4 @@ const stateEnergyReducer = (state = {
     return state;
 };
 
-module.exports = stateEnergyReducer;
+export default stateEnergyReducer;

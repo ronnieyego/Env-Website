@@ -1,6 +1,6 @@
 import ids from '../../../utils/ids/index';
 
-const furnitureData = {
+export const furnitureData = {
     table: {
         sturdy: {
             amount: 192,
@@ -78,7 +78,7 @@ const furnitureData = {
 };
 
 
-const furnitureQuestions = [
+export const furnitureQuestions = [
     {    
         id: ids.numChairs,
         name: 'How many chairs do you own?',
@@ -127,9 +127,4 @@ const furnitureQuestions = [
         forms: ['furniture'],
         formType: 'costs'
     }
-]
-
-module.exports = {
-    furnitureData,
-    furnitureQuestions
-}
+];

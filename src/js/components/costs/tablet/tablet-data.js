@@ -3,7 +3,7 @@
 
 import ids from '../../../utils/ids/index';
 
-const tabletCo2 = {
+export const tabletCo2 = {
     ipad: {
         co2: 297,
         production:	0.86,
@@ -44,7 +44,7 @@ const tabletCo2 = {
     },
 };
 
-const materialBreakdown = {
+export const materialBreakdown = {
     boards:	0.46,
     lcd: 0.05,
     battery: 0.04,
@@ -54,7 +54,7 @@ const materialBreakdown = {
     transport: 0.14,
 }
 
-const wattage = {
+export const wattage = {
     use : {
         ipad: 2.98,
         surface: 4.53,
@@ -73,7 +73,7 @@ const wattage = {
     }
 }
 
-const tabletQuestions = [
+export const tabletQuestions = [
     {    
         id: ids.tabletType,
         name: 'What tablet do you own?',
@@ -92,7 +92,7 @@ const tabletQuestions = [
     }
 ];
 
-const nameMapping = name => {
+export const nameMapping = name => {
     let mapping;
     switch(name) {
         case 'Apple iPad':
@@ -115,14 +115,4 @@ const nameMapping = name => {
             break;
     }
     return mapping;
-}
-
-
-
-module.exports = {
-    tabletQuestions,
-    wattage,
-    materialBreakdown,
-    nameMapping,
-    tabletCo2
 }

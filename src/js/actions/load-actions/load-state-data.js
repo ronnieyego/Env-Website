@@ -5,7 +5,7 @@ import { States } from '../../../../db/models/states';
 import getCo2EmissionsByKwh from '../../utils/get-co2-emissions-by-kwh';
 
 
-const appendUSAverages = async stateData => {
+export const appendUSAverages = async stateData => {
     const usData = await States.find({ stateId: 'US'});
     if(!usData) {
         console.log('ERROR.  Could not find US energy data');
@@ -16,7 +16,7 @@ const appendUSAverages = async stateData => {
     return stateData;
 };
 
-const getStateData = async stateId => {
+export const getStateData = async stateId => {
     const mongoStateData = await States.find({ stateId: stateId});
     if(!mongoStateData) {
         console.log("ERROR -- Could not find state data for ", stateId);
@@ -30,7 +30,7 @@ const getStateData = async stateId => {
 }
 
 
-const getStateAndUsData = async state => {
+export const getStateAndUsData = async state => {
     const stateData = await getStateData(state);
     if(!stateData) {
         return { error: true, message: 'Could not find state data for: ', state };
@@ -44,9 +44,3 @@ const getStateAndUsData = async state => {
     completeStateData['stateComparisons'] = comparisons;
     return  { error: false, completeStateData };
 };
-
-module.exports = {
-    getStateAndUsData,
-    getStateData,
-    appendUSAverages
-}

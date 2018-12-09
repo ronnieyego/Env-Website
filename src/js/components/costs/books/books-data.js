@@ -2,12 +2,12 @@
 import ids from '../../../utils/ids/index';
 import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 
-const co2PerBook = 5.95;
+export const co2PerBook = 5.95;
 
-const timeToReadBook = 6; // Complete guess
+export const timeToReadBook = 6; // Complete guess
 
 // Should move to own component
-const electronics = {
+export const electronics = {
     ereader: {
         creation: 370, // unit is lb Co2
         energy: .0004  // unit is KW
@@ -26,7 +26,7 @@ const electronics = {
     }
 };
 
-const booksQuestions = [
+export const booksQuestions = [
     {    
         id: ids.numberBooks,
         name: 'How many books do you own?',
@@ -38,9 +38,3 @@ const booksQuestions = [
     },
 ];
 
-module.exports = {
-    booksQuestions,
-    co2PerBook,
-    electronics,
-    timeToReadBook
-}

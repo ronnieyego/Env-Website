@@ -10,7 +10,7 @@ const formatName = name => {
     return name;
 }
 
-const getFoodApplianceRow = (question, co2PerKwh, isMobile, tdStyle) => {
+export const getFoodApplianceRow = (question, co2PerKwh, isMobile, tdStyle) => {
     let co2 = question.co2 ? question.co2 : Math.round(question.kwh * co2PerKwh * 100)/100;
     // Just for energy efficient light bulbs, go one more decimal place
     co2 = co2 > 0 ? co2 : Math.round(question.kwh * co2PerKwh * 1000)/1000;
@@ -46,6 +46,3 @@ const getFoodApplianceRow = (question, co2PerKwh, isMobile, tdStyle) => {
     )
 };
 
-module.exports = {
-    getFoodApplianceRow
-}

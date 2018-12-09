@@ -1,3 +1,4 @@
+require('@babel/polyfill');
 const path = require('path');
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
@@ -51,36 +52,34 @@ switch(process.env.page) {
 module.exports = {
   context: __dirname + "/src",
   devtool: debug ? "inline-sourcemap" : null,
-  resolve: {
-    alias: {
-      'react': path.join(__dirname, 'node_modules', 'react')
-    },
-    extensions: ['', '.js']
-  },
+  mode: debug ? "development" : "prodution",
   entry: entry,
-  module: {
-    rules: [
-      {
-        test: /\.json$/,
-        use: 'json-loader'
-      }
-    ],
-    loaders: [
-      {
-        test: /\.js?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2017', 'env', 'stage-0'],
-          plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
-        }
-      }
-    ]
-  },
   output: {
     path: __dirname + "/public/",
     filename: filename //"energy.min.js"  //scripts.min.js for widget // homepage.min.js // energy.min.js
   },
+  module: {
+    rules: [{
+      loader: "babel-loader",
+      exclude: /(node_modules|bower_components)/,
+      options: {
+        // Moved to .babelrc where they work better. . . no idea why
+        presets: [],
+        plugins: []
+      },
+    }]
+  },
+  resolve: {
+    modules: [
+      "node_modules",
+      path.resolve(__dirname, "app")
+    ],
+    alias: {
+      'react': path.join(__dirname, 'node_modules', 'react')
+    },
+    extensions: ['.js', ".json", ".css"]
+  },
+  
   plugins: debug ? [
     //new BundleAnalyzerPlugin() // default port is 8888
   ] : [

@@ -1,4 +1,4 @@
-const baseState = {
+export const baseState = {
     answerId: '',
     displayAnswers: false,
     questions: [],
@@ -9,7 +9,7 @@ const baseState = {
     userState: 'US',
 };
 
-const footprintFormAnswers = (state = baseState, action) => {
+export const footprintFormAnswers = (state = baseState, action) => {
     switch (action.type) {
         case 'DISPLAY_ANSWERS': {
             state = { ...state, displayAnswers: action.payload};
@@ -45,10 +45,4 @@ const footprintFormAnswers = (state = baseState, action) => {
       }
     return state;
     
-};
-
-
-module.exports = {
-    baseState,
-    footprintFormAnswers
 };

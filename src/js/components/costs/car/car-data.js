@@ -4,7 +4,7 @@
 import ids from '../../../utils/ids/index';
 
 
-const classData = {
+export const classData = {
     [ids.smartCar]: { 
         weight: 1800,
          mpg: 38
@@ -47,14 +47,14 @@ const classData = {
     }
 };
 
-const co2PerPound = {
+export const co2PerPound = {
     [ids.leightweight]: 7.3,
     [ids.standard]: 9.1,
     [ids.luxurious]: 13.5,
     [ids.rugged]: 15.7
 };
 
-const creationBreakdown = [ // Modified from how bad are banannas
+export const creationBreakdown = [ // Modified from how bad are banannas
     {name: 'Other', Phase: 20.8 },
     {name: 'Electricity', Phase: 10.6},
     {name: 'Production Equipment', Phase: 9.9 },
@@ -63,7 +63,7 @@ const creationBreakdown = [ // Modified from how bad are banannas
     {name: 'Plastics, resins, rubber', Phase: 11.4}
 ]
 
-const carQuestions = [
+export const carQuestions = [
     {    
         id: ids.carSize,
         name: 'What class of car do you drive?',
@@ -111,12 +111,3 @@ const carQuestions = [
     }
     
 ];
-
-
-
-module.exports = {
-    carQuestions,
-    classData,
-    co2PerPound,
-    creationBreakdown
-}
