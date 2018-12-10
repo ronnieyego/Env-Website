@@ -2,6 +2,8 @@ require('@babel/polyfill');
 const path = require('path');
 const debug = process.env.NODE_ENV !== "production";
 const webpack = require('webpack');
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -51,7 +53,7 @@ switch(process.env.page) {
 
 module.exports = {
   context: __dirname + "/src",
-  devtool: debug ? "inline-sourcemap" : null,
+  devtool: debug ? "inline-sourcemap" : false,
   mode: debug ? "development" : "prodution",
   entry: entry,
   output: {
@@ -79,12 +81,19 @@ module.exports = {
     },
     extensions: ['.js', ".json", ".css"]
   },
+
+  optimization: debug ?
+    {} : {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   
-  plugins: debug ? [
-    //new BundleAnalyzerPlugin() // default port is 8888
-  ] : [
-    new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
-  ],
+  // No plugins right now
+  // plugins: {}
 };
