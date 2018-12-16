@@ -12,6 +12,7 @@ export default {
         title: 'Home',
         questionOrder: [
             ids.userState,
+            ids.userZip,
             ids.homeType,
             ids.homeSqft,
             ids.homeMaterial,

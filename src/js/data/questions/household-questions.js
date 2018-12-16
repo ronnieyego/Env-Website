@@ -34,7 +34,7 @@ export default [
         forms: ['household-activities'],
         id: ids.hoursAtHome,
         value: 6,
-        validation: 'hourQuestion'
+        validator: 'hourQuestion'
     },
     {
         name: 'How often do you cook at home?',
@@ -63,7 +63,7 @@ export default [
         value: '0',
         id: ids.laundryMonth,
         forms: ['household-activities'],
-        validation: 'standard-int'
+        validator: 'standard-int'
     },
     {
         name: 'Do you usually play music at home?',
@@ -79,7 +79,7 @@ export default [
         value: '0',
         id: ids.hoursComputer,
         forms: ['household-activities'],
-        validation: 'hourQuestion'
+        validator: 'hourQuestion'
     },
 
 // Heating cooling

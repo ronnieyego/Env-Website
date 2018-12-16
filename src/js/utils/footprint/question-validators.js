@@ -143,9 +143,16 @@ const calories = value => {
     } else if (value > 19000) {
         errorText = 'You eat more than a winner will eat in a hot dog eating competition!';
     } else if(!/^(\d+\.?\d*|\.\d+)$/.test(value)) {
-        errorText = "Please enter a valid number";
+        errorText = "Please enter a valid number.";
     }
     return errorText;
+}
+
+const zipCode = zip => {
+    if(parseInt(zip) < 10000 || parseInt(zip) >= 100000) {
+        return 'Please enter a valid 5 digit zip code.'
+    }
+    return '';
 }
 
 export const getErrorText = (value, type) => {
@@ -175,6 +182,8 @@ export const getErrorText = (value, type) => {
             return tvWattageValidator(value);
         case 'home-temp':
             return homeTemp(value);
+        case 'zip-code':
+            return zipCode(value);
         default:
             return standardIntQuestion(value);
     };
