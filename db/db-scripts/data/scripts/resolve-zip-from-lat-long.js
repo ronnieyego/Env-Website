@@ -15,7 +15,7 @@ const LAT_LONGS = require('../raw/lat-long-retry')
             long: long.toString().replace('/ /g',''),
         }
     });
-const API_KEY = 'AIzaSyCuyOzMc7yLNeb45cdmaLI3ZI0ef6080r0'
+const API_KEY = 'Not Here' // Get from the footprint finder project on google console.
 const BASE_URL = 'https://maps.googleapis.com/maps/api/geocode/json?latlng='
 
 const totalRecords = LAT_LONGS.length;
