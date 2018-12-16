@@ -18,10 +18,10 @@ ZIP_DATA.forEach(zip => {
 });
 
 const zipData = JSON.stringify(FORMATTED_ZIP_DATA, null, 2);
-fs.writeFile(__dirname + "/../../../../../src/js/data/temperature/temp-by-zip.js", 'module.exports = ' + zipData, function(err) {
+fs.writeFile(__dirname + "/../../../../../src/js/data/zip-codes/temp-by-zip.js", 'module.exports = ' + zipData, function(err) {
     if(err) {
         return console.log(err);
     }
     
-    console.log("zip temperature data written to /src/js/data/temperature/temp-by-zip.js");
+    console.log("zip temperature data written to /src/js/data/zip-codes/temp-by-zip.js");
 });
