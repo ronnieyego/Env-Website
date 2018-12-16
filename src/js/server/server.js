@@ -12,6 +12,7 @@ import fs from 'fs';
 import path from "path";
 import moment from 'moment-timezone';
 import get from 'lodash/get';
+import Q from 'q';
 import { mongoose } from '../../../db/mongoose'; // Needed to set the connection.
 
 import loadSolarPage from '../actions/load-actions/load-solar-page';
@@ -25,6 +26,8 @@ import loadFootprintResultsPageBeta from '../actions/load-actions/load-footprint
 import loadTestPage from '../actions/load-actions/load-test-page';
 
 import { FormAnswers } from '../../../db/models/form-answers';
+
+import getNearestZipCodeData from './endpoints/get-nearest-postal-code-data';
 
 const port = process.env.PORT || 3000;
 
@@ -164,6 +167,30 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
         }
     })
     .catch(e => res.status(500).send('Failed to delete answer', e));
+});
+
+app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
+    const zip = req.params.zip;
+    return Q.fcall(() => {
+        if(parseInt(zip) < 10000 || parseInt(zip) > 100000) {
+            res.status(400).send({
+                error: true,
+                message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
+            );
+        }
+        const zipData = getNearestZipCodeData(zip);
+        console.log(zipData);
+        if(zipData === -1) {
+            res.status(400).send({
+                error: true,
+                message: `Could not find zip code: ${zip}`
+            });
+        }
+        res.status(200).send(zipData);
+    })
+    .catch(e => {
+        res.status(500).send(e);
+    })
 });
 
 app.listen(port, () => {
