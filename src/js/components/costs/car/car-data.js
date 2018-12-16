@@ -48,7 +48,7 @@ export const classData = {
 };
 
 export const co2PerPound = {
-    [ids.leightweight]: 7.3,
+    [ids.lightweight]: 7.3,
     [ids.standard]: 9.1,
     [ids.luxurious]: 13.5,
     [ids.rugged]: 15.7
