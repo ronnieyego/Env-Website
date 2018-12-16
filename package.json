@@ -59,6 +59,8 @@
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.2",
     "topojson": "^3.0.0",
     "uglifyjs-webpack-plugin": "^2.0.1",
     "webpack": "^4.27.0"
