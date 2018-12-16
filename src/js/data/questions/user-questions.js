@@ -13,6 +13,7 @@ export default [
         name: 'Which zip code do you live in?',
         type: 'int',
         validator: 'zip-code',
-        forms: ['household-home']
+        forms: ['household-home'],
+        trigger: 'resolve-zip'
     }
 ]

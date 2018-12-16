@@ -57,14 +57,15 @@ export const updateQuestionsV2 = questionInfo => {
             dispatch({type: 'UPDATE_USER_STATE', payload: questionInfo.value});
         }
 
-        // Triggers should happen after all other updates ahve gone through.
-        if( TRIGGER_QUESTION_IDS.indexOf(questionInfo.id) !== -1 && question.trigger) {
-            if(questionInfo.value) { // Right now triggers just modify other questions.  ONLY for boolean questions
+        // Triggers should happen after all other updates have gone through.
+        if( TRIGGER_QUESTION_IDS.includes(parseInt(questionInfo.id)) && question.trigger) {
+            if(questionInfo.value) {
                 triggers({  // All triggers should directly interact with state to modify stuff
                     dispatch,
                     getState,
                     triggerCode: question.trigger,
-                    allQuestions
+                    allQuestions,
+                    question
                 });
             } 
         }
