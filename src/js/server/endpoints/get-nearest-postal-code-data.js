@@ -1,7 +1,9 @@
 import geolib from 'geolib';
 import ZIP_TEMP_DATA from '../../data/zip-codes/temp-by-zip.json';
 import ZIP_COORD_DATA from '../../data/zip-codes/all-zips-and-lat-long.json';
+
 const METERS_TO_MILES = 0.000621371;
+const TOO_FAR_WARNING_THRESHOLD = 100; // THis is 100 miles
 
 
 // Wrapper around geolib to convert meters to miles
@@ -37,8 +39,8 @@ const getShorestDistance = (inputZip, zipArray) => {
     const allDistances = Object.keys(distances);
     const shortestDistance = Math.min(...allDistances);
     const nearestZip = distances[shortestDistance];
-    return nearestZip;
-}
+    return { nearestZip, distance: shortestDistance };
+};
 
 export default inputZip => {
     // Happiest path is I have the zip already.
@@ -56,8 +58,12 @@ export default inputZip => {
             return absoluteDifference < 500;
         });
         
-        const nearestZip = nearbyZips.length > 0 ? getShorestDistance(inputZip, nearbyZips) : getShorestDistance(inputZip, allZips);
+        const { nearestZip, distance } = nearbyZips.length > 0 ? getShorestDistance(inputZip, nearbyZips) : getShorestDistance(inputZip, allZips);
+        if(distance > TOO_FAR_WARNING_THRESHOLD) {
+            console.log('WARNING -- found zip is too far away');
+        }
         const nearestZipData = ZIP_TEMP_DATA[nearestZip];
+        nearestZipData.distanceFromUser = distance; // Mostly for testing
         return nearestZipData;
     }
 }
