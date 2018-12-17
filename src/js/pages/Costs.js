@@ -14,9 +14,9 @@ export default class Costs extends React.Component {
         const page = costsPages[this.props.page];
 		return (
             <div className="container-fluid">
-                <Header />
                 <div className="costs-page">
                     <div className="costs">
+                        <Header />
                         {page}
                         <CostsFooter />
                     </div>
