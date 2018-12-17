@@ -11,7 +11,7 @@ export default [
         id: ids.calories
     },
     {
-        name: 'Are you a vegan?',
+        name: 'Are you vegan?',
         type: 'bool',
         value: false,
         checked: false,
@@ -20,7 +20,7 @@ export default [
         id: ids.isVegan
     },
     {
-        name: 'Are you a vegetarian',
+        name: 'Are you vegetarian?',
         type: 'bool',
         value: false,
         checked: false,
