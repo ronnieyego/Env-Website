@@ -11,8 +11,8 @@ export default {
     HOME_FORM: {
         title: 'Home',
         questionOrder: [
-            ids.userState,
             ids.userZip,
+            ids.userState,
             ids.homeType,
             ids.homeSqft,
             ids.homeMaterial,

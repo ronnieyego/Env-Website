@@ -18,7 +18,6 @@ export default ({
         case 'is-vegetarian':
             return isVegetarian({dispatch, allQuestions});
         case 'resolve-zip':
-            console.log('About to resolve zip');
             return resolveZip({dispatch, getState, question});
     }
 };

@@ -1,10 +1,13 @@
-// If I resolve a zip in a different state, that'd be bad.
-// I can solve this better by having state on every zip
-const chooseBestState = (getState, resolvedZipState) => {
-    const store = getState();
-    const existingUserState = store.userInfo.userState;
-    const validExistingState = existingUserState && existingUserState !== 'US';
-    return validExistingState ? existingUserState : resolvedZipState;
+import ids from '../../../utils/ids/index';
+
+const updateZipErrorText = (allQuestions, errorText, dispatch) => {
+    const updatedQuestions = allQuestions.map(question => {
+        if (question.id === ids.userZip) {
+            question.errorText = errorText;
+        }
+        return question;
+    });
+    dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestions});
 }
 
 export default ({dispatch, getState, question}) => {
@@ -15,15 +18,30 @@ export default ({dispatch, getState, question}) => {
     fetch(`/api/get-nearest-zip-code-temperature-data/${inputZip}`)
     .then(res => res.json())
     .then(res => {
-        if(res === -1) {
-            dispatch({type: 'SET_NEAREST_TEMPERATURE_ZIP_ERROR', payload: true});
+        const store = getState();
+        const allQuestions = store.questions.questions;
+        if(res.error) {
+            updateZipErrorText(allQuestions, res.message, dispatch);
+            
         } else if (res.zip) {
+            const updateQuestions = allQuestions.slice().map(question => {
+                if (question.id === ids.userState) {
+                    question.errorText = '';
+                }
+                return question;
+            });
+            
             const nearestZip = res.zip;
             const zipState = res.state;
-            const bestState = chooseBestState(getState, zipState);
-            dispatch({type: 'UPDATE_USER_STATE', payload: bestState});
             dispatch({type: 'UPDATE_NEAREST_TEMPERATURE_ZIP', payload: nearestZip});
+            dispatch({type: 'UPDATE_QUESTIONS', payload: updateQuestions});
+            dispatch({type: 'UPDATE_USER_STATE', payload: zipState});
         }
     })
-    .catch(()=> dispatch({type: 'SET_NEAREST_TEMPERATURE_ZIP_ERROR', payload: true}));
+    .catch((e)=> {
+        console.log('ERROR -- resolving zip code', e);
+        const store = getState();
+        const allQuestions = store.questions.questions;
+        updateZipErrorText(allQuestions, `Could not resolve zip code: ${inputZip}.  Please try a different zip code.`, dispatch);
+    });
 };

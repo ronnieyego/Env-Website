@@ -173,17 +173,16 @@ app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
     const zip = req.params.zip;
     return Q.fcall(() => {
         if(parseInt(zip) < 10000 || parseInt(zip) > 100000) {
-            res.status(400).send({
+            res.status(200).send({
                 error: true,
                 message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
             );
         }
         const zipData = getNearestZipCodeData(zip);
-        console.log(zipData);
-        if(zipData === -1) {
-            res.status(400).send({
+        if(zipData === -1) { // Nearest zip data will return -1 if it fails.
+            res.status(200).send({
                 error: true,
-                message: `Could not find zip code: ${zip}`
+                message: `Could not find zip code: ${zip}.  Please try a different zip code.`
             });
         }
         res.status(200).send(zipData);

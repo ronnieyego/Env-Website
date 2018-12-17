@@ -31,7 +31,7 @@ export default class UserStateDropdown extends React.Component {
 
 		return (
             <div className={containerClass}>
-                <p className={nameClass}>What state do you live in?</p>
+                <p className={nameClass}>Which state do you live in?</p>
                 <div className="form-question col-md-6">
                     <StateDropdown 
                         id="update-user-state"
