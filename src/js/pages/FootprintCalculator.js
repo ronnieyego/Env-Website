@@ -22,13 +22,14 @@ export default class FootprintCalcPage extends React.Component {
 	renderHomepage() {
 		return (
 			<div>
+				<Header />
 				<div className={this.props.isMobile ? "footprint-hero-mobile" : "footprint-hero"}>
 					<p className="footprint-hero-text">What's my footprint?</p>
 					<RaisedButton className="footprint-hero-button"
 						buttonStyle={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
 						labelColor="#ffffff"
 						label="Calculate now"
-						href="#form-tabs"
+						href="#form-background-container"
 						onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}  // Currently opesn form, but could make you go to the bottom.
 						style={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
 					/>
@@ -70,7 +71,7 @@ export default class FootprintCalcPage extends React.Component {
 								buttonStyle={{ borderRadius: '10px', background: GREEN_GRADIENT }}
 								style={{ borderRadius: '10px', background: GREEN_GRADIENT }}
 								label="Let's start!"
-								href="#form-tabs"
+								href="#form-background-container"
 								labelColor="#ffffff"
 								onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}
 							/>
@@ -85,7 +86,6 @@ export default class FootprintCalcPage extends React.Component {
 	render() {
 		return (
 			<div className="text-center">
-				<Header />
 				{this.props.displayForm ? <FormV2 /> : this.renderHomepage()}
 				<br />
 				<br />

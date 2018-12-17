@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
+import Header from '../../header/HeaderHoc';
 
 import FlatButton from 'material-ui/FlatButton';
 import { STEPS } from './utils';
@@ -88,7 +89,8 @@ export default class FormContainer extends React.Component {
         };
 
 		return (
-            <div className="form-background">
+            <div id="form-background-container" className="form-background">
+                <Header />
                 <div className="form">
                     <FormTabs dispatch={this.props.dispatch} step={this.props.step} tabs={TOP_TABS} />
                     { form }

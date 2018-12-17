@@ -1,6 +1,6 @@
 .form {
   width: 75%;
-  margin: 0rem auto;
+  margin: 2rem auto;
   background-color: white;
   border-radius: 1rem;
 }
@@ -100,7 +100,7 @@
   background-color: #85a774 !important;
 }
 .form-tab-sublevel {
-  background-color: #E7EAE0 !important;
+  background-color: #b8c8a7 !important;
 }
 .footprint-how-it-works-button {
   margin-bottom: 2rem !important;
@@ -109,13 +109,15 @@
   display: initial;
 }
 .footprint-hero {
-  height: 300px;
+  height: 360px;
+  margin-top: -60px;
   width: 100%;
   background-image: url("/public/images/homepage-city-hero.jpg");
   background-position: center;
 }
 .footprint-hero-mobile {
-  height: 400px;
+  margin-top: -50px;
+  height: 450px;
   width: 100%;
   background-image: url("/public/images/homepage-city-hero.jpg");
   background-position: center;
@@ -125,7 +127,7 @@
   font-size: 2.5rem;
   color: white;
   font-weight: bold;
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 .footprint-hero-button {
   text-align: center;
@@ -238,7 +240,7 @@
 }
 .results-hero-facts-background {
   position: absolute;
-  background-image: linear-gradient(#94E6A7 30%, #85a774 90%);
+  background-image: linear-gradient(#b8c8a7 30%, #85a774 90%);
   border-radius: 1rem;
   opacity: .5;
   width: 100%;
@@ -695,12 +697,27 @@ input[type="checkbox"] {
 .no-bullet-list {
   list-style-type: none;
 }
+.header {
+  position: relative;
+  height: 50px;
+  width: 100%;
+}
+.header-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
 .material-ui-nav {
-  display: flex;
-  background-color: #91e0c0 !important;
+  top: 0px;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
 }
 .material-ui-nav-logo {
-  margin-top: 5px;
+  margin-top: -10px;
   margin-left: 15px;
   margin-right: 50px;
 }

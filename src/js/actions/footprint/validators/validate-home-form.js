@@ -1,4 +1,4 @@
-import { getAnswerFromId } from '../../../utils/footprint/get-question-utils';
+import { getAnswerFromId, getQuestionFromId } from '../../../utils/footprint/get-question-utils';
 import { isNaturalNumber, isGreaterThanZero,  isInArray } from './validators';
 import ids from '../../../utils/ids/index';
 
@@ -10,7 +10,7 @@ export default () => {
             const errorQuestions = [];
 
             const userState = store.userInfo.userState;
-            const userZip = getAnswerFromId(questions, ids.userZip);
+            const userZip = getQuestionFromId(questions, ids.userZip);
             const homeType = getAnswerFromId(questions, ids.homeType);
             const homeSqft = getAnswerFromId(questions, ids.homeSqft);
             const homeMaterial = getAnswerFromId(questions, ids.homeMaterial);
@@ -19,7 +19,7 @@ export default () => {
             if (!userState || userState.length !== 2) {
                 errorQuestions.push(ids.userState);
             }
-            if (!isGreaterThanZero(userZip)) {
+            if (!isGreaterThanZero(userZip.value) || userZip.errorText) {
                 errorQuestions.push(ids.userZip);
             }
 
