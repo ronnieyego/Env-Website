@@ -77,8 +77,26 @@ app.get(`/brownbag`, loadTestPage);
 
 
 // APIs
+app.post('/api/calculate-footprint', (req, res) => {
+    const payload = req.body;
+    return Q.fcall(() => {
+        const results = calculateFootprint(payload);
+        if(results.error) {
+            return res.status(400).send(results)
+        }
+        return res.status(400).send(results.body);
+    })
+    .catch(e => res.status(500).send(e))
+});
 
-app.post('/api/footprint-form/answer', (req, res) => {
+app.post('/api/footprint-form/submit-form', (req, res) => {
+
+    const { answers } = req.body;
+    const results = calculateFootprint(answers);
+    // return res.status(400).send({error: true, message: 'lolololol'})
+    if(results.error) {
+        return res.status(400).send(results)
+    }
     // This get current time should be a util
     const d = new Date();
     const myTimezone = "America/Los_Angeles";
@@ -86,14 +104,15 @@ app.post('/api/footprint-form/answer', (req, res) => {
     const myDatetimeString = moment(d).tz(myTimezone).format(myDatetimeFormat);
 
     const Answer = new FormAnswers({
-        formName: req.body.formName,
-        formAnswers: req.body.formAnswers,
-        results: req.body.results,
-        userState: req.body.userState,
+        formName: 'footprint-finder-v3',
+        formAnswers: answers,
+        results: results.body,
+        userState: answers.state,
         dateSubmitted: myDatetimeString
     });
 
-    Answer.save().then(doc => {
+    return Answer.save()
+    .then(doc => {
         res.send(doc)
     }, error => {
         res.status(400).send(error);
@@ -168,18 +187,6 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
         }
     })
     .catch(e => res.status(500).send('Failed to delete answer', e));
-});
-
-app.post('/api/calculate-footprint', (req, res) => {
-    const payload = req.body;
-    return Q.fcall(() => {
-        const results = calculateFootprint(payload);
-        if(results.error) {
-            return res.status(400).send(results)
-        }
-        return res.status(200).send(results.body);
-    })
-    .catch(e => res.status(500).send(e))
 });
 
 app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {

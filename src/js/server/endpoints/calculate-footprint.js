@@ -91,6 +91,7 @@ const getMissingFields = answers => {
     if(typeof answers.stuffAmount === 'undefined' ) { missingFields.push('stuffAmount')}
     if(typeof answers.furnitureAmount === 'undefined' ) { missingFields.push('furnitureAmount')}
     if(typeof answers.clothingProfile === 'undefined' ) { missingFields.push('clothingProfile')}
+    if(typeof answers.state === 'undefined' ) { missingFields.push('state')}
     return missingFields;
 }
 

@@ -1,5 +1,4 @@
 import getAnswers from './submit-get-all-answers';
-import getResults from './submit-with-all-answers';
 
 export default () => {
     return (dispatch, getState) => {
@@ -9,30 +8,31 @@ export default () => {
         const userState = store.userInfo.userState;
         answers.state = userState;
 
-        const results = getResults(answers);
-
         const answerId = store.footprintFormAnswers.answerId;
 
         if( answerId ) {
             console.log('TODO:  Do an update not a post');
         } else {
-            return fetch('/api/footprint-form/answer', {
+            // /api/footprint-form/answer'  --- OLD Endpoint.  Deprecated in 2018
+            return fetch('/api/footprint-form/submit-form', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    formName: 'footprint-finder-v2',
-                    formAnswers: questions,
-                    results: results,
+                    answers,
                     userState
                 })
             })
             .then(res => res.json())
             .then(res => {
-                dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
-                window.location.href = `/footprint/${res['_id']}`;  
+                if(res.error) {
+                    console.log('Oh noes something went wrong on submit', res.message);
+                } else {
+                    dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
+                    window.location.href = `/footprint/${res['_id']}`;  
+                }
             })
             .catch(e => {
                 console.log('Oh noes something went wrong on submit', e);

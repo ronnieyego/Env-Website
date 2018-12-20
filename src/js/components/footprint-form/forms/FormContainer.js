@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Header from '../../header/HeaderHoc';
 
 import FlatButton from 'material-ui/FlatButton';
+import RaisedButton from 'material-ui/RaisedButton';
 import { STEPS } from './utils';
 import HouseholdForm from './HouseholdFormContainer';
 import TransportationForm from './TransportationForm';
@@ -11,6 +12,7 @@ import FORMS from './generic-form-data';
 import FormTabs from './FormTabs';
 import GenericForm from './GenericForm';
 import { changeStep } from '../../../actions/footprint/form-actions';
+import { BLUE_GRADIENT } from '../../../utils/shared-styles/colors';
 
 import submitV2 from '../../../actions/footprint/submit';
 
@@ -54,16 +56,23 @@ export default class FormContainer extends React.Component {
         );
 
         const rightButton = this.props.step === MAX_STEPS ? (
-            <FlatButton 
+            <RaisedButton 
                 className="form-bottom-buttons-right"
-                href={'#form-tabs'}
+                buttonStyle={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
+                labelColor="#ffffff"
                 label={this.props.isMobile ? 'Calculate' : 'Calculate My Footprint'}
+                href={'#form-tabs'}
                 onClick={() => this.props.dispatch(submitV2())}
-            /> )  : (
-            <FlatButton 
+                style={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
+            />)  : (
+            <RaisedButton 
                 className="form-bottom-buttons-right"
+                buttonStyle={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
+                labelColor="#ffffff"
                 label="Next"
+                href={'#form-tabs'}
                 onClick={() => this.props.dispatch(changeStep(this.props.step, this.props.step + 1))}
+                style={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
             />
         );
 
