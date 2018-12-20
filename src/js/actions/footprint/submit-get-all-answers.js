@@ -3,6 +3,7 @@ import { getAnswerFromId, getQuestionFromId, getQuestionsThatMatchId } from '../
 
 export default questions => {
     const answers = {};
+    answers.userZip = getAnswerFromId(questions, ids.userZip);
     answers.calories = getAnswerFromId(questions, ids.calories);
     answers.beef = getAnswerFromId(questions, ids.beefFrequency);
     answers.chicken = getAnswerFromId(questions, ids.chickenFrequency);

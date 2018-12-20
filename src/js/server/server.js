@@ -28,6 +28,7 @@ import loadTestPage from '../actions/load-actions/load-test-page';
 import { FormAnswers } from '../../../db/models/form-answers';
 
 import getNearestZipCodeData from './endpoints/get-nearest-postal-code-data';
+import calculateFootprint from './endpoints/calculate-footprint';
 
 const port = process.env.PORT || 3000;
 
@@ -167,6 +168,18 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
         }
     })
     .catch(e => res.status(500).send('Failed to delete answer', e));
+});
+
+app.post('/api/calculate-footprint', (req, res) => {
+    const payload = req.body;
+    return Q.fcall(() => {
+        const results = calculateFootprint(payload);
+        if(results.error) {
+            return res.status(400).send(results)
+        }
+        return res.status(200).send(results.body);
+    })
+    .catch(e => res.status(500).send(e))
 });
 
 app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
