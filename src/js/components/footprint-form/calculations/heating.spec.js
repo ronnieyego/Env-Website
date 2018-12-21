@@ -3,6 +3,7 @@ import { expect } from 'chai';
 
 const FIXTURE_DATA = {
     state: 'WA',
+    userZip: '98105',
     heatType: 'Gas Vents',
     insulationType: 'Reasonably Insulated',
     summerTemp: 77,
@@ -17,23 +18,23 @@ const FIXTURE_DATA = {
  describe('Heating Calculations', () => {
     it('should calculate Gas Vents', done => {
         const { totalCo2 } = getHeatingCo2(FIXTURE_DATA);
-        expect(totalCo2).to.equal(13);
+        expect(totalCo2).to.equal(12);
         done();
     });
     it('should calculate Gas Vents in a big house', done => {
         const updatedFixtures = {...FIXTURE_DATA, houseSqft: 3000};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(25);
+        expect(totalCo2).to.equal(24);
         done();
     });
     it('should calculate Gas Vents in a warmer winter state', done => {
-        const updatedFixtures = {...FIXTURE_DATA, state: 'TX'};
+        const updatedFixtures = {...FIXTURE_DATA, state: 'TX', userZip: '00000'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
         expect(totalCo2).to.equal(12);
         done();
     });
     it('should calculate Gas Vents with a higher winter temp', done => {
-        const updatedFixtures = {...FIXTURE_DATA, winterTemp: 90};
+        const updatedFixtures = {...FIXTURE_DATA, winterTemp: 90, userZip: '00000'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
         expect(totalCo2).to.equal(14);
         done();
@@ -41,13 +42,13 @@ const FIXTURE_DATA = {
     it('should calculate Gas Vents with worse insulation', done => {
         const updatedFixtures = {...FIXTURE_DATA, insulationType: 'Poorly Insulated'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(20);
+        expect(totalCo2).to.equal(18);
         done();
     });
     it('should calculate Gas Vents with a personal heater', done => {
         const updatedFixtures = {...FIXTURE_DATA, usesPersonalHeater: true};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(13);
+        expect(totalCo2).to.equal(12);
         done();
     });
     it('should calculate Radiator', done => {
@@ -83,13 +84,13 @@ const FIXTURE_DATA = {
     it('should calculate Heat Pump', done => {
         const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat pump'};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(29);
+        expect(totalCo2).to.equal(27);
         done();
     });
     it('should calculate Heat Pump in a big house', done => {
         const updatedFixtures = {...FIXTURE_DATA, heatType: 'Heat pump', houseSqft: 3000};
         const { totalCo2 } = getHeatingCo2(updatedFixtures);
-        expect(totalCo2).to.equal(58);
+        expect(totalCo2).to.equal(55);
         done();
     });
     it('should calculate None for heating type', done => {
@@ -106,7 +107,22 @@ const FIXTURE_DATA = {
     });
     it('should calculate monthly Gas Vents', done => {
         const { monthlyCo2 } = getHeatingCo2(FIXTURE_DATA);
-        expect(monthlyCo2).to.equal(390);
+        expect(monthlyCo2).to.equal(360);
+        done();
+    });
+    it('should fail if theres no Zip Code', done => {
+        const noZipData = {...FIXTURE_DATA};
+        delete noZipData.userZip;
+        expect(() => getHeatingCo2(noZipData)).to.throw('userZip required  -- typeof field is: undefined');
+        done();
+    });
+    it('should get a difference between state data and zip data', done => {
+        const zipMonthlyCo2  = getHeatingCo2(FIXTURE_DATA).monthlyCo2;
+        expect(zipMonthlyCo2).to.equal(360);
+        const noZipData = {...FIXTURE_DATA};
+        noZipData.userZip = '00000';
+        const stateMonthlyCo2  = getHeatingCo2(noZipData).monthlyCo2;
+        expect(stateMonthlyCo2).to.equal(390);
         done();
     });
 });

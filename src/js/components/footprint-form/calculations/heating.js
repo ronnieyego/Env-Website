@@ -10,6 +10,7 @@ import {
     personalHeaterWattage
 } from '../data/heating-cooling';
 import stateTemps from '../data/average-temp-by-state';
+import zipTemps from '../../../data/zip-codes/temp-by-zip.json';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
 import { convertDailyToMonthly } from './utils';
 import isThere from '../../../utils/is-there';
@@ -31,13 +32,23 @@ const convertKwhToCo2 = (state, kwh) => {
     return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
 }
 
-const getDifferenceInTemp = (state, summerTemp, winterTemp) => {
-    const stateTempWinter = stateTemps[state].winter;
-    const stateTempSummer = stateTemps[state].summer;
-    const summer = stateTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - stateTempSummer));
-    const winter = stateTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - stateTempWinter));
+const getDifferenceInTemp = (zip, state, summerTemp, winterTemp) => {
+    const zipData = zipTemps[zip];
+    if(!zipData) {
+        console.log('WARNING -- Expected to find zip temperature data for: ', zip);
+        console.log('Using state data instead');
+        const stateTempWinter = stateTemps[state].winter;
+        const stateTempSummer = stateTemps[state].summer;
+        const summer = stateTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - stateTempSummer));
+        const winter = stateTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - stateTempWinter));
+        return { summer, winter };
+    }
+    const zipTempWinter = zipData.winter;
+    const zipTempSummer = zipData.summer;
+    const summer = zipTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - zipTempSummer));
+    const winter = zipTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - zipTempWinter));
     return { summer, winter };
-};
+}
 
 const getTimeOn = (hoursHome, heatingOnWhileSleeping) => {
     return heatingOnWhileSleeping ? hoursHome + 8 : hoursHome;
@@ -103,7 +114,7 @@ const getPersonalHeaterKwh = hoursHome => {
     return hoursHome * personalHeaterWattage / 1000;
 }
 
-const checkIfAllFieldsPresent = ({ state, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater }) => {
+const checkIfAllFieldsPresent = ({ state, userZip, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater }) => {
     isThere(state, 'state required');
     isThere(heatType, 'heatType required');
     isThere(insulationType, 'insulationType required');
@@ -114,10 +125,12 @@ const checkIfAllFieldsPresent = ({ state, heatType, insulationType, houseSqft, s
     isThere(heatingOnWhileSleeping, 'heatingOnWhileSleeping required');
     isThere(heatWholeHome, 'heatWholeHome required');
     isThere(usesPersonalHeater, 'usesPersonalHeater required');
+    isThere(userZip, 'userZip required');
 }
 
 export default ({ 
     state,
+    userZip,
     heatType,
     insulationType,
     houseSqft,
@@ -128,7 +141,7 @@ export default ({
     heatWholeHome,
     usesPersonalHeater 
 }) => {
-    checkIfAllFieldsPresent({ state, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater });
+    checkIfAllFieldsPresent({ state, userZip, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater });
     const personalHeaterKwh = usesPersonalHeater ? getPersonalHeaterKwh(hoursHome) : 0;
     const personalHeaterCo2 = convertKwhToCo2(state, personalHeaterKwh);
     
@@ -139,7 +152,7 @@ export default ({
     }
     let totalCo2 = 0;
 
-    const tempDiff = getDifferenceInTemp(state, summerTemp, winterTemp);
+    const tempDiff = getDifferenceInTemp(userZip, state, summerTemp, winterTemp);
     // Ignoring summer
     const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, tempDiff.winter, insulationType);
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);
