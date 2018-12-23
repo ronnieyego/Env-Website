@@ -173,6 +173,14 @@
   font-size: 1.2rem;
   margin: 1rem;
 }
+.footprint-error-text {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+.footprint-error-container {
+  padding-bottom: 20rem;
+}
 .results {
   display: inline;
   text-align: center;

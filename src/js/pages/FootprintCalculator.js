@@ -11,6 +11,7 @@ import { BLUE_GRADIENT, GREEN_GRADIENT } from '../utils/shared-styles/colors';
 	return {
 		displayForm: store.footprintForm.displayForm,
 		isMobile: store.userInfo.isMobile,
+		formError: store.footprintForm.formError
 	};
 })
 export default class FootprintCalcPage extends React.Component {
@@ -83,7 +84,22 @@ export default class FootprintCalcPage extends React.Component {
 		)
 	}
 
+	renderError() {
+		return (
+			<div className="form-background">
+				<Header />
+				<p className="footprint-error-text">Looks like something went wrong.</p>
+				<p className="footprint-error-text">Sorry for the inconvenience.  Hopefully we'll fix it soon.  You can email footprintfinder@gmail.com as well to report it.</p>
+				<p className="footprint-error-text">Error message: {this.props.formError}</p>
+				<div className="footprint-error-container" />
+			</div>
+		);
+	}
+
 	render() {
+		if(this.props.formError) {
+			return this.renderError();
+		}
 		return (
 			<div className="text-center">
 				{this.props.displayForm ? <FormV2 /> : this.renderHomepage()}

@@ -36,6 +36,7 @@ export default () => {
             })
             .catch(e => {
                 console.log('Oh noes something went wrong on submit', e);
+                dispatch({type: 'SET_FORM_ERROR', payload: e.message}); 
             });
         };
     }

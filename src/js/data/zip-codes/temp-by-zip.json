@@ -1,4 +1,12 @@
 {
+  "00000": {
+    "state": "US",
+    "city": "US Average",
+    "zip": "00000",
+    "average": 65.3,
+    "winter": 32.2,
+    "summer": 72.1
+  },
   "10024": {
     "state": "NY",
     "city": "Ny City Cntrl Park",

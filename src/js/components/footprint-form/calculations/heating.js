@@ -9,14 +9,16 @@ import {
     btusPerKwhHeatPump,
     personalHeaterWattage
 } from '../data/heating-cooling';
-import stateTemps from '../data/average-temp-by-state';
-import zipTemps from '../../../data/zip-codes/temp-by-zip.json';
+import stateTemps from '../data/average-temp-by-state.js';
 import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy-and-emissions';
 import { convertDailyToMonthly } from './utils';
-import isThere from '../../../utils/is-there';
+import isThere, { oneOfIsThere } from '../../../utils/is-there';
 import ids from '../../../utils/ids/index';
+// import 'isomorphic-fetch';
+// import getEnv from '../../../utils/get-env';
 
 /*
+    TODO:  Add housemates. Should reduce some number based on housemates
     Assumptions
         Radiators  
             1.  They are on the entire time you're home
@@ -25,17 +27,31 @@ import ids from '../../../utils/ids/index';
 
 */
 
-// TODO:  Add housemates. Should reduce some number based on housemates
+
 const HOURS_OF_HEATING = 16; // I assume you're gone 8 hours a day and leave the heat off.
 
 const convertKwhToCo2 = (state, kwh) => {
     return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
-}
+};
 
-const getDifferenceInTemp = (zip, state, summerTemp, winterTemp) => {
-    const zipData = zipTemps[zip];
+// const fetchUserZipDataFromZip = async(zip) => {
+//     const env = getEnv();
+//     const zipData = await fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
+//         .then(res => res.json())
+//         .catch(() => {
+//             console.log('Failed to fetch zip data for zip', zip);
+//             return {error: true}
+//         });
+//     return zipData.error ? null : zipData;
+// }
+
+const getDifferenceInTemp = ({userZip, zipData, state, summerTemp, winterTemp}) => {
+    // if(userZip && !zipData) {
+    //     console.log('fetching userZipData from zipcode', userZip);
+    //     zipData = await fetchUserZipDataFromZip(userZip);
+    // }
     if(!zipData) {
-        console.log('WARNING -- Expected to find zip temperature data for: ', zip);
+        console.log(`WARNING -- Expected to find zip temperature data for zipData: ${zipData} or userZip: ${userZip}`);
         console.log('Using state data instead');
         const stateTempWinter = stateTemps[state].winter;
         const stateTempSummer = stateTemps[state].summer;
@@ -114,7 +130,7 @@ const getPersonalHeaterKwh = hoursHome => {
     return hoursHome * personalHeaterWattage / 1000;
 }
 
-const checkIfAllFieldsPresent = ({ state, userZip, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater }) => {
+const checkIfAllFieldsPresent = ({ state, userZip, userZipData, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater }) => {
     isThere(state, 'state required');
     isThere(heatType, 'heatType required');
     isThere(insulationType, 'insulationType required');
@@ -125,12 +141,13 @@ const checkIfAllFieldsPresent = ({ state, userZip, heatType, insulationType, hou
     isThere(heatingOnWhileSleeping, 'heatingOnWhileSleeping required');
     isThere(heatWholeHome, 'heatWholeHome required');
     isThere(usesPersonalHeater, 'usesPersonalHeater required');
-    isThere(userZip, 'userZip required');
+    oneOfIsThere([userZip, userZipData], 'Either need a user zip code or user zip data.')
 }
 
 export default ({ 
     state,
     userZip,
+    userZipData,
     heatType,
     insulationType,
     houseSqft,
@@ -141,7 +158,7 @@ export default ({
     heatWholeHome,
     usesPersonalHeater 
 }) => {
-    checkIfAllFieldsPresent({ state, userZip, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater });
+    checkIfAllFieldsPresent({ state, userZip, userZipData, heatType, insulationType, houseSqft, summerTemp, winterTemp, hoursHome, heatingOnWhileSleeping, heatWholeHome, usesPersonalHeater });
     const personalHeaterKwh = usesPersonalHeater ? getPersonalHeaterKwh(hoursHome) : 0;
     const personalHeaterCo2 = convertKwhToCo2(state, personalHeaterKwh);
     
@@ -152,7 +169,7 @@ export default ({
     }
     let totalCo2 = 0;
 
-    const tempDiff = getDifferenceInTemp(userZip, state, summerTemp, winterTemp);
+    const tempDiff = getDifferenceInTemp({userZip, userZipData, state, summerTemp, winterTemp});
     // Ignoring summer
     const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, tempDiff.winter, insulationType);
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);

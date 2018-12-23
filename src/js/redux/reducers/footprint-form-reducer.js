@@ -4,7 +4,8 @@ const footprintFormReducer = (state = {
     isSubmitReady: true,
     errorQuestions: [],
     nearestTemperatureZip: null,
-    getNearestTemperatureZipError: false
+    getNearestTemperatureZipError: false,
+    formError: false
 }, action) => {
     switch (action.type) {
         case 'SET_STEP': {
@@ -25,6 +26,10 @@ const footprintFormReducer = (state = {
         }
         case 'SET_NEAREST_TEMPERATURE_ZIP_ERROR': {
             state = {...state, getNearestTemperatureZipError: action.payload }
+            break;
+        }
+        case 'SET_FORM_ERROR': {
+            state = {...state, formError: action.payload }
             break;
         }
     }

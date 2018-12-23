@@ -73,6 +73,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "expect": "^1.20.2",
+    "file-loader": "^3.0.1",
     "json-loader": "^0.5.4",
     "mocha": "^3.0.2",
     "nodemon": "^1.10.2",

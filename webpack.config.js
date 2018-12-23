@@ -62,10 +62,12 @@ module.exports = {
   },
   module: {
     rules: [{
-      loader: "babel-loader",
+      // test: /\.html$/,
+      type: 'javascript/auto',
+      loader: "babel-loader", // switch to 'file-loader' to load JSON. . . but its buggy.
       exclude: /(node_modules|bower_components)/,
       options: {
-        // Moved to .babelrc where they work better. . . no idea why
+        // Moved to .babelrc where they work better. . . This config only applies to this directory.  The .rc is global
         presets: [],
         plugins: []
       },

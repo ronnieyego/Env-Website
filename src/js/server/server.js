@@ -192,7 +192,7 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
 app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
     const zip = req.params.zip;
     return Q.fcall(() => {
-        if(parseInt(zip) < 10000 || parseInt(zip) > 100000) {
+        if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US
             res.status(200).send({
                 error: true,
                 message: 'Bad zip code format.  Please only use the 5 digit zip code format'}

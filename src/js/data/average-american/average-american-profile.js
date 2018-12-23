@@ -12,10 +12,11 @@ const exampleProfile = {
     income: '$30k-$60k'
 }
 
+// UserInfo
+const getUserZip = () => '00000';
+
 // Home
 const getHomeMaterial = () => ids.wood;
-
-// Home Activity
 const getHoursTv = () => 3;
 const getHoursComputer = () => 4;
 const getCookAtHomeFrequency = () => ids.twoThreeTimesPerWeek;
@@ -171,6 +172,7 @@ export const getAverageAmericanResultsFromProfile = averageAmericanprofile => {
     const { numHousemates } = getAnswersOnAge(age);
     const answers = {
         state,
+        userZip: getUserZip(),
         // Home
         homeMaterial: getHomeMaterial(),
         homeType,
