@@ -62,6 +62,7 @@ export default class Question extends React.Component {
                         onChange={this.updateQuestion.bind(this, question.validator)}
                         value={this.props.value}
                         floatingLabelText={question.floatingLabelText}
+                        underlineStyle={{borderBottom: '1px solid darkgray'}}
                         inputStyle={{ textAlign: 'center' }}
                         // type={this.props.isMobile ? 'number' : ''}  // Need to learn how to turn off html5s validation so its only on mobile.
                     />
