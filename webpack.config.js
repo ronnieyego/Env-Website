@@ -55,7 +55,7 @@ module.exports = {
   context: __dirname + "/src",
   devtool: debug ? "inline-sourcemap" : false,
   mode: debug ? "development" : "prodution",
-  entry: entry,
+  entry: ["@babel/polyfill", entry],
   output: {
     path: __dirname + "/public/",
     filename: filename //"energy.min.js"  //scripts.min.js for widget // homepage.min.js // energy.min.js
