@@ -95,7 +95,44 @@ const getMissingFields = answers => {
     return missingFields;
 }
 
-export default answers => {
+const isNullNanOrUndefined = val => typeof val === 'undefined' || val === null || isNaN(val);
+
+const validateResults = res => {
+    const errorArray = [];
+    if(isNullNanOrUndefined(res.monthlyCo2)) {
+        errorArray.push('monthlyCo2 is missing')
+    }
+    if(isNullNanOrUndefined(res.food.monthlyCo2)) {
+        errorArray.push('Food.monthlyCo2')
+    }
+    if(isNullNanOrUndefined(res.home.monthlyCo2)) {
+        errorArray.push('home.monthlyCo2')
+    }
+    if(isNullNanOrUndefined(res.homeActivities.monthlyCo2)) {
+        errorArray.push('homeActivities.monthlyCo2')
+    }
+    if(isNullNanOrUndefined(res.heating.monthlyCo2)) {
+        errorArray.push('heating.monthlyCo2')
+    }
+    if(isNullNanOrUndefined(res.cooling.monthlyCo2)) {
+        errorArray.push('cooling.monthlyCo2')
+    }
+    if(isNullNanOrUndefined(res.transportation.totalCo2)) {
+        errorArray.push('transportation.totalCo2')
+    }
+    if(isNullNanOrUndefined(res.transportation.carMonthlyBuild)) {
+        errorArray.push('transportation.carMonthlyBuild')
+    }
+    if(isNullNanOrUndefined(res.pets.monthlyCo2)) {
+        errorArray.push('pets.monthlyCo2')
+    }
+    if(isNullNanOrUndefined(res.stuff.monthlyCo2)) {
+        errorArray.push('stuff.monthlyCo2')
+    }
+    return errorArray;
+}
+
+export default async(answers) => {
     const results = {};
     const missingFields = getMissingFields(answers);
     if(missingFields.length > 0) {
@@ -108,12 +145,20 @@ export default answers => {
     results.food = getFoodResults(answers);
     results.home = getHomeResults(answers);
     results.homeActivities = getHomeActivitiesResults(answers);
-    results.heating = getHomeHeatingResults(answers);
+    results.heating = await getHomeHeatingResults(answers);
     results.cooling = getHomeCoolingResults(answers);
     results.transportation = getTransportationResults(answers);
     results.pets = getPetsResults(answers);
     results.stuff = getStuff(answers);
     results.monthlyCo2 = sumMonthlyCo2(results);
+    const errors = validateResults(results);
+    if (errors.length > 0) {
+        // console.log('ERROR RESULTS: ', JSON.stringify(results, null, 2));
+        return {
+            error: true,
+            message: `Missing the following fields: ${errors}.  Payload is ${JSON.stringify(results, null, 2)}`
+        };
+    }
     return {
         error: false,
         body: results

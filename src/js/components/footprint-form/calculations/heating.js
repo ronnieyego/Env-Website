@@ -14,8 +14,8 @@ import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy
 import { convertDailyToMonthly } from './utils';
 import isThere, { oneOfIsThere } from '../../../utils/is-there';
 import ids from '../../../utils/ids/index';
-// import 'isomorphic-fetch';
-// import getEnv from '../../../utils/get-env';
+import 'isomorphic-fetch';
+import getEnv from '../../../utils/get-env';
 
 /*
     TODO:  Add housemates. Should reduce some number based on housemates
@@ -34,22 +34,22 @@ const convertKwhToCo2 = (state, kwh) => {
     return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
 };
 
-// const fetchUserZipDataFromZip = async(zip) => {
-//     const env = getEnv();
-//     const zipData = await fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
-//         .then(res => res.json())
-//         .catch(() => {
-//             console.log('Failed to fetch zip data for zip', zip);
-//             return {error: true}
-//         });
-//     return zipData.error ? null : zipData;
-// }
+const fetchUserZipDataFromZip = async(zip) => {
+    const env = getEnv();
+    const zipData = await fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
+        .then(res => res.json())
+        .catch(() => {
+            console.log('Failed to fetch zip data for zip', zip);
+            return {error: true}
+        });
+    return zipData.error ? null : zipData;
+}
 
-const getDifferenceInTemp = ({userZip, zipData, state, summerTemp, winterTemp}) => {
-    // if(userZip && !zipData) {
-    //     console.log('fetching userZipData from zipcode', userZip);
-    //     zipData = await fetchUserZipDataFromZip(userZip);
-    // }
+const getDifferenceInTemp = async({userZip, zipData, state, summerTemp, winterTemp}) => {
+    if(userZip && !zipData) {
+        console.log('fetching userZipData from zipcode', userZip);
+        zipData = await fetchUserZipDataFromZip(userZip);
+    }
     if(!zipData) {
         console.log(`WARNING -- Expected to find zip temperature data for zipData: ${zipData} or userZip: ${userZip}`);
         console.log('Using state data instead');
@@ -144,7 +144,7 @@ const checkIfAllFieldsPresent = ({ state, userZip, userZipData, heatType, insula
     oneOfIsThere([userZip, userZipData], 'Either need a user zip code or user zip data.')
 }
 
-export default ({ 
+export default async({ 
     state,
     userZip,
     userZipData,
@@ -169,7 +169,7 @@ export default ({
     }
     let totalCo2 = 0;
 
-    const tempDiff = getDifferenceInTemp({userZip, userZipData, state, summerTemp, winterTemp});
+    const tempDiff = await getDifferenceInTemp({userZip, userZipData, state, summerTemp, winterTemp});
     // Ignoring summer
     const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, tempDiff.winter, insulationType);
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);

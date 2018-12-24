@@ -79,8 +79,8 @@ app.get(`/brownbag`, loadTestPage);
 // APIs
 app.post('/api/calculate-footprint', (req, res) => {
     const payload = req.body;
-    return Q.fcall(() => {
-        const results = calculateFootprint(payload);
+    return Q.fcall( async() => {
+        const results = await calculateFootprint(payload);
         if(results.error) {
             return res.status(400).send(results)
         }
@@ -89,10 +89,10 @@ app.post('/api/calculate-footprint', (req, res) => {
     .catch(e => res.status(500).send(e))
 });
 
-app.post('/api/footprint-form/submit-form', (req, res) => {
+app.post('/api/footprint-form/submit-form', async (req, res) => {
 
     const { answers } = req.body;
-    const results = calculateFootprint(answers);
+    const results = await calculateFootprint(answers);
     // return res.status(400).send({error: true, message: 'lolololol'})
     if(results.error) {
         return res.status(400).send(results)
