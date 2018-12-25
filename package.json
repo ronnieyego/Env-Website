@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-dev-server --content-base src --inline --hot",
     "less": "lessc src/js/entry/css-entry.less public/less.css",
-    "test": "mocha -w ./tests/setupTests.js --compilers js:@babel/register src/**/*.spec.js",
+    "test": "mocha -w ./tests/setupTests.js -r @babel/polyfill --compilers js:@babel/register src/**/*.spec.js",
     "test:older": "mocha --compilers js:@babel/register --recursive tests",
     "webstart": "export NODE_ENV=dev && webpack && lessc src/js/entry/css-entry.less public/less.css && node index.js",
     "start": "node index.js",
@@ -79,6 +79,7 @@
     "nodemon": "^1.10.2",
     "react-test-renderer": "^15.6.2",
     "redux-devtools": "^3.4.0",
+    "sinon": "^7.2.2",
     "supertest": "^2.0.0",
     "webpack": "^4.27.0",
     "webpack-bundle-analyzer": "^2.11.1",

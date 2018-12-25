@@ -14,8 +14,9 @@ import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy
 import { convertDailyToMonthly } from './utils';
 import isThere, { oneOfIsThere } from '../../../utils/is-there';
 import ids from '../../../utils/ids/index';
-import 'isomorphic-fetch';
-import getEnv from '../../../utils/get-env';
+import fetchUserZipDataFromZip from './utils-fetch-user-zip';
+
+// Export everything for unit tests since stubbing out a fetch is hard!
 
 /*
     TODO:  Add housemates. Should reduce some number based on housemates
@@ -30,28 +31,17 @@ import getEnv from '../../../utils/get-env';
 
 const HOURS_OF_HEATING = 16; // I assume you're gone 8 hours a day and leave the heat off.
 
-const convertKwhToCo2 = (state, kwh) => {
+export const convertKwhToCo2 = (state, kwh) => {
     return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
 };
 
-const fetchUserZipDataFromZip = async(zip) => {
-    const env = getEnv();
-    const zipData = await fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
-        .then(res => res.json())
-        .catch(() => {
-            console.log('Failed to fetch zip data for zip', zip);
-            return {error: true}
-        });
-    return zipData.error ? null : zipData;
-}
-
-const getDifferenceInTemp = async({userZip, zipData, state, summerTemp, winterTemp}) => {
-    if(userZip && !zipData) {
+export const getDifferenceInTemp = async({userZip, userZipData, state, summerTemp, winterTemp}) => {
+    if(userZip && !userZipData) {
         console.log('fetching userZipData from zipcode', userZip);
-        zipData = await fetchUserZipDataFromZip(userZip);
+        userZipData = await fetchUserZipDataFromZip(userZip);
     }
-    if(!zipData) {
-        console.log(`WARNING -- Expected to find zip temperature data for zipData: ${zipData} or userZip: ${userZip}`);
+    if(!userZipData) {
+        console.log(`WARNING -- Expected to find zip temperature data for zipData: ${userZipData} or userZip: ${userZip}`);
         console.log('Using state data instead');
         const stateTempWinter = stateTemps[state].winter;
         const stateTempSummer = stateTemps[state].summer;
@@ -59,19 +49,19 @@ const getDifferenceInTemp = async({userZip, zipData, state, summerTemp, winterTe
         const winter = stateTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - stateTempWinter));
         return { summer, winter };
     }
-    const zipTempWinter = zipData.winter;
-    const zipTempSummer = zipData.summer;
+    const zipTempWinter = userZipData.winter;
+    const zipTempSummer = userZipData.summer;
     const summer = zipTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - zipTempSummer));
     const winter = zipTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - zipTempWinter));
     return { summer, winter };
 }
 
-const getTimeOn = (hoursHome, heatingOnWhileSleeping) => {
+export const getTimeOn = (hoursHome, heatingOnWhileSleeping) => {
     return heatingOnWhileSleeping ? hoursHome + 8 : hoursHome;
 };
 
 // TODO add multiplier based on temp diff.  Great diff leads to more heat loss.
-const getHeatLoss = (houseSqft, insulationType, tempDiff) => {
+export const getHeatLoss = (houseSqft, insulationType, tempDiff) => {
     // You can't loss heat to make inside colder than outside.
     const maxHeatLoss = tempDiff * houseSqft * btusToHeat * HOURS_OF_HEATING;
     const multiplier = btusLostByInsulation[insulationType];
@@ -80,20 +70,20 @@ const getHeatLoss = (houseSqft, insulationType, tempDiff) => {
     return realHeatLoss;
 };
 
-const getHeatingRequirementBtus = (houseSqft, tempDiff, insulationType) => {
+export const getHeatingRequirementBtus = (houseSqft, insulationType, tempDiff) => {
     const heatRequirement = houseSqft * btusToHeat * tempDiff; // BTUs to get the house to temp.  Assume no heat loss
     const heatLoss = getHeatLoss(houseSqft, insulationType, tempDiff);
     
     return heatRequirement + heatLoss;
 };
 
-const getNaturalGasCo2 = btus => {
+export const getNaturalGasCo2 = btus => {
     const ngRequired = btus / btusPerNaturalGas;
     const ngCo2 = Math.round(ngRequired * naturalGasCo2);
     return ngCo2;
 };
 
-const getSizeFromHeatWholeHome = (heatWholeHome, houseSqft) => {
+export const getSizeFromHeatWholeHome = (heatWholeHome, houseSqft) => {
     // Overloaded with heat whole home questions and radiant floor heat whole home
     let heatingSize;
     if( heatWholeHome === ids.entireHome) {
@@ -114,19 +104,19 @@ const getSizeFromHeatWholeHome = (heatWholeHome, houseSqft) => {
     return heatingSize;
 }
 
-const getRadiatorKwh = (hoursOn, heatingSize) => {
+export const getRadiatorKwh = (hoursOn, heatingSize) => {
     const radiatorWttage = heatingSize * radiatorWattageBySqft;
     const kwh = hoursOn * radiatorWttage / 1000;
     return kwh;
 };
 
-const getRadiantFlooringKwh = (hoursOn, heatingSize) => {
+export const getRadiantFlooringKwh = (hoursOn, heatingSize) => {
     const radiantFlooringWattage = heatingSize * radiantFloorWattageBySqft;
     const kwh = hoursOn * radiantFlooringWattage / 1000;
     return kwh;
 };
 
-const getPersonalHeaterKwh = hoursHome => {
+export const getPersonalHeaterKwh = hoursHome => {
     return hoursHome * personalHeaterWattage / 1000;
 }
 
@@ -171,7 +161,7 @@ export default async({
 
     const tempDiff = await getDifferenceInTemp({userZip, userZipData, state, summerTemp, winterTemp});
     // Ignoring summer
-    const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, tempDiff.winter, insulationType);
+    const heatingRequirementBtus = getHeatingRequirementBtus(houseSqft, insulationType, tempDiff.winter);
     const timeOn = getTimeOn(hoursHome, heatingOnWhileSleeping);
 
     totalCo2 += personalHeaterCo2;
@@ -191,6 +181,7 @@ export default async({
     } else {
         console.log('Need to add heating type: ', heatType);
     }
+    
     totalCo2 = Math.round(totalCo2 / 2); // Since you only heat for half of the year.
     const monthlyCo2 = convertDailyToMonthly(totalCo2);
     return { totalCo2, monthlyCo2 };

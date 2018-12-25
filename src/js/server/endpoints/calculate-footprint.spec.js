@@ -3,6 +3,13 @@ import calculateFootprint from './calculate-footprint';
 
 const FIXTURE_DATA = {
     "userZip": 95130,
+    "userZipData": {
+        "zip": '98105',
+        "city": 'Seattle',
+        "average": 53.5,
+        "winter": 46.1,
+        "summer": 60.9
+    },
     "calories": 2000,
     "beef": "Once a week",
     "chicken": "Once a week",
@@ -54,18 +61,16 @@ const FIXTURE_DATA = {
 };
 
 describe('calculate footprint', () => {
-    it('should calculate footprint', done => {
-        const result = calculateFootprint(FIXTURE_DATA);
+    it('should calculate footprint', async() => {
+        const result = await calculateFootprint(FIXTURE_DATA);
         expect(result.error).to.be.false;
         expect(result.body).to.not.be.null;
-        done();
     })
-    it('should tell me missing fields', done => {
+    it('should tell me missing fields', async() => {
         const alteredFixture = { ...FIXTURE_DATA };
         delete alteredFixture.flyMiles;
-        const result = calculateFootprint(alteredFixture);
+        const result = await calculateFootprint(alteredFixture);
         expect(result.error).to.be.true;
         expect(result.message).to.equal('Missing the following fields: [flyMiles]');
-        done();
     })
 })

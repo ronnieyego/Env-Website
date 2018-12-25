@@ -123,7 +123,8 @@ describe('Get nearest zip data', () => {
             }
             return null;
         })
-        .filter(zip => zip != null);
+        .filter(zip => zip != null)
+        .map(badZip => console.log(badZip));
         expect(missing.length).to.equal(0);
         done();
     });
