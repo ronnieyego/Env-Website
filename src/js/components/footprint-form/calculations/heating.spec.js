@@ -9,8 +9,6 @@ import getHeatingCo2, {
     getPersonalHeaterKwh
 } from './heating';
 import { expect } from 'chai';
-import { createStubInstance, stub } from 'sinon';
-import fetchZip from './utils-fetch-user-zip';
 import ids from '../../../utils/ids/index';
 
 const seattleZip = {

@@ -14,7 +14,7 @@ import { utilityEmissionsPerState } from '../../../utils/utils-data/state-energy
 import { convertDailyToMonthly } from './utils';
 import isThere, { oneOfIsThere } from '../../../utils/is-there';
 import ids from '../../../utils/ids/index';
-import fetchUserZipDataFromZip from './utils-fetch-user-zip';
+import { getDifferenceInTemp } from './utils-fetch-user-zip';
 
 // Export everything for unit tests since stubbing out a fetch is hard!
 
@@ -34,27 +34,6 @@ const HOURS_OF_HEATING = 16; // I assume you're gone 8 hours a day and leave the
 export const convertKwhToCo2 = (state, kwh) => {
     return Math.round(utilityEmissionsPerState[state] * kwh * 10)/10;
 };
-
-export const getDifferenceInTemp = async({userZip, userZipData, state, summerTemp, winterTemp}) => {
-    if(userZip && !userZipData) {
-        console.log('fetching userZipData from zipcode', userZip);
-        userZipData = await fetchUserZipDataFromZip(userZip);
-    }
-    if(!userZipData) {
-        console.log(`WARNING -- Expected to find zip temperature data for zipData: ${userZipData} or userZip: ${userZip}`);
-        console.log('Using state data instead');
-        const stateTempWinter = stateTemps[state].winter;
-        const stateTempSummer = stateTemps[state].summer;
-        const summer = stateTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - stateTempSummer));
-        const winter = stateTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - stateTempWinter));
-        return { summer, winter };
-    }
-    const zipTempWinter = userZipData.winter;
-    const zipTempSummer = userZipData.summer;
-    const summer = zipTempSummer > summerTemp ? 0 : Math.round(Math.abs(summerTemp - zipTempSummer));
-    const winter = zipTempWinter > winterTemp ? 0 : Math.round(Math.abs(winterTemp - zipTempWinter));
-    return { summer, winter };
-}
 
 export const getTimeOn = (hoursHome, heatingOnWhileSleeping) => {
     return heatingOnWhileSleeping ? hoursHome + 8 : hoursHome;
