@@ -1,16 +1,21 @@
 import 'isomorphic-fetch';
 import getEnv from '../../../utils/get-env';
 
-
-export const fetchUserZipDataFromZip = async(zip) => {
+export const fetchUserZipDataFromZip = zip => {
     const env = getEnv();
-    const zipData = await fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
+    return fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
         .then(res => res.json())
+        .then(zipData => {
+            if(zipData.error) {
+                console.log('Failed to fetch zip data for zip', zip, ' Message: ', zipData.message);
+                return null;
+            }
+            return zipData;
+        })
         .catch(() => {
             console.log('Failed to fetch zip data for zip', zip);
-            return {error: true}
+            return null;
         });
-    return zipData.error ? null : zipData;
 };
 
 export const getDifferenceInTemp = async({userZip, userZipData, state, summerTemp, winterTemp}) => {

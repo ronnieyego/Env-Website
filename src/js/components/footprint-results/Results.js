@@ -10,7 +10,7 @@ import Savings from './Savings';
 @connect((store, props) => {
 	return {
 		results: store.footprintFormAnswers.formResults,
-		questions: store.footprintFormAnswers.questions,
+		questions: store.questions.questions,
 		answerId: store.footprintFormAnswers.answerId,
         userState: store.footprintFormAnswers.userState,
         resultsShown: store.footprintFormAnswers.resultsShown

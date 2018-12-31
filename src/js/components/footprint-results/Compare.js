@@ -58,8 +58,8 @@ export default class Compare extends React.Component {
         const age = ageOrNull || this.props.averageAmericanAge;
         const gender = genderOrNull || this.props.averageAmericanGender;
         const income = incomeOrNull || this.props.averageAmericanIncome;
-        const average = getAverageAmericanResultsFromProfile({state, age, gender, income});
-        this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average});
+        return getAverageAmericanResultsFromProfile({state, age, gender, income})
+            .then(average => this.props.dispatch({type: 'UPDATE_AVERAGE_AMERICAN', payload: average}));
     }
     
 	render() {

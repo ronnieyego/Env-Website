@@ -1,12 +1,7 @@
-import { getAverageAmericanResultsFromProfile } from '../../data/average-american/average-american-profile';
+import averageAmericanResults from '../../data/average-american/average-american-results';
 
 const baseState = {
-    averageAmerican: getAverageAmericanResultsFromProfile({
-        state:'US', 
-        age: 'American Average',
-        gender: 'male',
-        income: '$30k-$60k'
-    }),
+    averageAmerican: averageAmericanResults,
     averageAmericanState: 'US',
     averageAmericanAge: 'American Average',
     averageAmericanGender: 'male',

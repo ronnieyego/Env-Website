@@ -1,3 +1,4 @@
+import Q from 'q';
 import getFoodResults from '../../components/footprint-form/calculations/food';
 import getHomeResults from '../../components/footprint-form/calculations/home';
 import getHomeActivitiesResults from '../../components/footprint-form/calculations/home-activities';
@@ -56,13 +57,13 @@ const sumMonthlyCo2 = res => {
     return monthlyCo2;
 };
 
-export default answers => {
+export default async (answers) => {
     const results = {};
     results.food = getFood(answers);
     results.home = getHome(answers);
     results.homeActivities = getHomeActivities(answers);
-    results.heating = getHeating(answers);
-    results.cooling = getCooling(answers);
+    results.heating = await getHeating(answers);
+    results.cooling = await getCooling(answers);
     results.transportation = getTransportation(answers);
     results.pets = getPet(answers);
     results.stuff = getStuff(answers);

@@ -14,6 +14,13 @@ const exampleProfile = {
 
 // UserInfo
 const getUserZip = () => '00000';
+const getUserZipData = () => ({ state: 'US',
+  city: 'US Average',
+  zip: '00000',
+  average: 65.3,
+  winter: 32.2,
+  summer: 72.1 
+});
 
 // Home
 const getHomeMaterial = () => ids.wood;
@@ -173,6 +180,7 @@ export const getAverageAmericanResultsFromProfile = averageAmericanprofile => {
     const answers = {
         state,
         userZip: getUserZip(),
+        userZipData: getUserZipData(),
         // Home
         homeMaterial: getHomeMaterial(),
         homeType,
