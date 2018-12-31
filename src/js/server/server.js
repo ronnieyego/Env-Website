@@ -22,7 +22,6 @@ import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-p
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
 import loadCostsPage from '../actions/load-actions/load-costs-page';
 import loadStaticPage from '../actions/load-actions/load-static-page';
-import loadFootprintResultsPageBeta from '../actions/load-actions/load-footprint-results-page';
 import loadTestPage from '../actions/load-actions/load-test-page';
 
 import { FormAnswers } from '../../../db/models/form-answers';
@@ -64,7 +63,7 @@ app.get('/energy/:state', loadStateEnergyPage);
 app.get('/energy', loadUsEnergyPage);
 
 app.get('/footprint', loadFootprintFormPage);
-app.get('/footprint/:id', loadFootprintResultsPageBeta);
+app.get('/footprint/:id', loadFootprintResultsPage);
 app.get('/footprint/form/:id', loadFootprintResultsPage);
 
 app.get('/static/:page', loadStaticPage);
@@ -91,7 +90,7 @@ app.post('/api/calculate-footprint', (req, res) => {
 
 app.post('/api/footprint-form/submit-form', async (req, res) => {
 
-    const { answers } = req.body;
+    const { questions, answers } = req.body;
     const results = await calculateFootprint(answers);
     // return res.status(400).send({error: true, message: 'lolololol'})
     if(results.error) {
@@ -106,6 +105,7 @@ app.post('/api/footprint-form/submit-form', async (req, res) => {
     const Answer = new FormAnswers({
         formName: 'footprint-finder-v3',
         formAnswers: answers,
+        questions,
         results: results.body,
         userState: answers.state,
         dateSubmitted: myDatetimeString

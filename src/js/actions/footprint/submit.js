@@ -22,6 +22,7 @@ export default () => {
                 },
                 body: JSON.stringify({
                     answers,
+                    questions,
                     userState
                 })
             })

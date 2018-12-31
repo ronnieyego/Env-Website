@@ -38,11 +38,13 @@ export default async (req, res) => {
             ...baseState,
             answerId: id,
             formResults: answer.results,
-            questions: answer.formAnswers,
             userState: answer.userState
+        },
+        questions: {
+            questions: answer.questions
         }
-        
     };
+
     const appendedStoreData = addMobileToStore(req, storeData);
     const store = createStore(reducers, appendedStoreData);
     const appMarkup = ReactDOM.renderToString(

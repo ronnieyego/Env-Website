@@ -78,6 +78,8 @@ export default class Compare extends React.Component {
 	render() {
         const results = this.props.results;
         results.userState = this.props.userState;
+        console.log('RESULTS IS', results);
+        console.log('QUESTIONS IS', this.props.questions);
         const savingSet = getCo2Savings(results, this.props.questions);
         const savings = savingSet.filter(saving => {
             return saving.amount !== 0; // Add filter logic here maybe based on index later?
