@@ -50,6 +50,10 @@ const addDistanceToEnergySource = (inputCoords, arrayOfEnergySources) => {
 
 
 export default ({inputZip, allStations = false, maxDistance = DEFAULT_MILES_LIMIT }) => {
+    if(!ZIP_COORD_DATA[inputZip]) {
+        console.log('ERROR --  could not find this zip code', inputZip);
+        return -1;
+    }
     const inputCoords = getLatLongFromZip(inputZip);
     const nearbyPowerPlants = getNearbyZips(inputZip)
         .filter(nearbyZipCode => ZIP_ENERGY_DATA[nearbyZipCode])

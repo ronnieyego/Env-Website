@@ -129,4 +129,14 @@ describe('Get nearby energy sources', () => {
         expect(res).to.deep.equal([FIXTURES.closest])
         done()
     })
+    it('handles a bad zip', done => {
+        const res = getNearestEnergySource({inputZip: '189503'});
+        expect(res).to.equal(-1)
+        done()
+    })
+    it('returns [] for 0 results', done => {
+        const res = getNearestEnergySource({inputZip: '89503', maxDistance: 3});
+        expect(res).to.deep.equal([])
+        done()
+    })
 })

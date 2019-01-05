@@ -27,6 +27,7 @@ import loadTestPage from '../actions/load-actions/load-test-page';
 import { FormAnswers } from '../../../db/models/form-answers';
 
 import getNearestZipCodeData from './endpoints/get-nearest-postal-code-data';
+import getEnergySources from './endpoints/get-nearest-energy-sources-by-zip';
 import calculateFootprint from './endpoints/calculate-footprint';
 
 const port = process.env.PORT || 3000;
@@ -206,6 +207,29 @@ app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
             });
         }
         res.status(200).send(zipData);
+    })
+    .catch(e => {
+        res.status(500).send(e);
+    })
+});
+
+app.post('/api/get-energy-sources-by-zip', (req,res) => {
+    const { inputZip, allStations, maxDistance } = req.body;
+    return Q.fcall(() => {
+        if(parseInt(inputZip) < 10000 || parseInt(inputZip) > 100000) {
+            res.status(200).send({
+                error: true,
+                message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
+            );
+        }
+        const energySources = getEnergySources({ inputZip, allStations, maxDistance });
+        if(energySources === -1) { // Nearest zip data will return -1 if it fails.
+            res.status(200).send({
+                error: true,
+                message: `Could not find zip code: ${inputZip}.  Please try a different zip code.`
+            });
+        }
+        res.status(200).send(energySources);
     })
     .catch(e => {
         res.status(500).send(e);
