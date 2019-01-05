@@ -30,6 +30,10 @@ switch(process.env.page) {
     entry = './js/entry/state-energy-profile.js';
     filename = 'state-energy.min.js';
     break;
+  case 'localenergy':
+    entry = './js/entry/local-energy-profile.js';
+    filename = 'local-energy.min.js';
+    break;
   case 'footprint':
     entry = './js/entry/footprint-entry.js';
     filename = 'footprint.min.js';

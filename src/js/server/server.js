@@ -17,6 +17,7 @@ import { mongoose } from '../../../db/mongoose'; // Needed to set the connection
 
 import loadSolarPage from '../actions/load-actions/load-solar-page';
 import loadUsEnergyPage from '../actions/load-actions/load-us-energy-page';
+import loadLocalEnergyPage from '../actions/load-actions/load-local-energy-page';
 import loadStateEnergyPage from '../actions/load-actions/load-state-energy-page';
 import loadFootprintFormPage from '../actions/load-actions/load-footprint-form-page';
 import loadFootprintResultsPage from '../actions/load-actions/load-footprint-results-page';
@@ -62,6 +63,7 @@ app.get('/solar', loadSolarPage);
 
 app.get('/energy/:state', loadStateEnergyPage);
 app.get('/energy', loadUsEnergyPage);
+app.get('/local-energy', loadLocalEnergyPage);
 
 app.get('/footprint', loadFootprintFormPage);
 app.get('/footprint/:id', loadFootprintResultsPage);

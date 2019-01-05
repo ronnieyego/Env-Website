@@ -13,6 +13,9 @@ export default (markup, data, page) => {
         case 'state-energy-profile':
             jsLocation = '/public/state-energy.min.js';
             break;
+        case 'local-energy-profile':
+            jsLocation = '/public/local-energy.min.js';
+            break;
         case 'footprint':
             jsLocation = '/public/footprint.min.js';
             break;
