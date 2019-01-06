@@ -15,6 +15,7 @@ import reducers from '../../redux/reducers/index';
 import LocalEnergy from '../../pages/LocalEnergy';
 
 export default async (req, res) => {
+    console.log('loading page');
     const formattedData = { }; // Placeholder until I have the ability to preload based on url path.
     const initStore = addMobileToStore(req, formattedData);
     const store = createStore(reducers, initStore);

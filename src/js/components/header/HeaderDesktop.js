@@ -27,7 +27,7 @@ export default class HeaderDesktop extends React.Component {
 
 		return (
             <div className="header">
-                <div className="header-background" />
+                <div className="header-background-desktop" />
                 <Toolbar className="material-ui-nav" style={toolbarStyle}>
                     <ToolbarGroup className="material-ui-nav-item" firstChild={true}>
                         <a key="header-link-logo" href="/">

@@ -10,11 +10,38 @@ const updateZipErrorText = (allQuestions, errorText, dispatch) => {
     dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestions});
 }
 
+const resolveZipCodeEnergy = (inputZip, getState, dispatch) => {
+    const store = getState();
+    const maxDistance = store.localEnergy.maxDistance;
+    const onlyUtility = store.localEnergy.onlyUtility;
+    fetch('/api/get-energy-sources-by-zip', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            inputZip,
+            maxDistance,
+            onlyUtility
+        })
+    })
+    .then(res => res.json())
+    .then(res => {
+        if(res.error) {
+            dispatch({ type: 'SET_LOCAL_ENERGY_DATA', payload: [] });
+            return dispatch({ type: 'SET_LOCAL_ENERGY_DATA_ERROR', payload: true });
+        }
+        dispatch({ type: 'SET_LOCAL_ENERGY_DATA', payload: res });
+    })
+}
+
 export default ({dispatch, getState, question}) => {
     if(question.errorText) { // Not valid input.  Dont even try.
         return;
     }
     const inputZip = question.value;
+    resolveZipCodeEnergy(inputZip, getState, dispatch);
     fetch(`/api/get-nearest-zip-code-temperature-data/${inputZip}`)
     .then(res => res.json())
     .then(res => {
