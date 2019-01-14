@@ -4,6 +4,6 @@ export default () => {
         baseUrl: 'http://localhost:3000'
     } : {
         env: 'prod',
-        baseUrl: 'http://footprint-finder.com'
+        baseUrl: 'www.footprint-finder.com'
     }
 }

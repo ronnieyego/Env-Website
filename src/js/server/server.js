@@ -205,6 +205,7 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
 });
 
 app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
+    console.log('Getting ZIP CODE');
     const zip = req.params.zip;
     return Q.fcall(() => {
         if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US

@@ -1,5 +1,6 @@
 import 'isomorphic-fetch';
 import getEnv from '../../../utils/get-env';
+import stateTemps from '../data/average-temp-by-state';
 
 export const fetchUserZipDataFromZip = zip => {
     const env = getEnv();
