@@ -3,6 +3,7 @@ import { shape, arrayOf, string, number } from 'prop-types';
 
 import { NAME_MAPPING, SOURCE_NAMES } from './utils';
 import analyzeSources from './analyze-sources';
+import GoogleMap from './GoogleMap';
 
 export default class LocalEnergy extends React.Component {
 
@@ -56,6 +57,18 @@ export default class LocalEnergy extends React.Component {
         
 		return (
 			<div className="local-energy-sources-container" >
+
+                <div className="local-energy-map" style={{width: '400px', height: '300px'}}>
+                    <GoogleMap 
+                        mainSources={mainSources}
+                        removedSmallSources={removedSmallSources}
+                    />
+                </div>
+                <br />
+                <br />
+                <br />
+                <br />
+
                 <p className="local-energy-sources-container">Main Sources</p>
                 { mainSources
                     .sort((a,b) => b.total - a.total)
@@ -67,7 +80,10 @@ export default class LocalEnergy extends React.Component {
                 <p className="local-energy-sources-container">Other Sources</p>
                 { removedSmallSources
                     .sort((a,b) => b.total - a.total)
-                    .map(source => this.renderEnergySource(source)) }
+                    .map(source => this.renderEnergySource(source)) 
+                }
+                
+
 			</div>
 		);
 	}

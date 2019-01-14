@@ -550,6 +550,10 @@ input[type="checkbox"] {
 .local-energy-source-name {
   font-weight: bold;
 }
+.local-energy-map {
+  width: 400px;
+  height: 300px;
+}
 #widget-title {
   font-weight: bold;
   font-size: 18;

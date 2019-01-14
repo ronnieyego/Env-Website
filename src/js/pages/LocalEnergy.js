@@ -21,7 +21,10 @@ export default class LocalEnergy extends React.Component {
 		return (
 			<div className="container-fluid text-center" >
 				<Header />
-				<div>Hello World</div>
+				<div className="local-energy-explainer">
+					<h1 className="local-energy-explainer-title">Where does my energy come from?</h1>
+					<p className="local-energy-explainer-text">Not all energy sources Most households emit over 1,000 pounds of CO<sub>2</sub> per month via their electricity usage.</p>
+				</div>
                 { questions }
                 { this.props.zipData && <LocalEnergyResults energySources={this.props.zipData} /> }
 			</div>
