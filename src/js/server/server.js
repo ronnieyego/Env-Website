@@ -93,16 +93,8 @@ app.post('/api/calculate-footprint', (req, res) => {
 
 app.post('/api/footprint-form/submit-form', async (req, res) => {
 
-    console.log('I HAVE RECEIVED THE REQUEST!!');
-    console.log('I HAVE RECEIVED THE REQUEST!!');
-    console.log('I HAVE RECEIVED THE REQUEST!!');
-    console.log('I HAVE RECEIVED THE REQUEST!!');
     const { questions, answers } = req.body;
     const results = await calculateFootprint(answers);
-    console.log('I HAVE RESULTS!!');
-    console.log('I HAVE RESULTS!!');
-    console.log('I HAVE RESULTS!!');
-    console.log('I HAVE RESULTS!!');
     // return res.status(400).send({error: true, message: 'lolololol'})
     if(results.error) {
         return res.status(400).send(results)
@@ -122,10 +114,6 @@ app.post('/api/footprint-form/submit-form', async (req, res) => {
         dateSubmitted: myDatetimeString
     });
 
-    console.log('ABOUT TO RETURN!!');
-    console.log('ABOUT TO RETURN!!');
-    console.log('ABOUT TO RETURN!!');
-    console.log('ABOUT TO RETURN!!');
     return Answer.save()
     .then(doc => {
         res.send(doc)
@@ -205,7 +193,6 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
 });
 
 app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
-    console.log('Getting ZIP CODE');
     const zip = req.params.zip;
     return Q.fcall(() => {
         if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US

@@ -4,7 +4,6 @@ import stateTemps from '../data/average-temp-by-state';
 
 export const fetchUserZipDataFromZip = zip => {
     const env = getEnv();
-    console.log(`ABout to fetch zip data at: ${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`);
     return fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
         .then(res => res.json())
         .then(zipData => {
