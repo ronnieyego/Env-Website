@@ -24,7 +24,6 @@ export class MapContainer extends React.Component {
     }
 
     onMarkerClick(props, marker, e){
-        console.log(props, marker, e);
         this.setState({
             selectedPlace: props,
             activeMarker: marker,
@@ -65,8 +64,6 @@ export class MapContainer extends React.Component {
 
 
     render() {
-        console.log('map props: ', this.props);
-        console.log('map state: ', this.state);
         return (
             <Map 
                 google={this.props.google}

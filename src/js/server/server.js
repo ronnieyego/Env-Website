@@ -93,8 +93,16 @@ app.post('/api/calculate-footprint', (req, res) => {
 
 app.post('/api/footprint-form/submit-form', async (req, res) => {
 
+    console.log('I HAVE RECEIVED THE REQUEST!!');
+    console.log('I HAVE RECEIVED THE REQUEST!!');
+    console.log('I HAVE RECEIVED THE REQUEST!!');
+    console.log('I HAVE RECEIVED THE REQUEST!!');
     const { questions, answers } = req.body;
     const results = await calculateFootprint(answers);
+    console.log('I HAVE RESULTS!!');
+    console.log('I HAVE RESULTS!!');
+    console.log('I HAVE RESULTS!!');
+    console.log('I HAVE RESULTS!!');
     // return res.status(400).send({error: true, message: 'lolololol'})
     if(results.error) {
         return res.status(400).send(results)
@@ -114,6 +122,10 @@ app.post('/api/footprint-form/submit-form', async (req, res) => {
         dateSubmitted: myDatetimeString
     });
 
+    console.log('ABOUT TO RETURN!!');
+    console.log('ABOUT TO RETURN!!');
+    console.log('ABOUT TO RETURN!!');
+    console.log('ABOUT TO RETURN!!');
     return Answer.save()
     .then(doc => {
         res.send(doc)
