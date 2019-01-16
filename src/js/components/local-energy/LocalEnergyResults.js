@@ -1,9 +1,12 @@
 import React from "react";
 import { shape, arrayOf, string, number } from 'prop-types';
 
+import GoogleMap from './GoogleMap';
+import EnergyIntensityComparison from './EnergyIntensityComparison';
+
 import { NAME_MAPPING, SOURCE_NAMES } from './utils';
 import analyzeSources from './analyze-sources';
-import GoogleMap from './GoogleMap';
+
 
 export default class LocalEnergy extends React.Component {
 
@@ -49,19 +52,26 @@ export default class LocalEnergy extends React.Component {
 	render() {
         const sources = this.props.energySources || [];
         const { 
+            totals,
             updatedSources,
-            totalEnergy,
             mainSources,
-            removedSmallSources
+            removedSmallSources,
+            maxDistance
         } = analyzeSources(sources);
         
 		return (
 			<div className="local-energy-sources-container" >
 
+                <EnergyIntensityComparison 
+                    totals={totals}
+                    maxDistance={maxDistance}
+                />
+
                 <div className="local-energy-map" style={{width: '400px', height: '300px'}}>
                     <GoogleMap 
                         mainSources={mainSources}
                         removedSmallSources={removedSmallSources}
+                        maxDistance={maxDistance}
                     />
                 </div>
                 <br />

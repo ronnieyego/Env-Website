@@ -21,6 +21,7 @@ export default class BarChartHoc extends React.Component {
         compare: bool, // If true, looks for average american.  
         units: string, //units on left side
         title: string,
+        subtitle: string,
         defaultMax: number,
         mobileHeaders: array, // For mobile, table headers from left -> right 
         biAxial: bool,

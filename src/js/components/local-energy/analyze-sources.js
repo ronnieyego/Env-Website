@@ -1,5 +1,6 @@
 import { SOURCE_NAMES } from './utils';
 
+import co2BySource from '../../data/energy/co2-by-source';
 
 // 89503 reno zip
 
@@ -20,8 +21,20 @@ const appendTotalEnergyToSource = source => {
     return source;
 };
 
+const appendPrimaryFuel = source => {
+    let fuel = '';
+    let max = 0;
+    SOURCE_NAMES.forEach(fuelType => {
+        if(source[fuelType] > max) {
+            fuel = fuelType;
+        }
+    });
+    source.primaryFuel = fuel;
+    return source;
+}
+
 const sumTotalEnergyForEachType = results => {
-    const total = {
+    const totals = {
         coal: 0,
         oil: 0,
         naturalGas: 0,
@@ -35,15 +48,31 @@ const sumTotalEnergyForEachType = results => {
     };
     results.forEach(source => {
         SOURCE_NAMES.forEach(key => {
-            total[key] += source[key];
+            totals[key] += source[key];
         })
     });
-    return total;
+    const totalMw = Object.keys(totals).reduce((acc, key) => acc + totals[key], 0);
+    totals.totalMw = totalMw;
+    const co2PerKwh = Object.keys(totals).reduce((acc, key) => {
+        if(key === 'totalMw') {
+            return acc;
+        }
+        const co2PerKwhForSource = co2BySource[key] || co2BySource.other; // other is 1;
+        const percent = totals[key] / totalMw;
+        const co2Contribution = percent * co2PerKwhForSource;
+        return acc + co2Contribution;
+    }, 0);
+    totals.co2PerKwh = Math.round(co2PerKwh * 100)/100;
+    return totals;
 }
 
 export default results => {
     const totals = sumTotalEnergyForEachType(results);
-    const updatedSources = results.map(source => appendTotalEnergyToSource(source));
+    const updatedSources = results.map(source => {
+        const withTotals = appendTotalEnergyToSource(source);
+        const withPrimary = appendPrimaryFuel(withTotals);
+        return withPrimary
+    });
     const totalEnergy = updatedSources.reduce((total, source) => {
         return total + source.total;
     }, 0);
@@ -57,19 +86,22 @@ export default results => {
 
     const removedSmallSources = updatedSources
         .filter(source => source.total > TINY_SOURCE_AMOUNT)
-        .filter(source => mainSourceIds.indexOf(source.id) === -1)
+        .filter(source => mainSourceIds.indexOf(source.id) === -1);
+    const maxDistance = Math.max(...updatedSources.map(source => source.distance));
 
     console.log('totalEnergy', totalEnergy)
     console.log('mainSources', mainSources)
     console.log('updatedSources', updatedSources)
     console.log('removedSmallSources', removedSmallSources)
     console.log('totals', totals)
+    console.log('maxDistance', maxDistance)
     
     return {
         totals,
         updatedSources,
         totalEnergy,
         mainSources,
-        removedSmallSources
+        removedSmallSources,
+        maxDistance
     }
 }

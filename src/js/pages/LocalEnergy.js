@@ -16,6 +16,7 @@ import ids from '../utils/ids/index';
 export default class LocalEnergy extends React.Component {
 
 	render() {
+		const showResults = this.props.zipData && Object.keys(this.props.zipData).length > 0;
         console.log('zipData prop', this.props.zipData);
         const questions = sortAndFilterAndCreateQuestions('local-energy', [ids.userZip], this.props.questions)
 		return (
@@ -26,7 +27,7 @@ export default class LocalEnergy extends React.Component {
 					<p className="local-energy-explainer-text">Not all energy sources Most households emit over 1,000 pounds of CO<sub>2</sub> per month via their electricity usage.</p>
 				</div>
                 { questions }
-                { this.props.zipData && <LocalEnergyResults energySources={this.props.zipData} /> }
+                { showResults && <LocalEnergyResults energySources={this.props.zipData} /> }
 			</div>
 		);
 	}

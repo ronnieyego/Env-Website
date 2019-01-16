@@ -9,3 +9,4 @@ export { default as HeatingIcon } from './heating';
 export { default as CoolingIcon } from './cooling';
 export { default as StuffIcon } from './stuff';
 export { default as TransportationIcon } from './transportation';
+export { default as MapMarker } from './map-marker';

@@ -2,8 +2,10 @@
 
 const sourceMap = {
     coal: 'Coal',
-    hydroelectric: 'HydroElectric',
+    hydroelectric: 'Hydroelectric',
+    hydro: 'Hydroelectric',
     wind: 'Wind',
+    geothermal: 'Geothermal',
     naturalGas: 'Natural Gas',
     petroleum: 'Oil',
     solar: 'Solar',
@@ -28,7 +30,11 @@ const producerMap = {
 }
 
 const getSourceDisplayname = source => {
-    return sourceMap[source];
+    const name = sourceMap[source];
+    if(!name) {
+        console.log('Couldnt find sourceDisplayName for: ', source);
+    }
+    return name;
 }
 
 const getSourceCssName = source => {

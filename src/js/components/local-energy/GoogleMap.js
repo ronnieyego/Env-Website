@@ -1,17 +1,22 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+// import { MapMarker } from '../../assets/icons';
+import { getZoomLevel } from './utils';
+import { getSourceDisplayname } from '../../utils/nameMaps';
+
 
 const KEY = 'AIzaSyCuyOzMc7yLNeb45cdmaLI3ZI0ef6080r0';
 
 const infoWindow = marker => {
     return (
         <div className="map-google-info-window">
-            <p className="map-google-info-window-utility">{marker.utility}</p>
-            <p className="map-google-info-window-plant">{marker.name}</p>
+            <p className="map-google-info-window-utility">Utility: {marker.utility}</p>
+            <p className="map-google-info-window-plant">Plant: {marker.name}</p>
+            <p className="map-google-info-window-plant">Energy Type: {getSourceDisplayname(marker.primaryFuel)}</p>
             <p className="map-google-info-window-amount">Production: {marker.total} MW</p>
         </div>
     )
-}
+};
 
 export class MapContainer extends React.Component {
     constructor() {
@@ -54,7 +59,7 @@ export class MapContainer extends React.Component {
                     name={source.name}
                     position={{ lat: source.lat, lng: source.long }} 
                     onClick={this.onMarkerClick.bind(this)}
-                    onMouseover={this.onMarkerClick.bind(this)}
+                    primaryFuel={source.primaryFuel}
                     total={source.total}
                 />
             )
@@ -64,6 +69,8 @@ export class MapContainer extends React.Component {
 
 
     render() {
+        const zoomLevel = getZoomLevel(this.props.maxDistance);
+        console.log('ZOOM LEVEL', zoomLevel);
         return (
             <Map 
                 google={this.props.google}
@@ -71,7 +78,7 @@ export class MapContainer extends React.Component {
                     lat: 37.277121,
                     lng: -121.986133
                 }}
-                zoom={12}
+                zoom={zoomLevel}
                 onClick={this.onMapClicked.bind(this)}
             >
      
@@ -91,6 +98,7 @@ export default GoogleApiWrapper(
     props => ({
       apiKey: KEY,
       mainSources: props.mainSources,
-      removedSmallSources: props.removedSmallSources
+      removedSmallSources: props.removedSmallSources,
+      maxDistance: props.maxDistance
     }
   ))(MapContainer)

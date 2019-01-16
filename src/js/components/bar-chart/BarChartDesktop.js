@@ -38,6 +38,7 @@ export default class BarCharDesktop extends React.Component {
         dataKeyCompare: string,
         units: string, //units on left side
         title: string,
+        subtitle: string,
         width: number,
         height: number,
     }
@@ -74,12 +75,14 @@ export default class BarCharDesktop extends React.Component {
         const max = domainMax > defaultMax ? domainMax : defaultMax;
         const units = this.props.units;
         const title = this.props.title || '';
+        const subtitle = this.props.subtitle || '';
         const dataKey = this.props.dataKey || 'You';
         const dataKeyCompare = this.props.dataKeyCompare || 'Average American';
 
         return (
             <div className="bar-chart">
-                <p className="bar-chart-title">{title}</p>
+                <div className="bar-chart-title">{title}</div>
+                {subtitle && <div className="bar-chart-subtitle">{subtitle}</div>}
                 <BarChart width={this.props.width || BASE_WIDTH} height={this.props.height || BASE_HEIGHT} data={barGraphData}
                         margin={{top: 5, right: 30, left: 20, bottom: 5}}
                         className="bar-chart">

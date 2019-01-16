@@ -13,8 +13,9 @@ export const fetchUserZipDataFromZip = zip => {
             }
             return zipData;
         })
-        .catch(() => {
+        .catch(e => {
             console.log('Failed to fetch zip data for zip', zip);
+            console.log('Error:', e);
             return null;
         });
 };
