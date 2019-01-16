@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import getNearestZipData from './get-nearest-postal-code-data';
+import getNearestZipData from './get-nearest-zip-temperature-data';
 import ZIP_COORD_DATA from '../../data/zip-codes/all-zips-and-lat-long.json';
 import ZIP_TEMP_DATA from '../../data/zip-codes/temp-by-zip.json';
 

@@ -27,7 +27,7 @@ import loadTestPage from '../actions/load-actions/load-test-page';
 
 import { FormAnswers } from '../../../db/models/form-answers';
 
-import getNearestZipCodeData from './endpoints/get-nearest-postal-code-data';
+import getNearestZipCodeData from './endpoints/get-nearest-zip-temperature-data';
 import getEnergySources from './endpoints/get-nearest-energy-sources-by-zip';
 import calculateFootprint from './endpoints/calculate-footprint';
 
