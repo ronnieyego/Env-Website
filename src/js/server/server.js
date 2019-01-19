@@ -27,9 +27,10 @@ import loadTestPage from '../actions/load-actions/load-test-page';
 
 import { FormAnswers } from '../../../db/models/form-answers';
 
-import getNearestZipCodeData from './endpoints/get-nearest-zip-temperature-data';
-import getEnergySources from './endpoints/get-nearest-energy-sources-by-zip';
-import calculateFootprint from './endpoints/calculate-footprint';
+import getBasicZipCodeData from './providers/get-basic-zip-data';
+import getNearestZipCodeData from './providers/get-nearest-zip-temperature-data';
+import getEnergySources from './providers/get-nearest-energy-sources-by-zip';
+import calculateFootprint from './providers/calculate-footprint';
 
 const port = process.env.PORT || 3000;
 
