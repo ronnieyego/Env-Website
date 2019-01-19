@@ -125,10 +125,14 @@
   color: white;
   font-weight: bold;
   padding-top: 8rem;
+  text-shadow: 2px 2px #000000;
 }
 .footprint-hero-button {
   text-align: center;
   margin-top: 2rem;
+}
+.footprint-value-prop {
+  margin: auto;
 }
 .footprint-value-prop-container {
   margin: 3rem 2rem;
@@ -153,6 +157,7 @@
   margin: auto;
   color: white;
   font-size: 2rem;
+  text-shadow: 1px 1px black;
 }
 .footprint-how-it-works-box {
   border-radius: 1rem;

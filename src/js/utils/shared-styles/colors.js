@@ -5,4 +5,6 @@ export const LIGHT_PURPLE = '#A897E3';
 export const MEDIUM_GREEN = '#94E6A7';
 export const LIGHT_BLUE = '#72DCDB';
 export const LIGHT_GREEN ='#E7EAE0';
+export const DARK_GREEN ='#B3C5A6';
+export const DARK_TEAL = '#66b2bd';
 export const BLUE_GRAY_FACEBOOK = '#B0CBDB'

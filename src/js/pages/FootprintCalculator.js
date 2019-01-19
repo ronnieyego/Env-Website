@@ -4,14 +4,15 @@ import { connect } from 'react-redux';
 
 import Header from '../components/header/HeaderHoc';
 import FormV2 from '../components/footprint-form/forms/FormContainer';
-import RaisedButton from 'material-ui/RaisedButton';
-import { BLUE_GRADIENT, GREEN_GRADIENT } from '../utils/shared-styles/colors';
+import FlatButton from 'material-ui/FlatButton';
+import { DARK_GREEN, DARK_TEAL } from '../utils/shared-styles/colors';
 
 @connect(store => {
 	return {
 		displayForm: store.footprintForm.displayForm,
 		isMobile: store.userInfo.isMobile,
-		formError: store.footprintForm.formError
+		formError: store.footprintForm.formError,
+		showLoadingAction: store.session.showLoadingAction
 	};
 })
 export default class FootprintCalcPage extends React.Component {
@@ -26,13 +27,13 @@ export default class FootprintCalcPage extends React.Component {
 				<Header />
 				<div className={this.props.isMobile ? "footprint-hero-mobile" : "footprint-hero"}>
 					<p className="footprint-hero-text">What's my footprint?</p>
-					<RaisedButton className="footprint-hero-button"
-						buttonStyle={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
-						labelColor="#ffffff"
+					<FlatButton 
+						className="footprint-hero-button"
 						label="Calculate now"
+						labelStyle={{color: 'white'}}
 						href="#form-background-container"
 						onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}  // Currently opesn form, but could make you go to the bottom.
-						style={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundImage: BLUE_GRADIENT }}
+						style={{ border: 'null', borderRadius: '10px', borderColor: '#000000', backgroundColor: DARK_TEAL }}
 					/>
 				</div>
 				
@@ -68,12 +69,12 @@ export default class FootprintCalcPage extends React.Component {
 							<p className="footprint-how-it-works-box-text">In cases where you don't know, give your best estimate. The form generally defaults to the American average.</p>
 							<p className="footprint-how-it-works-box-text">The results page will tell you how you rank vs others, a personalized breakdown of your CO2 emissions, and ways to reduce your footprint!</p>
 							<br />
-							<RaisedButton className="footprint-how-it-works-button"
-								buttonStyle={{ borderRadius: '10px', background: GREEN_GRADIENT }}
-								style={{ borderRadius: '10px', background: GREEN_GRADIENT }}
+							<FlatButton className="footprint-how-it-works-button"
+								style={{ borderRadius: '10px', backgroundColor: DARK_GREEN }}
 								label="Let's start!"
 								href="#form-background-container"
-								labelColor="#ffffff"
+								// labelColor="#ffffff"
+								labelStyle={{color: 'white'}}
 								onClick={() => this.props.dispatch({ type: 'DISPLAY_FORM', payload: true })}
 							/>
 						</div>
