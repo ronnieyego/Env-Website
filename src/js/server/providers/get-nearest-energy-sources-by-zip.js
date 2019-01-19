@@ -21,7 +21,7 @@ const getDistance = (start, destination) => {
 
 const getLatLongFromZip = zip => {
     const coords = BASIC_ZIP_DATA[zip];
-    if(typeof coords === 'undefined') {
+    if(typeof coords === 'undefined' || !coords.lat || !coords.long) {
         console.warn('Error: Could not find coords for zip: ' + zip);
         return null;
     }
@@ -42,6 +42,11 @@ const getNearbyZips = inputZip => {
 
 const addDistanceToEnergySource = (inputCoords, arrayOfEnergySources) => {
     return arrayOfEnergySources.map(source => {
+        // Cant do distance without lat long.  Defaulting to something that will get filtered out.
+        if(!source.lat || !source.long) {
+            source.distance = 9999999;
+            return source;
+        }
         const sourceCoords = { latitude: source.lat, longitude: source.long };
         const distance = getDistance(inputCoords, sourceCoords);
         source.distance = distance;
@@ -56,7 +61,8 @@ export default ({inputZip, allStations = false, maxDistance = DEFAULT_MILES_LIMI
         return -1;
     }
     const inputCoords = getLatLongFromZip(inputZip);
-    const nearbyPowerPlants = getNearbyZips(inputZip)
+    const powerPlantSearchGroup = maxDistance < 400 ? getNearbyZips(inputZip) : ALL_ENERGY_ZIPS;
+    const nearbyPowerPlants = powerPlantSearchGroup
         .filter(nearbyZipCode => ZIP_ENERGY_DATA[nearbyZipCode])
         .map(nearbyEnergyZip => addDistanceToEnergySource(inputCoords, ZIP_ENERGY_DATA[nearbyEnergyZip]))
         .reduce((allEnergySources, nearbyEnergyZip) => {

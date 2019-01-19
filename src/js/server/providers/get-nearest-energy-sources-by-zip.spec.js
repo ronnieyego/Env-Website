@@ -1,5 +1,7 @@
 import { expect } from 'chai';
+import fs from 'fs'; // Eventually a test will break and ill need to generate the fixture again.  See the Reno500Miles write method
 import getNearestEnergySource from './get-nearest-energy-sources-by-zip';
+import reno500Miles from './fixtures/reno-energy-sources-500-miles';
 
 const FIXTURES = {
     reno: [ 
@@ -110,13 +112,30 @@ const FIXTURES = {
         nuclear: 0,
         other: 0,
         distance: 2 
-    }
+    },
+    reno500Miles
+}
+
+const writeReno500Miles = dataToWrite => {
+    const data = JSON.stringify(dataToWrite, null, 2);
+    fs.writeFile('src/js/server/providers/fixtures/reno-energy-sources-500-miles.js', data, function(err) {
+        if(err) {
+            return console.log(err);
+        }
+        console.log("Data written");
+    });
 }
 
 describe('Get nearby energy sources', () => {
     it('gets nearest energy source for RENO', done => {
         const res = getNearestEnergySource({inputZip: '89503' });
         expect(res).to.deep.equal(FIXTURES.reno)
+        done()
+    })
+    it('gets nearest energy source for RENO with a 500 mile max distance', done => {
+        const res = getNearestEnergySource({inputZip: '89503', maxDistance: 500 });
+        // writeReno500Miles(res);
+        expect(res).to.deep.equal(FIXTURES.reno500Miles)
         done()
     })
     it('gets filters based on distance', done => {
