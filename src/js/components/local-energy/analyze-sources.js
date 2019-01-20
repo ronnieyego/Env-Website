@@ -31,6 +31,12 @@ const appendPrimaryFuel = source => {
     });
     source.primaryFuel = fuel;
     return source;
+};
+
+const latLongAsNumber = source => {
+    source.lat = parseFloat(source.lat, 10);
+    source.long = parseFloat(source.long, 10);
+    return source;
 }
 
 const sumTotalEnergyForEachType = results => {
@@ -71,7 +77,8 @@ export default results => {
     const updatedSources = results.map(source => {
         const withTotals = appendTotalEnergyToSource(source);
         const withPrimary = appendPrimaryFuel(withTotals);
-        return withPrimary
+        const latLongAsNumbers = latLongAsNumber(withPrimary);
+        return latLongAsNumbers;
     });
     const totalEnergy = updatedSources.reduce((total, source) => {
         return total + source.total;
@@ -89,12 +96,12 @@ export default results => {
         .filter(source => mainSourceIds.indexOf(source.id) === -1);
     const maxDistance = Math.max(...updatedSources.map(source => source.distance));
 
-    console.log('totalEnergy', totalEnergy)
-    console.log('mainSources', mainSources)
-    console.log('updatedSources', updatedSources)
-    console.log('removedSmallSources', removedSmallSources)
-    console.log('totals', totals)
-    console.log('maxDistance', maxDistance)
+    // console.log('totalEnergy', totalEnergy)
+    // console.log('mainSources', mainSources)
+    // console.log('updatedSources', updatedSources)
+    // console.log('removedSmallSources', removedSmallSources)
+    // console.log('totals', totals)
+    // console.log('maxDistance', maxDistance)
     
     return {
         totals,

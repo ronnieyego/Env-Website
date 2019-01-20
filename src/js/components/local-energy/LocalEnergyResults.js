@@ -35,7 +35,16 @@ export default class LocalEnergy extends React.Component {
                 plantType: string.isRequired,
                 distance: number.isRequired,
             }).isRequired
-        )
+        ),
+        userZipData: shape({
+            zip: string.isRequired,
+            population: string,
+            city: string,
+            county: string,
+            state: string,
+            lat: string.isRequired,
+            long: string.isRequired,
+        }).isRequired
     }
 
     renderEnergySource(source) {
@@ -59,19 +68,27 @@ export default class LocalEnergy extends React.Component {
             maxDistance
         } = analyzeSources(sources);
         
+        const countyText = this.props.userZipData && this.props.userZipData.county ? `${this.props.userZipData.county} County` : 'your local area';
 		return (
 			<div className="local-energy-sources-container" >
 
                 <EnergyIntensityComparison 
                     totals={totals}
                     maxDistance={maxDistance}
+                    userZipData={this.props.userZipData}
                 />
 
-                <div className="local-energy-map" style={{width: '400px', height: '300px'}}>
+                <br />
+                <hr />
+                <br />
+                <div className="local-energy-map-container">
+                    <p className="local-energy-map-title" >Find your local power plants</p>
+                    <p className="local-energy-map-text" >Use the map below to see power plants around {countyText}.  You can click on each power plant to find out more information.  To reduce clutter, this map only includes utilities that generate above 1MW of energy.</p>
                     <GoogleMap 
                         mainSources={mainSources}
                         removedSmallSources={removedSmallSources}
                         maxDistance={maxDistance}
+                        userZipData={this.props.userZipData}
                     />
                 </div>
                 <br />

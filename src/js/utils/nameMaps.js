@@ -9,7 +9,8 @@ const sourceMap = {
     naturalGas: 'Natural Gas',
     petroleum: 'Oil',
     solar: 'Solar',
-    nuclear: 'Nuclear'
+    nuclear: 'Nuclear',
+    oil: 'Oil'
 };
 
 const cssMap = {
