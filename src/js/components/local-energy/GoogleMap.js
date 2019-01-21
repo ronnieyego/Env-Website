@@ -28,20 +28,23 @@ const MapContainer = class MapContainer extends React.Component {
     constructor() {
         super();
         this.state = {
-            showingInfoWindow: false,
-            activeMarker: {},
-            selectedPlace: {},
-            selectedMarker: {}
+            selectedMarker: null
         }
     }
     handleMarkerClick = (marker, event) => {
-        // console.log({ marker })
+        console.log('CLICKED HANDLEMARKERCLICKED', marker);
         this.setState({ selectedMarker: marker })
-      }
+    }
+
+    infoWindowCloseClick() {
+        this.setState({
+            selectedMarker: null
+        })
+    }
 
     onMapClicked(props) {
         this.setState({
-            selectedMarker: {}
+            selectedMarker: null
         })
       };
 
@@ -54,8 +57,6 @@ const MapContainer = class MapContainer extends React.Component {
                     onClick={this.handleMarkerClick.bind(this, source)}
                 >
                     {this.state.selectedMarker === source  && <InfoWindow
-                        marker={this.state.activeMarker}
-                        visible={this.state.showingInfoWindow}
                         children={infoWindow(source)}
                     />}
                 </Marker>
@@ -63,25 +64,20 @@ const MapContainer = class MapContainer extends React.Component {
         });
     }
 
-    makeCircles(google, mainSources) {
+    makeCircles(mainSources) {
         return mainSources.map((source, i) => (
             <Circle
                 key={`${source.name}-circle-${i}`} 
-                radius={1200}
+                radius={3200}
                 center={{ lat: source.lat, lng: source.long }} 
                 onMouseover={() => console.log('mouseover')}
-                onClick={() => console.log('mouseclick')}
+                onClick={this.handleMarkerClick.bind(this, source)}
                 onMouseout={() => console.log('mouseout')}
                 strokeColor='transparent'
                 strokeOpacity={0}
                 strokeWeight={5}
                 fillColor='#FF0000'
                 fillOpacity={0.2}
-
-                // utility={source.utilityName}
-                // name={source.name}
-                // primaryFuel={source.primaryFuel}
-                // total={source.total}
             />
         ));
     }
@@ -90,16 +86,24 @@ const MapContainer = class MapContainer extends React.Component {
 
     render() {
         const zoomLevel = getZoomLevel(this.props.maxDistance);
-        console.log('IN MAP COMPONENT.  PROPS ARE', this.props);
+        console.log('state is', this.state);
+        const selectedMarker = this.state.selectedMarker;
+        console.log('selected marker is', selectedMarker);
         return (
             <GoogleMap 
                 defaultZoom={zoomLevel}
                 defaultCenter={{ lat: parseFloat(this.props.userZipData.lat, 10), lng: parseFloat(this.props.userZipData.long, 10) }}
                 onClick={this.onMapClicked.bind(this)}
             >
+                {selectedMarker && <InfoWindow
+                    position={{ lat: parseFloat(selectedMarker.lat, 10), lng: parseFloat(selectedMarker.long, 10) }}
+                    children={infoWindow(selectedMarker)}
+                    onCloseClick={this.infoWindowCloseClick.bind(this)}
+                /> }
+                
      
-                { this.makeMarkers(this.props.removedSmallSources, this.props.onMarkerClick)}
-                {/* { this.makeCircles(this.props.google, this.props.removedSmallSources) } */}
+                {/* { this.makeMarkers(this.props.removedSmallSources, this.props.onMarkerClick)} */}
+                { this.makeCircles(this.props.removedSmallSources) }
                 
             </GoogleMap>
         );
