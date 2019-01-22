@@ -1,14 +1,14 @@
 import React from "react";
 import { shape, arrayOf, string, number } from 'prop-types';
 
-import GoogleMap from './GoogleMap';
+import GoogleMap from '../google-energy-map/GoogleMap';
 import EnergyIntensityComparison from './EnergyIntensityComparison';
 
 import { NAME_MAPPING, SOURCE_NAMES } from './utils';
 import analyzeSources from './analyze-sources';
 
 
-export default class LocalEnergy extends React.Component {
+export default class LocalEnergyResults extends React.Component {
 
     static propTypes = {
         energySources: arrayOf(
@@ -20,8 +20,8 @@ export default class LocalEnergy extends React.Component {
                 state: string.isRequired,
                 zip: string.isRequired,
                 county: string.isRequired,
-                lat: string.isRequired,
-                long: string.isRequired,
+                lat: number.isRequired,
+                long: number.isRequired,
                 coal: number.isRequired,
                 oil: number.isRequired,
                 naturalGas: number.isRequired,
@@ -85,8 +85,7 @@ export default class LocalEnergy extends React.Component {
                     <p className="local-energy-map-title" >Find your local power plants</p>
                     <p className="local-energy-map-text" >Use the map below to see power plants around {countyText}.  You can click on each power plant to find out more information.  To reduce clutter, this map only includes utilities that generate above 1MW of energy.</p>
                     <GoogleMap 
-                        mainSources={mainSources}
-                        removedSmallSources={removedSmallSources}
+                        circlesToRender={removedSmallSources}
                         maxDistance={maxDistance}
                         userZipData={this.props.userZipData}
                     />
