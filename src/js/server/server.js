@@ -29,7 +29,7 @@ import { FormAnswers } from '../../../db/models/form-answers';
 
 import getBasicZipCodeData from './providers/get-basic-zip-data';
 import getNearestZipCodeData from './providers/get-nearest-zip-temperature-data';
-import getEnergySources from './providers/get-nearest-energy-sources-by-zip';
+import getEnergySources, { getAllEnergyStations } from './providers/get-nearest-energy-sources-by-zip';
 import calculateFootprint from './providers/calculate-footprint';
 
 const port = process.env.PORT || 3000;
@@ -238,6 +238,8 @@ app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
         res.status(500).send(e);
     })
 });
+
+app.get('/api/get-all-energy-sources', (req,res) => res.status(200).send(getAllEnergyStations()));
 
 app.post('/api/get-energy-sources-by-zip', (req,res) => {
     const { inputZip, allStations, maxDistance } = req.body;

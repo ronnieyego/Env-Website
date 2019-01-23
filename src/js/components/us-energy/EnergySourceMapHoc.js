@@ -48,7 +48,7 @@ export default class EnergySourceMapHoc extends React.Component {
         };
         console.log('Getting US Energy Data');
         fetch('/data/us.json')  
-            .then(function(response) {
+            .then(response => {
                 return response.json();     
             })
             .then(us => {

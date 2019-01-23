@@ -9,9 +9,8 @@ import { getZoomLevel } from '../local-energy/utils';
 import { plantTypes, getAdjustedRadiusForZoom } from './utils';
 
 
-const KEY = 'AIzaSyCuyOzMc7yLNeb45cdmaLI3ZI0ef6080r0';
-const GOOGLE_MAP_URL = `https://maps.googleapis.com/maps/api/js?key=${KEY}&v=3.exp&libraries=geometry,drawing,places`;
-
+const GOOGLE_TOKEN = 'AIzaSyCuyOzMc7yLNeb45cdmaLI3ZI0ef6080r0';
+const GOOGLE_MAP_URL = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_TOKEN}&v=3.exp&libraries=geometry,drawing,places`;
 
 const infoWindow = marker => {
     return (
@@ -44,7 +43,7 @@ const MapContainer = class MapContainer extends React.Component {
 
     makeCircles(mainSources) {
         return mainSources.map((source, i) => {
-            source.radius = getAdjustedRadiusForZoom(source.total, 14);
+            source.radius = Math.log10(source.total) * this.props.sizeMultiplier;
             return (<Circle
                     key={`${source.name}-circle-${i}`}
                     source={source}
@@ -61,7 +60,7 @@ const MapContainer = class MapContainer extends React.Component {
         return (
             <GoogleMap 
                 defaultZoom={zoomLevel}
-                defaultCenter={{ lat: parseFloat(this.props.userZipData.lat, 10), lng: parseFloat(this.props.userZipData.long, 10) }}
+                defaultCenter={this.props.startingCoords}
                 onClick={this.unselectAllInfoWindows.bind(this)}
             >
                 {selectedMarker && <InfoWindow
@@ -81,11 +80,12 @@ export default compose(
     withProps(props => ({
         googleMapURL: GOOGLE_MAP_URL,
         loadingElement: <div style={{ height: `100%` }} />,
-        containerElement:<div style={{ height: `400px` }} />,
+        containerElement:<div className="google-map-container" />,
         mapElement:<div style={{ height: `100%` }} />,
         maxDistance: props.maxDistance,
-        userZipData: props.userZipData,
-        circlesToRender: props.circlesToRender
+        startingCoords: props.startingCoords,
+        circlesToRender: props.circlesToRender,
+        sizeMultiplier: props.sizeMultiplier || 2500
     })),
     withStateHandlers(() => ({
         isOpen: false,

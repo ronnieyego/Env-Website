@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { string, func, number, shape } from 'prop-types';
 import { Circle } from 'react-google-maps';
-import { plantTypes, getRadiusBounds } from './utils';
+import { plantTypes } from './utils';
 
 export default class GoogleMapsCircle extends Component {
     static propTypes = {
@@ -35,6 +35,12 @@ export default class GoogleMapsCircle extends Component {
 
     render() {
         const source = this.props.source;
+        if(!source) return null;
+        const plantType = plantTypes[source.primaryFuel];
+        if(!plantType) {
+            console.log('no plant type:', source);
+            return null;
+        }
         const colors = {
             fillColor: plantTypes[source.primaryFuel].circleColor,
             strokeColor: plantTypes[source.primaryFuel].circleColor,

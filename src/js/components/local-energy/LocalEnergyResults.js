@@ -20,8 +20,8 @@ export default class LocalEnergyResults extends React.Component {
                 state: string.isRequired,
                 zip: string.isRequired,
                 county: string.isRequired,
-                lat: number.isRequired,
-                long: number.isRequired,
+                lat: string.isRequired,
+                long: string.isRequired,
                 coal: number.isRequired,
                 oil: number.isRequired,
                 naturalGas: number.isRequired,
@@ -67,6 +67,8 @@ export default class LocalEnergyResults extends React.Component {
             removedSmallSources,
             maxDistance
         } = analyzeSources(sources);
+        const userZipData = this.props.userZipData;
+        const startingCoords = { lat: parseFloat(userZipData.lat, 10), lng: parseFloat(userZipData.long, 10)}
         
         const countyText = this.props.userZipData && this.props.userZipData.county ? `${this.props.userZipData.county} County` : 'your local area';
 		return (
@@ -81,13 +83,13 @@ export default class LocalEnergyResults extends React.Component {
                 <br />
                 <hr />
                 <br />
-                <div className="local-energy-map-container">
+                <div>
                     <p className="local-energy-map-title" >Find your local power plants</p>
                     <p className="local-energy-map-text" >Use the map below to see power plants around {countyText}.  You can click on each power plant to find out more information.  To reduce clutter, this map only includes utilities that generate above 1MW of energy.</p>
                     <GoogleMap 
                         circlesToRender={removedSmallSources}
                         maxDistance={maxDistance}
-                        userZipData={this.props.userZipData}
+                        startingCoords={startingCoords}
                     />
                 </div>
                 <br />

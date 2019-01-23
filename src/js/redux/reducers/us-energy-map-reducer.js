@@ -1,4 +1,8 @@
 const usEnergyMapReducer = (state = {
+
+    allPlants: [],
+
+
     showMap: false,
     mapData: {},
     dataStates: {},
@@ -20,6 +24,11 @@ const usEnergyMapReducer = (state = {
 
 }, action) => {
     switch (action.type) {
+        case 'LOADED_ENERGY_PLANTS': {
+            state = {...state, allPlants: action.payload};
+            break;
+        }
+
         case 'RECEIVE_MAP_DATA': {
             state = { ...state, 
                 showMap: true,
@@ -31,7 +40,6 @@ const usEnergyMapReducer = (state = {
                 tooltipContent: action.payload.tooltipContent,
                 sourceTotals: action.payload.sourceTotals
             };
-            console.log('inside reducer');
             break;
         }
         case 'SET_CURRENT_SOURCES': {

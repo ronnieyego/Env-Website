@@ -93,16 +93,9 @@ export default results => {
 
     const removedSmallSources = updatedSources
         .filter(source => source.total > TINY_SOURCE_AMOUNT)
-        .filter(source => mainSourceIds.indexOf(source.id) === -1);
+        // .filter(source => mainSourceIds.indexOf(source.id) === -1);
     const maxDistance = Math.max(...updatedSources.map(source => source.distance));
 
-    // console.log('totalEnergy', totalEnergy)
-    // console.log('mainSources', mainSources)
-    // console.log('updatedSources', updatedSources)
-    // console.log('removedSmallSources', removedSmallSources)
-    // console.log('totals', totals)
-    // console.log('maxDistance', maxDistance)
-    
     return {
         totals,
         updatedSources,

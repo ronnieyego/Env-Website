@@ -55,6 +55,15 @@ const addDistanceToEnergySource = (inputCoords, arrayOfEnergySources) => {
 };
 
 
+export const getAllEnergyStations = () => {
+    const allPlants = [];
+    ALL_ENERGY_ZIPS.forEach(zip => {
+        const plants = ZIP_ENERGY_DATA[zip]
+        allPlants.push(...plants);
+    });
+    return allPlants;
+};
+
 export default ({inputZip, allStations = false, maxDistance = DEFAULT_MILES_LIMIT }) => {
     if(!BASIC_ZIP_DATA[inputZip]) {
         console.log('ERROR --  could not find this zip code', inputZip);

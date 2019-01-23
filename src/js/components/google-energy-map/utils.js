@@ -3,12 +3,14 @@
     hydroelectric: { display: 'Hydroelectric', circleColor: 'blue' },
     hydro: { display: 'Hydroelectric', circleColor: 'blue' },
     wind: { display: 'Wind', circleColor: 'green' },
+    biofuel: { display: 'Biofuel', circleColor: 'darkgreen' },
     geothermal: { display: 'Geothermal', circleColor: 'pink' },
-    naturalGas: { display: 'Natural Gas', circleColor: 'gray' },
+    naturalGas: { display: 'Natural Gas', circleColor: 'orange' },
     petroleum: { display: 'Oil', circleColor: 'black' },
     solar: { display: 'Solar', circleColor: 'yellow' },
-    nuclear: { display: 'Nuclear', circleColor: 'orange' },
-    oil: { display: 'Oil', circleColor: 'black' }
+    nuclear: { display: 'Nuclear', circleColor: 'purple' },
+    oil: { display: 'Oil', circleColor: 'black' },
+    other: { display: 'Other', circleColor: 'violet' }
  };
 
 
@@ -26,6 +28,6 @@ export const getZoomLevel = maxDistance => {
 };
 
 export const getAdjustedRadiusForZoom = (radius, zoomLevel) => {
-    // 8 is a guess and i should have better logic :)
+    // 2500 is a guess and i should have better logic :)
     return Math.log(radius) * 2500; //zoomLevels[zoomLevel];
 };
