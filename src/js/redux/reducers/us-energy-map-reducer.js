@@ -1,31 +1,18 @@
 const usEnergyMapReducer = (state = {
 
     allPlants: [],
-
+    displayedPlants: [],
+    currentSources: ['coal', 'oil', 'naturalGas', 'biofuel', 'solar', 'wind', 'geothermal', 'hydro', 'nuclear', 'other'],
 
     showMap: false,
-    mapData: {},
-    dataStates: {},
-    circles: {},
-    circleValue: (() => 0),
-    tooltipContent: {},
-    sourceTotals: {
-        coal: 176260,
-        hydroelectric: 121811,
-        naturalGas: 636376,
-        nuclear : 122851,
-        petroleum: 24755,
-        solar: 26868,
-        wind: 115327
-    },
-
-    currentSources: ['coal', 'hydroelectric', 'wind', 'naturalGas', 'petroleum', 'solar', 'nuclear'],
-    currentUtilities: ['IPP CHP', 'IPP Non-CHP', 'Electric Utility']
-
 }, action) => {
     switch (action.type) {
         case 'LOADED_ENERGY_PLANTS': {
             state = {...state, allPlants: action.payload};
+            break;
+        }
+        case 'SET_DISPLAYED_ENERGY_PLANTS': {
+            state = {...state, displayedPlants: action.payload};
             break;
         }
 
@@ -46,19 +33,6 @@ const usEnergyMapReducer = (state = {
             state = {...state, currentSources: action.payload};
             break;
         }
-        case 'SET_CURRENT_UTILITIES': {
-            state = {...state, currentUtilities: action.payload};
-            break;
-        }
-        case 'SET_CIRCLES': {
-            state = {
-                ...state,
-                circles: action.payload.circles,
-                circleValue: action.payload.circleValue
-            };
-            break;
-        }
-     
     }
     return state;
     

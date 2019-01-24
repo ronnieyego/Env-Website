@@ -1,16 +1,16 @@
  export const plantTypes = {  
-    coal: { display: 'Coal', circleColor: 'red' },
-    hydroelectric: { display: 'Hydroelectric', circleColor: 'blue' },
-    hydro: { display: 'Hydroelectric', circleColor: 'blue' },
-    wind: { display: 'Wind', circleColor: 'green' },
-    biofuel: { display: 'Biofuel', circleColor: 'darkgreen' },
-    geothermal: { display: 'Geothermal', circleColor: 'pink' },
-    naturalGas: { display: 'Natural Gas', circleColor: 'orange' },
-    petroleum: { display: 'Oil', circleColor: 'black' },
-    solar: { display: 'Solar', circleColor: 'yellow' },
-    nuclear: { display: 'Nuclear', circleColor: 'purple' },
-    oil: { display: 'Oil', circleColor: 'black' },
-    other: { display: 'Other', circleColor: 'violet' }
+    coal: { display: 'Coal', color: 'red' },
+    hydroelectric: { display: 'Hydroelectric', color: 'blue' },
+    hydro: { display: 'Hydroelectric', color: 'blue' },
+    wind: { display: 'Wind', color: 'green' },
+    biofuel: { display: 'Biofuel', color: 'darkgreen' },
+    geothermal: { display: 'Geothermal', color: 'pink' },
+    naturalGas: { display: 'Natural Gas', color: 'orange' },
+    petroleum: { display: 'Oil', color: 'black' },
+    solar: { display: 'Solar', color: 'yellow' },
+    nuclear: { display: 'Nuclear', color: 'purple' },
+    oil: { display: 'Oil', color: 'black' },
+    other: { display: 'Other', color: 'violet' }
  };
 
 

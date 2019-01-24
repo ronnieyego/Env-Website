@@ -42,15 +42,15 @@ export default class GoogleMapsCircle extends Component {
             return null;
         }
         const colors = {
-            fillColor: plantTypes[source.primaryFuel].circleColor,
-            strokeColor: plantTypes[source.primaryFuel].circleColor,
+            fillColor: plantTypes[source.primaryFuel].color,
+            strokeColor: plantTypes[source.primaryFuel].color,
             strokeWeight: 0
         };
         return (<Circle
                     radius={source.radius}
                     center={{ lat: source.lat, lng: source.long }} 
                     onClick={this.props.onClick.bind(this, source)}
-                    strokeColor={plantTypes[source.primaryFuel].circleColor}
+                    strokeColor={plantTypes[source.primaryFuel].color}
                     strokeOpacity={0}
                     strokeWeight={1}
                     options={colors}

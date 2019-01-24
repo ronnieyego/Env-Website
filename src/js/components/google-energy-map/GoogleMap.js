@@ -43,12 +43,18 @@ const MapContainer = class MapContainer extends React.Component {
 
     makeCircles(mainSources) {
         return mainSources.map((source, i) => {
-            source.radius = Math.log10(source.total) * this.props.sizeMultiplier;
-            return (<Circle
-                    key={`${source.name}-circle-${i}`}
-                    source={source}
-                    onClick={this.handleMarkerClick}
-                />);
+            try {
+                source.radius = Math.log(source.total) * this.props.sizeMultiplier;
+                return (<Circle
+                        key={`${source.name}-circle-${i}`}
+                        source={source}
+                        onClick={this.handleMarkerClick}
+                    />);
+            } catch {
+                console.log('BAD Source', source);
+                return null;
+            }
+            
         });
     }
 
@@ -80,7 +86,7 @@ export default compose(
     withProps(props => ({
         googleMapURL: GOOGLE_MAP_URL,
         loadingElement: <div style={{ height: `100%` }} />,
-        containerElement:<div className="google-map-container" />,
+        containerElement:<div className="google-map-container" style={{ height: props.height || null }} />,
         mapElement:<div style={{ height: `100%` }} />,
         maxDistance: props.maxDistance,
         startingCoords: props.startingCoords,

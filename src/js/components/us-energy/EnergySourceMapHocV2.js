@@ -2,27 +2,23 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GoogleMaps from '../google-energy-map/GoogleMap';
 
-import { MapBubble } from '../../../../external/react-d3-bubble/index';
-import FilterBox from './FilterBox';
-import { getSourceCssName, getProducerDisplayname, getSourceDisplayname } from '../../utils/nameMaps.js';
+import FilterBox from './FilterBoxV2';
 
-const width = 960;
-const height = 700;
+
 
 // Keep these names as they map to the fields in Map json.
 const sources = ['coal', 'hydroelectric', 'wind', 'naturalGas', 'petroleum', 'solar', 'nuclear'];
 const sourceButtonBorders = ['red', 'blue', 'lightgrey', 'orange', 'black', 'yellow', 'green'];
 const utilities = ['IPP CHP', 'IPP Non-CHP', 'Electric Utility'];
 
-const domain = {
-    scale: 'sqrt',
-    domain: [0, 2000],
-    range: [0, 15]
-};
 
-@connect((store, props) => {
+const MINIMUM_PLANT_OUTPUT = 50; //MW.  Display no plants under 100MW
+
+@connect(store => {
 	return {
-        allPlants: store.usEnergyMap.allPlants
+        allPlants: store.usEnergyMap.allPlants,
+        displayedPlants: store.usEnergyMap.displayedPlants,
+        currentSources: store.usEnergyMap.currentSources
 	};
 })
 export default class EnergySourceMapHoc extends React.Component {
@@ -35,22 +31,25 @@ export default class EnergySourceMapHoc extends React.Component {
         fetch('/api/get-all-energy-sources')  
             .then(res => res.json())
             .then(sources => {
-                console.log(sources.length);
-                const nonZero = sources.filter(source => source.total > 100);
-                console.log('nonZero', nonZero.length);
-                const hasPrimary = nonZero.filter(source => source.primaryFuel);
-                console.log('hasPrimary', hasPrimary.length);
-                
-                console.log('example: ', hasPrimary[33]);
-                
-                this.props.dispatch({ type: 'LOADED_ENERGY_PLANTS', payload: hasPrimary })
+                const currentSources = this.props.currentSources;
+                const filteredPlants = sources.filter(source => (source.total > MINIMUM_PLANT_OUTPUT) && source.primaryFuel && currentSources.some(currentSource => source[currentSource] > 0));
+                this.props.dispatch({ type: 'LOADED_ENERGY_PLANTS', payload: filteredPlants })
+                this.props.dispatch({ type: 'SET_DISPLAYED_ENERGY_PLANTS', payload: filteredPlants })
             });
     };
+
+    filterEnergySource(currentSources) {
+        const allPlants = this.props.allPlants;
+        const filteredPlants = allPlants.filter(source => (source.total > MINIMUM_PLANT_OUTPUT) && source.primaryFuel && currentSources.some(currentSource => source[currentSource] > 0));
+        this.props.dispatch({ type: 'SET_DISPLAYED_ENERGY_PLANTS', payload: filteredPlants })
+        this.props.dispatch({ type: 'SET_CURRENT_SOURCES', payload: currentSources })
+        // return filteredPlants;
+    }
 
 
   render() {
       const startingCoords = { lat: 37.0902, lng: -95.7129};
-      const maxDistance = 2200;
+      const maxDistance = 2200; // For zoom level
     
     return (
         <div className="us-energy-map-container">
@@ -60,12 +59,18 @@ export default class EnergySourceMapHoc extends React.Component {
             <br />
             This includes both private and public active power stations in the US as of April 2017 (source: <a href="https://www.eia.gov/electricity/data/eia860m/">EIA</a>)
             
+            <FilterBox
+                currentSources={this.props.currentSources}
+                filterEnergySource={this.filterEnergySource.bind(this)}
+            />
+
             <div>
                 <GoogleMaps
-                    circlesToRender={this.props.allPlants}
+                    circlesToRender={this.props.displayedPlants}
                     maxDistance={maxDistance}
                     startingCoords={startingCoords}
-                    sizeMultiplier={15000}
+                    sizeMultiplier={8000}
+                    height={'400px'}
                 />
             </div>
         </div>
