@@ -1,72 +1,60 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import { array, func } from 'prop-types'
 import Checkbox from 'material-ui/Checkbox';
-import { 
-    getSourceCssName, 
-    getProducerDisplayname, 
-    getSourceDisplayname 
-} from '../../utils/nameMaps.js';
+import { plantTypes } from '../google-energy-map/utils';
 
-const sourceButtonBorders = ['red', 'blue', 'lightgrey', 'orange', 'black', 'yellow', 'green'];
-export default class FilterBox extends React.Component {
+
+// I have some extra mappings ex oil and petrolem for the same color and display name.  It causes dupes.
+// The ones im deleting aren't in the new data
+const dedupedPlantTypes = Object.assign({}, plantTypes);
+delete dedupedPlantTypes.hydroelectric;
+delete dedupedPlantTypes.petroleum;
+
+const ENERGY_OPTIONS = Object.keys(dedupedPlantTypes);
+
+export default class FilterEnergyType extends React.Component {
 
     static propTypes = {
-        dispatch: PropTypes.func,
-        renderMap: PropTypes.func,
-        filterType: PropTypes.string,
-        filterArray: PropTypes.array,
-        currentSources: PropTypes.array,
-        currentUtilities: PropTypes.array
+        currentSources: array,
+        filterEnergySource: func
     }
-
-    getFilterOptions(filterType, filterArray, currentSelected) {
-        const sources = filterArray.sort();
-        const displayNameFunc = filterType === 'source' ? getSourceDisplayname : getProducerDisplayname;
-        const list = sources.map((filter, index) => {
-        const buttonStyle = filterType === 'source' ? {fill: sourceButtonBorders[index]} : {};
-            return (
-                <li>
-                    <Checkbox 
-                        label={displayNameFunc(filter)} 
-                        key={filter}
-                        value={filter}
-                        checked={currentSelected.indexOf(filter) !== -1}
-                        className="us-energy-map-filter-button-item"
-                        iconStyle={buttonStyle}
-                        onClick={this.updateFilter.bind(this, filterType)}
-                    />
-                </li> 
-            );
-        });
-        return list;
-    }
-
-    updateFilter(filterType, e) {
+    updateFilter(e) {
         let source = e.target.value;
-        let current = this.props.currentSelected;
-        let index = current.indexOf(source);
-        if(index !== -1) { // source is active.  Remove it from currentSelected
-            current.splice(index, 1);
+        let currentSources = this.props.currentSources;
+        let index = currentSources.indexOf(source);
+        if(index !== -1) { // source is active.  Remove it from currentSources
+            currentSources.splice(index, 1);
         } else {
-            current.push(source);
+            currentSources.push(source);
         }
-        if (filterType === 'source') {
-            this.props.dispatch({type: 'SET_CURRENT_SOURCES', payload: current});
-            this.props.renderMap({sources: current});
-        } else {
-            this.props.dispatch({type: 'SET_CURRENT_UTILITIES', payload: current});
-            this.props.renderMap({utilites: current});
-        }
+        this.props.filterEnergySource(currentSources);        
     }
 
 	render() {
-        const title = this.props.filterType === 'source' ? 'Filter by energy source' : 'Filter by production type';
-        const filterButtons = this.getFilterOptions(this.props.filterType, this.props.filterArray, this.props.currentSelected);
+        const filterButtons = ENERGY_OPTIONS.map(energyOption => {
+                return (
+                    <div className="us-energy-map-filter-button col-xs-6 col-lg-4" key={energyOption}>
+                        <Checkbox 
+                            label={plantTypes[energyOption].display} 
+                            labelStyle={{ marginLeft: '12px' }}
+                            value={energyOption}
+                            checked={this.props.currentSources.indexOf(energyOption) !== -1}
+                            className="us-energy-map-filter-button-item"
+                            iconStyle={{ fill: plantTypes[energyOption].color }}
+                            onClick={this.updateFilter.bind(this)}
+                        />
+                    </div> 
+                );
+            });
         
 		return (
-            <form class="us-energy-map-filter-button">
-                <ul className="us-energy-map-filter-button-text"><b>{title}</b>{filterButtons}</ul>
-            </form>
+            <div class="us-energy-map-filter-button-container">
+                <p className="us-energy-map-filter-button-text">Filter by energy source</p>
+                <div className="us-energy-map-filter-button-holder row">
+                    {filterButtons}
+                </div>
+                    
+            </div>
 		);
 	}
 }

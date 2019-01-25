@@ -1,4 +1,4 @@
-import ids from '../../../../utils/ids/index';
+import ids from '../../../utils/ids/index';
 
 const updateZipErrorText = (allQuestions, errorText, dispatch) => {
     const updatedQuestions = allQuestions.map(question => {
@@ -10,11 +10,15 @@ const updateZipErrorText = (allQuestions, errorText, dispatch) => {
     dispatch({type: 'UPDATE_QUESTIONS', payload: updatedQuestions});
 }
 
-export const resolveZipCodeEnergy = ({question, getState, dispatch}) => {
+export const resolveZipCodeEnergySources = ({searchDistance, inputZip }) => {
+    return (dispatch, getState) => resolveZipCodeEnergy({searchDistance, inputZip, dispatch, getState});
+}
+
+// Search distance is not included in the question trigger, but it is called in LocalEnergyResults.
+export const resolveZipCodeEnergy = ({getState, dispatch, searchDistance, inputZip}) => {
     const store = getState();
-    const maxDistance = store.localEnergy.maxDistance;
+    const maxDistance = searchDistance || store.localEnergy.maxDistance;
     const onlyUtility = store.localEnergy.onlyUtility;
-    const inputZip = question.value;
     fetch('/api/get-energy-sources-by-zip', {
         method: 'POST',
         headers: {

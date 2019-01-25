@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from 'react-redux';
 import { shape, arrayOf, string, number } from 'prop-types';
 
 import GoogleMap from '../google-energy-map/GoogleMap';
@@ -6,8 +7,16 @@ import EnergyIntensityComparison from './EnergyIntensityComparison';
 
 import { NAME_MAPPING, SOURCE_NAMES } from './utils';
 import analyzeSources from './analyze-sources';
+import { resolveZipCodeEnergySources } from '../../actions/footprint/zip/actions';
 
-
+@connect(store => {
+	return {
+		searchDistance: store.localEnergy.searchDistance,
+        energySources: store.localEnergy.energySources,
+		energySourcesError: store.localEnergy.energySourcesError,
+		userZipData: store.userInfo.userZipData
+	};
+})
 export default class LocalEnergyResults extends React.Component {
 
     static propTypes = {
@@ -44,7 +53,8 @@ export default class LocalEnergyResults extends React.Component {
             state: string,
             lat: string.isRequired,
             long: string.isRequired,
-        }).isRequired
+        }).isRequired,
+        searchDistance: number.isRequired
     }
 
     renderEnergySource(source) {
@@ -56,6 +66,19 @@ export default class LocalEnergyResults extends React.Component {
                 { SOURCE_NAMES.map(key => source[key] ? <p className="local-energy-source-amount">{NAME_MAPPING[key]}: {source[key]}</p> : null)}
             </div>
         )
+    }
+
+    updateSearchDistance(e) {
+        const id = e.target.id;
+        const searchDistance = praseInt(document.getElementById(id).value);
+        this.props.dispatch({ type: 'SET_SEARCH_DISTANCE', payload: searchDistance });
+        // New distance is greater, need to refetch data
+        if( searchDistance > this.props.searchDistance) {
+            this.props.dispatch(resolveZipCodeEnergySources({ searchDistance, inputZip: this.props.userZipData.zip }));
+        } else { // New distance is smaller, need to filter data
+            const energySources = this.props.energySources.filter(source => source.distance <= searchDistance);
+            this.props.dispatch({ type: 'SET_LOCAL_ENERGY_DATA', payload: energySources });
+        }
     }
 
 	render() {
@@ -73,19 +96,18 @@ export default class LocalEnergyResults extends React.Component {
         const countyText = this.props.userZipData && this.props.userZipData.county ? `${this.props.userZipData.county} County` : 'your local area';
 		return (
 			<div className="local-energy-sources-container" >
-
                 <EnergyIntensityComparison 
                     totals={totals}
                     maxDistance={maxDistance}
                     userZipData={this.props.userZipData}
                 />
-
-                <br />
-                <hr />
-                <br />
+                <br /><hr /><br />
                 <div>
                     <p className="local-energy-map-title" >Find your local power plants</p>
                     <p className="local-energy-map-text" >Use the map below to see power plants around {countyText}.  You can click on each power plant to find out more information.  To reduce clutter, this map only includes utilities that generate above 1MW of energy.</p>
+                    <div class="slidecontainer">
+                        <input type="range" min="1" max="800" value={this.props.searchDistance} onChange={this.updateSearchDistance.bind(this)} class="slider" id="search-distance-slider" />
+                    </div>
                     <GoogleMap 
                         circlesToRender={removedSmallSources}
                         maxDistance={maxDistance}
