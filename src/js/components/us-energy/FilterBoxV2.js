@@ -31,9 +31,9 @@ export default class FilterEnergyType extends React.Component {
     }
 
 	render() {
-        const filterButtons = ENERGY_OPTIONS.map((energyOption, index) => {
+        const filterButtons = ENERGY_OPTIONS.map(energyOption => {
                 return (
-                    <div className="us-energy-map-filter-button col-sm-6" key={energyOption}>
+                    <div className="us-energy-map-filter-button col-xs-6 col-lg-4" key={energyOption}>
                         <Checkbox 
                             label={plantTypes[energyOption].display} 
                             labelStyle={{ marginLeft: '12px' }}

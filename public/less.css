@@ -471,7 +471,6 @@
 }
 .state-energy-footer-text-container {
   text-align: center;
-  border: 3px solid gray;
   margin-top: 5px;
 }
 .energy-map-button {
@@ -609,9 +608,24 @@ input[type="checkbox"] {
     margin: 15px 0;
   }
 }
+.us-energy-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
 .us-energy-paragraph {
   text-align: left;
-  font-size: 18px;
+  font-size: 1.4rem;
+}
+.us-energy-map-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+.us-energy-map-text {
+  text-align: left;
+  font-size: 1.4rem;
+  margin-left: 8px;
 }
 .us-energy-map-loading {
   margin-top: 20px;
@@ -620,16 +634,11 @@ input[type="checkbox"] {
   font-weight: bold;
 }
 .us-energy-map-container {
-  border: 3px solid gray;
-  font-size: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 30px;
+  margin: 30px auto;
 }
 .us-energy-map-filter-button {
-  min-width: 300px;
+  width: 300px;
   text-align: left;
-  padding-left: 15%;
 }
 .us-energy-map-filter-button-item {
   margin: auto;
@@ -641,6 +650,10 @@ input[type="checkbox"] {
 .us-energy-map-filter-button-container {
   width: 100%;
   text-align: center;
+  margin-bottom: 1rem;
+}
+.us-energy-map-filter-button-holder {
+  padding: 0 10%;
 }
 .costs {
   text-align: left;
