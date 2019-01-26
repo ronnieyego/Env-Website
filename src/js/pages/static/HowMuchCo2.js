@@ -34,7 +34,7 @@ export default class HowMuchCO2Page extends React.Component {
     chooseItem(chosenRequest, index) {
         const co2Data = this.state.co2Data;
         co2Data.map(row => row.selected = false); // Unselect all other rows.
-        co2Data[index].selected = true;
+        co2Data[index + 1].selected = true; // THis makes the row highlighted in gray
         this.setState({co2Data});
 
         // I dont want to scroll to the top of the page, but rather have the selected row show up in the middle
