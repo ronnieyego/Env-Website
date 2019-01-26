@@ -13,7 +13,15 @@ export default [
         name: 'Which zip code do you live in?',
         type: 'int',
         validator: 'zip-code',
-        forms: ['household-home' ,'local-energy'],
+        forms: ['household-home'],
         trigger: 'resolve-zip'
+    },
+    {
+        id: ids.energyZip,
+        name: 'Which zip code do you live in?',
+        type: 'int',
+        validator: 'zip-code',
+        forms: ['local-energy'],
+        trigger: 'resolve-energy-zip'
     }
 ]

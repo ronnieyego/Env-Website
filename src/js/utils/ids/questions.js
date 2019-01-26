@@ -1,4 +1,4 @@
-// 1109 currenet max
+// 1110 currenet max
 
 export default {
 
@@ -150,5 +150,6 @@ export default {
 
 // User State
     userState: 1046,
-    userZip: 1109
+    userZip: 1109,
+    energyZip: 1110,
 }
