@@ -18,7 +18,7 @@ const infoWindow = marker => {
             <p className="map-google-info-window-utility">Utility: {marker.utilityName}</p>
             <p className="map-google-info-window-plant">Plant: {marker.name}</p>
             <p className="map-google-info-window-plant">Energy Type: {plantTypes[marker.primaryFuel].display}</p>
-            <p className="map-google-info-window-amount">Production: {marker.total} MW</p>
+            <p className="map-google-info-window-amount">Production: {marker.total && marker.total.toLocaleString()} MW</p>
         </div>
     )
 };

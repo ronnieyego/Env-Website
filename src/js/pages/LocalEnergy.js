@@ -12,13 +12,15 @@ import ids from '../utils/ids/index';
 		searchDistance: store.localEnergy.searchDistance,
         energySources: store.localEnergy.energySources,
 		zipDataError: store.localEnergy.zipDataError,
-		userZipData: store.localEnergy.userZipData
+		userZipData: store.userInfo.userZipData
 	};
 })
 export default class LocalEnergy extends React.Component {
 
 	render() {
-		const showResults = this.props.energySources && Object.keys(this.props.energySources).length > 0;
+		const haveEnergySources = this.props.energySources && Object.keys(this.props.energySources).length > 0;
+		const haveUserZip = !!this.props.userZipData;
+		const showResults = haveEnergySources && haveUserZip;
         const questions = sortAndFilterAndCreateQuestions('local-energy', [ids.userZip], this.props.questions)
 		return (
 			<div>
@@ -33,6 +35,9 @@ export default class LocalEnergy extends React.Component {
 					{ questions }
 					{ showResults && <LocalEnergyResults /> }
 				</div>
+				<br />
+				<br />
+				<br />
 			</div>
 		);
 	}

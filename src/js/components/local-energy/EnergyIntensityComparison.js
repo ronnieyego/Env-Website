@@ -1,6 +1,6 @@
 import React from "react";
-import { shape, number, string } from 'prop-types';
-import { SOURCE_NAMES, NAME_MAPPING } from './utils';
+import { shape, number, string, oneOfType } from 'prop-types';
+import { SOURCE_NAMES, NAME_MAPPING } from '../google-energy-map/utils';
 import { utilityEmissionsPerState } from '../../utils/utils-data/state-energy-and-emissions';
 import BarChart from '../bar-chart/BarChartHoc';
 
@@ -23,15 +23,15 @@ export default class EnergyIntensityComparison extends React.Component {
             totalMw: number,
             wind: number,
         }).isRequired,
-        maxDistance: number,
+        searchDistance: number,
         userZipData: shape({
             zip: string.isRequired,
             population: string,
             city: string,
             county: string,
             state: string,
-            lat: string.isRequired,
-            long: string.isRequired,
+            lat: oneOfType([string, number]).isRequired,
+            long: oneOfType([string, number]).isRequired,
         }).isRequired
     }
 
@@ -64,7 +64,7 @@ export default class EnergyIntensityComparison extends React.Component {
                             />
                     </div>
                     <div className="local-energy-comparison-summary col-md-3 col-sm-12">
-                        <p className="local-energy-comparison-summary-sentence">Utilities generate <b>{this.props.totals.totalMw.toLocaleString()} MWs</b> of energy within {this.props.maxDistance} miles of your home.</p>
+                        <p className="local-energy-comparison-summary-sentence">Utilities generate <b>{this.props.totals.totalMw.toLocaleString()} MWs</b> of energy within {this.props.searchDistance && this.props.searchDistance.toLocaleString()} miles of your home.</p>
                         <ul className="local-energy-comparison-list">
                             { SOURCE_NAMES
                                 .filter(source => this.props.totals[source])

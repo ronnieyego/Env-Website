@@ -4,6 +4,7 @@ import co2BySource from '../../data/energy/co2-by-source';
 
 // 89503 reno zip
 
+// Currently not using major sources.
 // You're a major source if youre above either of these thresholds.
 const MAIN_SOURCE_PERCENT = .33;
 const MAIN_SOURCE_AMOUNT = 400;

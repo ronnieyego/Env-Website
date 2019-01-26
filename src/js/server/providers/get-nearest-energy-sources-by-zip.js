@@ -70,8 +70,8 @@ export default ({inputZip, allStations = false, maxDistance = DEFAULT_MILES_LIMI
         return -1;
     }
     const inputCoords = getLatLongFromZip(inputZip);
-    const powerPlantSearchGroup = maxDistance < 400 ? getNearbyZips(inputZip) : ALL_ENERGY_ZIPS;
-    const nearbyPowerPlants = powerPlantSearchGroup
+    // const powerPlantSearchGroup = maxDistance < 400 ? getNearbyZips(inputZip) : ALL_ENERGY_ZIPS;
+    const nearbyPowerPlants = ALL_ENERGY_ZIPS
         .filter(nearbyZipCode => ZIP_ENERGY_DATA[nearbyZipCode])
         .map(nearbyEnergyZip => addDistanceToEnergySource(inputCoords, ZIP_ENERGY_DATA[nearbyEnergyZip]))
         .reduce((allEnergySources, nearbyEnergyZip) => {

@@ -62,9 +62,10 @@ app.get('/', loadFootprintFormPage);
 app.get('/solar/:state', loadSolarPage);
 app.get('/solar', loadSolarPage);
 
-app.get('/energy/:state', loadStateEnergyPage);
 app.get('/energy', loadUsEnergyPage);
-app.get('/local-energy', loadLocalEnergyPage);
+app.get('/energy/us', loadUsEnergyPage);
+app.get('/energy/local', loadLocalEnergyPage);
+app.get('/energy/:state', loadStateEnergyPage);
 
 app.get('/footprint', loadFootprintFormPage);
 app.get('/footprint/:id', loadFootprintResultsPage);

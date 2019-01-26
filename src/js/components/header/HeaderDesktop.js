@@ -41,6 +41,11 @@ export default class HeaderDesktop extends React.Component {
                             {costPages}
                         </DropDownMenu>
                         <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/how-much-co2"/>} primaryText="How Much CO2" />
+                        <DropDownMenu menuStyle={{backgroundColor: 'white'}} className="material-ui-nav-dropdown" value={"Energy"} >
+                            <MenuItem value={"Energy"} primaryText="Energy" disabled={true} />
+                            <MenuItem key="header-menu-item-us-energy" containerElement={<a key="header-link-us-energy" href={`/energy/us`}/>} primaryText="US Energy" />
+                            <MenuItem key="header-menu-item-local-energy" containerElement={<a key="header-link-local-energy" href={`/energy/local`}/>} primaryText="Local Energy" />
+                        </DropDownMenu>
                         <MenuItem  containerElement={<a className="material-ui-nav-item" href="/energy"/>} primaryText="Energy" />
                         {/* <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/data"/>} primaryText="Data" /> */}
                         <MenuItem  containerElement={<a className="material-ui-nav-item" href="/static/co2e"/>} primaryText="CO2e" />
