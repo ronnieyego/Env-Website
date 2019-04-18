@@ -270,10 +270,3 @@ app.listen(port, () => {
 });
 
 module.exports = {app}
-
-
-
-// TODO:
-// Fix how much Co2.  Index off by 1 error :(
-// Spacing on results page CO2 amount
-// I'm failing to resolve zip codes without any energy sources.  split em.
