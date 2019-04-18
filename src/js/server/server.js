@@ -32,6 +32,9 @@ import getNearestZipCodeData from './providers/get-nearest-zip-temperature-data'
 import getEnergySources, { getAllEnergyStations } from './providers/get-nearest-energy-sources-by-zip';
 import calculateFootprint from './providers/calculate-footprint';
 
+// V2 providers
+import { getNearestEnergySourcesByZipAndDistance } from './providers/v2-get-nearest-energy-sources-by-zip';
+
 const port = process.env.PORT || 3000;
 
 var app = express();
@@ -266,6 +269,8 @@ app.post('/api/get-energy-sources-by-zip', (req,res) => {
 });
 
 app.get('/api/get-zip-data/:zipCode', findZipByCode);
+app.post('/api/get-nearest-power-plants', getNearestEnergySourcesByZipAndDistance);
+
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);
