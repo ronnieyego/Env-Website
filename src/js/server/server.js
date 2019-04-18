@@ -27,7 +27,7 @@ import loadTestPage from '../actions/load-actions/load-test-page';
 
 import { FormAnswers } from '../../../db/models/form-answers';
 
-import getBasicZipCodeData from './providers/get-basic-zip-data';
+import getBasicZipCodeData, { findZipByCode } from './providers/get-basic-zip-data';
 import getNearestZipCodeData from './providers/get-nearest-zip-temperature-data';
 import getEnergySources, { getAllEnergyStations } from './providers/get-nearest-energy-sources-by-zip';
 import calculateFootprint from './providers/calculate-footprint';
@@ -264,6 +264,8 @@ app.post('/api/get-energy-sources-by-zip', (req,res) => {
         res.status(500).send(e);
     })
 });
+
+app.get('/api/get-zip-data/:zipCode', findZipByCode);
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}.`);
