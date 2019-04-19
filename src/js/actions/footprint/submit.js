@@ -30,10 +30,31 @@ export default () => {
             .then(res => {
                 if(res.error) {
                     console.log('Oh noes something went wrong on submit', res.message);
+                    throw new Error('EEEEP');
                 } else {
-                    dispatch({type: 'SET_FORM_ANSWER_ID', payload: res['_id']}); 
-                    window.location.href = `/footprint/${res['_id']}`;  
+                    const footprintId = res['_id'];
+                    dispatch({type: 'SET_FORM_ANSWER_ID', payload: footprintId}); 
+                    return res.results;
+                    // window.location.href = `/footprint/${footprintId}`;  
                 }
+            })
+            // V2 log the results
+            .then(footprintResults => {
+                console.log(footprintResults);
+                return fetch('/api/footprint/record-footprint', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        results: footprintResults,
+                        questions
+                    })
+                }) 
+            })
+            .then(recordResults => {
+                console.log('Logged res', recordResults);
             })
             .catch(e => {
                 console.log('Oh noes something went wrong on submit', e);

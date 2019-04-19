@@ -27,14 +27,16 @@ import loadTestPage from '../actions/load-actions/load-test-page';
 
 import { FormAnswers } from '../../../db/models/form-answers';
 
-import getBasicZipCodeData, { findZipByCode } from './providers/get-basic-zip-data';
-import getNearestZipCodeData from './providers/get-nearest-zip-temperature-data';
-import getEnergySources, { getAllEnergyStations } from './providers/get-nearest-energy-sources-by-zip';
+// import getBasicZipCodeData, { findZipByCode } from './providers/get-basic-zip-data';
+// import getNearestZipCodeData from './providers/get-nearest-zip-temperature-data';
+// import getEnergySources, { getAllEnergyStations } from './providers/get-nearest-energy-sources-by-zip';
 import calculateFootprint from './providers/calculate-footprint';
 
 // V2 providers
 import { getNearestEnergySourcesByZipAndDistance } from './providers/v2-get-nearest-energy-sources-by-zip';
 import { getTemperatureDataForZip } from './providers/v2-get-nearest-zip-temperature-data';
+import { findZipByCode } from './providers/v2-get-basic-zip-data';
+import { recordFootprint } from './providers/v2-footprint-provider';
 const port = process.env.PORT || 3000;
 
 var app = express();
@@ -101,6 +103,7 @@ app.post('/api/footprint-form/submit-form', async (req, res) => {
     const { questions, answers } = req.body;
     const results = await calculateFootprint(answers);
     // return res.status(400).send({error: true, message: 'lolololol'})
+
     if(results.error) {
         return res.status(400).send(results)
     }
@@ -201,10 +204,11 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
 app.get('/api/get-all-energy-sources', (req,res) => res.status(200).send(getAllEnergyStations()));
 
 
-
+// V2 endpoints
 app.get('/api/get-zip-data/:zipCode', findZipByCode);
 app.post('/api/get-nearest-power-plants', getNearestEnergySourcesByZipAndDistance);
 app.get('/api/get-zip-temperature-data/:zipCode', getTemperatureDataForZip);
+app.post('/api/footprint/record-footprint', recordFootprint);
 
 
 app.listen(port, () => {
