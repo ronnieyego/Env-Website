@@ -1,6 +1,10 @@
 const DB_MAPPING = {
     distanceMiles: 'distance_miles',
-    postalCode: 'postal_code'
+    postalCode: 'postal_code',
+    footprintId: 'footprint_id',
+    monthyCo2: 'monthly_co2',
+    questionName: 'question_name',
+    questionId: 'question_id',
 };
 
 export default row => {

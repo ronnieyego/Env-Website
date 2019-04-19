@@ -41,4 +41,45 @@ const createAnswers = async({ footprintId, answers }) => {
     return promise.promise;
 };
 
-module.exports = { createFootprint, createAnswers }; 
+const getFootprintById = async(footprintId) => {
+    const promise = Q.defer();
+    Pool.query(
+            `SELECT footprint_id, monthly_co2, results, created_dtm
+            FROM footprints.footprint 
+            WHERE footprint_id = $1;
+        `, [footprintId], (error, result) => {
+        if (error) {
+            return promise.resolve({ error: true, message: `[ERROR] - Failed to find footprint for footprintId: ${footprintId}.  Error: ${error}` });
+        }
+        if(!result.rows || result.rows.length === 0) {
+            return promise.resolve({ error: true, message: `Could not find footprint for footprintId: ${footprintId}.` });
+        }
+        return promise.resolve({ error: false, results: result.rows[0] });
+    })
+    return promise.promise;
+};
+
+const getAnswersByFootprintId = async(footprintId) => {
+    const promise = Q.defer();
+    Pool.query(
+            `SELECT answer_id, question_id, question_name, value
+            FROM footprints.answers 
+            WHERE footprint_id = $1   
+        ;`, [footprintId], (error, result) => {
+        if (error) {
+            return promise.resolve({ error: true, message: `[ERROR] - Failed to find answers for footprintId: ${footprintId}.  Error: ${error}` });
+        }
+        if(!result.rows || result.rows.length === 0) {
+            return promise.resolve({ error: true, message: `Could not find answers for footprintId: ${footprintId}.` });
+        }
+        return promise.resolve({ error: false, results: result.rows });
+    })
+    return promise.promise;
+};
+
+module.exports = { 
+    createFootprint,
+    createAnswers,
+    getFootprintById,
+    getAnswersByFootprintId
+}; 

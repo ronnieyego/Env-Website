@@ -16,32 +16,37 @@ import { Provider } from 'react-redux';
 import reducers from '../../redux/reducers/index';
 import { baseState } from '../../redux/reducers/footprint-form-answers-reducer';
 
-// Pages
+// Providers
+import { loadResultsPageData } from '../../server/providers/v2-footprint-provider';
 
 export default async (req, res) => {
-    let id;
-    try {
-        id = ObjectId(req.params.id)
-    } catch(e) {
-        console.log('Invalid Id: ', req.params.id,  e);
-        res.status(500).send(`Invalid Id: ${req.params.id}`);
-    }
+    const id = req.params.id;
 
-    const answers = await FormAnswers.find({_id: id});
-    if(!answers || !answers[0]) {
-        console.log(`Could not find Id: ${req.params.id}`);
-        res.status(404).send(`Could not find Id: ${req.params.id}`);
-    }
-    const answer = answers[0];
+    // Deprecated.  Getting Results from Mongo
+
+    // try {
+    //     id = ObjectId(req.params.id)
+    // } catch(e) {
+    //     console.log('Invalid Id: ', req.params.id,  e);
+    //     res.status(500).send(`Invalid Id: ${req.params.id}`);
+    // }
+
+    // const answers = await FormAnswers.find({_id: id});
+    // if(!answers || !answers[0]) {
+    //     console.log(`Could not find Id: ${req.params.id}`);
+    //     res.status(404).send(`Could not find Id: ${req.params.id}`);
+    // }
+    // const answer = answers[0];
+    const v2Data = await loadResultsPageData(id);
     const storeData = {
         footprintFormAnswers: {
             ...baseState,
             answerId: id,
-            formResults: answer.results,
-            userState: answer.userState
+            formResults: v2Data.results,
+            userState: 'WA' // FIX ME
         },
         questions: {
-            questions: answer.questions
+            questions: v2Data.answers
         }
     };
 
