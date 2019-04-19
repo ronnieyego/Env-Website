@@ -1,4 +1,5 @@
 import ids from '../../../utils/ids/index';
+import MAP_DB from '../../../server/daos/map-db';
 
 const updateZipErrorText = (allQuestions, errorText, dispatch) => {
     const updatedQuestions = allQuestions.map(question => {
@@ -52,17 +53,18 @@ export const resolveZipCodeTemp = ({dispatch, getState, question}) => {
         return;
     }
     const inputZip = question.value;
-    fetch(`/api/get-nearest-zip-code-temperature-data/${inputZip}`)
+    // V1 endpoint is get-nearest-zip-code-temperature-data
+    fetch(`/api/get-zip-temperature-data/${inputZip}`)
     .then(res => res.json())
-    .then(res => {
+    .then(tempDataResults => {
         const store = getState();
         const allQuestions = store.questions.questions;
-        if(res.error) {
-            updateZipErrorText(allQuestions, res.message, dispatch);
+        if(tempDataResults.error) {
+            updateZipErrorText(allQuestions, tempDataResults.message, dispatch);
             
-        } else if (res.zip) {
-            const nearestZip = res.zip;
-            dispatch({type: 'UPDATE_NEAREST_TEMPERATURE_ZIP', payload: nearestZip});
+        } else if (tempDataResults.results) {
+            const mappedData = MAP_DB(tempDataResults.results)
+            return dispatch({type: 'UPDATE_NEAREST_TEMPERATURE_ZIP', payload: mappedData });
         }
     })
     .catch((e)=> {

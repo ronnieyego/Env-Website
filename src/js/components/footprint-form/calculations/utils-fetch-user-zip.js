@@ -1,17 +1,20 @@
 import 'isomorphic-fetch';
 import getEnv from '../../../utils/get-env';
 import stateTemps from '../data/average-temp-by-state';
+import MAP_DB from '../../../server/daos/map-db';
 
 export const fetchUserZipDataFromZip = zip => {
     const env = getEnv();
-    return fetch(`${env.baseUrl}/api/get-nearest-zip-code-temperature-data/${zip}`)
+    
+    // V1 was get-nearest-zip-code-temperature-data
+    return fetch(`${env.baseUrl}/api/get-zip-temperature-data/${zip}`)
         .then(res => res.json())
         .then(zipData => {
             if(zipData.error) {
                 console.log('Failed to fetch zip data for zip', zip, ' Message: ', zipData.message);
                 return null;
             }
-            return zipData;
+            return MAP_DB(zipData.results);
         })
         .catch(e => {
             console.log('Failed to fetch zip data for zip', zip);

@@ -1,9 +1,8 @@
 const DB_MAPPING = {
-    imageUrl: 'image_url',
-    
+    distanceMiles: 'distance_miles',
 };
 
-export const MAP_DB_ROW = row => {
+export default row => {
     if(!row) {
         console.log('Warning: No row returned from the DB');
         return {};
