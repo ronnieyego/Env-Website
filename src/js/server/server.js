@@ -197,51 +197,6 @@ app.get('/api/delete-form-result-by-id/:id', (req, res) => {
     .catch(e => res.status(500).send('Failed to delete answer', e));
 });
 
-app.get('/api/get-basic-zip-data/:zip', (req,res) => {
-    const zip = req.params.zip;
-    return Q.fcall(() => {
-        if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US
-            res.status(200).send({
-                error: true,
-                message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
-            );
-        }
-        const zipData = getBasicZipCodeData(zip);
-        if(zipData === -1) { // Nearest zip data will return -1 if it fails.
-            res.status(200).send({
-                error: true,
-                message: `Could not find zip code: ${zip}.  Please try a different zip code.`
-            });
-        }
-        res.status(200).send(zipData);
-    })
-    .catch(e => {
-        res.status(500).send(e);
-    })
-});
-
-app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
-    const zip = req.params.zip;
-    return Q.fcall(() => {
-        if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US
-            res.status(200).send({
-                error: true,
-                message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
-            );
-        }
-        const zipData = getNearestZipCodeData(zip);
-        if(zipData === -1) { // Nearest zip data will return -1 if it fails.
-            res.status(200).send({
-                error: true,
-                message: `Could not find zip code: ${zip}.  Please try a different zip code.`
-            });
-        }
-        res.status(200).send(zipData);
-    })
-    .catch(e => {
-        res.status(500).send(e);
-    })
-});
 
 app.get('/api/get-all-energy-sources', (req,res) => res.status(200).send(getAllEnergyStations()));
 
@@ -278,6 +233,52 @@ app.post('/api/get-energy-sources-by-zip', (req,res) => {
             });
         }
         res.status(200).send(energySources);
+    })
+    .catch(e => {
+        res.status(500).send(e);
+    })
+});
+
+app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
+    const zip = req.params.zip;
+    return Q.fcall(() => {
+        if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US
+            res.status(200).send({
+                error: true,
+                message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
+            );
+        }
+        const zipData = getNearestZipCodeData(zip);
+        if(zipData === -1) { // Nearest zip data will return -1 if it fails.
+            res.status(200).send({
+                error: true,
+                message: `Could not find zip code: ${zip}.  Please try a different zip code.`
+            });
+        }
+        res.status(200).send(zipData);
+    })
+    .catch(e => {
+        res.status(500).send(e);
+    })
+});
+
+app.get('/api/get-basic-zip-data/:zip', (req,res) => {
+    const zip = req.params.zip;
+    return Q.fcall(() => {
+        if((parseInt(zip) < 10000 || parseInt(zip) > 100000) && zip != '00000') {  // 00000 is fake for average US
+            res.status(200).send({
+                error: true,
+                message: 'Bad zip code format.  Please only use the 5 digit zip code format'}
+            );
+        }
+        const zipData = getBasicZipCodeData(zip);
+        if(zipData === -1) { // Nearest zip data will return -1 if it fails.
+            res.status(200).send({
+                error: true,
+                message: `Could not find zip code: ${zip}.  Please try a different zip code.`
+            });
+        }
+        res.status(200).send(zipData);
     })
     .catch(e => {
         res.status(500).send(e);

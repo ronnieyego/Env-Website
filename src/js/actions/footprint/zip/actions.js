@@ -81,15 +81,18 @@ export const resolveBasicZipCodeData = ({dispatch, getState, question}) => {
         return;
     }
     const inputZip = question.value;
-    fetch(`/api/get-basic-zip-data/${inputZip}`)
+    // V1 is get-basic-zip-data
+    fetch(`/api/get-zip-data/${inputZip}`)
     .then(res => res.json())
-    .then(userZipData => {
+    .then(userZipDataResults => {
         const store = getState();
         const allQuestions = store.questions.questions;
-        if(userZipData.error) {
-            updateZipErrorText(allQuestions, userZipData.message, dispatch);
+        if(userZipDataResults.error) {
+            updateZipErrorText(allQuestions, userZipDataResults.message, dispatch);
             
-        } else if (userZipData.zip) {
+        } else if (userZipDataResults.results) {
+            const userZipData = MAP_DB(userZipDataResults.results);
+            console.log('GOT IT', userZipData);
             const updateQuestions = allQuestions.slice().map(question => {
                 if (question.id === ids.userState) {
                     question.errorText = '';

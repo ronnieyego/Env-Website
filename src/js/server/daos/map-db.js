@@ -1,5 +1,6 @@
 const DB_MAPPING = {
     distanceMiles: 'distance_miles',
+    postalCode: 'postal_code'
 };
 
 export default row => {
