@@ -17,17 +17,18 @@ export const resolveZipCodeEnergySources = ({searchDistance, inputZip }) => {
 // Search distance is not included in the question trigger, but it is called in LocalEnergyResults.
 export const resolveZipCodeEnergy = ({getState, dispatch, searchDistance, inputZip}) => {
     const store = getState();
-    const maxDistance = searchDistance || store.localEnergy.maxDistance;
+    const distance = searchDistance || store.localEnergy.distance;
     const onlyUtility = store.localEnergy.onlyUtility;
-    fetch('/api/get-energy-sources-by-zip', {
+    // v1 api route is get-energy-sources-by-zip.  Payload is maxDistance, inputZip, onlyUtility
+    fetch('/api/get-nearest-power-plants', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            inputZip,
-            maxDistance,
+            zipdeCode: inputZip,
+            distance,
             onlyUtility
         })
     })

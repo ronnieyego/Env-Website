@@ -245,6 +245,21 @@ app.get('/api/get-nearest-zip-code-temperature-data/:zip', (req,res) => {
 
 app.get('/api/get-all-energy-sources', (req,res) => res.status(200).send(getAllEnergyStations()));
 
+
+
+app.get('/api/get-zip-data/:zipCode', findZipByCode);
+app.post('/api/get-nearest-power-plants', getNearestEnergySourcesByZipAndDistance);
+
+
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}.`);
+});
+
+module.exports = {app}
+
+
+
+// Deprecated routes
 app.post('/api/get-energy-sources-by-zip', (req,res) => {
     const { inputZip, allStations, maxDistance } = req.body;
     return Q.fcall(() => {
@@ -267,13 +282,3 @@ app.post('/api/get-energy-sources-by-zip', (req,res) => {
         res.status(500).send(e);
     })
 });
-
-app.get('/api/get-zip-data/:zipCode', findZipByCode);
-app.post('/api/get-nearest-power-plants', getNearestEnergySourcesByZipAndDistance);
-
-
-app.listen(port, () => {
-    console.log(`Server is up on port ${port}.`);
-});
-
-module.exports = {app}

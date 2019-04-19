@@ -3,7 +3,7 @@ import zipDao from '../daos/zip-dao';
 
 
 export const getNearestEnergySourcesByZipAndDistance = async(req, res) => {
-    const { zipCode, distance } = req.body;
+    const { zipCode, distance, onlyUtility } = req.body;
     if(!zipCode || typeof zipCode != 'number') {
         console.log('[ERROR] -  zip code required to find basic zip data.  Zip: ', zipCode);
         return res.status(200).send({ error: true, message: `Invalid input for zip code: ${zipCode}`});
@@ -24,7 +24,7 @@ export const getNearestEnergySourcesByZipAndDistance = async(req, res) => {
     if(!lat || !long) {
         return res.status(200).send({ error: true, message: `No lat/long for zipCode ${zipCode}.`});
     }
-    const powerPlantsResults  = await energyDao.getEnergySourcesWithinDistance({ lat, long, distance})
+    const powerPlantsResults  = await energyDao.getEnergySourcesWithinDistance({ lat, long, distance, onlyUtility })
         .catch(e => ({ error: true, message: `There was an uncaught error getting power plant data for lat/long ${lat}/${long} and distance ${distance}.  Error: ${e}.`}))
 
     if(powerPlantsResults.error) {
