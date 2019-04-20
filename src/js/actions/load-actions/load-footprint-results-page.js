@@ -1,19 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom/server';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-
-// Server
-import renderFullPage  from '../../server/render-page';
-import { addMobileToStore } from '../../server/utils';
+import dehydrate from './dehydrate';
 
 // Database
 import { FormAnswers } from '../../../../db/models/form-answers';
 import { ObjectId } from 'mongodb';
 
 // Redux
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import reducers from '../../redux/reducers/index';
 import { baseState } from '../../redux/reducers/footprint-form-answers-reducer';
 
 // Providers
@@ -37,26 +29,33 @@ export default async (req, res) => {
     //     res.status(404).send(`Could not find Id: ${req.params.id}`);
     // }
     // const answer = answers[0];
-    const v2Data = await loadResultsPageData(id);
-    const storeData = {
+    const resulsPageData = await loadResultsPageData(id);
+    const dataSeed = {
         footprintFormAnswers: {
             ...baseState,
             answerId: id,
-            formResults: v2Data.results,
+            formResults: resulsPageData.results,
             userState: 'WA' // FIX ME
         },
         questions: {
-            questions: v2Data.answers
+            questions: resulsPageData.answers
         }
     };
+    return dehydrate({
+        component: <div />,
+        dataSeed,
+        req,
+        res,
+        page: 'results'
+    });
 
-    const appendedStoreData = addMobileToStore(req, storeData);
-    const store = createStore(reducers, appendedStoreData);
-    const appMarkup = ReactDOM.renderToString(
-        <Provider store={store}>
-            <MuiThemeProvider>
-                <div />
-            </MuiThemeProvider>
-        </Provider>);
-    res.status(200).send(renderFullPage(appMarkup, appendedStoreData, 'results'));
+    // const appendedStoreData = addMobileToStore(req, storeData);
+    // const store = createStore(reducers, appendedStoreData);
+    // const appMarkup = ReactDOM.renderToString(
+    //     <Provider store={store}>
+    //         <MuiThemeProvider>
+    //             <div />
+    //         </MuiThemeProvider>
+    //     </Provider>);
+    // res.status(200).send(renderFullPage(appMarkup, appendedStoreData, 'results'));
 };

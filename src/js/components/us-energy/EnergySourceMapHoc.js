@@ -23,9 +23,9 @@ export default class EnergySourceMapHoc extends React.Component {
         console.log('Getting US Energy Data');
         fetch('/api/get-all-energy-sources')  
             .then(res => res.json())
-            .then(sources => {
+            .then(sourcesResults => {
                 const currentSources = this.props.currentSources;
-                const filteredPlants = sources.filter(source => (source.total > MINIMUM_PLANT_OUTPUT) && source.primaryFuel && currentSources.some(currentSource => source[currentSource] > 0));
+                const filteredPlants = sourcesResults.results.filter(source => (source.total > MINIMUM_PLANT_OUTPUT) && source.primaryFuel && currentSources.some(currentSource => source[currentSource] > 0));
                 this.props.dispatch({ type: 'LOADED_ENERGY_PLANTS', payload: filteredPlants })
                 this.props.dispatch({ type: 'SET_DISPLAYED_ENERGY_PLANTS', payload: filteredPlants })
             });

@@ -1,6 +1,12 @@
 const userReducer = (state = {
     userZipCode: null,
-    userZipData: {},
+    userZipData: {
+        city: null,
+        state: null,
+        population: null,
+        lat: null,
+        long: null
+    },
     userState: 'CA',
     userGender: '',
     isMobile: false

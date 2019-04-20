@@ -5,6 +5,17 @@ const DB_MAPPING = {
     monthyCo2: 'monthly_co2',
     questionName: 'question_name',
     questionId: 'question_id',
+    plantId: 'plant_id',
+    plantName: 'plant_name',
+    entityId: 'entity_id',
+    entityName: 'entity_name',
+    utilityName: 'utility_name',
+    plantCapacity: 'plant_capacity',
+    naturalGas: 'natural_gas',
+    nameplateCapaacity: 'nameplate_capacity',
+    plantType: 'plant_type',
+    primaryFuel: 'primary_fuel',
+
 };
 
 export default row => {

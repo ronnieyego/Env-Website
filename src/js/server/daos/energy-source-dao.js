@@ -1,20 +1,35 @@
 import Pool from './config';
 import Q from 'q';
 
-const ALL_ENERGY_SECTORS = ['Electric Utility', 'Industrial CHP', 'IPP CHP', 'IPP Non-CHP', 'Commercial CHP', 'Commercial Non-CHP', 'Industrial Non-CHP'];
+const ALL_ENERGY_TYPES = [ "undefined", "industrial", "commercial", "utility",  "independent" ];
 
+const getAllEnergySources = async() => {
+    const promise = Q.defer();
+    Pool.query(
+        `SELECT id, plant_id, plant_name, utility_name, city, state, zip, county, lat, long, coal, oil, natural_gas, biofuel, solar, wind, geothermal, hydro, nuclear, other, total, plant_type, primary_fuel
+        FROM data.us_power_plants 
+        ;`
+        , [], (error, result) => {
+        if (error) {
+            return promise.resolve({ error: true, message: `Error getting all power plants.  Error: ${error}` });
+        }
+        console.log('LENGTH IS', result.rows.length)
+        return promise.resolve({ error: false, results: result.rows });
+    })
+    return promise.promise;
+};
 
 const getEnergySourcesWithinDistance = async({ lat, long, distance, onlyUtility }) => {
     const promise = Q.defer();
-    const filteredEnergySources = onlyUtility ? ['Electric Utility'] : ALL_ENERGY_SECTORS;
+    const filteredEnergySources = onlyUtility ? ['utility'] : ALL_ENERGY_TYPES;
      
     // Note: Distance is based on land miles which don't account for earth curvature
     // Note2: points take in a long, lat instead of lat,long
     Pool.query(
-        `SELECT id, plant_id, entity_id, entity_name, plant_capacity, hydroelectric, wind, coal, natural_gas, solar, nuclear, petroleum, geothermal, plant_name, sector, state, nameplate_capacity, county, lat, long
+        `SELECT id, plant_id, plant_name, utility_name, city, state, zip, county, lat, long, coal, oil, natural_gas, biofuel, solar, wind, geothermal, hydro, nuclear, other, total, plant_type, primary_fuel
         FROM data.us_power_plants 
         WHERE point($2, $1) <@> point(long, lat) < $3
-        AND sector = ANY($4);`
+        AND plant_type = ANY($4);`
         , [lat, long, distance, filteredEnergySources], (error, result) => {
         if (error) {
             return promise.resolve({ error: true, message: `Error finding power plants for lat/long: ${lat}/${long}. and distance ${distance}.  Error: ${error}` });
@@ -27,4 +42,7 @@ const getEnergySourcesWithinDistance = async({ lat, long, distance, onlyUtility 
     return promise.promise;
 };
 
-module.exports = { getEnergySourcesWithinDistance }; 
+module.exports = { 
+    getEnergySourcesWithinDistance,
+    getAllEnergySources
+}; 

@@ -18,7 +18,7 @@ export const resolveZipCodeEnergySources = ({searchDistance, inputZip }) => {
 // Search distance is not included in the question trigger, but it is called in LocalEnergyResults.
 export const resolveZipCodeEnergy = ({getState, dispatch, searchDistance, inputZip}) => {
     const store = getState();
-    const distance = searchDistance || store.localEnergy.distance;
+    const distance = searchDistance || store.localEnergy.searchDistance;
     const onlyUtility = store.localEnergy.onlyUtility;
     // v1 api route is get-energy-sources-by-zip.  Payload is maxDistance, inputZip, onlyUtility
     fetch('/api/get-nearest-power-plants', {
@@ -28,18 +28,19 @@ export const resolveZipCodeEnergy = ({getState, dispatch, searchDistance, inputZ
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            zipdeCode: inputZip,
+            zipCode: inputZip,
             distance,
             onlyUtility
         })
     })
     .then(res => res.json())
-    .then(res => {
-        if(res.error) {
+    .then(powerPlantResults => {
+        if(powerPlantResults.error) {
             dispatch({ type: 'SET_LOCAL_ENERGY_DATA', payload: [] });
             return dispatch({ type: 'SET_LOCAL_ENERGY_DATA_ERROR', payload: true });
         }
-        dispatch({ type: 'SET_LOCAL_ENERGY_DATA', payload: res });
+        const mappedPowerPlants = powerPlantResults.results.map(powerPlant => MAP_DB(powerPlant));
+        dispatch({ type: 'SET_LOCAL_ENERGY_DATA', payload: mappedPowerPlants });
     })
     .catch((e)=> {
         console.log('ERROR -- resolving zip code energy', e);
@@ -92,7 +93,7 @@ export const resolveBasicZipCodeData = ({dispatch, getState, question}) => {
             
         } else if (userZipDataResults.results) {
             const userZipData = MAP_DB(userZipDataResults.results);
-            console.log('GOT IT', userZipData);
+            userZipData.zip = userZipData.postalCode; //DB uses postal code vs FE zipCode...
             const updateQuestions = allQuestions.slice().map(question => {
                 if (question.id === ids.userState) {
                     question.errorText = '';
